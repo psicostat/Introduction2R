@@ -54,3 +54,8 @@ Follow tutorial at https://medium.com/@delucmat/how-to-publish-bookdown-projects
 ```
 
 Moreover, we also installed `tinytex` and specified `rmarkdown::render_site(encoding = "UTF-8")` in the first job to obtain pdf and epub available versions as well.
+
+
+## HTML and LaTeX
+
+Remember that as the output is compiled to create a website and a PDF you have to take care of defining options and environments in both cases. See official documeentation https://bookdown.org/yihui/bookdown/
