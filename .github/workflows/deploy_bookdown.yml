@@ -27,9 +27,8 @@ jobs:
         run: |
           if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
           renv::restore()
-      - name: Install tinitext
-        run: |
-          Rscript -e 'tinytex::install_tinytex()'
+      - name: Install tinytext
+        uses: r-lib/actions/setup-tinytex@v1
       - name: Render Book
         run: Rscript -e 'rmarkdown::render_site(encoding = "UTF-8")'
       - uses: actions/upload-artifact@v1
