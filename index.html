@@ -138,6 +138,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#psicostat-template"><i class="fa fa-check"></i>Psicostat Template</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#deploy-github-actions"><i class="fa fa-check"></i>Deploy Github Actions</a></li>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#html-and-latex"><i class="fa fa-check"></i><b>0.1</b> HTML and LaTeX</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#r-markdown"><i class="fa fa-check"></i><b>1.1</b> R Markdown</a><ul>
@@ -196,6 +198,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="psicostat-template" class="section level2 unnumbered">
 <h2>Psicostat Template</h2>
 <p>Psicostat Template is based on <a href="https://github.com/rstudio/bookdown-demo">Rstudio Bookdown-demo</a> released under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0-1.0 License</a> and <a href="https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu-book</a> under <a href="https://creativecommons.org/licenses/by/2.0/">CC-BY</a>.</p>
+</div>
+<div id="deploy-github-actions" class="section level2 unnumbered">
+<h2>Deploy Github Actions</h2>
+<p>Follow tutorial at <a href="https://medium.com/@delucmat/how-to-publish-bookdown-projects-with-github-actions-on-github-pages-6e6aecc7331e" class="uri">https://medium.com/@delucmat/how-to-publish-bookdown-projects-with-github-actions-on-github-pages-6e6aecc7331e</a> but note that github action <a href="https://github.com/Cecilapp/GitHub-Pages-deploy" class="uri">https://github.com/Cecilapp/GitHub-Pages-deploy</a> is slightly changed so we adapted de code. In particular now we have as last action:</p>
+<pre><code>- name: Deploy to GitHub Pages
+       uses: Cecilapp/GitHub-Pages-deploy@v3
+       env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       with:
+         email: ${{ secrets.EMAIL }}
+         build_dir: _site/</code></pre>
+<p>Moreover, we also installed <code>tinytex</code> and specified <code>rmarkdown::render_site(encoding = "UTF-8")</code> in the first job to obtain pdf and epub available versions as well.</p>
+</div>
+<div id="html-and-latex" class="section level2">
+<h2><span class="header-section-number">0.1</span> HTML and LaTeX</h2>
+<p>Remember that as the output is compiled to create a website and a PDF you have to take care of defining options and environments in both cases. See official documeentation <a href="https://bookdown.org/yihui/bookdown/" class="uri">https://bookdown.org/yihui/bookdown/</a></p>
 
 </div>
 </div>

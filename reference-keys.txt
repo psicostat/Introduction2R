@@ -3,6 +3,7 @@ tab:nice-tab
 fig:psicostat-logo
 fig:my-plot
 tab:cars-table
+html-and-latex
 intro
 r-markdown
 including-plots
