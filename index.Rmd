@@ -37,3 +37,20 @@ knitr::write_bib(c(
 ## Psicostat Template {-}
 
 Psicostat Template is based on [Rstudio Bookdown-demo](https://github.com/rstudio/bookdown-demo) released under [CC0-1.0 License](https://creativecommons.org/publicdomain/zero/1.0/) and [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) under [CC-BY](https://creativecommons.org/licenses/by/2.0/).
+
+
+## Deploy Github Actions {-}
+
+Follow tutorial at https://medium.com/@delucmat/how-to-publish-bookdown-projects-with-github-actions-on-github-pages-6e6aecc7331e but note that github action https://github.com/Cecilapp/GitHub-Pages-deploy is slightly changed so we adapted de code. In particular now we have as last action:
+
+```
+- name: Deploy to GitHub Pages
+       uses: Cecilapp/GitHub-Pages-deploy@v3
+       env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       with:
+         email: ${{ secrets.EMAIL }}
+         build_dir: _site/
+```
+
+Moreover, we also specify `rmarkdown::render_site(encoding = "UTF-8")` in the first job to obtain pdf and epub availabel versions as well.
