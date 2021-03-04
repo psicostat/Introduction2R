@@ -1,4 +1,5 @@
 book_filename: "bookdown-psicostat-demo"
+repo: "https://github.com/psicostat/Introduction2R"
 language:
   ui:
     chapter_name: "Chapter "

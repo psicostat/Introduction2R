@@ -164,3 +164,32 @@ div.trick {
   background-image: url("../images/hat.png");
   border-color: #A3595A;
 }
+
+/*---------------Banner Image------------------*/
+
+/* next 3 rules are for setting large image at top of each page and pushing down the book content to appear beneath the image */
+
+.hero-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #3fb5bd;
+}
+
+.hero-image {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+}
+
+.page-inner {
+  padding-top: 80px !important;
+}
+
+/*----    Footer    ----*/
+
+.footer {
+  font-size: .85em;
+}

@@ -1,5 +1,6 @@
 --- 
 title: "A Minimal Book Example with Psicostat Template"
+subtitle: "A Handbook for ..."
 author: "Psicostat"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -7,8 +8,13 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 csl: apa.csl
 link-citations: yes
-github-repo: rstudio/bookdown-demo
+github-repo: psicostat/Introduction2R
 description: "This is a minimal example of using the bookdown package to write a book using the Psicostat Template. The output format for this example is bookdown::gitbook."
+cover-image: "images/logo_psicostat.png"
+header-includes: 
+  - \usepackage{titlepic}
+  - \titlepic{\includegraphics[width=\textwidth]{images/logo_psicostat.pdf}}
+url: 'https\://psicostat.github.io/Introduction2R/'
 ---
 
 # Prerequisites {-}
@@ -56,6 +62,6 @@ Follow tutorial at https://medium.com/@delucmat/how-to-publish-bookdown-projects
 Moreover, we also installed `tinytex` and specified `rmarkdown::render_site(encoding = "UTF-8")` in the first job to obtain pdf and epub available versions as well.
 
 
-## HTML and LaTeX
+## HTML and LaTeX {-}
 
 Remember that as the output is compiled to create a website and a PDF you have to take care of defining options and environments in both cases. See official documeentation https://bookdown.org/yihui/bookdown/
