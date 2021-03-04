@@ -53,4 +53,4 @@ Follow tutorial at https://medium.com/@delucmat/how-to-publish-bookdown-projects
          build_dir: _site/
 ```
 
-Moreover, we also specify `rmarkdown::render_site(encoding = "UTF-8")` in the first job to obtain pdf and epub availabel versions as well.
+Moreover, we also installed `tinytex` and specified `rmarkdown::render_site(encoding = "UTF-8")` in the first job to obtain pdf and epub available versions as well.
