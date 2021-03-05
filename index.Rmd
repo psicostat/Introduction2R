@@ -1,15 +1,15 @@
 --- 
-title: "A Minimal Book Example with Psicostat Template"
-subtitle: "A Handbook for ..."
-author: "Psicostat"
-date: "`r Sys.Date()`"
+title: "<span style='font-size: 2.5em'>Introduzione a R</span>"
+subtitle: "Corso per imparare le basi di **R**"
+author: "[Psicostat](https://psicostat.dpss.psy.unipd.it/)"
+date: "`r format(Sys.Date(),  format = '%d-%m-%Y')`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 csl: apa.csl
 link-citations: yes
 github-repo: psicostat/Introduction2R
-description: "This is a minimal example of using the bookdown package to write a book using the Psicostat Template. The output format for this example is bookdown::gitbook."
+description: "Questo è un libro intorduttivo ad R prodotto da [Psicostat](https://psicostat.dpss.psy.unipd.it/), gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia."
 cover-image: "images/logo_psicostat.png"
 header-includes: 
   - \usepackage{titlepic}
@@ -17,51 +17,56 @@ header-includes:
 url: 'https\://psicostat.github.io/Introduction2R/'
 ---
 
-# Prerequisites {-}
+# Presentazione {-}
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
 
-The **bookdown** package can be installed from CRAN or Github:
-
-```{r eval=FALSE}
-install.packages("bookdown")
-# or the development version
-# devtools::install_github("rstudio/bookdown")
+```{r settings, echo = FALSE}
+knitr::opts_chunk$set(
+  cache = TRUE
+)
 ```
 
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
+In questo libro impareremo le basi di *R*, uno dei migliori software per la visualizzazione e l'analisi statistica dei dati. Partiremo da zero intorducendo gli aspetti fondamentili di R e i concetti alla base di ogni linguaggio di programmazione che ti pemetteranno in seguito di approfondire e sviluppare le tue abilità in questo bellissimo mondo.
 
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>.
+## Perchè R {-}
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+Ci sono molte ragioni per cui scegliere R rispetto ad altri programmi usati per condurre le analisi statistiche. Innanzitutto è un linguaggio di programmazione (come ad esempio Python, Java, C++, o Julia) e non semplicemente un'interfaccia punta e clicca (come ad esempio SPSS o JASP). Questo comporta si maggiori difficoltà iniziali ma ti ricompenserà in futuro poichè avari imparato ad utilizza uno strumennto molto potente.
 
-## Psicostat Template {-}
+Inoltre, R è:
 
-Psicostat Template is based on [Rstudio Bookdown-demo](https://github.com/rstudio/bookdown-demo) released under [CC0-1.0 License](https://creativecommons.org/publicdomain/zero/1.0/) and [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) under [CC-BY](https://creativecommons.org/licenses/by/2.0/).
+- nato per la statistica
+- open-source
+- ricco di pacchetti
+- supportato da una grande comunità
+- gratis
+
+## Struttura del libro {-}
+
+Il libro è suddiviso in quattro sezioni principali:
+
+- **Introduzione**. Una volta installato R ed R Studio, famiglierizzeremo con l'ambiennte di lavoro introducendo alcuni aspetti generali e le funzini principali. Verranno inoltre descritte alcune buone regole per iniziare una sessione di lavoro in R.
+- **Struttura dei dati**. Impareremo gli oggetti principali che R utilizza al suo interno. Variabili, vettori, matrici, dataframe e liste non avranno più segreti e capiremo come manipolarli e utlizzarli a seconda delle varie necessità.
+- **Algoritmi**. Non farti spaventare da questo nome. Ne avrai spesso sentito parlarne come qualcosa di molto complicato, ma in realtà gli algoritmi sono semplicemente una serie di istruzioni che il computer segue quando deve eseguire un determinato compito. In questa sezione vedremo i principali comandi di R usati per definire degli algoritmi. Questo è il vantaggio di conoscere un linguaggio di programmazione, ci permette di creare nuovi programmi che il computer eseguirà per noi.
+- **Case study**. Eseguiremo passo per passo un analisi che ci permetterà di imparare come importare i dati, codificare le variabili, manipolare e preprare i dati perle analisi, condurre delle analisi descrittive e creare dei grafici.
+
+Alla fine di questo libro probabilmente non sarete assunti da Google, ma speriamo almeno che R non vi faccia più così paura e che magari a qualcuno sia nato l'interesse di approfondire questo fantastico mondo di codici.
+
+## Psicostat {-}
+
+Questo libro è stato prodotto da **Psicostat**, un gruppo di ricerca interdisciplinare dell'universita di Padova che unisce la passione per la statistica e la psicologia. Se vuoi conoscere di più riguardo le nostre attività visita il nosto sito https://psicostat.dpss.psy.unipd.it/ o aggiungiti alla nostra mailing list https://lists.dpss.psy.unipd.it/postorius/lists/psicostat.lists.dpss.psy.unipd.it/.
+
+## Collaborazione {-}
+
+Se vuoi collaborare alla revione e sscrittura di questo libro (ovviamente è tutto in R) visita la nostra repository di Github https://github.com/psicostat/Introduction2R
 
 
-## Deploy Github Actions {-}
+## Riconoscimenti {-}
 
-Follow tutorial at https://medium.com/@delucmat/how-to-publish-bookdown-projects-with-github-actions-on-github-pages-6e6aecc7331e but note that github action https://github.com/Cecilapp/GitHub-Pages-deploy is slightly changed so we adapted de code. In particular now we have as last action:
-
-```
-- name: Deploy to GitHub Pages
-       uses: Cecilapp/GitHub-Pages-deploy@v3
-       env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-       with:
-         email: ${{ secrets.EMAIL }}
-         build_dir: _site/
-```
-
-Moreover, we also installed `tinytex` and specified `rmarkdown::render_site(encoding = "UTF-8")` in the first job to obtain pdf and epub available versions as well.
+Il template di questo libro è basato su [Rstudio Bookdown-demo](https://github.com/rstudio/bookdown-demo) rilasciato con licenza [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) e [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) rilasciato con licenza [CC BY](https://creativecommons.org/licenses/by/2.0/). Nota che le illustrazioni utilizzate nelle vignette appartengono sempre a [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) e sono rilasciate con licenza [CC BY-NC](https://creativecommons.org/licenses/by-nc/2.0/).
 
 
-## HTML and LaTeX {-}
+## Licenza {-}
 
-Remember that as the output is compiled to create a website and a PDF you have to take care of defining options and environments in both cases. See official documeentation https://bookdown.org/yihui/bookdown/
+Questo libro è rilasciato sotto la Creative Commons Attribution-ShareAlike 4.0 International Public License ([CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/legalcode)).
+Le illustrazioni utilizzate nelle vignette appartengono a [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) e sono rilasciate con licenza [CC BY-NC](https://creativecommons.org/licenses/by-nc/2.0/).
+
