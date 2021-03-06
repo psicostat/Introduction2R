@@ -4,6 +4,8 @@
 
 <hr>
 
+<img src="https://github.com/psicostat/Introduction2R/blob/master/images/banner.png" height="70px" width="100%">
+
 In this book we will learn the basics of R, one of the best software for visualization and statistical analysis of data. We will start from scratch by understanding the fundamental aspects of R and the concepts behind each programming language that will allow you to later deepen and develop your skills in this beautiful world. 
 
 The book is available at https://psicostat.github.io/Introduction2R/.
@@ -37,3 +39,7 @@ The template of this book is based on [Rstudio Bookdown-demo](https://github.com
 
 This book is released under the Creative Commons Attribution-ShareAlike 4.0 International Public License ([CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/legalcode)).
 The illustrations used belong to [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) and are licensed under [CC BY-NC](https://creativecommons.org/licenses/by-nc/2.0/).
+
+<p align="center">
+<img src="https://github.com/psicostat/Introduction2R/blob/master/images/logo_psicostat.png" height="250px" align= "center">
+</p>
