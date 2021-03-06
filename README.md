@@ -29,7 +29,7 @@ This book was produced by Psicostat, an interdisciplinary research group interes
 
 ## Contribute
 
-Surely there are many typos to fix and new arguments to include. Anyone is welcome to contribute to this book. For small typos just open a new issue with the all the corrections. To propose new chapters or paragraph open an issue to discuss and plan them.
+Surely there are many typos to fix and new arguments to include. Anyone is welcome to contribute to this book. For small typos just send a pull request with all the corrections. To propose new chapters or paragraph, istead, open an issue to discuss and plan them.
 
 ## Acknowledgements
 
