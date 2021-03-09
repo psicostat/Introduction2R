@@ -1,4 +1,4 @@
-# (PART\*) Get Started {-}
+# (PART\*) Case study {-}
 
 # Introduzione {-}
 

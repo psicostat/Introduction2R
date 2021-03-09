@@ -148,7 +148,7 @@ div.deffun {
 }
 
 div.design:before {
-    content: "Design-Box: " attr(title);
+    content: "Approfondimento: " attr(title);
     color: #7c972e;
 }
 div.design {
