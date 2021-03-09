@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduzione a R</title>
+  <title>Introduzione | Introduzione a R</title>
   <meta name="description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduzione a R" />
+  <meta property="og:title" content="Introduzione | Introduzione a R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://psicostat.github.io/Introduction2R/" />
   <meta property="og:image" content="https://psicostat.github.io/Introduction2R/images/logo_psicostat.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="psicostat/Introduction2R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduzione a R" />
+  <meta name="twitter:title" content="Introduzione | Introduzione a R" />
   
   <meta name="twitter:description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
   <meta name="twitter:image" content="https://psicostat.github.io/Introduction2R/images/logo_psicostat.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="intorduzione.html"/>
+<link rel="prev" href="loop.html"/>
+<link rel="next" href="attachment.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -208,78 +208,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container">
   <img class= "hero-image" src="images/banner.png">
 </div>
-<div id="header">
-<h1 class="title"><span style="font-size: 2.5em">Introduzione a R</span></h1>
-<h2 class="subtitle"><em>Corso per imparare le basi di <strong>R</strong></em></h2>
-<p class="author"><em><a href="https://psicostat.dpss.psy.unipd.it/">Psicostat</a></em></p>
-<p class="date"><em>09-03-2021</em></p>
-</div>
-<div id="presentazione" class="section level1 unnumbered">
-<h1>Presentazione</h1>
-<p>In questo libro impareremo le basi di <em>R</em>, uno dei migliori software per la visualizzazione e l’analisi statistica dei dati. Partiremo da zero intorducendo gli aspetti fondamentili di R e i concetti alla base di ogni linguaggio di programmazione che ti pemetteranno in seguito di approfondire e sviluppare le tue abilità in questo bellissimo mondo.</p>
-<div id="perchè-r" class="section level2 unnumbered">
-<h2>Perchè R</h2>
-<p>Ci sono molte ragioni per cui scegliere R rispetto ad altri programmi usati per condurre le analisi statistiche. Innanzitutto è un linguaggio di programmazione (come ad esempio Python, Java, C++, o Julia) e non semplicemente un’interfaccia punta e clicca (come ad esempio SPSS o JASP). Questo comporta si maggiori difficoltà iniziali ma ti ricompenserà in futuro poichè avari imparato ad utilizza uno strumennto molto potente.</p>
-<p>Inoltre, R è:</p>
-<ul>
-<li>nato per la statistica</li>
-<li>open-source</li>
-<li>ricco di pacchetti</li>
-<li>supportato da una grande comunità</li>
-<li>gratis</li>
-</ul>
-</div>
-<div id="struttura-del-libro" class="section level2 unnumbered">
-<h2>Struttura del libro</h2>
-<p>Il libro è suddiviso in quattro sezioni principali:</p>
-<ul>
-<li><strong>Get started</strong>. Una volta installato R ed R Studio, famiglierizzeremo con l’ambiennte di lavoro introducendo alcuni aspetti generali e le funzini principali. Verranno inoltre descritte alcune buone regole per iniziare una sessione di lavoro in R.</li>
-<li><strong>Struttura dei dati</strong>. Impareremo gli oggetti principali che R utilizza al suo interno. Variabili, vettori, matrici, dataframe e liste non avranno più segreti e capiremo come manipolarli e utlizzarli a seconda delle varie necessità.</li>
-<li><strong>Algoritmi</strong>. Non farti spaventare da questo nome. Ne avrai spesso sentito parlarne come qualcosa di molto complicato, ma in realtà gli algoritmi sono semplicemente una serie di istruzioni che il computer segue quando deve eseguire un determinato compito. In questa sezione vedremo i principali comandi di R usati per definire degli algoritmi. Questo è il vantaggio di conoscere un linguaggio di programmazione, ci permette di creare nuovi programmi che il computer eseguirà per noi.</li>
-<li><strong>Case study</strong>. Eseguiremo passo per passo un analisi che ci permetterà di imparare come importare i dati, codificare le variabili, manipolare e preprare i dati perle analisi, condurre delle analisi descrittive e creare dei grafici.</li>
-</ul>
-<p>Alla fine di questo libro probabilmente non sarete assunti da Google, ma speriamo almeno che R non vi faccia più così paura e che magari a qualcuno sia nato l’interesse di approfondire questo fantastico mondo fatto di codici.</p>
-</div>
-<div id="risorse-utili" class="section level2 unnumbered">
-<h2>Risorse Utili</h2>
-<p>Segnaliamo qui per il lettore interessato del materiale online (in inglese) per approfondire le conoscenze sull’uso di R.</p>
-<p>Materiale introduttivo</p>
-<ul>
-<li><em>R for Psychological Science</em> di Danielle Navarro <a href="https://psyr.djnavarro.net/index.html" class="uri">https://psyr.djnavarro.net/index.html</a></li>
-<li><em>Hands-On Programming with R</em> di Garrett Grolemund <a href="https://rstudio-education.github.io/hopr/" class="uri">https://rstudio-education.github.io/hopr/</a></li>
-</ul>
-<p>Materiale intermedio</p>
-<ul>
-<li><em>R for Data Science</em> di Hadley Wickham e Garrett Grolemund <a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a></li>
-</ul>
-<p>Materiale avanzato</p>
-<ul>
-<li><em>R Packages</em> di Hadley Wickham e Jennifer Bryan <a href="https://r-pkgs.org/" class="uri">https://r-pkgs.org/</a></li>
-<li><em>Advanced R</em> di Hadley Wickham <a href="https://adv-r.hadley.nz/" class="uri">https://adv-r.hadley.nz/</a></li>
-</ul>
-</div>
-<div id="psicostat" class="section level2 unnumbered">
-<h2>Psicostat</h2>
-<p>Questo libro è stato prodotto da <strong>Psicostat</strong>, un gruppo di ricerca interdisciplinare dell’universita di Padova che unisce la passione per la statistica e la psicologia. Se vuoi conoscere di più riguardo le nostre attività visita il nosto sito <a href="https://psicostat.dpss.psy.unipd.it/" class="uri">https://psicostat.dpss.psy.unipd.it/</a> o aggiungiti alla nostra mailing list <a href="https://lists.dpss.psy.unipd.it/postorius/lists/psicostat.lists.dpss.psy.unipd.it/" class="uri">https://lists.dpss.psy.unipd.it/postorius/lists/psicostat.lists.dpss.psy.unipd.it/</a>.</p>
-</div>
-<div id="collaborazione" class="section level2 unnumbered">
-<h2>Collaborazione</h2>
-<p>Se vuoi collaborare alla revione e scrittura di questo libro (ovviamente è tutto in R) visita la nostra repository di Github <a href="https://github.com/psicostat/Introduction2R" class="uri">https://github.com/psicostat/Introduction2R</a>.</p>
-</div>
-<div id="riconoscimenti" class="section level2 unnumbered">
-<h2>Riconoscimenti</h2>
-<p>Il template di questo libro è basato su <a href="https://github.com/rstudio/bookdown-demo">Rstudio Bookdown-demo</a> rilasciato con licenza <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0-1.0</a> e <a href="https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu-book</a> rilasciato con licenza <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a>. Nota che le illustrazioni utilizzate nelle vignette appartengono sempre a <a href="https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu-book</a> e sono rilasciate con licenza <a href="https://creativecommons.org/licenses/by-nc/2.0/">CC BY-NC</a>.</p>
-</div>
-<div id="licenza" class="section level2 unnumbered">
-<h2>Licenza</h2>
-<p>Questo libro è rilasciato sotto la Creative Commons Attribution-ShareAlike 4.0 International Public License (<a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA</a>).
-Le illustrazioni utilizzate nelle vignette appartengono a <a href="https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu-book</a> e sono rilasciate con licenza <a href="https://creativecommons.org/licenses/by-nc/2.0/">CC BY-NC</a>.</p>
+<div id="introduzione-2" class="section level1 unnumbered">
+<h1>Introduzione</h1>
+<p>Working in progress.</p>
 
 </div>
-</div>
-
-
-
 <hr>
 <center>
   <div class="footer">
@@ -295,8 +228,8 @@ Le illustrazioni utilizzate nelle vignette appartengono a <a href="https://rstud
           </div>
         </div>
       </div>
-
-<a href="intorduzione.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="loop.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="attachment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -327,7 +260,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/psicostat/Introduction2R/edit/master/index.Rmd",
+"link": "https://github.com/psicostat/Introduction2R/edit/master/14-introduction-case-study.Rmd",
 "text": "Edit"
 },
 "history": {
