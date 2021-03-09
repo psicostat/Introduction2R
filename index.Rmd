@@ -44,12 +44,30 @@ Inoltre, R è:
 
 Il libro è suddiviso in quattro sezioni principali:
 
-- **Introduzione**. Una volta installato R ed R Studio, famiglierizzeremo con l'ambiennte di lavoro introducendo alcuni aspetti generali e le funzini principali. Verranno inoltre descritte alcune buone regole per iniziare una sessione di lavoro in R.
+- **Get started**. Una volta installato R ed R Studio, famiglierizzeremo con l'ambiennte di lavoro introducendo alcuni aspetti generali e le funzini principali. Verranno inoltre descritte alcune buone regole per iniziare una sessione di lavoro in R.
 - **Struttura dei dati**. Impareremo gli oggetti principali che R utilizza al suo interno. Variabili, vettori, matrici, dataframe e liste non avranno più segreti e capiremo come manipolarli e utlizzarli a seconda delle varie necessità.
 - **Algoritmi**. Non farti spaventare da questo nome. Ne avrai spesso sentito parlarne come qualcosa di molto complicato, ma in realtà gli algoritmi sono semplicemente una serie di istruzioni che il computer segue quando deve eseguire un determinato compito. In questa sezione vedremo i principali comandi di R usati per definire degli algoritmi. Questo è il vantaggio di conoscere un linguaggio di programmazione, ci permette di creare nuovi programmi che il computer eseguirà per noi.
 - **Case study**. Eseguiremo passo per passo un analisi che ci permetterà di imparare come importare i dati, codificare le variabili, manipolare e preprare i dati perle analisi, condurre delle analisi descrittive e creare dei grafici.
 
-Alla fine di questo libro probabilmente non sarete assunti da Google, ma speriamo almeno che R non vi faccia più così paura e che magari a qualcuno sia nato l'interesse di approfondire questo fantastico mondo di codici.
+Alla fine di questo libro probabilmente non sarete assunti da Google, ma speriamo almeno che R non vi faccia più così paura e che magari a qualcuno sia nato l'interesse di approfondire questo fantastico mondo fatto di codici.
+
+## Risorse Utili {-}
+
+Segnaliamo qui per il lettore interessato del materiale online (in inglese) per approfondire le conoscenze sull'uso di R.
+
+Materiale introduttivo
+
+- *R for Psychological Science* di Danielle Navarro https://psyr.djnavarro.net/index.html 
+- *Hands-On Programming with R* di Garrett Grolemund https://rstudio-education.github.io/hopr/
+
+Materiale intermedio
+
+- *R for Data Science* di Hadley Wickham e Garrett Grolemund https://r4ds.had.co.nz/
+
+Materiale avanzato
+
+- *R Packages* di Hadley Wickham e Jennifer Bryan https://r-pkgs.org/
+- *Advanced R* di Hadley Wickham https://adv-r.hadley.nz/
 
 ## Psicostat {-}
 
@@ -57,7 +75,7 @@ Questo libro è stato prodotto da **Psicostat**, un gruppo di ricerca interdisci
 
 ## Collaborazione {-}
 
-Se vuoi collaborare alla revione e sscrittura di questo libro (ovviamente è tutto in R) visita la nostra repository di Github https://github.com/psicostat/Introduction2R
+Se vuoi collaborare alla revione e scrittura di questo libro (ovviamente è tutto in R) visita la nostra repository di Github https://github.com/psicostat/Introduction2R.
 
 
 ## Riconoscimenti {-}

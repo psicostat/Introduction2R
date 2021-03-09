@@ -1,0 +1,9 @@
+# (PART\*) Get Started {-}
+
+# Intorduzione {-}
+
+In questa sezione famiglierizzeremo con l'ambiennte di lavoro introducendo alcuni aspetti generali e le funzini principali. Verranno inoltre descritte alcune buone regole per iniziare una sessione di lavoro in R.
+
+Capitolo \@ref(install)
+Capitolo \@ref(install)
+Capitolo \@ref(install)

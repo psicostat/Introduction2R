@@ -16,7 +16,7 @@ All materials are in *Italian*.
 
 The book is divided into four main sections:
 
-- **Introduction**. Once R and R Studio are installed, we will familiarize with the work environment introducing some general aspects and main functions. We will also describe some good rules for starting a workinng session in R.
+- **Get started**. Once R and R Studio are installed, we will familiarize with the work environment introducing some general aspects and main functions. We will also describe some good rules for starting a workinng session in R.
 - **Data structure**. We will learn the main objects used in R. Variables, vectors, matrices, data frames, and lists will no longer have secrets and we will understand how to manipulate and use them according to the various needs.
 - **Algorithms**. Don't panic. You may have often heard of this as something very complicated, but in reality, algorithms are just a series of instructions that the computer follows when it has to perform a certain task. In this section we will see the main R commands used to define algorithms. This is the advantage of knowing a programming language, it allows us to create new programs that the computer will execute for us.
 - **Case study**. We will perform a step-by-step analysis that will allow us to learn how to import data, encode variables, prepare the data for analysis, conduct descriptive analyses and create graphs.
