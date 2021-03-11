@@ -112,6 +112,7 @@
 </ul></li>
 <li class="chapter" data-level="3" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>3</b> Sessione di Lavoro</a><ul>
 <li class="chapter" data-level="3.1" data-path="working-session.html"><a href="working-session.html#infobox"><i class="fa fa-check"></i><b>3.1</b> Infobox</a></li>
+<li class="chapter" data-level="3.2" data-path="working-session.html"><a href="working-session.html#problema-google-soluzione"><i class="fa fa-check"></i><b>3.2</b> Problema + Google = Soluzione</a></li>
 </ul></li>
 <li class="part"><span><b>Struttura Dati</b></span></li>
 <li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
@@ -195,12 +196,67 @@ molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
 numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
 optio, eaque rerum!</p>
 </div>
+</div>
+<div id="problema-google-soluzione" class="section level2">
+<h2><span class="header-section-number">3.2</span> Problema + Google = Soluzione</h2>
+<p>Quando si approccia la scrittura di codice, anche molto semplice la cosa che sicuramente capiterà più spesso sarà riscontrare <strong>errori</strong> e quindi trovare il modo per risolverli.</p>
+<blockquote>
+<p>Qualche programmatore esperto direbbe che l’essenza stessa di programmare è in realtà risolvere gli errori che il codice produce.</p>
+</blockquote>
+<p>L’<strong>errore non è quindi un difetto o un imprevisto</strong>, ma parte integrante della scrittura del codice. L’importante è capire come gestirlo.</p>
+<p>Abbiamo tutti le immagini in testa di programmatori da film che scrivono codice alla velocità della luce, quando nella realtà dobbiamo spesso affrontare <strong>bug</strong>, <strong>errori di output</strong> o altri problemi vari. Una serie di skills utili da imparare sono:</p>
+<ul>
+<li>Comprendere a fondo gli <strong>errori</strong> (non banale)</li>
+<li>Sapere <strong>come e dove cercare una soluzione</strong> (ancora meno banale)</li>
+<li>In caso non si trovi una soluzione direttamente, chiedere aiuto in modo efficace</li>
+</ul>
+<div id="comprendere-gli-errori" class="section level4 unnumbered">
+<h4>Comprendere gli errori</h4>
+<p>Rispetto agli errori, R è solitamente abbastanza esplicito nel farci capire il problema. Ad esempio usare una funzione di un pacchetto che non è stato caricato di solito fornisce un messaggio del tipo <code>Error in funzione : could not find function "funzione"</code>.</p>
+</div>
+<div id="ricercare-soluzioni" class="section level4 unnumbered">
+<h4>Ricercare soluzioni</h4>
+<p>Altre situazioni o messaggi potrebbero non essere altrettanto immediati, in quel caso Google è il nostro miglior amico.</p>
+<p>Cercando infatti il messaggio di errore/warning su Google, al 99% avremo altre persone che hanno avuto lo stesso problema e probabilmente anche una soluzione.</p>
+<div class="trick" title="Ricerca su Google">
+<p>Il modo migliore per cercare è copiare e incollare su Google direttamente l’output di errore di R come ad esempio <code>Error in funzione : could not find function "funzione"</code> piuttosto che descrivere a parole il problema. I messaggi di errore sono standard per tutti, la tua descrizione invece no.</p>
+</div>
+<p>Cercando in questo modo vedrete che molti dei risultati saranno esattamente riferiti al vostro errore:</p>
+<center>
+<img src="images/stack_question.png" />
+</center>
+</div>
+<div id="chiedere-una-soluzione" class="section level4">
+<h4><span class="header-section-number">3.2.0.1</span> Chiedere una soluzione</h4>
+<p>Se invece il vostro probelma non è un messaggio di errore ma un utilizzo specifico di R allora il consiglio è di usare una ricerca del tipo: <code>argomento + breve descrizione problema + R</code>. Nelle sezioni successive vedrete nel dettaglio altri aspetti della programmazione ma se volete ad esempio calcolare la <strong>media</strong> in R potrete scrivere <code>compute mean in R</code>.
+Mi raccomando, fate tutte le ricerche in <strong>inglese</strong> perchè le possibilità di trovare una soluzione sono molto più alte.</p>
+<p>Dopo qualche ricerca, vi renderete conto che il sito che vedrete più spesso si chiama <a href="https://stackoverflow.com/"><strong>Stack Overflow</strong></a>. Questo è una manna dal cielo per tutti i programmatori, a qualsiasi livello di expertise. E’ una community dove tramite domande e risposte, si impara a risolvere i vari problemi ed anche a trovare nuovi modi di fare la stessa cosa. E’ veramente utile oltre che un ottimo modo per imparare.</p>
+<p>L’ultimo punto di questa piccola guida alla ricerca di soluzioni, riguarda il fatto di dover non solo cercare ma anche chiedere. Dopo aver cercato vari post di persone che richiedevano aiuto per un problema noterete che le domande e le risposte hanno sempre una struttura simile. Questo non è solo un fatto stilistico ma anzi è molto utile per uniformare e rendere chiara la domanda ma sopratutto la risposta, in uno spirito di condivisione. C’è anche una <a href="https://stackoverflow.com/help/how-to-ask">guida dedicata</a> per scrivere la domanda perfetta.</p>
+<p>In generale<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:</p>
+<ul>
+<li>Titolo: un super riassunto del problema</li>
+<li>Contesto: linguaggio (es. R), quale sistema operativo (es. Windows)</li>
+<li>Descrizione del problema/richiesta: in modo chiaro e semplice ma non troppo generico</li>
+<li>Codice ed eventuali dati per capire il problema</li>
+</ul>
+<p>L’ultimo punto di questa lista è forse il più importante e si chiama in gergo tecnico <a href="https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219"><strong>REPREX</strong></a> (<strong>Rep</strong>roducible <strong>Ex</strong>ample). E’ un tema leggermente più avanzato ma l’idea di fondo è quella di fornire tutte le informazioni possibili per poter riprodurre (e quindi eventualmente trovare una soluzione) il codice di qualcuno nel proprio computer.</p>
+<p>Se vi dico “R non mi fa creare un nuovo oggetto, quale è l’errore?” è diverso da dire “il comando <code>oggetto -&gt; 10</code> mi da questo errore <code>Error in 10 &lt;- oggetto : invalid (do_set) left-hand side to assignment</code>, come posso risolvere?”</p>
+<div class="tip" title="My title">
+<p>Ci sono anche diversi pacchetti in R che rendono automatico creare questi esempi di codice da poter condividere, come il pacchetto <a href="https://www.tidyverse.org/help/"><code>reprex</code></a>.</p>
+</div>
 
 </div>
 </div>
+</div>
 
 
 
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Fonte: <a href="https://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/">Writing the perfect question - Jon Skeet</a><a href="working-session.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
 <hr>
 <center>
   <div class="footer">

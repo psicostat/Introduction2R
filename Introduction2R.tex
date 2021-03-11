@@ -627,6 +627,87 @@ optio, eaque rerum!
 
 \end{trick}
 
+\hypertarget{problema-google-soluzione}{%
+\section{Problema + Google = Soluzione}\label{problema-google-soluzione}}
+
+Quando si approccia la scrittura di codice, anche molto semplice la cosa che sicuramente capiterà più spesso sarà riscontrare \textbf{errori} e quindi trovare il modo per risolverli.
+
+\begin{quote}
+Qualche programmatore esperto direbbe che l'essenza stessa di programmare è in realtà risolvere gli errori che il codice produce.
+\end{quote}
+
+L'\textbf{errore non è quindi un difetto o un imprevisto}, ma parte integrante della scrittura del codice. L'importante è capire come gestirlo.
+
+Abbiamo tutti le immagini in testa di programmatori da film che scrivono codice alla velocità della luce, quando nella realtà dobbiamo spesso affrontare \textbf{bug}, \textbf{errori di output} o altri problemi vari. Una serie di skills utili da imparare sono:
+
+\begin{itemize}
+\tightlist
+\item
+  Comprendere a fondo gli \textbf{errori} (non banale)
+\item
+  Sapere \textbf{come e dove cercare una soluzione} (ancora meno banale)
+\item
+  In caso non si trovi una soluzione direttamente, chiedere aiuto in modo efficace
+\end{itemize}
+
+\hypertarget{comprendere-gli-errori}{%
+\subsubsection*{Comprendere gli errori}\label{comprendere-gli-errori}}
+\addcontentsline{toc}{subsubsection}{Comprendere gli errori}
+
+Rispetto agli errori, R è solitamente abbastanza esplicito nel farci capire il problema. Ad esempio usare una funzione di un pacchetto che non è stato caricato di solito fornisce un messaggio del tipo \texttt{Error\ in\ funzione\ :\ could\ not\ find\ function\ "funzione"}.
+
+\hypertarget{ricercare-soluzioni}{%
+\subsubsection*{Ricercare soluzioni}\label{ricercare-soluzioni}}
+\addcontentsline{toc}{subsubsection}{Ricercare soluzioni}
+
+Altre situazioni o messaggi potrebbero non essere altrettanto immediati, in quel caso Google è il nostro miglior amico.
+
+Cercando infatti il messaggio di errore/warning su Google, al 99\% avremo altre persone che hanno avuto lo stesso problema e probabilmente anche una soluzione.
+
+\begin{trick}[Ricerca su Google]
+
+Il modo migliore per cercare è copiare e incollare su Google direttamente l'output di errore di R come ad esempio \texttt{Error\ in\ funzione\ :\ could\ not\ find\ function\ "funzione"} piuttosto che descrivere a parole il problema. I messaggi di errore sono standard per tutti, la tua descrizione invece no.
+
+\end{trick}
+
+Cercando in questo modo vedrete che molti dei risultati saranno esattamente riferiti al vostro errore:
+
+\includegraphics{images/stack_question.png}
+
+\hypertarget{chiedere-una-soluzione}{%
+\subsubsection{Chiedere una soluzione}\label{chiedere-una-soluzione}}
+
+Se invece il vostro probelma non è un messaggio di errore ma un utilizzo specifico di R allora il consiglio è di usare una ricerca del tipo: \texttt{argomento\ +\ breve\ descrizione\ problema\ +\ R}. Nelle sezioni successive vedrete nel dettaglio altri aspetti della programmazione ma se volete ad esempio calcolare la \textbf{media} in R potrete scrivere \texttt{compute\ mean\ in\ R}.
+Mi raccomando, fate tutte le ricerche in \textbf{inglese} perchè le possibilità di trovare una soluzione sono molto più alte.
+
+Dopo qualche ricerca, vi renderete conto che il sito che vedrete più spesso si chiama \href{https://stackoverflow.com/}{\textbf{Stack Overflow}}. Questo è una manna dal cielo per tutti i programmatori, a qualsiasi livello di expertise. E' una community dove tramite domande e risposte, si impara a risolvere i vari problemi ed anche a trovare nuovi modi di fare la stessa cosa. E' veramente utile oltre che un ottimo modo per imparare.
+
+L'ultimo punto di questa piccola guida alla ricerca di soluzioni, riguarda il fatto di dover non solo cercare ma anche chiedere. Dopo aver cercato vari post di persone che richiedevano aiuto per un problema noterete che le domande e le risposte hanno sempre una struttura simile. Questo non è solo un fatto stilistico ma anzi è molto utile per uniformare e rendere chiara la domanda ma sopratutto la risposta, in uno spirito di condivisione. C'è anche una \href{https://stackoverflow.com/help/how-to-ask}{guida dedicata} per scrivere la domanda perfetta.
+
+In generale\footnote{Fonte: \href{https://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/}{Writing the perfect question - Jon Skeet}}:
+
+\begin{itemize}
+\tightlist
+\item
+  Titolo: un super riassunto del problema
+\item
+  Contesto: linguaggio (es. R), quale sistema operativo (es. Windows)
+\item
+  Descrizione del problema/richiesta: in modo chiaro e semplice ma non troppo generico
+\item
+  Codice ed eventuali dati per capire il problema
+\end{itemize}
+
+L'ultimo punto di questa lista è forse il più importante e si chiama in gergo tecnico \href{https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219}{\textbf{REPREX}} (\textbf{Rep}roducible \textbf{Ex}ample). E' un tema leggermente più avanzato ma l'idea di fondo è quella di fornire tutte le informazioni possibili per poter riprodurre (e quindi eventualmente trovare una soluzione) il codice di qualcuno nel proprio computer.
+
+Se vi dico ``R non mi fa creare un nuovo oggetto, quale è l'errore?'' è diverso da dire ``il comando \texttt{oggetto\ -\textgreater{}\ 10} mi da questo errore \texttt{Error\ in\ 10\ \textless{}-\ oggetto\ :\ invalid\ (do\_set)\ left-hand\ side\ to\ assignment}, come posso risolvere?''
+
+\begin{tip}[My title]
+
+Ci sono anche diversi pacchetti in R che rendono automatico creare questi esempi di codice da poter condividere, come il pacchetto \href{https://www.tidyverse.org/help/}{\texttt{reprex}}.
+
+\end{tip}
+
 \hypertarget{part-struttura-dati}{%
 \part*{Struttura Dati}\label{part-struttura-dati}}
 \addcontentsline{toc}{part}{Struttura Dati}

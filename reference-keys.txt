@@ -23,6 +23,8 @@ utilizzo-di-funzioni
 section
 working-session
 infobox
+problema-google-soluzione
+chiedere-una-soluzione
 vector
 matrix
 dataframe
