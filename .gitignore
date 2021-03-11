@@ -16,6 +16,7 @@ libs/
 
 # bookdown build file
 Introduction2R.rds
+*.rds
 
 # Mac-auxiliary files
 .DS_Store
