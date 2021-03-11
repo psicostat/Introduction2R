@@ -14,5 +14,8 @@ libs/
 .RData
 .Ruserdata
 
+# bookdown build file
+Introduction2R.rds
+
 # Mac-auxiliary files
 .DS_Store

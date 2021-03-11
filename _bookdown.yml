@@ -1,7 +1,8 @@
-book_filename: "bookdown-psicostat-demo"
+book_filename: "Introduction2R"
 repo: "https://github.com/psicostat/Introduction2R"
 language:
   ui:
     chapter_name: "Capitolo "
 delete_merged_file: true
+new_session: yes
 

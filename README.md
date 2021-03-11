@@ -21,7 +21,7 @@ The book is divided into four main sections:
 - **Algorithms**. Don't panic. You may have often heard of this as something very complicated, but in reality, algorithms are just a series of instructions that the computer follows when it has to perform a certain task. In this section we will see the main R commands used to define algorithms. This is the advantage of knowing a programming language, it allows us to create new programs that the computer will execute for us.
 - **Case study**. We will perform a step-by-step analysis that will allow us to learn how to import data, encode variables, prepare the data for analysis, conduct descriptive analyses and create graphs.
 
-At the end of this book you will probably not be hired by Google, but we hope at least that R does not scare you so much anymore and that maybe someone is interested in learning more about this fantastic world made of codes.
+At the end of this book you will probably not be hired by Google, but we hope at least that R does not scare you so much anymore and that maybe someone is interested in learning more about this fantastic world made of lines of code.
 
 ## Psicostat
 
