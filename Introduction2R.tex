@@ -302,7 +302,7 @@ I capitoli sono così organizzati:
 \item
   \textbf{Capitolo \ref{install}: Installare R e RStudio}. Instruzioni passo a passo per installare R e RStudio
 \item
-  \textbf{Capitolo \ref{first-commands}: Primi Passi in R}. Introduzione all'interfaccia di RStudio, operatori matematici, operatori logici, creazione di variabili e utilizzo di funzioni.
+  \textbf{Capitolo \ref{first-comands}: Primi Passi in R}. Introduzione all'interfaccia di RStudio, operatori matematici, operatori logici, creazione di variabili e utilizzo di funzioni.
 \item
   \textbf{Capitolo \ref{working-session}: Sessione di Lavoro}. Utilizzo degli script e introduzione dei concetti di environment, working directory e pacchetti di R.
 \end{itemize}
@@ -508,8 +508,8 @@ Nota in particolare che con R 4.0 le seguenti indicazioni sono riportate.
 
 In questo caso, come su Windows e MacOS l'installazione consiste nello scaricare ed eseguire il file corretto, in base alla distribuzione (ad esempio \texttt{.deb} per Ubuntu e derivate). Importante, nel caso di Ubuntu (ma dovrebbe valere anche per le altre distribuzioni) anche versioni successive a quella indicata (es. Ubuntu 16) sono perfettamente compatibili.
 
-\hypertarget{first-commands}{%
-\chapter{Primi Passi in R}\label{first-commands}}
+\hypertarget{first-comands}{%
+\chapter{Primi Passi in R}\label{first-comands}}
 
 In questo capitolo muoveremo i primi passi in R. Inizialmente verrà presentata l'interfaccia utente di RStudio. Successivamente, vedremo come eseguire operazioni matematiche (e logiche) in R. Introdurremo infine l'uso delle variabili e delle funzioni in R.
 
@@ -520,7 +520,7 @@ In questo capitolo introdurremo per la prima volta molti elementi che saranno po
 \hypertarget{interfaccia-di-rstudio}{%
 \section{Interfaccia di RStudio}\label{interfaccia-di-rstudio}}
 
-Come abbiamo visto nel Capitolo \ref{install}, R è il vero ``motore computazionale'' che ci permette di compiere tutte le operazioni di calcolo, analisi statistiche e magie varie. Tuttavia l'interfaccia di base di R, definita \textbf{Console} (vedi Figura \ref{fig:r-console}), è per così dire \emph{démodé} o meglio solo per veri intenditori.
+Come abbiamo visto nel Capitolo \ref{install}, R è il vero ``motore computazionale'' che ci permette di compiere tutte le operazioni di calcolo, analisi statistiche e magie varie. Tuttavia l'interfaccia di base di R, definita \textbf{Console} (vedi Figura \ref{fig:r-console}), è per così dire \emph{démodé} o meglio, solo per veri intenditori.
 
 \begin{figure}
 
@@ -531,17 +531,93 @@ Come abbiamo visto nel Capitolo \ref{install}, R è il vero ``motore computazion
 \caption{La console di R, solo per veri intenditori}\label{fig:r-console}
 \end{figure}
 
-\hypertarget{script-il-tuo-blocco-appunti}{%
-\subsection{Script: Il tuo Blocco Appunti}\label{script-il-tuo-blocco-appunti}}
+In genere, per lavorare con R viene utilizzato RStudio. RStudio è un programma (IDE - Integrated Development Environment) che integra in un unica interfaccia utente (GUI - Graphical User Interface) diversi strumenti utili per la scrittura ed esecuzione di codici. L'interfaccia di RStudio è costituita da 4 pannelli principali (vedi Figura \ref{fig:rstudio-gui}):
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{images/rstudio-gui} 
+
+}
+
+\caption{Interfaccia utente di Rstudio con i suoi 4 pannelli}\label{fig:rstudio-gui}
+\end{figure}
 
 \hypertarget{console-il-cuore-di-r}{%
-\subsection{Console: Il Cuore di R}\label{console-il-cuore-di-r}}
+\subsubsection*{1. Console: il cuore di R}\label{console-il-cuore-di-r}}
+\addcontentsline{toc}{subsubsection}{1. Console: il cuore di R}
+
+Qui ritroviamo la \emph{Console} di R dove vengono effetivemente eseguiti tutti i tuoi codici e comandi. Nota come nell'ulitma riga della console appaia il carattere \texttt{\textgreater{}}. Questo è definito \emph{prompt} è ci indica che R in attesa di nuovi comandi da eseguire.
+
+La Console di R è un'interfaccia a linea di comando. A differenza di altri programmi ``\emph{punta e clicca}'', in R è necessario digitare i comandi utilizzando la tastiera. Per eseguire dei comandi possiamo direttamnte scrivere nella console le operazioni da eseguire e premere \emph{invio}. R eseguirà immediatamente i nostro comando, riporterà il risultato e nella linea successiva apparirà nuovamente il \emph{prompt} indicando che R è pronto ad eseguire un altro comando (vedi Figura \ref{fig:comand-sequence}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{images/comand-sequence} 
+
+}
+
+\caption{Esecuzione di comandi direttamente nella console}\label{fig:comand-sequence}
+\end{figure}
+
+Nel caso di comandi scritti su più righe, vedi l'esempio di Figura \ref{fig:multiple-line-comand}, è possibile notare come venga mostrato il simbolo \texttt{+} come \emph{prompt}. Questo indica che R è in attesa che l'intero comando venga digitato prima che esso venga eseguito.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{images/multiple-line-comand} 
+
+}
+
+\caption{Esecuzione di un comando su più righe}\label{fig:multiple-line-comand}
+\end{figure}
+
+Come avrai notato facendo alcune prove, i comandi digitati nella Console vengono eseguiti immediatamente ma non sono salvati. Per rieseguire un comando, possiamo navigare tra quelli precedentementemente eseguiti usando le freccie della tastiera \(\uparrow\downarrow\). Tuttavia, in caso di errori dovremmo riscrivere e rieseguire tutti i comandi. Siccome scrivere codici è un continuo ``\emph{try and error}'', lavorare unicamente dalla Console diventa presto caotico. Abbiamo bisogno quindi di una soluzione che ci permetta di lavrorare più comodamente sui nostri codici e di poter salvare i nostri comandi da eseguire all'occorrenza con il giusto ordine. La soluzione sono gli \emph{Scripts} che introdurremo vedremo nella prossima sezione.
+
+\begin{tip}[Interrompere un comando]
+
+Potrebbe accadere che per qualche errore nel digitare un comando o perchè sono richiesti lunghi tempi computazionali, la console di R diventi non responsiva. In questo caso è necessario interrompere la scrittura o l'esecuzione di un comando. Vediamo due situazioni comuni:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \emph{Continua a comparire il prompt} \texttt{+}. Specialmente nel caso di utilizzo di parentesi e lunghi comandi, accade che una volta premuto \emph{invio} R non esegua alcun comando ma resta in attesa mostrando il \emph{prompt} \texttt{+} (vedi Figure seguente). Questo è in genere dato da un errore nella sintassi del comando (e.g., un errore nell'uso delle parentesi o delle virgole). Per riprendere la sessione è necessario premere il tasto \texttt{esc} della tastiera. L'apprire del \emph{prompt} \texttt{\textgreater{}}, indica che R è nuovamente in ascolto pronto per esequire un nuovo comando ma attento a non ripetere lo stesso errore, la sintassi dei comandi è importante (vedi Sezione TODO).
+\end{enumerate}
+
+\begin{center}\includegraphics[width=0.95\linewidth]{images/comand-esc} \end{center}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \emph{R non risponde}. Alcuni calcoli potrebbero richiedere molto tempo o semplicemnte un qualche problema ha mandato in loop la tua sessione di lavoro. In questa situazione la \emph{Console} di R diventa non responsiva. Nel caso fosse necessario interrompere i processi attualmente in esecuzione devi premere il pulsante \emph{STOP} come indicato nella Figura seguente. R si fermerà e ritornerà in attesa di nuovi comandi (\emph{prompt} \texttt{\textgreater{}}).
+\end{enumerate}
+
+\begin{center}\includegraphics[width=0.95\linewidth]{images/console-stop} \end{center}
+
+\end{tip}
+
+\begin{trick}[Force Quit]
+
+In alcuni casi estremi in cui R sembra non rispondere, usa i comandi \texttt{Ctrl-C} per forzare R a interrompere il processo in esecuzione.
+
+Come ultima soluzione ricorda uno dei principi base dell'informatica ``\emph{spegni e riaccendi}'' (a volte potrebbe bastare chiudere e riaprire RStudio).
+
+\end{trick}
+
+\hypertarget{source-il-tuo-blocco-appunti}{%
+\subsubsection*{2. Source: il tuo blocco appunti}\label{source-il-tuo-blocco-appunti}}
+\addcontentsline{toc}{subsubsection}{2. Source: il tuo blocco appunti}
+
+In questa parte vengono mostrati i tuoi \emph{Scripts}. Questi non sono altro che dei documenti che contengono i tuoi codici e comandi che desideri successivamente eseguire in R. Gli \emph{Scripts} ti permetteranno di lavorare comodamente sui tuoi codici
 
 \hypertarget{environment-e-history-lambiente-di-lavoro}{%
-\subsection{Environment e History: L'Ambiente di Lavoro}\label{environment-e-history-lambiente-di-lavoro}}
+\subsubsection*{3. Environment e History: l'ambiente di lavoro}\label{environment-e-history-lambiente-di-lavoro}}
+\addcontentsline{toc}{subsubsection}{3. Environment e History: l'ambiente di lavoro}
 
 \hypertarget{file-plots-package-help-system-management}{%
-\subsection{File, Plots, Package, Help: System Management}\label{file-plots-package-help-system-management}}
+\subsubsection*{4. File, Plots, Package, Help: system management}\label{file-plots-package-help-system-management}}
+\addcontentsline{toc}{subsubsection}{4. File, Plots, Package, Help: system management}
 
 \hypertarget{approfondimento-personalizzazione-layout-e-theme}{%
 \subsubsection{approfondimento personalizzazione layout e theme}\label{approfondimento-personalizzazione-layout-e-theme}}

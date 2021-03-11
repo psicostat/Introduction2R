@@ -7,5 +7,5 @@ In questa sezione verranno presentate le istruzioni per installare R ed RStudio.
 I capitoli sono così organizzati:
 
 - **Capitolo \@ref(install): Installare R e RStudio**. Instruzioni passo a passo per installare R e RStudio
-- **Capitolo \@ref(first-commands): Primi Passi in R**. Introduzione all'interfaccia di RStudio, operatori matematici, operatori logici, creazione di variabili e utilizzo di funzioni.
+- **Capitolo \@ref(first-comands): Primi Passi in R**. Introduzione all'interfaccia di RStudio, operatori matematici, operatori logici, creazione di variabili e utilizzo di funzioni.
 - **Capitolo \@ref(working-session): Sessione di Lavoro**. Utilizzo degli script e introduzione dei concetti di environment, working directory e pacchetti di R.  

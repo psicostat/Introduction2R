@@ -1,4 +1,7 @@
 fig:r-console
+fig:rstudio-gui
+fig:comand-sequence
+fig:multiple-line-comand
 install
 installare-r
 r-windows
@@ -6,12 +9,8 @@ r-macos
 r-linux
 installare-r-studio
 r-studio-in-linux
-first-commands
+first-comands
 interfaccia-di-rstudio
-script-il-tuo-blocco-appunti
-console-il-cuore-di-r
-environment-e-history-lambiente-di-lavoro
-file-plots-package-help-system-management
 approfondimento-personalizzazione-layout-e-theme
 primi-comandi
 operatori-matematici
