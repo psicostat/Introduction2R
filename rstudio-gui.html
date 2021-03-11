@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capitolo 2 Interfaccia RStudio | Introduzione a R</title>
+  <meta name="description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capitolo 2 Interfaccia RStudio | Introduzione a R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://psicostat.github.io/Introduction2R/" />
+  <meta property="og:image" content="https://psicostat.github.io/Introduction2R/images/logo_psicostat.png" />
+  <meta property="og:description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
+  <meta name="github-repo" content="psicostat/Introduction2R" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capitolo 2 Interfaccia RStudio | Introduzione a R" />
+  
+  <meta name="twitter:description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
+  <meta name="twitter:image" content="https://psicostat.github.io/Introduction2R/images/logo_psicostat.png" />
+
+<meta name="author" content="Psicostat" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="install.html"/>
+<link rel="next" href="first-comands.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/toc.css" type="text/css" />
+<link rel="stylesheet" href="assets/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/hex_psicostat.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentazione</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#perchè-r"><i class="fa fa-check"></i>Perchè R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#struttura-del-libro"><i class="fa fa-check"></i>Struttura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#risorse-utili"><i class="fa fa-check"></i>Risorse Utili</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#psicostat"><i class="fa fa-check"></i>Psicostat</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#collaborazione"><i class="fa fa-check"></i>Collaborazione</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#riconoscimenti"><i class="fa fa-check"></i>Riconoscimenti</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licenza"><i class="fa fa-check"></i>Licenza</a></li>
+</ul></li>
+<li class="part"><span><b>Get Started</b></span></li>
+<li class="chapter" data-level="" data-path="intorduzione.html"><a href="intorduzione.html"><i class="fa fa-check"></i>Intorduzione</a></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Installare R e RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#installare-r"><i class="fa fa-check"></i><b>1.1</b> Installare R</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="install.html"><a href="install.html#r-windows"><i class="fa fa-check"></i><b>1.1.1</b> R Windows</a></li>
+<li class="chapter" data-level="1.1.2" data-path="install.html"><a href="install.html#r-macos"><i class="fa fa-check"></i><b>1.1.2</b> R MacOS</a></li>
+<li class="chapter" data-level="1.1.3" data-path="install.html"><a href="install.html#r-linux"><i class="fa fa-check"></i><b>1.1.3</b> R Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installare-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installare R Studio</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="install.html"><a href="install.html#r-studio-in-linux"><i class="fa fa-check"></i><b>1.2.1</b> R Studio in Linux</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rstudio-gui.html"><a href="rstudio-gui.html"><i class="fa fa-check"></i><b>2</b> Interfaccia RStudio</a></li>
+<li class="chapter" data-level="3" data-path="first-comands.html"><a href="first-comands.html"><i class="fa fa-check"></i><b>3</b> Primi Passi in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="first-comands.html"><a href="first-comands.html#operatori-matematici"><i class="fa fa-check"></i><b>3.1</b> Operatori Matematici</a></li>
+<li class="chapter" data-level="3.2" data-path="first-comands.html"><a href="first-comands.html#operatori-logici"><i class="fa fa-check"></i><b>3.2</b> Operatori Logici</a></li>
+<li class="chapter" data-level="3.3" data-path="first-comands.html"><a href="first-comands.html#creazione-di-variabili"><i class="fa fa-check"></i><b>3.3</b> Creazione di Variabili</a></li>
+<li class="chapter" data-level="3.4" data-path="first-comands.html"><a href="first-comands.html#utilizzo-di-funzioni"><i class="fa fa-check"></i><b>3.4</b> Utilizzo di funzioni</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="first-comands.html"><a href="first-comands.html#section"><i class="fa fa-check"></i><b>3.4.1</b> </a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Struttura Dati</b></span></li>
+<li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="4" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>4</b> Sessione di Lavoro</a><ul>
+<li class="chapter" data-level="4.1" data-path="working-session.html"><a href="working-session.html#infobox"><i class="fa fa-check"></i><b>4.1</b> Infobox</a></li>
+<li class="chapter" data-level="4.2" data-path="working-session.html"><a href="working-session.html#problema-google-soluzione"><i class="fa fa-check"></i><b>4.2</b> Problema + Google = Soluzione</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>5</b> Vettori</a></li>
+<li class="chapter" data-level="6" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>6</b> Matrici</a></li>
+<li class="chapter" data-level="7" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>7</b> Dataframe</a></li>
+<li class="chapter" data-level="8" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>8</b> Liste</a></li>
+<li class="part"><span><b>Algoritmi</b></span></li>
+<li class="chapter" data-level="" data-path="introduzione-1.html"><a href="introduzione-1.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="9" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>9</b> Definizione di Funzioni</a></li>
+<li class="chapter" data-level="10" data-path="coditionals.html"><a href="coditionals.html"><i class="fa fa-check"></i><b>10</b> Programmazione Condizionale</a></li>
+<li class="chapter" data-level="11" data-path="loop.html"><a href="loop.html"><i class="fa fa-check"></i><b>11</b> Attenti al loop</a></li>
+<li class="part"><span><b>Case study</b></span></li>
+<li class="chapter" data-level="" data-path="introduzione-2.html"><a href="introduzione-2.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="12" data-path="attachment.html"><a href="attachment.html"><i class="fa fa-check"></i><b>12</b> Caso Studio I: Attaccamento</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><span style="font-size: 2.5em">Introduzione a R</span></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <script src="assets/hideOutput.js"></script>
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src="images/banner.png">
+</div>
+<div id="rstudio-gui" class="section level1">
+<h1><span class="header-section-number">Capitolo 2</span> Interfaccia RStudio</h1>
+<p>In questo capitolo presenteremo l’interfaccia utente di RStudio. Molti aspetti che introdurremo brevemente qui verranno discussi nei sucessivi capitoli. Adesso ci interessa solo famigliarizzare con l’interfaccia del nostro strumento di lavoro principale ovvero RStudio.</p>
+<p>Come abbiamo visto nel Capitolo <a href="install.html#install">1</a>, R è il vero “motore computazionale” che ci permette di compiere tutte le operazioni di calcolo, analisi statistiche e magie varie. Tuttavia l’interfaccia di base di R, definita <strong>Console</strong> (vedi Figura <a href="rstudio-gui.html#fig:r-console">2.1</a>), è per così dire <em>démodé</em> o meglio, solo per veri intenditori.</p>
+<div class="figure" style="text-align: center"><span id="fig:r-console"></span>
+<img src="images/r-console.png" alt="La console di R, solo per veri intenditori" width="85%" />
+<p class="caption">
+Figure 2.1: La console di R, solo per veri intenditori
+</p>
+</div>
+<p>In genere, per lavorare con R viene utilizzato RStudio. RStudio è un programma (IDE - Integrated Development Environment) che integra in un unica interfaccia utente (GUI - Graphical User Interface) diversi strumenti utili per la scrittura ed esecuzione di codici. L’interfaccia di RStudio è costituita da 4 pannelli principali (vedi Figura <a href="rstudio-gui.html#fig:rstudio-gui">2.2</a>):</p>
+<div class="figure" style="text-align: center"><span id="fig:rstudio-gui"></span>
+<img src="images/rstudio-gui.png" alt="Interfaccia utente di Rstudio con i suoi 4 pannelli" width="85%" />
+<p class="caption">
+Figure 2.2: Interfaccia utente di Rstudio con i suoi 4 pannelli
+</p>
+</div>
+<div id="console-il-cuore-di-r" class="section level4 unnumbered">
+<h4>1. Console: il cuore di R</h4>
+<p>Qui ritroviamo la <em>Console</em> di R dove vengono effetivemente eseguiti tutti i tuoi codici e comandi. Nota come nell’ulitma riga della <em>Console</em> appaia il carattere <code>&gt;</code>. Questo è definito <em>prompt</em> è ci indica che R in attesa di nuovi comandi da eseguire.</p>
+<p>La <em>Console</em> di R è un’interfaccia a linea di comando. A differenza di altri programmi “<em>punta e clicca</em>”, in R è necessario digitare i comandi utilizzando la tastiera. Per eseguire dei comandi possiamo direttamnte scrivere nella <em>Console</em> le operazioni da eseguire e premere <code>invio</code>. R eseguirà immediatamente i nostro comando, riporterà il risultato e nella linea successiva apparirà nuovamente il <em>prompt</em> indicando che R è pronto ad eseguire un altro comando (vedi Figura <a href="rstudio-gui.html#fig:comand-sequence">2.3</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:comand-sequence"></span>
+<img src="images/comand-sequence.png" alt="Esecuzione di comandi direttamente nella console" width="95%" />
+<p class="caption">
+Figure 2.3: Esecuzione di comandi direttamente nella console
+</p>
+</div>
+<p>Nel caso di comandi scritti su più righe, vedi l’esempio di Figura <a href="rstudio-gui.html#fig:multiple-line-comand">2.4</a>, è possibile notare come venga mostrato il simbolo <code>+</code> come <em>prompt</em>. Questo indica che R è in attesa che l’intero comando venga digitato prima che esso venga eseguito.</p>
+<div class="figure" style="text-align: center"><span id="fig:multiple-line-comand"></span>
+<img src="images/multiple-line-comand.png" alt="Esecuzione di un comando su più righe" width="95%" />
+<p class="caption">
+Figure 2.4: Esecuzione di un comando su più righe
+</p>
+</div>
+<p>Come avrai notato facendo alcune prove, i comandi digitati nella <em>Console</em> vengono eseguiti immediatamente ma non sono salvati. Per rieseguire un comando, possiamo navigare tra quelli precedentementemente eseguiti usando le freccie della tastiera <span class="math inline">\(\uparrow\downarrow\)</span>. Tuttavia, in caso di errori dovremmo riscrivere e rieseguire tutti i comandi. Siccome scrivere codici è un continuo “<em>try and error</em>”, lavorare unicamente dalla <em>Console</em> diventa presto caotico. Abbiamo bisogno quindi di una soluzione che ci permetta di lavrorare più comodamente sui nostri codici e di poter salvare i nostri comandi da eseguire all’occorrenza con il giusto ordine. La soluzione sono gli <em>Scripts</em> che introdurremo vedremo nella prossima sezione.</p>
+<div class="tip" title="Interrompere un comando">
+<p>Potrebbe accadere che per qualche errore nel digitare un comando o perchè sono richiesti lunghi tempi computazionali, la <em>Console</em> di R diventi non responsiva. In questo caso è necessario interrompere la scrittura o l’esecuzione di un comando. Vediamo due situazioni comuni:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Continua a comparire il prompt</strong> <code>+</code>. Specialmente nel caso di utilizzo di parentesi e lunghi comandi, accade che una volta premuto <code>invio</code> R non esegua alcun comando ma resta in attesa mostrando il <em>prompt</em> <code>+</code> (vedi Figure seguente). Questo è in genere dato da un errore nella sintassi del comando (e.g., un errore nell’uso delle parentesi o delle virgole). Per riprendere la sessione è necessario premere il tasto <code>esc</code> della tastiera. L’apprire del <em>prompt</em> <code>&gt;</code>, indica che R è nuovamente in ascolto pronto per esequire un nuovo comando ma attento a non ripetere lo stesso errore, la sintassi dei comandi è importante (vedi Capitolo TODO).</li>
+</ol>
+<p><img src="images/comand-esc.png" width="95%" style="display: block; margin: auto;" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>R non risponde</strong>. Alcuni calcoli potrebbero richiedere molto tempo o semplicemnte un qualche problema ha mandato in loop la tua sessione di lavoro. In questa situazione la <em>Console</em> di R diventa non responsiva. Nel caso fosse necessario interrompere i processi attualmente in esecuzione devi premere il pulsante <em>STOP</em> come indicato nella Figura seguente. R si fermerà e ritornerà in attesa di nuovi comandi (<em>prompt</em> <code>&gt;</code>).</li>
+</ol>
+<p><img src="images/console-stop.png" width="95%" style="display: block; margin: auto;" /></p>
+</div>
+<div class="trick" title="Force Quit">
+<p>In alcuni casi estremi in cui R sembra non rispondere, usa i comandi <code>Ctrl-C</code> per forzare R a interrompere il processo in esecuzione.</p>
+<p>Come ultima soluzione ricorda uno dei principi base dell’informatica “<em>spegni e riaccendi</em>” (a volte potrebbe bastare chiudere e riaprire RStudio).</p>
+</div>
+</div>
+<div id="source-il-tuo-blocco-appunti" class="section level4 unnumbered">
+<h4>2. Source: il tuo blocco appunti</h4>
+<p>In questa parte vengono mostrati i tuoi <em>Scripts</em>. Questi non sono altro che degli speciali documenti (con estensione “<strong>.R</strong>”) in cui sono salvati i tuoi codici e comandi che potrai eseguire quando necessario in R. Gli <em>Scripts</em> ti permetteranno di lavorare comodamente sui tuoi codici, scrivere i comandi, corregerli, organizzarli, aggiungere dei commenti e soprattutto salvarli.</p>
+<p>Dopo aver terminato di scrivere i comandi, posiziona il cursore sulla stessa linea del comando che desideri eseguire e premi <code>command + invio</code> (MacOs) o <code>Ctrl+R</code> (Windows). Automaticamente il comando verà copiato nella <em>Console</em> ed eseguito. In alternativa potrai premere il tasto <strong>Run</strong> indicato dalla freccia in Figura <a href="rstudio-gui.html#fig:script-run">2.5</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:script-run"></span>
+<img src="images/script-run.png" alt="Esecuzione di un comando da script premi `command + invio` (MacOs)/ `Ctrl+R` (Windows) o premi il tasto indicato dalla freccia" width="95%" />
+<p class="caption">
+Figure 2.5: Esecuzione di un comando da script premi <code>command + invio</code> (MacOs)/ <code>Ctrl+R</code> (Windows) o premi il tasto indicato dalla freccia
+</p>
+</div>
+<div class="tip" title="Commenti">
+<p>Se hai guardato con attenzione lo script rappresentato in Figura <a href="rstudio-gui.html#fig:script-run">2.5</a>, potresti aver notato delle righe di testo verde precedute dal simbolo <code>#</code>. Questo simbolo può essere utlizzato per inserire dei <em>commenti</em> all’interno dello script. R ignorerà qualsiasi commento ed eseguirà soltato le parti di codici.</p>
+<p>L’utilizzo dei commenti è molto importante nel caso di script complessi poichè ci permette di spiegare e documentare il codice che viene eseguito. Nel Capitolo TODO approfondiremo il loro utilizzo.</p>
+</div>
+</div>
+<div id="environment-e-history-la-sessione-di-lavoro" class="section level4 unnumbered">
+<h4>3. Environment e History: la sessione di lavoro</h4>
+<p>Qui sono presentati una serie di pannelli utili per valutare informazioni inerenti alla propria sessione di lavoro. I pannelli principali sono <em>Environment</em> e <em>History</em> (gli altri pannelli presenti in Figura <a href="rstudio-gui.html#fig:environment">2.6</a> riguardanno funzioni avanzate di RStudio).</p>
+<ul>
+<li><strong>Environment</strong>: elenco tutti gli oggetti e variabili attualmente presenti nel’ambiente di lavoro. Approfondiremo i concetti di variabili e di ambiente di lavoro rispettivamente nel Capitolo TODO e Capitolo TODO.</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:environment"></span>
+<img src="images/environment.png" alt="*Environment* - Elenco degli oggetti e variabili presenti nel'ambiente di lavoro" width="60%" />
+<p class="caption">
+Figure 2.6: <em>Environment</em> - Elenco degli oggetti e variabili presenti nel’ambiente di lavoro
+</p>
+</div>
+<ul>
+<li><strong>History</strong>: elenco di tutti i comandi precedentemente eseguiti nella console. Nota che questo no equivale ad uno script, anzi, è semplicemente un elenco non modificabile (e quasi mai usato).</li>
+</ul>
+</div>
+<div id="file-plots-package-help-system-management" class="section level4 unnumbered">
+<h4>4. File, Plots, Package, Help: system management</h4>
+<p>In questa parte sono raccolti una serie di pannelli utilizzatti per interfacciarsi con ulteriori risorse del sistema (e.g., file e pacchetti) o produrre output quali grafici e tabelle.</p>
+<ul>
+<li><strong>Files</strong>: pannello da cui è possibile navigare tra tutti i file del proprio computer</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:files"></span>
+<img src="images/files.png" alt="*Files* - permette di navigare tra i file del proprio computer" width="60%" />
+<p class="caption">
+Figure 2.7: <em>Files</em> - permette di navigare tra i file del proprio computer
+</p>
+</div>
+<ul>
+<li><strong>Plots</strong>: pannello i cui vengono prodotti i grafici e che è possibil esportare cliccando <em>Export</em>.</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:plots"></span>
+<img src="images/plots.png" alt="*Plots* - presentazione dei grafici" width="60%" />
+<p class="caption">
+Figure 2.8: <em>Plots</em> - presentazione dei grafici
+</p>
+</div>
+<ul>
+<li><strong>Packages</strong>: elenco dei pacchetti di R (questo argomento verrà approfondito nel Capitolo TODO).</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:packages"></span>
+<img src="images/packages.png" alt="*Packages* - elenco dei pacchetti di R" width="60%" />
+<p class="caption">
+Figure 2.9: <em>Packages</em> - elenco dei pacchetti di R
+</p>
+</div>
+<ul>
+<li><strong>Help</strong>: utilizzato per navigare la documentazione interna di R (questo argomento verrà approfondito nel Capitolo TODO).</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:help"></span>
+<img src="images/help.png" alt="*Help* -  documentazione di R" width="60%" />
+<p class="caption">
+Figure 2.10: <em>Help</em> - documentazione di R
+</p>
+</div>
+<div class="tip" title="Personalizza tema e layout">
+<p>RStudio permette un ampio grado di personalizzazione dell’intrafaccia grafica utilizzata. E’ possibile cambiare tema, font e disposizione dei pannelli a seconda dei tuoi gusti ed esigenze.</p>
+<p>Prova a cambiare il tema dell editor in <em>Idle Fingers</em> per utlizzare on background scuro che affatichi meno la vista (vedi Figura seguente). Clicca su RStudio &gt; Preferenze &gt; Appearence (MacOS) o Tools &gt; Options &gt; Appearence (Windows).</p>
+<p><img src="images/dark-theme.png" width="90%" style="display: block; margin: auto;" /></p>
+</div>
+
+</div>
+</div>
+<hr>
+<center>
+  <div class="footer">
+    Questo libro è rilasciato in accordo con <a href= "https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA</a>.
+    <br>
+    Le illustrazioni utilizzate appartengono a <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu-book</a> in accordo con <a href= "https://creativecommons.org/licenses/by-nc/2.0/">CC BY-NC</a>.
+    <br>
+    Per conoscere di più riguardo <span style="color: #8C3031; font-weight:bold"> Psicostat</span> e le nostre attività, visita <a href= "https://psicostat.dpss.psy.unipd.it/">https://psicostat.dpss.psy.unipd.it/</a>.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="install.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="first-comands.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": true
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/psicostat/Introduction2R/edit/master/03-rstudio-gui.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Introduction2R.pdf", "Introduction2R.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true,
+"toc_float": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
