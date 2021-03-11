@@ -5,6 +5,7 @@ r-windows
 r-macos
 r-linux
 installare-r-studio
+r-studio-in-linux
 first-commands
 interfaccia-di-rstudio
 script-il-tuo-blocco-appunti

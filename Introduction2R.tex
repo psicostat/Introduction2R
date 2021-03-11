@@ -311,9 +311,7 @@ I capitoli sono così organizzati:
 \chapter{Installare R e RStudio}\label{install}}
 
 R ed R-studio sono due software distinti. R è un linguaggio di programmazione usato in particolare in ambiti quali la statistica. R-studio invece è un'interfaccia \emph{user-friendly} che permette di utilizzare R.
-R può essere utilizzato autonomamente tuttavia è consigliato l'utilizzo attraverso R-studio. Entrambi vanno installati separatamente e la procedura varia a seconda del proprio sistema operativo (Windows, MacOS o Linux). Riportiamo le istruzioni solo per Windows e MacOS Linux (Ubuntu)\footnote{linux}.
-
-\footnote{linux}: Ovviamente R è disponibile per tutte le principali distribuzioni di Linux. Riportiamo qui le istruzioni per Ubuntu che sono anche valide per tutte le distribuzioni derivate.
+R può essere utilizzato autonomamente tuttavia è consigliato l'utilizzo attraverso R-studio. Entrambi vanno installati separatamente e la procedura varia a seconda del proprio sistema operativo (Windows, MacOS o Linux). Riportiamo le istruzioni solo per Windows e MacOS Linux (Ubuntu). Ovviamente R è disponibile per tutte le principali distribuzioni di Linux. Le istruzioni riportate per Ubuntu (la distribuzione più diffusa) sono valide anche per le distribuzioni derivate.
 
 \hypertarget{installare-r}{%
 \section{Installare R}\label{installare-r}}
@@ -420,11 +418,18 @@ Nonostante la semplicità di installazione di pacchetti su Linux, R a volte potr
 
 Sul \textbf{CRAN} vi è la guida ufficiale con tutti i comandi \texttt{apt} da eseguire da terminale. Seguendo questi passaggi non dovrebbero esserci problemi.
 
-\begin{itemize}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \href{https://cran.r-project.org/}{Installare R su Ubuntu - CRAN}
-\end{itemize}
+  Andate sul \href{https://cran.r-project.org/}{CRAN}
+\item
+  Cliccate \texttt{Download\ R\ for\ Linux}
+\item
+  Selezionate la vostra distribuzione (Ubuntu in questo caso)
+\item
+  Seguite le istruzioni, principalmente eseguendo i comandi da terminale suggeriti
+\end{enumerate}
 
 Per qualsiasi difficoltà o errore, sopratutto con il mondo Linux, una ricerca su online risolve sempre il problema.
 
@@ -497,6 +502,11 @@ Nota in particolare che con R 4.0 le seguenti indicazioni sono riportate.
 \item
   Al termine del download, eseguire il file e seguire le istruzioni fino al termine dell'installazione
 \end{enumerate}
+
+\hypertarget{r-studio-in-linux}{%
+\subsection{R Studio in Linux}\label{r-studio-in-linux}}
+
+In questo caso, come su Windows e MacOS l'installazione consiste nello scaricare ed eseguire il file corretto, in base alla distribuzione (ad esempio \texttt{.deb} per Ubuntu e derivate). Importante, nel caso di Ubuntu (ma dovrebbe valere anche per le altre distribuzioni) anche versioni successive a quella indicata (es. Ubuntu 16) sono perfettamente compatibili.
 
 \hypertarget{first-commands}{%
 \chapter{Primi Passi in R}\label{first-commands}}

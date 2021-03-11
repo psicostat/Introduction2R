@@ -90,7 +90,9 @@
 <li class="chapter" data-level="1.1.2" data-path="install.html"><a href="install.html#r-macos"><i class="fa fa-check"></i><b>1.1.2</b> R MacOS</a></li>
 <li class="chapter" data-level="1.1.3" data-path="install.html"><a href="install.html#r-linux"><i class="fa fa-check"></i><b>1.1.3</b> R Linux</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installare-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installare R Studio</a></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installare-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installare R Studio</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="install.html"><a href="install.html#r-studio-in-linux"><i class="fa fa-check"></i><b>1.2.1</b> R Studio in Linux</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="first-commands.html"><a href="first-commands.html"><i class="fa fa-check"></i><b>2</b> Primi Passi in R</a><ul>
 <li class="chapter" data-level="2.1" data-path="first-commands.html"><a href="first-commands.html#interfaccia-di-rstudio"><i class="fa fa-check"></i><b>2.1</b> Interfaccia di RStudio</a><ul>
@@ -160,8 +162,7 @@
 <div id="install" class="section level1">
 <h1><span class="header-section-number">Capitolo 1</span> Installare R e RStudio</h1>
 <p>R ed R-studio sono due software distinti. R è un linguaggio di programmazione usato in particolare in ambiti quali la statistica. R-studio invece è un’interfaccia <em>user-friendly</em> che permette di utilizzare R.
-R può essere utilizzato autonomamente tuttavia è consigliato l’utilizzo attraverso R-studio. Entrambi vanno installati separatamente e la procedura varia a seconda del proprio sistema operativo (Windows, MacOS o Linux). Riportiamo le istruzioni solo per Windows e MacOS Linux (Ubuntu)<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
-<p><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>: Ovviamente R è disponibile per tutte le principali distribuzioni di Linux. Riportiamo qui le istruzioni per Ubuntu che sono anche valide per tutte le distribuzioni derivate.</p>
+R può essere utilizzato autonomamente tuttavia è consigliato l’utilizzo attraverso R-studio. Entrambi vanno installati separatamente e la procedura varia a seconda del proprio sistema operativo (Windows, MacOS o Linux). Riportiamo le istruzioni solo per Windows e MacOS Linux (Ubuntu). Ovviamente R è disponibile per tutte le principali distribuzioni di Linux. Le istruzioni riportate per Ubuntu (la distribuzione più diffusa) sono valide anche per le distribuzioni derivate.</p>
 <div id="installare-r" class="section level2">
 <h2><span class="header-section-number">1.1</span> Installare R</h2>
 <ol style="list-style-type: decimal">
@@ -232,9 +233,12 @@ R può essere utilizzato autonomamente tuttavia è consigliato l’utilizzo attr
 <h3><span class="header-section-number">1.1.3</span> R Linux</h3>
 <p>Nonostante la semplicità di installazione di pacchetti su Linux, R a volte potrebbe essere più complicato da installare per via delle diverse distribuzioni, repository e chiavi per riconoscere la repository come sicura.</p>
 <p>Sul <strong>CRAN</strong> vi è la guida ufficiale con tutti i comandi <code>apt</code> da eseguire da terminale. Seguendo questi passaggi non dovrebbero esserci problemi.</p>
-<ul>
-<li><a href="https://cran.r-project.org/">Installare R su Ubuntu - CRAN</a></li>
-</ul>
+<ol style="list-style-type: decimal">
+<li>Andate sul <a href="https://cran.r-project.org/">CRAN</a></li>
+<li>Cliccate <code>Download R for Linux</code></li>
+<li>Selezionate la vostra distribuzione (Ubuntu in questo caso)</li>
+<li>Seguite le istruzioni, principalmente eseguendo i comandi da terminale suggeriti</li>
+</ol>
 <p>Per qualsiasi difficoltà o errore, sopratutto con il mondo Linux, una ricerca su online risolve sempre il problema.</p>
 <p><br></p>
 <div class="design" title="R Tools">
@@ -289,15 +293,12 @@ Nota in particolare che con R 4.0 le seguenti indicazioni sono riportate.</p>
 <ol start="5" style="list-style-type: decimal">
 <li>Al termine del download, eseguire il file e seguire le istruzioni fino al termine dell’installazione</li>
 </ol>
+<div id="r-studio-in-linux" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> R Studio in Linux</h3>
+<p>In questo caso, come su Windows e MacOS l’installazione consiste nello scaricare ed eseguire il file corretto, in base alla distribuzione (ad esempio <code>.deb</code> per Ubuntu e derivate). Importante, nel caso di Ubuntu (ma dovrebbe valere anche per le altre distribuzioni) anche versioni successive a quella indicata (es. Ubuntu 16) sono perfettamente compatibili.</p>
 
 </div>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>linux<a href="install.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>linux<a href="install.html#fnref2" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
 <hr>
 <center>
