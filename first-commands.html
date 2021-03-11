@@ -92,9 +92,24 @@
 <li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installare-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installare R Studio</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="first-commands.html"><a href="first-commands.html"><i class="fa fa-check"></i><b>2</b> Primi Passi in R</a><ul>
-<li class="chapter" data-level="2.1" data-path="first-commands.html"><a href="first-commands.html#infobox"><i class="fa fa-check"></i><b>2.1</b> Infobox</a></li>
+<li class="chapter" data-level="2.1" data-path="first-commands.html"><a href="first-commands.html#interfaccia-di-rstudio"><i class="fa fa-check"></i><b>2.1</b> Interfaccia di RStudio</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="first-commands.html"><a href="first-commands.html#script-il-tuo-blocco-appunti"><i class="fa fa-check"></i><b>2.1.1</b> Script: Il tuo Blocco Appunti</a></li>
+<li class="chapter" data-level="2.1.2" data-path="first-commands.html"><a href="first-commands.html#console-il-cuore-di-r"><i class="fa fa-check"></i><b>2.1.2</b> Console: Il Cuore di R</a></li>
+<li class="chapter" data-level="2.1.3" data-path="first-commands.html"><a href="first-commands.html#environment-e-history-lambiente-di-lavoro"><i class="fa fa-check"></i><b>2.1.3</b> Environment e History: L’Ambiente di Lavoro</a></li>
+<li class="chapter" data-level="2.1.4" data-path="first-commands.html"><a href="first-commands.html#file-plots-package-help-system-management"><i class="fa fa-check"></i><b>2.1.4</b> File, Plots, Package, Help: System Management</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>3</b> Sessione di Lavoro</a></li>
+<li class="chapter" data-level="2.2" data-path="first-commands.html"><a href="first-commands.html#primi-comandi"><i class="fa fa-check"></i><b>2.2</b> Primi Comandi</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="first-commands.html"><a href="first-commands.html#operatori-matematici"><i class="fa fa-check"></i><b>2.2.1</b> Operatori Matematici</a></li>
+<li class="chapter" data-level="2.2.2" data-path="first-commands.html"><a href="first-commands.html#operatori-logici"><i class="fa fa-check"></i><b>2.2.2</b> Operatori Logici</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="first-commands.html"><a href="first-commands.html#creazione-di-variabili"><i class="fa fa-check"></i><b>2.3</b> Creazione di Variabili</a></li>
+<li class="chapter" data-level="2.4" data-path="first-commands.html"><a href="first-commands.html#utilizzo-di-funzioni"><i class="fa fa-check"></i><b>2.4</b> Utilizzo di funzioni</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="first-commands.html"><a href="first-commands.html#section"><i class="fa fa-check"></i><b>2.4.1</b> </a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>3</b> Sessione di Lavoro</a><ul>
+<li class="chapter" data-level="3.1" data-path="working-session.html"><a href="working-session.html#infobox"><i class="fa fa-check"></i><b>3.1</b> Infobox</a></li>
+</ul></li>
 <li class="part"><span><b>Struttura Dati</b></span></li>
 <li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
 <li class="chapter" data-level="4" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>4</b> Vettori</a></li>
@@ -143,40 +158,59 @@
 </div>
 <div id="first-commands" class="section level1">
 <h1><span class="header-section-number">Capitolo 2</span> Primi Passi in R</h1>
-<div id="infobox" class="section level2">
-<h2><span class="header-section-number">2.1</span> Infobox</h2>
-<p>Illustrations included in <code>images/</code> are retrieved from <a href="https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu-book</a> under <a href="https://creativecommons.org/licenses/by-nc/2.0/">CC-BY-NC</a>. Remember to include an <em>Attributions</em> section in the book and repository’s README file.</p>
-<div class="tip" title="My title">
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum!</p>
+<p>In questo capitolo muoveremo i primi passi in R. Inizialmente verrà presentata l’interfaccia utente di RStudio. Successivamente, vedremo come eseguire operazioni matematiche (e logiche) in R. Introdurremo infine l’uso delle variabili e delle funzioni in R.</p>
+<p>Imparare R è un lungo percorso (scoop: questo percorso non termina mai dato che R è sempre in continua evoluzione). Soprattutto all’inizio può sembrare eccessivamente difficile poichè è si incontrano per la prima volta molti comandi e concetti di programmazione. Tuttavia, una volta famigliarizzato con i gli apetti di base, la progressione diventa sempre più veloce (inarrestabile direi!).</p>
+<p>In questo capitolo introdurremo per la prima volta molti elementi che saranno poi ripresi e approfonditi nei seguenti capitoli. Quindi non preoccuparti se non tutto ti sarà chiaro fin da subito. Imparare il tuo primo linguaggio di programmazione è difficile ma da qualche parte bisogna pure iniziare. Pronto per le tue prime linee di codice? Let’s become a useR!</p>
+<div id="interfaccia-di-rstudio" class="section level2">
+<h2><span class="header-section-number">2.1</span> Interfaccia di RStudio</h2>
+<p>Come abbiamo visto nel Capitolo <a href="install.html#install">1</a>, R è il vero “motore computazionale” che ci permette di compiere tutte le operazioni di calcolo, analisi statistiche e magie varie. Tuttavia l’interfaccia di base di R, definita <strong>Console</strong> (vedi Figura <a href="first-commands.html#fig:r-console">2.1</a>), è per così dire <em>démodé</em> o meglio solo per veri intenditori.</p>
+<div class="figure" style="text-align: center"><span id="fig:r-console"></span>
+<img src="images/r-console.png" alt="La console di R, solo per veri intenditori" width="85%" />
+<p class="caption">
+Figure 2.1: La console di R, solo per veri intenditori
+</p>
 </div>
-<div class="warning" title="My title">
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum!</p>
+<div id="script-il-tuo-blocco-appunti" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Script: Il tuo Blocco Appunti</h3>
 </div>
-<div class="deffun" title="My title">
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum!</p>
+<div id="console-il-cuore-di-r" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Console: Il Cuore di R</h3>
 </div>
-<div class="design" title="My title">
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum!</p>
+<div id="environment-e-history-lambiente-di-lavoro" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Environment e History: L’Ambiente di Lavoro</h3>
 </div>
-<div class="trick" title="My title">
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum!</p>
+<div id="file-plots-package-help-system-management" class="section level3">
+<h3><span class="header-section-number">2.1.4</span> File, Plots, Package, Help: System Management</h3>
+<div id="approfondimento-personalizzazione-layout-e-theme" class="section level4">
+<h4><span class="header-section-number">2.1.4.1</span> approfondimento personalizzazione layout e theme</h4>
 </div>
+</div>
+</div>
+<div id="primi-comandi" class="section level2">
+<h2><span class="header-section-number">2.2</span> Primi Comandi</h2>
+<div id="operatori-matematici" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Operatori Matematici</h3>
+</div>
+<div id="operatori-logici" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Operatori Logici</h3>
+<div id="approfondimento-operatore-in" class="section level4">
+<h4><span class="header-section-number">2.2.2.1</span> approfondimento operatore <code>%in%</code></h4>
+</div>
+</div>
+</div>
+<div id="creazione-di-variabili" class="section level2">
+<h2><span class="header-section-number">2.3</span> Creazione di Variabili</h2>
+<p>concetto di variabile e assegnare i valori</p>
+<div id="approfondimento-diversi-modi-di-assegnare-un-valore---assign" class="section level4">
+<h4><span class="header-section-number">2.3.0.1</span> approfondimento diversi modi di “assegnare un valore” (<code>&lt;-</code>, <code>=</code>, <code>assign()</code>)</h4>
+</div>
+</div>
+<div id="utilizzo-di-funzioni" class="section level2">
+<h2><span class="header-section-number">2.4</span> Utilizzo di funzioni</h2>
+<div id="section" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> </h3>
 
+</div>
 </div>
 </div>
 <hr>
@@ -237,7 +271,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["bookdown-psicostat-demo.pdf", "bookdown-psicostat-demo.epub"],
+"download": ["Introduction2R.pdf", "Introduction2R.epub"],
 "toc": {
 "collapse": "section",
 "scroll_highlight": true,
