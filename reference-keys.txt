@@ -3,6 +3,7 @@ install
 installare-r
 r-windows
 r-macos
+r-linux
 installare-r-studio
 first-commands
 interfaccia-di-rstudio

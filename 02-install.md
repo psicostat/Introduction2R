@@ -1,8 +1,9 @@
 # Installare R e RStudio {#install}
 
-
 R ed R-studio sono due software distinti. R è un linguaggio di programmazione usato in particolare in ambiti quali la statistica. R-studio invece è un'interfaccia *user-friendly* che permette di utilizzare R.
-R può essere utilizzato autonomamente tuttavia è consigliato l'utilizzo attraverso R-studio. Entrambi vanno installati separatamente e la procedura varia a seconda del proprio sistema operativo (Windows, MacOS o Linux). Riportiamo le istruzioni solo per Windows e MacOS. Chi utilizza Linux sicuramente è autonomo nell'installazione di questi due semplici programmi.
+R può essere utilizzato autonomamente tuttavia è consigliato l'utilizzo attraverso R-studio. Entrambi vanno installati separatamente e la procedura varia a seconda del proprio sistema operativo (Windows, MacOS o Linux). Riportiamo le istruzioni solo per Windows e MacOS Linux (Ubuntu)^[linux].
+
+^[linux]: Ovviamente R è disponibile per tutte le principali distribuzioni di Linux. Riportiamo qui le istruzioni per Ubuntu che sono anche valide per tutte le distribuzioni derivate.
 
 ## Installare R
 
@@ -66,6 +67,17 @@ R può essere utilizzato autonomamente tuttavia è consigliato l'utilizzo attrav
 <br>
 
 5. Al termine del download, eseguire il file e seguire le istruzioni fino al termine dell'installazione
+
+### R Linux
+
+Nonostante la semplicità di installazione di pacchetti su Linux, R a volte potrebbe essere più complicato da installare per via delle diverse distribuzioni, repository e chiavi per riconoscere la repository come sicura.
+
+Sul **CRAN** vi è la guida ufficiale con tutti i comandi `apt` da eseguire da terminale. Seguendo questi passaggi non dovrebbero esserci problemi.
+
+- [Installare R su Ubuntu - CRAN](https://cran.r-project.org/)
+
+Per qualsiasi difficoltà o errore, sopratutto con il mondo Linux, una ricerca su online risolve sempre il problema.
+
 
 <br>
 
