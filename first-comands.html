@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="rstudio-gui.html"/>
-<link rel="next" href="introduzione.html"/>
+<link rel="next" href="working-session.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,6 +52,8 @@
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 
@@ -96,19 +98,22 @@
 </ul></li>
 <li class="chapter" data-level="2" data-path="rstudio-gui.html"><a href="rstudio-gui.html"><i class="fa fa-check"></i><b>2</b> Interfaccia RStudio</a></li>
 <li class="chapter" data-level="3" data-path="first-comands.html"><a href="first-comands.html"><i class="fa fa-check"></i><b>3</b> Primi Passi in R</a><ul>
-<li class="chapter" data-level="3.1" data-path="first-comands.html"><a href="first-comands.html#operatori-matematici"><i class="fa fa-check"></i><b>3.1</b> Operatori Matematici</a></li>
+<li class="chapter" data-level="3.1" data-path="first-comands.html"><a href="first-comands.html#operatori-matematici"><i class="fa fa-check"></i><b>3.1</b> Operatori Matematici</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="first-comands.html"><a href="first-comands.html#ordine-operazioni"><i class="fa fa-check"></i><b>3.1.1</b> Ordine operazioni</a></li>
+<li class="chapter" data-level="" data-path="first-comands.html"><a href="first-comands.html#esercizi"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
 <li class="chapter" data-level="3.2" data-path="first-comands.html"><a href="first-comands.html#operatori-logici"><i class="fa fa-check"></i><b>3.2</b> Operatori Logici</a></li>
 <li class="chapter" data-level="3.3" data-path="first-comands.html"><a href="first-comands.html#creazione-di-variabili"><i class="fa fa-check"></i><b>3.3</b> Creazione di Variabili</a></li>
 <li class="chapter" data-level="3.4" data-path="first-comands.html"><a href="first-comands.html#utilizzo-di-funzioni"><i class="fa fa-check"></i><b>3.4</b> Utilizzo di funzioni</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="first-comands.html"><a href="first-comands.html#section"><i class="fa fa-check"></i><b>3.4.1</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>Struttura Dati</b></span></li>
-<li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
 <li class="chapter" data-level="4" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>4</b> Sessione di Lavoro</a><ul>
 <li class="chapter" data-level="4.1" data-path="working-session.html"><a href="working-session.html#infobox"><i class="fa fa-check"></i><b>4.1</b> Infobox</a></li>
 <li class="chapter" data-level="4.2" data-path="working-session.html"><a href="working-session.html#problema-google-soluzione"><i class="fa fa-check"></i><b>4.2</b> Problema + Google = Soluzione</a></li>
 </ul></li>
+<li class="part"><span><b>Struttura Dati</b></span></li>
+<li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
 <li class="chapter" data-level="5" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>5</b> Vettori</a></li>
 <li class="chapter" data-level="6" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>6</b> Matrici</a></li>
 <li class="chapter" data-level="7" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>7</b> Dataframe</a></li>
@@ -155,12 +160,232 @@
 </div>
 <div id="first-comands" class="section level1">
 <h1><span class="header-section-number">Capitolo 3</span> Primi Passi in R</h1>
-<p>In questo capitolo muoveremo i primi passi in R. Inizialmente vedremo come eseguire operazioni matematiche e logiche in R. Introdurremo successivamente l’uso delle variabili e delle funzioni in R.</p>
-<p>Imparare R è un lungo percorso (scoop: questo percorso non termina mai dato che R è sempre in continua evoluzione). Soprattutto all’inizio può sembrare eccessivamente difficile poichè è si incontrano per la prima volta molti comandi e concetti di programmazione. Tuttavia, una volta famigliarizzato con gli apetti di base, la progressione diventa sempre più veloce (inarrestabile direi!).</p>
+<p>Ora che abbiamo iniziato a famigliarizzare con il nostro stumento di lavoro possiamo finalmente dare fuoco alle polveri e concentraci sulla scrittura di codici!</p>
+<p>In questo capitolo muoveremo i primi passi in R. Inizialmente vedremo come utilizzare operatori matematici e logici per compiere semplici operazioni in R. Introdurremo successivamente l’uso delle variabili e delle funzioni.</p>
+<p>Imparare R è un lungo percorso (scoop: questo percorso non termina mai dato che R è sempre in continuo sviiluppo). Soprattutto all’inizio può sembrare eccessivamente difficile poichè è si incontrano per la prima volta molti comandi e concetti di programmazione. Tuttavia, una volta famigliarizzato con gli apetti di base, la progressione diventa sempre più veloce (inarrestabile direi!).</p>
 <p>In questo capitolo introdurremo per la prima volta molti elementi che saranno poi ripresi e approfonditi nei seguenti capitoli. Quindi non preoccuparti se non tutto ti sarà chiaro fin da subito. Imparare il tuo primo linguaggio di programmazione è difficile ma da qualche parte bisogna pure iniziare. Pronto per le tue prime linee di codice? Let’s become a useR!</p>
-<p>Ora che abbiamo iniziato a famigliarizzare con il nostro stumento di lavoro possimao finalmente dare fuoco alle polveri e concentraci sulla scrittura di codici!</p>
 <div id="operatori-matematici" class="section level2">
 <h2><span class="header-section-number">3.1</span> Operatori Matematici</h2>
+<p>R è un’ottima calcolatrice. Vediamo quali sono i principali operatori matematici e funzioni usate.</p>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Funzione
+</th>
+<th style="text-align:left;">
+Nome
+</th>
+<th style="text-align:left;">
+Esempio
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+x + y
+</td>
+<td style="text-align:left;">
+Addizione
+</td>
+<td style="text-align:left;">
+&gt; 5 + 3 <br>[1] 8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x - y
+</td>
+<td style="text-align:left;">
+Sottrazione
+</td>
+<td style="text-align:left;">
+&gt; 7 - 2 <br>[1] 5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x * y
+</td>
+<td style="text-align:left;">
+Moltiplicazione
+</td>
+<td style="text-align:left;">
+&gt; 4 * 3 <br>[1] 12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x / y
+</td>
+<td style="text-align:left;">
+Divisione
+</td>
+<td style="text-align:left;">
+&gt; 8 / 3 <br>[1] 2.666667
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x %% y
+</td>
+<td style="text-align:left;">
+Resto della divisione
+</td>
+<td style="text-align:left;">
+&gt; 7 %% 5 <br>[1] 2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x %/% y
+</td>
+<td style="text-align:left;">
+Divisione intera
+</td>
+<td style="text-align:left;">
+&gt; 7 %/% 5 <br>[1] 1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x ^ y
+</td>
+<td style="text-align:left;">
+Potenza
+</td>
+<td style="text-align:left;">
+&gt; 3 ^ 3 <br>[1] 27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abs(x)
+</td>
+<td style="text-align:left;">
+Valore assoluto
+</td>
+<td style="text-align:left;">
+&gt; abs(3-5^2) <br>[1] 22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sign(x)
+</td>
+<td style="text-align:left;">
+Segno di un’espressione
+</td>
+<td style="text-align:left;">
+&gt; sign(-8) <br>[1] -1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sqrt(x)
+</td>
+<td style="text-align:left;">
+Radice quadrata
+</td>
+<td style="text-align:left;">
+&gt; sqrt(25) <br>[1] 5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+log(x)
+</td>
+<td style="text-align:left;">
+Logaritmo naturale
+</td>
+<td style="text-align:left;">
+&gt; log(10) <br>[1] 2.302585
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+exp(x)
+</td>
+<td style="text-align:left;">
+Esponenziale
+</td>
+<td style="text-align:left;">
+&gt; exp(1) <br>[1] 2.718282
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sin(x)<br>cos(x)<br>tan(x)<br>asin(x)<br>acos(x)<br>atan(x)
+</td>
+<td style="text-align:left;">
+Funzioni trigonometriche
+</td>
+<td style="text-align:left;">
+&gt;sin(pi/2) <br>[1]1 <br>&gt;cos(pi/2) <br>[1]6.123234e-17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+factorial(x)
+</td>
+<td style="text-align:left;">
+Fattoriale
+</td>
+<td style="text-align:left;">
+&gt; factorial(6) <br>[1] 720
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+choose(n, k)
+</td>
+<td style="text-align:left;">
+Coefficiente binomiale
+</td>
+<td style="text-align:left;">
+&gt; choose(5,3) <br>[1] 10
+</td>
+</tr>
+</tbody>
+</table>
+<div class="tip" title="Le prime funzioni">
+<p>Nota come per svolgere operazioni come la radice quadrata o il valore assoluto vengono utlizzate delle specifiche funzioni. In R le funzioni sono richiamate digitando <code>&lt;nome-funnzione&gt;()</code> (e.g., <code>sqrt(25)</code>) indicando all’interno delle parentesi tonde gli argomenti della funzione. Approfondiremo le funzioni nella Sezione TODO.</p>
+</div>
+<div id="ordine-operazioni" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Ordine operazioni</h3>
+<p>Nello svolgere le operazioni, R segue lo stesso l’ordine usato nelle normali espressioni matematiche. Quindi l’ordine di precedenza degli operatori è:</p>
+<ol style="list-style-type: decimal">
+<li><code>^</code> (potenza)</li>
+<li><code>%%</code> (resto della divisione) e <code>%/%</code> (divisione intera)</li>
+<li><code>*</code> (moltiplicazione) e <code>/</code>(divisione)</li>
+<li><code>+</code> (addizione) e <code>-</code>(sotttrazione)</li>
+</ol>
+<p>Nota che in presenza di funzioni (e.g., <code>abs()</code>, <code>sin()</code>), R per prima cosa sostituisca le funzioni con il loro risultato per poi procedere con l’esecuzione delle operazioni nell’ordine indicato precedentemente.</p>
+<p>L’ordine di esecuzione delle operazioni può essere controllato attraverso l’uso delle <strong>parentesi tondone</strong> <code>()</code>. R eseguirà tutte le operazioni incluse nelle parentesi seguendo lo stesso ordine inndicato sopra. Utilizzando più gruppi di parentesi possiamo ottenere i risultati desiderati.</p>
+<div class="warning" title="Le parentesi">
+<p>Nota che in R solo le <strong>parentesi tonde</strong> <code>()</code> sono utilizzate per gestire l’ordine con cui sono eseguite le oprazioni.</p>
+<p><strong>Parentesi quadre</strong> <code>[]</code> e <strong>parentesi graffe</strong> <code>{}</code> sono invece speciali operatori utilizzati in R per altre ragioni come la selezione di elemente e la definizione di blocchi di codici. Argomenti che approfondiremo rispettivamente nel Capitolo TODO e Capitolo TODO.</p>
+</div>
+</div>
+<div id="esercizi" class="section level3 unnumbered">
+<h3>Esercizi</h3>
+<p>Calcola il risultato delle seguenti operazioni utilizzando R:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\frac{(45+21)^3+\frac{3}{4}}{\sqrt{32-\frac{12}{17}}}\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\sqrt{7-\pi}}{3\ (45-34)}\)</span></p></li>
+<li><p><span class="math inline">\(\sqrt[3]{12-e^2}+\ln(10\pi)\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\sin(\frac{3}{4}\pi)^2+\cos(\frac{3}{2}\pi)}{\log_7{e^{\frac{3}{2}}}}\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\sum_{n=1}^{10} n}{10}\)</span></p></li>
+</ol>
+<p>Note per la risoluzione degli esercizi:</p>
+<ul>
+<li>In R la radice quadrata si ottine con la funzione <code>sqrt()</code> mentre per radici di indici diversi si utilizza la notazione esponenziale (<span class="math inline">\(\sqrt[3]{x}\)</span> è dato da <code>x^(1/3)</code>).</li>
+<li>Il valore di <span class="math inline">\(\pi\)</span> si ottiene con <code>pi</code>.</li>
+<li>Il valore di <span class="math inline">\(e\)</span> si ottiene con <code>exp(1)</code>.</li>
+<li>In R per i logaritmi si usa la funzione <code>log(x, base=a)</code>, di base viene considerato il logaritmo naturale.</li>
+</ul>
+</div>
 </div>
 <div id="operatori-logici" class="section level2">
 <h2><span class="header-section-number">3.2</span> Operatori Logici</h2>
@@ -183,9 +408,6 @@
 </div>
 </div>
 </div>
-
-
-
 <hr>
 <center>
   <div class="footer">
@@ -202,7 +424,7 @@
         </div>
       </div>
 <a href="rstudio-gui.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="introduzione.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="working-session.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

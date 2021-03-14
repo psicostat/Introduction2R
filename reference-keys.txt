@@ -18,6 +18,7 @@ r-studio-in-linux
 rstudio-gui
 first-comands
 operatori-matematici
+ordine-operazioni
 operatori-logici
 approfondimento-operatore-in
 creazione-di-variabili

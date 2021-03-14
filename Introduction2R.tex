@@ -68,6 +68,7 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
+\usepackage{makecell} % for tables
 \usepackage{amsthm}
 \makeatletter
 \def\thm@space@setup{%
@@ -157,6 +158,20 @@
   }
 \usepackage{titlepic}
 \titlepic{\includegraphics[width=\textwidth]{images/logo_psicostat.pdf}}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
 
@@ -169,7 +184,7 @@
 \makeatother
 \subtitle{Corso per imparare le basi di \textbf{R}}
 \author{\href{https://psicostat.dpss.psy.unipd.it/}{Psicostat}}
-\date{11-03-2021}
+\date{14-03-2021}
 
 \begin{document}
 \maketitle
@@ -731,16 +746,127 @@ Prova a cambiare il tema dell editor in \emph{Idle Fingers} per utlizzare on bac
 \hypertarget{first-comands}{%
 \chapter{Primi Passi in R}\label{first-comands}}
 
-In questo capitolo muoveremo i primi passi in R. Inizialmente vedremo come eseguire operazioni matematiche e logiche in R. Introdurremo successivamente l'uso delle variabili e delle funzioni in R.
+Ora che abbiamo iniziato a famigliarizzare con il nostro stumento di lavoro possiamo finalmente dare fuoco alle polveri e concentraci sulla scrittura di codici!
 
-Imparare R è un lungo percorso (scoop: questo percorso non termina mai dato che R è sempre in continua evoluzione). Soprattutto all'inizio può sembrare eccessivamente difficile poichè è si incontrano per la prima volta molti comandi e concetti di programmazione. Tuttavia, una volta famigliarizzato con gli apetti di base, la progressione diventa sempre più veloce (inarrestabile direi!).
+In questo capitolo muoveremo i primi passi in R. Inizialmente vedremo come utilizzare operatori matematici e logici per compiere semplici operazioni in R. Introdurremo successivamente l'uso delle variabili e delle funzioni.
+
+Imparare R è un lungo percorso (scoop: questo percorso non termina mai dato che R è sempre in continuo sviiluppo). Soprattutto all'inizio può sembrare eccessivamente difficile poichè è si incontrano per la prima volta molti comandi e concetti di programmazione. Tuttavia, una volta famigliarizzato con gli apetti di base, la progressione diventa sempre più veloce (inarrestabile direi!).
 
 In questo capitolo introdurremo per la prima volta molti elementi che saranno poi ripresi e approfonditi nei seguenti capitoli. Quindi non preoccuparti se non tutto ti sarà chiaro fin da subito. Imparare il tuo primo linguaggio di programmazione è difficile ma da qualche parte bisogna pure iniziare. Pronto per le tue prime linee di codice? Let's become a useR!
 
-Ora che abbiamo iniziato a famigliarizzare con il nostro stumento di lavoro possimao finalmente dare fuoco alle polveri e concentraci sulla scrittura di codici!
-
 \hypertarget{operatori-matematici}{%
 \section{Operatori Matematici}\label{operatori-matematici}}
+
+R è un'ottima calcolatrice. Vediamo quali sono i principali operatori matematici e funzioni usate.
+
+\begin{table}
+\centering
+\begin{tabular}{l|l|l}
+\hline
+Funzione & Nome & Esempio\\
+\hline
+\texttt{x + y} & Addizione & \texttt{\makecell[l]{> 5 + 3 \\{[1]} 8}}\\
+\hline
+\texttt{x - y} & Sottrazione & \texttt{\makecell[l]{> 7 - 2 \\{[1]} 5}}\\
+\hline
+\texttt{x * y} & Moltiplicazione & \texttt{\makecell[l]{> 4 * 3 \\{[1]} 12}}\\
+\hline
+\texttt{x / y} & Divisione & \texttt{\makecell[l]{> 8 / 3 \\{[1]} 2.666667}}\\
+\hline
+\texttt{x \%\% y} & Resto della divisione & \texttt{\makecell[l]{> 7 \%\% 5 \\{[1]} 2}}\\
+\hline
+\texttt{x \%/\% y} & Divisione intera & \texttt{\makecell[l]{> 7 \%/\% 5 \\{[1]} 1}}\\
+\hline
+\texttt{x \^{} y} & Potenza & \texttt{\makecell[l]{> 3\^{}3 \\{[1]} 27}}\\
+\hline
+\texttt{abs(x)} & Valore assoluto & \texttt{\makecell[l]{> abs(3-5\^{}2) \\{[1]} 22}}\\
+\hline
+\texttt{sign(x)} & Segno di un'espressione & \texttt{\makecell[l]{> sign(-8) \\{[1]} -1}}\\
+\hline
+\texttt{sqrt(x)} & Radice quadrata & \texttt{\makecell[l]{> sqrt(25) \\{[1]} 5}}\\
+\hline
+\texttt{log(x)} & Logaritmo naturale & \texttt{\makecell[l]{> log(10) \\{[1]} 2.302585}}\\
+\hline
+\texttt{exp(x)} & Esponenziale & \texttt{\makecell[l]{> exp(1) \\{[1]} 2.718282}}\\
+\hline
+\texttt{\makecell[l]{sin(x)\\cos(x)\\tan(x)\\asin(x)\\acos(x)\\atan(x)}} & Funzioni trigonometriche & \texttt{\makecell[l]{ >sin(pi/2) \\{[1]}1 \\>cos(pi/2) \\{[1]}6.123234e-17}}\\
+\hline
+\texttt{factorial(x)} & Fattoriale & \texttt{\makecell[l]{> factorial(6) \\{[1]} 720}}\\
+\hline
+\texttt{choose(n, k)} & Coefficiente binomiale & \texttt{\makecell[l]{> choose(5,3) \\{[1]} 10}}\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{tip}[Le prime funzioni]
+
+Nota come per svolgere operazioni come la radice quadrata o il valore assoluto vengono utlizzate delle specifiche funzioni. In R le funzioni sono richiamate digitando \texttt{\textless{}nome-funnzione\textgreater{}()} (e.g., \texttt{sqrt(25)}) indicando all'interno delle parentesi tonde gli argomenti della funzione. Approfondiremo le funzioni nella Sezione TODO.
+
+\end{tip}
+
+\hypertarget{ordine-operazioni}{%
+\subsection{Ordine operazioni}\label{ordine-operazioni}}
+
+Nello svolgere le operazioni, R segue lo stesso l'ordine usato nelle normali espressioni matematiche. Quindi l'ordine di precedenza degli operatori è:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{\^{}} (potenza)
+\item
+  \texttt{\%\%} (resto della divisione) e \texttt{\%/\%} (divisione intera)
+\item
+  \texttt{*} (moltiplicazione) e \texttt{/}(divisione)
+\item
+  \texttt{+} (addizione) e \texttt{-}(sotttrazione)
+\end{enumerate}
+
+Nota che in presenza di funzioni (e.g., \texttt{abs()}, \texttt{sin()}), R per prima cosa sostituisca le funzioni con il loro risultato per poi procedere con l'esecuzione delle operazioni nell'ordine indicato precedentemente.
+
+L'ordine di esecuzione delle operazioni può essere controllato attraverso l'uso delle \textbf{parentesi tondone} \texttt{()}. R eseguirà tutte le operazioni incluse nelle parentesi seguendo lo stesso ordine inndicato sopra. Utilizzando più gruppi di parentesi possiamo ottenere i risultati desiderati.
+
+\begin{warning}[Le parentesi]
+
+Nota che in R solo le \textbf{parentesi tonde} \texttt{()} sono utilizzate per gestire l'ordine con cui sono eseguite le oprazioni.
+
+\textbf{Parentesi quadre} \texttt{{[}{]}} e \textbf{parentesi graffe} \texttt{\{\}} sono invece speciali operatori utilizzati in R per altre ragioni come la selezione di elemente e la definizione di blocchi di codici. Argomenti che approfondiremo rispettivamente nel Capitolo TODO e Capitolo TODO.
+
+\end{warning}
+
+\hypertarget{esercizi}{%
+\subsection*{Esercizi}\label{esercizi}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+Calcola il risultato delle seguenti operazioni utilizzando R:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(\frac{(45+21)^3+\frac{3}{4}}{\sqrt{32-\frac{12}{17}}}\)
+\item
+  \(\frac{\sqrt{7-\pi}}{3\ (45-34)}\)
+\item
+  \(\sqrt[3]{12-e^2}+\ln(10\pi)\)
+\item
+  \(\frac{\sin(\frac{3}{4}\pi)^2+\cos(\frac{3}{2}\pi)}{\log_7{e^{\frac{3}{2}}}}\)
+\item
+  \(\frac{\sum_{n=1}^{10} n}{10}\)
+\end{enumerate}
+
+Note per la risoluzione degli esercizi:
+
+\begin{itemize}
+\tightlist
+\item
+  In R la radice quadrata si ottine con la funzione \texttt{sqrt()} mentre per radici di indici diversi si utilizza la notazione esponenziale (\(\sqrt[3]{x}\) è dato da \texttt{x\^{}(1/3)}).
+\item
+  Il valore di \(\pi\) si ottiene con \texttt{pi}.
+\item
+  Il valore di \(e\) si ottiene con \texttt{exp(1)}.
+\item
+  In R per i logaritmi si usa la funzione \texttt{log(x,\ base=a)}, di base viene considerato il logaritmo naturale.
+\end{itemize}
 
 \hypertarget{operatori-logici}{%
 \section{Operatori Logici}\label{operatori-logici}}
@@ -761,16 +887,6 @@ concetto di variabile e assegnare i valori
 
 \hypertarget{section}{%
 \subsection{}\label{section}}
-
-\hypertarget{part-struttura-dati}{%
-\part*{Struttura Dati}\label{part-struttura-dati}}
-\addcontentsline{toc}{part}{Struttura Dati}
-
-\hypertarget{introduzione}{%
-\chapter*{Introduzione}\label{introduzione}}
-\addcontentsline{toc}{chapter}{Introduzione}
-
-Working in progress.
 
 \hypertarget{working-session}{%
 \chapter{Sessione di Lavoro}\label{working-session}}
@@ -907,6 +1023,16 @@ Se vi dico ``R non mi fa creare un nuovo oggetto, quale è l'errore?'' è divers
 Ci sono anche diversi pacchetti in R che rendono automatico creare questi esempi di codice da poter condividere, come il pacchetto \href{https://www.tidyverse.org/help/}{\texttt{reprex}}.
 
 \end{tip}
+
+\hypertarget{part-struttura-dati}{%
+\part*{Struttura Dati}\label{part-struttura-dati}}
+\addcontentsline{toc}{part}{Struttura Dati}
+
+\hypertarget{introduzione}{%
+\chapter*{Introduzione}\label{introduzione}}
+\addcontentsline{toc}{chapter}{Introduzione}
+
+Working in progress.
 
 \hypertarget{vector}{%
 \chapter{Vettori}\label{vector}}

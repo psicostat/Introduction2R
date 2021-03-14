@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="introduzione.html"/>
-<link rel="next" href="vector.html"/>
+<link rel="prev" href="first-comands.html"/>
+<link rel="next" href="introduzione.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,6 +52,8 @@
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 
@@ -96,19 +98,22 @@
 </ul></li>
 <li class="chapter" data-level="2" data-path="rstudio-gui.html"><a href="rstudio-gui.html"><i class="fa fa-check"></i><b>2</b> Interfaccia RStudio</a></li>
 <li class="chapter" data-level="3" data-path="first-comands.html"><a href="first-comands.html"><i class="fa fa-check"></i><b>3</b> Primi Passi in R</a><ul>
-<li class="chapter" data-level="3.1" data-path="first-comands.html"><a href="first-comands.html#operatori-matematici"><i class="fa fa-check"></i><b>3.1</b> Operatori Matematici</a></li>
+<li class="chapter" data-level="3.1" data-path="first-comands.html"><a href="first-comands.html#operatori-matematici"><i class="fa fa-check"></i><b>3.1</b> Operatori Matematici</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="first-comands.html"><a href="first-comands.html#ordine-operazioni"><i class="fa fa-check"></i><b>3.1.1</b> Ordine operazioni</a></li>
+<li class="chapter" data-level="" data-path="first-comands.html"><a href="first-comands.html#esercizi"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
 <li class="chapter" data-level="3.2" data-path="first-comands.html"><a href="first-comands.html#operatori-logici"><i class="fa fa-check"></i><b>3.2</b> Operatori Logici</a></li>
 <li class="chapter" data-level="3.3" data-path="first-comands.html"><a href="first-comands.html#creazione-di-variabili"><i class="fa fa-check"></i><b>3.3</b> Creazione di Variabili</a></li>
 <li class="chapter" data-level="3.4" data-path="first-comands.html"><a href="first-comands.html#utilizzo-di-funzioni"><i class="fa fa-check"></i><b>3.4</b> Utilizzo di funzioni</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="first-comands.html"><a href="first-comands.html#section"><i class="fa fa-check"></i><b>3.4.1</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>Struttura Dati</b></span></li>
-<li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
 <li class="chapter" data-level="4" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>4</b> Sessione di Lavoro</a><ul>
 <li class="chapter" data-level="4.1" data-path="working-session.html"><a href="working-session.html#infobox"><i class="fa fa-check"></i><b>4.1</b> Infobox</a></li>
 <li class="chapter" data-level="4.2" data-path="working-session.html"><a href="working-session.html#problema-google-soluzione"><i class="fa fa-check"></i><b>4.2</b> Problema + Google = Soluzione</a></li>
 </ul></li>
+<li class="part"><span><b>Struttura Dati</b></span></li>
+<li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
 <li class="chapter" data-level="5" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>5</b> Vettori</a></li>
 <li class="chapter" data-level="6" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>6</b> Matrici</a></li>
 <li class="chapter" data-level="7" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>7</b> Dataframe</a></li>
@@ -199,9 +204,11 @@ optio, eaque rerum!</p>
 <p>L’<strong>errore non è quindi un difetto o un imprevisto</strong>, ma parte integrante della scrittura del codice. L’importante è capire come gestirlo.</p>
 <p>Abbiamo tutti le immagini in testa di programmatori da film che scrivono codice alla velocità della luce, quando nella realtà dobbiamo spesso affrontare <strong>bug</strong>, <strong>errori di output</strong> o altri problemi vari. Una serie di skills utili da imparare sono:</p>
 <ul>
-<li>Comprendere a fondo gli <strong>errori</strong> (non banale)</li>
+<li>Comprendere a fondo gli <strong>errori</strong> (non banale)
+<ul>
 <li>Sapere <strong>come e dove cercare una soluzione</strong> (ancora meno banale)</li>
 <li>In caso non si trovi una soluzione direttamente, chiedere aiuto in modo efficace</li>
+</ul></li>
 </ul>
 <div id="comprendere-gli-errori" class="section level4 unnumbered">
 <h4>Comprendere gli errori</h4>
@@ -241,6 +248,9 @@ Mi raccomando, fate tutte le ricerche in <strong>inglese</strong> perchè le pos
 </div>
 </div>
 </div>
+
+
+
 <div class="footnotes">
 <hr />
 <ol start="1">
@@ -262,8 +272,8 @@ Mi raccomando, fate tutte le ricerche in <strong>inglese</strong> perchè le pos
           </div>
         </div>
       </div>
-<a href="introduzione.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="vector.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="first-comands.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introduzione.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
