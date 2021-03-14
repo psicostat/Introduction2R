@@ -11,7 +11,7 @@ editor_options:
 
 Ora che abbiamo iniziato a famigliarizzare con il nostro stumento di lavoro possiamo finalmente dare fuoco alle polveri e concentraci sulla scrittura di codici!
 
-In questo capitolo muoveremo i primi passi in R. Inizialmente vedremo come utilizzare operatori matematici e logici per compiere semplici operazioni in R. Introdurremo successivamente l'uso delle variabili e delle funzioni.
+In questo capitolo muoveremo i primi passi in R. Inizialmente vedremo come utilizzare operatori matematici, relazionali e logici per compiere semplici operazioni in R. Introdurremo successivamente l'uso delle variabili e delle funzioni.
 
 Imparare R è un lungo percorso (scoop: questo percorso non termina mai dato che R è sempre in continuo sviiluppo). Soprattutto all'inizio può sembrare eccessivamente difficile poichè è si incontrano per la prima volta molti comandi e concetti di programmazione. Tuttavia, una volta famigliarizzato con gli apetti di base, la progressione diventa sempre più veloce (inarrestabile direi!).
 
@@ -19,9 +19,10 @@ In questo capitolo introdurremo per la prima volta molti elementi che saranno po
 
 ## Operatori Matematici
 
-R è un'ottima calcolatrice. Vediamo quali sono i principali operatori matematici e funzioni usate.
+R è un'ottima calcolatrice. Nella Tabella \@ref(tab:math-operators) sono elencati i principali operatori matematici e funzioni usate in R.
 
 <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:math-operators)Operatori Matematici</caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Funzione </th>
@@ -112,7 +113,7 @@ R è un'ottima calcolatrice. Vediamo quali sono i principali operatori matematic
 Nota come per svolgere operazioni come la radice quadrata o il valore assoluto vengono utlizzate delle specifiche funzioni. In R le funzioni sono richiamate digitando `<nome-funnzione>()` (e.g., `sqrt(25)`) indicando all'interno delle parentesi tonde gli argomenti della funzione. Approfondiremo le funzioni nella Sezione TODO. 
 :::
 
-### Ordine operazioni
+### Ordine Operazioni
 
 Nello svolgere le operazioni, R segue lo stesso l'ordine usato nelle normali espressioni matematiche. Quindi l'ordine di precedenza degli operatori è:
 
@@ -153,9 +154,150 @@ Note per la risoluzione degli esercizi:
 - In R per i logaritmi si usa la funzione `log(x, base=a)`, di base viene  considerato il logaritmo naturale.
 
 
-## Operatori Logici
+## Operatori Relazionali e Logici
 
-#### approfondimento operatore `%in%`
+### Operatori Relazionali
+
+In R è possibile valutare se una data relazione è vera o fasa. Ad esempio, posiamo valutare se "*2 è minore di 10*" o se "*4 numero è un numero pari*". Queste operazioni al momento potrebbero sembrare non particolrmente interessanti ma si riveleranno molto utili nei capitoli successivi ad esempio per la selezione di elementi (vedi Capitolo TODO) o la definizionne di algoritmi (vedi Capitolo TODO).
+
+R valuterà le proposizioni e ci restituirà il valore `TRUE` se la proposizione è vera oppure `FALSE` se la proposizione è falsa. Nella Tabella \@ref(tab:relational-operators) sono elencati gli operatori relazionali.
+
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:relational-operators)Operatori Relazionali</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Funzione </th>
+   <th style="text-align:left;"> Nome </th>
+   <th style="text-align:left;"> Esempio </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> x == y </td>
+   <td style="text-align:left;"> Uguale </td>
+   <td style="text-align:left;"> &gt; 5 == 3 <br>[1] FALSE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x != y </td>
+   <td style="text-align:left;"> Diverso </td>
+   <td style="text-align:left;"> &gt; 7 != 2 <br>[1] TRUE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x &gt; y </td>
+   <td style="text-align:left;"> Maggiore </td>
+   <td style="text-align:left;"> &gt; 4 &gt; 3 <br>[1] TRUE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x &gt;= y </td>
+   <td style="text-align:left;"> Maggiore o uguale </td>
+   <td style="text-align:left;"> &gt; -2 &gt;= 3 <br>[1] FALSE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x &lt; y </td>
+   <td style="text-align:left;"> Minore </td>
+   <td style="text-align:left;"> &gt; 7 &lt; 5 <br>[1] FALSE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x &lt;= y </td>
+   <td style="text-align:left;"> Minore o uguale </td>
+   <td style="text-align:left;"> &gt; 7 &lt;= 7 <br>[1] TRUE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x %in% y </td>
+   <td style="text-align:left;"> inclusione </td>
+   <td style="text-align:left;"> &gt; 5 %in% c(3, 5, 8) <br>[1] TRUE </td>
+  </tr>
+</tbody>
+</table>
+
+:::{.warning title="'==' non è uguale a '='" data-latex="['==' non è uguale a '=']"}
+Attenzione che per valutare l'uguaglianza tra due valori non bisogna utilizzare `=` ma `==`. Questo è un'errore molto comune ceh si commmette in continuazione.
+
+L'operatore `=` è utilizzato in R per assegnare un valore ad una variablie. Argomento che vederemo nella Sezione TODO
+:::
+
+:::{.tip title="TRUE-T-1; FALSE-F-0" data-latex="[TRUE-T-1; FALSE-F-0]"}
+Nota che in qualsiasi linguaggio di Programmazione, ai valori TRUE e FALSE sono associati rispettivament i valori numerici 1 e 0. Questi sono definiti [valori booleani](https://it.wikipedia.org/wiki/Variabile_booleana).
+
+
+```r
+TRUE == 1   # TRUE
+TRUE == 2   # FALSE
+TRUE == 0   # FALSE
+FALSE == 0  # TRUE
+FALSE == 1  # FALSE
+```
+
+In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poichè potrebbe nonn essere chiara e creare fraintendimenti.
+
+
+```r
+T == 1      # TRUE
+T == TRUE   # TRUE
+F == 0      # TRUE
+F == FALSE  # TRUE
+```
+
+:::
+
+In R è possibile congiungere più relazioni per valutare una desiderata proposizione. Ad esempio potremmo valutare se "*17 è maggiore di 10 e minore di 20*". Per unire più relazioni in un'unica proposizione che R valuterà come `TRUE` o `FALSE`, vengono utilizati gli operatori logici riportati in Tabella \@ref(tab:logical-operators).
+
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:logical-operators)Operatori Logici</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Funzione </th>
+   <th style="text-align:left;"> Nome </th>
+   <th style="text-align:left;"> Esempio </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> !x </td>
+   <td style="text-align:left;"> Negazione </td>
+   <td style="text-align:left;"> &gt; !TRUE <br>[1] FALSE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x &amp; y </td>
+   <td style="text-align:left;"> Congiunzione </td>
+   <td style="text-align:left;"> &gt; TRUE &amp; FALSE <br>[1] FALSE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x | y </td>
+   <td style="text-align:left;"> Disgiunzione Inclusiva </td>
+   <td style="text-align:left;"> &gt; TRUE | FALSE <br>[1] TRUE </td>
+  </tr>
+</tbody>
+</table>
+
+Questi operatori sono anche definiti [operatori booleani](https://it.wikipedia.org/wiki/Espressione_booleana) e seguono le comuni definizioni degli operatori logici. In particolare abbiamo che:
+
+- Nel caso della **congiunzione logica** `&`, affinchè la proposizione sia vera è necessario che entrambe le relazioni siano vere. Negli altri casi la proposizione sarà valutarta falsa.  
+- Nel caso della **disgiunzione inclusiva logica** `|`, affinchè la proposizione sia vera è necessario che almeno una relaziona sia vara. La proposizione sarà valutarta falsa solo quando entrambe le relazioni sono false.
+
+### Ordine valutazione relazioni
+
+Nel valutare le veridicità delle proposizioni R esegue le operazioni nel seguente ordine:
+
+1. operatori matematici (e.g., `^`, `*`, `/`, `+`, `-`, etc.)
+2. operatori relazionali (e.g., `<`, `>`, `<=`, `>=`, `==`, `!=`)
+3. operatori logici (e.g., `!`, `&`, `|`)
+
+La lista completa dell'ordine di esecuzione delle operazioni è riportata al seguente link [https://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html). Ricordiamo che, in caso di dubbi riguardanti l'ordine di esecuzione delle operazioni, la cosa migliore è utilizzare le parentesi tonde `()` per disambiguare ogni possibile fraintendimento. 
+
+:::{.warning title="L'operatore %in%" data-latex="[L'operatore \\%in\\%]"}
+Nota che l'operatore `%in%` che abbiamo precedentemente indicato tra gli operatori relazionali in realtà è un operatore speciale. In particolare, non segue le stesse regole degli altri operatori relazionlali per quanto riguarda l'ordine di esecuzione.
+
+La soluzione migliore? Usa le parentesi!
+:::
+
+### Esercizi {-}
+
+1. Definisici due relazioni false e due vere che ti permettano di valutare i risultati di tutti i possibili incroci che puoi ottenere con gli operatori logici `&` e `|`.
+2. Definisci una proposizione che ti permetta di valutare se un numero è pari. Definisci un'altra proposizione per i nueri dispari (tip: cosa ti ricorda `%%`?).
+3. Definisci una proposizione per valutare la seguente condizione (ricordati di testare tutti i possibili scenari) "*x è un numero compreso -4 e -2 oppure è un numero compreso tra 2 e 4*".
+4. Esegui le seguenti operazioni `4 ^ 3 %in% c(2,3,4)` e `4 * 3 %in% c(2,3,4)`. Cosa osservi nell'ordine di esecuzione degli operatori?
+
 
 ## Creazione di Variabili
 

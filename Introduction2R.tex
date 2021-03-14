@@ -41,6 +41,46 @@
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -319,7 +359,7 @@ I capitoli sono così organizzati:
 \item
   \textbf{Capitolo \ref{rstudio-gui}: Interfaccia RStudio}. Introduzione all'interfaccia utente di RStudio.
 \item
-  \textbf{Capitolo \ref{first-comands}: Primi Passi in R}. Operatori matematici, operatori logici, creazione di variabili e utilizzo di funzioni.
+  \textbf{Capitolo \ref{first-comands}: Primi Passi in R}. Operatori matematici, operatori relazionali, operatori logici, creazione di variabili e utilizzo di funzioni.
 \item
   \textbf{Capitolo \ref{working-session}: Sessione di Lavoro}. Utilizzo degli script e introduzione dei concetti di environment, working directory e pacchetti di R.
 \end{itemize}
@@ -748,7 +788,7 @@ Prova a cambiare il tema dell editor in \emph{Idle Fingers} per utlizzare on bac
 
 Ora che abbiamo iniziato a famigliarizzare con il nostro stumento di lavoro possiamo finalmente dare fuoco alle polveri e concentraci sulla scrittura di codici!
 
-In questo capitolo muoveremo i primi passi in R. Inizialmente vedremo come utilizzare operatori matematici e logici per compiere semplici operazioni in R. Introdurremo successivamente l'uso delle variabili e delle funzioni.
+In questo capitolo muoveremo i primi passi in R. Inizialmente vedremo come utilizzare operatori matematici, relazionali e logici per compiere semplici operazioni in R. Introdurremo successivamente l'uso delle variabili e delle funzioni.
 
 Imparare R è un lungo percorso (scoop: questo percorso non termina mai dato che R è sempre in continuo sviiluppo). Soprattutto all'inizio può sembrare eccessivamente difficile poichè è si incontrano per la prima volta molti comandi e concetti di programmazione. Tuttavia, una volta famigliarizzato con gli apetti di base, la progressione diventa sempre più veloce (inarrestabile direi!).
 
@@ -757,11 +797,13 @@ In questo capitolo introdurremo per la prima volta molti elementi che saranno po
 \hypertarget{operatori-matematici}{%
 \section{Operatori Matematici}\label{operatori-matematici}}
 
-R è un'ottima calcolatrice. Vediamo quali sono i principali operatori matematici e funzioni usate.
+R è un'ottima calcolatrice. Nella Tabella \ref{tab:math-operators} sono elencati i principali operatori matematici e funzioni usate in R.
 
 \begin{table}
+
+\caption{\label{tab:math-operators}Operatori Matematici}
 \centering
-\begin{tabular}{l|l|l}
+\begin{tabular}[t]{l|l|l}
 \hline
 Funzione & Nome & Esempio\\
 \hline
@@ -805,7 +847,7 @@ Nota come per svolgere operazioni come la radice quadrata o il valore assoluto v
 \end{tip}
 
 \hypertarget{ordine-operazioni}{%
-\subsection{Ordine operazioni}\label{ordine-operazioni}}
+\subsection{Ordine Operazioni}\label{ordine-operazioni}}
 
 Nello svolgere le operazioni, R segue lo stesso l'ordine usato nelle normali espressioni matematiche. Quindi l'ordine di precedenza degli operatori è:
 
@@ -868,11 +910,147 @@ Note per la risoluzione degli esercizi:
   In R per i logaritmi si usa la funzione \texttt{log(x,\ base=a)}, di base viene considerato il logaritmo naturale.
 \end{itemize}
 
-\hypertarget{operatori-logici}{%
-\section{Operatori Logici}\label{operatori-logici}}
+\hypertarget{operatori-relazionali-e-logici}{%
+\section{Operatori Relazionali e Logici}\label{operatori-relazionali-e-logici}}
 
-\hypertarget{approfondimento-operatore-in}{%
-\subsubsection{\texorpdfstring{approfondimento operatore \texttt{\%in\%}}{approfondimento operatore \%in\%}}\label{approfondimento-operatore-in}}
+\hypertarget{operatori-relazionali}{%
+\subsection{Operatori Relazionali}\label{operatori-relazionali}}
+
+In R è possibile valutare se una data relazione è vera o fasa. Ad esempio, posiamo valutare se ``\emph{2 è minore di 10}'' o se ``\emph{4 numero è un numero pari}''. Queste operazioni al momento potrebbero sembrare non particolrmente interessanti ma si riveleranno molto utili nei capitoli successivi ad esempio per la selezione di elementi (vedi Capitolo TODO) o la definizionne di algoritmi (vedi Capitolo TODO).
+
+R valuterà le proposizioni e ci restituirà il valore \texttt{TRUE} se la proposizione è vera oppure \texttt{FALSE} se la proposizione è falsa. Nella Tabella \ref{tab:relational-operators} sono elencati gli operatori relazionali.
+
+\begin{table}
+
+\caption{\label{tab:relational-operators}Operatori Relazionali}
+\centering
+\begin{tabular}[t]{l|l|l}
+\hline
+Funzione & Nome & Esempio\\
+\hline
+\texttt{x == y} & Uguale & \texttt{\makecell[l]{> 5 == 3 \\{[1]} FALSE}}\\
+\hline
+\texttt{x != y} & Diverso & \texttt{\makecell[l]{> 7 != 2 \\{[1]} TRUE}}\\
+\hline
+\texttt{x > y} & Maggiore & \texttt{\makecell[l]{> 4 > 3 \\{[1]} TRUE}}\\
+\hline
+\texttt{x >= y} & Maggiore o uguale & \texttt{\makecell[l]{> -2 >= 3 \\{[1]} FALSE}}\\
+\hline
+\texttt{x < y} & Minore & \texttt{\makecell[l]{> 7 < 5 \\{[1]} FALSE}}\\
+\hline
+\texttt{x <= y} & Minore o uguale & \texttt{\makecell[l]{> 7 <= 7 \\{[1]} TRUE}}\\
+\hline
+\texttt{x \%in\% y} & inclusione & \texttt{\makecell[l]{> 5 \%in\% c(3, 5, 8) \\{[1]} TRUE}}\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{warning}['==' non è uguale a '=']
+
+Attenzione che per valutare l'uguaglianza tra due valori non bisogna utilizzare \texttt{=} ma \texttt{==}. Questo è un'errore molto comune ceh si commmette in continuazione.
+
+L'operatore \texttt{=} è utilizzato in R per assegnare un valore ad una variablie. Argomento che vederemo nella Sezione TODO
+
+\end{warning}
+
+\begin{tip}[TRUE-T-1; FALSE-F-0]
+
+Nota che in qualsiasi linguaggio di Programmazione, ai valori TRUE e FALSE sono associati rispettivament i valori numerici 1 e 0. Questi sono definiti \href{https://it.wikipedia.org/wiki/Variabile_booleana}{valori booleani}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OtherTok{TRUE} \OperatorTok{==}\StringTok{ }\DecValTok{1}   \CommentTok{# TRUE}
+\OtherTok{TRUE} \OperatorTok{==}\StringTok{ }\DecValTok{2}   \CommentTok{# FALSE}
+\OtherTok{TRUE} \OperatorTok{==}\StringTok{ }\DecValTok{0}   \CommentTok{# FALSE}
+\OtherTok{FALSE} \OperatorTok{==}\StringTok{ }\DecValTok{0}  \CommentTok{# TRUE}
+\OtherTok{FALSE} \OperatorTok{==}\StringTok{ }\DecValTok{1}  \CommentTok{# FALSE}
+\end{Highlighting}
+\end{Shaded}
+
+In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poichè potrebbe nonn essere chiara e creare fraintendimenti.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{T }\OperatorTok{==}\StringTok{ }\DecValTok{1}      \CommentTok{# TRUE}
+\NormalTok{T }\OperatorTok{==}\StringTok{ }\OtherTok{TRUE}   \CommentTok{# TRUE}
+\NormalTok{F }\OperatorTok{==}\StringTok{ }\DecValTok{0}      \CommentTok{# TRUE}
+\NormalTok{F }\OperatorTok{==}\StringTok{ }\OtherTok{FALSE}  \CommentTok{# TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tip}
+
+In R è possibile congiungere più relazioni per valutare una desiderata proposizione. Ad esempio potremmo valutare se ``\emph{17 è maggiore di 10 e minore di 20}''. Per unire più relazioni in un'unica proposizione che R valuterà come \texttt{TRUE} o \texttt{FALSE}, vengono utilizati gli operatori logici riportati in Tabella \ref{tab:logical-operators}.
+
+\begin{table}
+
+\caption{\label{tab:logical-operators}Operatori Logici}
+\centering
+\begin{tabular}[t]{l|l|l}
+\hline
+Funzione & Nome & Esempio\\
+\hline
+\texttt{!x} & Negazione & \texttt{\makecell[l]{> !TRUE \\{[1]} FALSE}}\\
+\hline
+\texttt{x \& y} & Congiunzione & \texttt{\makecell[l]{> TRUE \& FALSE \\{[1]} FALSE}}\\
+\hline
+\texttt{x | y} & Disgiunzione Inclusiva & \texttt{\makecell[l]{> TRUE | FALSE \\{[1]} TRUE}}\\
+\hline
+\end{tabular}
+\end{table}
+
+Questi operatori sono anche definiti \href{https://it.wikipedia.org/wiki/Espressione_booleana}{operatori booleani} e seguono le comuni definizioni degli operatori logici. In particolare abbiamo che:
+
+\begin{itemize}
+\tightlist
+\item
+  Nel caso della \textbf{congiunzione logica} \texttt{\&}, affinchè la proposizione sia vera è necessario che entrambe le relazioni siano vere. Negli altri casi la proposizione sarà valutarta falsa.\\
+\item
+  Nel caso della \textbf{disgiunzione inclusiva logica} \texttt{\textbar{}}, affinchè la proposizione sia vera è necessario che almeno una relaziona sia vara. La proposizione sarà valutarta falsa solo quando entrambe le relazioni sono false.
+\end{itemize}
+
+\hypertarget{ordine-valutazione-relazioni}{%
+\subsection{Ordine valutazione relazioni}\label{ordine-valutazione-relazioni}}
+
+Nel valutare le veridicità delle proposizioni R esegue le operazioni nel seguente ordine:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  operatori matematici (e.g., \texttt{\^{}}, \texttt{*}, \texttt{/}, \texttt{+}, \texttt{-}, etc.)
+\item
+  operatori relazionali (e.g., \texttt{\textless{}}, \texttt{\textgreater{}}, \texttt{\textless{}=}, \texttt{\textgreater{}=}, \texttt{==}, \texttt{!=})
+\item
+  operatori logici (e.g., \texttt{!}, \texttt{\&}, \texttt{\textbar{}})
+\end{enumerate}
+
+La lista completa dell'ordine di esecuzione delle operazioni è riportata al seguente link \url{https://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html}. Ricordiamo che, in caso di dubbi riguardanti l'ordine di esecuzione delle operazioni, la cosa migliore è utilizzare le parentesi tonde \texttt{()} per disambiguare ogni possibile fraintendimento.
+
+\begin{warning}[L'operatore \%in\%]
+
+Nota che l'operatore \texttt{\%in\%} che abbiamo precedentemente indicato tra gli operatori relazionali in realtà è un operatore speciale. In particolare, non segue le stesse regole degli altri operatori relazionlali per quanto riguarda l'ordine di esecuzione.
+
+La soluzione migliore? Usa le parentesi!
+
+\end{warning}
+
+\hypertarget{esercizi-1}{%
+\subsection*{Esercizi}\label{esercizi-1}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Definisici due relazioni false e due vere che ti permettano di valutare i risultati di tutti i possibili incroci che puoi ottenere con gli operatori logici \texttt{\&} e \texttt{\textbar{}}.
+\item
+  Definisci una proposizione che ti permetta di valutare se un numero è pari. Definisci un'altra proposizione per i nueri dispari (tip: cosa ti ricorda \texttt{\%\%}?).
+\item
+  Definisci una proposizione per valutare la seguente condizione (ricordati di testare tutti i possibili scenari) ``\emph{x è un numero compreso -4 e -2 oppure è un numero compreso tra 2 e 4}''.
+\item
+  Esegui le seguenti operazioni \texttt{4\ \^{}\ 3\ \%in\%\ c(2,3,4)} e \texttt{4\ *\ 3\ \%in\%\ c(2,3,4)}. Cosa osservi nell'ordine di esecuzione degli operatori?
+\end{enumerate}
 
 \hypertarget{creazione-di-variabili}{%
 \section{Creazione di Variabili}\label{creazione-di-variabili}}

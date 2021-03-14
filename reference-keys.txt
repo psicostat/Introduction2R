@@ -8,6 +8,9 @@ fig:files
 fig:plots
 fig:packages
 fig:help
+tab:math-operators
+tab:relational-operators
+tab:logical-operators
 install
 installare-r
 r-windows
@@ -19,8 +22,9 @@ rstudio-gui
 first-comands
 operatori-matematici
 ordine-operazioni
-operatori-logici
-approfondimento-operatore-in
+operatori-relazionali-e-logici
+operatori-relazionali
+ordine-valutazione-relazioni
 creazione-di-variabili
 approfondimento-diversi-modi-di-assegnare-un-valore---assign
 utilizzo-di-funzioni
