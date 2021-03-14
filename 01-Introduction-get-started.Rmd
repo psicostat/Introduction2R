@@ -8,5 +8,5 @@ I capitoli sono così organizzati:
 
 - **Capitolo \@ref(install): Installare R e RStudio**. Instruzioni passo a passo per installare R e RStudio
 - **Capitolo \@ref(rstudio-gui): Interfaccia RStudio**. Introduzione all'interfaccia utente di RStudio.
-- **Capitolo \@ref(first-comands): Primi Passi in R**. Operatori matematici, operatori logici, creazione di variabili e utilizzo di funzioni.
+- **Capitolo \@ref(first-comands): Primi Passi in R**. Operatori matematici, operatori relazionali, operatori logici, creazione di variabili e utilizzo di funzioni.
 - **Capitolo \@ref(working-session): Sessione di Lavoro**. Utilizzo degli script e introduzione dei concetti di environment, working directory e pacchetti di R.  
