@@ -2,6 +2,16 @@
 
 Working in progress.
 
+- Console e script
+- Commenti
+- Output errori
+- Sintassi R (NA, NULL, TRUE, FALSE)
+- environment
+- working directory 
+- Basi sui pacchetti
+- R projects
+
+
 ## Infobox
 
 Illustrations included in `images/` are retrieved from [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) under [CC-BY-NC](https://creativecommons.org/licenses/by-nc/2.0/). Remember to include an *Attributions* section in the book and repository’s README file.
