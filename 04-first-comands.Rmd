@@ -1,10 +1,3 @@
----
-output:
-  html_document: default
-  pdf_document: default
-editor_options:
-  chunk_output_type: console
----
 # Primi Passi in R {#first-comands}
 
 ```{r settings, echo = FALSE}
@@ -19,9 +12,7 @@ library(kableExtra)
 
 Ora che abbiamo iniziato a famigliarizzare con il nostro stumento di lavoro possiamo finalmente dare fuoco alle polveri e concentraci sulla scrittura di codici!
 
-In questo capitolo muoveremo i primi passi in R. Inizialmente vedremo come utilizzare operatori matematici, relazionali e logici per compiere semplici operazioni in R. Introdurremo successivamente l'uso delle variabili e delle funzioni.
-
-Imparare R è un lungo percorso (scoop: questo percorso non termina mai dato che R è sempre in continuo sviiluppo). Soprattutto all'inizio può sembrare eccessivamente difficile poichè è si incontrano per la prima volta molti comandi e concetti di programmazione. Tuttavia, una volta famigliarizzato con gli apetti di base, la progressione diventa sempre più veloce (inarrestabile direi!).
+In questo capitolo muoveremo i primi passi in R. Inizieremo vedendo come utilizzare operatori matematici, relazionali e logici per compiere semplici operazioni in R. Imparare R è un lungo percorso (scoop: questo percorso non termina mai dato che R è sempre in continuo sviiluppo). Soprattutto all'inizio può sembrare eccessivamente difficile poichè è si incontrano per la prima volta molti comandi e concetti di programmazione. Tuttavia, una volta famigliarizzato con gli apetti di base, la progressione diventa sempre più veloce (inarrestabile direi!).
 
 In questo capitolo introdurremo per la prima volta molti elementi che saranno poi ripresi e approfonditi nei seguenti capitoli. Quindi non preoccuparti se non tutto ti sarà chiaro fin da subito. Imparare il tuo primo linguaggio di programmazione è difficile ma da qualche parte bisogna pure iniziare. Pronto per le tue prime linee di codice? Let's become a useR!
 
@@ -239,7 +230,7 @@ Nel valutare le veridicità delle proposizioni R esegue le operazioni nel seguen
 
 La lista completa dell'ordine di esecuzione delle operazioni è riportata al seguente link [https://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html). Ricordiamo che, in caso di dubbi riguardanti l'ordine di esecuzione delle operazioni, la cosa migliore è utilizzare le parentesi tonde `()` per disambiguare ogni possibile fraintendimento. 
 
-:::{.warning title="L'operatore %in%" data-latex="[L'operatore \\%in\\%]"}
+:::{.warning title="L'operatore '%in%'" data-latex="[L'operatore '\\%in\\%']"}
 Nota che l'operatore `%in%` che abbiamo precedentemente indicato tra gli operatori relazionali in realtà è un operatore speciale. In particolare, non segue le stesse regole degli altri operatori relazionlali per quanto riguarda l'ordine di esecuzione.
 
 La soluzione migliore? Usa le parentesi!
@@ -249,16 +240,5 @@ La soluzione migliore? Usa le parentesi!
 
 1. Definisici due relazioni false e due vere che ti permettano di valutare i risultati di tutti i possibili incroci che puoi ottenere con gli operatori logici `&` e `|`.
 2. Definisci una proposizione che ti permetta di valutare se un numero è pari. Definisci un'altra proposizione per i nueri dispari (tip: cosa ti ricorda `%%`?).
-3. Definisci una proposizione per valutare la seguente condizione (ricordati di testare tutti i possibili scenari) "*x è un numero compreso -4 e -2 oppure è un numero compreso tra 2 e 4*".
+3. Definisci una proposizione per valutare la seguente condizione (ricordati di testare tutti i possibili scenari) "*x è un numero compreso tra -4 e -2 oppure è un numero compreso tra 2 e 4*".
 4. Esegui le seguenti operazioni `4 ^ 3 %in% c(2,3,4)` e `4 * 3 %in% c(2,3,4)`. Cosa osservi nell'ordine di esecuzione degli operatori?
-
-
-## Creazione di Variabili
-
-concetto di variabile e assegnare i valori
-
-#### approfondimento diversi modi di "assegnare un valore" (`<-`, `=`, `assign()`)
-
-## Utilizzo di funzioni                                                             
-
-###
