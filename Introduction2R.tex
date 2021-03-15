@@ -691,7 +691,7 @@ Qui sono presentati una serie di pannelli utili per valutare informazioni ineren
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Environment}: elenco tutti gli oggetti e variabili attualmente presenti nel'ambiente di lavoro. Approfondiremo i concetti di variabili e di ambiente di lavoro rispettivamente nel Capitolo TODO e Capitolo TODO.
+  \textbf{Environment}: elenco tutti gli oggetti e variabili attualmente presenti nel'ambiente di lavoro. Approfondiremo i concetti di variabili e di ambiente di lavoro rispettivamente nel Capitolo \ref{objects-functions} e Capitolo TODO.
 \end{itemize}
 
 \begin{figure}
@@ -842,7 +842,7 @@ Funzione & Nome & Esempio\\
 
 \begin{tip}[Le prime funzioni]
 
-Nota come per svolgere operazioni come la radice quadrata o il valore assoluto vengono utlizzate delle specifiche funzioni. In R le funzioni sono richiamate digitando \texttt{\textless{}nome-funnzione\textgreater{}()} (e.g., \texttt{sqrt(25)}) indicando all'interno delle parentesi tonde gli argomenti della funzione. Approfondiremo le funzioni nella Sezione TODO.
+Nota come per svolgere operazioni come la radice quadrata o il valore assoluto vengono utlizzate delle specifiche funzioni. In R le funzioni sono richiamate digitando \texttt{\textless{}nome-funnzione\textgreater{}()} (e.g., \texttt{sqrt(25)}) indicando all'interno delle parentesi tonde gli argomenti della funzione. Approfondiremo le funzioni nel Capitolo \ref{functions-def}.
 
 \end{tip}
 
@@ -880,7 +880,7 @@ Nota che in R solo le \textbf{parentesi tonde} \texttt{()} sono utilizzate per g
 \subsection*{Esercizi}\label{esercizi}}
 \addcontentsline{toc}{subsection}{Esercizi}
 
-Calcola il risultato delle seguenti operazioni utilizzando R:
+Calcola il risultato delle seguenti operazioni utilizzando R (\href{}{soluzioni}):
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -913,10 +913,12 @@ Note per la risoluzione degli esercizi:
 \hypertarget{operatori-relazionali-e-logici}{%
 \section{Operatori Relazionali e Logici}\label{operatori-relazionali-e-logici}}
 
+Queste operazioni al momento potrebbero sembrare non particolrmente interessanti ma si riveleranno molto utili nei capitoli successivi ad esempio per la selezione di elementi (vedi Capitolo TODO) o la definizionne di algoritmi (vedi Capitolo TODO).
+
 \hypertarget{operatori-relazionali}{%
 \subsection{Operatori Relazionali}\label{operatori-relazionali}}
 
-In R è possibile valutare se una data relazione è vera o fasa. Ad esempio, posiamo valutare se ``\emph{2 è minore di 10}'' o se ``\emph{4 numero è un numero pari}''. Queste operazioni al momento potrebbero sembrare non particolrmente interessanti ma si riveleranno molto utili nei capitoli successivi ad esempio per la selezione di elementi (vedi Capitolo TODO) o la definizionne di algoritmi (vedi Capitolo TODO).
+In R è possibile valutare se una data relazione è vera o fasa. Ad esempio, posiamo valutare se ``\emph{2 è minore di 10}'' o se ``\emph{4 numero è un numero pari}''.
 
 R valuterà le proposizioni e ci restituirà il valore \texttt{TRUE} se la proposizione è vera oppure \texttt{FALSE} se la proposizione è falsa. Nella Tabella \ref{tab:relational-operators} sono elencati gli operatori relazionali.
 
@@ -1006,8 +1008,16 @@ Questi operatori sono anche definiti \href{https://it.wikipedia.org/wiki/Espress
 \item
   Nel caso della \textbf{congiunzione logica} \texttt{\&}, affinchè la proposizione sia vera è necessario che entrambe le relazioni siano vere. Negli altri casi la proposizione sarà valutarta falsa.\\
 \item
-  Nel caso della \textbf{disgiunzione inclusiva logica} \texttt{\textbar{}}, affinchè la proposizione sia vera è necessario che almeno una relaziona sia vara. La proposizione sarà valutarta falsa solo quando entrambe le relazioni sono false.
+  Nel caso della \textbf{disgiunzione inclusiva logica} \texttt{\textbar{}}, affinchè la proposizione sia vera è necessario che almeno una relaziona sia vera. La proposizione sarà valutarta falsa solo quando entrambe le relazioni sono false.
 \end{itemize}
+
+\begin{design}[Disgiunzione esclusiva]
+
+Per completezza ricordiamo che tra gli operatori logici esiste anche la \textbf{disgiunzione esclusiva}. La proposizione sarà valutata falsa se entrambe le relazioni sono vere oppure false. Affinchè la proposizione sia valutata vera una sola delle relazioni deve essere vera mentre l'altra deve essere falsa.
+
+In R la disgiunzione esclusiva tra due ralazioni (x e y) è indicata con la funzione \texttt{xor(x,\ y)}. Tuttavia tale funzione è raramente usata.
+
+\end{design}
 
 \hypertarget{ordine-valutazione-relazioni}{%
 \subsection{Ordine valutazione relazioni}\label{ordine-valutazione-relazioni}}
@@ -1038,6 +1048,8 @@ La soluzione migliore? Usa le parentesi!
 \hypertarget{esercizi-1}{%
 \subsection*{Esercizi}\label{esercizi-1}}
 \addcontentsline{toc}{subsection}{Esercizi}
+
+Esegui i seguenti esercizi utilizzando gli operatori relazionali e logici (\href{}{soluzioni}):
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1169,7 +1181,7 @@ Inoltre, il nome ideale di un oggetto dovrebbe essere:
 
 \begin{design}[CamelCase vs snake\_case]
 
-Spesso più parole sono usate per ottenere un nome sufficientemente chiaro. Dato che però non è possibile includere spazi in un nome, nasce il problema di come unire più parole senza ceh il nome diventi incomprensibile, ad esempio \texttt{mediatestcontrollo}.
+Spesso più parole sono usate per ottenere un nome sufficientemente chiaro. Dato che però non è possibile includere spazi in un nome, nasce il problema di come unire più parole senza che il nome diventi incomprensibile, ad esempio \texttt{mediatestcontrollo}.
 
 Esistono diverse convenzioni tra cui:
 
@@ -1190,7 +1202,7 @@ In genere viene raccomandato di seguire la convenzione \textbf{snake\_case}. Tut
 \hypertarget{tipologie-di-oggetti}{%
 \subsection{Tipologie di Oggetti}\label{tipologie-di-oggetti}}
 
-In R abbiamo differenti tipologie di oggetti (o megli di strutture dati):
+In R abbiamo differenti tipologie di oggetti (o meglio di strutture dati):
 
 \begin{itemize}
 \tightlist
@@ -1206,8 +1218,8 @@ In R abbiamo differenti tipologie di oggetti (o megli di strutture dati):
 
 La loro definizione, le loro caratteristiche ed il loro utilizzo sarà discusso nella seconda sezione di quessto libro TODO
 
-\hypertarget{funzioni}{%
-\section{Funzioni}\label{funzioni}}
+\hypertarget{functions-def}{%
+\section{Funzioni}\label{functions-def}}
 
 \begin{itemize}
 \item
@@ -1229,6 +1241,26 @@ La loro definizione, le loro caratteristiche ed il loro utilizzo sarà discusso 
 \chapter{Sessione di Lavoro}\label{working-session}}
 
 Working in progress.
+
+\begin{itemize}
+\tightlist
+\item
+  Console e script
+\item
+  Commenti
+\item
+  Output errori
+\item
+  Sintassi R (NA, NULL, TRUE, FALSE)
+\item
+  environment
+\item
+  working directory
+\item
+  Basi sui pacchetti
+\item
+  R projects
+\end{itemize}
 
 \hypertarget{infobox}{%
 \section{Infobox}\label{infobox}}

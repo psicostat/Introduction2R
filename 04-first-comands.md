@@ -101,7 +101,7 @@ R è un'ottima calcolatrice. Nella Tabella \@ref(tab:math-operators) sono elenca
 </table>
 
 :::{.tip title="Le prime funzioni" data-latex="[Le prime funzioni]"}
-Nota come per svolgere operazioni come la radice quadrata o il valore assoluto vengono utlizzate delle specifiche funzioni. In R le funzioni sono richiamate digitando `<nome-funnzione>()` (e.g., `sqrt(25)`) indicando all'interno delle parentesi tonde gli argomenti della funzione. Approfondiremo le funzioni nella Sezione TODO. 
+Nota come per svolgere operazioni come la radice quadrata o il valore assoluto vengono utlizzate delle specifiche funzioni. In R le funzioni sono richiamate digitando `<nome-funnzione>()` (e.g., `sqrt(25)`) indicando all'interno delle parentesi tonde gli argomenti della funzione. Approfondiremo le funzioni nel Capitolo \@ref(functions-def). 
 :::
 
 ### Ordine Operazioni
@@ -123,9 +123,9 @@ Nota che in R solo le **parentesi tonde** `()` sono utilizzate per gestire l'ord
 **Parentesi quadre** `[]` e **parentesi graffe** `{}` sono invece speciali operatori utilizzati in R per altre ragioni come la selezione di elemente e la definizione di blocchi di codici. Argomenti che approfondiremo rispettivamente nel Capitolo TODO e Capitolo TODO. 
 :::
 
-### Esercizi {-}
+### Esercizi{-}
 
-Calcola il risultato delle seguenti operazioni utilizzando R:
+Calcola il risultato delle seguenti operazioni utilizzando R ([soluzioni]()):
 
 1. $\frac{(45+21)^3+\frac{3}{4}}{\sqrt{32-\frac{12}{17}}}$
 
@@ -147,9 +147,11 @@ Note per la risoluzione degli esercizi:
 
 ## Operatori Relazionali e Logici
 
+Queste operazioni al momento potrebbero sembrare non particolrmente interessanti ma si riveleranno molto utili nei capitoli successivi ad esempio per la selezione di elementi (vedi Capitolo TODO) o la definizionne di algoritmi (vedi Capitolo TODO).
+
 ### Operatori Relazionali
 
-In R è possibile valutare se una data relazione è vera o fasa. Ad esempio, posiamo valutare se "*2 è minore di 10*" o se "*4 numero è un numero pari*". Queste operazioni al momento potrebbero sembrare non particolrmente interessanti ma si riveleranno molto utili nei capitoli successivi ad esempio per la selezione di elementi (vedi Capitolo TODO) o la definizionne di algoritmi (vedi Capitolo TODO).
+In R è possibile valutare se una data relazione è vera o fasa. Ad esempio, posiamo valutare se "*2 è minore di 10*" o se "*4 numero è un numero pari*".
 
 R valuterà le proposizioni e ci restituirà il valore `TRUE` se la proposizione è vera oppure `FALSE` se la proposizione è falsa. Nella Tabella \@ref(tab:relational-operators) sono elencati gli operatori relazionali.
 
@@ -264,7 +266,13 @@ In R è possibile congiungere più relazioni per valutare una desiderata proposi
 Questi operatori sono anche definiti [operatori booleani](https://it.wikipedia.org/wiki/Espressione_booleana) e seguono le comuni definizioni degli operatori logici. In particolare abbiamo che:
 
 - Nel caso della **congiunzione logica** `&`, affinchè la proposizione sia vera è necessario che entrambe le relazioni siano vere. Negli altri casi la proposizione sarà valutarta falsa.  
-- Nel caso della **disgiunzione inclusiva logica** `|`, affinchè la proposizione sia vera è necessario che almeno una relaziona sia vara. La proposizione sarà valutarta falsa solo quando entrambe le relazioni sono false.
+- Nel caso della **disgiunzione inclusiva logica** `|`, affinchè la proposizione sia vera è necessario che almeno una relaziona sia vera. La proposizione sarà valutarta falsa solo quando entrambe le relazioni sono false.
+
+:::{.design title="Disgiunzione esclusiva" data-latex="[Disgiunzione esclusiva]"}
+Per completezza ricordiamo che tra gli operatori logici esiste anche la **disgiunzione esclusiva**. La proposizione sarà valutata falsa se entrambe le relazioni sono vere oppure false. Affinchè la proposizione sia valutata vera una sola delle relazioni deve essere vera mentre l'altra deve essere falsa.
+
+In R la disgiunzione esclusiva tra due ralazioni (x e y) è indicata con la funzione `xor(x, y)`. Tuttavia tale funzione è raramente usata.
+:::
 
 ### Ordine valutazione relazioni
 
@@ -283,6 +291,8 @@ La soluzione migliore? Usa le parentesi!
 :::
 
 ### Esercizi {-}
+
+Esegui i seguenti esercizi utilizzando gli operatori relazionali e logici ([soluzioni]()):
 
 1. Definisici due relazioni false e due vere che ti permettano di valutare i risultati di tutti i possibili incroci che puoi ottenere con gli operatori logici `&` e `|`.
 2. Definisci una proposizione che ti permetta di valutare se un numero è pari. Definisci un'altra proposizione per i nueri dispari (tip: cosa ti ricorda `%%`?).

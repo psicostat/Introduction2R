@@ -79,7 +79,7 @@ L'utilizzo dei commenti è molto importante nel caso di script complessi poichè
 
 Qui sono presentati una serie di pannelli utili per valutare informazioni inerenti alla propria sessione di lavoro. I pannelli principali sono *Environment* e *History* (gli altri pannelli presenti in Figura \@ref(fig:environment) riguardanno funzioni avanzate di RStudio).
 
-- **Environment**: elenco tutti gli oggetti e variabili attualmente presenti nel'ambiente di lavoro. Approfondiremo i concetti di variabili e di ambiente di lavoro rispettivamente nel Capitolo TODO e Capitolo TODO.
+- **Environment**: elenco tutti gli oggetti e variabili attualmente presenti nel'ambiente di lavoro. Approfondiremo i concetti di variabili e di ambiente di lavoro rispettivamente nel Capitolo \@ref(objects-functions) e Capitolo TODO.
 
 <div class="figure" style="text-align: center">
 <img src="images/environment.png" alt="*Environment* - Elenco degli oggetti e variabili presenti nel'ambiente di lavoro" width="60%" />
