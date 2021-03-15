@@ -33,7 +33,7 @@ Inoltre, R è:
 - nato per la statistica
 - open-source
 - ricco di pacchetti
-- supportato da una grande comunità
+- supportato da una grande community
 - gratis
 
 ## Struttura del libro {-}
