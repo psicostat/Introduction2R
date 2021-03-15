@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capitolo 4 Due Compagni Inseparabili | Introduzione a R</title>
+  <meta name="description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capitolo 4 Due Compagni Inseparabili | Introduzione a R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://psicostat.github.io/Introduction2R/" />
+  <meta property="og:image" content="https://psicostat.github.io/Introduction2R/images/logo_psicostat.png" />
+  <meta property="og:description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
+  <meta name="github-repo" content="psicostat/Introduction2R" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capitolo 4 Due Compagni Inseparabili | Introduzione a R" />
+  
+  <meta name="twitter:description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
+  <meta name="twitter:image" content="https://psicostat.github.io/Introduction2R/images/logo_psicostat.png" />
+
+<meta name="author" content="Psicostat" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="first-comands.html"/>
+<link rel="next" href="working-session.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/toc.css" type="text/css" />
+<link rel="stylesheet" href="assets/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/hex_psicostat.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentazione</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#perchè-r"><i class="fa fa-check"></i>Perchè R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#struttura-del-libro"><i class="fa fa-check"></i>Struttura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#risorse-utili"><i class="fa fa-check"></i>Risorse Utili</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#psicostat"><i class="fa fa-check"></i>Psicostat</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#collaborazione"><i class="fa fa-check"></i>Collaborazione</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#riconoscimenti"><i class="fa fa-check"></i>Riconoscimenti</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licenza"><i class="fa fa-check"></i>Licenza</a></li>
+</ul></li>
+<li class="part"><span><b>Get Started</b></span></li>
+<li class="chapter" data-level="" data-path="intorduzione.html"><a href="intorduzione.html"><i class="fa fa-check"></i>Intorduzione</a></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Installare R e RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#installare-r"><i class="fa fa-check"></i><b>1.1</b> Installare R</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="install.html"><a href="install.html#r-windows"><i class="fa fa-check"></i><b>1.1.1</b> R Windows</a></li>
+<li class="chapter" data-level="1.1.2" data-path="install.html"><a href="install.html#r-macos"><i class="fa fa-check"></i><b>1.1.2</b> R MacOS</a></li>
+<li class="chapter" data-level="1.1.3" data-path="install.html"><a href="install.html#r-linux"><i class="fa fa-check"></i><b>1.1.3</b> R Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installare-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installare R Studio</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="install.html"><a href="install.html#r-studio-in-linux"><i class="fa fa-check"></i><b>1.2.1</b> R Studio in Linux</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rstudio-gui.html"><a href="rstudio-gui.html"><i class="fa fa-check"></i><b>2</b> Interfaccia RStudio</a></li>
+<li class="chapter" data-level="3" data-path="first-comands.html"><a href="first-comands.html"><i class="fa fa-check"></i><b>3</b> Primi Passi in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="first-comands.html"><a href="first-comands.html#operatori-matematici"><i class="fa fa-check"></i><b>3.1</b> Operatori Matematici</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="first-comands.html"><a href="first-comands.html#ordine-operazioni"><i class="fa fa-check"></i><b>3.1.1</b> Ordine Operazioni</a></li>
+<li class="chapter" data-level="" data-path="first-comands.html"><a href="first-comands.html#esercizi"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="first-comands.html"><a href="first-comands.html#operatori-relazionali-e-logici"><i class="fa fa-check"></i><b>3.2</b> Operatori Relazionali e Logici</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="first-comands.html"><a href="first-comands.html#operatori-relazionali"><i class="fa fa-check"></i><b>3.2.1</b> Operatori Relazionali</a></li>
+<li class="chapter" data-level="3.2.2" data-path="first-comands.html"><a href="first-comands.html#ordine-valutazione-relazioni"><i class="fa fa-check"></i><b>3.2.2</b> Ordine valutazione relazioni</a></li>
+<li class="chapter" data-level="" data-path="first-comands.html"><a href="first-comands.html#esercizi-1"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="objects-functions.html"><a href="objects-functions.html"><i class="fa fa-check"></i><b>4</b> Due Compagni Inseparabili</a><ul>
+<li class="chapter" data-level="4.1" data-path="objects-functions.html"><a href="objects-functions.html#oggetti"><i class="fa fa-check"></i><b>4.1</b> Oggetti</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="objects-functions.html"><a href="objects-functions.html#assegnare-e-richiamare-un-oggetto"><i class="fa fa-check"></i><b>4.1.1</b> Assegnare e Richiamare un oggetto</a></li>
+<li class="chapter" data-level="4.1.2" data-path="objects-functions.html"><a href="objects-functions.html#nomi-degli-oggetti"><i class="fa fa-check"></i><b>4.1.2</b> Nomi degli oggetti</a></li>
+<li class="chapter" data-level="4.1.3" data-path="objects-functions.html"><a href="objects-functions.html#tipologie-di-oggetti"><i class="fa fa-check"></i><b>4.1.3</b> Tipologie di Oggetti</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="objects-functions.html"><a href="objects-functions.html#funzioni"><i class="fa fa-check"></i><b>4.2</b> Funzioni</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#section"><i class="fa fa-check"></i><b>4.2.1</b> </a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>5</b> Sessione di Lavoro</a><ul>
+<li class="chapter" data-level="5.1" data-path="working-session.html"><a href="working-session.html#infobox"><i class="fa fa-check"></i><b>5.1</b> Infobox</a></li>
+<li class="chapter" data-level="5.2" data-path="working-session.html"><a href="working-session.html#problema-google-soluzione"><i class="fa fa-check"></i><b>5.2</b> Problema + Google = Soluzione</a></li>
+</ul></li>
+<li class="part"><span><b>Struttura Dati</b></span></li>
+<li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="6" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>6</b> Vettori</a></li>
+<li class="chapter" data-level="7" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>7</b> Matrici</a></li>
+<li class="chapter" data-level="8" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>8</b> Dataframe</a></li>
+<li class="chapter" data-level="9" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>9</b> Liste</a></li>
+<li class="part"><span><b>Algoritmi</b></span></li>
+<li class="chapter" data-level="" data-path="introduzione-1.html"><a href="introduzione-1.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="10" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>10</b> Definizione di Funzioni</a></li>
+<li class="chapter" data-level="11" data-path="coditionals.html"><a href="coditionals.html"><i class="fa fa-check"></i><b>11</b> Programmazione Condizionale</a></li>
+<li class="chapter" data-level="12" data-path="loop.html"><a href="loop.html"><i class="fa fa-check"></i><b>12</b> Attenti al loop</a></li>
+<li class="part"><span><b>Case study</b></span></li>
+<li class="chapter" data-level="" data-path="introduzione-2.html"><a href="introduzione-2.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="13" data-path="attachment.html"><a href="attachment.html"><i class="fa fa-check"></i><b>13</b> Caso Studio I: Attaccamento</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><span style="font-size: 2.5em">Introduzione a R</span></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <script src="assets/hideOutput.js"></script>
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src="images/banner.png">
+</div>
+<div id="objects-functions" class="section level1">
+<h1><span class="header-section-number">Capitolo 4</span> Due Compagni Inseparabili</h1>
+<p>In questo capitolo introdurremmo i concetti di oggetti e funzioni, due elementi alla base di R (e di ogni linguaggio di programmazione). Potremmo pensare agli oggetti in R come a delle variabili che ci permettono di mantenere in memoria dei valori (e.g., i risultati dei nostri calcoli o i nostri dati). Le funzioni in R, invece, sono analoghe a delle funzioni matematiche che, ricevuti degli oggetti in input, compiono delle azioni e restituiscono dei nuovi oggetti in output.</p>
+<p>Questa è una iper-semplificazione (e pure tecnicamente non corretta) che ci permettere però di capire come, partendo dai nostri dati o valori iniziali, possiamo manipolarli applicando delle funzioni per ottenere attraverso differenti step i risultati desiderati (e.g., analisi statistiche o grafici e tabelle).</p>
+<p>Qui valuteremo gli aspetti fondamentali che riguardano l’utilizzo degli oggetti e delle funzioni mentre saranno approfonditi rispettivamente in tutta la seconda e terza sezione del libro (TODO).</p>
+<div id="oggetti" class="section level2">
+<h2><span class="header-section-number">4.1</span> Oggetti</h2>
+<p>Quando eseguiamo un commando in R, il risultato ottenuto viene immediatamente mostrato in <em>Console</em>. Tale risultato, tuttavia, non viene salvato in memoria e quindi non potrà essere riutilizzato in nessuna operazione futura. Condurre delle analisi in questo modo sarebbe estremamente complicato ed inefficiente. La soluzione più ovvia è quella di salvare in memoria i nostri risultati intermedi per poterli poi riutilizzare nel corso delle nostre analisi. Si definisce questo processo come <em>assegnare</em> un valore ad un oggetto.</p>
+<div id="assegnare-e-richiamare-un-oggetto" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Assegnare e Richiamare un oggetto</h3>
+<p>Per assegnare il valore numerico 5 all’oggetto <code>x</code> è necessario eseguire il seguente comando:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="objects-functions.html#cb3-1"></a>x &lt;-<span class="st"> </span><span class="dv">5</span></span></code></pre></div>
+<p>La funzione <code>&lt;-</code> ci permette di assegnare i valori che si trovano alla sua destra all’oggetto il cui nome è definito alla sinistra. Abbiamo pertanto il seguente pattern: <code>&lt;nome-oggetto&gt; &lt;- &lt;valore-assegnato&gt;</code>.Notate come in <em>Console</em> appaia solo il comando appena eseguito ma non venga mostrato alcun risultato.</p>
+<p>Per utilizzare il valore contenuto nell’oggetto sarà ora sufficiente richiamare nel proprio codice il nome dell’oggetto desiderato.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="objects-functions.html#cb4-1"></a>x <span class="op">+</span><span class="st"> </span><span class="dv">3</span></span>
+<span id="cb4-2"><a href="objects-functions.html#cb4-2"></a><span class="co">## [1] 8</span></span></code></pre></div>
+<p>E’ inoltre possibile “aggiornare” o “sostituire” il valore contenuto in un oggetto. Ad esempio:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="objects-functions.html#cb5-1"></a>x &lt;-<span class="st"> </span>x<span class="op">*</span><span class="dv">10</span></span>
+<span id="cb5-2"><a href="objects-functions.html#cb5-2"></a>x</span>
+<span id="cb5-3"><a href="objects-functions.html#cb5-3"></a><span class="co">## [1] 50</span></span>
+<span id="cb5-4"><a href="objects-functions.html#cb5-4"></a></span>
+<span id="cb5-5"><a href="objects-functions.html#cb5-5"></a>x &lt;-<span class="st"> &quot;Hello World!&quot;</span></span>
+<span id="cb5-6"><a href="objects-functions.html#cb5-6"></a>x</span>
+<span id="cb5-7"><a href="objects-functions.html#cb5-7"></a><span class="co">## [1] &quot;Hello World!&quot;</span></span></code></pre></div>
+<p>Nel primo caso abbiamo prima utilizzato il vecchio valore contenuto in <code>x</code> per calcolare il nuovo risultato che è stato assegnato a <code>x</code>. Nel secondo caso abbiamo sostituito il vecchio valore di <code>x</code> con un nuovo valore (nell’esempio una stringa di caratteri).</p>
+<div class="design" title="Assegnare valori &#39;&lt;-&#39; vs &#39;=&#39;">
+<p>Esistono due operatori principali che sono usati per assegnare un valore ad un oggetto: l’operatore <code>&lt;-</code> e l’operatore <code>=</code>. Entrambi sono validi e spesso la scelta tra i due diventa solo una questione di stile personale.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="objects-functions.html#cb6-1"></a>x_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="dv">45</span></span>
+<span id="cb6-2"><a href="objects-functions.html#cb6-2"></a>x_<span class="dv">2</span> =<span class="st"> </span><span class="dv">45</span></span>
+<span id="cb6-3"><a href="objects-functions.html#cb6-3"></a></span>
+<span id="cb6-4"><a href="objects-functions.html#cb6-4"></a>x_<span class="dv">1</span> <span class="op">==</span><span class="st"> </span>x_<span class="dv">2</span> </span>
+<span id="cb6-5"><a href="objects-functions.html#cb6-5"></a><span class="co">## [1] TRUE</span></span></code></pre></div>
+<p>Esistono, tuttavia, alcune buone ragioni per preferire l’uso di <code>&lt;-</code> rispetto a <code>=</code> (attewnti a non confonderlo con l’operatore relazionale <code>==</code>). L’operazione di assegnazione è un’operazione che implica una direzionalità, il chè è reso esplicito dal simbolo <code>&lt;-</code> mentre il simbolo <code>=</code> non evidenzia questo aspetto e anzi richiama la relazione di uguaglianza in matematica.</p>
+<p>La decisione su quale operatore adottare è comunque libera, ma ricorda che una buona norma nella programmazione riguarda la <em>consistenza</em>: una volta presa una decisione è bene mantenerla per facilitare la comprensione del codice.</p>
+</div>
+</div>
+<div id="nomi-degli-oggetti" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Nomi degli oggetti</h3>
+<p>La scelta dei nomi degli oggetti sembra un aspetto secondario ma invece ha una grande importanza per facilitare la chiarezza e comprensione dei codici.</p>
+<p>Ci sono alcune regole che discriminano i nomi validi da nomi non validi. Il nome di un oggetto</p>
+<ul>
+<li>deve iniziare con una lettera e può contenere lettere, numeri, underscore (<code>_</code>), o punti (<code>.</code>).</li>
+<li>potrebbe anche iniziare con un punto (<code>.</code>) ma in tal caso non può essere seguito da un numero.</li>
+<li>non deve contenere caratteri speciali come <code>#</code>, <code>&amp;</code>, <code>$</code>, <code>?</code>, etc.</li>
+<li>non deve essere una parola riservata ovvero quelle parole che sono utilizzate internamente da R con un significato speciale (e.g, <code>TRUE</code>, <code>FALSE</code> etc.).</li>
+</ul>
+<p>Nota come R sia <strong>Case-Sensitive</strong>, ovvero distingua tra lettere minuscole e maiuscole. Nel seguente esempio i due nomi sono considerate diversi e pertanto non avviene una sovrascrizione ma due differenti oggetti sono creati:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="objects-functions.html#cb7-1"></a>My_name &lt;-<span class="st"> &quot;Monty&quot;</span></span>
+<span id="cb7-2"><a href="objects-functions.html#cb7-2"></a>my_name &lt;-<span class="st"> &quot;Python&quot;</span></span>
+<span id="cb7-3"><a href="objects-functions.html#cb7-3"></a></span>
+<span id="cb7-4"><a href="objects-functions.html#cb7-4"></a>My_name</span>
+<span id="cb7-5"><a href="objects-functions.html#cb7-5"></a><span class="co">## [1] &quot;Monty&quot;</span></span>
+<span id="cb7-6"><a href="objects-functions.html#cb7-6"></a>my_name</span>
+<span id="cb7-7"><a href="objects-functions.html#cb7-7"></a><span class="co">## [1] &quot;Python&quot;</span></span></code></pre></div>
+<p>Inoltre, il nome ideale di un oggetto dovrebbe essere:</p>
+<ul>
+<li><strong>auto-descrittivo</strong>: dal solo nome dovrebbe essere possibile intuire il contenuto dell’oggetto. Un nome generico quale <code>x</code> o <code>y</code> ci sarebbero di poco aiuto poichè potrebbero contenere qualsiasi informazione. Invece un nome come <code>weight</code> o <code>gender</code> ci suggerirebbe chiaramente il contenuto dell’oggetto (e.g., il peso o gender dei partecipanti del nostro studio).</li>
+<li><strong>dell giusta lunghezza</strong>: non deve essere ne troppo breve (evitare sigle incomprensibili) e neppure troppo lunghi. La lunghezza corretta è quella che permette al nome di esssere sufficientemente informativo senza aggiungere inutili dettagli. In genere sono sufficienti 2 o 3 parole.</li>
+</ul>
+<div class="design" title="CamelCase vs snake_case">
+<p>Spesso più parole sono usate per ottenere un nome sufficientemente chiaro. Dato che però non è possibile includere spazi in un nome, nasce il problema di come unire più parole senza ceh il nome diventi incomprensibile, ad esempio <code>mediatestcontrollo</code>.</p>
+<p>Esistono diverse convenzioni tra cui:</p>
+<ul>
+<li><strong>CamelCase</strong>. L’inizio di una nuova parole viene indicata con l’uso della prima lettera maiuscola. Ad esempio <code>mediaTestControllo</code>.</li>
+<li><strong>snake_case</strong>. L’inizio di una nuova parola viene indicata con l’uso carattere <code>_</code>. Ad esempio <code>media_test_controllo</code>.</li>
+<li>una variante al calssico <strong>snake_case</strong> riguarda l’uso del <code>.</code>, ad esempio <code>media.test.controllo</code>. Questo approccio in genere è evitato poichè in molti linguaggi di progtrammazione (ed anche in R in alcune condizioni) il carattere <code>.</code> è un carattere speciale.</li>
+</ul>
+<p>In genere viene raccomandato di seguire la convenzione <strong>snake_case</strong>. Tuttavia, la decisione su quale convenzione adottare è libera, ma ricorda ancora che una buona norma nella programmazione riguarda la <em>consistenza</em>: una volta presa una decisione è bene mantenerla per facilitare la comprensione del codice.</p>
+</div>
+</div>
+<div id="tipologie-di-oggetti" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Tipologie di Oggetti</h3>
+<p>In R abbiamo differenti tipologie di oggetti (o megli di strutture dati):</p>
+<ul>
+<li>Vettori</li>
+<li>Matrici</li>
+<li>Dataframe</li>
+<li>Liste</li>
+</ul>
+<p>La loro definizione, le loro caratteristiche ed il loro utilizzo sarà discusso nella seconda sezione di quessto libro TODO</p>
+</div>
+</div>
+<div id="funzioni" class="section level2">
+<h2><span class="header-section-number">4.2</span> Funzioni</h2>
+<ul>
+<li><p>arguments input</p></li>
+<li><p>output</p></li>
+<li><p>nomi riservati ?reserved</p></li>
+<li><p>trick tab</p></li>
+<li><p>help function</p></li>
+</ul>
+<div id="section" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> </h3>
+
+</div>
+</div>
+</div>
+<hr>
+<center>
+  <div class="footer">
+    Questo libro è rilasciato in accordo con <a href= "https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA</a>.
+    <br>
+    Le illustrazioni utilizzate appartengono a <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu-book</a> in accordo con <a href= "https://creativecommons.org/licenses/by-nc/2.0/">CC BY-NC</a>.
+    <br>
+    Per conoscere di più riguardo <span style="color: #8C3031; font-weight:bold"> Psicostat</span> e le nostre attività, visita <a href= "https://psicostat.dpss.psy.unipd.it/">https://psicostat.dpss.psy.unipd.it/</a>.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="first-comands.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="working-session.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": true
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/psicostat/Introduction2R/edit/master/05-important-concepts.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Introduction2R.pdf", "Introduction2R.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true,
+"toc_float": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

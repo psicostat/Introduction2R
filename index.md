@@ -2,7 +2,7 @@
 title: "<span style='font-size: 2.5em'>Introduzione a R</span>"
 subtitle: "Corso per imparare le basi di **R**"
 author: "[Psicostat](https://psicostat.dpss.psy.unipd.it/)"
-date: "14-03-2021"
+date: "15-03-2021"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

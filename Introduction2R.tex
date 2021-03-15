@@ -224,7 +224,7 @@
 \makeatother
 \subtitle{Corso per imparare le basi di \textbf{R}}
 \author{\href{https://psicostat.dpss.psy.unipd.it/}{Psicostat}}
-\date{14-03-2021}
+\date{15-03-2021}
 
 \begin{document}
 \maketitle
@@ -355,13 +355,15 @@ I capitoli sono così organizzati:
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Capitolo \ref{install}: Installare R e RStudio}. Instruzioni passo a passo per installare R e RStudio
+  \textbf{Capitolo \ref{install} - Installare R e RStudio}. Instruzioni passo a passo per installare R e RStudio
 \item
-  \textbf{Capitolo \ref{rstudio-gui}: Interfaccia RStudio}. Introduzione all'interfaccia utente di RStudio.
+  \textbf{Capitolo \ref{rstudio-gui} - Interfaccia RStudio}. Introduzione all'interfaccia utente di RStudio.
 \item
-  \textbf{Capitolo \ref{first-comands}: Primi Passi in R}. Operatori matematici, operatori relazionali, operatori logici, creazione di variabili e utilizzo di funzioni.
+  \textbf{Capitolo \ref{first-comands} - Primi Passi in R}. Operatori matematici, operatori relazionali, operatori logici.
 \item
-  \textbf{Capitolo \ref{working-session}: Sessione di Lavoro}. Utilizzo degli script e introduzione dei concetti di environment, working directory e pacchetti di R.
+  \textbf{Capitolo \ref{objects-functions} - Due Compagni Inseparabili}. Introduzione dei concetti di oggetti e funzioni in R.
+\item
+  \textbf{Capitolo \ref{working-session} - Sessione di Lavoro}. Utilizzo degli script e introduzione dei concetti di working directory e pacchetti di R.
 \end{itemize}
 
 \hypertarget{install}{%
@@ -788,9 +790,7 @@ Prova a cambiare il tema dell editor in \emph{Idle Fingers} per utlizzare on bac
 
 Ora che abbiamo iniziato a famigliarizzare con il nostro stumento di lavoro possiamo finalmente dare fuoco alle polveri e concentraci sulla scrittura di codici!
 
-In questo capitolo muoveremo i primi passi in R. Inizialmente vedremo come utilizzare operatori matematici, relazionali e logici per compiere semplici operazioni in R. Introdurremo successivamente l'uso delle variabili e delle funzioni.
-
-Imparare R è un lungo percorso (scoop: questo percorso non termina mai dato che R è sempre in continuo sviiluppo). Soprattutto all'inizio può sembrare eccessivamente difficile poichè è si incontrano per la prima volta molti comandi e concetti di programmazione. Tuttavia, una volta famigliarizzato con gli apetti di base, la progressione diventa sempre più veloce (inarrestabile direi!).
+In questo capitolo muoveremo i primi passi in R. Inizieremo vedendo come utilizzare operatori matematici, relazionali e logici per compiere semplici operazioni in R. Imparare R è un lungo percorso (scoop: questo percorso non termina mai dato che R è sempre in continuo sviiluppo). Soprattutto all'inizio può sembrare eccessivamente difficile poichè è si incontrano per la prima volta molti comandi e concetti di programmazione. Tuttavia, una volta famigliarizzato con gli apetti di base, la progressione diventa sempre più veloce (inarrestabile direi!).
 
 In questo capitolo introdurremo per la prima volta molti elementi che saranno poi ripresi e approfonditi nei seguenti capitoli. Quindi non preoccuparti se non tutto ti sarà chiaro fin da subito. Imparare il tuo primo linguaggio di programmazione è difficile ma da qualche parte bisogna pure iniziare. Pronto per le tue prime linee di codice? Let's become a useR!
 
@@ -1027,7 +1027,7 @@ Nel valutare le veridicità delle proposizioni R esegue le operazioni nel seguen
 
 La lista completa dell'ordine di esecuzione delle operazioni è riportata al seguente link \url{https://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html}. Ricordiamo che, in caso di dubbi riguardanti l'ordine di esecuzione delle operazioni, la cosa migliore è utilizzare le parentesi tonde \texttt{()} per disambiguare ogni possibile fraintendimento.
 
-\begin{warning}[L'operatore \%in\%]
+\begin{warning}[L'operatore '\%in\%']
 
 Nota che l'operatore \texttt{\%in\%} che abbiamo precedentemente indicato tra gli operatori relazionali in realtà è un operatore speciale. In particolare, non segue le stesse regole degli altri operatori relazionlali per quanto riguarda l'ordine di esecuzione.
 
@@ -1047,21 +1047,180 @@ La soluzione migliore? Usa le parentesi!
 \item
   Definisci una proposizione che ti permetta di valutare se un numero è pari. Definisci un'altra proposizione per i nueri dispari (tip: cosa ti ricorda \texttt{\%\%}?).
 \item
-  Definisci una proposizione per valutare la seguente condizione (ricordati di testare tutti i possibili scenari) ``\emph{x è un numero compreso -4 e -2 oppure è un numero compreso tra 2 e 4}''.
+  Definisci una proposizione per valutare la seguente condizione (ricordati di testare tutti i possibili scenari) ``\emph{x è un numero compreso tra -4 e -2 oppure è un numero compreso tra 2 e 4}''.
 \item
   Esegui le seguenti operazioni \texttt{4\ \^{}\ 3\ \%in\%\ c(2,3,4)} e \texttt{4\ *\ 3\ \%in\%\ c(2,3,4)}. Cosa osservi nell'ordine di esecuzione degli operatori?
 \end{enumerate}
 
-\hypertarget{creazione-di-variabili}{%
-\section{Creazione di Variabili}\label{creazione-di-variabili}}
+\hypertarget{objects-functions}{%
+\chapter{Due Compagni Inseparabili}\label{objects-functions}}
 
-concetto di variabile e assegnare i valori
+In questo capitolo introdurremmo i concetti di oggetti e funzioni, due elementi alla base di R (e di ogni linguaggio di programmazione). Potremmo pensare agli oggetti in R come a delle variabili che ci permettono di mantenere in memoria dei valori (e.g., i risultati dei nostri calcoli o i nostri dati). Le funzioni in R, invece, sono analoghe a delle funzioni matematiche che, ricevuti degli oggetti in input, compiono delle azioni e restituiscono dei nuovi oggetti in output.
 
-\hypertarget{approfondimento-diversi-modi-di-assegnare-un-valore---assign}{%
-\subsubsection{\texorpdfstring{approfondimento diversi modi di ``assegnare un valore'' (\texttt{\textless{}-}, \texttt{=}, \texttt{assign()})}{approfondimento diversi modi di ``assegnare un valore'' (\textless-, =, assign())}}\label{approfondimento-diversi-modi-di-assegnare-un-valore---assign}}
+Questa è una iper-semplificazione (e pure tecnicamente non corretta) che ci permettere però di capire come, partendo dai nostri dati o valori iniziali, possiamo manipolarli applicando delle funzioni per ottenere attraverso differenti step i risultati desiderati (e.g., analisi statistiche o grafici e tabelle).
 
-\hypertarget{utilizzo-di-funzioni}{%
-\section{Utilizzo di funzioni}\label{utilizzo-di-funzioni}}
+Qui valuteremo gli aspetti fondamentali che riguardano l'utilizzo degli oggetti e delle funzioni mentre saranno approfonditi rispettivamente in tutta la seconda e terza sezione del libro (TODO).
+
+\hypertarget{oggetti}{%
+\section{Oggetti}\label{oggetti}}
+
+Quando eseguiamo un commando in R, il risultato ottenuto viene immediatamente mostrato in \emph{Console}. Tale risultato, tuttavia, non viene salvato in memoria e quindi non potrà essere riutilizzato in nessuna operazione futura. Condurre delle analisi in questo modo sarebbe estremamente complicato ed inefficiente. La soluzione più ovvia è quella di salvare in memoria i nostri risultati intermedi per poterli poi riutilizzare nel corso delle nostre analisi. Si definisce questo processo come \emph{assegnare} un valore ad un oggetto.
+
+\hypertarget{assegnare-e-richiamare-un-oggetto}{%
+\subsection{Assegnare e Richiamare un oggetto}\label{assegnare-e-richiamare-un-oggetto}}
+
+Per assegnare il valore numerico 5 all'oggetto \texttt{x} è necessario eseguire il seguente comando:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+La funzione \texttt{\textless{}-} ci permette di assegnare i valori che si trovano alla sua destra all'oggetto il cui nome è definito alla sinistra. Abbiamo pertanto il seguente pattern: \texttt{\textless{}nome-oggetto\textgreater{}\ \textless{}-\ \textless{}valore-assegnato\textgreater{}}.Notate come in \emph{Console} appaia solo il comando appena eseguito ma non venga mostrato alcun risultato.
+
+Per utilizzare il valore contenuto nell'oggetto sarà ora sufficiente richiamare nel proprio codice il nome dell'oggetto desiderato.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{+}\StringTok{ }\DecValTok{3}
+\CommentTok{## [1] 8}
+\end{Highlighting}
+\end{Shaded}
+
+E' inoltre possibile ``aggiornare'' o ``sostituire'' il valore contenuto in un oggetto. Ad esempio:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\NormalTok{x}\OperatorTok{*}\DecValTok{10}
+\NormalTok{x}
+\CommentTok{## [1] 50}
+
+\NormalTok{x <-}\StringTok{ "Hello World!"}
+\NormalTok{x}
+\CommentTok{## [1] "Hello World!"}
+\end{Highlighting}
+\end{Shaded}
+
+Nel primo caso abbiamo prima utilizzato il vecchio valore contenuto in \texttt{x} per calcolare il nuovo risultato che è stato assegnato a \texttt{x}. Nel secondo caso abbiamo sostituito il vecchio valore di \texttt{x} con un nuovo valore (nell'esempio una stringa di caratteri).
+
+\begin{design}[Assegnare valori '<-' vs '=']
+
+Esistono due operatori principali che sono usati per assegnare un valore ad un oggetto: l'operatore \texttt{\textless{}-} e l'operatore \texttt{=}. Entrambi sono validi e spesso la scelta tra i due diventa solo una questione di stile personale.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x_}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\DecValTok{45}
+\NormalTok{x_}\DecValTok{2}\NormalTok{ =}\StringTok{ }\DecValTok{45}
+
+\NormalTok{x_}\DecValTok{1} \OperatorTok{==}\StringTok{ }\NormalTok{x_}\DecValTok{2} 
+\CommentTok{## [1] TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+Esistono, tuttavia, alcune buone ragioni per preferire l'uso di \texttt{\textless{}-} rispetto a \texttt{=} (attewnti a non confonderlo con l'operatore relazionale \texttt{==}). L'operazione di assegnazione è un'operazione che implica una direzionalità, il chè è reso esplicito dal simbolo \texttt{\textless{}-} mentre il simbolo \texttt{=} non evidenzia questo aspetto e anzi richiama la relazione di uguaglianza in matematica.
+
+La decisione su quale operatore adottare è comunque libera, ma ricorda che una buona norma nella programmazione riguarda la \emph{consistenza}: una volta presa una decisione è bene mantenerla per facilitare la comprensione del codice.
+
+\end{design}
+
+\hypertarget{nomi-degli-oggetti}{%
+\subsection{Nomi degli oggetti}\label{nomi-degli-oggetti}}
+
+La scelta dei nomi degli oggetti sembra un aspetto secondario ma invece ha una grande importanza per facilitare la chiarezza e comprensione dei codici.
+
+Ci sono alcune regole che discriminano i nomi validi da nomi non validi. Il nome di un oggetto
+
+\begin{itemize}
+\tightlist
+\item
+  deve iniziare con una lettera e può contenere lettere, numeri, underscore (\texttt{\_}), o punti (\texttt{.}).
+\item
+  potrebbe anche iniziare con un punto (\texttt{.}) ma in tal caso non può essere seguito da un numero.
+\item
+  non deve contenere caratteri speciali come \texttt{\#}, \texttt{\&}, \texttt{\$}, \texttt{?}, etc.
+\item
+  non deve essere una parola riservata ovvero quelle parole che sono utilizzate internamente da R con un significato speciale (e.g, \texttt{TRUE}, \texttt{FALSE} etc.).
+\end{itemize}
+
+Nota come R sia \textbf{Case-Sensitive}, ovvero distingua tra lettere minuscole e maiuscole. Nel seguente esempio i due nomi sono considerate diversi e pertanto non avviene una sovrascrizione ma due differenti oggetti sono creati:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{My_name <-}\StringTok{ "Monty"}
+\NormalTok{my_name <-}\StringTok{ "Python"}
+
+\NormalTok{My_name}
+\CommentTok{## [1] "Monty"}
+\NormalTok{my_name}
+\CommentTok{## [1] "Python"}
+\end{Highlighting}
+\end{Shaded}
+
+Inoltre, il nome ideale di un oggetto dovrebbe essere:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{auto-descrittivo}: dal solo nome dovrebbe essere possibile intuire il contenuto dell'oggetto. Un nome generico quale \texttt{x} o \texttt{y} ci sarebbero di poco aiuto poichè potrebbero contenere qualsiasi informazione. Invece un nome come \texttt{weight} o \texttt{gender} ci suggerirebbe chiaramente il contenuto dell'oggetto (e.g., il peso o gender dei partecipanti del nostro studio).
+\item
+  \textbf{dell giusta lunghezza}: non deve essere ne troppo breve (evitare sigle incomprensibili) e neppure troppo lunghi. La lunghezza corretta è quella che permette al nome di esssere sufficientemente informativo senza aggiungere inutili dettagli. In genere sono sufficienti 2 o 3 parole.
+\end{itemize}
+
+\begin{design}[CamelCase vs snake\_case]
+
+Spesso più parole sono usate per ottenere un nome sufficientemente chiaro. Dato che però non è possibile includere spazi in un nome, nasce il problema di come unire più parole senza ceh il nome diventi incomprensibile, ad esempio \texttt{mediatestcontrollo}.
+
+Esistono diverse convenzioni tra cui:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{CamelCase}. L'inizio di una nuova parole viene indicata con l'uso della prima lettera maiuscola. Ad esempio \texttt{mediaTestControllo}.
+\item
+  \textbf{snake\_case}. L'inizio di una nuova parola viene indicata con l'uso carattere \texttt{\_}. Ad esempio \texttt{media\_test\_controllo}.
+\item
+  una variante al calssico \textbf{snake\_case} riguarda l'uso del \texttt{.}, ad esempio \texttt{media.test.controllo}. Questo approccio in genere è evitato poichè in molti linguaggi di progtrammazione (ed anche in R in alcune condizioni) il carattere \texttt{.} è un carattere speciale.
+\end{itemize}
+
+In genere viene raccomandato di seguire la convenzione \textbf{snake\_case}. Tuttavia, la decisione su quale convenzione adottare è libera, ma ricorda ancora che una buona norma nella programmazione riguarda la \emph{consistenza}: una volta presa una decisione è bene mantenerla per facilitare la comprensione del codice.
+
+\end{design}
+
+\hypertarget{tipologie-di-oggetti}{%
+\subsection{Tipologie di Oggetti}\label{tipologie-di-oggetti}}
+
+In R abbiamo differenti tipologie di oggetti (o megli di strutture dati):
+
+\begin{itemize}
+\tightlist
+\item
+  Vettori
+\item
+  Matrici
+\item
+  Dataframe
+\item
+  Liste
+\end{itemize}
+
+La loro definizione, le loro caratteristiche ed il loro utilizzo sarà discusso nella seconda sezione di quessto libro TODO
+
+\hypertarget{funzioni}{%
+\section{Funzioni}\label{funzioni}}
+
+\begin{itemize}
+\item
+  arguments input
+\item
+  output
+\item
+  nomi riservati ?reserved
+\item
+  trick tab
+\item
+  help function
+\end{itemize}
 
 \hypertarget{section}{%
 \subsection{}\label{section}}

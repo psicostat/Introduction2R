@@ -25,9 +25,12 @@ ordine-operazioni
 operatori-relazionali-e-logici
 operatori-relazionali
 ordine-valutazione-relazioni
-creazione-di-variabili
-approfondimento-diversi-modi-di-assegnare-un-valore---assign
-utilizzo-di-funzioni
+objects-functions
+oggetti
+assegnare-e-richiamare-un-oggetto
+nomi-degli-oggetti
+tipologie-di-oggetti
+funzioni
 section
 working-session
 infobox
