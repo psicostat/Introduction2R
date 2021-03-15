@@ -100,7 +100,7 @@ Nota che in R solo le **parentesi tonde** `()` sono utilizzate per gestire l'ord
 
 ### Esercizi{-}
 
-Calcola il risultato delle seguenti operazioni utilizzando R ([soluzioni]()):
+Calcola il risultato delle seguenti operazioni utilizzando R ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-03.R)):
 
 1. $\frac{(45+21)^3+\frac{3}{4}}{\sqrt{32-\frac{12}{17}}}$
 
@@ -246,7 +246,7 @@ La soluzione migliore? Usa le parentesi!
 
 ### Esercizi {-}
 
-Esegui i seguenti esercizi utilizzando gli operatori relazionali e logici ([soluzioni]()):
+Esegui i seguenti esercizi utilizzando gli operatori relazionali e logici ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-03.R)):
 
 1. Definisici due relazioni false e due vere che ti permettano di valutare i risultati di tutti i possibili incroci che puoi ottenere con gli operatori logici `&` e `|`.
 2. Definisci una proposizione che ti permetta di valutare se un numero è pari. Definisci un'altra proposizione per i nueri dispari (tip: cosa ti ricorda `%%`?).

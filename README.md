@@ -1,4 +1,4 @@
-# Inroduction2R (Italian)
+# Introduction2R (Italian)
 
 [![renderbook](https://github.com/psicostat/Introduction2R/actions/workflows/deploy_bookdown.yml/badge.svg)](https://github.com/psicostat/Introduction2R/actions/workflows/deploy_bookdown.yml)
 
