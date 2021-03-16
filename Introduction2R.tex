@@ -224,7 +224,7 @@
 \makeatother
 \subtitle{Corso per imparare le basi di \textbf{R}}
 \author{\href{https://psicostat.dpss.psy.unipd.it/}{Psicostat}}
-\date{15-03-2021}
+\date{16-03-2021}
 
 \begin{document}
 \maketitle
@@ -799,7 +799,7 @@ In questo capitolo introdurremo per la prima volta molti elementi che saranno po
 
 R è un'ottima calcolatrice. Nella Tabella \ref{tab:math-operators} sono elencati i principali operatori matematici e funzioni usate in R.
 
-\begin{table}
+\begin{table}[!h]
 
 \caption{\label{tab:math-operators}Operatori Matematici}
 \centering
@@ -922,7 +922,7 @@ In R è possibile valutare se una data relazione è vera o fasa. Ad esempio, pos
 
 R valuterà le proposizioni e ci restituirà il valore \texttt{TRUE} se la proposizione è vera oppure \texttt{FALSE} se la proposizione è falsa. Nella Tabella \ref{tab:relational-operators} sono elencati gli operatori relazionali.
 
-\begin{table}
+\begin{table}[!h]
 
 \caption{\label{tab:relational-operators}Operatori Relazionali}
 \centering
@@ -982,9 +982,12 @@ In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebben
 
 \end{tip}
 
+\hypertarget{operatori-logici}{%
+\subsection{Operatori Logici}\label{operatori-logici}}
+
 In R è possibile congiungere più relazioni per valutare una desiderata proposizione. Ad esempio potremmo valutare se ``\emph{17 è maggiore di 10 e minore di 20}''. Per unire più relazioni in un'unica proposizione che R valuterà come \texttt{TRUE} o \texttt{FALSE}, vengono utilizati gli operatori logici riportati in Tabella \ref{tab:logical-operators}.
 
-\begin{table}
+\begin{table}[!h]
 
 \caption{\label{tab:logical-operators}Operatori Logici}
 \centering
@@ -1006,16 +1009,75 @@ Questi operatori sono anche definiti \href{https://it.wikipedia.org/wiki/Espress
 \begin{itemize}
 \tightlist
 \item
-  Nel caso della \textbf{congiunzione logica} \texttt{\&}, affinchè la proposizione sia vera è necessario che entrambe le relazioni siano vere. Negli altri casi la proposizione sarà valutarta falsa.\\
-\item
-  Nel caso della \textbf{disgiunzione inclusiva logica} \texttt{\textbar{}}, affinchè la proposizione sia vera è necessario che almeno una relaziona sia vera. La proposizione sarà valutarta falsa solo quando entrambe le relazioni sono false.
+  Nel caso della \textbf{congiunzione logica} \texttt{\&}, affinchè la proposizione sia vera è necessario che entrambe le relazioni siano vere. Negli altri casi la proposizione sarà valutarta falsa (vedi Tabella \ref{tab:and-operator}).
 \end{itemize}
+
+\begin{table}[!h]
+
+\caption{\label{tab:and-operator}Congiunzione '\&'}
+\centering
+\begin{tabular}[t]{>{}l|>{}l|>{}l}
+\hline
+x & y & x \textbackslash{}\& y\\
+\hline
+TRUE & TRUE & TRUE\\
+\hline
+TRUE & FALSE & FALSE\\
+\hline
+FALSE & TRUE & FALSE\\
+\hline
+FALSE & FALSE & FALSE\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{itemize}
+\tightlist
+\item
+  Nel caso della \textbf{disgiunzione inclusiva logica} \texttt{\textbar{}}, affinchè la proposizione sia vera è necessario che almeno una relaziona sia vera. La proposizione sarà valutarta falsa solo quando entrambe le relazioni sono false (vedi Tabella \ref{tab:or-operator}).
+\end{itemize}
+
+\begin{table}[!h]
+
+\caption{\label{tab:or-operator}Disgiunzione inclusiva '|'}
+\centering
+\begin{tabular}[t]{>{}l|>{}l|>{}l}
+\hline
+x & y & x | y\\
+\hline
+TRUE & TRUE & TRUE\\
+\hline
+TRUE & FALSE & TRUE\\
+\hline
+FALSE & TRUE & TRUE\\
+\hline
+FALSE & FALSE & FALSE\\
+\hline
+\end{tabular}
+\end{table}
 
 \begin{design}[Disgiunzione esclusiva]
 
 Per completezza ricordiamo che tra gli operatori logici esiste anche la \textbf{disgiunzione esclusiva}. La proposizione sarà valutata falsa se entrambe le relazioni sono vere oppure false. Affinchè la proposizione sia valutata vera una sola delle relazioni deve essere vera mentre l'altra deve essere falsa.
 
 In R la disgiunzione esclusiva tra due ralazioni (x e y) è indicata con la funzione \texttt{xor(x,\ y)}. Tuttavia tale funzione è raramente usata.
+
+\begin{longtable}[]{@{}lll@{}}
+\caption{Disgiunzione esclusiva `xor(x, y)'}\tabularnewline
+\toprule
+x & y & xor(x, y)\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+x & y & xor(x, y)\tabularnewline
+\midrule
+\endhead
+TRUE & TRUE & FALSE\tabularnewline
+TRUE & FALSE & TRUE\tabularnewline
+FALSE & TRUE & TRUE\tabularnewline
+FALSE & FALSE & FALSE\tabularnewline
+\bottomrule
+\end{longtable}
 
 \end{design}
 

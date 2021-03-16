@@ -11,6 +11,8 @@ fig:help
 tab:math-operators
 tab:relational-operators
 tab:logical-operators
+tab:and-operator
+tab:or-operator
 install
 installare-r
 r-windows
@@ -24,6 +26,7 @@ operatori-matematici
 ordine-operazioni
 operatori-relazionali-e-logici
 operatori-relazionali
+operatori-logici
 ordine-valutazione-relazioni
 objects-functions
 oggetti

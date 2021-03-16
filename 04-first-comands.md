@@ -233,6 +233,8 @@ F == FALSE  # TRUE
 
 :::
 
+### Operatori Logici
+
 In R è possibile congiungere più relazioni per valutare una desiderata proposizione. Ad esempio potremmo valutare se "*17 è maggiore di 10 e minore di 20*". Per unire più relazioni in un'unica proposizione che R valuterà come `TRUE` o `FALSE`, vengono utilizati gli operatori logici riportati in Tabella \@ref(tab:logical-operators).
 
 <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -265,13 +267,92 @@ In R è possibile congiungere più relazioni per valutare una desiderata proposi
 
 Questi operatori sono anche definiti [operatori booleani](https://it.wikipedia.org/wiki/Espressione_booleana) e seguono le comuni definizioni degli operatori logici. In particolare abbiamo che:
 
-- Nel caso della **congiunzione logica** `&`, affinchè la proposizione sia vera è necessario che entrambe le relazioni siano vere. Negli altri casi la proposizione sarà valutarta falsa.  
-- Nel caso della **disgiunzione inclusiva logica** `|`, affinchè la proposizione sia vera è necessario che almeno una relaziona sia vera. La proposizione sarà valutarta falsa solo quando entrambe le relazioni sono false.
+- Nel caso della **congiunzione logica** `&`, affinchè la proposizione sia vera è necessario che entrambe le relazioni siano vere. Negli altri casi la proposizione sarà valutarta falsa (vedi Tabella \@ref(tab:and-operator)).
+
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:and-operator)Congiunzione '&amp;'</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> x </th>
+   <th style="text-align:left;"> y </th>
+   <th style="text-align:left;"> x &amp; y </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;width: 100px; "> TRUE </td>
+   <td style="text-align:left;width: 100px; "> TRUE </td>
+   <td style="text-align:left;width: 100px; "> TRUE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 100px; "> TRUE </td>
+   <td style="text-align:left;width: 100px; "> FALSE </td>
+   <td style="text-align:left;width: 100px; "> FALSE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 100px; "> FALSE </td>
+   <td style="text-align:left;width: 100px; "> TRUE </td>
+   <td style="text-align:left;width: 100px; "> FALSE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 100px; "> FALSE </td>
+   <td style="text-align:left;width: 100px; "> FALSE </td>
+   <td style="text-align:left;width: 100px; "> FALSE </td>
+  </tr>
+</tbody>
+</table>
+
+- Nel caso della **disgiunzione inclusiva logica** `|`, affinchè la proposizione sia vera è necessario che almeno una relaziona sia vera. La proposizione sarà valutarta falsa solo quando entrambe le relazioni sono false (vedi Tabella \@ref(tab:or-operator)).
+
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:or-operator)Disgiunzione inclusiva '|'</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> x </th>
+   <th style="text-align:left;"> y </th>
+   <th style="text-align:left;"> x | y </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;width: 100px; "> TRUE </td>
+   <td style="text-align:left;width: 100px; "> TRUE </td>
+   <td style="text-align:left;width: 100px; "> TRUE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 100px; "> TRUE </td>
+   <td style="text-align:left;width: 100px; "> FALSE </td>
+   <td style="text-align:left;width: 100px; "> TRUE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 100px; "> FALSE </td>
+   <td style="text-align:left;width: 100px; "> TRUE </td>
+   <td style="text-align:left;width: 100px; "> TRUE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 100px; "> FALSE </td>
+   <td style="text-align:left;width: 100px; "> FALSE </td>
+   <td style="text-align:left;width: 100px; "> FALSE </td>
+  </tr>
+</tbody>
+</table>
 
 :::{.design title="Disgiunzione esclusiva" data-latex="[Disgiunzione esclusiva]"}
+
 Per completezza ricordiamo che tra gli operatori logici esiste anche la **disgiunzione esclusiva**. La proposizione sarà valutata falsa se entrambe le relazioni sono vere oppure false. Affinchè la proposizione sia valutata vera una sola delle relazioni deve essere vera mentre l'altra deve essere falsa.
 
 In R la disgiunzione esclusiva tra due ralazioni (x e y) è indicata con la funzione `xor(x, y)`. Tuttavia tale funzione è raramente usata.
+
+<div style="width:360px;  margin-left: auto; margin-right: auto;">
+Table: Disgiunzione esclusiva 'xor(x, y)'
+
+|   x   |   y   | xor(x, y) |
+|:-------|:-------|:-----------|
+| TRUE  | TRUE  | FALSE     |
+| TRUE  | FALSE | TRUE      |
+| FALSE | TRUE  | TRUE      |
+| FALSE | FALSE | FALSE     |
+</div>
 :::
 
 ### Ordine valutazione relazioni
