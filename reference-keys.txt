@@ -8,7 +8,7 @@ fig:files
 fig:plots
 fig:packages
 fig:help
-tab:math-operators
+tab:table-math-operators
 tab:relational-operators
 tab:logical-operators
 tab:and-operator
@@ -22,7 +22,7 @@ installare-r-studio
 r-studio-in-linux
 rstudio-gui
 first-comands
-operatori-matematici
+math-operators
 ordine-operazioni
 operatori-relazionali-e-logici
 operatori-relazionali
@@ -32,8 +32,10 @@ objects-functions
 oggetti
 assegnare-e-richiamare-un-oggetto
 nomi-degli-oggetti
-tipologie-di-oggetti
+tipologie-dati-e-strutture-dati
 functions-def
+argomenti-di-una-funzione
+help-i-need-somebodyhelp
 section
 working-session
 infobox

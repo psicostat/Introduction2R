@@ -794,14 +794,14 @@ In questo capitolo muoveremo i primi passi in R. Inizieremo vedendo come utilizz
 
 In questo capitolo introdurremo per la prima volta molti elementi che saranno poi ripresi e approfonditi nei seguenti capitoli. Quindi non preoccuparti se non tutto ti sarà chiaro fin da subito. Imparare il tuo primo linguaggio di programmazione è difficile ma da qualche parte bisogna pure iniziare. Pronto per le tue prime linee di codice? Let's become a useR!
 
-\hypertarget{operatori-matematici}{%
-\section{Operatori Matematici}\label{operatori-matematici}}
+\hypertarget{math-operators}{%
+\section{Operatori Matematici}\label{math-operators}}
 
-R è un'ottima calcolatrice. Nella Tabella \ref{tab:math-operators} sono elencati i principali operatori matematici e funzioni usate in R.
+R è un'ottima calcolatrice. Nella Tabella \ref{tab:table-math-operators} sono elencati i principali operatori matematici e funzioni usate in R.
 
 \begin{table}[!h]
 
-\caption{\label{tab:math-operators}Operatori Matematici}
+\caption{\label{tab:table-math-operators}Operatori Matematici}
 \centering
 \begin{tabular}[t]{l|l|l}
 \hline
@@ -969,7 +969,7 @@ Nota che in qualsiasi linguaggio di Programmazione, ai valori TRUE e FALSE sono 
 \end{Highlighting}
 \end{Shaded}
 
-In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poichè potrebbe nonn essere chiara e creare fraintendimenti.
+In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poichè potrebbe nonn essere chiara e creare fraintendimenti. Infatti mentre TRUE e FALSE sono parole riservate (vedi Capitolo TODO) T a F non lo sono.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1131,9 +1131,9 @@ Esegui i seguenti esercizi utilizzando gli operatori relazionali e logici (\href
 
 In questo capitolo introdurremmo i concetti di oggetti e funzioni, due elementi alla base di R (e di ogni linguaggio di programmazione). Potremmo pensare agli oggetti in R come a delle variabili che ci permettono di mantenere in memoria dei valori (e.g., i risultati dei nostri calcoli o i nostri dati). Le funzioni in R, invece, sono analoghe a delle funzioni matematiche che, ricevuti degli oggetti in input, compiono delle azioni e restituiscono dei nuovi oggetti in output.
 
-Questa è una iper-semplificazione (e pure tecnicamente non corretta) che ci permettere però di capire come, partendo dai nostri dati o valori iniziali, possiamo manipolarli applicando delle funzioni per ottenere attraverso differenti step i risultati desiderati (e.g., analisi statistiche o grafici e tabelle).
+Questa è una iper-semplificazione (e pure tecnicamente non corretta) che ci permettere però di capire come, partendo dai nostri dati o valori iniziali, possiamo manipolarli applicando delle funzioni per ottenere, attraverso differenti step, i risultati desiderati (e.g., analisi statistiche o grafici e tabelle).
 
-Qui valuteremo gli aspetti fondamentali che riguardano l'utilizzo degli oggetti e delle funzioni mentre saranno approfonditi rispettivamente in tutta la seconda e terza sezione del libro (TODO).
+Qui valuteremo gli aspetti fondamentali riguardanti l'utilizzo degli oggetti e delle funzioni che saranno successivamente approfonditi rispettivamente nel corso della seconda e della terza sezione del libro (TODO).
 
 \hypertarget{oggetti}{%
 \section{Oggetti}\label{oggetti}}
@@ -1166,17 +1166,19 @@ E' inoltre possibile ``aggiornare'' o ``sostituire'' il valore contenuto in un o
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# Aggiornare un valore}
 \NormalTok{x <-}\StringTok{ }\NormalTok{x}\OperatorTok{*}\DecValTok{10}
 \NormalTok{x}
 \CommentTok{## [1] 50}
 
+\CommentTok{# Sostituire un valore}
 \NormalTok{x <-}\StringTok{ "Hello World!"}
 \NormalTok{x}
 \CommentTok{## [1] "Hello World!"}
 \end{Highlighting}
 \end{Shaded}
 
-Nel primo caso abbiamo prima utilizzato il vecchio valore contenuto in \texttt{x} per calcolare il nuovo risultato che è stato assegnato a \texttt{x}. Nel secondo caso abbiamo sostituito il vecchio valore di \texttt{x} con un nuovo valore (nell'esempio una stringa di caratteri).
+Nel primo caso, abbiamo utilizzato il vecchio valore contenuto in \texttt{x} per calcolare il nuovo risultato che è stato assegnato a \texttt{x}. Nel secondo caso, abbiamo sostituito il vecchio valore di \texttt{x} con un nuovo valore (nell'esempio una stringa di caratteri).
 
 \begin{design}[Assegnare valori '<-' vs '=']
 
@@ -1192,7 +1194,7 @@ Esistono due operatori principali che sono usati per assegnare un valore ad un o
 \end{Highlighting}
 \end{Shaded}
 
-Esistono, tuttavia, alcune buone ragioni per preferire l'uso di \texttt{\textless{}-} rispetto a \texttt{=} (attewnti a non confonderlo con l'operatore relazionale \texttt{==}). L'operazione di assegnazione è un'operazione che implica una direzionalità, il chè è reso esplicito dal simbolo \texttt{\textless{}-} mentre il simbolo \texttt{=} non evidenzia questo aspetto e anzi richiama la relazione di uguaglianza in matematica.
+Esistono, tuttavia, alcune buone ragioni per preferire l'uso di \texttt{\textless{}-} rispetto a \texttt{=} (attenti a non confonderlo con l'operatore relazionale \texttt{==}). L'operazione di assegnazione è un'operazione che implica una direzionalità, il chè è reso esplicito dal simbolo \texttt{\textless{}-} mentre il simbolo \texttt{=} non evidenzia questo aspetto e anzi richiama la relazione di uguaglianza in matematica.
 
 La decisione su quale operatore adottare è comunque libera, ma ricorda che una buona norma nella programmazione riguarda la \emph{consistenza}: una volta presa una decisione è bene mantenerla per facilitare la comprensione del codice.
 
@@ -1201,9 +1203,9 @@ La decisione su quale operatore adottare è comunque libera, ma ricorda che una 
 \hypertarget{nomi-degli-oggetti}{%
 \subsection{Nomi degli oggetti}\label{nomi-degli-oggetti}}
 
-La scelta dei nomi degli oggetti sembra un aspetto secondario ma invece ha una grande importanza per facilitare la chiarezza e comprensione dei codici.
+La scelta dei nomi degli oggetti sembra un aspetto secondario ma invece ha una grande importanza per facilitare la chiarezza e la comprensione dei codici.
 
-Ci sono alcune regole che discriminano i nomi validi da nomi non validi. Il nome di un oggetto
+Ci sono alcune regole che discriminano nomi validi da nomi non validi. Il nome di un oggetto:
 
 \begin{itemize}
 \tightlist
@@ -1214,8 +1216,10 @@ Ci sono alcune regole che discriminano i nomi validi da nomi non validi. Il nome
 \item
   non deve contenere caratteri speciali come \texttt{\#}, \texttt{\&}, \texttt{\$}, \texttt{?}, etc.
 \item
-  non deve essere una parola riservata ovvero quelle parole che sono utilizzate internamente da R con un significato speciale (e.g, \texttt{TRUE}, \texttt{FALSE} etc.).
+  non deve essere una parola riservata ovvero quelle parole che sono utilizzate da R con un significato speciale (e.g, \texttt{TRUE}, \texttt{FALSE}, etc.; esegui il comando \texttt{?reserved} per la lista di tutte le parole riservate in R).
 \end{itemize}
+
+\begin{warning}[CaSe-SeNsItIvE]
 
 Nota come R sia \textbf{Case-Sensitive}, ovvero distingua tra lettere minuscole e maiuscole. Nel seguente esempio i due nomi sono considerate diversi e pertanto non avviene una sovrascrizione ma due differenti oggetti sono creati:
 
@@ -1231,14 +1235,16 @@ Nota come R sia \textbf{Case-Sensitive}, ovvero distingua tra lettere minuscole 
 \end{Highlighting}
 \end{Shaded}
 
+\end{warning}
+
 Inoltre, il nome ideale di un oggetto dovrebbe essere:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{auto-descrittivo}: dal solo nome dovrebbe essere possibile intuire il contenuto dell'oggetto. Un nome generico quale \texttt{x} o \texttt{y} ci sarebbero di poco aiuto poichè potrebbero contenere qualsiasi informazione. Invece un nome come \texttt{weight} o \texttt{gender} ci suggerirebbe chiaramente il contenuto dell'oggetto (e.g., il peso o gender dei partecipanti del nostro studio).
+  \textbf{auto-descrittivo}: dal solo nome dovrebbe essere possibile intuire il contenuto dell'oggetto. Un nome generico quale \texttt{x} o \texttt{y} ci sarebbero di poco aiuto poichè potrebbero contenere qualsiasi informazione. Invece un nome come \texttt{weight} o \texttt{gender} ci suggerirebbe chiaramente il contenuto dell'oggetto (e.g., il peso o il gender dei partecipanti del nostro studio).
 \item
-  \textbf{dell giusta lunghezza}: non deve essere ne troppo breve (evitare sigle incomprensibili) e neppure troppo lunghi. La lunghezza corretta è quella che permette al nome di esssere sufficientemente informativo senza aggiungere inutili dettagli. In genere sono sufficienti 2 o 3 parole.
+  \textbf{della giusta lunghezza}: non deve essere ne troppo breve (evitare sigle incomprensibili) ne neppure troppo lunghi. La lunghezza corretta è quella che permette al nome di esssere sufficientemente informativo senza aggiungere inutili dettagli. In genere sono sufficienti 2 o 3 parole.
 \end{itemize}
 
 \begin{design}[CamelCase vs snake\_case]
@@ -1261,35 +1267,168 @@ In genere viene raccomandato di seguire la convenzione \textbf{snake\_case}. Tut
 
 \end{design}
 
-\hypertarget{tipologie-di-oggetti}{%
-\subsection{Tipologie di Oggetti}\label{tipologie-di-oggetti}}
+\hypertarget{tipologie-dati-e-strutture-dati}{%
+\subsection{Tipologie Dati e Strutture Dati}\label{tipologie-dati-e-strutture-dati}}
 
-In R abbiamo differenti tipologie di oggetti (o meglio di strutture dati):
+Per lavorare in modo ottimale in R, è fondamentale conoscere bene e distinuere chiaramente quali sono le tipologie di dati e le strutture degli oggetti usati.
+
+In R abbiamo 4 principali tipologie di dati, ovvero tipologie di valori che possono essere utilizzati:
 
 \begin{itemize}
 \tightlist
 \item
-  Vettori
+  \texttt{character} - \emph{Stringhe di caratteri} i cui valori alfannumerici vengono delimitati dalle doppie vigolette \texttt{"Hello\ world!"} o virgolette singole \texttt{\textquotesingle{}Hello\ world!\textquotesingle{}}.
 \item
-  Matrici
+  \texttt{double} - \emph{Valori numerici} con o senza cifre decimali ad esempio \texttt{27} o \texttt{93.46}.
 \item
-  Dataframe
+  \texttt{integer} - \emph{Valori interi} definiti apponendo la lettera \texttt{L} al numero desiderato, ad esempio \texttt{58L}.
 \item
-  Liste
+  \texttt{logical} - \emph{Valori logici} \texttt{TRUE} e \texttt{FALSE} usati nelle operazioni logiche.
 \end{itemize}
 
-La loro definizione, le loro caratteristiche ed il loro utilizzo sarà discusso nella seconda sezione di quessto libro TODO
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{typeof}\NormalTok{(}\StringTok{"Psicostat"}\NormalTok{)}
+\CommentTok{## [1] "character"}
+\KeywordTok{typeof}\NormalTok{(}\FloatTok{24.04}\NormalTok{)}
+\CommentTok{## [1] "double"}
+\KeywordTok{typeof}\NormalTok{(1993L)}
+\CommentTok{## [1] "integer"}
+\KeywordTok{typeof}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{## [1] "logical"}
+\end{Highlighting}
+\end{Shaded}
+
+In R abbiamo inoltre differenti tipologie di oggetti, ovvero diverse strutture in cui possono essere organizzati i dati:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Vettori}
+\item
+  \textbf{Matrici}
+\item
+  \textbf{Dataframe}
+\item
+  \textbf{Liste}
+\end{itemize}
+
+Approfondiremo la loro definizione, le loro caratteristiche ed il loro utilizzo nel corso di tutta la seconda sezione di questo libro TODO.
 
 \hypertarget{functions-def}{%
 \section{Funzioni}\label{functions-def}}
+
+Possiamo pensare alle funzioni in R in modo analogo alle classiche funzioni matematiche. Dati dei valori in input, le funzioni eseguono dei specifici calcoli e restituiscono in output il risultato ottenuto.
+
+\includegraphics[width=0.95\textwidth,height=\textheight]{images/functions-graph.png}
+
+Abbiamo già incontrato le nostre prime funzioni per eseguire specifiche operazioni matematiche nel Capitolo \ref{math-operators} come ad esempio \texttt{sqrt()} o \texttt{abs()} usate per ottenere ripettivamente la radice quadrata o il valore assoluto di un numero. Ovviamente le funzioni in R non sono limitate ai soli calcoli matematici ma possono eseguire qualsiasi genere di compito come ad esempio creare grafici e tabelle o manipolare dei dati o dei file. Tuttavia il concetto rimane lo stesso: ricevuti degli oggetti in input, le funzioni compiono determinate azioni e restituiscono dei nuovi oggetti in output.
+
+In realtà incontreremo delle funzioni che non richiedono input o non produrre degli output. Ad esempio \texttt{getwd()} non richiede input oppure la funzione \texttt{rm()} non produce output. Tuttavia questo accade nella minoranza dei casi.
+
+Per eseguire una funzione in R è necessario digitare il nome della funzione ed indicare tra parentesi i valori che vogliamo assegnare agli \textbf{argomenti} della funzione, ovvero i nostri input, separati da virgole. Generalmente si utilizza quindi la seguente sintassi:
+
+\texttt{\textless{}nome-funzione\textgreater{}(\textless{}nome-arg1\textgreater{}\ =\ \textless{}valore-arg1\textgreater{},\ \textless{}nome-arg2\textgreater{}\ =\ \textless{}valore-arg2\textgreater{},...)}
+
+{}
+
+Ad esempio per creare una sequenza di valori con incrementi di 1 posso usare la funzione \texttt{seq()}, i cui argomenti sono \texttt{from} e \texttt{to} ed indicano rispettivamente il valore iniziale ed il valore massimo della sequenza.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# creo una sequenza di valori da 0 a 10 con incrementi di 1}
+\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{0}\NormalTok{, }\DataTypeTok{to =} \DecValTok{10}\NormalTok{)}
+\CommentTok{##  [1]  0  1  2  3  4  5  6  7  8  9 10}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{argomenti-di-una-funzione}{%
+\subsection{Argomenti di una Funzione}\label{argomenti-di-una-funzione}}
+
+Nel definire gli argomenti di una funzione non è necessario specificare il nome degli argomenti. Ad esempio il comando precedente può essere eseguito anche specificando solamente i valori.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# creo una sequenza di valori da 0 a 10 con incrementi di 1}
+\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{)}
+\CommentTok{##  [1]  0  1  2  3  4  5  6  7  8  9 10}
+\end{Highlighting}
+\end{Shaded}
+
+Tuttavia, questo rende più difficile la lettura e la comprensione del codice poichè non è chiaro a quali argomenti si riferiscono i valori. L'ordine con cui vengono definiti i valori in questo caso è iportante, poichè R assume rispetti l'ordine prestabilito degli argomenti. Vediamo come invertendo invertendo i valori ovviamente otteniamo risultati differenti da quelli precedenti, ma questo non avviene quando il nome dell'argomento è specificato.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# inverto i valori senza i nomi degli argomenti}
+\KeywordTok{seq}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\CommentTok{##  [1] 10  9  8  7  6  5  4  3  2  1  0}
+
+\CommentTok{# inverto i valori con i nomi degli argomenti}
+\KeywordTok{seq}\NormalTok{(}\DataTypeTok{to =} \DecValTok{10}\NormalTok{, }\DataTypeTok{from =} \DecValTok{0}\NormalTok{)}
+\CommentTok{##  [1]  0  1  2  3  4  5  6  7  8  9 10}
+\end{Highlighting}
+\end{Shaded}
+
+Vediamo inoltre come le funzioni possano avere molteplici argomenti ma che non sia necessario specificare il valore per ognuno di essi. Molti argomenti, infatti, hanno già dei valori prestabiliti di \emph{default} e non richiedo quindi di essere specificati almeno che ovviamente non si vogliano utilizzare impostazioni diverse da quelle di \emph{default}. Oppure lo specificare un dato argomento rispetto ad un altro può definire il comportamento stesso della funzione.
+
+Ad esempio la funzione \texttt{seq()} possiede anche gli argomenti \texttt{by} e \texttt{length.out} che prima non erano stati specificati. \texttt{by} permette di definire l'incremento per ogni elemento successivo della sequenza mentre \texttt{length.out} permette di definire il numero di elementi della sequenza. Vediamo come allo specificare dell'uno o dell'altro agromento (e di entrambi) il comportamento della funzione vari.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{0}\NormalTok{,  }\DataTypeTok{to =} \DecValTok{10}\NormalTok{, }\DataTypeTok{by =} \DecValTok{5}\NormalTok{)}
+\CommentTok{## [1]  0  5 10}
+\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{0}\NormalTok{,  }\DataTypeTok{to =} \DecValTok{10}\NormalTok{, }\DataTypeTok{length.out =} \DecValTok{5}\NormalTok{)}
+\CommentTok{## [1]  0.0  2.5  5.0  7.5 10.0}
+\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{0}\NormalTok{,  }\DataTypeTok{to =} \DecValTok{10}\NormalTok{, }\DataTypeTok{length.out =} \DecValTok{5}\NormalTok{, }\DataTypeTok{by =} \DecValTok{4}\NormalTok{)}
+\CommentTok{## Error in seq.default(from = 0, to = 10, length.out = 5, by = 4): too many arguments}
+\end{Highlighting}
+\end{Shaded}
+
+E' pertanto cosigliabile esplicitare sempre gli argomenti di una funzione per rendere chiaro a che cosa si riferiscono i valori utilizzati. Questo è utlile anche per evitare eventuali comportamenti non voluti delle funzioni ad individuare più facilmente possibili errori.
+
+Gli argomenti di una funzione, inoltre, richiedono specifiche tipologie e strutture di dati e sta a noi assicuraci che i dati siano forniti nel modo corretto. Vediamo ad esempio come la funzione \texttt{mean()} che calcola la media di un insieme di valori, richieda come input un vettore di valori numerici. Approfondiremo il concetto di vettori nel Capitolo TODO, al momento ci basta sapere che possiamo usare la funzione \texttt{c()} per combinare più valori in un unico vettore.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Calcolo la media dei seguenti valori (numerici)}
+\KeywordTok{mean}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{12}\NormalTok{)) }\CommentTok{# c() combina più valori in un unico vettore}
+\CommentTok{## [1] 9}
+
+\KeywordTok{mean}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{12}\NormalTok{)}
+\CommentTok{## [1] 10}
+\end{Highlighting}
+\end{Shaded}
+
+Notiamo come nel primo caso il risultato sia corretto mentre nel secondo è sbagliato. Questo perchè \texttt{mean()} richiede come primo argomento il vettore su cui calcolare la media. Nel primo caso abbiamo correttamente specificato il vettore di valori usando la funzione \texttt{c()}. Nel secondo caso invece il primo argomento risulta essere solo il valore \texttt{10} ed R calcola la media di \texttt{10} ovvero \texttt{10}, mentre gli altri valori son passati ad altri argomenti che non alterano il comportameto ma neppure ci segnalano di questo importante errore.
+
+Nel seguente esempio invece possiamo vedere come \texttt{mean()} richieda che i valori siano numerici. Seppur \texttt{"1"} \texttt{"2"}, e \texttt{"3"} siano dei numeri, l'utilizzo delle doppie virgolette li rende per R dei caratteri e non dei valori numerici e giustamente R non può eseguire una media su dei caratteri.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Calcolo la media dei seguenti valori (caratteri)}
+\KeywordTok{mean}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"1"}\NormalTok{, }\StringTok{"2"}\NormalTok{, }\StringTok{"3"}\NormalTok{))}
+\CommentTok{## Warning in mean.default(c("1", "2", "3")): argument is not numeric or logical:}
+\CommentTok{## returning NA}
+\CommentTok{## [1] NA}
+\end{Highlighting}
+\end{Shaded}
+
+Capiamo quindi che per usare correttamente le funzioni è fondamentale conoscerne gli argomenti e rispettare le tipologie e strutture di dati richieste.
+
+\hypertarget{help-i-need-somebodyhelp}{%
+\subsection{Help! I need Somebody\ldots Help!}\label{help-i-need-somebodyhelp}}
+
+Conoscere tutte le funzioni e tutti i loro argomenti è impossibile. Per fortuna R ci viene in soccorso fornendoci per ogni funzione la sua documentazione che ci fornisce utili informazioni riguardo gli argomenti, finalità e possibili utilizzi.
+
+Per accedere alla documentazione possiamo utilizzare il comnado \texttt{?\textless{}nome-funzione\textgreater{}} oppure \texttt{help(\textless{}nome-funzione\textgreater{})}.
+
+Struttura help page
 
 \begin{itemize}
 \item
   arguments input
 \item
   output
-\item
-  nomi riservati ?reserved
 \item
   trick tab
 \item

@@ -162,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="rstudio-gui.html"><a href="rstudio-gui.html"><i class="fa fa-check"></i><b>2</b> Interfaccia RStudio</a></li>
 <li class="chapter" data-level="3" data-path="first-comands.html"><a href="first-comands.html"><i class="fa fa-check"></i><b>3</b> Primi Passi in R</a><ul>
-<li class="chapter" data-level="3.1" data-path="first-comands.html"><a href="first-comands.html#operatori-matematici"><i class="fa fa-check"></i><b>3.1</b> Operatori Matematici</a><ul>
+<li class="chapter" data-level="3.1" data-path="first-comands.html"><a href="first-comands.html#math-operators"><i class="fa fa-check"></i><b>3.1</b> Operatori Matematici</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="first-comands.html"><a href="first-comands.html#ordine-operazioni"><i class="fa fa-check"></i><b>3.1.1</b> Ordine Operazioni</a></li>
 <li class="chapter" data-level="" data-path="first-comands.html"><a href="first-comands.html#esercizi"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
@@ -177,10 +177,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="objects-functions.html"><a href="objects-functions.html#oggetti"><i class="fa fa-check"></i><b>4.1</b> Oggetti</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="objects-functions.html"><a href="objects-functions.html#assegnare-e-richiamare-un-oggetto"><i class="fa fa-check"></i><b>4.1.1</b> Assegnare e Richiamare un oggetto</a></li>
 <li class="chapter" data-level="4.1.2" data-path="objects-functions.html"><a href="objects-functions.html#nomi-degli-oggetti"><i class="fa fa-check"></i><b>4.1.2</b> Nomi degli oggetti</a></li>
-<li class="chapter" data-level="4.1.3" data-path="objects-functions.html"><a href="objects-functions.html#tipologie-di-oggetti"><i class="fa fa-check"></i><b>4.1.3</b> Tipologie di Oggetti</a></li>
+<li class="chapter" data-level="4.1.3" data-path="objects-functions.html"><a href="objects-functions.html#tipologie-dati-e-strutture-dati"><i class="fa fa-check"></i><b>4.1.3</b> Tipologie Dati e Strutture Dati</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="objects-functions.html"><a href="objects-functions.html#functions-def"><i class="fa fa-check"></i><b>4.2</b> Funzioni</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#section"><i class="fa fa-check"></i><b>4.2.1</b> </a></li>
+<li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#argomenti-di-una-funzione"><i class="fa fa-check"></i><b>4.2.1</b> Argomenti di una Funzione</a></li>
+<li class="chapter" data-level="4.2.2" data-path="objects-functions.html"><a href="objects-functions.html#help-i-need-somebodyhelp"><i class="fa fa-check"></i><b>4.2.2</b> Help! I need Somebody…Help!</a></li>
+<li class="chapter" data-level="4.2.3" data-path="objects-functions.html"><a href="objects-functions.html#section"><i class="fa fa-check"></i><b>4.2.3</b> </a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>5</b> Sessione di Lavoro</a><ul>
@@ -236,8 +238,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="objects-functions" class="section level1">
 <h1><span class="header-section-number">Capitolo 4</span> Due Compagni Inseparabili</h1>
 <p>In questo capitolo introdurremmo i concetti di oggetti e funzioni, due elementi alla base di R (e di ogni linguaggio di programmazione). Potremmo pensare agli oggetti in R come a delle variabili che ci permettono di mantenere in memoria dei valori (e.g., i risultati dei nostri calcoli o i nostri dati). Le funzioni in R, invece, sono analoghe a delle funzioni matematiche che, ricevuti degli oggetti in input, compiono delle azioni e restituiscono dei nuovi oggetti in output.</p>
-<p>Questa è una iper-semplificazione (e pure tecnicamente non corretta) che ci permettere però di capire come, partendo dai nostri dati o valori iniziali, possiamo manipolarli applicando delle funzioni per ottenere attraverso differenti step i risultati desiderati (e.g., analisi statistiche o grafici e tabelle).</p>
-<p>Qui valuteremo gli aspetti fondamentali che riguardano l’utilizzo degli oggetti e delle funzioni mentre saranno approfonditi rispettivamente in tutta la seconda e terza sezione del libro (TODO).</p>
+<p>Questa è una iper-semplificazione (e pure tecnicamente non corretta) che ci permettere però di capire come, partendo dai nostri dati o valori iniziali, possiamo manipolarli applicando delle funzioni per ottenere, attraverso differenti step, i risultati desiderati (e.g., analisi statistiche o grafici e tabelle).</p>
+<p>Qui valuteremo gli aspetti fondamentali riguardanti l’utilizzo degli oggetti e delle funzioni che saranno successivamente approfonditi rispettivamente nel corso della seconda e della terza sezione del libro (TODO).</p>
 <div id="oggetti" class="section level2">
 <h2><span class="header-section-number">4.1</span> Oggetti</h2>
 <p>Quando eseguiamo un commando in R, il risultato ottenuto viene immediatamente mostrato in <em>Console</em>. Tale risultato, tuttavia, non viene salvato in memoria e quindi non potrà essere riutilizzato in nessuna operazione futura. Condurre delle analisi in questo modo sarebbe estremamente complicato ed inefficiente. La soluzione più ovvia è quella di salvare in memoria i nostri risultati intermedi per poterli poi riutilizzare nel corso delle nostre analisi. Si definisce questo processo come <em>assegnare</em> un valore ad un oggetto.</p>
@@ -250,14 +252,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="objects-functions.html#cb4-1"></a>x <span class="op">+</span><span class="st"> </span><span class="dv">3</span></span>
 <span id="cb4-2"><a href="objects-functions.html#cb4-2"></a><span class="co">## [1] 8</span></span></code></pre></div>
 <p>E’ inoltre possibile “aggiornare” o “sostituire” il valore contenuto in un oggetto. Ad esempio:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="objects-functions.html#cb5-1"></a>x &lt;-<span class="st"> </span>x<span class="op">*</span><span class="dv">10</span></span>
-<span id="cb5-2"><a href="objects-functions.html#cb5-2"></a>x</span>
-<span id="cb5-3"><a href="objects-functions.html#cb5-3"></a><span class="co">## [1] 50</span></span>
-<span id="cb5-4"><a href="objects-functions.html#cb5-4"></a></span>
-<span id="cb5-5"><a href="objects-functions.html#cb5-5"></a>x &lt;-<span class="st"> &quot;Hello World!&quot;</span></span>
-<span id="cb5-6"><a href="objects-functions.html#cb5-6"></a>x</span>
-<span id="cb5-7"><a href="objects-functions.html#cb5-7"></a><span class="co">## [1] &quot;Hello World!&quot;</span></span></code></pre></div>
-<p>Nel primo caso abbiamo prima utilizzato il vecchio valore contenuto in <code>x</code> per calcolare il nuovo risultato che è stato assegnato a <code>x</code>. Nel secondo caso abbiamo sostituito il vecchio valore di <code>x</code> con un nuovo valore (nell’esempio una stringa di caratteri).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="objects-functions.html#cb5-1"></a><span class="co"># Aggiornare un valore</span></span>
+<span id="cb5-2"><a href="objects-functions.html#cb5-2"></a>x &lt;-<span class="st"> </span>x<span class="op">*</span><span class="dv">10</span></span>
+<span id="cb5-3"><a href="objects-functions.html#cb5-3"></a>x</span>
+<span id="cb5-4"><a href="objects-functions.html#cb5-4"></a><span class="co">## [1] 50</span></span>
+<span id="cb5-5"><a href="objects-functions.html#cb5-5"></a></span>
+<span id="cb5-6"><a href="objects-functions.html#cb5-6"></a><span class="co"># Sostituire un valore</span></span>
+<span id="cb5-7"><a href="objects-functions.html#cb5-7"></a>x &lt;-<span class="st"> &quot;Hello World!&quot;</span></span>
+<span id="cb5-8"><a href="objects-functions.html#cb5-8"></a>x</span>
+<span id="cb5-9"><a href="objects-functions.html#cb5-9"></a><span class="co">## [1] &quot;Hello World!&quot;</span></span></code></pre></div>
+<p>Nel primo caso, abbiamo utilizzato il vecchio valore contenuto in <code>x</code> per calcolare il nuovo risultato che è stato assegnato a <code>x</code>. Nel secondo caso, abbiamo sostituito il vecchio valore di <code>x</code> con un nuovo valore (nell’esempio una stringa di caratteri).</p>
 <div class="design" title="Assegnare valori &#39;&lt;-&#39; vs &#39;=&#39;">
 <p>Esistono due operatori principali che sono usati per assegnare un valore ad un oggetto: l’operatore <code>&lt;-</code> e l’operatore <code>=</code>. Entrambi sono validi e spesso la scelta tra i due diventa solo una questione di stile personale.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="objects-functions.html#cb6-1"></a>x_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="dv">45</span></span>
@@ -265,20 +269,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-3"><a href="objects-functions.html#cb6-3"></a></span>
 <span id="cb6-4"><a href="objects-functions.html#cb6-4"></a>x_<span class="dv">1</span> <span class="op">==</span><span class="st"> </span>x_<span class="dv">2</span> </span>
 <span id="cb6-5"><a href="objects-functions.html#cb6-5"></a><span class="co">## [1] TRUE</span></span></code></pre></div>
-<p>Esistono, tuttavia, alcune buone ragioni per preferire l’uso di <code>&lt;-</code> rispetto a <code>=</code> (attewnti a non confonderlo con l’operatore relazionale <code>==</code>). L’operazione di assegnazione è un’operazione che implica una direzionalità, il chè è reso esplicito dal simbolo <code>&lt;-</code> mentre il simbolo <code>=</code> non evidenzia questo aspetto e anzi richiama la relazione di uguaglianza in matematica.</p>
+<p>Esistono, tuttavia, alcune buone ragioni per preferire l’uso di <code>&lt;-</code> rispetto a <code>=</code> (attenti a non confonderlo con l’operatore relazionale <code>==</code>). L’operazione di assegnazione è un’operazione che implica una direzionalità, il chè è reso esplicito dal simbolo <code>&lt;-</code> mentre il simbolo <code>=</code> non evidenzia questo aspetto e anzi richiama la relazione di uguaglianza in matematica.</p>
 <p>La decisione su quale operatore adottare è comunque libera, ma ricorda che una buona norma nella programmazione riguarda la <em>consistenza</em>: una volta presa una decisione è bene mantenerla per facilitare la comprensione del codice.</p>
 </div>
 </div>
 <div id="nomi-degli-oggetti" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> Nomi degli oggetti</h3>
-<p>La scelta dei nomi degli oggetti sembra un aspetto secondario ma invece ha una grande importanza per facilitare la chiarezza e comprensione dei codici.</p>
-<p>Ci sono alcune regole che discriminano i nomi validi da nomi non validi. Il nome di un oggetto</p>
+<p>La scelta dei nomi degli oggetti sembra un aspetto secondario ma invece ha una grande importanza per facilitare la chiarezza e la comprensione dei codici.</p>
+<p>Ci sono alcune regole che discriminano nomi validi da nomi non validi. Il nome di un oggetto:</p>
 <ul>
 <li>deve iniziare con una lettera e può contenere lettere, numeri, underscore (<code>_</code>), o punti (<code>.</code>).</li>
 <li>potrebbe anche iniziare con un punto (<code>.</code>) ma in tal caso non può essere seguito da un numero.</li>
 <li>non deve contenere caratteri speciali come <code>#</code>, <code>&amp;</code>, <code>$</code>, <code>?</code>, etc.</li>
-<li>non deve essere una parola riservata ovvero quelle parole che sono utilizzate internamente da R con un significato speciale (e.g, <code>TRUE</code>, <code>FALSE</code> etc.).</li>
+<li>non deve essere una parola riservata ovvero quelle parole che sono utilizzate da R con un significato speciale (e.g, <code>TRUE</code>, <code>FALSE</code>, etc.; esegui il comando <code>?reserved</code> per la lista di tutte le parole riservate in R).</li>
 </ul>
+<div class="warning" title="CaSe-SeNsItIvE">
 <p>Nota come R sia <strong>Case-Sensitive</strong>, ovvero distingua tra lettere minuscole e maiuscole. Nel seguente esempio i due nomi sono considerate diversi e pertanto non avviene una sovrascrizione ma due differenti oggetti sono creati:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="objects-functions.html#cb7-1"></a>My_name &lt;-<span class="st"> &quot;Monty&quot;</span></span>
 <span id="cb7-2"><a href="objects-functions.html#cb7-2"></a>my_name &lt;-<span class="st"> &quot;Python&quot;</span></span>
@@ -287,10 +292,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-5"><a href="objects-functions.html#cb7-5"></a><span class="co">## [1] &quot;Monty&quot;</span></span>
 <span id="cb7-6"><a href="objects-functions.html#cb7-6"></a>my_name</span>
 <span id="cb7-7"><a href="objects-functions.html#cb7-7"></a><span class="co">## [1] &quot;Python&quot;</span></span></code></pre></div>
+</div>
 <p>Inoltre, il nome ideale di un oggetto dovrebbe essere:</p>
 <ul>
-<li><strong>auto-descrittivo</strong>: dal solo nome dovrebbe essere possibile intuire il contenuto dell’oggetto. Un nome generico quale <code>x</code> o <code>y</code> ci sarebbero di poco aiuto poichè potrebbero contenere qualsiasi informazione. Invece un nome come <code>weight</code> o <code>gender</code> ci suggerirebbe chiaramente il contenuto dell’oggetto (e.g., il peso o gender dei partecipanti del nostro studio).</li>
-<li><strong>dell giusta lunghezza</strong>: non deve essere ne troppo breve (evitare sigle incomprensibili) e neppure troppo lunghi. La lunghezza corretta è quella che permette al nome di esssere sufficientemente informativo senza aggiungere inutili dettagli. In genere sono sufficienti 2 o 3 parole.</li>
+<li><strong>auto-descrittivo</strong>: dal solo nome dovrebbe essere possibile intuire il contenuto dell’oggetto. Un nome generico quale <code>x</code> o <code>y</code> ci sarebbero di poco aiuto poichè potrebbero contenere qualsiasi informazione. Invece un nome come <code>weight</code> o <code>gender</code> ci suggerirebbe chiaramente il contenuto dell’oggetto (e.g., il peso o il gender dei partecipanti del nostro studio).</li>
+<li><strong>della giusta lunghezza</strong>: non deve essere ne troppo breve (evitare sigle incomprensibili) ne neppure troppo lunghi. La lunghezza corretta è quella che permette al nome di esssere sufficientemente informativo senza aggiungere inutili dettagli. In genere sono sufficienti 2 o 3 parole.</li>
 </ul>
 <div class="design" title="CamelCase vs snake_case">
 <p>Spesso più parole sono usate per ottenere un nome sufficientemente chiaro. Dato che però non è possibile includere spazi in un nome, nasce il problema di come unire più parole senza che il nome diventi incomprensibile, ad esempio <code>mediatestcontrollo</code>.</p>
@@ -303,29 +309,105 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In genere viene raccomandato di seguire la convenzione <strong>snake_case</strong>. Tuttavia, la decisione su quale convenzione adottare è libera, ma ricorda ancora che una buona norma nella programmazione riguarda la <em>consistenza</em>: una volta presa una decisione è bene mantenerla per facilitare la comprensione del codice.</p>
 </div>
 </div>
-<div id="tipologie-di-oggetti" class="section level3">
-<h3><span class="header-section-number">4.1.3</span> Tipologie di Oggetti</h3>
-<p>In R abbiamo differenti tipologie di oggetti (o meglio di strutture dati):</p>
+<div id="tipologie-dati-e-strutture-dati" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Tipologie Dati e Strutture Dati</h3>
+<p>Per lavorare in modo ottimale in R, è fondamentale conoscere bene e distinuere chiaramente quali sono le tipologie di dati e le strutture degli oggetti usati.</p>
+<p>In R abbiamo 4 principali tipologie di dati, ovvero tipologie di valori che possono essere utilizzati:</p>
 <ul>
-<li>Vettori</li>
-<li>Matrici</li>
-<li>Dataframe</li>
-<li>Liste</li>
+<li><code>character</code> - <em>Stringhe di caratteri</em> i cui valori alfannumerici vengono delimitati dalle doppie vigolette <code>"Hello world!"</code> o virgolette singole <code>'Hello world!'</code>.</li>
+<li><code>double</code> - <em>Valori numerici</em> con o senza cifre decimali ad esempio <code>27</code> o <code>93.46</code>.</li>
+<li><code>integer</code> - <em>Valori interi</em> definiti apponendo la lettera <code>L</code> al numero desiderato, ad esempio <code>58L</code>.</li>
+<li><code>logical</code> - <em>Valori logici</em> <code>TRUE</code> e <code>FALSE</code> usati nelle operazioni logiche.</li>
 </ul>
-<p>La loro definizione, le loro caratteristiche ed il loro utilizzo sarà discusso nella seconda sezione di quessto libro TODO</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="objects-functions.html#cb8-1"></a><span class="kw">typeof</span>(<span class="st">&quot;Psicostat&quot;</span>)</span>
+<span id="cb8-2"><a href="objects-functions.html#cb8-2"></a><span class="co">## [1] &quot;character&quot;</span></span>
+<span id="cb8-3"><a href="objects-functions.html#cb8-3"></a><span class="kw">typeof</span>(<span class="fl">24.04</span>)</span>
+<span id="cb8-4"><a href="objects-functions.html#cb8-4"></a><span class="co">## [1] &quot;double&quot;</span></span>
+<span id="cb8-5"><a href="objects-functions.html#cb8-5"></a><span class="kw">typeof</span>(1993L)</span>
+<span id="cb8-6"><a href="objects-functions.html#cb8-6"></a><span class="co">## [1] &quot;integer&quot;</span></span>
+<span id="cb8-7"><a href="objects-functions.html#cb8-7"></a><span class="kw">typeof</span>(<span class="ot">TRUE</span>)</span>
+<span id="cb8-8"><a href="objects-functions.html#cb8-8"></a><span class="co">## [1] &quot;logical&quot;</span></span></code></pre></div>
+<p>In R abbiamo inoltre differenti tipologie di oggetti, ovvero diverse strutture in cui possono essere organizzati i dati:</p>
+<ul>
+<li><strong>Vettori</strong></li>
+<li><strong>Matrici</strong></li>
+<li><strong>Dataframe</strong></li>
+<li><strong>Liste</strong></li>
+</ul>
+<p>Approfondiremo la loro definizione, le loro caratteristiche ed il loro utilizzo nel corso di tutta la seconda sezione di questo libro TODO.</p>
 </div>
 </div>
 <div id="functions-def" class="section level2">
 <h2><span class="header-section-number">4.2</span> Funzioni</h2>
+<p>Possiamo pensare alle funzioni in R in modo analogo alle classiche funzioni matematiche. Dati dei valori in input, le funzioni eseguono dei specifici calcoli e restituiscono in output il risultato ottenuto.</p>
+<center>
+<img src="images/functions-graph.png" style="width:95.0%" />
+</center>
+<p><br></p>
+<p>Abbiamo già incontrato le nostre prime funzioni per eseguire specifiche operazioni matematiche nel Capitolo <a href="first-comands.html#math-operators">3.1</a> come ad esempio <code>sqrt()</code> o <code>abs()</code> usate per ottenere ripettivamente la radice quadrata o il valore assoluto di un numero. Ovviamente le funzioni in R non sono limitate ai soli calcoli matematici ma possono eseguire qualsiasi genere di compito come ad esempio creare grafici e tabelle o manipolare dei dati o dei file. Tuttavia il concetto rimane lo stesso: ricevuti degli oggetti in input, le funzioni compiono determinate azioni e restituiscono dei nuovi oggetti in output.</p>
+<p>In realtà incontreremo delle funzioni che non richiedono input o non produrre degli output. Ad esempio <code>getwd()</code> non richiede input oppure la funzione <code>rm()</code> non produce output. Tuttavia questo accade nella minoranza dei casi.</p>
+<p>Per eseguire una funzione in R è necessario digitare il nome della funzione ed indicare tra parentesi i valori che vogliamo assegnare agli <strong>argomenti</strong> della funzione, ovvero i nostri input, separati da virgole. Generalmente si utilizza quindi la seguente sintassi:</p>
+<center>
+<code>&lt;nome-funzione&gt;(&lt;nome-arg1&gt; = &lt;valore-arg1&gt;, &lt;nome-arg2&gt; = &lt;valore-arg2&gt;,...)</code>
+</center>
+<p><span></span></p>
+<p>Ad esempio per creare una sequenza di valori con incrementi di 1 posso usare la funzione <code>seq()</code>, i cui argomenti sono <code>from</code> e <code>to</code> ed indicano rispettivamente il valore iniziale ed il valore massimo della sequenza.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="objects-functions.html#cb9-1"></a><span class="co"># creo una sequenza di valori da 0 a 10 con incrementi di 1</span></span>
+<span id="cb9-2"><a href="objects-functions.html#cb9-2"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">10</span>)</span>
+<span id="cb9-3"><a href="objects-functions.html#cb9-3"></a><span class="co">##  [1]  0  1  2  3  4  5  6  7  8  9 10</span></span></code></pre></div>
+<div id="argomenti-di-una-funzione" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Argomenti di una Funzione</h3>
+<p>Nel definire gli argomenti di una funzione non è necessario specificare il nome degli argomenti. Ad esempio il comando precedente può essere eseguito anche specificando solamente i valori.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="objects-functions.html#cb10-1"></a><span class="co"># creo una sequenza di valori da 0 a 10 con incrementi di 1</span></span>
+<span id="cb10-2"><a href="objects-functions.html#cb10-2"></a><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>)</span>
+<span id="cb10-3"><a href="objects-functions.html#cb10-3"></a><span class="co">##  [1]  0  1  2  3  4  5  6  7  8  9 10</span></span></code></pre></div>
+<p>Tuttavia, questo rende più difficile la lettura e la comprensione del codice poichè non è chiaro a quali argomenti si riferiscono i valori. L’ordine con cui vengono definiti i valori in questo caso è iportante, poichè R assume rispetti l’ordine prestabilito degli argomenti. Vediamo come invertendo invertendo i valori ovviamente otteniamo risultati differenti da quelli precedenti, ma questo non avviene quando il nome dell’argomento è specificato.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="objects-functions.html#cb11-1"></a><span class="co"># inverto i valori senza i nomi degli argomenti</span></span>
+<span id="cb11-2"><a href="objects-functions.html#cb11-2"></a><span class="kw">seq</span>(<span class="dv">10</span>, <span class="dv">0</span>)</span>
+<span id="cb11-3"><a href="objects-functions.html#cb11-3"></a><span class="co">##  [1] 10  9  8  7  6  5  4  3  2  1  0</span></span>
+<span id="cb11-4"><a href="objects-functions.html#cb11-4"></a></span>
+<span id="cb11-5"><a href="objects-functions.html#cb11-5"></a><span class="co"># inverto i valori con i nomi degli argomenti</span></span>
+<span id="cb11-6"><a href="objects-functions.html#cb11-6"></a><span class="kw">seq</span>(<span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">from =</span> <span class="dv">0</span>)</span>
+<span id="cb11-7"><a href="objects-functions.html#cb11-7"></a><span class="co">##  [1]  0  1  2  3  4  5  6  7  8  9 10</span></span></code></pre></div>
+<p>Vediamo inoltre come le funzioni possano avere molteplici argomenti ma che non sia necessario specificare il valore per ognuno di essi. Molti argomenti, infatti, hanno già dei valori prestabiliti di <em>default</em> e non richiedo quindi di essere specificati almeno che ovviamente non si vogliano utilizzare impostazioni diverse da quelle di <em>default</em>. Oppure lo specificare un dato argomento rispetto ad un altro può definire il comportamento stesso della funzione.</p>
+<p>Ad esempio la funzione <code>seq()</code> possiede anche gli argomenti <code>by</code> e <code>length.out</code> che prima non erano stati specificati. <code>by</code> permette di definire l’incremento per ogni elemento successivo della sequenza mentre <code>length.out</code> permette di definire il numero di elementi della sequenza. Vediamo come allo specificare dell’uno o dell’altro agromento (e di entrambi) il comportamento della funzione vari.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="objects-functions.html#cb12-1"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>,  <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">by =</span> <span class="dv">5</span>)</span>
+<span id="cb12-2"><a href="objects-functions.html#cb12-2"></a><span class="co">## [1]  0  5 10</span></span>
+<span id="cb12-3"><a href="objects-functions.html#cb12-3"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>,  <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">length.out =</span> <span class="dv">5</span>)</span>
+<span id="cb12-4"><a href="objects-functions.html#cb12-4"></a><span class="co">## [1]  0.0  2.5  5.0  7.5 10.0</span></span>
+<span id="cb12-5"><a href="objects-functions.html#cb12-5"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>,  <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">length.out =</span> <span class="dv">5</span>, <span class="dt">by =</span> <span class="dv">4</span>)</span>
+<span id="cb12-6"><a href="objects-functions.html#cb12-6"></a><span class="co">## Error in seq.default(from = 0, to = 10, length.out = 5, by = 4): too many arguments</span></span></code></pre></div>
+<p>E’ pertanto cosigliabile esplicitare sempre gli argomenti di una funzione per rendere chiaro a che cosa si riferiscono i valori utilizzati. Questo è utlile anche per evitare eventuali comportamenti non voluti delle funzioni ad individuare più facilmente possibili errori.</p>
+<p>Gli argomenti di una funzione, inoltre, richiedono specifiche tipologie e strutture di dati e sta a noi assicuraci che i dati siano forniti nel modo corretto. Vediamo ad esempio come la funzione <code>mean()</code> che calcola la media di un insieme di valori, richieda come input un vettore di valori numerici. Approfondiremo il concetto di vettori nel Capitolo TODO, al momento ci basta sapere che possiamo usare la funzione <code>c()</code> per combinare più valori in un unico vettore.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="objects-functions.html#cb13-1"></a><span class="co"># Calcolo la media dei seguenti valori (numerici)</span></span>
+<span id="cb13-2"><a href="objects-functions.html#cb13-2"></a><span class="kw">mean</span>(<span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">12</span>)) <span class="co"># c() combina più valori in un unico vettore</span></span>
+<span id="cb13-3"><a href="objects-functions.html#cb13-3"></a><span class="co">## [1] 9</span></span>
+<span id="cb13-4"><a href="objects-functions.html#cb13-4"></a></span>
+<span id="cb13-5"><a href="objects-functions.html#cb13-5"></a><span class="kw">mean</span>(<span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">12</span>)</span>
+<span id="cb13-6"><a href="objects-functions.html#cb13-6"></a><span class="co">## [1] 10</span></span></code></pre></div>
+<p>Notiamo come nel primo caso il risultato sia corretto mentre nel secondo è sbagliato. Questo perchè <code>mean()</code> richiede come primo argomento il vettore su cui calcolare la media. Nel primo caso abbiamo correttamente specificato il vettore di valori usando la funzione <code>c()</code>. Nel secondo caso invece il primo argomento risulta essere solo il valore <code>10</code> ed R calcola la media di <code>10</code> ovvero <code>10</code>, mentre gli altri valori son passati ad altri argomenti che non alterano il comportameto ma neppure ci segnalano di questo importante errore.</p>
+<p>Nel seguente esempio invece possiamo vedere come <code>mean()</code> richieda che i valori siano numerici. Seppur <code>"1"</code> <code>"2"</code>, e <code>"3"</code> siano dei numeri, l’utilizzo delle doppie virgolette li rende per R dei caratteri e non dei valori numerici e giustamente R non può eseguire una media su dei caratteri.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="objects-functions.html#cb14-1"></a><span class="co"># Calcolo la media dei seguenti valori (caratteri)</span></span>
+<span id="cb14-2"><a href="objects-functions.html#cb14-2"></a><span class="kw">mean</span>(<span class="kw">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>))</span>
+<span id="cb14-3"><a href="objects-functions.html#cb14-3"></a><span class="co">## Warning in mean.default(c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;)): argument is not numeric or logical:</span></span>
+<span id="cb14-4"><a href="objects-functions.html#cb14-4"></a><span class="co">## returning NA</span></span>
+<span id="cb14-5"><a href="objects-functions.html#cb14-5"></a><span class="co">## [1] NA</span></span></code></pre></div>
+<p>Capiamo quindi che per usare correttamente le funzioni è fondamentale conoscerne gli argomenti e rispettare le tipologie e strutture di dati richieste.</p>
+</div>
+<div id="help-i-need-somebodyhelp" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Help! I need Somebody…Help!</h3>
+<p>Conoscere tutte le funzioni e tutti i loro argomenti è impossibile. Per fortuna R ci viene in soccorso fornendoci per ogni funzione la sua documentazione che ci fornisce utili informazioni riguardo gli argomenti, finalità e possibili utilizzi.</p>
+<p>Per accedere alla documentazione possiamo utilizzare il comnado <code>?&lt;nome-funzione&gt;</code> oppure <code>help(&lt;nome-funzione&gt;)</code>.</p>
+<p>Struttura help page</p>
 <ul>
 <li><p>arguments input</p></li>
 <li><p>output</p></li>
-<li><p>nomi riservati ?reserved</p></li>
 <li><p>trick tab</p></li>
 <li><p>help function</p></li>
 </ul>
+</div>
 <div id="section" class="section level3">
-<h3><span class="header-section-number">4.2.1</span> </h3>
+<h3><span class="header-section-number">4.2.3</span> </h3>
 
 </div>
 </div>

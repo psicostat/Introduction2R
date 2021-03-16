@@ -162,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="rstudio-gui.html"><a href="rstudio-gui.html"><i class="fa fa-check"></i><b>2</b> Interfaccia RStudio</a></li>
 <li class="chapter" data-level="3" data-path="first-comands.html"><a href="first-comands.html"><i class="fa fa-check"></i><b>3</b> Primi Passi in R</a><ul>
-<li class="chapter" data-level="3.1" data-path="first-comands.html"><a href="first-comands.html#operatori-matematici"><i class="fa fa-check"></i><b>3.1</b> Operatori Matematici</a><ul>
+<li class="chapter" data-level="3.1" data-path="first-comands.html"><a href="first-comands.html#math-operators"><i class="fa fa-check"></i><b>3.1</b> Operatori Matematici</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="first-comands.html"><a href="first-comands.html#ordine-operazioni"><i class="fa fa-check"></i><b>3.1.1</b> Ordine Operazioni</a></li>
 <li class="chapter" data-level="" data-path="first-comands.html"><a href="first-comands.html#esercizi"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
@@ -177,10 +177,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="objects-functions.html"><a href="objects-functions.html#oggetti"><i class="fa fa-check"></i><b>4.1</b> Oggetti</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="objects-functions.html"><a href="objects-functions.html#assegnare-e-richiamare-un-oggetto"><i class="fa fa-check"></i><b>4.1.1</b> Assegnare e Richiamare un oggetto</a></li>
 <li class="chapter" data-level="4.1.2" data-path="objects-functions.html"><a href="objects-functions.html#nomi-degli-oggetti"><i class="fa fa-check"></i><b>4.1.2</b> Nomi degli oggetti</a></li>
-<li class="chapter" data-level="4.1.3" data-path="objects-functions.html"><a href="objects-functions.html#tipologie-di-oggetti"><i class="fa fa-check"></i><b>4.1.3</b> Tipologie di Oggetti</a></li>
+<li class="chapter" data-level="4.1.3" data-path="objects-functions.html"><a href="objects-functions.html#tipologie-dati-e-strutture-dati"><i class="fa fa-check"></i><b>4.1.3</b> Tipologie Dati e Strutture Dati</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="objects-functions.html"><a href="objects-functions.html#functions-def"><i class="fa fa-check"></i><b>4.2</b> Funzioni</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#section"><i class="fa fa-check"></i><b>4.2.1</b> </a></li>
+<li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#argomenti-di-una-funzione"><i class="fa fa-check"></i><b>4.2.1</b> Argomenti di una Funzione</a></li>
+<li class="chapter" data-level="4.2.2" data-path="objects-functions.html"><a href="objects-functions.html#help-i-need-somebodyhelp"><i class="fa fa-check"></i><b>4.2.2</b> Help! I need Somebody…Help!</a></li>
+<li class="chapter" data-level="4.2.3" data-path="objects-functions.html"><a href="objects-functions.html#section"><i class="fa fa-check"></i><b>4.2.3</b> </a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>5</b> Sessione di Lavoro</a><ul>
@@ -238,12 +240,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Ora che abbiamo iniziato a famigliarizzare con il nostro stumento di lavoro possiamo finalmente dare fuoco alle polveri e concentraci sulla scrittura di codici!</p>
 <p>In questo capitolo muoveremo i primi passi in R. Inizieremo vedendo come utilizzare operatori matematici, relazionali e logici per compiere semplici operazioni in R. Imparare R è un lungo percorso (scoop: questo percorso non termina mai dato che R è sempre in continuo sviiluppo). Soprattutto all’inizio può sembrare eccessivamente difficile poichè è si incontrano per la prima volta molti comandi e concetti di programmazione. Tuttavia, una volta famigliarizzato con gli apetti di base, la progressione diventa sempre più veloce (inarrestabile direi!).</p>
 <p>In questo capitolo introdurremo per la prima volta molti elementi che saranno poi ripresi e approfonditi nei seguenti capitoli. Quindi non preoccuparti se non tutto ti sarà chiaro fin da subito. Imparare il tuo primo linguaggio di programmazione è difficile ma da qualche parte bisogna pure iniziare. Pronto per le tue prime linee di codice? Let’s become a useR!</p>
-<div id="operatori-matematici" class="section level2">
+<div id="math-operators" class="section level2">
 <h2><span class="header-section-number">3.1</span> Operatori Matematici</h2>
-<p>R è un’ottima calcolatrice. Nella Tabella <a href="first-comands.html#tab:math-operators">3.1</a> sono elencati i principali operatori matematici e funzioni usate in R.</p>
+<p>R è un’ottima calcolatrice. Nella Tabella <a href="first-comands.html#tab:table-math-operators">3.1</a> sono elencati i principali operatori matematici e funzioni usate in R.</p>
 <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:math-operators">Table 3.1: </span>Operatori Matematici
+<span id="tab:table-math-operators">Table 3.1: </span>Operatori Matematici
 </caption>
 <thead>
 <tr>
@@ -579,7 +581,7 @@ inclusione
 <span id="cb1-3"><a href="first-comands.html#cb1-3"></a><span class="ot">TRUE</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>   <span class="co"># FALSE</span></span>
 <span id="cb1-4"><a href="first-comands.html#cb1-4"></a><span class="ot">FALSE</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>  <span class="co"># TRUE</span></span>
 <span id="cb1-5"><a href="first-comands.html#cb1-5"></a><span class="ot">FALSE</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>  <span class="co"># FALSE</span></span></code></pre></div>
-<p>In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poichè potrebbe nonn essere chiara e creare fraintendimenti.</p>
+<p>In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poichè potrebbe nonn essere chiara e creare fraintendimenti. Infatti mentre TRUE e FALSE sono parole riservate (vedi Capitolo TODO) T a F non lo sono.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="first-comands.html#cb2-1"></a>T <span class="op">==</span><span class="st"> </span><span class="dv">1</span>      <span class="co"># TRUE</span></span>
 <span id="cb2-2"><a href="first-comands.html#cb2-2"></a>T <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>   <span class="co"># TRUE</span></span>
 <span id="cb2-3"><a href="first-comands.html#cb2-3"></a>F <span class="op">==</span><span class="st"> </span><span class="dv">0</span>      <span class="co"># TRUE</span></span>

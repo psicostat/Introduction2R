@@ -8,12 +8,12 @@ In questo capitolo muoveremo i primi passi in R. Inizieremo vedendo come utilizz
 
 In questo capitolo introdurremo per la prima volta molti elementi che saranno poi ripresi e approfonditi nei seguenti capitoli. Quindi non preoccuparti se non tutto ti sarà chiaro fin da subito. Imparare il tuo primo linguaggio di programmazione è difficile ma da qualche parte bisogna pure iniziare. Pronto per le tue prime linee di codice? Let's become a useR!
 
-## Operatori Matematici
+## Operatori Matematici {#math-operators}
 
-R è un'ottima calcolatrice. Nella Tabella \@ref(tab:math-operators) sono elencati i principali operatori matematici e funzioni usate in R.
+R è un'ottima calcolatrice. Nella Tabella \@ref(tab:table-math-operators) sono elencati i principali operatori matematici e funzioni usate in R.
 
 <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:math-operators)Operatori Matematici</caption>
+<caption>(\#tab:table-math-operators)Operatori Matematici</caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Funzione </th>
@@ -221,7 +221,7 @@ FALSE == 0  # TRUE
 FALSE == 1  # FALSE
 ```
 
-In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poichè potrebbe nonn essere chiara e creare fraintendimenti.
+In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poichè potrebbe nonn essere chiara e creare fraintendimenti. Infatti mentre TRUE e FALSE sono parole riservate (vedi Capitolo TODO) T a F non lo sono.
 
 
 ```r
