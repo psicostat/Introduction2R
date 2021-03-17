@@ -182,7 +182,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="objects-functions.html"><a href="objects-functions.html#functions-def"><i class="fa fa-check"></i><b>4.2</b> Funzioni</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#argomenti-di-una-funzione"><i class="fa fa-check"></i><b>4.2.1</b> Argomenti di una Funzione</a></li>
 <li class="chapter" data-level="4.2.2" data-path="objects-functions.html"><a href="objects-functions.html#help-i-need-somebodyhelp"><i class="fa fa-check"></i><b>4.2.2</b> Help! I need Somebody…Help!</a></li>
-<li class="chapter" data-level="4.2.3" data-path="objects-functions.html"><a href="objects-functions.html#section"><i class="fa fa-check"></i><b>4.2.3</b> </a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>5</b> Sessione di Lavoro</a><ul>
@@ -361,7 +360,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="objects-functions.html#cb10-1"></a><span class="co"># creo una sequenza di valori da 0 a 10 con incrementi di 1</span></span>
 <span id="cb10-2"><a href="objects-functions.html#cb10-2"></a><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>)</span>
 <span id="cb10-3"><a href="objects-functions.html#cb10-3"></a><span class="co">##  [1]  0  1  2  3  4  5  6  7  8  9 10</span></span></code></pre></div>
-<p>Tuttavia, questo rende più difficile la lettura e la comprensione del codice poichè non è chiaro a quali argomenti si riferiscono i valori. L’ordine con cui vengono definiti i valori in questo caso è iportante, poichè R assume rispetti l’ordine prestabilito degli argomenti. Vediamo come invertendo invertendo i valori ovviamente otteniamo risultati differenti da quelli precedenti, ma questo non avviene quando il nome dell’argomento è specificato.</p>
+<p>Tuttavia, questo rende più difficile la lettura e la comprensione del codice poichè non è chiaro a quali argomenti si riferiscono i valori. L’ordine con cui vengono definiti i valori in questo caso è iportante, poichè R assume rispetti l’ordine prestabilito degli argomenti. Osserva come invertendo invertendo i valori ovviamente otteniamo risultati differenti da quelli precedenti, ma questo non avviene quando il nome dell’argomento è specificato.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="objects-functions.html#cb11-1"></a><span class="co"># inverto i valori senza i nomi degli argomenti</span></span>
 <span id="cb11-2"><a href="objects-functions.html#cb11-2"></a><span class="kw">seq</span>(<span class="dv">10</span>, <span class="dv">0</span>)</span>
 <span id="cb11-3"><a href="objects-functions.html#cb11-3"></a><span class="co">##  [1] 10  9  8  7  6  5  4  3  2  1  0</span></span>
@@ -369,15 +368,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-5"><a href="objects-functions.html#cb11-5"></a><span class="co"># inverto i valori con i nomi degli argomenti</span></span>
 <span id="cb11-6"><a href="objects-functions.html#cb11-6"></a><span class="kw">seq</span>(<span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">from =</span> <span class="dv">0</span>)</span>
 <span id="cb11-7"><a href="objects-functions.html#cb11-7"></a><span class="co">##  [1]  0  1  2  3  4  5  6  7  8  9 10</span></span></code></pre></div>
-<p>Vediamo inoltre come le funzioni possano avere molteplici argomenti ma che non sia necessario specificare il valore per ognuno di essi. Molti argomenti, infatti, hanno già dei valori prestabiliti di <em>default</em> e non richiedo quindi di essere specificati almeno che ovviamente non si vogliano utilizzare impostazioni diverse da quelle di <em>default</em>. Oppure lo specificare un dato argomento rispetto ad un altro può definire il comportamento stesso della funzione.</p>
-<p>Ad esempio la funzione <code>seq()</code> possiede anche gli argomenti <code>by</code> e <code>length.out</code> che prima non erano stati specificati. <code>by</code> permette di definire l’incremento per ogni elemento successivo della sequenza mentre <code>length.out</code> permette di definire il numero di elementi della sequenza. Vediamo come allo specificare dell’uno o dell’altro agromento (e di entrambi) il comportamento della funzione vari.</p>
+<p>Vediamo inoltre come le funzioni possano avere molteplici argomenti, ma che non sia necessario specificare il valore per ognuno di essi. Molti argomenti, infatti, hanno già dei valori prestabiliti di <em>default</em> e non richiedo quindi di essere specificati almeno che ovviamente non si vogliano utilizzare impostazioni diverse da quelle di <em>default</em>. Oppure lo specificare un dato argomento rispetto ad un altro può definire il comportamento stesso della funzione.</p>
+<p>Ad esempio la funzione <code>seq()</code> possiede anche gli argomenti <code>by</code> e <code>length.out</code> che prima non erano stati specificati. <code>by</code> permette di definire l’incremento per ogni elemento successivo della sequenza mentre <code>length.out</code> permette di definire il numero di elementi della sequenza. Vediamo come allo specificare dell’uno o dell’altro agromento (o di entrambi) il comportamento della funzione vari.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="objects-functions.html#cb12-1"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>,  <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">by =</span> <span class="dv">5</span>)</span>
 <span id="cb12-2"><a href="objects-functions.html#cb12-2"></a><span class="co">## [1]  0  5 10</span></span>
 <span id="cb12-3"><a href="objects-functions.html#cb12-3"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>,  <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">length.out =</span> <span class="dv">5</span>)</span>
 <span id="cb12-4"><a href="objects-functions.html#cb12-4"></a><span class="co">## [1]  0.0  2.5  5.0  7.5 10.0</span></span>
 <span id="cb12-5"><a href="objects-functions.html#cb12-5"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>,  <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">length.out =</span> <span class="dv">5</span>, <span class="dt">by =</span> <span class="dv">4</span>)</span>
 <span id="cb12-6"><a href="objects-functions.html#cb12-6"></a><span class="co">## Error in seq.default(from = 0, to = 10, length.out = 5, by = 4): too many arguments</span></span></code></pre></div>
-<p>E’ pertanto cosigliabile esplicitare sempre gli argomenti di una funzione per rendere chiaro a che cosa si riferiscono i valori utilizzati. Questo è utlile anche per evitare eventuali comportamenti non voluti delle funzioni ad individuare più facilmente possibili errori.</p>
+<p>E’ pertanto cosigliabile esplicitare sempre gli argomenti di una funzione per rendere chiaro a che cosa si riferiscono i valori indicati. Questo è utlile anche per evitare eventuali comportamenti non voluti delle funzioni ad individuare più facilmente possibili errori.</p>
 <p>Gli argomenti di una funzione, inoltre, richiedono specifiche tipologie e strutture di dati e sta a noi assicuraci che i dati siano forniti nel modo corretto. Vediamo ad esempio come la funzione <code>mean()</code> che calcola la media di un insieme di valori, richieda come input un vettore di valori numerici. Approfondiremo il concetto di vettori nel Capitolo TODO, al momento ci basta sapere che possiamo usare la funzione <code>c()</code> per combinare più valori in un unico vettore.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="objects-functions.html#cb13-1"></a><span class="co"># Calcolo la media dei seguenti valori (numerici)</span></span>
 <span id="cb13-2"><a href="objects-functions.html#cb13-2"></a><span class="kw">mean</span>(<span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">12</span>)) <span class="co"># c() combina più valori in un unico vettore</span></span>
@@ -385,8 +384,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-4"><a href="objects-functions.html#cb13-4"></a></span>
 <span id="cb13-5"><a href="objects-functions.html#cb13-5"></a><span class="kw">mean</span>(<span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">12</span>)</span>
 <span id="cb13-6"><a href="objects-functions.html#cb13-6"></a><span class="co">## [1] 10</span></span></code></pre></div>
-<p>Notiamo come nel primo caso il risultato sia corretto mentre nel secondo è sbagliato. Questo perchè <code>mean()</code> richiede come primo argomento il vettore su cui calcolare la media. Nel primo caso abbiamo correttamente specificato il vettore di valori usando la funzione <code>c()</code>. Nel secondo caso invece il primo argomento risulta essere solo il valore <code>10</code> ed R calcola la media di <code>10</code> ovvero <code>10</code>, mentre gli altri valori son passati ad altri argomenti che non alterano il comportameto ma neppure ci segnalano di questo importante errore.</p>
-<p>Nel seguente esempio invece possiamo vedere come <code>mean()</code> richieda che i valori siano numerici. Seppur <code>"1"</code> <code>"2"</code>, e <code>"3"</code> siano dei numeri, l’utilizzo delle doppie virgolette li rende per R dei caratteri e non dei valori numerici e giustamente R non può eseguire una media su dei caratteri.</p>
+<p>Notiamo come nel primo caso il risultato sia corretto mentre nel secondo è sbagliato. Questo perchè <code>mean()</code> richiede come primo argomento il vettore su cui calcolare la media. Nel primo caso abbiamo correttamente specificato il vettore di valori usando la funzione <code>c()</code>. Nel secondo caso invece, il primo argomento risulta essere solo il valore <code>10</code> ed R calcola la media di <code>10</code> ovvero <code>10</code>. Gli altri valori sono passati ad altri argomenti che non alterano il comportameto ma neppure ci segnalano di questo importante errore.</p>
+<p>Nel seguente esempio, possiamo vedere come <code>mean()</code> richieda che i valori siano numerici. Seppur <code>"1"</code> <code>"2"</code>, e <code>"3"</code> siano dei numeri, l’utilizzo delle doppie virgolette li rende delle stringhe di caratteri e non dei valori numerici e giustamente R non può eseguire una media su dei caratteri.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="objects-functions.html#cb14-1"></a><span class="co"># Calcolo la media dei seguenti valori (caratteri)</span></span>
 <span id="cb14-2"><a href="objects-functions.html#cb14-2"></a><span class="kw">mean</span>(<span class="kw">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>))</span>
 <span id="cb14-3"><a href="objects-functions.html#cb14-3"></a><span class="co">## Warning in mean.default(c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;)): argument is not numeric or logical:</span></span>
@@ -396,18 +395,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="help-i-need-somebodyhelp" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Help! I need Somebody…Help!</h3>
-<p>Conoscere tutte le funzioni e tutti i loro argomenti è impossibile. Per fortuna R ci viene in soccorso fornendoci per ogni funzione la sua documentazione che ci fornisce utili informazioni riguardo gli argomenti, finalità e possibili utilizzi.</p>
-<p>Per accedere alla documentazione possiamo utilizzare il comnado <code>?&lt;nome-funzione&gt;</code> oppure <code>help(&lt;nome-funzione&gt;)</code>.</p>
-<p>Struttura help page</p>
-<ul>
-<li><p>arguments input</p></li>
-<li><p>output</p></li>
-<li><p>trick tab</p></li>
-<li><p>help function</p></li>
-</ul>
+<p>Conoscere tutte le funzioni e tutti i loro argomenti è impossibile. Per fortuna R ci viene in soccorso fornendoci per ogni funzione la sua documentazione. Qui vengono fornite tutte le informazioni riguardanti la finalità della funzione, la descrizione dei suoi argomenti, i dettagli riguardanti i suoi possibili utilizzi.</p>
+<p>Per accedere alla documentazione possiamo utilizzare il comando <code>?&lt;nome-funzione&gt;</code> oppure <code>help(&lt;nome-funzione&gt;)</code>. Ad esempio:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="objects-functions.html#cb15-1"></a>?seq</span>
+<span id="cb15-2"><a href="objects-functions.html#cb15-2"></a><span class="kw">help</span>(seq)</span></code></pre></div>
+<p>Una pagina si aprirà nel pannello “Help” in basso a destra con la documentazione della funzione in modo simile a quanto rappresentato in Figura <a href="objects-functions.html#fig:help-page">4.1</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:help-page"></span>
+<img src="images/help-seq.png" alt="Help-page della funzione seq()" width="85%" />
+<p class="caption">
+Figure 4.1: Help-page della funzione seq()
+</p>
 </div>
-<div id="section" class="section level3">
-<h3><span class="header-section-number">4.2.3</span> </h3>
+<p>Il formato e le informazioni presenti nella pagina seguono delle norme comuni ma non obbligatorie. Infatti, non necessariamente vengono usati sempre tutti i campi e comunque all’autore delle funzioni è lasciato un certo grado di libertà nel personalizzare la documentazione. Tra i campi principali e più comunemente usati abbiamo:</p>
+<ul>
+<li><strong>Tiolo</strong> - Titolo esplicativo della finalità della funzione<br />
+</li>
+<li><strong>Description</strong> - Descrizione coincisa della funzione</li>
+<li><strong>Usage</strong> - Viene mostrata la struttura della funzione con i suoi argomenti e valori di default</li>
+<li><strong>Arguments</strong> - Elenco con la descrizione dettagliata di tutti gli argomenti. Qui troviamo per ogni argomento sia le opzioni utilizzabili ed il loro effetto, che la tipologia di valori richiesti</li>
+<li><strong>Details</strong> - Descrizione dettagliata della funzione considerando i casi di utilizzo ed eventuali note tecniche</li>
+<li><strong>Value</strong> - Descrizione dell’output dalla funzione. Qui troviamo sia la descrizione della struttura dei dati dell’output che la descrizione dei suei elementi utile per interpretare ed utilizzare i rsultati ottenuti</li>
+<li><strong>See Also</strong> - Eventuali link ad altre funzioni simili o in relazione con la nostra funzione</li>
+<li><strong>Examples</strong> - Esempi di uso della funzione</li>
+</ul>
+<div class="trick" title="Autocompletamento with &#39;Tab&#39;">
+<p>La natura dei programmatori è essere pigri e smemorati. Per fortuna ogni <em>code editor</em> che si rispetti (i.e., programma per la scrittura di codici) possiede delle utli funzioni di autocompletamento e suggerimento dei comandi che semplificano la scrittura di codici.</p>
+<p>In Rstudio, i suggerimenti compaino automaticamente durante la scrittura di un comando oppure possono essere richiamati premendo il tasto <code>Tab</code> in alto a sinistra della tastiera ( <img src="images/Tab.png" style="width:5.0%" /> ). Comparirà una finestra con possibili soluzioni di autocompletamento del nome della funzione. Utilizzando le frecce della tastiera possiamo evidenziare lq funzione voluta e premere <code>Invio</code> per autocompletare il comando. Nota come accanto al nome della funzione appare anche un piccolo riquadro giallo con la descrizione della funzione.</p>
+<center>
+<img src="images/autocomplete-function.png" style="width:95.0%" />
+</center>
+<p><br></p>
+<p>Per inserire gli argomenti della funzione possiamo fare affidamento nuovamente ai suggerimenti e alla funzione di autocompletamento. Sarà sufficiente premere nuovamente il tasto <code>Tab</code> e questa volta comparirà una lista degli argomenti con la relativa descrizione. Sarà quindi sufficiente selezionare con le frecce l’argomento desiderato e premere <code>Invio</code>.</p>
+<center>
+<img src="images/autocomplete-arguments.png" style="width:95.0%" />
+</center>
+<p><br></p>
+<p>Notate come la funzione di autocompletamento non sia utilizzata solo per le funzioni ma anche per i nomi degli oggetti. Questo ci consentirà di richiamare velocemente oggetti precedentemente creati evitando di digitare l’intero nome.</p>
+<center>
+<img src="images/autocomplete-objects.png" style="width:95.0%" />
+</center>
+<p><br></p>
+</div>
 
 </div>
 </div>

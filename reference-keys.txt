@@ -13,6 +13,7 @@ tab:relational-operators
 tab:logical-operators
 tab:and-operator
 tab:or-operator
+fig:help-page
 install
 installare-r
 r-windows
@@ -36,7 +37,6 @@ tipologie-dati-e-strutture-dati
 functions-def
 argomenti-di-una-funzione
 help-i-need-somebodyhelp
-section
 working-session
 infobox
 problema-google-soluzione
