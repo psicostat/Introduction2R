@@ -224,7 +224,7 @@
 \makeatother
 \subtitle{Corso per imparare le basi di \textbf{R}}
 \author{\href{https://psicostat.dpss.psy.unipd.it/}{Psicostat}}
-\date{17-03-2021}
+\date{18-03-2021}
 
 \begin{document}
 \maketitle
@@ -1135,8 +1135,8 @@ Questa è una iper-semplificazione (e pure tecnicamente non corretta) che ci per
 
 Qui valuteremo gli aspetti fondamentali riguardanti l'utilizzo degli oggetti e delle funzioni che saranno successivamente approfonditi rispettivamente nel corso della seconda e della terza sezione del libro (TODO).
 
-\hypertarget{oggetti}{%
-\section{Oggetti}\label{oggetti}}
+\hypertarget{objects-section}{%
+\section{Oggetti}\label{objects-section}}
 
 Quando eseguiamo un commando in R, il risultato ottenuto viene immediatamente mostrato in \emph{Console}. Tale risultato, tuttavia, non viene salvato in memoria e quindi non potrà essere riutilizzato in nessuna operazione futura. Condurre delle analisi in questo modo sarebbe estremamente complicato ed inefficiente. La soluzione più ovvia è quella di salvare in memoria i nostri risultati intermedi per poterli poi riutilizzare nel corso delle nostre analisi. Si definisce questo processo come \emph{assegnare} un valore ad un oggetto.
 
@@ -1483,77 +1483,134 @@ Notate come la funzione di autocompletamento non sia utilizzata solo per le funz
 \hypertarget{working-session}{%
 \chapter{Sessione di Lavoro}\label{working-session}}
 
-Working in progress.
+In queso capitolo introdurremo alcuni concetti molto importanti che riguardano le sessioni di lavoro in R o RStudio. In particolare parleremo dell'\emph{environment}, della \emph{working directory} e dell'utilizzo di pacchetti.
+
+Infine, disuteremo di alcuni aspetti generali della programmazione quali la gestione dei messaggi di errore o \emph{warnings} e vedremo alcune buone norme riguardanti l'organizzazione degli scripts e l'uso degli \emph{RStudio Projects} per essere ordinati ed efficaci nelle proprie sessioni di lavoro.
+
+\hypertarget{environment}{%
+\section{Environment}\label{environment}}
+
+Nel Capitolo \ref{objects-section}, abbiamo visto come sia possibile assegnare dei valori a degli oggetti. Questi oggetti vengono creati nel nostro ambiente di lavoro (o meglio \emph{Environment}) e potranno essere utilizzati in seguito.
+
+Il nostro Enviroment raccoglie quindi tutti gli oggetti che vengono creati durante la nostra sessione di lavoro. E' possibile valutare gli oggetti attualmente presenti osservando il pannello \emph{Envrionmen} in alto a destra (vedi Figura \ref{fig:environment2}) oppure utilizzadno il comando \texttt{ls()}, ovvero \emph{list objects}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth]{images/environment} 
+
+}
+
+\caption{*Environment* - Elenco degli oggetti e variabili presenti nel'ambiente di lavoro}\label{fig:environment2}
+\end{figure}
+
+All'inizio della sessione di lavoro il nostro Environment sarà vuoto ().
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth]{images/environment-empty} 
+
+}
+
+\caption{*Environment* vuoto ad inizio sessione di lavoro}\label{fig:environment-empty}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Environment vuoto}
+\KeywordTok{ls}\NormalTok{()}
+\CommentTok{## character(0)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Creo oggetti}
+\NormalTok{x <-}\StringTok{  }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{8}\NormalTok{)}
+\NormalTok{y <-}\StringTok{  }\DecValTok{27}
+\NormalTok{word <-}\StringTok{ "Hello Word!"}
+
+\CommentTok{# Lista nomi oggetti nell'Environment}
+\KeywordTok{ls}\NormalTok{()}
+\CommentTok{## [1] "word" "x"    "y"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth]{images/environment-objects} 
+
+}
+
+\caption{*Environment* contenente gli oggetti creati}\label{fig:environment-object}
+\end{figure}
+
+\begin{itemize}
+\item
+  concetto di ambiente di lavoro
+\item
+  ls()
+\item
+  rm()
+\item
+  tip box aspetto transirorio (vedremo successivamente come salvare caricare dati)
+\end{itemize}
+
+\hypertarget{working-directory}{%
+\section{Working Directory}\label{working-directory}}
+
+\begin{itemize}
+\item
+  che cosa è un path
+\item
+  home directory \textasciitilde{} (non mi ricordo se per windows lavora)
+\item
+  getwd();
+\item
+  setwd(); altri modi per settare al working directory
+\item
+  abodolute/relative path (?)
+\end{itemize}
+
+\hypertarget{r-packages}{%
+\section{R-packages}\label{r-packages}}
+
+\begin{itemize}
+\item
+  scaricare
+\item
+  library
+\item
+  uso funzioni
+\item
+  aggiornare i pacchetti
+\item
+  box tip per l'uso di ::
+\end{itemize}
+
+\hypertarget{errors-and-warnings}{%
+\section{Errors and warnings}\label{errors-and-warnings}}
+
+\hypertarget{sessione-di-lavoro}{%
+\section{Sessione di lavoro}\label{sessione-di-lavoro}}
 
 \begin{itemize}
 \tightlist
 \item
-  Console e script
+  pulizia script
 \item
-  Commenti
+  commenti
 \item
-  Output errori
+  sezioni script
 \item
-  Sintassi R (NA, NULL, TRUE, FALSE)
+  settings
 \item
-  environment
+  sintassi (gli spazi e gli indent corretti alineamenti)
 \item
-  working directory
-\item
-  Basi sui pacchetti
-\item
-  R projects
+  idea di organizzare in vairi script, cartelle
 \end{itemize}
 
-\hypertarget{infobox}{%
-\section{Infobox}\label{infobox}}
-
-Illustrations included in \texttt{images/} are retrieved from \href{https://rstudio4edu.github.io/rstudio4edu-book/}{rstudio4edu-book} under \href{https://creativecommons.org/licenses/by-nc/2.0/}{CC-BY-NC}. Remember to include an \emph{Attributions} section in the book and repository's README file.
-
-\begin{tip}[My title]
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum!
-
-\end{tip}
-
-\begin{warning}[My title]
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum!
-
-\end{warning}
-
-\begin{deffun}[My title]
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum!
-
-\end{deffun}
-
-\begin{design}[My title]
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum!
-
-\end{design}
-
-\begin{trick}[My title]
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum!
-
-\end{trick}
+\hypertarget{r-projects}{%
+\subsection{R projects}\label{r-projects}}
 
 \hypertarget{problema-google-soluzione}{%
 \section{Problema + Google = Soluzione}\label{problema-google-soluzione}}
@@ -1646,8 +1703,122 @@ Ci sono anche diversi pacchetti in R che rendono automatico creare questi esempi
 
 Working in progress.
 
+\hypertarget{data-type}{%
+\chapter{Data Type}\label{data-type}}
+
+Working in progress.
+
 \hypertarget{vector}{%
 \chapter{Vettori}\label{vector}}
+
+Working in progress
+
+\hypertarget{creazione-di-vettori}{%
+\section{Creazione di Vettori}\label{creazione-di-vettori}}
+
+In R per definire un vettore si utilizza il comando \texttt{\textless{}nome-vettore\textgreater{}\ \textless{}-\ c(\textless{}oggetti\textgreater{})}. Ricorda che gli elementi devono essere separati da una virgola.
+
+\hypertarget{esercizi-2}{%
+\subsection*{Esercizi}\label{esercizi-2}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Crea il vettore \texttt{x} contenente i numeri 4, 6, 12, 34, 8
+\item
+  Crea il vettore \texttt{y} contenente tutti i numeri pari compresi tra 1 e 25 (\texttt{?seq()})
+\item
+  Crea il vettore \texttt{z} contenente tutti i primi 10 multipli di 7 partendo da 13 (\texttt{?seq()})
+\item
+  Crea il vettore \texttt{s} in cui le lettere \texttt{"A"},\texttt{"B"} e \texttt{"C"} vengono ripetute nel medesimo ordine 4 volte (\texttt{?rep()}).
+\item
+  Crea il vettore \texttt{t} in cui le letter \texttt{"A"},\texttt{"B"} e \texttt{"C"} vengono ripetute ognuna 4 volte (\texttt{?rep()}).
+\end{enumerate}
+
+\hypertarget{selezione-elementi-di-un-vettore}{%
+\section{Selezione Elementi di un Vettore}\label{selezione-elementi-di-un-vettore}}
+
+In R per selezioneare gli elementi di un vettore si deve indicare all'interno delle parentesi quadre la \textbf{posizione degli elementi} da selezionare, non il valore dell'elemento stesso:
+
+\texttt{\textless{}nome-vettore\textgreater{}{[}\textless{}indice-posizione\textgreater{}{]}}\textbackslash{}
+In alternativa si puù definire la condizione logica che gli elementi che si vogliono selezionare devono rispettare.
+
+Per *\textbackslash textbf\{\textbf{eliminare degli elementi} da un vettore si utilizza all'interno delle parentesi quadre l'operatore ``-'' insieme agli indici di posizione degli elementi da eliminare (esempio: \texttt{x{[}c(-2,-4){]}} oppure \texttt{x{[}-c(2,4){]}}).
+
+\hypertarget{esercizi-3}{%
+\subsection*{Esercizi}\label{esercizi-3}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Del vettore \texttt{x} seleziona il 2°, 3° e 5° elemento
+\item
+  Del vettore \texttt{y} seleziona tutti i valori minori di 13 o maggiori di 19
+\item
+  Del vettore \texttt{z} seleziona tutti i valori compresi tra 24 e 50
+\item
+  Elimina dal vettore \texttt{z} i valori 28 e 42
+\item
+  Del vettore \texttt{s} seleziona tutti gli elementi uguali ad ``A''
+\item
+  Del vettore \texttt{t} seleziona tutti gli elementi diversi da ``B''.
+\end{enumerate}
+
+\hypertarget{funzioni-ed-operazioni-tra-vettori}{%
+\section{Funzioni ed Operazioni tra Vettori}\label{funzioni-ed-operazioni-tra-vettori}}
+
+Per compiere operazioni tra vettori è necessario che essi abbiano identica lunghezza.
+
+\begin{table}[!h]
+
+\caption{\label{tab:table-vector-operators}Operazioni con vettori}
+\centering
+\begin{tabular}[t]{l|l}
+\hline
+Operazione & Nome\\
+\hline
+\texttt{<nuovo-vettore> <- c(<vettore1>, <vettore2>)} & Per unire più vettori in un unico vettore\\
+\hline
+\texttt{length(<nome-vettore>)} & Per valutare il numero di elementi contenuti in un vettore\\
+\hline
+\texttt{vettore1 + vettore2} & Somma di due vettori\\
+\hline
+\texttt{vettore1 - vettore2} & Differenza tra due vettori\\
+\hline
+\texttt{vettore1 * vettore2} & Prodotto tra due vettori\\
+\hline
+\texttt{vettore1 / vettore2} & Rapporto tra due vettori\\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Nota:} In R il prodotto e rapporto tra vettori sono eseguiti elemento per elemento (al contrario di molti altri software).
+
+\hypertarget{esercizi-4}{%
+\subsection*{Esercizi}\label{esercizi-4}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Crea il vettore \texttt{j} unendo i vettori \texttt{x} ed \texttt{z}.
+\item
+  Elimina gli ultimi tre elementi del vettore \texttt{j} e controlla che i vettori \texttt{j} e \texttt{y} abbiano la stessa lunghezza.
+\item
+  Calcola la somma tra i vettori \texttt{j} e \texttt{y}.
+\item
+  Moltiplica il vettore z per una costante \texttt{k=3}.
+\item
+  Calcola il prodotto tra i primi 10 elementi del vettore \texttt{y} ed il vettore \texttt{z}.
+\end{enumerate}
+
+\hypertarget{factors}{%
+\chapter{Fattori}\label{factors}}
 
 Working in progress.
 
@@ -1655,6 +1826,164 @@ Working in progress.
 \chapter{Matrici}\label{matrix}}
 
 Working in progress.
+
+\hypertarget{creazione-di-matrici}{%
+\section{Creazione di Matrici}\label{creazione-di-matrici}}
+
+\texttt{\textless{}nome-matrice\textgreater{}\ \textless{}-\ matrix(data,\ nrow=n,\ ncol=s,\ byrow=FALSE)}
+
+\textbf{Nota}: Di default R riempie la matrice per colonne, impostando \texttt{byrow\ =\ TRUE} si riempie per righe.
+
+\hypertarget{esercizi-5}{%
+\subsection*{Esercizi}\label{esercizi-5}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Crea la matrice \texttt{A} così definita:
+\end{enumerate}
+
+\[\begin{matrix}
+2 & 34 & 12 & 7\\
+46 & 93 & 27 & 99\\
+23  & 38 & 7 & 04
+\end{matrix}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Crea la matrice \texttt{B} contenente tutti i primi 12 numeri dispari disposti su 4 righe e 3 colonne.
+\item
+  Crea la matrice \texttt{C} contenente i primi 12 multipli di 9 disposti su 3 righe e 4 colonne.
+\item
+  Crea la matrice \texttt{D} formata da 3 colonne in cui le lettere \texttt{"A"},\texttt{"B"} e \texttt{"C"} vengano ripetute 4 volte ciascuna rispettivamente nella prima, seconda e terza colonna.
+\item
+  Crea la matrice \texttt{E} formata da 3 righe in cui le lettere \texttt{"A"},\texttt{"B"} e \texttt{"C"} vengano ripetute 4 volte ciascuna rispettivamente nella prima, seconda e terza riga.
+\end{enumerate}
+
+\hypertarget{selezione-di-elementi-di-una-matrice}{%
+\section{Selezione di Elementi di una Matrice}\label{selezione-di-elementi-di-una-matrice}}
+
+In R per selezioneare gli elementi di matrice si deve indicare all'interno delle parentesi quadre l'indice di riga e l'indice di colonna (\textbf{separati da virgola}) degli elementi da selezionare oppure la condizione logica che devono rispettare.
+
+\texttt{\textless{}nome-matrice\textgreater{}{[}\textless{}indice-riga\textgreater{},\ \textless{}indice-colonna\textgreater{}{]}}
+
+\textbf{Nota:} per selezionare tutti gli elementi di una data riga o di una data colonna basta lasciare vuoto rispettivamente l'indice di riga o l'indice di colonna.
+
+\hypertarget{esercizi-6}{%
+\subsection*{Esercizi}\label{esercizi-6}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Utilizzando gli indici di riga e di colonna selziona il numero 27 della matrice \texttt{A}
+\item
+  Selziona gli elementi compresi tra la seconda e quarta riga, seconda e terza colonna della matrice \texttt{B}
+\item
+  Seleziona solo gli elementi pari della matrice \texttt{A} (Nota: utilizza l'operazione resto \texttt{\%\%})
+\item
+  Elimina dalla matrice \texttt{C} la terza riga e la terza colonna
+\item
+  Seleziona tutti gli elementi della seconda e terza riga della matrice \texttt{B}
+\item
+  Seleziona tutti gli elementi diversi da ``B'' appartenenti alla matrice \texttt{D}
+\end{enumerate}
+
+\hypertarget{funzioni-ed-operazioni-tra-matrici}{%
+\section{Funzioni ed Operazioni tra Matrici}\label{funzioni-ed-operazioni-tra-matrici}}
+
+\begin{table}[!h]
+
+\caption{\label{tab:table-matrix-operators}Operazioni con matrici}
+\centering
+\begin{tabular}[t]{l|l}
+\hline
+Operazione & Nome\\
+\hline
+\texttt{<nuova-matrice> <- cbind(<matrice1>, <matrice2>)} & Per unire due matrici creando nuove colonne (le matrici devono avere lo stesso numero di righe)\\
+\hline
+\texttt{<nuova-matrice> <- rbind(<matrice1>, <matrice2>)} & Per unire due matrici creando nuove righe (le matrici devono avere lo stesso numero di colonne)\\
+\hline
+\texttt{nrow(<nome-matrice>)} & Per valutare il numero di righe della matrice\\
+\hline
+\texttt{ncol(<nome-matrice>)} & Per valutare il numero di colonne della matrice\\
+\hline
+\texttt{dim(<nome-matrice>)} & Per valutare la dimensione della matrice (righe e colonne)\\
+\hline
+\texttt{t(<nome-matrice>)} & Per ottenere la trasposta della matrice\\
+\hline
+\texttt{diag(<nome-matrice>)} & Ottenere un vettore con gli elementi della diagonale della matrice\\
+\hline
+\texttt{det(<nome-matrice>)} & Ottenere il determinante della matrice (la matrice deve essere quadrata)\\
+\hline
+\texttt{solve(<nome-matrice>)} & Ottenere l'inversa della matrice\\
+\hline
+\texttt{colnames(<nome-matrice>)} & Nomi delle colonne della matrice\\
+\hline
+\texttt{rownames(<nome-matrice>)} & Nomi delle righe della matrice\\
+\hline
+\texttt{matrice1 + matrice2} & Somma elemento per elemento di due matrici\\
+\hline
+\texttt{matrice1 - matrice2} & Differenza elemento per elemento tra due matrici\\
+\hline
+\texttt{matrice1 * matrice2} & Prodotto elemento per elemento tra due matrici\\
+\hline
+\texttt{matrice1 / matrice2} & Rapporto elemento per elemento tra due matrici\\
+\hline
+\texttt{matrice1 \%*\% matrice2} & Prodotto matriciale\\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Note:}
+
+\begin{itemize}
+\tightlist
+\item
+  Per il significato di determinante di una matrice considera: \url{https://it.wikipedia.org/wiki/Determinante}
+\item
+  Per il significato di matrice inversa considera: \url{https://it.wikipedia.org/wiki/Matrice_invertibile}
+\item
+  Per compiere operazioni elemento per elemento tra due matrici, esse devono avere la stessa dimensione
+\item
+  Per compiere il prodotto matriciale il numero di colonne della prima matrice deve essere uguale al numero di righe della seconda matrice (vedi \url{https://it.wikipedia.org/wiki/Moltiplicazione_di_matrici}).
+\item
+  E' possibile assegnare nomi alle colonne e righe di una matrice rispettivamente atttraverso i comandi:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{colnames}\NormalTok{(}\OperatorTok{<}\NormalTok{nome}\OperatorTok{-}\NormalTok{matrice}\OperatorTok{>}\NormalTok{)<-}\KeywordTok{c}\NormalTok{(}\StringTok{"nome-1"}\NormalTok{,...,}\StringTok{"nome-s"}\NormalTok{)}\ErrorTok{\}}
+
+\KeywordTok{rownames}\NormalTok{(}\OperatorTok{<}\NormalTok{nome}\OperatorTok{-}\NormalTok{matrice}\OperatorTok{>}\NormalTok{)<-}\KeywordTok{c}\NormalTok{(}\StringTok{"nome-1"}\NormalTok{,...,}\StringTok{"nome-n"}\NormalTok{)}\ErrorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esercizi-7}{%
+\subsection*{Esercizi}\label{esercizi-7}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Crea la matrice \texttt{G} unendo alla matrice \texttt{A} le prime due colonne della matrice \texttt{C}
+\item
+  Crea la matrice \texttt{H} unendo alla matrice \texttt{C} le prime due righe della matrice trasposta di \texttt{B}
+\item
+  Ridefinisci la matrice \texttt{A} eliminando la seconda colonna. Ridefinisci la matrice \texttt{B} eliminando la prima riga. Verifica che le matrici così ottenute abbiano la stessa dimensione.
+\item
+  Commenta i differenti risultati che otteniamo nelle operazioni \texttt{A*B}, \texttt{B*A}, \texttt{A\%*\%B} e \texttt{B\%*\%A}.
+\item
+  Assegna i seguenti nomi alle colonne e alle righe della matrice \texttt{C}: \texttt{"col\textbackslash{}\_1",\ "col\textbackslash{}\_2",\ "col\textbackslash{}\_3",\ "col\textbackslash{}\_4",\ "row\textbackslash{}\_1",\ "row\textbackslash{}\_2",\ "row\textbackslash{}\_3"}.
+\end{enumerate}
 
 \hypertarget{dataframe}{%
 \chapter{Dataframe}\label{dataframe}}
@@ -1705,6 +2034,56 @@ Working in progress.
 \chapter{Caso Studio I: Attaccamento}\label{attachment}}
 
 Working in progress.
+
+\hypertarget{infobox}{%
+\section{Infobox}\label{infobox}}
+
+Illustrations included in \texttt{images/} are retrieved from \href{https://rstudio4edu.github.io/rstudio4edu-book/}{rstudio4edu-book} under \href{https://creativecommons.org/licenses/by-nc/2.0/}{CC-BY-NC}. Remember to include an \emph{Attributions} section in the book and repository's README file.
+
+\begin{tip}[My title]
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum!
+
+\end{tip}
+
+\begin{warning}[My title]
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum!
+
+\end{warning}
+
+\begin{deffun}[My title]
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum!
+
+\end{deffun}
+
+\begin{design}[My title]
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum!
+
+\end{design}
+
+\begin{trick}[My title]
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum!
+
+\end{trick}
 
   \bibliography{book.bib,packages.bib}
 

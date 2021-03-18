@@ -1,55 +1,93 @@
 # Sessione di Lavoro {#working-session}
 
-Working in progress.
-
-- Console e script
-- Commenti
-- Output errori
-- Sintassi R (NA, NULL, TRUE, FALSE)
-- environment
-- working directory 
-- Basi sui pacchetti
-- R projects
 
 
-## Infobox
+In queso capitolo introdurremo alcuni concetti molto importanti che riguardano le sessioni di lavoro in R o RStudio. In particolare parleremo dell'*environment*, della *working directory* e dell'utilizzo di pacchetti.
 
-Illustrations included in `images/` are retrieved from [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) under [CC-BY-NC](https://creativecommons.org/licenses/by-nc/2.0/). Remember to include an *Attributions* section in the book and repository’s README file.
+Infine, disuteremo di alcuni aspetti generali della programmazione quali la gestione dei messaggi di errore o *warnings* e  vedremo alcune buone norme riguardanti l'organizzazione degli scripts e l'uso degli *RStudio Projects* per essere ordinati ed efficaci nelle proprie sessioni di lavoro.
 
-:::{.tip title="My title" data-latex="[My title]"}
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum! 
-:::
+## Environment
 
-:::{.warning title="My title" data-latex="[My title]"}
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum! 
-:::
+Nel Capitolo \@ref(objects-section), abbiamo visto come sia possibile assegnare dei valori a degli oggetti. Questi oggetti vengono creati nel nostro ambiente di lavoro (o meglio *Environment*) e potranno essere utilizzati in seguito.
 
-:::{.deffun title="My title" data-latex="[My title]"}
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum! 
-:::
+Il nostro Enviroment raccoglie quindi tutti gli oggetti che vengono creati durante la nostra sessione di lavoro. E' possibile valutare gli oggetti attualmente presenti osservando il pannello *Envrionmen* in alto a destra (vedi Figura \@ref(fig:environment2)) oppure utilizzadno il comando `ls()`, ovvero *list objects*.
 
-:::{.design title="My title" data-latex="[My title]"}
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum! 
-:::
+<div class="figure" style="text-align: center">
+<img src="images/environment.png" alt="*Environment* - Elenco degli oggetti e variabili presenti nel'ambiente di lavoro" width="60%" />
+<p class="caption">(\#fig:environment2)*Environment* - Elenco degli oggetti e variabili presenti nel'ambiente di lavoro</p>
+</div>
 
-:::{.trick title="My title" data-latex="[My title]"}
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum! 
-:::
+All'inizio della sessione di lavoro il nostro Environment sarà vuoto ().
+
+
+<div class="figure" style="text-align: center">
+<img src="images/environment-empty.png" alt="*Environment* vuoto ad inizio sessione di lavoro" width="60%" />
+<p class="caption">(\#fig:environment-empty)*Environment* vuoto ad inizio sessione di lavoro</p>
+</div>
+
+
+```r
+# Environment vuoto
+ls()
+## character(0)
+```
+
+
+```r
+# Creo oggetti
+x <-  c(2,4,6,8)
+y <-  27
+word <- "Hello Word!"
+
+# Lista nomi oggetti nell'Environment
+ls()
+## [1] "word" "x"    "y"
+```
+
+<div class="figure" style="text-align: center">
+<img src="images/environment-objects.png" alt="*Environment* contenente gli oggetti creati" width="60%" />
+<p class="caption">(\#fig:environment-object)*Environment* contenente gli oggetti creati</p>
+</div>
+
+- concetto di ambiente di lavoro
+- ls()
+- rm()
+
+- tip box aspetto transirorio (vedremo successivamente come salvare caricare dati)
+
+## Working Directory
+
+- che cosa è un path
+- home directory ~ (non mi ricordo se per windows lavora)
+- getwd(); 
+- setwd(); altri modi per settare al working directory
+
+- abodolute/relative path (?)
+
+## R-packages
+
+- scaricare
+- library
+- uso funzioni
+- aggiornare i pacchetti
+
+- box tip per l'uso di ::
+
+## Errors and warnings
+
+## Sessione di lavoro
+
+- pulizia script
+- commenti 
+- sezioni script
+- settings
+- sintassi (gli spazi e gli indent corretti alineamenti)
+- idea di organizzare in vairi script, cartelle
+
+### R projects
+
+
+
 
 ## Problema + Google = Soluzione
 
