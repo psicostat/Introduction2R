@@ -1990,6 +1990,226 @@ Operazione & Nome\\
 
 Working in progress.
 
+\hypertarget{creazione-di-dataframes}{%
+\section{Creazione di DataFrames}\label{creazione-di-dataframes}}
+
+Uno degli oggetti più utilizzati in R sono i DataFrames. I DataFrames permettono di raccogliere all'interno di uno stesso oggetto vettori di diverso tipo (i.e., vettori numerici, logici, fattori o stringhe di caratteri). Per questo motivo, i DataFrames sono utili per riportare tutti i dati riguardanti le diverse variabili misurate in un esperimento.
+
+In genere ogni riga di un DataFrames rappresenta una singola osservazione e nelle colonne sono riportate i vari valori delle variabili misurate.
+
+Esistono due formati principali di DataFrames:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Wide}: ogni singola riga rappresenta un soggetto e ogni sua risposta o variabile misurata sarà riportata in una diversa colonna.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data_wide<-}\KeywordTok{data.frame}\NormalTok{(}
+  \DataTypeTok{Id=}\KeywordTok{c}\NormalTok{(}\StringTok{"subj_1"}\NormalTok{,}\StringTok{"subj_2"}\NormalTok{,}\StringTok{"subj_3"}\NormalTok{),}
+  \DataTypeTok{age=}\KeywordTok{c}\NormalTok{(}\DecValTok{21}\NormalTok{,}\DecValTok{23}\NormalTok{,}\DecValTok{19}\NormalTok{),}
+  \DataTypeTok{sex=}\KeywordTok{c}\NormalTok{(}\StringTok{"F"}\NormalTok{,}\StringTok{"M"}\NormalTok{,}\StringTok{"F"}\NormalTok{),}
+  \DataTypeTok{item_1=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{item_2=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{item_3=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{)}
+\NormalTok{  )}
+
+\NormalTok{data_wide}
+\CommentTok{##       Id age sex item_1 item_2 item_3}
+\CommentTok{## 1 subj_1  21   F      2      0      2}
+\CommentTok{## 2 subj_2  23   M      1      2      0}
+\CommentTok{## 3 subj_3  19   F      1      1      1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Long}: ogni singola riga rappresenta una singola osservazione. Quindi i dati di ogni soggetto saranno riportati su più righe e le variabili che non cambiano tra le osservazioni saranno ripetute.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data_long<-}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Id=}\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"subj_1"}\NormalTok{,}\StringTok{"subj_2"}\NormalTok{,}\StringTok{"subj_3"}\NormalTok{),}\DataTypeTok{each=}\DecValTok{3}\NormalTok{),}
+                      \DataTypeTok{age=}\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{21}\NormalTok{,}\DecValTok{23}\NormalTok{,}\DecValTok{19}\NormalTok{),}\DataTypeTok{each=}\DecValTok{3}\NormalTok{),}
+                      \DataTypeTok{sex=}\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"F"}\NormalTok{,}\StringTok{"M"}\NormalTok{,}\StringTok{"F"}\NormalTok{),}\DataTypeTok{each=}\DecValTok{3}\NormalTok{),}
+                      \DataTypeTok{item=}\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{),}
+                      \DataTypeTok{response=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\NormalTok{data_long}
+\CommentTok{##       Id age sex item response}
+\CommentTok{## 1 subj_1  21   F    1        2}
+\CommentTok{## 2 subj_1  21   F    2        1}
+\CommentTok{## 3 subj_1  21   F    3        1}
+\CommentTok{## 4 subj_2  23   M    1        0}
+\CommentTok{## 5 subj_2  23   M    2        2}
+\CommentTok{## 6 subj_2  23   M    3        1}
+\CommentTok{## 7 subj_3  19   F    1        2}
+\CommentTok{## 8 subj_3  19   F    2        0}
+\CommentTok{## 9 subj_3  19   F    3        1}
+\end{Highlighting}
+\end{Shaded}
+
+In R per definire un DataFrame si utilizza il comando:
+
+\texttt{\textless{}nome-DataFrame\textgreater{}\ \textless{}-\ data.frame(variabile\_1=c(...),\ ...,\ variabile\_s=c(...))}
+
+All'interno vanno riportate le variabili che si vogliono inserire separate da virgole. Ogni variabile deve avere la \textbf{stessa lunghezza}.
+
+\textbf{Nota:} di default R considera una variabile stringa all'interno di un DataFrame come una variabile categoriale. E' possibile cambiare questa opzione specificando \texttt{stringsAsFactors=FALSE}.
+
+\hypertarget{esercizi-8}{%
+\subsection*{Esercizi}\label{esercizi-8}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Crea il dataframe \texttt{data\_wide} riportato precedentemente
+\item
+  Crea il dataframe \texttt{data\_long} riportato precedentemente
+\end{enumerate}
+
+\hypertarget{selezione-di-elementi-di-un-dataframe}{%
+\section{Selezione di Elementi di un DataFrame}\label{selezione-di-elementi-di-un-dataframe}}
+
+In R per selezioneare gli elementi di un DataFrame si può, analogamente alle matrici, indicare all'interno delle parentesi quadre l'indice di riga e l'indice di colonna (\textbf{separati da virgola}).
+
+\texttt{\textless{}nome-DataFrame\textgreater{}{[}indice\_riga\ ,\ indice\_colonna{]}}
+
+Per accedere ad una specifica variabile del DataFrame è possibile utilizzare l'operatore ``\$'':
+
+\texttt{\textless{}nome-DataFrame\textgreater{}\$\textless{}nome-variabile\textgreater{}}
+
+Per quanto riguarda l'indice di riga è possibile definire una condizione logica rispetto ad una variabile, mentre per l'indice di colonna si può indicare il nome delle variabili:
+
+\texttt{\textless{}nome-DataFrame\textgreater{}{[}condizione\_logica\ ,\ c("variabile\_1",\ ...,\ "variebile\_s"){]}}
+
+\textbf{Nota:} per selezionare tutti gli elementi di una data riga basta lasciare vuoto l'indice di colonna.
+
+\textbf{Esempio:} \texttt{data\_wide{[}data\_wide\$sex=="F",\ c("Id","age"){]}}
+
+\hypertarget{esercizi-9}{%
+\subsection*{Esercizi}\label{esercizi-9}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Utilizzando gli \textbf{indici numerici} di riga e di colonna selziona i dati del soggetto \texttt{subj\_2} riguardanti le variabili \texttt{item} e \texttt{response} dal DataFrame \texttt{data\_long}.
+\item
+  Compi la stessa selezione dell'esercizio precedente usando però questa volta una condizione logica per gli indici di riga e indicando direttamente il nome delle variabili per gli indici di colonna.
+\item
+  Considerando il DataFrame \texttt{data\_wide} seleziona le variabili \texttt{Id} e \texttt{sex} dei soggetti che hanno risposto 1 alla variabile \texttt{item\_1}.
+\item
+  Considerando il DataFrame \texttt{data\_long} seleziona solamente i dati riguardanti le ragazze con etè superiore ai 20 anni.
+\item
+  Elimina dal DataFrame \texttt{data\_long} le osservazioni riguardanti il soggetto \texttt{subj\_2} e la variabile \texttt{"sex"}.
+\end{enumerate}
+
+\hypertarget{funzioni-con-dataframes}{%
+\section{Funzioni con DataFrames}\label{funzioni-con-dataframes}}
+
+\begin{table}[!h]
+
+\caption{\label{tab:table-dataframe-operators}Operazioni con matrici}
+\centering
+\begin{tabular}[t]{l|l}
+\hline
+Operazione & Nome\\
+\hline
+\texttt{nome\_DataFrame <- cbind(nome\_DataFrame, nuova\_variabile)} \\ \texttt{nome\_DataFrame\$nome\_variabile <- dati} & Per aggiungere una nuova variabile al DataFrame (deve avere lo stesso numero di righe)\\
+\hline
+\texttt{nome\_DataFrame <- rbind(nome\_DataFrame, nuova\_variabile)} & Per sggiungere delle osservazioni (i nuovi dati devono essere coerenti con la struttura del DataFrame)\\
+\hline
+\texttt{nrow(nome\_DataFrame)} & Per valutare il numero di osservazioni del DataFrame\\
+\hline
+\texttt{ncol(nome\_DataFrame)} & Per valutare il numero di variabili del DataFrame\\
+\hline
+\texttt{holder(nome\_DataFrame)} & Nomi delle colonne del DataFrame\\
+\hline
+\texttt{rownames(nome\_DataFrame)} & Nomi delle righe del DataFrame\\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Nota:} E' possibile assegnare nomi alle colonne e righe di un DataFrame allo stesso modo delle matrici, atttraverso i comandi
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{colnames}\NormalTok{(nome_DataFrame)<-}\KeywordTok{c}\NormalTok{(}\StringTok{"nome_1"}\NormalTok{,...,}\StringTok{"nome_s"}\NormalTok{)}
+\KeywordTok{names}\NormalTok{(nome_DataFrame)<-}\KeywordTok{c}\NormalTok{(}\StringTok{"nome_1"}\NormalTok{,...,}\StringTok{"nome_s"}\NormalTok{)}
+\KeywordTok{rownames}\NormalTok{(nome_DataFrame)<-}\KeywordTok{c}\NormalTok{(}\StringTok{"nome_1"}\NormalTok{,...,}\StringTok{"nome_n"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esercizi-10}{%
+\subsection*{Esercizi}\label{esercizi-10}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Aggiungi sia al DataFrame \texttt{data\_wide} che \texttt{data\_long} la variabile numerica \texttt{"memory\_pre"}.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Id=}\KeywordTok{c}\NormalTok{(}\StringTok{"subj_1"}\NormalTok{,}\StringTok{"subj_2"}\NormalTok{,}\StringTok{"subj_3"}\NormalTok{),}
+                      \DataTypeTok{memory_pre=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Aggiungi sia al DataFrame \texttt{data\_wide} che \texttt{data\_long} la variabile categoriale \texttt{"gruppo"}.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Id=}\KeywordTok{c}\NormalTok{(}\StringTok{"subj_1"}\NormalTok{,}\StringTok{"subj_2"}\NormalTok{,}\StringTok{"subj_3"}\NormalTok{),}
+                      \DataTypeTok{gruppo=}\KeywordTok{c}\NormalTok{(}\StringTok{"trattamento"}\NormalTok{,}\StringTok{"trattemento"}\NormalTok{,}\StringTok{"controllo"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Aggiungi al DataFrame \texttt{data\_wide} i dati del soggetto \texttt{subj\_4} e \texttt{subj\_5}.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Id=}\KeywordTok{c}\NormalTok{(}\StringTok{"subj_4"}\NormalTok{,}\StringTok{"subj_5"}\NormalTok{),}
+           \DataTypeTok{age=}\KeywordTok{c}\NormalTok{(}\DecValTok{25}\NormalTok{,}\DecValTok{22}\NormalTok{),}
+           \DataTypeTok{sex=}\KeywordTok{c}\NormalTok{(}\StringTok{"F"}\NormalTok{,}\StringTok{"M"}\NormalTok{),}
+           \DataTypeTok{item_1=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{),}
+           \DataTypeTok{item_2=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{),}
+           \DataTypeTok{item_3=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{),}
+           \DataTypeTok{memory_pre=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{),}
+           \DataTypeTok{gruppo=}\KeywordTok{c}\NormalTok{(}\StringTok{"trattemento"}\NormalTok{,}\StringTok{"controllo"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Considerando il DataFrame \texttt{datawide} calcola la variabile \texttt{"memory\_post"} data dalla somma degli item.
+\item
+  Considerando il DataFrame \texttt{data\_wide} cambia i nomi delle variabili \texttt{item\_1}, \texttt{item\_2} e \texttt{item\_3} rispettivamente in \texttt{problem\_1}, \texttt{problem\_2} e \texttt{problem\_3}.
+\end{enumerate}
+
 \hypertarget{list}{%
 \chapter{Liste}\label{list}}
 

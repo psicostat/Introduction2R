@@ -220,7 +220,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#esercizi-7"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>10</b> Dataframe</a></li>
+<li class="chapter" data-level="10" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>10</b> Dataframe</a><ul>
+<li class="chapter" data-level="10.1" data-path="dataframe.html"><a href="dataframe.html#creazione-di-dataframes"><i class="fa fa-check"></i><b>10.1</b> Creazione di DataFrames</a><ul>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-8"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="dataframe.html"><a href="dataframe.html#selezione-di-elementi-di-un-dataframe"><i class="fa fa-check"></i><b>10.2</b> Selezione di Elementi di un DataFrame</a><ul>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-9"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="dataframe.html"><a href="dataframe.html#funzioni-con-dataframes"><i class="fa fa-check"></i><b>10.3</b> Funzioni con DataFrames</a><ul>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-10"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>11</b> Liste</a></li>
 <li class="part"><span><b>Algoritmi</b></span></li>
 <li class="chapter" data-level="" data-path="introduzione-1.html"><a href="introduzione-1.html"><i class="fa fa-check"></i>Introduzione</a></li>
@@ -267,7 +277,181 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="dataframe" class="section level1">
 <h1><span class="header-section-number">Capitolo 10</span> Dataframe</h1>
 <p>Working in progress.</p>
+<div id="creazione-di-dataframes" class="section level2">
+<h2><span class="header-section-number">10.1</span> Creazione di DataFrames</h2>
+<p>Uno degli oggetti più utilizzati in R sono i DataFrames. I DataFrames permettono di raccogliere all’interno di uno stesso oggetto vettori di diverso tipo (i.e., vettori numerici, logici, fattori o stringhe di caratteri). Per questo motivo, i DataFrames sono utili per riportare tutti i dati riguardanti le diverse variabili misurate in un esperimento.</p>
+<p>In genere ogni riga di un DataFrames rappresenta una singola osservazione e nelle colonne sono riportate i vari valori delle variabili misurate.</p>
+<p>Esistono due formati principali di DataFrames:</p>
+<ul>
+<li><strong>Wide</strong>: ogni singola riga rappresenta un soggetto e ogni sua risposta o variabile misurata sarà riportata in una diversa colonna.</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="dataframe.html#cb19-1"></a>data_wide&lt;-<span class="kw">data.frame</span>(</span>
+<span id="cb19-2"><a href="dataframe.html#cb19-2"></a>  <span class="dt">Id=</span><span class="kw">c</span>(<span class="st">&quot;subj_1&quot;</span>,<span class="st">&quot;subj_2&quot;</span>,<span class="st">&quot;subj_3&quot;</span>),</span>
+<span id="cb19-3"><a href="dataframe.html#cb19-3"></a>  <span class="dt">age=</span><span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">19</span>),</span>
+<span id="cb19-4"><a href="dataframe.html#cb19-4"></a>  <span class="dt">sex=</span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>),</span>
+<span id="cb19-5"><a href="dataframe.html#cb19-5"></a>  <span class="dt">item_1=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>),</span>
+<span id="cb19-6"><a href="dataframe.html#cb19-6"></a>  <span class="dt">item_2=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">1</span>),</span>
+<span id="cb19-7"><a href="dataframe.html#cb19-7"></a>  <span class="dt">item_3=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb19-8"><a href="dataframe.html#cb19-8"></a>  )</span>
+<span id="cb19-9"><a href="dataframe.html#cb19-9"></a></span>
+<span id="cb19-10"><a href="dataframe.html#cb19-10"></a>data_wide</span>
+<span id="cb19-11"><a href="dataframe.html#cb19-11"></a><span class="co">##       Id age sex item_1 item_2 item_3</span></span>
+<span id="cb19-12"><a href="dataframe.html#cb19-12"></a><span class="co">## 1 subj_1  21   F      2      0      2</span></span>
+<span id="cb19-13"><a href="dataframe.html#cb19-13"></a><span class="co">## 2 subj_2  23   M      1      2      0</span></span>
+<span id="cb19-14"><a href="dataframe.html#cb19-14"></a><span class="co">## 3 subj_3  19   F      1      1      1</span></span></code></pre></div>
+<ul>
+<li><strong>Long</strong>: ogni singola riga rappresenta una singola osservazione. Quindi i dati di ogni soggetto saranno riportati su più righe e le variabili che non cambiano tra le osservazioni saranno ripetute.</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="dataframe.html#cb20-1"></a>data_long&lt;-<span class="kw">data.frame</span>(<span class="dt">Id=</span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;subj_1&quot;</span>,<span class="st">&quot;subj_2&quot;</span>,<span class="st">&quot;subj_3&quot;</span>),<span class="dt">each=</span><span class="dv">3</span>),</span>
+<span id="cb20-2"><a href="dataframe.html#cb20-2"></a>                      <span class="dt">age=</span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">19</span>),<span class="dt">each=</span><span class="dv">3</span>),</span>
+<span id="cb20-3"><a href="dataframe.html#cb20-3"></a>                      <span class="dt">sex=</span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>),<span class="dt">each=</span><span class="dv">3</span>),</span>
+<span id="cb20-4"><a href="dataframe.html#cb20-4"></a>                      <span class="dt">item=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">3</span>),</span>
+<span id="cb20-5"><a href="dataframe.html#cb20-5"></a>                      <span class="dt">response=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb20-6"><a href="dataframe.html#cb20-6"></a>data_long</span>
+<span id="cb20-7"><a href="dataframe.html#cb20-7"></a><span class="co">##       Id age sex item response</span></span>
+<span id="cb20-8"><a href="dataframe.html#cb20-8"></a><span class="co">## 1 subj_1  21   F    1        2</span></span>
+<span id="cb20-9"><a href="dataframe.html#cb20-9"></a><span class="co">## 2 subj_1  21   F    2        1</span></span>
+<span id="cb20-10"><a href="dataframe.html#cb20-10"></a><span class="co">## 3 subj_1  21   F    3        1</span></span>
+<span id="cb20-11"><a href="dataframe.html#cb20-11"></a><span class="co">## 4 subj_2  23   M    1        0</span></span>
+<span id="cb20-12"><a href="dataframe.html#cb20-12"></a><span class="co">## 5 subj_2  23   M    2        2</span></span>
+<span id="cb20-13"><a href="dataframe.html#cb20-13"></a><span class="co">## 6 subj_2  23   M    3        1</span></span>
+<span id="cb20-14"><a href="dataframe.html#cb20-14"></a><span class="co">## 7 subj_3  19   F    1        2</span></span>
+<span id="cb20-15"><a href="dataframe.html#cb20-15"></a><span class="co">## 8 subj_3  19   F    2        0</span></span>
+<span id="cb20-16"><a href="dataframe.html#cb20-16"></a><span class="co">## 9 subj_3  19   F    3        1</span></span></code></pre></div>
+<p>In R per definire un DataFrame si utilizza il comando:</p>
+<p><code>&lt;nome-DataFrame&gt; &lt;- data.frame(variabile_1=c(...), ..., variabile_s=c(...))</code></p>
+<p>All’interno vanno riportate le variabili che si vogliono inserire separate da virgole. Ogni variabile deve avere la <strong>stessa lunghezza</strong>.</p>
+<p><strong>Nota:</strong> di default R considera una variabile stringa all’interno di un DataFrame come una variabile categoriale. E’ possibile cambiare questa opzione specificando <code>stringsAsFactors=FALSE</code>.</p>
+<div id="esercizi-8" class="section level3 unnumbered">
+<h3>Esercizi</h3>
+<ol style="list-style-type: decimal">
+<li>Crea il dataframe <code>data_wide</code> riportato precedentemente</li>
+<li>Crea il dataframe <code>data_long</code> riportato precedentemente</li>
+</ol>
+</div>
+</div>
+<div id="selezione-di-elementi-di-un-dataframe" class="section level2">
+<h2><span class="header-section-number">10.2</span> Selezione di Elementi di un DataFrame</h2>
+<p>In R per selezioneare gli elementi di un DataFrame si può, analogamente alle matrici, indicare all’interno delle parentesi quadre l’indice di riga e l’indice di colonna (<strong>separati da virgola</strong>).</p>
+<p><code>&lt;nome-DataFrame&gt;[indice_riga , indice_colonna]</code></p>
+<p>Per accedere ad una specifica variabile del DataFrame è possibile utilizzare l’operatore “$”:</p>
+<p><code>&lt;nome-DataFrame&gt;$&lt;nome-variabile&gt;</code></p>
+<p>Per quanto riguarda l’indice di riga è possibile definire una condizione logica rispetto ad una variabile, mentre per l’indice di colonna si può indicare il nome delle variabili:</p>
+<p><code>&lt;nome-DataFrame&gt;[condizione_logica , c("variabile_1", ..., "variebile_s")]</code></p>
+<p><strong>Nota:</strong> per selezionare tutti gli elementi di una data riga basta lasciare vuoto l’indice di colonna.</p>
+<p><strong>Esempio:</strong> <code>data_wide[data_wide$sex=="F", c("Id","age")]</code></p>
+<div id="esercizi-9" class="section level3 unnumbered">
+<h3>Esercizi</h3>
+<ol style="list-style-type: decimal">
+<li>Utilizzando gli <strong>indici numerici</strong> di riga e di colonna selziona i dati del soggetto <code>subj_2</code> riguardanti le variabili <code>item</code> e <code>response</code> dal DataFrame <code>data_long</code>.</li>
+<li>Compi la stessa selezione dell’esercizio precedente usando però questa volta una condizione logica per gli indici di riga e indicando direttamente il nome delle variabili per gli indici di colonna.</li>
+<li>Considerando il DataFrame <code>data_wide</code> seleziona le variabili <code>Id</code> e <code>sex</code> dei soggetti che hanno risposto 1 alla variabile <code>item_1</code>.</li>
+<li>Considerando il DataFrame <code>data_long</code> seleziona solamente i dati riguardanti le ragazze con etè superiore ai 20 anni.</li>
+<li>Elimina dal DataFrame <code>data_long</code> le osservazioni riguardanti il soggetto <code>subj_2</code> e la variabile <code>"sex"</code>.</li>
+</ol>
+</div>
+</div>
+<div id="funzioni-con-dataframes" class="section level2">
+<h2><span class="header-section-number">10.3</span> Funzioni con DataFrames</h2>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table-dataframe-operators">Table 10.1: </span>Operazioni con matrici
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Operazione
+</th>
+<th style="text-align:left;">
+Nome
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+nome_DataFrame &lt;- cbind(nome_DataFrame, nuova_variabile) <br> nome_DataFrame$nome_variabile &lt;- dati
+</td>
+<td style="text-align:left;">
+Per aggiungere una nuova variabile al DataFrame (deve avere lo stesso numero di righe)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nome_DataFrame &lt;- rbind(nome_DataFrame, nuova_variabile)
+</td>
+<td style="text-align:left;">
+Per sggiungere delle osservazioni (i nuovi dati devono essere coerenti con la struttura del DataFrame)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nrow(nome_DataFrame)
+</td>
+<td style="text-align:left;">
+Per valutare il numero di osservazioni del DataFrame
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ncol(nome_DataFrame)
+</td>
+<td style="text-align:left;">
+Per valutare il numero di variabili del DataFrame
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+holder(nome_DataFrame)
+</td>
+<td style="text-align:left;">
+Nomi delle colonne del DataFrame
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rownames(nome_DataFrame)
+</td>
+<td style="text-align:left;">
+Nomi delle righe del DataFrame
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nota:</strong> E’ possibile assegnare nomi alle colonne e righe di un DataFrame allo stesso modo delle matrici, atttraverso i comandi</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="dataframe.html#cb21-1"></a><span class="kw">colnames</span>(nome_DataFrame)&lt;-<span class="kw">c</span>(<span class="st">&quot;nome_1&quot;</span>,...,<span class="st">&quot;nome_s&quot;</span>)</span>
+<span id="cb21-2"><a href="dataframe.html#cb21-2"></a><span class="kw">names</span>(nome_DataFrame)&lt;-<span class="kw">c</span>(<span class="st">&quot;nome_1&quot;</span>,...,<span class="st">&quot;nome_s&quot;</span>)</span>
+<span id="cb21-3"><a href="dataframe.html#cb21-3"></a><span class="kw">rownames</span>(nome_DataFrame)&lt;-<span class="kw">c</span>(<span class="st">&quot;nome_1&quot;</span>,...,<span class="st">&quot;nome_n&quot;</span>)</span></code></pre></div>
+<div id="esercizi-10" class="section level3 unnumbered">
+<h3>Esercizi</h3>
+<ol style="list-style-type: decimal">
+<li>Aggiungi sia al DataFrame <code>data_wide</code> che <code>data_long</code> la variabile numerica <code>"memory_pre"</code>.</li>
+</ol>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="dataframe.html#cb22-1"></a><span class="kw">data.frame</span>(<span class="dt">Id=</span><span class="kw">c</span>(<span class="st">&quot;subj_1&quot;</span>,<span class="st">&quot;subj_2&quot;</span>,<span class="st">&quot;subj_3&quot;</span>),</span>
+<span id="cb22-2"><a href="dataframe.html#cb22-2"></a>                      <span class="dt">memory_pre=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>))</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Aggiungi sia al DataFrame <code>data_wide</code> che <code>data_long</code> la variabile categoriale <code>"gruppo"</code>.</li>
+</ol>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="dataframe.html#cb23-1"></a><span class="kw">data.frame</span>(<span class="dt">Id=</span><span class="kw">c</span>(<span class="st">&quot;subj_1&quot;</span>,<span class="st">&quot;subj_2&quot;</span>,<span class="st">&quot;subj_3&quot;</span>),</span>
+<span id="cb23-2"><a href="dataframe.html#cb23-2"></a>                      <span class="dt">gruppo=</span><span class="kw">c</span>(<span class="st">&quot;trattamento&quot;</span>,<span class="st">&quot;trattemento&quot;</span>,<span class="st">&quot;controllo&quot;</span>))</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Aggiungi al DataFrame <code>data_wide</code> i dati del soggetto <code>subj_4</code> e <code>subj_5</code>.</li>
+</ol>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="dataframe.html#cb24-1"></a><span class="kw">data.frame</span>(<span class="dt">Id=</span><span class="kw">c</span>(<span class="st">&quot;subj_4&quot;</span>,<span class="st">&quot;subj_5&quot;</span>),</span>
+<span id="cb24-2"><a href="dataframe.html#cb24-2"></a>           <span class="dt">age=</span><span class="kw">c</span>(<span class="dv">25</span>,<span class="dv">22</span>),</span>
+<span id="cb24-3"><a href="dataframe.html#cb24-3"></a>           <span class="dt">sex=</span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>),</span>
+<span id="cb24-4"><a href="dataframe.html#cb24-4"></a>           <span class="dt">item_1=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),</span>
+<span id="cb24-5"><a href="dataframe.html#cb24-5"></a>           <span class="dt">item_2=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb24-6"><a href="dataframe.html#cb24-6"></a>           <span class="dt">item_3=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">0</span>),</span>
+<span id="cb24-7"><a href="dataframe.html#cb24-7"></a>           <span class="dt">memory_pre=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>),</span>
+<span id="cb24-8"><a href="dataframe.html#cb24-8"></a>           <span class="dt">gruppo=</span><span class="kw">c</span>(<span class="st">&quot;trattemento&quot;</span>,<span class="st">&quot;controllo&quot;</span>))</span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>Considerando il DataFrame <code>datawide</code> calcola la variabile <code>"memory_post"</code> data dalla somma degli item.</li>
+<li>Considerando il DataFrame <code>data_wide</code> cambia i nomi delle variabili <code>item_1</code>, <code>item_2</code> e <code>item_3</code> rispettivamente in <code>problem_1</code>, <code>problem_2</code> e <code>problem_3</code>.</li>
+</ol>
 
+</div>
+</div>
 </div>
 <hr>
 <center>

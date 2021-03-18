@@ -19,6 +19,7 @@ fig:environment-empty
 fig:environment-object
 tab:table-vector-operators
 tab:table-matrix-operators
+tab:table-dataframe-operators
 install
 installare-r
 r-windows
@@ -62,6 +63,9 @@ creazione-di-matrici
 selezione-di-elementi-di-una-matrice
 funzioni-ed-operazioni-tra-matrici
 dataframe
+creazione-di-dataframes
+selezione-di-elementi-di-un-dataframe
+funzioni-con-dataframes
 list
 functions
 coditionals
