@@ -18,5 +18,9 @@ libs/
 Introduction2R.rds
 *.rds
 
+# Other folders
+Documents/
+charts/
+
 # Mac-auxiliary files
 .DS_Store
