@@ -17,6 +17,10 @@ fig:help-page
 fig:environment2
 fig:environment-empty
 fig:environment-object
+fig:file-system
+fig:current-wd
+fig:current-folder
+fig:set-wd
 tab:table-vector-operators
 tab:table-matrix-operators
 tab:table-dataframe-operators
@@ -48,6 +52,9 @@ environment
 aggiungere-oggetti-allenvironment
 rimuovere-oggetti-dallenvironment
 working-directory
+organizzazione-computer
+absolute-path-e-relative-path
+working-directory-in-r
 r-packages
 errors-and-warnings
 sessione-di-lavoro

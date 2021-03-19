@@ -189,7 +189,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1.1" data-path="working-session.html"><a href="working-session.html#aggiungere-oggetti-allenvironment"><i class="fa fa-check"></i><b>5.1.1</b> Aggiungere Oggetti all’Environment</a></li>
 <li class="chapter" data-level="5.1.2" data-path="working-session.html"><a href="working-session.html#rimuovere-oggetti-dallenvironment"><i class="fa fa-check"></i><b>5.1.2</b> Rimuovere Oggetti dall’Environment</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="working-session.html"><a href="working-session.html#working-directory"><i class="fa fa-check"></i><b>5.2</b> Working Directory</a></li>
+<li class="chapter" data-level="5.2" data-path="working-session.html"><a href="working-session.html#working-directory"><i class="fa fa-check"></i><b>5.2</b> Working Directory</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="working-session.html"><a href="working-session.html#organizzazione-computer"><i class="fa fa-check"></i><b>5.2.1</b> Organizzazione Computer</a></li>
+<li class="chapter" data-level="5.2.2" data-path="working-session.html"><a href="working-session.html#absolute-path-e-relative-path"><i class="fa fa-check"></i><b>5.2.2</b> Absolute Path e Relative Path</a></li>
+<li class="chapter" data-level="5.2.3" data-path="working-session.html"><a href="working-session.html#working-directory-in-r"><i class="fa fa-check"></i><b>5.2.3</b> Working Directory in R</a></li>
+</ul></li>
 <li class="chapter" data-level="5.3" data-path="working-session.html"><a href="working-session.html#r-packages"><i class="fa fa-check"></i><b>5.3</b> R-packages</a></li>
 <li class="chapter" data-level="5.4" data-path="working-session.html"><a href="working-session.html#errors-and-warnings"><i class="fa fa-check"></i><b>5.4</b> Errors and warnings</a></li>
 <li class="chapter" data-level="5.5" data-path="working-session.html"><a href="working-session.html#sessione-di-lavoro"><i class="fa fa-check"></i><b>5.5</b> Sessione di lavoro</a><ul>
@@ -488,9 +492,9 @@ Prodotto matriciale
 <li>Per compiere il prodotto matriciale il numero di colonne della prima matrice deve essere uguale al numero di righe della seconda matrice (vedi <a href="https://it.wikipedia.org/wiki/Moltiplicazione_di_matrici" class="uri">https://it.wikipedia.org/wiki/Moltiplicazione_di_matrici</a>).</li>
 <li>E’ possibile assegnare nomi alle colonne e righe di una matrice rispettivamente atttraverso i comandi:</li>
 </ul>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="matrix.html#cb31-1"></a><span class="kw">colnames</span>(<span class="op">&lt;</span>nome<span class="op">-</span>matrice<span class="op">&gt;</span>)&lt;-<span class="kw">c</span>(<span class="st">&quot;nome-1&quot;</span>,...,<span class="st">&quot;nome-s&quot;</span>)<span class="er">}</span></span>
-<span id="cb31-2"><a href="matrix.html#cb31-2"></a></span>
-<span id="cb31-3"><a href="matrix.html#cb31-3"></a><span class="kw">rownames</span>(<span class="op">&lt;</span>nome<span class="op">-</span>matrice<span class="op">&gt;</span>)&lt;-<span class="kw">c</span>(<span class="st">&quot;nome-1&quot;</span>,...,<span class="st">&quot;nome-n&quot;</span>)<span class="er">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="matrix.html#cb42-1"></a><span class="kw">colnames</span>(<span class="op">&lt;</span>nome<span class="op">-</span>matrice<span class="op">&gt;</span>)&lt;-<span class="kw">c</span>(<span class="st">&quot;nome-1&quot;</span>,...,<span class="st">&quot;nome-s&quot;</span>)<span class="er">}</span></span>
+<span id="cb42-2"><a href="matrix.html#cb42-2"></a></span>
+<span id="cb42-3"><a href="matrix.html#cb42-3"></a><span class="kw">rownames</span>(<span class="op">&lt;</span>nome<span class="op">-</span>matrice<span class="op">&gt;</span>)&lt;-<span class="kw">c</span>(<span class="st">&quot;nome-1&quot;</span>,...,<span class="st">&quot;nome-n&quot;</span>)<span class="er">}</span></span></code></pre></div>
 <div id="esercizi-8" class="section level3 unnumbered">
 <h3>Esercizi</h3>
 <ol style="list-style-type: decimal">

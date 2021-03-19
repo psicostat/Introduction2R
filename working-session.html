@@ -189,7 +189,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1.1" data-path="working-session.html"><a href="working-session.html#aggiungere-oggetti-allenvironment"><i class="fa fa-check"></i><b>5.1.1</b> Aggiungere Oggetti all’Environment</a></li>
 <li class="chapter" data-level="5.1.2" data-path="working-session.html"><a href="working-session.html#rimuovere-oggetti-dallenvironment"><i class="fa fa-check"></i><b>5.1.2</b> Rimuovere Oggetti dall’Environment</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="working-session.html"><a href="working-session.html#working-directory"><i class="fa fa-check"></i><b>5.2</b> Working Directory</a></li>
+<li class="chapter" data-level="5.2" data-path="working-session.html"><a href="working-session.html#working-directory"><i class="fa fa-check"></i><b>5.2</b> Working Directory</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="working-session.html"><a href="working-session.html#organizzazione-computer"><i class="fa fa-check"></i><b>5.2.1</b> Organizzazione Computer</a></li>
+<li class="chapter" data-level="5.2.2" data-path="working-session.html"><a href="working-session.html#absolute-path-e-relative-path"><i class="fa fa-check"></i><b>5.2.2</b> Absolute Path e Relative Path</a></li>
+<li class="chapter" data-level="5.2.3" data-path="working-session.html"><a href="working-session.html#working-directory-in-r"><i class="fa fa-check"></i><b>5.2.3</b> Working Directory in R</a></li>
+</ul></li>
 <li class="chapter" data-level="5.3" data-path="working-session.html"><a href="working-session.html#r-packages"><i class="fa fa-check"></i><b>5.3</b> R-packages</a></li>
 <li class="chapter" data-level="5.4" data-path="working-session.html"><a href="working-session.html#errors-and-warnings"><i class="fa fa-check"></i><b>5.4</b> Errors and warnings</a></li>
 <li class="chapter" data-level="5.5" data-path="working-session.html"><a href="working-session.html#sessione-di-lavoro"><i class="fa fa-check"></i><b>5.5</b> Sessione di lavoro</a><ul>
@@ -372,13 +376,136 @@ Figure 5.3: <em>Environment</em> contenente gli oggetti creati
 </div>
 <div id="working-directory" class="section level2">
 <h2><span class="header-section-number">5.2</span> Working Directory</h2>
+<p>Il concetto di <em>working directory</em> è molto importante ma spesso poco conosciuto. La <em>working directory</em> è la posizione all’interno del computer in cui ci troviamo durante la nostra sessione di lavoro e da cui eseguiamo i nostri comandi.</p>
+<div id="organizzazione-computer" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Organizzazione Computer</h3>
+<p>L’idea intuitiva che abbiamo comunemente del funzionamento del computer è fuorviante. Spesso si pensa che il Desktop rispecchi l’organizzazione del nostro intero computer e che tutte le azioni siano gestite attraverso l’interfaccia punta-e-clicca a cui ormai siamo abituati dai moderni sistemi operativi.</p>
+<p>Senza entrare nel dettaglio, è più corretto pensare all’organizzazione del cumputer come ad un insieme di cartelle e sottocartelle che contengono tutti i nostri file e al funzionamento del computer come ad un insieme di processi (o comandi) che vengono eseguiti. Gli stessi programmi che installiamo non sono altro che delle cartelle in cui sono contenuti tutti gli script che determinano il loro funzionamento. Anche il Desktop non è altro che una semplice cartella mentre quello che vediamo noi è un programma definito dal sistema operativo che visualizza il contenuto di quella cartella sul nostro schermo e ci permette di interfacciarci con il mouse.</p>
+<p>Tutto quello che è presente nel nostro computer, compresi i nostri file, i programmi e lo stesso sistema operativo in uso, tutto è organizzato in un articolato sistema di cartelle e sottocartelle. Approsimativamente possiamo pensare all’organizzazione del nostro computer in modo simile alla Figura <a href="working-session.html#fig:file-system">5.4</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:file-system"></span>
+<img src="images/File-System.png" alt="Organizzazione Computer (from: https://en.wikipedia.org/wiki/Operating_system)" width="35%" />
+<p class="caption">
+Figure 5.4: Organizzazione Computer (from: <a href="https://en.wikipedia.org/wiki/Operating_system" class="uri">https://en.wikipedia.org/wiki/Operating_system</a>)
+</p>
+</div>
+<p>Ai livelli più bassi troviamo tutti i file di sistema ai quali gli utenti possono accedere solo con speciali autorizzazioni. Al livello superiore troviamo tutte i file riguardanti i programmi e applicazioni installati che in genere sono utilizzabili da più utenti sullo stesso computer. Infine troviamo tutte le cartelle e file che riguardano lo specifico utente.</p>
+</div>
+<div id="absolute-path-e-relative-path" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Absolute Path e Relative Path</h3>
+<p>Questo ampio preambolo riguardante l’organizzazione in cartelle e sottocartelle, ci serve perchè è la struttura che il computer utilizza per orientarsi tra tutti file quando esegue dei comandi attraverso un’interfaccia a riga di comando (e.g., R). Se vogliamo ad esempio caricare dei dati da uno specifico file in R devo fornire il <em>path</em> (o indirizzo) corretto che mi indichi esattamente la posizione del file all’interno della struttura di cartelle del computer. Ad esempio, immaginiamo di avere dei dati <code>My-data.Rda</code> salvato nella cartella <code>Introduction2R</code> nel proprio Desktop.</p>
+<pre><code>Desktop
+ |
+ |-  Introduction2R
+ |    |
+ |    |- Dati
+ |    |   |- My-data.Rda</code></pre>
+<p>Per indicare la posizione del File potrei utilizzare un:</p>
 <ul>
-<li><p>che cosa è un path</p></li>
-<li><p>home directory ~ (non mi ricordo se per windows lavora)</p></li>
-<li><p>getwd();</p></li>
-<li><p>setwd(); altri modi per settare al working directory</p></li>
-<li><p>abodolute/relative path (?)</p></li>
+<li><strong>absolute path</strong> - la posizione <em>“assoluta”</em> del file rispetto alla <em>root directory</em> del sistema ovvero la cartella principale dell’intero computer.</li>
 </ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="working-session.html#cb21-1"></a><span class="co"># Mac</span></span>
+<span id="cb21-2"><a href="working-session.html#cb21-2"></a><span class="st">&quot;/Users/&lt;username&gt;/Desktop/Introduction2R/Dati/My-data.Rda&quot;</span></span>
+<span id="cb21-3"><a href="working-session.html#cb21-3"></a></span>
+<span id="cb21-4"><a href="working-session.html#cb21-4"></a><span class="co"># Windows Vista</span></span>
+<span id="cb21-5"><a href="working-session.html#cb21-5"></a><span class="st">&quot;c:\Users\&lt;username&gt;\Desktop\Introduction2R\Dati\My-data.Rda&quot;</span></span></code></pre></div>
+<ul>
+<li><strong>relative path</strong> - la posizione del file rispetto alla nostra attuale posizione nel computer da cui stiamo eseguendo il comando, ovvero rispetto alla <strong>working directory</strong> della nostra sessione di lavoro. In questo riprendendo il precedente esempio se la nostra working directory fosse la cartella <code>Desktop/Introduction2R</code> avremmo i seguenti relative path:</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="working-session.html#cb22-1"></a><span class="co"># Mac</span></span>
+<span id="cb22-2"><a href="working-session.html#cb22-2"></a><span class="st">&quot;Dati/My-data.Rda&quot;</span></span>
+<span id="cb22-3"><a href="working-session.html#cb22-3"></a></span>
+<span id="cb22-4"><a href="working-session.html#cb22-4"></a><span class="co"># Windows Vista</span></span>
+<span id="cb22-5"><a href="working-session.html#cb22-5"></a><span class="st">&quot;Dati\My-data.Rda&quot;</span></span></code></pre></div>
+<p>Nota come sia preferibile l’utilizzo dei relative path poichè gli absolute path sono unici per il singolo computer di riferimento e non possono essere quindi utilizzati su altri computer.</p>
+<div class="warning" title="&quot;Error: No such file or directory&quot;">
+<p>Qualora si utilizzasse un relative path per indicare la posizione di un file, è importante che la working directory attualment in uso sia effettivamente quella prevista. Se ci trovassimo in una divesa cartella, ovviamente il “relative path” indicato non sarebbe più valido e R ci mostrerebbe un messaggio di errore.</p>
+<p>Riprendendo l’esempio precedente, supponiamo che la nostra attuale working directory sia <code>Desktop</code> invece di <code>Desktop/Introduction2R</code>. Eseguendo il comadno <code>load()</code> per caricare i dati utilizzando il relative path ora non più valido ottengo:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="working-session.html#cb23-1"></a><span class="kw">load</span>(<span class="st">&quot;Dati/My-data.Rda&quot;</span>)</span>
+<span id="cb23-2"><a href="working-session.html#cb23-2"></a><span class="co">## Warning in readChar(con, 5L, useBytes = TRUE): cannot open compressed file</span></span>
+<span id="cb23-3"><a href="working-session.html#cb23-3"></a><span class="co">## &#39;Dati/My-data.Rda&#39;, probable reason &#39;No such file or directory&#39;</span></span>
+<span id="cb23-4"><a href="working-session.html#cb23-4"></a><span class="co">## Error in readChar(con, 5L, useBytes = TRUE): cannot open the connection</span></span></code></pre></div>
+<p>Il messaggio di errore mi indica che R non è stato in grado di trovare il file seguendo le mie indicazioni. E’ pertanto fondamentale essere sempre consapevoli di quale sia l’attuale working directory in cui si sta svolgendo la sessione di lavoro.</p>
+<p>Ovviamente otterrei lo stesso errore anche usando un absolute path se questo contenesse degli errori.</p>
+</div>
+<div class="design" title="The Garden of Forking Paths">
+<p>Come avrai notato dagli esempi precedenti, sia la struttura in cui vengono organizzati i file nel computer sia la sintassi utilizzata per indicare i path è differente in base al sistema operativo utilizzato.</p>
+<h4 id="mac-os-e-linux" class="unnumbered">Mac OS e Linux</h4>
+<ul>
+<li>Il carattere utilizzato per separare la cartelle nella definizione del path è <code>"/"</code>:</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="working-session.html#cb24-1"></a><span class="st">&quot;Introduction2R/Dati/My-data.Rda&quot;</span></span></code></pre></div>
+<ul>
+<li>Iniziando il path con il carattere <code>"/"</code> si indica la root-directory:</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="working-session.html#cb25-1"></a><span class="st">&quot;/Users/&lt;username&gt;/Desktop/Introduction2R/Dati/My-data.Rda&quot;</span></span></code></pre></div>
+<ul>
+<li>Iniziando il path con il carattere <code>"~"</code> si indica la cartella <em>home</em> dell’utente ovvero <code>/Users/&lt;username&gt;/</code>:</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="working-session.html#cb26-1"></a><span class="st">&quot;~/Desktop/Introduction2R/Dati/My-data.Rda&quot;</span></span></code></pre></div>
+<h4 id="windows-1" class="unnumbered">Windows</h4>
+<ul>
+<li>Il carattere utilizzato per separare la cartelle nella definizione del path è <code>"\"</code>:</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="working-session.html#cb27-1"></a><span class="st">&quot;Introduction2R\Dati\My-data.Rda&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="working-directory-in-r" class="section level3">
+<h3><span class="header-section-number">5.2.3</span> Working Directory in R</h3>
+<p>Vediamo ora i comandi utilizzati in R per valutare e cambiare la working directory nella propria sessione di lavoro.</p>
+<div id="attuale-working-directory" class="section level4 unnumbered">
+<h4>Attuale Working Directory</h4>
+<p>In R è possibile valutare l’attuale working directory utilizzando il comando <code>getwd()</code> che restituirà l’absolute path dell’attuale posizione.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="working-session.html#cb28-1"></a><span class="kw">getwd</span>()</span>
+<span id="cb28-2"><a href="working-session.html#cb28-2"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/Introduction2R&quot;</span></span></code></pre></div>
+<p>In alternativa, l’attuale working directory è anche riportata in alto a sinistra della Console come mostrato in Figura <a href="working-session.html#fig:current-wd">5.5</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:current-wd"></span>
+<img src="images/current-wd.png" alt="Workig directory dell'attuale sessione di lavoro" width="95%" />
+<p class="caption">
+Figure 5.5: Workig directory dell’attuale sessione di lavoro
+</p>
+</div>
+<p>Premendo la freccia al suo fianco il pannello <em>Files</em> in basso a destra sarà reindirizzato direttamento alla workig directory dell’attuale sessione di lavoro. In questo modo sarà facile navigare tra i file e cartelle presenti al suo interno (vedi Figura <a href="working-session.html#fig:current-folder">5.6</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:current-folder"></span>
+<img src="images/current-folder.png" alt="Workig directory dell'attuale sessione di lavoro" width="65%" />
+<p class="caption">
+Figure 5.6: Workig directory dell’attuale sessione di lavoro
+</p>
+</div>
+</div>
+<div id="cambiare-working-directory" class="section level4 unnumbered">
+<h4>Cambiare Working Directory</h4>
+<p>Per cambiare la working directory è possibile utilizzare il comando <code>setwd()</code> indicando il path (absolute o relative) della nuova working directory. Nota come, nel caso in cui venga indicato un relative path, questo dovrà indicare la posizione della nuova working directory rispetto alla vecchia working directory.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="working-session.html#cb29-1"></a><span class="kw">getwd</span>()</span>
+<span id="cb29-2"><a href="working-session.html#cb29-2"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/Introduction2R&quot;</span></span>
+<span id="cb29-3"><a href="working-session.html#cb29-3"></a></span>
+<span id="cb29-4"><a href="working-session.html#cb29-4"></a><span class="kw">setwd</span>(<span class="st">&quot;Dati/&quot;</span>)</span>
+<span id="cb29-5"><a href="working-session.html#cb29-5"></a></span>
+<span id="cb29-6"><a href="working-session.html#cb29-6"></a><span class="kw">getwd</span>()</span>
+<span id="cb29-7"><a href="working-session.html#cb29-7"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/Introduction2R/Dati&quot;</span></span></code></pre></div>
+<p>In alternativa è possibile selezionare l’opzione <em>“Choose Directory”</em> dal menù <em>“Session”</em> &gt; <em>“Set Working Directory”</em> come mostrato in Figura <a href="working-session.html#fig:set-wd">5.7</a>. Verrà quindi richiesto di selezionare la working directory desiderata e preme “<em>Open</em>”.</p>
+<div class="figure" style="text-align: center"><span id="fig:set-wd"></span>
+<img src="images/set-wd.png" alt="Definire la working directory" width="95%" />
+<p class="caption">
+Figure 5.7: Definire la working directory
+</p>
+</div>
+<div class="trick" title="Show me the Path">
+<p>Nota come sia possibile nel digitare il path sfruttare l’autocompletamento. All’interno delle virgolette <code>""</code> premi il tasto <code>Tab</code> per visualizzare i suggerimenti dei path relativi alla attuale working directory.</p>
+<center>
+<img src="images/path-autocomplete.png" style="width:75.0%" />
+</center>
+<p><br></p>
+<p>E’ possibile inoltre utilizzare i caratteri speciali <code>"./"</code> e <code>"../"</code> per indicare rispettivamente l’attuale working directory e la cartella del livello superiore (i.e., <em>parent folder</em>) che include l’attuale working directory.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="working-session.html#cb30-1"></a><span class="kw">getwd</span>()</span>
+<span id="cb30-2"><a href="working-session.html#cb30-2"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/Introduction2R&quot;</span></span>
+<span id="cb30-3"><a href="working-session.html#cb30-3"></a></span>
+<span id="cb30-4"><a href="working-session.html#cb30-4"></a><span class="kw">setwd</span>(<span class="st">&quot;../&quot;</span>)</span>
+<span id="cb30-5"><a href="working-session.html#cb30-5"></a></span>
+<span id="cb30-6"><a href="working-session.html#cb30-6"></a><span class="kw">getwd</span>()</span>
+<span id="cb30-7"><a href="working-session.html#cb30-7"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/&quot;</span></span></code></pre></div>
+</div>
+</div>
+</div>
 </div>
 <div id="r-packages" class="section level2">
 <h2><span class="header-section-number">5.3</span> R-packages</h2>
