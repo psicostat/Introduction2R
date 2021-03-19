@@ -101,12 +101,164 @@ E' facile intuire come in certe situazioni questa non sia la soluzione più effi
 
 ## Working Directory
 
-- che cosa è un path
-- home directory ~ (non mi ricordo se per windows lavora)
-- getwd(); 
-- setwd(); altri modi per settare al working directory
+Il concetto di *working directory* è molto importante ma spesso poco conosciuto. La *working directory* è la posizione all'interno del computer in cui ci troviamo durante la nostra sessione di lavoro e da cui eseguiamo i nostri comandi.
 
-- abodolute/relative path (?)
+### Organizzazione Computer
+
+L'idea intuitiva che abbiamo comunemente del funzionamento del computer è fuorviante. Spesso si pensa che il Desktop rispecchi l'organizzazione del nostro intero computer e che tutte le azioni siano gestite attraverso l'interfaccia punta-e-clicca a cui ormai siamo abituati dai moderni sistemi operativi. 
+
+Senza entrare nel dettaglio, è più corretto pensare all'organizzazione del cumputer come ad un insieme di cartelle e sottocartelle che contengono tutti i nostri file e al funzionamento del computer come ad un insieme di processi (o comandi) che vengono eseguiti. Gli stessi programmi che installiamo non sono altro che delle cartelle in cui sono contenuti tutti gli script che determinano il loro funzionamento. Anche il Desktop non è altro che una semplice cartella mentre quello che vediamo noi è un programma definito dal sistema operativo che visualizza il contenuto di quella cartella sul nostro schermo e ci permette di interfacciarci con il mouse.
+
+Tutto quello che è presente nel nostro computer, compresi i nostri file, i  programmi e lo stesso sistema operativo in uso, tutto è organizzato in un articolato sistema di cartelle e sottocartelle. Approsimativamente possiamo pensare all'organizzazione del nostro computer in modo simile alla Figura \@ref(fig:file-system).
+
+```{r, file-system, fig.cap="Organizzazione Computer (from: https://en.wikipedia.org/wiki/Operating_system)", out.width="35%"}
+knitr::include_graphics("images/File-System.png")
+```
+
+Ai livelli più bassi troviamo tutti i file di sistema ai quali gli utenti possono accedere solo con speciali autorizzazioni. Al livello superiore troviamo tutte i file riguardanti i programmi e applicazioni installati che in genere sono utilizzabili da più utenti sullo stesso computer. Infine troviamo tutte le cartelle e file che riguardano lo specifico utente.
+
+###  Absolute Path e Relative Path 
+
+Questo ampio preambolo riguardante l'organizzazione in cartelle e sottocartelle, ci serve perchè è la struttura che il computer utilizza per orientarsi tra tutti file quando esegue dei comandi attraverso un'interfaccia a riga di comando (e.g., R). Se vogliamo ad esempio caricare dei dati da uno specifico file in R devo fornire il *path* (o indirizzo) corretto che mi indichi esattamente la posizione del file all'interno della struttura di cartelle del computer. Ad esempio, immaginiamo di avere dei dati `My-data.Rda` salvato nella cartella `Introduction2R` nel proprio Desktop.
+
+```
+Desktop
+ |
+ |-  Introduction2R
+ |    |
+ |    |- Dati
+ |    |   |- My-data.Rda
+```
+
+Per indicare la posizione del File potrei utilizzare un:
+
+- **absolute path** - la posizione *"assoluta"* del file rispetto alla *root directory* del sistema ovvero la cartella principale dell'intero computer.
+```{r, echo=TRUE, eval=FALSE}
+# Mac
+"/Users/<username>/Desktop/Introduction2R/Dati/My-data.Rda"
+
+# Windows Vista
+"c:\Users\<username>\Desktop\Introduction2R\Dati\My-data.Rda"
+
+```
+
+- **relative path** - la posizione del file rispetto alla nostra attuale posizione nel computer da cui stiamo eseguendo il comando, ovvero rispetto alla **working directory** della nostra sessione di lavoro. In questo riprendendo il precedente esempio se la nostra working directory fosse la cartella `Desktop/Introduction2R` avremmo i seguenti relative path:
+```{r, echo=TRUE, eval=FALSE}
+# Mac
+"Dati/My-data.Rda"
+
+# Windows Vista
+"Dati\My-data.Rda"
+
+```
+
+Nota come sia preferibile l'utilizzo dei relative path poichè gli absolute path sono unici per il singolo computer di riferimento e non possono essere quindi utilizzati su altri computer.
+
+:::{.warning title='"Error: No such file or directory"' data-latex='["Error: No such file or directory"]'}
+Qualora si utilizzasse un relative path per indicare la posizione di un file, è importante che la working directory attualment in uso sia effettivamente quella prevista. Se ci trovassimo in una divesa cartella, ovviamente il "relative path" indicato non sarebbe più valido e R ci mostrerebbe un messaggio di errore.
+
+Riprendendo l'esempio precedente, supponiamo che la nostra attuale working directory sia `Desktop` invece di `Desktop/Introduction2R`. Eseguendo il comadno `load()` per caricare i dati utilizzando il  relative path ora non più valido ottengo:
+
+```{r, echo = TRUE, error = TRUE}
+load("Dati/My-data.Rda")
+```
+
+Il messaggio di errore mi indica che R non è stato in grado di trovare il file seguendo le mie indicazioni. E' pertanto fondamentale essere sempre consapevoli di quale sia l'attuale working directory in cui si sta svolgendo la sessione di lavoro.
+
+Ovviamente otterrei lo stesso errore anche usando un absolute path se questo contenesse degli errori.
+:::
+
+:::{.design title="The Garden of Forking Paths" data-latex="[The Garden of Forking Paths]"}
+Come avrai notato dagli esempi precedenti, sia la struttura in cui vengono organizzati i file nel computer sia la sintassi utilizzata per indicare i path è differente in base al sistema operativo utilizzato.
+
+#### Mac OS e Linux{-}
+
+- Il carattere utilizzato per separare la cartelle nella definizione del path è `"/"`:
+```{r, echo=TRUE, eval=FALSE}
+"Introduction2R/Dati/My-data.Rda"
+```
+- Iniziando il path con il carattere `"/"` si indica la root-directory:
+```{r, echo=TRUE, eval=FALSE}
+"/Users/<username>/Desktop/Introduction2R/Dati/My-data.Rda"
+```
+- Iniziando il path con il carattere `"~"` si indica la cartella *home* dell'utente ovvero `/Users/<username>/`:
+```{r, echo=TRUE, eval=FALSE}
+"~/Desktop/Introduction2R/Dati/My-data.Rda"
+```
+
+#### Windows {-}
+- Il carattere utilizzato per separare la cartelle nella definizione del path è `"\"`:
+```{r, echo=TRUE, eval=FALSE}
+"Introduction2R\Dati\My-data.Rda"
+```
+:::
+
+### Working Directory in R 
+
+Vediamo ora i comandi utilizzati in R per valutare e cambiare la working directory nella propria sessione di lavoro.
+
+#### Attuale Working Directory {-}
+
+In R è possibile valutare l'attuale working directory utilizzando il comando `getwd()` che restituirà l'absolute path dell'attuale posizione.
+
+```{r, echo=TRUE, eval=FALSE}
+getwd()
+## [1] "/Users/<username>/Desktop/Introduction2R"
+```
+
+In alternativa, l'attuale working directory è anche riportata in alto a sinistra della Console come mostrato in Figura \@ref(fig:current-wd).
+
+```{r, current-wd, fig.cap="Workig directory dell'attuale sessione di lavoro", out.width="95%"}
+knitr::include_graphics("images/current-wd.png")
+```
+
+Premendo la freccia al suo fianco il pannello *Files* in basso a destra sarà reindirizzato direttamento alla workig directory dell'attuale sessione di lavoro. In questo modo sarà facile navigare tra i file e cartelle presenti al suo interno (vedi Figura \@ref(fig:current-folder)). 
+
+```{r, current-folder, fig.cap="Workig directory dell'attuale sessione di lavoro", out.width="65%"}
+knitr::include_graphics("images/current-folder.png")
+```
+
+#### Cambiare Working Directory {-}
+
+Per cambiare la working directory è possibile utilizzare il comando `setwd()` indicando il path (absolute o relative) della nuova working directory. Nota come, nel caso in cui venga indicato un relative path, questo dovrà indicare la posizione della nuova working directory rispetto alla vecchia working directory.
+
+```{r, echo=TRUE, eval=FALSE}
+getwd()
+## [1] "/Users/<username>/Desktop/Introduction2R"
+
+setwd("Dati/")
+
+getwd()
+## [1] "/Users/<username>/Desktop/Introduction2R/Dati"
+```
+
+In alternativa è possibile selezionare l'opzione *"Choose Directory"* dal menù *"Session"* > *"Set Working Directory"* come mostrato in Figura \@ref(fig:set-wd). Verrà quindi richiesto di selezionare la working directory desiderata e preme "*Open*".
+
+```{r, set-wd, fig.cap="Definire la working directory", out.width="95%"}
+knitr::include_graphics("images/set-wd.png")
+```
+
+:::{.trick title="Show me the Path" data-latex="[Show me the Path]"}
+Nota come sia possibile nel digitare il path sfruttare l'autocompletamento. All'interno delle virgolette `""` premi il tasto `Tab` per visualizzare i suggerimenti dei path relativi alla attuale working directory.
+
+<center>
+![](images/path-autocomplete.png){ width=75% }
+</center>
+<br>
+
+E' possibile inoltre utilizzare i caratteri speciali `"./"` e `"../"` per indicare rispettivamente l'attuale working directory e la cartella del livello superiore (i.e., *parent folder*) che include l'attuale working directory.
+
+```{r, echo=TRUE, eval=FALSE}
+getwd()
+## [1] "/Users/<username>/Desktop/Introduction2R"
+
+setwd("../")
+
+getwd()
+## [1] "/Users/<username>/Desktop/"
+```
+
+:::
 
 ## R-packages
 
