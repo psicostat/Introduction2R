@@ -1,3 +1,65 @@
 # Fattori {#factors}
 
+
+```{r settings, echo = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  collapse=TRUE,
+  fig.align="center"
+)
+
+library(kableExtra)
+```
+
+
 Working in progress.
+
+I fattori sono utilizzati per definire delle variabili categoriali, sono indicati in R con `Factor`. Per creare una variabile categoriale in R si utilizza la funzione:
+
+`nome_variabile<-factor(c(..., data, ...), levels=c(...))`
+
+L'opzione `levels=c(...)` è usata per specificare quali sono i possibili livelli della variabile categoriale. E' possibile modificare o aggiungere nuovi livelli della variabile anche in un secondo momento utilizzando la funzione:
+
+`levels(nome_fattore)<- c(..., nuovi_livelli, ...)`
+
+**Nota**: nel creare un fattore R associa ad ogni livello un valore in ordine crescente e assegna agli elementi del vettore il loro volore numerico a seconda del proprio livello. Pertanto se un fattore è trasformato in un vettore numerico vengono restituiti tali valori numerici e non i livelli anche nel caso fossero dei numeri. Prendiamo per esempio la variabile `anni_istruzione`:
+
+```{r, echo = TRUE}
+anni_istruzione<-factor(c(11,8,4,8,11,4,11,8))
+anni_istruzione
+as.numeric(anni_istruzione)
+```
+
+Per riottenere gli estti valori numerici è necessario eseguire:
+
+```{r, echo = TRUE}
+as.numeric(as.character(anni_istruzione))
+```
+
+### Esercizi {-}
+
+1. Crea la variabile categoriale `sex` così definita:
+```{r}
+factor(c(rep(c("M","F"),3),"F","F","M"))
+```
+2. Rinomina i livelli della variabile `sex` rispettivamente in `"donne"` e `"uomini"`.
+3. Crea la variabile categoriale `intervento` così definita:
+```{r}
+factor(c(rep(c("CBT","Psicanalisi"),3),"Controllo","Controllo","CBT"))
+```
+4. Correggi nella variabile `intervento` la 7° e 8° osservazione con la voce `Farmaci`.
+5. Aggiungi alla variabile `intervento` le seguenti nuove osservazioni:
+```{r}
+c("Farmaci","Controllo","Farmaci")
+```
+    
+
+
+
+
+
+
+
+
+
+

@@ -161,7 +161,3 @@ data.frame(Id=c("subj_4","subj_5"),
 4. Considerando il DataFrame `datawide` calcola la variabile `"memory_post"` data dalla somma degli item.
 5. Considerando il DataFrame `data_wide` cambia i nomi delle variabili `item_1`, `item_2` e `item_3` rispettivamente in `problem_1`, `problem_2` e `problem_3`.
 
-
-    
-
-
