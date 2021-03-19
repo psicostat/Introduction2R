@@ -1,4 +1,11 @@
 # Data Type {#data-type}
+```{r settings, echo = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  collapse=TRUE,
+  fig.align="center"
+)
+```
 
 Working in progress.
 
