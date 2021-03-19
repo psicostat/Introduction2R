@@ -53,6 +53,9 @@ r-projects
 problema-google-soluzione
 chiedere-una-soluzione
 data-type
+vettori-numerici
+vettori-logici
+vettori-di-caratteri
 vector
 creazione-di-vettori
 selezione-elementi-di-un-vettore
@@ -67,6 +70,8 @@ creazione-di-dataframes
 selezione-di-elementi-di-un-dataframe
 funzioni-con-dataframes
 list
+creazione-di-liste
+selezione-di-elementi-di-una-lista
 functions
 coditionals
 loop
