@@ -45,6 +45,8 @@ argomenti-di-una-funzione
 help-i-need-somebodyhelp
 working-session
 environment
+aggiungere-oggetti-allenvironment
+rimuovere-oggetti-dallenvironment
 working-directory
 r-packages
 errors-and-warnings

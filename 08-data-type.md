@@ -1,5 +1,6 @@
 # Data Type {#data-type}
 
+
 Working in progress.
 
 Tipi di vettori
@@ -27,9 +28,6 @@ I vettori logici sono formati dai volori `TRUE` e `FALSE`, che possono essere  a
 
 ```r
 x>10
-```
-
-```
 ## [1] FALSE FALSE  TRUE  TRUE FALSE
 ```
 
@@ -37,18 +35,12 @@ x>10
 
 ```r
 sum(x>10)
-```
-
-```
 ## [1] 2
 ```
 E' possibile trasformare un vettore numerico in un vettor logico attraverso la funzione `as.logical()`, gli `0` assumeranno il valore `FALSE` mentre qualsiasi altro numero assumerà il valore `TRUE`.
 
 ```r
 as.logical(c(1,0,.034,-1,0,8))
-```
-
-```
 ## [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE
 ```
 
@@ -60,25 +52,13 @@ I vettori di caratteri contengono stringhe di caratteri e sono indicati in R con
 ```r
 j<-c("Hello","World","hello","world")
 j=="hello"
-```
-
-```
 ## [1] FALSE FALSE  TRUE FALSE
 ```
 Per trasformare un vettore qualsiasi in una vettore di caratteri e possibile usare la funzione `as.character()`.
 
 ```r
 as.character(x)
-```
-
-```
 ## [1] "4"  "6"  "12" "34" "8"
-```
-
-```r
 as.character(x>10)
-```
-
-```
 ## [1] "FALSE" "FALSE" "TRUE"  "TRUE"  "FALSE"
 ```

@@ -107,6 +107,7 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
+\usepackage[a4paper,includeheadfoot,left=3cm, right=3cm, top=3cm, bottom=3cm]{geometry}  % margin settings
 \usepackage{booktabs}
 \usepackage{makecell} % for tables
 \usepackage{amsthm}
@@ -117,6 +118,7 @@
 }
 \makeatother
 
+\usepackage{hyperref}
 
 %----    define infoboxes    ----%
 \usepackage{tcolorbox}
@@ -1492,7 +1494,7 @@ Infine, disuteremo di alcuni aspetti generali della programmazione quali la gest
 
 Nel Capitolo \ref{objects-section}, abbiamo visto come sia possibile assegnare dei valori a degli oggetti. Questi oggetti vengono creati nel nostro ambiente di lavoro (o meglio \emph{Environment}) e potranno essere utilizzati in seguito.
 
-Il nostro Enviroment raccoglie quindi tutti gli oggetti che vengono creati durante la nostra sessione di lavoro. E' possibile valutare gli oggetti attualmente presenti osservando il pannello \emph{Envrionmen} in alto a destra (vedi Figura \ref{fig:environment2}) oppure utilizzadno il comando \texttt{ls()}, ovvero \emph{list objects}.
+Il nostro Enviroment raccoglie quindi tutti gli oggetti che vengono creati durante la nostra sessione di lavoro. E' possibile valutare gli oggetti attualmente presenti osservando il pannello \emph{Environment} in alto a destra (vedi Figura \ref{fig:environment2}) oppure utilizzadno il comando \texttt{ls()}, ovvero \emph{list objects}.
 
 \begin{figure}
 
@@ -1503,7 +1505,7 @@ Il nostro Enviroment raccoglie quindi tutti gli oggetti che vengono creati duran
 \caption{*Environment* - Elenco degli oggetti e variabili presenti nel'ambiente di lavoro}\label{fig:environment2}
 \end{figure}
 
-All'inizio della sessione di lavoro il nostro Environment sarà vuoto ().
+All'inizio della sessione di lavoro il nostro Environment sarà vuoto (vedi Figura \ref{environment-empty}). Il comando \texttt{ls()} non restituirà alcun oggeto ma per indicare l'assenza di oggerri userà la risposta \texttt{character(0)}, ovvero un vettore di tipo caratteri di lunghezza zero (vedi Capitolo TODO).
 
 \begin{figure}
 
@@ -1522,6 +1524,11 @@ All'inizio della sessione di lavoro il nostro Environment sarà vuoto ().
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{aggiungere-oggetti-allenvironment}{%
+\subsection{Aggiungere Oggetti all'Environment}\label{aggiungere-oggetti-allenvironment}}
+
+Una volta creati degli oggetti, questi saranno presenti nel nostro Environment e il comando \texttt{ls()} restituirà un vettore di caretteri in cui vengono elencati tutti i loro nomi.
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Creo oggetti}
@@ -1535,6 +1542,8 @@ All'inizio della sessione di lavoro il nostro Environment sarà vuoto ().
 \end{Highlighting}
 \end{Shaded}
 
+Nel pannello in alto a destra (vedi Figura \ref{fig:environment-object}), possiamo trovare un elenco degli oggetti attualmente presenti nel nostro Environment. Insieme al nome vengono riportate anche alcune utili inforamzioni a seconda del tipo di oggetto. Vediamo come nel nostro esempio, nel caso di variabili con un singolo valore (e.g., \texttt{word} e \texttt{y}) venganno presentati direttamente gli stessi valori. Mentre, nel caso di vettori (e.g., \texttt{x}) vengano fornite anche informazioni riguardanti la tipologia di vettore e la sua dimensione (vedi Capitolo TODO), nell'esempio abbiimao un vettore numerico (\texttt{num}) di 4 elementi (\texttt{{[}1:4{]}}).
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.6\linewidth]{images/environment-objects} 
@@ -1544,16 +1553,71 @@ All'inizio della sessione di lavoro il nostro Environment sarà vuoto ().
 \caption{*Environment* contenente gli oggetti creati}\label{fig:environment-object}
 \end{figure}
 
+\hypertarget{rimuovere-oggetti-dallenvironment}{%
+\subsection{Rimuovere Oggetti dall'Environment}\label{rimuovere-oggetti-dallenvironment}}
+
+Per rimuovere un oggetto dal proprio environment è possibile utilizzare il comando \texttt{remove()} oppure la sua abbreviazione \texttt{rm()}, indicando tra parentesi il nome dell'oggetto che si intende rimuovere. E' possibile indicare più di un oggetto separando i loro nomi con la virgola.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Rimuovo un oggetto}
+\KeywordTok{rm}\NormalTok{(word)}
+\KeywordTok{ls}\NormalTok{()}
+\CommentTok{## [1] "x" "y"}
+
+\CommentTok{# Rimuovo più oggetti contemporaneamente}
+\KeywordTok{rm}\NormalTok{(x,y)}
+\KeywordTok{ls}\NormalTok{()}
+\CommentTok{## character(0)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{trick}[rm(list=ls())]
+
+Qualora fosse necessario eliminare tutti gli oggetti attualmete presenti nel nosto ambiente di lavoro è possibile ricorrere alla formula \texttt{rm(list=ls())}. In questo modo si avrà la certezza di pulire l'ambiente da ogni oggetto e di ripristinarlo alle condizioni iniziali della sessione.
+
+\end{trick}
+
+\begin{design}[Mantenere Ordinato l'Environment]
+
+Avere cura di mantenre il proprio Environment ordinato ed essere consapevoli degli oggetti attualmente presenti è importante. Questo ci permette di evitare di compiere due errori comuni.
+
 \begin{itemize}
+\tightlist
 \item
-  concetto di ambiente di lavoro
-\item
-  ls()
-\item
-  rm()
-\item
-  tip box aspetto transirorio (vedremo successivamente come salvare caricare dati)
+  \textbf{Utilizzare oggetti non ancora creati}. In questo caso l'errore è facilemente individuabile dat che sarà lo stesso R ad avvisarci che \emph{``object `' not found''}. In questo caso dovremmo semplicemente eseguire il comando per creare l'oggetto richieto.
 \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{oggetto_non_esistente}
+\CommentTok{## Error in eval(expr, envir, enclos): object 'oggetto_non_esistente' not found}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Utilizzare oggetti con ``\emph{vecchi}'' valori}. Se non si ha cura di mantenere ordinato il proprio ambiente di lavoro potrebbe accadere che diversi oggetti vengano creati durante successive sessioni di lavoro. A questo punto si corre il rischio di perdere il controllo rispetto al vero contenuto degli oggetti e potremmo quindi utilizzare degli oggetti pensando che contengano un certo valore, quando invece si riferisono a tutt'altro. Questo comporta che qualsiasi nostro risultato perda di significato. Bisogna prestare molta attenzione perchè R non potrà avvisarci di questo errore (per lui sono solo numeri), siamo noi che dobbiamo essere consapevoli del fatto che i comandi eseguiti abbiano senso oppure no.
+\end{itemize}
+
+Per mantere un Environmet ordinato vi consigliamo innanzitutto di non salvare automaticamente il vostro \emph{workspace} quando terminate una sessione di lavoro. E' possibile settare tale opzione nelle impostazioni generali di R selezionando \emph{``Never''} alla voce \emph{``save workspace to .RData on exit''} come riportato nella Figura seguente.
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/save-rdata.png}
+
+Questo vi permetterà di iniziare ogni nuova sessione di lavoro in un Environment vuoto, evitando che vecchi oggetti si accumulino nel corso delle diverse sesssioni di lavoro. Durante le vostre sessioni, inoltre, sarà utile eseguire il comando \texttt{rm(list=ls())} quando inizierete un nuovo compito in modo da eliminare tutti i vecchi oggetti.
+
+\hypertarget{environment-una-memoria-a-breve-termine}{%
+\subsubsection*{Environment una Memoria a Breve Termine}\label{environment-una-memoria-a-breve-termine}}
+\addcontentsline{toc}{subsubsection}{Environment una Memoria a Breve Termine}
+
+Notiamo quindi come l'Environment sia qualcosa di transitorio. Gli oggetti vengono salvati nella memoria primaria del computer (RAM, possiamo pensarla in modo analogo alla memoria a breve termine dei modelli cognitivi) e verranno cancellati al comando \texttt{rm(list=ls())} o al termine di ogni sessione di lavoro.
+
+Il fatto di partire ogni volta da un Environment vuoto, vi costringerà a raccogliere tutti i passi delle vostre analisi all'interno di uno script in modo ordinato evitando di fare affidamento su vecchi oggetti. Tutti gli oggetti necessari durante le analisi, infattii, dovranno essere ricreati ad ogni sessione, garantendo la riproducibilità e correttezza del lavro (almeno dal punto di vista di programmazione). Idealmente dovrebbe essere posibile, in una sessione di lavoro, partire da un Environment vuoto ed eseguire in ordine tutti i comandi contenuti in uno script fino ad ottenere i risultati desiderati.
+
+E' facile intuire come in certe situazioni questa non sia la soluzione più efficiente. Alcuni comandi, infatti, potrebbero richiedere molti minuti (o anche giorni) per essere eseguiti. In questi casi sarebbe conveniente, pertanto, salvare i risultati ottenuti per poterli utilizzare anche in sessioni successive, senza la necessità di dover eseguire nuovamente tutti i comadi. Vedremo nel Capitolo TODO come sarà possibile salvare permanentemente gli oggetti creati nella memoria secondaria del computer (hard-disk, nella nostra analogia la memoria a lungo termine) e come caricarli in una successiva sessione di lavoro.
+
+\end{design}
 
 \hypertarget{working-directory}{%
 \section{Working Directory}\label{working-directory}}
@@ -1597,6 +1661,8 @@ All'inizio della sessione di lavoro il nostro Environment sarà vuoto ().
 \tightlist
 \item
   pulizia script
+\item
+  Salvare script
 \item
   commenti
 \item
@@ -1737,36 +1803,27 @@ I vettori logici sono formati dai volori \texttt{TRUE} e \texttt{FALSE}, che pos
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{x}\OperatorTok{>}\DecValTok{10}
+\CommentTok{## [1] FALSE FALSE  TRUE  TRUE FALSE}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## [1] FALSE FALSE  TRUE  TRUE FALSE
-\end{verbatim}
 
 \textbf{Nota:} in R, come in molti altri software di programmazione, \texttt{TRUE} assume il valore numerico \texttt{1} e \texttt{FALSE} assume il valore \texttt{0}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{sum}\NormalTok{(x}\OperatorTok{>}\DecValTok{10}\NormalTok{)}
+\CommentTok{## [1] 2}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## [1] 2
-\end{verbatim}
 
 E' possibile trasformare un vettore numerico in un vettor logico attraverso la funzione \texttt{as.logical()}, gli \texttt{0} assumeranno il valore \texttt{FALSE} mentre qualsiasi altro numero assumerà il valore \texttt{TRUE}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{as.logical}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,.}\DecValTok{034}\NormalTok{,}\OperatorTok{-}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{8}\NormalTok{))}
+\CommentTok{## [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE
-\end{verbatim}
 
 \hypertarget{vettori-di-caratteri}{%
 \section{Vettori di caratteri}\label{vettori-di-caratteri}}
@@ -1777,34 +1834,20 @@ I vettori di caratteri contengono stringhe di caratteri e sono indicati in R con
 \begin{Highlighting}[]
 \NormalTok{j<-}\KeywordTok{c}\NormalTok{(}\StringTok{"Hello"}\NormalTok{,}\StringTok{"World"}\NormalTok{,}\StringTok{"hello"}\NormalTok{,}\StringTok{"world"}\NormalTok{)}
 \NormalTok{j}\OperatorTok{==}\StringTok{"hello"}
+\CommentTok{## [1] FALSE FALSE  TRUE FALSE}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## [1] FALSE FALSE  TRUE FALSE
-\end{verbatim}
 
 Per trasformare un vettore qualsiasi in una vettore di caratteri e possibile usare la funzione \texttt{as.character()}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{as.character}\NormalTok{(x)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "4"  "6"  "12" "34" "8"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
+\CommentTok{## [1] "4"  "6"  "12" "34" "8"}
 \KeywordTok{as.character}\NormalTok{(x}\OperatorTok{>}\DecValTok{10}\NormalTok{)}
+\CommentTok{## [1] "FALSE" "FALSE" "TRUE"  "TRUE"  "FALSE"}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## [1] "FALSE" "FALSE" "TRUE"  "TRUE"  "FALSE"
-\end{verbatim}
 
 \hypertarget{vector}{%
 \chapter{Vettori}\label{vector}}
