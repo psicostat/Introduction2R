@@ -151,7 +151,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>Get Started</b></span></li>
 <li class="chapter" data-level="" data-path="intorduzione.html"><a href="intorduzione.html"><i class="fa fa-check"></i>Intorduzione</a></li>
 <li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Installare R e RStudio</a><ul>
-<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#installare-r"><i class="fa fa-check"></i><b>1.1</b> Installare R</a><ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#install-r"><i class="fa fa-check"></i><b>1.1</b> Installare R</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="install.html"><a href="install.html#r-windows"><i class="fa fa-check"></i><b>1.1.1</b> R Windows</a></li>
 <li class="chapter" data-level="1.1.2" data-path="install.html"><a href="install.html#r-macos"><i class="fa fa-check"></i><b>1.1.2</b> R MacOS</a></li>
 <li class="chapter" data-level="1.1.3" data-path="install.html"><a href="install.html#r-linux"><i class="fa fa-check"></i><b>1.1.3</b> R Linux</a></li>
@@ -200,11 +200,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3.3" data-path="working-session.html"><a href="working-session.html#aggiornare-e-rimuovere-pacchetti"><i class="fa fa-check"></i><b>5.3.3</b> Aggiornare e Rimuovere Pacchetti</a></li>
 <li class="chapter" data-level="5.3.4" data-path="working-session.html"><a href="working-session.html#documantazione-pacchetti"><i class="fa fa-check"></i><b>5.3.4</b> Documantazione Pacchetti</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="working-session.html"><a href="working-session.html#errors-and-warnings"><i class="fa fa-check"></i><b>5.4</b> Errors and warnings</a></li>
-<li class="chapter" data-level="5.5" data-path="working-session.html"><a href="working-session.html#sessione-di-lavoro"><i class="fa fa-check"></i><b>5.5</b> Sessione di lavoro</a><ul>
+<li class="chapter" data-level="5.4" data-path="working-session.html"><a href="working-session.html#messages-warnings-e-errors"><i class="fa fa-check"></i><b>5.4</b> Messages, Warnings e Errors</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="working-session.html"><a href="working-session.html#risolvere-gli-errori"><i class="fa fa-check"></i><b>5.4.1</b> Risolvere gli Errori</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="working-session.html"><a href="working-session.html#sessione-di-lavoro"><i class="fa fa-check"></i><b>5.5</b> Sessione di Lavoro</a><ul>
 <li class="chapter" data-level="5.5.1" data-path="working-session.html"><a href="working-session.html#r-projects"><i class="fa fa-check"></i><b>5.5.1</b> R projects</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="working-session.html"><a href="working-session.html#problema-google-soluzione"><i class="fa fa-check"></i><b>5.6</b> Problema + Google = Soluzione</a></li>
 </ul></li>
 <li class="part"><span><b>Struttura Dati</b></span></li>
 <li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
@@ -604,9 +605,10 @@ Figure 5.13: Rimuovere un pacchetto
 Figure 5.14: Documetazione del pacchetto car
 </p>
 </div>
+<p>Ricordate tuttavia che in ogni caso la più grande risorsa di informazioni è come sempre google. Spesso i pacchetti più importanti hanno addirittura un proprio sito in cui raccolgono molto materiale utile. Ma comunque in ogni caso in internet sono sempre disponibili moltissimi tutorial ed esempi.</p>
 <div class="design" title="Github">
 <p>Il CRAN non è l’unica risorsa da cui è possibile installare dei pacchetti di R tuttavia è quella ufficiale e garantisce un certo standard e stabilità dei pacchetti presenti. In internet esistono molte altre repository che raccolgono paccetti di R (e software in generale) tra cui una delle più popolari è certamente GitHub (<a href="https://github.com/" class="uri">https://github.com/</a>).</p>
-<p>Github viene utilizzato come piattaforma di sviluppo per molti pacchetti di R ed è quindi possibile trovarve le ultime versioni di sviluppo dei pacchetti con gli aggirnamenti più recenti o anche nuovi pacchetti non ancora disponibili sul CRAN. Va sottolineato tuttavia, quete siano appunto delle versioni di sviluppo e quindi potrebbero presentare maggiori problemi.</p>
+<p>Github viene utilizzato come piattaforma di sviluppo per molti pacchetti di R ed è quindi possibile trovarve le ultime versioni di sviluppo dei pacchetti con gli aggirnamenti più recenti o anche nuovi pacchetti non ancora disponibili sul CRAN. Va sottolineato tuttavia, come quete siano appunto delle versioni di sviluppo e quindi potrebbero presentare maggiori problemi. Inoltre per installare i pacchetti in questo modo, è richiesta l’installzione di <strong>R tools</strong> (vedi <em>“Approfondimento: R Tools”</em> nel Capitolo <a href="install.html#install-r">1.1</a>).</p>
 <p>Per installare un pacchetto direttamente da Github è posibile utilizzare il comando <code>install_github()</code> del pacchetto <code>devtools</code>, indicanto tra parentesi la l’url della repository desiderata.</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="working-session.html#cb34-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
 <span id="cb34-2"><a href="working-session.html#cb34-2"></a></span>
@@ -615,27 +617,19 @@ Figure 5.14: Documetazione del pacchetto car
 </div>
 </div>
 </div>
-<div id="errors-and-warnings" class="section level2">
-<h2><span class="header-section-number">5.4</span> Errors and warnings</h2>
-</div>
-<div id="sessione-di-lavoro" class="section level2">
-<h2><span class="header-section-number">5.5</span> Sessione di lavoro</h2>
+<div id="messages-warnings-e-errors" class="section level2">
+<h2><span class="header-section-number">5.4</span> Messages, Warnings e Errors</h2>
+<p>R utilizza la console per comunicare con noi durante le nostre sessioni di lavoro. Oltre a fornirci i risultati dei nostri comandi, R ci segnala anche altre utili informazioni attraverso diverse tipologie di messaggi. In particolare abbiamo:</p>
 <ul>
-<li>pulizia script</li>
-<li>Salvare script</li>
-<li>commenti</li>
-<li>sezioni script</li>
-<li>settings</li>
-<li>sintassi (gli spazi e gli indent corretti alineamenti)</li>
-<li>idea di organizzare in vairi script, cartelle</li>
+<li><strong>Messages</strong>: dei semplici messaggi che ci possono aggiornare ad esempio sullo stato di avanzamento di un dato compito oppure fornire suggerimenti sull’uso di una determinata funzione o pacchetto (spesso vengono mostrati quando viene caricato un pacchetto).</li>
+<li><strong>Warnings</strong>: questi messaggi sono utlizzati da R per dirci che c’è stato qualche cosa di strano che ha messo in allerta R. R ci avvisa che, sebbene il comando sia stato eseguito ed abbiamo ottenuto un risultato, ci sono stati dei comportamenti inusuali o magari eventuali correzioni apportate in automatico. Nel caso di warnings non ci dobbiamo allramre, è importante controllare che i comandi siano corretti e che abbiamo effetivamente ottenuto il risultato desiderato. Una volta sicuri dei risultati possiamo procedere tranquillamente.</li>
+<li><strong>Errors</strong>: R ci avvisa di eventuali errori e problemi che non permettono di eseguire il comando. in questo caso non otterremo nnessun risultato ma sarà necessario capire e risolvere il problema per poi rieseguire nuovamente il comando e procedere.</li>
 </ul>
-<div id="r-projects" class="section level3">
-<h3><span class="header-section-number">5.5.1</span> R projects</h3>
-</div>
-</div>
-<div id="problema-google-soluzione" class="section level2">
-<h2><span class="header-section-number">5.6</span> Problema + Google = Soluzione</h2>
-<p>Quando si approccia la scrittura di codice, anche molto semplice la cosa che sicuramente capiterà più spesso sarà riscontrare <strong>errori</strong> e quindi trovare il modo per risolverli.</p>
+<p>Notiamo quindi come non tutti i messaggi che R ci manda sono dei messaggi di errore. E’ quindi importante non spaventarsi ma leggere con attenzione i messaggi, molte volte si tratta semplicemente di avvertimenti o suggerimenti.</p>
+<p>Tuttavia gli errori rappresentano sempre il maggiore dei problemi perchè non è possibile procedere nel lavoro senza averli prima risolti. E’ importante ricordare che i messaggi di errore non sono delle critiche che R ci rivolge perchè sbagliamo. Al contrario, sono delle richieste di aiuto fatte da R perchè non sa come comportarsi. Per quanto super potente, R è un seplice programma che non può interpretare le nostre richieste ma si basa sull’uso dei comandi che seguono una rigida sintassi. A volte è sufficiente una virgola mancante o un charattere al posto di un numero per mandare in confusione R e richiedere il nostro intervento risolutore.</p>
+<div id="risolvere-gli-errori" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> Risolvere gli Errori</h3>
+<p>Quando si approccia la scrittura di codice, anche molto semplice, la cosa che sicuramente capiterà più spesso sarà riscontrare messaggi di <strong>errore</strong> e quindi trovare il modo per risolverli.</p>
 <blockquote>
 <p>Qualche programmatore esperto direbbe che l’essenza stessa di programmare è in realtà risolvere gli errori che il codice produce.</p>
 </blockquote>
@@ -650,13 +644,14 @@ Figure 5.14: Documetazione del pacchetto car
 </ul>
 <div id="comprendere-gli-errori" class="section level4 unnumbered">
 <h4>Comprendere gli errori</h4>
-<p>Rispetto agli errori, R è solitamente abbastanza esplicito nel farci capire il problema. Ad esempio usare una funzione di un pacchetto che non è stato caricato di solito fornisce un messaggio del tipo <code>Error in funzione : could not find function "funzione"</code>.</p>
+<p>Leggere con attenzione i messaggi di errore è molto importante. R è solitamente abbastanza esplicito nel farci capire il problema. Ad esempio usare una funzione di un pacchetto che non è stato caricato di solito fornisce un messaggio del tipo <code>Error in funzione : could not find function "funzione"</code>.</p>
+<p>Tuttavia, in altre situazioni i messaggi potrebbero non essere altrettanto chiari. Seppur esplicito R è anche molto sintetico e quindi l’utilzzo di un linguaggio molto specifico (e almeno inizialmente poco familiare), potrebbe rendere difficile capire il loro significato o addirittura renderli del tutto incomprensibili. Man mano che diventerete più esperti in R, diventerà sempre più semplice ed immmediato capire quale sia il problema e anche come risolverlo. Ma nel caso non si conosca la soluzione è necessario cercarla in altro modo.</p>
 </div>
-<div id="ricercare-soluzioni" class="section level4 unnumbered">
-<h4>Ricercare soluzioni</h4>
-<p>Altre situazioni o messaggi potrebbero non essere altrettanto immediati, in quel caso Google è il nostro miglior amico.</p>
+<div id="problema-google-soluzione" class="section level4 unnumbered">
+<h4>Problema + Google = Soluzione</h4>
+<p>In qualsiasi situazione Google è il nostro miglior amico.</p>
 <p>Cercando infatti il messaggio di errore/warning su Google, al 99% avremo altre persone che hanno avuto lo stesso problema e probabilmente anche una soluzione.</p>
-<div class="trick" title="Ricerca su Google">
+<div class="tip" title="Ricerca su Google">
 <p>Il modo migliore per cercare è copiare e incollare su Google direttamente l’output di errore di R come ad esempio <code>Error in funzione : could not find function "funzione"</code> piuttosto che descrivere a parole il problema. I messaggi di errore sono standard per tutti, la tua descrizione invece no.</p>
 </div>
 <p>Cercando in questo modo vedrete che molti dei risultati saranno esattamente riferiti al vostro errore:</p>
@@ -664,8 +659,8 @@ Figure 5.14: Documetazione del pacchetto car
 <img src="images/stack_question.png" />
 </center>
 </div>
-<div id="chiedere-una-soluzione" class="section level4">
-<h4><span class="header-section-number">5.6.0.1</span> Chiedere una soluzione</h4>
+<div id="chiedere-una-soluzione" class="section level4 unnumbered">
+<h4>Chiedere una soluzione</h4>
 <p>Se invece il vostro probelma non è un messaggio di errore ma un utilizzo specifico di R allora il consiglio è di usare una ricerca del tipo: <code>argomento + breve descrizione problema + R</code>. Nelle sezioni successive vedrete nel dettaglio altri aspetti della programmazione ma se volete ad esempio calcolare la <strong>media</strong> in R potrete scrivere <code>compute mean in R</code>.
 Mi raccomando, fate tutte le ricerche in <strong>inglese</strong> perchè le possibilità di trovare una soluzione sono molto più alte.</p>
 <p>Dopo qualche ricerca, vi renderete conto che il sito che vedrete più spesso si chiama <a href="https://stackoverflow.com/"><strong>Stack Overflow</strong></a>. Questo è una manna dal cielo per tutti i programmatori, a qualsiasi livello di expertise. E’ una community dove tramite domande e risposte, si impara a risolvere i vari problemi ed anche a trovare nuovi modi di fare la stessa cosa. E’ veramente utile oltre che un ottimo modo per imparare.</p>
@@ -679,9 +674,25 @@ Mi raccomando, fate tutte le ricerche in <strong>inglese</strong> perchè le pos
 </ul>
 <p>L’ultimo punto di questa lista è forse il più importante e si chiama in gergo tecnico <a href="https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219"><strong>REPREX</strong></a> (<strong>Rep</strong>roducible <strong>Ex</strong>ample). E’ un tema leggermente più avanzato ma l’idea di fondo è quella di fornire tutte le informazioni possibili per poter riprodurre (e quindi eventualmente trovare una soluzione) il codice di qualcuno nel proprio computer.</p>
 <p>Se vi dico “R non mi fa creare un nuovo oggetto, quale è l’errore?” è diverso da dire “il comando <code>oggetto -&gt; 10</code> mi da questo errore <code>Error in 10 &lt;- oggetto : invalid (do_set) left-hand side to assignment</code>, come posso risolvere?”</p>
-<div class="tip" title="My title">
+<div class="trick" title="reprex">
 <p>Ci sono anche diversi pacchetti in R che rendono automatico creare questi esempi di codice da poter condividere, come il pacchetto <a href="https://www.tidyverse.org/help/"><code>reprex</code></a>.</p>
 </div>
+</div>
+</div>
+</div>
+<div id="sessione-di-lavoro" class="section level2">
+<h2><span class="header-section-number">5.5</span> Sessione di Lavoro</h2>
+<ul>
+<li>pulizia script</li>
+<li>Salvare script</li>
+<li>commenti</li>
+<li>sezioni script</li>
+<li>settings</li>
+<li>sintassi (gli spazi e gli indent corretti alineamenti)</li>
+<li>idea di organizzare in vairi script, cartelle</li>
+</ul>
+<div id="r-projects" class="section level3">
+<h3><span class="header-section-number">5.5.1</span> R projects</h3>
 
 </div>
 </div>

@@ -32,7 +32,7 @@ tab:table-vector-operators
 tab:table-matrix-operators
 tab:table-dataframe-operators
 install
-installare-r
+install-r
 r-windows
 r-macos
 r-linux
@@ -67,11 +67,10 @@ install.packages
 library
 aggiornare-e-rimuovere-pacchetti
 documantazione-pacchetti
-errors-and-warnings
+messages-warnings-e-errors
+risolvere-gli-errori
 sessione-di-lavoro
 r-projects
-problema-google-soluzione
-chiedere-una-soluzione
 data-type
 vettori-numerici
 vettori-logici
