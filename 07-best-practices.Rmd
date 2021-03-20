@@ -1,4 +1,4 @@
-# Buone Abitudini in R {#best-practice}
+# Sessione di Lavoro {#working-session}
 
 ```{r settings, echo = FALSE}
 knitr::opts_chunk$set(
@@ -8,7 +8,21 @@ knitr::opts_chunk$set(
 )
 ```
 
-In questo capitolo, disuteremo di alcuni aspetti generali delle sessioni di lavoro quali la gestione dei messaggi di errore e presenteremo delle buone norme riguardanti l'organizzazione degli scripts e l'uso degli *RStudio Projects* per essere ordinati ed efficaci nel proprio lavoro.
+In questo capitolo, disuteremo di alcuni aspetti generali delle sessioni di lavoro in R. Descriveremo delle buone abitudini riguardanti l'organizzazione degli scripts e l'uso degli *RStudio Projects* per essere ordinati ed efficaci nel proprio lavoro. Infine vedremo l'uso dei messaggi di R ed in particolare come comportarsi in caso di errori.
+
+## Sessione di Lavoro
+
+Cerchiamo di capire quali sono delle buone abitudini per gestire le proprie sessioni di lavoro
+- pulizia script
+- Salvare script
+- commenti 
+- sezioni script
+- settings
+- sintassi (gli spazi e gli indent corretti alineamenti)
+- idea di organizzare in vairi script, cartelle
+
+## R projects
+
 
 ## Messages, Warnings e Errors
 
@@ -86,15 +100,3 @@ Ci sono anche diversi pacchetti in R che rendono automatico creare questi esempi
 
 [^stack]: Fonte: [Writing the perfect question - Jon Skeet](https://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
 
-## Sessione di Lavoro
-
-Cerchiamo di capire 
-- pulizia script
-- Salvare script
-- commenti 
-- sezioni script
-- settings
-- sintassi (gli spazi e gli indent corretti alineamenti)
-- idea di organizzare in vairi script, cartelle
-
-### R projects

@@ -11,4 +11,4 @@ I capitoli sono così organizzati:
 - **Capitolo \@ref(first-comands) - Primi Passi in R**. Operatori matematici, operatori relazionali, operatori logici.
 - **Capitolo \@ref(objects-functions) - Due Compagni Inseparabili**. Introduzione dei concetti di oggetti e funzioni in R.
 - **Capitolo \@ref(working-environment) - Ambiente di Lavoro**. Introduzione dei concetti di Envieronment, working directory e dei pacchetti di R.
-- **Capitolo \@ref(best-practice) - Buone Abitudini in R**. Descrizione di buone pratiche nelle sessioni di lavoro.
+- **Capitolo \@ref(working-session) - Sessione di Lavoro**. Descrizione di buone pratiche nelle sessioni di lavoro e gestione degli errori.

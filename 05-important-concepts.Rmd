@@ -220,7 +220,7 @@ Conoscere tutte le funzioni e tutti i loro argomenti è impossibile. Per fortuna
 
 Per accedere alla documentazione possiamo utilizzare il comando `?<nome-funzione>` oppure `help(<nome-funzione>)`. Ad esempio:
 
-```{r, echo = TRUE}
+```{r, echo = TRUE, eval = FALSE}
 ?seq
 help(seq)
 ```
