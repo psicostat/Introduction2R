@@ -54,7 +54,7 @@ tipologie-dati-e-strutture-dati
 functions-def
 argomenti-di-una-funzione
 help-i-need-somebodyhelp
-working-session
+working-environment
 environment
 aggiungere-oggetti-allenvironment
 rimuovere-oggetti-dallenvironment
@@ -67,10 +67,11 @@ install.packages
 library
 aggiornare-e-rimuovere-pacchetti
 documantazione-pacchetti
-messages-warnings-e-errors
-risolvere-gli-errori
+working-session
 sessione-di-lavoro
 r-projects
+messages-warnings-e-errors
+risolvere-gli-errori
 data-type
 vettori-numerici
 vettori-logici

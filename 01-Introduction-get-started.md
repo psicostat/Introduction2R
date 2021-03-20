@@ -2,7 +2,7 @@
 
 # Intorduzione {-}
 
-In questa sezione verranno presentate le istruzioni per installare R ed RStudio. In seguito, famiglierizzeremo con l'ambiente di lavoro introducendo alcuni aspetti generali e le funzioni principali. Verranno inoltre descritte alcune buone regole per iniziare una sessione di lavoro in R.
+In questa sezione verranno prima presentate le istruzioni per installare R ed RStudio. Successivamente, svolgeremo le prime oprazioni in R e famiglierizzeremo con dei concetti di base della programmazioene quali gli oggetti e le funzioni. Introdurremmo infine altri concetti relativi alle sessioni di lavoro in R e descriveremo alcune buone regole per nell'utilizzo di R.
 
 I capitoli sono così organizzati:
 
@@ -10,4 +10,5 @@ I capitoli sono così organizzati:
 - **Capitolo \@ref(rstudio-gui) - Interfaccia RStudio**. Introduzione all'interfaccia utente di RStudio.
 - **Capitolo \@ref(first-comands) - Primi Passi in R**. Operatori matematici, operatori relazionali, operatori logici.
 - **Capitolo \@ref(objects-functions) - Due Compagni Inseparabili**. Introduzione dei concetti di oggetti e funzioni in R.
-- **Capitolo \@ref(working-session) - Sessione di Lavoro**. Utilizzo degli script e introduzione dei concetti di working directory e pacchetti di R.  
+- **Capitolo \@ref(working-environment) - Ambiente di Lavoro**. Introduzione dei concetti di Envieronment, working directory e dei pacchetti di R.
+- **Capitolo \@ref(working-session) - Sessione di Lavoro**. Descrizione di buone pratiche nelle sessioni di lavoro e gestione degli errori.

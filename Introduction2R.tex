@@ -350,7 +350,7 @@ Le illustrazioni utilizzate nelle vignette appartengono a \href{https://rstudio4
 \chapter*{Intorduzione}\label{intorduzione}}
 \addcontentsline{toc}{chapter}{Intorduzione}
 
-In questa sezione verranno presentate le istruzioni per installare R ed RStudio. In seguito, famiglierizzeremo con l'ambiente di lavoro introducendo alcuni aspetti generali e le funzioni principali. Verranno inoltre descritte alcune buone regole per iniziare una sessione di lavoro in R.
+In questa sezione verranno prima presentate le istruzioni per installare R ed RStudio. Successivamente, svolgeremo le prime oprazioni in R e famiglierizzeremo con dei concetti di base della programmazioene quali gli oggetti e le funzioni. Introdurremmo infine altri concetti relativi alle sessioni di lavoro in R e descriveremo alcune buone regole per nell'utilizzo di R.
 
 I capitoli sono così organizzati:
 
@@ -365,7 +365,9 @@ I capitoli sono così organizzati:
 \item
   \textbf{Capitolo \ref{objects-functions} - Due Compagni Inseparabili}. Introduzione dei concetti di oggetti e funzioni in R.
 \item
-  \textbf{Capitolo \ref{working-session} - Sessione di Lavoro}. Utilizzo degli script e introduzione dei concetti di working directory e pacchetti di R.
+  \textbf{Capitolo \ref{working-environment} - Ambiente di Lavoro}. Introduzione dei concetti di Envieronment, working directory e dei pacchetti di R.
+\item
+  \textbf{Capitolo \ref{working-session} - Sessione di Lavoro}. Descrizione di buone pratiche nelle sessioni di lavoro e gestione degli errori.
 \end{itemize}
 
 \hypertarget{install}{%
@@ -1490,12 +1492,10 @@ Notate come la funzione di autocompletamento non sia utilizzata solo per le funz
 
 \end{trick}
 
-\hypertarget{working-session}{%
-\chapter{Sessione di Lavoro}\label{working-session}}
+\hypertarget{working-environment}{%
+\chapter{Ambiente di Lavoro}\label{working-environment}}
 
-In queso capitolo introdurremo alcuni concetti molto importanti che riguardano le sessioni di lavoro in R o RStudio. In particolare parleremo dell'\emph{environment}, della \emph{working directory} e dell'utilizzo di pacchetti.
-
-Infine, disuteremo di alcuni aspetti generali della programmazione quali la gestione dei messaggi di errore o \emph{warnings} e vedremo alcune buone norme riguardanti l'organizzazione degli scripts e l'uso degli \emph{RStudio Projects} per essere ordinati ed efficaci nelle proprie sessioni di lavoro.
+In queso capitolo introdurremo alcuni concetti molto importanti che riguardano l'ambiente di lavoro in R o RStudio. In particolare parleremo dell'\emph{environment}, della \emph{working directory} e dell'utilizzo dei pacchetti.
 
 \hypertarget{environment}{%
 \section{Environment}\label{environment}}
@@ -1639,16 +1639,16 @@ L'idea intuitiva che abbiamo comunemente del funzionamento del computer è fuorv
 
 Senza entrare nel dettaglio, è più corretto pensare all'organizzazione del cumputer come ad un insieme di cartelle e sottocartelle che contengono tutti i nostri file e al funzionamento del computer come ad un insieme di processi (o comandi) che vengono eseguiti. Gli stessi programmi che installiamo non sono altro che delle cartelle in cui sono contenuti tutti gli script che determinano il loro funzionamento. Anche il Desktop non è altro che una semplice cartella mentre quello che vediamo noi è un programma definito dal sistema operativo che visualizza il contenuto di quella cartella sul nostro schermo e ci permette di interfacciarci con il mouse.
 
-Tutto quello che è presente nel nostro computer, compresi i nostri file, i programmi e lo stesso sistema operativo in uso, tutto è organizzato in un articolato sistema di cartelle e sottocartelle. Approsimativamente possiamo pensare all'organizzazione del nostro computer in modo simile alla Figura \ref{fig:file-system}.
+Tutto quello che è presente nel nostro computer, compresi i nostri file, i programmi e lo stesso sistema operativo in uso, tutto è organizzato in un articolato sistema di cartelle e sottocartelle. Approsimativamente possiamo pensare all'organizzazione del nostro computer in modo simile alla Figura \ref{fig:file-system} (da: \url{https://en.wikipedia.org/wiki/Operating_system}).
 
-\textbackslash begin\{figure\}
+\begin{figure}
 
-\{\centering \includegraphics[width=0.35\linewidth]{images/File-System}
+{\centering \includegraphics[width=0.35\linewidth]{images/File-System} 
 
-\}
+}
 
-\textbackslash caption\{Organizzazione Computer (from: \url{https://en.wikipedia.org/wiki/Operating_system})\}\label{fig:file-system}
-\textbackslash end\{figure\}
+\caption{Organizzazione Computer (da Wikipedia vedi link nel testo)}\label{fig:file-system}
+\end{figure}
 
 Ai livelli più bassi troviamo tutti i file di sistema ai quali gli utenti possono accedere solo con speciali autorizzazioni. Al livello superiore troviamo tutte i file riguardanti i programmi e applicazioni installati che in genere sono utilizzabili da più utenti sullo stesso computer. Infine troviamo tutte le cartelle e file che riguardano lo specifico utente.
 
@@ -2055,6 +2055,26 @@ Per installare un pacchetto direttamente da Github è posibile utilizzare il com
 
 \end{design}
 
+\hypertarget{working-session}{%
+\chapter{Sessione di Lavoro}\label{working-session}}
+
+In questo capitolo, disuteremo di alcuni aspetti generali delle sessioni di lavoro in R. Descriveremo delle buone abitudini riguardanti l'organizzazione degli scripts e l'uso degli \emph{RStudio Projects} per essere ordinati ed efficaci nel proprio lavoro. Infine vedremo l'uso dei messaggi di R ed in particolare come comportarsi in caso di errori.
+
+\hypertarget{sessione-di-lavoro}{%
+\section{Sessione di Lavoro}\label{sessione-di-lavoro}}
+
+Cerchiamo di capire quali sono delle buone abitudini per gestire le proprie sessioni di lavoro
+- pulizia script
+- Salvare script
+- commenti
+- sezioni script
+- settings
+- sintassi (gli spazi e gli indent corretti alineamenti)
+- idea di organizzare in vairi script, cartelle
+
+\hypertarget{r-projects}{%
+\section{R projects}\label{r-projects}}
+
 \hypertarget{messages-warnings-e-errors}{%
 \section{Messages, Warnings e Errors}\label{messages-warnings-e-errors}}
 
@@ -2157,30 +2177,6 @@ Se vi dico ``R non mi fa creare un nuovo oggetto, quale è l'errore?'' è divers
 Ci sono anche diversi pacchetti in R che rendono automatico creare questi esempi di codice da poter condividere, come il pacchetto \href{https://www.tidyverse.org/help/}{\texttt{reprex}}.
 
 \end{trick}
-
-\hypertarget{sessione-di-lavoro}{%
-\section{Sessione di Lavoro}\label{sessione-di-lavoro}}
-
-\begin{itemize}
-\tightlist
-\item
-  pulizia script
-\item
-  Salvare script
-\item
-  commenti
-\item
-  sezioni script
-\item
-  settings
-\item
-  sintassi (gli spazi e gli indent corretti alineamenti)
-\item
-  idea di organizzare in vairi script, cartelle
-\end{itemize}
-
-\hypertarget{r-projects}{%
-\subsection{R projects}\label{r-projects}}
 
 \hypertarget{part-struttura-dati}{%
 \part*{Struttura Dati}\label{part-struttura-dati}}

@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capitolo 5 Ambiente di Lavoro | Introduzione a R</title>
+  <meta name="description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capitolo 5 Ambiente di Lavoro | Introduzione a R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://psicostat.github.io/Introduction2R/" />
+  <meta property="og:image" content="https://psicostat.github.io/Introduction2R/images/logo_psicostat.png" />
+  <meta property="og:description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
+  <meta name="github-repo" content="psicostat/Introduction2R" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capitolo 5 Ambiente di Lavoro | Introduzione a R" />
+  
+  <meta name="twitter:description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
+  <meta name="twitter:image" content="https://psicostat.github.io/Introduction2R/images/logo_psicostat.png" />
+
+<meta name="author" content="Psicostat" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="objects-functions.html"/>
+<link rel="next" href="working-session.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/toc.css" type="text/css" />
+<link rel="stylesheet" href="assets/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/hex_psicostat.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentazione</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#perchè-r"><i class="fa fa-check"></i>Perchè R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#struttura-del-libro"><i class="fa fa-check"></i>Struttura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#risorse-utili"><i class="fa fa-check"></i>Risorse Utili</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#psicostat"><i class="fa fa-check"></i>Psicostat</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#collaborazione"><i class="fa fa-check"></i>Collaborazione</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#riconoscimenti"><i class="fa fa-check"></i>Riconoscimenti</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licenza"><i class="fa fa-check"></i>Licenza</a></li>
+</ul></li>
+<li class="part"><span><b>Get Started</b></span></li>
+<li class="chapter" data-level="" data-path="intorduzione.html"><a href="intorduzione.html"><i class="fa fa-check"></i>Intorduzione</a></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Installare R e RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#install-r"><i class="fa fa-check"></i><b>1.1</b> Installare R</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="install.html"><a href="install.html#r-windows"><i class="fa fa-check"></i><b>1.1.1</b> R Windows</a></li>
+<li class="chapter" data-level="1.1.2" data-path="install.html"><a href="install.html#r-macos"><i class="fa fa-check"></i><b>1.1.2</b> R MacOS</a></li>
+<li class="chapter" data-level="1.1.3" data-path="install.html"><a href="install.html#r-linux"><i class="fa fa-check"></i><b>1.1.3</b> R Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installare-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installare R Studio</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="install.html"><a href="install.html#r-studio-in-linux"><i class="fa fa-check"></i><b>1.2.1</b> R Studio in Linux</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rstudio-gui.html"><a href="rstudio-gui.html"><i class="fa fa-check"></i><b>2</b> Interfaccia RStudio</a></li>
+<li class="chapter" data-level="3" data-path="first-comands.html"><a href="first-comands.html"><i class="fa fa-check"></i><b>3</b> Primi Passi in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="first-comands.html"><a href="first-comands.html#math-operators"><i class="fa fa-check"></i><b>3.1</b> Operatori Matematici</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="first-comands.html"><a href="first-comands.html#ordine-operazioni"><i class="fa fa-check"></i><b>3.1.1</b> Ordine Operazioni</a></li>
+<li class="chapter" data-level="" data-path="first-comands.html"><a href="first-comands.html#esercizi"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="first-comands.html"><a href="first-comands.html#operatori-relazionali-e-logici"><i class="fa fa-check"></i><b>3.2</b> Operatori Relazionali e Logici</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="first-comands.html"><a href="first-comands.html#operatori-relazionali"><i class="fa fa-check"></i><b>3.2.1</b> Operatori Relazionali</a></li>
+<li class="chapter" data-level="3.2.2" data-path="first-comands.html"><a href="first-comands.html#operatori-logici"><i class="fa fa-check"></i><b>3.2.2</b> Operatori Logici</a></li>
+<li class="chapter" data-level="3.2.3" data-path="first-comands.html"><a href="first-comands.html#ordine-valutazione-relazioni"><i class="fa fa-check"></i><b>3.2.3</b> Ordine valutazione relazioni</a></li>
+<li class="chapter" data-level="" data-path="first-comands.html"><a href="first-comands.html#esercizi-1"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="objects-functions.html"><a href="objects-functions.html"><i class="fa fa-check"></i><b>4</b> Due Compagni Inseparabili</a><ul>
+<li class="chapter" data-level="4.1" data-path="objects-functions.html"><a href="objects-functions.html#objects-section"><i class="fa fa-check"></i><b>4.1</b> Oggetti</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="objects-functions.html"><a href="objects-functions.html#assegnare-e-richiamare-un-oggetto"><i class="fa fa-check"></i><b>4.1.1</b> Assegnare e Richiamare un oggetto</a></li>
+<li class="chapter" data-level="4.1.2" data-path="objects-functions.html"><a href="objects-functions.html#nomi-degli-oggetti"><i class="fa fa-check"></i><b>4.1.2</b> Nomi degli oggetti</a></li>
+<li class="chapter" data-level="4.1.3" data-path="objects-functions.html"><a href="objects-functions.html#tipologie-dati-e-strutture-dati"><i class="fa fa-check"></i><b>4.1.3</b> Tipologie Dati e Strutture Dati</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="objects-functions.html"><a href="objects-functions.html#functions-def"><i class="fa fa-check"></i><b>4.2</b> Funzioni</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#argomenti-di-una-funzione"><i class="fa fa-check"></i><b>4.2.1</b> Argomenti di una Funzione</a></li>
+<li class="chapter" data-level="4.2.2" data-path="objects-functions.html"><a href="objects-functions.html#help-i-need-somebodyhelp"><i class="fa fa-check"></i><b>4.2.2</b> Help! I need Somebody…Help!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="working-environment.html"><a href="working-environment.html"><i class="fa fa-check"></i><b>5</b> Ambiente di Lavoro</a><ul>
+<li class="chapter" data-level="5.1" data-path="working-environment.html"><a href="working-environment.html#environment"><i class="fa fa-check"></i><b>5.1</b> Environment</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="working-environment.html"><a href="working-environment.html#aggiungere-oggetti-allenvironment"><i class="fa fa-check"></i><b>5.1.1</b> Aggiungere Oggetti all’Environment</a></li>
+<li class="chapter" data-level="5.1.2" data-path="working-environment.html"><a href="working-environment.html#rimuovere-oggetti-dallenvironment"><i class="fa fa-check"></i><b>5.1.2</b> Rimuovere Oggetti dall’Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="working-environment.html"><a href="working-environment.html#working-directory"><i class="fa fa-check"></i><b>5.2</b> Working Directory</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="working-environment.html"><a href="working-environment.html#organizzazione-computer"><i class="fa fa-check"></i><b>5.2.1</b> Organizzazione Computer</a></li>
+<li class="chapter" data-level="5.2.2" data-path="working-environment.html"><a href="working-environment.html#absolute-path-e-relative-path"><i class="fa fa-check"></i><b>5.2.2</b> Absolute Path e Relative Path</a></li>
+<li class="chapter" data-level="5.2.3" data-path="working-environment.html"><a href="working-environment.html#working-directory-in-r"><i class="fa fa-check"></i><b>5.2.3</b> Working Directory in R</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="working-environment.html"><a href="working-environment.html#r-packages"><i class="fa fa-check"></i><b>5.3</b> R-packages</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="working-environment.html"><a href="working-environment.html#install.packages"><i class="fa fa-check"></i><b>5.3.1</b> install.packages()</a></li>
+<li class="chapter" data-level="5.3.2" data-path="working-environment.html"><a href="working-environment.html#library"><i class="fa fa-check"></i><b>5.3.2</b> library()</a></li>
+<li class="chapter" data-level="5.3.3" data-path="working-environment.html"><a href="working-environment.html#aggiornare-e-rimuovere-pacchetti"><i class="fa fa-check"></i><b>5.3.3</b> Aggiornare e Rimuovere Pacchetti</a></li>
+<li class="chapter" data-level="5.3.4" data-path="working-environment.html"><a href="working-environment.html#documantazione-pacchetti"><i class="fa fa-check"></i><b>5.3.4</b> Documantazione Pacchetti</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>6</b> Sessione di Lavoro</a><ul>
+<li class="chapter" data-level="6.1" data-path="working-session.html"><a href="working-session.html#sessione-di-lavoro"><i class="fa fa-check"></i><b>6.1</b> Sessione di Lavoro</a></li>
+<li class="chapter" data-level="6.2" data-path="working-session.html"><a href="working-session.html#r-projects"><i class="fa fa-check"></i><b>6.2</b> R projects</a></li>
+<li class="chapter" data-level="6.3" data-path="working-session.html"><a href="working-session.html#messages-warnings-e-errors"><i class="fa fa-check"></i><b>6.3</b> Messages, Warnings e Errors</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="working-session.html"><a href="working-session.html#risolvere-gli-errori"><i class="fa fa-check"></i><b>6.3.1</b> Risolvere gli Errori</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Struttura Dati</b></span></li>
+<li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="7" data-path="data-type.html"><a href="data-type.html"><i class="fa fa-check"></i><b>7</b> Data Type</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-type.html"><a href="data-type.html#vettori-numerici"><i class="fa fa-check"></i><b>7.1</b> Vettori Numerici</a></li>
+<li class="chapter" data-level="7.2" data-path="data-type.html"><a href="data-type.html#vettori-logici"><i class="fa fa-check"></i><b>7.2</b> Vettori logici</a></li>
+<li class="chapter" data-level="7.3" data-path="data-type.html"><a href="data-type.html#vettori-di-caratteri"><i class="fa fa-check"></i><b>7.3</b> Vettori di caratteri</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>8</b> Vettori</a><ul>
+<li class="chapter" data-level="8.1" data-path="vector.html"><a href="vector.html#creazione-di-vettori"><i class="fa fa-check"></i><b>8.1</b> Creazione di Vettori</a><ul>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#esercizi-2"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="vector.html"><a href="vector.html#selezione-elementi-di-un-vettore"><i class="fa fa-check"></i><b>8.2</b> Selezione Elementi di un Vettore</a><ul>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#esercizi-3"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="vector.html"><a href="vector.html#funzioni-ed-operazioni-tra-vettori"><i class="fa fa-check"></i><b>8.3</b> Funzioni ed Operazioni tra Vettori</a><ul>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#esercizi-4"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="factors.html"><a href="factors.html"><i class="fa fa-check"></i><b>9</b> Fattori</a><ul>
+<li class="chapter" data-level="" data-path="factors.html"><a href="factors.html#esercizi-5"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>10</b> Matrici</a><ul>
+<li class="chapter" data-level="10.1" data-path="matrix.html"><a href="matrix.html#creazione-di-matrici"><i class="fa fa-check"></i><b>10.1</b> Creazione di Matrici</a><ul>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#esercizi-6"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="matrix.html"><a href="matrix.html#selezione-di-elementi-di-una-matrice"><i class="fa fa-check"></i><b>10.2</b> Selezione di Elementi di una Matrice</a><ul>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#esercizi-7"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="matrix.html"><a href="matrix.html#funzioni-ed-operazioni-tra-matrici"><i class="fa fa-check"></i><b>10.3</b> Funzioni ed Operazioni tra Matrici</a><ul>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#esercizi-8"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>11</b> Dataframe</a><ul>
+<li class="chapter" data-level="11.1" data-path="dataframe.html"><a href="dataframe.html#creazione-di-dataframes"><i class="fa fa-check"></i><b>11.1</b> Creazione di DataFrames</a><ul>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-9"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="dataframe.html"><a href="dataframe.html#selezione-di-elementi-di-un-dataframe"><i class="fa fa-check"></i><b>11.2</b> Selezione di Elementi di un DataFrame</a><ul>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-10"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="dataframe.html"><a href="dataframe.html#funzioni-con-dataframes"><i class="fa fa-check"></i><b>11.3</b> Funzioni con DataFrames</a><ul>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-11"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>12</b> Liste</a><ul>
+<li class="chapter" data-level="12.1" data-path="list.html"><a href="list.html#creazione-di-liste"><i class="fa fa-check"></i><b>12.1</b> Creazione di Liste</a><ul>
+<li class="chapter" data-level="" data-path="list.html"><a href="list.html#esercizi-12"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="list.html"><a href="list.html#selezione-di-elementi-di-una-lista"><i class="fa fa-check"></i><b>12.2</b> Selezione di Elementi di una Lista</a><ul>
+<li class="chapter" data-level="" data-path="list.html"><a href="list.html#esercizi-13"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Algoritmi</b></span></li>
+<li class="chapter" data-level="" data-path="introduzione-1.html"><a href="introduzione-1.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="13" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>13</b> Definizione di Funzioni</a></li>
+<li class="chapter" data-level="14" data-path="coditionals.html"><a href="coditionals.html"><i class="fa fa-check"></i><b>14</b> Programmazione Condizionale</a></li>
+<li class="chapter" data-level="15" data-path="loop.html"><a href="loop.html"><i class="fa fa-check"></i><b>15</b> Attenti al loop</a></li>
+<li class="part"><span><b>Case study</b></span></li>
+<li class="chapter" data-level="" data-path="introduzione-2.html"><a href="introduzione-2.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="16" data-path="attachment.html"><a href="attachment.html"><i class="fa fa-check"></i><b>16</b> Caso Studio I: Attaccamento</a><ul>
+<li class="chapter" data-level="16.1" data-path="attachment.html"><a href="attachment.html#infobox"><i class="fa fa-check"></i><b>16.1</b> Infobox</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><span style="font-size: 2.5em">Introduzione a R</span></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <script src="assets/hideOutput.js"></script>
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src="images/banner.png">
+</div>
+<div id="working-environment" class="section level1">
+<h1><span class="header-section-number">Capitolo 5</span> Ambiente di Lavoro</h1>
+<p>In queso capitolo introdurremo alcuni concetti molto importanti che riguardano l’ambiente di lavoro in R o RStudio. In particolare parleremo dell’<em>environment</em>, della <em>working directory</em> e dell’utilizzo dei pacchetti.</p>
+<div id="environment" class="section level2">
+<h2><span class="header-section-number">5.1</span> Environment</h2>
+<p>Nel Capitolo <a href="objects-functions.html#objects-section">4.1</a>, abbiamo visto come sia possibile assegnare dei valori a degli oggetti. Questi oggetti vengono creati nel nostro ambiente di lavoro (o meglio <em>Environment</em>) e potranno essere utilizzati in seguito.</p>
+<p>Il nostro Enviroment raccoglie quindi tutti gli oggetti che vengono creati durante la nostra sessione di lavoro. E’ possibile valutare gli oggetti attualmente presenti osservando il pannello <em>Environment</em> in alto a destra (vedi Figura <a href="working-environment.html#fig:environment2">5.1</a>) oppure utilizzadno il comando <code>ls()</code>, ovvero <em>list objects</em>.</p>
+<div class="figure" style="text-align: center"><span id="fig:environment2"></span>
+<img src="images/environment.png" alt="*Environment* - Elenco degli oggetti e variabili presenti nel'ambiente di lavoro" width="60%" />
+<p class="caption">
+Figure 5.1: <em>Environment</em> - Elenco degli oggetti e variabili presenti nel’ambiente di lavoro
+</p>
+</div>
+<p>All’inizio della sessione di lavoro il nostro Environment sarà vuoto (vedi Figura <a href="#environment-empty"><strong>??</strong></a>). Il comando <code>ls()</code> non restituirà alcun oggeto ma per indicare l’assenza di oggerri userà la risposta <code>character(0)</code>, ovvero un vettore di tipo caratteri di lunghezza zero (vedi Capitolo TODO).</p>
+<div class="figure" style="text-align: center"><span id="fig:environment-empty"></span>
+<img src="images/environment-empty.png" alt="*Environment* vuoto ad inizio sessione di lavoro" width="60%" />
+<p class="caption">
+Figure 5.2: <em>Environment</em> vuoto ad inizio sessione di lavoro
+</p>
+</div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="working-environment.html#cb16-1"></a><span class="co"># Environment vuoto</span></span>
+<span id="cb16-2"><a href="working-environment.html#cb16-2"></a><span class="kw">ls</span>()</span>
+<span id="cb16-3"><a href="working-environment.html#cb16-3"></a><span class="co">## character(0)</span></span></code></pre></div>
+<div id="aggiungere-oggetti-allenvironment" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Aggiungere Oggetti all’Environment</h3>
+<p>Una volta creati degli oggetti, questi saranno presenti nel nostro Environment e il comando <code>ls()</code> restituirà un vettore di caretteri in cui vengono elencati tutti i loro nomi.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="working-environment.html#cb17-1"></a><span class="co"># Creo oggetti</span></span>
+<span id="cb17-2"><a href="working-environment.html#cb17-2"></a>x &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>)</span>
+<span id="cb17-3"><a href="working-environment.html#cb17-3"></a>y &lt;-<span class="st">  </span><span class="dv">27</span></span>
+<span id="cb17-4"><a href="working-environment.html#cb17-4"></a>word &lt;-<span class="st"> &quot;Hello Word!&quot;</span></span>
+<span id="cb17-5"><a href="working-environment.html#cb17-5"></a></span>
+<span id="cb17-6"><a href="working-environment.html#cb17-6"></a><span class="co"># Lista nomi oggetti nell&#39;Environment</span></span>
+<span id="cb17-7"><a href="working-environment.html#cb17-7"></a><span class="kw">ls</span>()</span>
+<span id="cb17-8"><a href="working-environment.html#cb17-8"></a><span class="co">## [1] &quot;word&quot; &quot;x&quot;    &quot;y&quot;</span></span></code></pre></div>
+<p>Nel pannello in alto a destra (vedi Figura <a href="working-environment.html#fig:environment-object">5.3</a>), possiamo trovare un elenco degli oggetti attualmente presenti nel nostro Environment. Insieme al nome vengono riportate anche alcune utili inforamzioni a seconda del tipo di oggetto. Vediamo come nel nostro esempio, nel caso di variabili con un singolo valore (e.g., <code>word</code> e <code>y</code>) venganno presentati direttamente gli stessi valori. Mentre, nel caso di vettori (e.g., <code>x</code>) vengano fornite anche informazioni riguardanti la tipologia di vettore e la sua dimensione (vedi Capitolo TODO), nell’esempio abbiimao un vettore numerico (<code>num</code>) di 4 elementi (<code>[1:4]</code>).</p>
+<div class="figure" style="text-align: center"><span id="fig:environment-object"></span>
+<img src="images/environment-objects.png" alt="*Environment* contenente gli oggetti creati" width="60%" />
+<p class="caption">
+Figure 5.3: <em>Environment</em> contenente gli oggetti creati
+</p>
+</div>
+</div>
+<div id="rimuovere-oggetti-dallenvironment" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Rimuovere Oggetti dall’Environment</h3>
+<p>Per rimuovere un oggetto dal proprio environment è possibile utilizzare il comando <code>remove()</code> oppure la sua abbreviazione <code>rm()</code>, indicando tra parentesi il nome dell’oggetto che si intende rimuovere. E’ possibile indicare più di un oggetto separando i loro nomi con la virgola.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="working-environment.html#cb18-1"></a><span class="co"># Rimuovo un oggetto</span></span>
+<span id="cb18-2"><a href="working-environment.html#cb18-2"></a><span class="kw">rm</span>(word)</span>
+<span id="cb18-3"><a href="working-environment.html#cb18-3"></a><span class="kw">ls</span>()</span>
+<span id="cb18-4"><a href="working-environment.html#cb18-4"></a><span class="co">## [1] &quot;x&quot; &quot;y&quot;</span></span>
+<span id="cb18-5"><a href="working-environment.html#cb18-5"></a></span>
+<span id="cb18-6"><a href="working-environment.html#cb18-6"></a><span class="co"># Rimuovo più oggetti contemporaneamente</span></span>
+<span id="cb18-7"><a href="working-environment.html#cb18-7"></a><span class="kw">rm</span>(x,y)</span>
+<span id="cb18-8"><a href="working-environment.html#cb18-8"></a><span class="kw">ls</span>()</span>
+<span id="cb18-9"><a href="working-environment.html#cb18-9"></a><span class="co">## character(0)</span></span></code></pre></div>
+<div class="trick" title="rm(list=ls())">
+<p>Qualora fosse necessario eliminare tutti gli oggetti attualmete presenti nel nosto ambiente di lavoro è possibile ricorrere alla formula <code>rm(list=ls())</code>. In questo modo si avrà la certezza di pulire l’ambiente da ogni oggetto e di ripristinarlo alle condizioni iniziali della sessione.</p>
+</div>
+<div class="design" title="Mantenere Ordinato l&#39;Environment">
+<p>Avere cura di mantenre il proprio Environment ordinato ed essere consapevoli degli oggetti attualmente presenti è importante. Questo ci permette di evitare di compiere due errori comuni.</p>
+<ul>
+<li><strong>Utilizzare oggetti non ancora creati</strong>. In questo caso l’errore è facilemente individuabile dat che sarà lo stesso R ad avvisarci che <em>“object ‘<nome-oggetto>’ not found”</em>. In questo caso dovremmo semplicemente eseguire il comando per creare l’oggetto richieto.</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="working-environment.html#cb19-1"></a>oggetto_non_esistente</span>
+<span id="cb19-2"><a href="working-environment.html#cb19-2"></a><span class="co">## Error in eval(expr, envir, enclos): object &#39;oggetto_non_esistente&#39; not found</span></span></code></pre></div>
+<ul>
+<li><strong>Utilizzare oggetti con “<em>vecchi</em>” valori</strong>. Se non si ha cura di mantenere ordinato il proprio ambiente di lavoro potrebbe accadere che diversi oggetti vengano creati durante successive sessioni di lavoro. A questo punto si corre il rischio di perdere il controllo rispetto al vero contenuto degli oggetti e potremmo quindi utilizzare degli oggetti pensando che contengano un certo valore, quando invece si riferisono a tutt’altro. Questo comporta che qualsiasi nostro risultato perda di significato. Bisogna prestare molta attenzione perchè R non potrà avvisarci di questo errore (per lui sono solo numeri), siamo noi che dobbiamo essere consapevoli del fatto che i comandi eseguiti abbiano senso oppure no.</li>
+</ul>
+<p>Per mantere un Environmet ordinato vi consigliamo innanzitutto di non salvare automaticamente il vostro <em>workspace</em> quando terminate una sessione di lavoro. E’ possibile settare tale opzione nelle impostazioni generali di R selezionando <em>“Never”</em> alla voce <em>“save workspace to .RData on exit”</em> come riportato nella Figura seguente.</p>
+<center>
+<img src="images/save-rdata.png" style="width:75.0%" />
+</center>
+<p>Questo vi permetterà di iniziare ogni nuova sessione di lavoro in un Environment vuoto, evitando che vecchi oggetti si accumulino nel corso delle diverse sesssioni di lavoro. Durante le vostre sessioni, inoltre, sarà utile eseguire il comando <code>rm(list=ls())</code> quando inizierete un nuovo compito in modo da eliminare tutti i vecchi oggetti.</p>
+<h4 id="environment-una-memoria-a-breve-termine" class="unnumbered">Environment una Memoria a Breve Termine</h4>
+<p>Notiamo quindi come l’Environment sia qualcosa di transitorio. Gli oggetti vengono salvati nella memoria primaria del computer (RAM, possiamo pensarla in modo analogo alla memoria a breve termine dei modelli cognitivi) e verranno cancellati al comando <code>rm(list=ls())</code> o al termine di ogni sessione di lavoro.</p>
+<p>Il fatto di partire ogni volta da un Environment vuoto, vi costringerà a raccogliere tutti i passi delle vostre analisi all’interno di uno script in modo ordinato evitando di fare affidamento su vecchi oggetti. Tutti gli oggetti necessari durante le analisi, infattii, dovranno essere ricreati ad ogni sessione, garantendo la riproducibilità e correttezza del lavro (almeno dal punto di vista di programmazione). Idealmente dovrebbe essere posibile, in una sessione di lavoro, partire da un Environment vuoto ed eseguire in ordine tutti i comandi contenuti in uno script fino ad ottenere i risultati desiderati.</p>
+<p>E’ facile intuire come in certe situazioni questa non sia la soluzione più efficiente. Alcuni comandi, infatti, potrebbero richiedere molti minuti (o anche giorni) per essere eseguiti. In questi casi sarebbe conveniente, pertanto, salvare i risultati ottenuti per poterli utilizzare anche in sessioni successive, senza la necessità di dover eseguire nuovamente tutti i comadi. Vedremo nel Capitolo TODO come sarà possibile salvare permanentemente gli oggetti creati nella memoria secondaria del computer (hard-disk, nella nostra analogia la memoria a lungo termine) e come caricarli in una successiva sessione di lavoro.</p>
+</div>
+</div>
+</div>
+<div id="working-directory" class="section level2">
+<h2><span class="header-section-number">5.2</span> Working Directory</h2>
+<p>Il concetto di <em>working directory</em> è molto importante ma spesso poco conosciuto. La <em>working directory</em> è la posizione all’interno del computer in cui ci troviamo durante la nostra sessione di lavoro e da cui eseguiamo i nostri comandi.</p>
+<div id="organizzazione-computer" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Organizzazione Computer</h3>
+<p>L’idea intuitiva che abbiamo comunemente del funzionamento del computer è fuorviante. Spesso si pensa che il Desktop rispecchi l’organizzazione del nostro intero computer e che tutte le azioni siano gestite attraverso l’interfaccia punta-e-clicca a cui ormai siamo abituati dai moderni sistemi operativi.</p>
+<p>Senza entrare nel dettaglio, è più corretto pensare all’organizzazione del cumputer come ad un insieme di cartelle e sottocartelle che contengono tutti i nostri file e al funzionamento del computer come ad un insieme di processi (o comandi) che vengono eseguiti. Gli stessi programmi che installiamo non sono altro che delle cartelle in cui sono contenuti tutti gli script che determinano il loro funzionamento. Anche il Desktop non è altro che una semplice cartella mentre quello che vediamo noi è un programma definito dal sistema operativo che visualizza il contenuto di quella cartella sul nostro schermo e ci permette di interfacciarci con il mouse.</p>
+<p>Tutto quello che è presente nel nostro computer, compresi i nostri file, i programmi e lo stesso sistema operativo in uso, tutto è organizzato in un articolato sistema di cartelle e sottocartelle. Approsimativamente possiamo pensare all’organizzazione del nostro computer in modo simile alla Figura <a href="working-environment.html#fig:file-system">5.4</a> (da: <a href="https://en.wikipedia.org/wiki/Operating_system" class="uri">https://en.wikipedia.org/wiki/Operating_system</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:file-system"></span>
+<img src="images/File-System.png" alt="Organizzazione Computer (da Wikipedia vedi link nel testo)" width="35%" />
+<p class="caption">
+Figure 5.4: Organizzazione Computer (da Wikipedia vedi link nel testo)
+</p>
+</div>
+<p>Ai livelli più bassi troviamo tutti i file di sistema ai quali gli utenti possono accedere solo con speciali autorizzazioni. Al livello superiore troviamo tutte i file riguardanti i programmi e applicazioni installati che in genere sono utilizzabili da più utenti sullo stesso computer. Infine troviamo tutte le cartelle e file che riguardano lo specifico utente.</p>
+</div>
+<div id="absolute-path-e-relative-path" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Absolute Path e Relative Path</h3>
+<p>Questo ampio preambolo riguardante l’organizzazione in cartelle e sottocartelle, ci serve perchè è la struttura che il computer utilizza per orientarsi tra tutti file quando esegue dei comandi attraverso un’interfaccia a riga di comando (e.g., R). Se vogliamo ad esempio caricare dei dati da uno specifico file in R devo fornire il <em>path</em> (o indirizzo) corretto che mi indichi esattamente la posizione del file all’interno della struttura di cartelle del computer. Ad esempio, immaginiamo di avere dei dati <code>My-data.Rda</code> salvato nella cartella <code>Introduction2R</code> nel proprio Desktop.</p>
+<pre><code>Desktop
+ |
+ |-  Introduction2R
+ |    |
+ |    |- Dati
+ |    |   |- My-data.Rda</code></pre>
+<p>Per indicare la posizione del File potrei utilizzare un:</p>
+<ul>
+<li><strong>absolute path</strong> - la posizione <em>“assoluta”</em> del file rispetto alla <em>root directory</em> del sistema ovvero la cartella principale dell’intero computer.</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="working-environment.html#cb21-1"></a><span class="co"># Mac</span></span>
+<span id="cb21-2"><a href="working-environment.html#cb21-2"></a><span class="st">&quot;/Users/&lt;username&gt;/Desktop/Introduction2R/Dati/My-data.Rda&quot;</span></span>
+<span id="cb21-3"><a href="working-environment.html#cb21-3"></a></span>
+<span id="cb21-4"><a href="working-environment.html#cb21-4"></a><span class="co"># Windows Vista</span></span>
+<span id="cb21-5"><a href="working-environment.html#cb21-5"></a><span class="st">&quot;c:\Users\&lt;username&gt;\Desktop\Introduction2R\Dati\My-data.Rda&quot;</span></span></code></pre></div>
+<ul>
+<li><strong>relative path</strong> - la posizione del file rispetto alla nostra attuale posizione nel computer da cui stiamo eseguendo il comando, ovvero rispetto alla <strong>working directory</strong> della nostra sessione di lavoro. In questo riprendendo il precedente esempio se la nostra working directory fosse la cartella <code>Desktop/Introduction2R</code> avremmo i seguenti relative path:</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="working-environment.html#cb22-1"></a><span class="co"># Mac</span></span>
+<span id="cb22-2"><a href="working-environment.html#cb22-2"></a><span class="st">&quot;Dati/My-data.Rda&quot;</span></span>
+<span id="cb22-3"><a href="working-environment.html#cb22-3"></a></span>
+<span id="cb22-4"><a href="working-environment.html#cb22-4"></a><span class="co"># Windows Vista</span></span>
+<span id="cb22-5"><a href="working-environment.html#cb22-5"></a><span class="st">&quot;Dati\My-data.Rda&quot;</span></span></code></pre></div>
+<p>Nota come sia preferibile l’utilizzo dei relative path poichè gli absolute path sono unici per il singolo computer di riferimento e non possono essere quindi utilizzati su altri computer.</p>
+<div class="warning" title="&quot;Error: No such file or directory&quot;">
+<p>Qualora si utilizzasse un relative path per indicare la posizione di un file, è importante che la working directory attualment in uso sia effettivamente quella prevista. Se ci trovassimo in una divesa cartella, ovviamente il “relative path” indicato non sarebbe più valido e R ci mostrerebbe un messaggio di errore.</p>
+<p>Riprendendo l’esempio precedente, supponiamo che la nostra attuale working directory sia <code>Desktop</code> invece di <code>Desktop/Introduction2R</code>. Eseguendo il comadno <code>load()</code> per caricare i dati utilizzando il relative path ora non più valido ottengo:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="working-environment.html#cb23-1"></a><span class="kw">load</span>(<span class="st">&quot;Dati/My-data.Rda&quot;</span>)</span>
+<span id="cb23-2"><a href="working-environment.html#cb23-2"></a><span class="co">## Warning in readChar(con, 5L, useBytes = TRUE): cannot open compressed file</span></span>
+<span id="cb23-3"><a href="working-environment.html#cb23-3"></a><span class="co">## &#39;Dati/My-data.Rda&#39;, probable reason &#39;No such file or directory&#39;</span></span>
+<span id="cb23-4"><a href="working-environment.html#cb23-4"></a><span class="co">## Error in readChar(con, 5L, useBytes = TRUE): cannot open the connection</span></span></code></pre></div>
+<p>Il messaggio di errore mi indica che R non è stato in grado di trovare il file seguendo le mie indicazioni. E’ come se chiedessi al computer di aprire il frigo ma attualmente si trovasse in camera, devo prima dargli le indicazioni per raggiungere la cucina altrimenti mi risponderebbe <em>“frigo non trovato”</em>. Risulta pertanto fondamentale essere sempre consapevoli di quale sia l’attuale working directory in cui si sta svolgendo la sessione di lavoro.</p>
+<p>Ovviamente otterrei lo stesso errore anche usando un absolute path se questo contenesse degli errori.</p>
+</div>
+<div class="design" title="The Garden of Forking Paths">
+<p>Come avrai notato dagli esempi precedenti, sia la struttura in cui vengono organizzati i file nel computer sia la sintassi utilizzata per indicare i path è differente in base al sistema operativo utilizzato.</p>
+<h4 id="mac-os-e-linux" class="unnumbered">Mac OS e Linux</h4>
+<ul>
+<li>Il carattere utilizzato per separare la cartelle nella definizione del path è <code>"/"</code>:</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="working-environment.html#cb24-1"></a><span class="st">&quot;Introduction2R/Dati/My-data.Rda&quot;</span></span></code></pre></div>
+<ul>
+<li>Iniziando il path con il carattere <code>"/"</code> si indica la root-directory:</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="working-environment.html#cb25-1"></a><span class="st">&quot;/Users/&lt;username&gt;/Desktop/Introduction2R/Dati/My-data.Rda&quot;</span></span></code></pre></div>
+<ul>
+<li>Iniziando il path con il carattere <code>"~"</code> si indica la cartella <em>home</em> dell’utente ovvero <code>/Users/&lt;username&gt;/</code>:</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="working-environment.html#cb26-1"></a><span class="st">&quot;~/Desktop/Introduction2R/Dati/My-data.Rda&quot;</span></span></code></pre></div>
+<h4 id="windows-1" class="unnumbered">Windows</h4>
+<ul>
+<li>Il carattere utilizzato per separare la cartelle nella definizione del path è <code>"\"</code>:</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="working-environment.html#cb27-1"></a><span class="st">&quot;Introduction2R\Dati\My-data.Rda&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="working-directory-in-r" class="section level3">
+<h3><span class="header-section-number">5.2.3</span> Working Directory in R</h3>
+<p>Vediamo ora i comandi utilizzati in R per valutare e cambiare la working directory nella propria sessione di lavoro.</p>
+<div id="attuale-working-directory" class="section level4 unnumbered">
+<h4>Attuale Working Directory</h4>
+<p>In R è possibile valutare l’attuale working directory utilizzando il comando <code>getwd()</code> che restituirà l’absolute path dell’attuale posizione.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="working-environment.html#cb28-1"></a><span class="kw">getwd</span>()</span>
+<span id="cb28-2"><a href="working-environment.html#cb28-2"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/Introduction2R&quot;</span></span></code></pre></div>
+<p>In alternativa, l’attuale working directory è anche riportata in alto a sinistra della Console come mostrato in Figura <a href="working-environment.html#fig:current-wd">5.5</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:current-wd"></span>
+<img src="images/current-wd.png" alt="Workig directory dell'attuale sessione di lavoro" width="95%" />
+<p class="caption">
+Figure 5.5: Workig directory dell’attuale sessione di lavoro
+</p>
+</div>
+<p>Premendo la freccia al suo fianco il pannello <em>Files</em> in basso a destra sarà reindirizzato direttamento alla workig directory dell’attuale sessione di lavoro. In questo modo sarà facile navigare tra i file e cartelle presenti al suo interno (vedi Figura <a href="working-environment.html#fig:current-folder">5.6</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:current-folder"></span>
+<img src="images/current-folder.png" alt="Workig directory dell'attuale sessione di lavoro" width="65%" />
+<p class="caption">
+Figure 5.6: Workig directory dell’attuale sessione di lavoro
+</p>
+</div>
+</div>
+<div id="cambiare-working-directory" class="section level4 unnumbered">
+<h4>Cambiare Working Directory</h4>
+<p>Per cambiare la working directory è possibile utilizzare il comando <code>setwd()</code> indicando il path (absolute o relative) della nuova working directory. Nota come, nel caso in cui venga indicato un relative path, questo dovrà indicare la posizione della nuova working directory rispetto alla vecchia working directory.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="working-environment.html#cb29-1"></a><span class="kw">getwd</span>()</span>
+<span id="cb29-2"><a href="working-environment.html#cb29-2"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/Introduction2R&quot;</span></span>
+<span id="cb29-3"><a href="working-environment.html#cb29-3"></a></span>
+<span id="cb29-4"><a href="working-environment.html#cb29-4"></a><span class="kw">setwd</span>(<span class="st">&quot;Dati/&quot;</span>)</span>
+<span id="cb29-5"><a href="working-environment.html#cb29-5"></a></span>
+<span id="cb29-6"><a href="working-environment.html#cb29-6"></a><span class="kw">getwd</span>()</span>
+<span id="cb29-7"><a href="working-environment.html#cb29-7"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/Introduction2R/Dati&quot;</span></span></code></pre></div>
+<p>In alternativa è possibile selezionare l’opzione <em>“Choose Directory”</em> dal menù <em>“Session”</em> &gt; <em>“Set Working Directory”</em> come mostrato in Figura <a href="working-environment.html#fig:set-wd">5.7</a>. Verrà quindi richiesto di selezionare la working directory desiderata e preme “<em>Open</em>”.</p>
+<div class="figure" style="text-align: center"><span id="fig:set-wd"></span>
+<img src="images/set-wd.png" alt="Definire la working directory" width="95%" />
+<p class="caption">
+Figure 5.7: Definire la working directory
+</p>
+</div>
+<div class="trick" title="Show me the Path">
+<p>Nota come sia possibile nel digitare il path sfruttare l’autocompletamento. All’interno delle virgolette <code>""</code> premi il tasto <code>Tab</code> per visualizzare i suggerimenti dei path relativi alla attuale working directory.</p>
+<center>
+<img src="images/path-autocomplete.png" style="width:75.0%" />
+</center>
+<p><br></p>
+<p>E’ possibile inoltre utilizzare i caratteri speciali <code>"./"</code> e <code>"../"</code> per indicare rispettivamente l’attuale working directory e la cartella del livello superiore (i.e., <em>parent folder</em>) che include l’attuale working directory. <code>"../"</code> ci permette quindi di navigare a ritroso dalla nostra attuale posizione tra le cartelle del computer.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="working-environment.html#cb30-1"></a><span class="kw">getwd</span>()</span>
+<span id="cb30-2"><a href="working-environment.html#cb30-2"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/Introduction2R&quot;</span></span>
+<span id="cb30-3"><a href="working-environment.html#cb30-3"></a></span>
+<span id="cb30-4"><a href="working-environment.html#cb30-4"></a><span class="kw">setwd</span>(<span class="st">&quot;../&quot;</span>)</span>
+<span id="cb30-5"><a href="working-environment.html#cb30-5"></a></span>
+<span id="cb30-6"><a href="working-environment.html#cb30-6"></a><span class="kw">getwd</span>()</span>
+<span id="cb30-7"><a href="working-environment.html#cb30-7"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/&quot;</span></span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div id="r-packages" class="section level2">
+<h2><span class="header-section-number">5.3</span> R-packages</h2>
+<p>Uno dei grandi punti di forza di R è quella di poter estendere le proprie funzioni di base in modo semplice ed intuitivo utilizzando nuovi pacchetti. Al momento esistono oltre <strong>17’000</strong> pachetti disponibili gratuitamente sul CRAN (la repository ufficiale di R). Questi pacchetti sono stati sviluppati dall’immensa comunity di R per svolgere ogni sorta di compito. Si potrebbe dire quindi che in R ogni cosa sia possibile, basta trovare il giusto pacchetto (oppure crearlo!).</p>
+<p>Quando abbiamo installato R in automatico sono stati installati una serie di pacchetti che costituiscono la <strong>system library</strong>, ovvero tutti quei pacchetti di base che permettono il fuzionamento di R. Tuttavia, gli altri pacchetti non sono disponibili da subito. Per utilizzare le funzioni di altri pacchetti, è necessario seguire una procedura in due step come rappresentato in Figura <a href="working-environment.html#fig:packages-process">5.8</a>:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Scaricare ed installare i pacchetti sul nostro computer</strong>. I pacchetti sono disponibili gratuitamente online nella reopsitory del CRAN, una sorta di archivio. Vengono quindi scaricati ed installati nella nostra <em>library</em>, ovvero la raccolta di tutti i pacchetti di R disponibili sul nostro computer.</p></li>
+<li><p><strong>Caricare il paccheto nella sessione di lavoro</strong>. Anche se il paccheto è installato nella nostra library non siamo ancora pronti per utilizzare le sue funzioni. Sarà necessario prima caricare il pacchetto nella nostra sessione di lavoro. Solo ora le funzionni del pacchetto saranno effetivamente disponibili per essere usate.</p></li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:packages-process"></span>
+<img src="images/packages-process.png" alt="Utilizzare i paccheti in R" width="95%" />
+<p class="caption">
+Figure 5.8: Utilizzare i paccheti in R
+</p>
+</div>
+<p>Questo procedimento in due step potrebbe sembrare poco intuitivo. <em>“Perchè dover caricare qualcosa che è già installato?”</em> La risposta è molto semplice ci serve per mantenere efficiente e sotto controllo la nostra sessione di lavoro. Infatti non avremo mai bisogno di tutti i pacchetti installati ma a seconda dei compiti da eseguire utilizzeremo di volta in volta solo alcuni pacchetti specifici. Se tutti i pacchetti fossero caricati automaticamente ogni volta sarebbe un inutile spreco di memoria e si creerebbero facilmente dei conflitti. Ovvero, alcune funzioni di diversi pacchetti potrebbero avere lo stesso nome ma scopi diversi. Sarebbe quindi molto facile ottenere errori o comunque risultati non validi.</p>
+<p>Vediamo ora come eseguire queste operazioni in R.</p>
+<div id="install.packages" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> install.packages()</h3>
+<p>Per installare dei pacchetti dal CRAN nella nostra library è possibile eseguire il comando <code>install.packages()</code> indicando tra parentesi il nome del pacchetto desiderato.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="working-environment.html#cb31-1"></a><span class="co"># Un ottimo pacchetto per le analisi statistiche di John Fox</span></span>
+<span id="cb31-2"><a href="working-environment.html#cb31-2"></a><span class="co"># un grandissimo statistico...per gli amici Jonny la volpe ;)</span></span>
+<span id="cb31-3"><a href="working-environment.html#cb31-3"></a><span class="kw">install.packages</span>(<span class="st">&quot;car&quot;</span>)</span></code></pre></div>
+<p>In alternativa è possibile utilizzare il pulsante <em>“Install”</em> nella barra in alto a sinistra del pannello Packages ( vedi Figura <a href="working-environment.html#fig:packages-install">5.9</a>), indicando successivamente il nome del pacchetto desiderato.</p>
+<div class="figure" style="text-align: center"><span id="fig:packages-install"></span>
+<img src="images/packages-install.png" alt="Installare paccektti tramite interfacci RStudio" width="65%" />
+<p class="caption">
+Figure 5.9: Installare paccektti tramite interfacci RStudio
+</p>
+</div>
+<p>Nota come installare un pacchetto potrebbe comportare l’installazione di più pacchetti. Questo perchè verranno automaticamente installate anche le <em>dependencies</em> del pacchetto, ovverro, tutti i pacchetti usati internamente dal pacchetto di interesse che quindi necessari per il suo corretto funzionaemnto (come in un gioco di matrioske).</p>
+<p>Una volta installato il pacchetto, questo comarirà nella library ovvero la lista dei pacchetti disponibili mostrata nel pannello Packages (vedi Figura <a href="working-environment.html#fig:library-car">5.10</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:library-car"></span>
+<img src="images/library-car.png" alt="Il pacchetto car è ora disponibile nella library" width="65%" />
+<p class="caption">
+Figure 5.10: Il pacchetto car è ora disponibile nella library
+</p>
+</div>
+</div>
+<div id="library" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> library()</h3>
+<p>Per utilizzare le funzioni di un pacchetto già presente nella notra library, dobbiamo ora caricarlo nella nostra sessione di lavoro. Per fare ciò, posssiamo utilizzare il comando <code>library()</code> indicando tra parentesi il nome del pacchetto richiesto.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="working-environment.html#cb32-1"></a><span class="kw">library</span>(car)</span></code></pre></div>
+<p>In alternativa è possibile spuntare il riquadro alla sinistra del nome del pacchetto dal pannello Packages come mostrato in Figura <a href="working-environment.html#fig:load-package">5.11</a>. Nota tuttavia come questa procedura sia sconsigliata. Infatti, ogni azione punta-e-clicca dovrebbe essere eseguita ad ogni sessione mentre l’utilizzo di comandi inclusi nello script garantisce la loro esecuzione automatica.</p>
+<div class="figure" style="text-align: center"><span id="fig:load-package"></span>
+<img src="images/load-package.png" alt="Caricare un pacchetto nella sessione di lavoro" width="65%" />
+<p class="caption">
+Figure 5.11: Caricare un pacchetto nella sessione di lavoro
+</p>
+</div>
+<p>Ora siamo finalmente pronti per utilizzare le funzioni del pacchetto nella nostra sessione di lavro.</p>
+<div class="trick" title="package::function()">
+<p>Esiste un piccolo trucco per utilizzare la funzione di uno specifico pacchetto senza dover caricare il pacchetto nella propria sessione. Per fare questo è possibile usare la sintassi:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="working-environment.html#cb33-1"></a><span class="op">&lt;</span>nome<span class="op">-</span>pacchetto<span class="op">&gt;</span><span class="er">::&lt;</span>nome<span class="op">-</span>funzione<span class="op">&gt;</span>()</span>
+<span id="cb33-2"><a href="working-environment.html#cb33-2"></a></span>
+<span id="cb33-3"><a href="working-environment.html#cb33-3"></a><span class="co"># Esempio con la funzione Anova del pacchetto car</span></span>
+<span id="cb33-4"><a href="working-environment.html#cb33-4"></a>car<span class="op">::</span><span class="kw">Anova</span>()</span></code></pre></div>
+<p>L’utilizzo dei <code>::</code> ci permette di richiamare direttamente la funzione desiderata. La differennza tra l’uso di <code>library()</code> e l’uso di <code>::</code> riguarda aspetti abbastanza avanzati di R (per un approfondimento vedi <a href="https://r-pkgs.org/namespace.html" class="uri">https://r-pkgs.org/namespace.html</a>). In estrema sintesi, possiamo dire che in alcuni casi è preferibile non caricare un’intero pacchetto se di questo abbiamo bisogno di un’unica funzione.</p>
+</div>
+</div>
+<div id="aggiornare-e-rimuovere-pacchetti" class="section level3">
+<h3><span class="header-section-number">5.3.3</span> Aggiornare e Rimuovere Pacchetti</h3>
+<p>Anche i pacchettti come ogni altro software vengono aggiornati nel corso del tempo fornendo nuove funzionalità e risolvendo eventuli problemi. Per aggiornare i pacchetti alla versione più recente è possibile eseguire il comando <code>update.packages()</code> senza inidare nulla tra le parentesi.</p>
+<p>In alternativa è possibile premere il pulsante <em>“Update”</em> nella barra in alto a sinistra del pannello Packages ( vedi Figura <a href="working-environment.html#fig:library-version">5.12</a>), indicando successivamente i pachetti che si desidera aggiornare. Nota come nella lista dei pacchetti venga riportata l’attuale versione alla voce <em>“Version”</em>.</p>
+<div class="figure" style="text-align: center"><span id="fig:library-version"></span>
+<img src="images/library-version.png" alt="Aggiornare i pacchetti" width="65%" />
+<p class="caption">
+Figure 5.12: Aggiornare i pacchetti
+</p>
+</div>
+<p>Nel caso in cui si vogli invece rimuover uno specifico pacchetto, è possibile eseguire il comando <code>remove.packages()</code> indicando tra le parentesi il nome del pacchetto.</p>
+<p>In alternativa è possibile premere il pulsante <code>x</code> alla destra del paccehettto nel pannello Packages come mostrao in Figura <a href="working-environment.html#fig:library-remove">5.13</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:library-remove"></span>
+<img src="images/library-remove.png" alt="Rimuovere un pacchetto" width="65%" />
+<p class="caption">
+Figure 5.13: Rimuovere un pacchetto
+</p>
+</div>
+</div>
+<div id="documantazione-pacchetti" class="section level3">
+<h3><span class="header-section-number">5.3.4</span> Documantazione Pacchetti</h3>
+<p>Ogni pacchetto include la documentazione delle proprie funzioni e delle <em>vignette</em> ovvero dei brevi tutorial che mostrano degli esempi di applicazione e utilizzo del pacchetto.</p>
+<ul>
+<li><p><strong>Documentazione funzione</strong> - Per accedere alla documentazione di una funzione è sufficiente utilizzare il comando <code>?&lt;nome-funzione&gt;</code> oppure <code>help(&lt;nome-funzione&gt;)</code>. Ricorda è necessario avere prima caricato il pacchetto altrimenti la funzione non risulta ancora disponibile. In alternativa si potrebbe estendere la ricerca utilizzando il comando <code>??</code>.</p></li>
+<li><p><strong>Vignette</strong> - Per ottenere la lista di tutte le vignette di un determinato pacchetto è possibile utilizzare il comando <code>browseVignettes(package = &lt;nome-pacchetto&gt;)'</code>. Mentre, per accedere ad una specifica vignetta, si utilizza il comando <code>vignette("&lt;name-vignetta&gt;")</code>.</p></li>
+<li><p><strong>Documentazione intero pacchetto</strong> - Premendo il nome del pacchetto dal pannello Packages in basso a destra, è possibile accedere alla lista di tutte le informazioni relative al pacchetto come riportato in Figura <a href="working-environment.html#fig:package-documentation">5.14</a>. Vengono prima forniti i link per le vignette ed altri file relativi alle caratteristiche del pacchetto. Successivamente sono presentate in ordine alfabetico tutte le funzioni.</p></li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:package-documentation"></span>
+<img src="images/package-documentation.png" alt="Documetazione del pacchetto car" width="65%" />
+<p class="caption">
+Figure 5.14: Documetazione del pacchetto car
+</p>
+</div>
+<p>Ricordate tuttavia che in ogni caso la più grande risorsa di informazioni è come sempre google. Spesso i pacchetti più importanti hanno addirittura un proprio sito in cui raccolgono molto materiale utile. Ma comunque in ogni caso in internet sono sempre disponibili moltissimi tutorial ed esempi.</p>
+<div class="design" title="Github">
+<p>Il CRAN non è l’unica risorsa da cui è possibile installare dei pacchetti di R tuttavia è quella ufficiale e garantisce un certo standard e stabilità dei pacchetti presenti. In internet esistono molte altre repository che raccolgono paccetti di R (e software in generale) tra cui una delle più popolari è certamente GitHub (<a href="https://github.com/" class="uri">https://github.com/</a>).</p>
+<p>Github viene utilizzato come piattaforma di sviluppo per molti pacchetti di R ed è quindi possibile trovarve le ultime versioni di sviluppo dei pacchetti con gli aggirnamenti più recenti o anche nuovi pacchetti non ancora disponibili sul CRAN. Va sottolineato tuttavia, come quete siano appunto delle versioni di sviluppo e quindi potrebbero presentare maggiori problemi. Inoltre per installare i pacchetti in questo modo, è richiesta l’installzione di <strong>R tools</strong> (vedi <em>“Approfondimento: R Tools”</em> nel Capitolo <a href="install.html#install-r">1.1</a>).</p>
+<p>Per installare un pacchetto direttamente da Github è posibile utilizzare il comando <code>install_github()</code> del pacchetto <code>devtools</code>, indicanto tra parentesi la l’url della repository desiderata.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="working-environment.html#cb34-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb34-2"><a href="working-environment.html#cb34-2"></a></span>
+<span id="cb34-3"><a href="working-environment.html#cb34-3"></a><span class="co"># ggplot2 il miglior pacchetto per grafici</span></span>
+<span id="cb34-4"><a href="working-environment.html#cb34-4"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;https://github.com/tidyverse/ggplot2&quot;</span>)</span></code></pre></div>
+</div>
+
+</div>
+</div>
+</div>
+<hr>
+<center>
+  <div class="footer">
+    Questo libro è rilasciato in accordo con <a href= "https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA</a>.
+    <br>
+    Le illustrazioni utilizzate appartengono a <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu-book</a> in accordo con <a href= "https://creativecommons.org/licenses/by-nc/2.0/">CC BY-NC</a>.
+    <br>
+    Per conoscere di più riguardo <span style="color: #8C3031; font-weight:bold"> Psicostat</span> e le nostre attività, visita <a href= "https://psicostat.dpss.psy.unipd.it/">https://psicostat.dpss.psy.unipd.it/</a>.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="objects-functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="working-session.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": true
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/psicostat/Introduction2R/edit/master/06-working-environment.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Introduction2R.pdf", "Introduction2R.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true,
+"toc_float": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
