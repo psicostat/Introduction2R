@@ -21,6 +21,13 @@ fig:file-system
 fig:current-wd
 fig:current-folder
 fig:set-wd
+fig:packages-process
+fig:packages-install
+fig:library-car
+fig:load-package
+fig:library-version
+fig:library-remove
+fig:package-documentation
 tab:table-vector-operators
 tab:table-matrix-operators
 tab:table-dataframe-operators
@@ -56,6 +63,10 @@ organizzazione-computer
 absolute-path-e-relative-path
 working-directory-in-r
 r-packages
+install.packages
+library
+aggiornare-e-rimuovere-pacchetti
+documantazione-pacchetti
 errors-and-warnings
 sessione-di-lavoro
 r-projects

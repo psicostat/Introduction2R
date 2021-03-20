@@ -176,7 +176,7 @@ load("Dati/My-data.Rda")
 ## Error in readChar(con, 5L, useBytes = TRUE): cannot open the connection
 ```
 
-Il messaggio di errore mi indica che R non è stato in grado di trovare il file seguendo le mie indicazioni. E' pertanto fondamentale essere sempre consapevoli di quale sia l'attuale working directory in cui si sta svolgendo la sessione di lavoro.
+Il messaggio di errore mi indica che R non è stato in grado di trovare il file seguendo le mie indicazioni. E' come se chiedessi al computer di aprire il frigo ma attualmente si trovasse in camera, devo prima dargli le indicazioni per raggiungere la cucina altrimenti mi risponderebbe *"frigo non trovato"*. Risulta pertanto fondamentale essere sempre consapevoli di quale sia l'attuale working directory in cui si sta svolgendo la sessione di lavoro. 
 
 Ovviamente otterrei lo stesso errore anche usando un absolute path se questo contenesse degli errori.
 :::
@@ -268,7 +268,7 @@ Nota come sia possibile nel digitare il path sfruttare l'autocompletamento. All'
 </center>
 <br>
 
-E' possibile inoltre utilizzare i caratteri speciali `"./"` e `"../"` per indicare rispettivamente l'attuale working directory e la cartella del livello superiore (i.e., *parent folder*) che include l'attuale working directory.
+E' possibile inoltre utilizzare i caratteri speciali `"./"` e `"../"` per indicare rispettivamente l'attuale working directory e la cartella del livello superiore (i.e., *parent folder*) che include l'attuale working directory. `"../"` ci permette quindi di navigare a ritroso dalla nostra attuale posizione tra le cartelle del computer.
 
 
 ```r
@@ -285,12 +285,136 @@ getwd()
 
 ## R-packages
 
-- scaricare
-- library
-- uso funzioni
-- aggiornare i pacchetti
+Uno dei grandi punti di forza di R è quella di poter estendere le proprie funzioni di base in modo semplice ed intuitivo utilizzando nuovi pacchetti. Al momento esistono oltre **17'000** pachetti disponibili gratuitamente sul CRAN (la repository ufficiale di R). Questi pacchetti sono stati sviluppati dall'immensa comunity di R per svolgere ogni sorta di compito. Si potrebbe dire quindi che in R ogni cosa sia possibile, basta trovare il giusto pacchetto (oppure crearlo!).
 
-- box tip per l'uso di ::
+Quando abbiamo installato R in automatico sono stati installati una serie di pacchetti che costituiscono la **system library**, ovvero tutti quei pacchetti di base che permettono il fuzionamento di R. Tuttavia, gli altri pacchetti non sono disponibili da subito. Per utilizzare le funzioni di altri pacchetti, è necessario seguire una procedura in due step come rappresentato in Figura \@ref(fig:packages-process):
+
+1. **Scaricare ed installare i pacchetti sul nostro computer**. I pacchetti sono disponibili gratuitamente online nella reopsitory del CRAN, una sorta di archivio. Vengono quindi scaricati ed installati nella nostra *library*, ovvero la raccolta di tutti i pacchetti di R disponibili sul nostro computer.
+
+2. **Caricare il paccheto nella sessione di lavoro**. Anche se il paccheto è installato nella nostra library non siamo ancora pronti per utilizzare le sue funzioni. Sarà necessario prima caricare il pacchetto nella nostra sessione di lavoro. Solo ora le funzionni del pacchetto saranno effetivamente disponibili per essere usate.
+
+<div class="figure" style="text-align: center">
+<img src="images/packages-process.png" alt="Utilizzare i paccheti in R" width="95%" />
+<p class="caption">(\#fig:packages-process)Utilizzare i paccheti in R</p>
+</div>
+
+Questo procedimento in due step potrebbe sembrare poco intuitivo. *"Perchè dover caricare qualcosa che è già installato?"* La risposta è molto semplice ci serve per mantenere efficiente e sotto controllo la nostra sessione di lavoro. Infatti non avremo mai bisogno di tutti i pacchetti installati ma a seconda dei compiti da eseguire utilizzeremo di volta in volta solo alcuni pacchetti specifici. Se tutti i pacchetti fossero caricati automaticamente ogni volta sarebbe un inutile spreco di memoria e si creerebbero facilmente dei conflitti. Ovvero, alcune funzioni di diversi pacchetti potrebbero avere lo stesso nome ma scopi diversi. Sarebbe quindi molto facile ottenere errori o comunque risultati non validi.
+
+Vediamo ora come eseguire queste operazioni in R.
+
+### install.packages()
+
+Per installare dei pacchetti dal CRAN nella nostra library è possibile eseguire il comando `install.packages()` indicando tra parentesi il nome del pacchetto desiderato.
+
+
+```r
+# Un ottimo pacchetto per le analisi statistiche di John Fox
+# un grandissimo statistico...per gli amici Jonny la volpe ;)
+install.packages("car")
+```
+
+In alternativa è possibile utilizzare il pulsante *"Install"* nella barra in alto a sinistra del pannello Packages ( vedi Figura \@ref(fig:packages-install)), indicando successivamente il nome del pacchetto desiderato.
+
+<div class="figure" style="text-align: center">
+<img src="images/packages-install.png" alt="Installare paccektti tramite interfacci RStudio" width="65%" />
+<p class="caption">(\#fig:packages-install)Installare paccektti tramite interfacci RStudio</p>
+</div>
+
+Nota come installare un pacchetto potrebbe comportare l'installazione di più pacchetti. Questo perchè verranno automaticamente installate anche le *dependencies* del pacchetto, ovverro, tutti i pacchetti usati internamente dal pacchetto di interesse che quindi necessari per il suo corretto funzionaemnto (come in un gioco di matrioske).
+
+Una volta installato il pacchetto, questo comarirà nella library ovvero la lista dei pacchetti disponibili mostrata nel pannello Packages (vedi Figura \@ref(fig:library-car)).
+
+<div class="figure" style="text-align: center">
+<img src="images/library-car.png" alt="Il pacchetto car è ora disponibile nella library" width="65%" />
+<p class="caption">(\#fig:library-car)Il pacchetto car è ora disponibile nella library</p>
+</div>
+
+### library()
+
+Per utilizzare le funzioni di un pacchetto già presente nella notra library, dobbiamo ora caricarlo nella nostra sessione di lavoro. Per fare ciò, posssiamo utilizzare il comando `library()` indicando tra parentesi il nome del pacchetto richiesto.
+
+
+```r
+library(car)
+```
+
+In alternativa è possibile spuntare il riquadro alla sinistra del nome del pacchetto dal pannello Packages come mostrato in Figura \@ref(fig:load-package). Nota tuttavia come questa procedura sia sconsigliata. Infatti, ogni azione punta-e-clicca dovrebbe essere eseguita ad ogni sessione mentre l'utilizzo di comandi inclusi nello script garantisce la loro esecuzione automatica.
+
+<div class="figure" style="text-align: center">
+<img src="images/load-package.png" alt="Caricare un pacchetto nella sessione di lavoro" width="65%" />
+<p class="caption">(\#fig:load-package)Caricare un pacchetto nella sessione di lavoro</p>
+</div>
+
+Ora siamo finalmente pronti per utilizzare le funzioni del pacchetto nella nostra sessione di lavro.
+
+:::{.trick title="package::function()" data-latex="[package::function()]"}
+Esiste un piccolo trucco per utilizzare la funzione di uno specifico pacchetto senza dover caricare il pacchetto nella propria sessione. Per fare questo è possibile usare la sintassi:
+
+
+```r
+<nome-pacchetto>::<nome-funzione>()
+
+# Esempio con la funzione Anova del pacchetto car
+car::Anova()
+```
+
+L'utilizzo dei `::` ci permette di richiamare direttamente la funzione desiderata. La differennza tra l'uso di `library()` e l'uso di `::` riguarda aspetti abbastanza avanzati di R (per un approfondimento vedi <https://r-pkgs.org/namespace.html>). In estrema sintesi, possiamo dire che in alcuni casi è preferibile non caricare un'intero pacchetto se di questo abbiamo bisogno di un'unica funzione.
+:::
+
+### Aggiornare e Rimuovere Pacchetti
+
+Anche i pacchettti come ogni altro software vengono aggiornati nel corso del tempo fornendo nuove funzionalità e risolvendo eventuli problemi. Per aggiornare i pacchetti alla versione più recente è possibile eseguire il comando `update.packages()` senza inidare nulla tra le parentesi.
+
+In alternativa è possibile premere il pulsante *"Update"* nella barra in alto a sinistra del pannello Packages ( vedi Figura \@ref(fig:library-version)), indicando successivamente i pachetti che si desidera aggiornare. Nota come nella lista dei pacchetti venga riportata l'attuale versione alla voce *"Version"*. 
+
+<div class="figure" style="text-align: center">
+<img src="images/library-version.png" alt="Aggiornare i pacchetti" width="65%" />
+<p class="caption">(\#fig:library-version)Aggiornare i pacchetti</p>
+</div>
+
+Nel caso in cui si vogli invece rimuover uno specifico pacchetto, è possibile eseguire il comando `remove.packages()` indicando tra le parentesi il nome del pacchetto.
+
+In alternativa è possibile premere il pulsante `x` alla destra del paccehettto nel pannello Packages come mostrao in Figura \@ref(fig:library-remove).
+
+<div class="figure" style="text-align: center">
+<img src="images/library-remove.png" alt="Rimuovere un pacchetto" width="65%" />
+<p class="caption">(\#fig:library-remove)Rimuovere un pacchetto</p>
+</div>
+
+
+### Documantazione Pacchetti
+
+Ogni pacchetto include la documentazione delle proprie funzioni e delle *vignette* ovvero dei brevi tutorial che mostrano degli esempi di applicazione e utilizzo del pacchetto.
+
+- **Documentazione funzione** - Per accedere alla documentazione di una funzione è sufficiente utilizzare il comando `?<nome-funzione>` oppure `help(<nome-funzione>)`. Ricorda è necessario avere prima caricato il pacchetto altrimenti la funzione non risulta ancora disponibile. In alternativa si potrebbe estendere la ricerca utilizzando il comando `??`.
+
+- **Vignette** - Per ottenere la lista di tutte le vignette di un determinato pacchetto è possibile utilizzare il comando `browseVignettes(package = <nome-pacchetto>)'`. Mentre, per accedere ad una specifica vignetta, si utilizza il comando `vignette("<name-vignetta>")`.
+
+- **Documentazione intero pacchetto** - Premendo il nome del pacchetto dal pannello Packages in basso a destra, è possibile accedere alla lista di tutte le informazioni relative al pacchetto come riportato in Figura \@ref(fig:package-documentation). Vengono prima forniti i link per le vignette ed altri file relativi alle caratteristiche del pacchetto. Successivamente sono presentate in ordine alfabetico tutte le funzioni. 
+
+<div class="figure" style="text-align: center">
+<img src="images/package-documentation.png" alt="Documetazione del pacchetto car" width="65%" />
+<p class="caption">(\#fig:package-documentation)Documetazione del pacchetto car</p>
+</div>
+
+
+
+:::{.design title="Github" data-latex="[Github]"}
+Il CRAN non è l'unica risorsa da cui è possibile installare dei pacchetti di R tuttavia è quella ufficiale e garantisce un certo standard e stabilità dei pacchetti presenti. In internet esistono molte altre repository che raccolgono paccetti di R (e software in generale) tra cui una delle più popolari è certamente GitHub (<https://github.com/>).
+
+Github viene utilizzato come piattaforma di sviluppo per molti pacchetti di R ed è quindi  possibile trovarve le ultime versioni di sviluppo dei pacchetti con gli aggirnamenti più recenti o anche nuovi pacchetti non ancora disponibili sul CRAN. Va sottolineato tuttavia, quete siano appunto delle versioni di sviluppo e quindi potrebbero presentare maggiori problemi.
+
+Per installare un pacchetto direttamente da Github è posibile utilizzare il comando `install_github()` del pacchetto `devtools`, indicanto tra parentesi la l'url della repository desiderata.
+
+
+```r
+install.packages("devtools")
+
+# ggplot2 il miglior pacchetto per grafici
+devtools::install_github("https://github.com/tidyverse/ggplot2")
+```
+:::
+
 
 ## Errors and warnings
 

@@ -272,6 +272,12 @@ Il formato e le informazioni presenti nella pagina seguono delle norme comuni ma
 - **See Also** - Eventuali link ad altre funzioni simili o in relazione con la nostra funzione
 - **Examples** - Esempi di uso della funzione
 
+#### Ricerca per Parola {-}
+
+Quando non si conosce esattamente il nome di una funzione o si vuole cercare tutte le funzioni e pagine che includono una certa parola, è possibile utilizzare il comando `??<parola>` oppure `help.search(<parola>)`.
+
+R eseguirà una ricerca tra tutta la documentazione disponibile è fornirà un elenco delle pagine che contengono la parola desiderata nel titolo o tra le  keywords.
+
 
 :::{.trick title="Autocompletamento with 'Tab'" data-latex="[Autocompletamento with 'Tab']"}
 La natura dei programmatori è essere pigri e smemorati. Per fortuna ogni *code editor* che si rispetti (i.e., programma per la scrittura di codici) possiede delle utli funzioni di autocompletamento e suggerimento dei comandi che semplificano la scrittura di codici. 
