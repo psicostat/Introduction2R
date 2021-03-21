@@ -6,23 +6,112 @@ knitr::opts_chunk$set(
   collapse=TRUE,
   fig.align="center"
 )
+
+if (knitr::is_html_output()) {
+  out_extra <- 'style="background-color: #999999; padding:2px"'
+}
+if (knitr::is_latex_output()) {
+  out_extra <- NULL
+}
 ```
 
-In questo capitolo, disuteremo di alcuni aspetti generali delle sessioni di lavoro in R. Descriveremo delle buone abitudini riguardanti l'organizzazione degli scripts e l'uso degli *RStudio Projects* per essere ordinati ed efficaci nel proprio lavoro. Infine vedremo l'uso dei messaggi di R ed in particolare come comportarsi in caso di errori.
+In questo capitolo, discuteremo di alcuni aspetti generali delle sessioni di lavoro in R. Descriveremo delle buone abitudini riguardanti l'organizzazione degli scripts e l'uso degli *RStudio Projects* per essere ordinati ed efficaci nel proprio lavoro. Infine approfondiremo l'uso dei messaggi di R ed in particolare come comportarsi in caso di errori.
 
-## Sessione di Lavoro
+## Organizzazione Script
 
-Cerchiamo di capire quali sono delle buone abitudini per gestire le proprie sessioni di lavoro
-- pulizia script
-- Salvare script
-- commenti 
-- sezioni script
-- settings
+Abbiamo visto che idealmente tutti i passaggi delle nostre analisi devono essere raccolti in modo ordinato all'interno di uno script. Eseguendo in ordine linea per linea i comandi, dovrebbe essere possibile svolgere tutte le analisi fino ad ottenere i risultati desiderati.
+
+Vediamo ora una serie di buone regole per organizzare in modo ordinato il codice all'interno di uno script e facilitare la sua lettura.
+
+### Creare delle Sezioni
+
+Per mantenere chiara l'oreganizzazione degli script e facilitare la sua comprensione, è utile suddividere il codice in sezioni dove vengono eseguiti i diversi step delle analisi. In RStudio è possibile creare una sezione aggiungendo al termine di una linea di commento i caratteri `####` o `----`. Il testo del commento verrà considerao il titolo della sezione e comparirà una piccola freccia a lato del numero di riga. E' possibile utilizzare a piacere i caratteri `#` o `-` per creare lo stile desiderato, l'importante è che la linea si concluda con almeno quattro caratteri identici.
+
+
+```{r, echo = TRUE}
+# Sezione 1 ####
+
+# Sezione 2 ----
+
+#----    Sezione 3    ----
+
+####   Sezione non valida   --##
+
+```
+
+A titolo del tutto esemplificativo prendiamo in esempio la divisione in sezioni utilizzata nello script in Figura \@ref(fig:script-template).
+
+```{r, script-template, fig.cap="Esempio di suddivisione in sezioni di uno script", out.width="85%", out.extra=out_extra}
+knitr::include_graphics("images/script-template.png")
+```
+
+- **Titolo** - Un titolo esplicativo del contenuto dello script. E' possibile utilizzare altri caratteri all'interno dei commenti per creare l'effetto desiderato.
+- **Intorduzione** - Descrizione e utili informazioni che riguardano sia l'obbiettivo del lavoro che l'esecuzione del codice (e.g., dove sono disponibili i dati, eventuali specifiche tecniche). Potrebbe essere utile anche indicare l'autore e la data del lavoro.
+- **Setting** -  Sezione fondamentale in cui si predispone l'abiente di lavoro. Le operazioni da svolgere sono:
+  1. `rm(list = ls())` per pulire l'Environment da eventuali oggetti in modo da eseguire lo script partendo da un ambiente vuoto (vedi Capitolo \@ref(environment)).
+  2. `setwd()` per settare la working directory per assicuraci che i comandi siano eseguiti dalla  correttta posizione nel nostro computer (vedi Capitolo \@ref(working-directory)).
+  3. `library()` per caricare i pacchetti utilizzati nel corso delle analisi (vedi Capitolo \@ref(packages)).
+- **Caricare e Pulire i Dati** - Generica sezione in cui eseguire l'importazione e pulizia dei dati.
+- **Codifica e Scoring dei Dati** - Generica sezione in cui eseguire la codifica ed eventuale scoring dei dati.
+- **Analisi Descrittive** - Generica sezione in cui eseguire le analisi descrittive.
+- **Analisi Inferenziali** - Generica sezione in cui eseguire le analisi inferenziali
+
+Oltre che a mantenere ordinato e chiaro il codice, suddividere il proprio script in sezioni ci permette anche di navigare facilmente tra le diverse parti del codice. Possiamo infatti sfruttare l'indice che automaticamente viene creato. L'indice è consultabile premendo il tasto in alto a destra dello script da cui successivamente selezionare la sezione desiderata (vedi Figura \@ref(fig:toc-side)).
+
+```{r, toc-side, fig.cap="Indice in alto per navigazione sezioni", out.width="85%", out.extra=out_extra}
+knitr::include_graphics("images/toc-side.png")
+```
+
+In alternativa, è possibile utilizzare il menù in basso a sinistra dello script (vedi Figura \@ref(fig:toc-bottom)).
+
+```{r, toc-bottom, fig.cap="Menù in basso per navigazione sezioni", out.width="85%", out.extra=out_extra}
+knitr::include_graphics("images/toc-bottom.png")
+```
+
+Infine, un altro vantaggio è quello di poter compattare o espandere le sezioni di codice all'interno dell'editor, utilizzando le frecce a lato del numero di riga (vedi Figura \@ref(fig:section-closed)).
+
+```{r, section-closed, fig.cap="Compattare ed espandere le sezioni di codice", out.width="85%", out.extra=out_extra}
+knitr::include_graphics("images/section-closed.png")
+```
+
+### Sintassi
+
+Elenchiamo qui altre buone norme nella scrittura del codice che ne facilitano la comprensione.
+
+#### Commenti {-}
+
+L'uso dei commenti è molto importante, ci permette di documentare le varie parti del codice e chiarire eventuli comandi difficili da capire. Tuttavia, non è necessario commentare ogni singola riga di codice ed anzi è meglio evitare di commentare laddove i comandi sono facilemtne interpetabili semplicemnte leggendo il codice.
+
+La capacità di scrivere commenti utili ed eviare quelli rindondanti si impara con l'esperienza. In generale un commento non dovrebbe indicare *"che cosa"* ma piuttosto il *"perchè"* di quella parte di codice. Infatti il cosa è facilmente interpretabile dal codice stesso mentre il perchè potrebbe essere meno ovvio e soprattutto più utile per la comprensione dell'intero script. Ad esempio:
+```{r, echo = TRUE, eval=FALSE}
+x <- 10 # assegno a x il valore 10
+x <- 10 # definisco massimo numero risposte
+```
+Il primo commento è inutile poichè è facilmente comprensibile dal codice stesso, mentre il secondo commento è motlo utile perchè chiarisce il significato della variabile e mi faciliterà nella comprensione del codice. 
+
+#### Spazie, Indentazione ed allineamento {-}
+
+In quasi tutti i linguaggi di programmazione gli spazi sono ignorati
+R a differenza di altri linguaggi di programmazione non è 
+
+#### Nomi Oggetti {-}
+#### Esplicitare Argomenti {-}
+
+Un'altra buona norma per mantenere 
 - sintassi (gli spazi e gli indent corretti alineamenti)
-- idea di organizzare in vairi script, cartelle
+- pulizia script
+- comments
+- nomi informativi (snake_case)
+- funzioni esspliciti
+
 
 ## R projects
 
+### Più di uno script
+
+- idea di organizzare in vairi script, cartelle
+
+- working directory tutto in funzione alla cartella
 
 ## Messages, Warnings e Errors
 
