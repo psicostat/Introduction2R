@@ -176,11 +176,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="objects-functions.html"><a href="objects-functions.html"><i class="fa fa-check"></i><b>4</b> Due Compagni Inseparabili</a><ul>
 <li class="chapter" data-level="4.1" data-path="objects-functions.html"><a href="objects-functions.html#objects-section"><i class="fa fa-check"></i><b>4.1</b> Oggetti</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="objects-functions.html"><a href="objects-functions.html#assegnare-e-richiamare-un-oggetto"><i class="fa fa-check"></i><b>4.1.1</b> Assegnare e Richiamare un oggetto</a></li>
-<li class="chapter" data-level="4.1.2" data-path="objects-functions.html"><a href="objects-functions.html#nomi-degli-oggetti"><i class="fa fa-check"></i><b>4.1.2</b> Nomi degli oggetti</a></li>
+<li class="chapter" data-level="4.1.2" data-path="objects-functions.html"><a href="objects-functions.html#objects-names"><i class="fa fa-check"></i><b>4.1.2</b> Nomi degli oggetti</a></li>
 <li class="chapter" data-level="4.1.3" data-path="objects-functions.html"><a href="objects-functions.html#tipologie-dati-e-strutture-dati"><i class="fa fa-check"></i><b>4.1.3</b> Tipologie Dati e Strutture Dati</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="objects-functions.html"><a href="objects-functions.html#functions-def"><i class="fa fa-check"></i><b>4.2</b> Funzioni</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#argomenti-di-una-funzione"><i class="fa fa-check"></i><b>4.2.1</b> Argomenti di una Funzione</a></li>
+<li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#function-arguments"><i class="fa fa-check"></i><b>4.2.1</b> Argomenti di una Funzione</a></li>
 <li class="chapter" data-level="4.2.2" data-path="objects-functions.html"><a href="objects-functions.html#help-i-need-somebodyhelp"><i class="fa fa-check"></i><b>4.2.2</b> Help! I need Somebody…Help!</a></li>
 </ul></li>
 </ul></li>
@@ -344,7 +344,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>La decisione su quale operatore adottare è comunque libera, ma ricorda che una buona norma nella programmazione riguarda la <em>consistenza</em>: una volta presa una decisione è bene mantenerla per facilitare la comprensione del codice.</p>
 </div>
 </div>
-<div id="nomi-degli-oggetti" class="section level3">
+<div id="objects-names" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> Nomi degli oggetti</h3>
 <p>La scelta dei nomi degli oggetti sembra un aspetto secondario ma invece ha una grande importanza per facilitare la chiarezza e la comprensione dei codici.</p>
 <p>Ci sono alcune regole che discriminano nomi validi da nomi non validi. Il nome di un oggetto:</p>
@@ -367,7 +367,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Inoltre, il nome ideale di un oggetto dovrebbe essere:</p>
 <ul>
 <li><strong>auto-descrittivo</strong>: dal solo nome dovrebbe essere possibile intuire il contenuto dell’oggetto. Un nome generico quale <code>x</code> o <code>y</code> ci sarebbero di poco aiuto poichè potrebbero contenere qualsiasi informazione. Invece un nome come <code>weight</code> o <code>gender</code> ci suggerirebbe chiaramente il contenuto dell’oggetto (e.g., il peso o il gender dei partecipanti del nostro studio).</li>
-<li><strong>della giusta lunghezza</strong>: non deve essere ne troppo breve (evitare sigle incomprensibili) ne neppure troppo lunghi. La lunghezza corretta è quella che permette al nome di esssere sufficientemente informativo senza aggiungere inutili dettagli. In genere sono sufficienti 2 o 3 parole.</li>
+<li><strong>della giusta lunghezza</strong>: non deve essere ne troppo breve (evitare sigle incomprensibili) ma neppure troppo lunghi. La lunghezza corretta è quella che permette al nome di esssere sufficientemente informativo senza aggiungere inutili dettagli. In genere sono sufficienti 2 o 3 parole.</li>
 </ul>
 <div class="design" title="CamelCase vs snake_case">
 <p>Spesso più parole sono usate per ottenere un nome sufficientemente chiaro. Dato che però non è possibile includere spazi in un nome, nasce il problema di come unire più parole senza che il nome diventi incomprensibile, ad esempio <code>mediatestcontrollo</code>.</p>
@@ -426,7 +426,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="objects-functions.html#cb9-1"></a><span class="co"># creo una sequenza di valori da 0 a 10 con incrementi di 1</span></span>
 <span id="cb9-2"><a href="objects-functions.html#cb9-2"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">10</span>)</span>
 <span id="cb9-3"><a href="objects-functions.html#cb9-3"></a><span class="co">##  [1]  0  1  2  3  4  5  6  7  8  9 10</span></span></code></pre></div>
-<div id="argomenti-di-una-funzione" class="section level3">
+<div id="function-arguments" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Argomenti di una Funzione</h3>
 <p>Nel definire gli argomenti di una funzione non è necessario specificare il nome degli argomenti. Ad esempio il comando precedente può essere eseguito anche specificando solamente i valori.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="objects-functions.html#cb10-1"></a><span class="co"># creo una sequenza di valori da 0 a 10 con incrementi di 1</span></span>

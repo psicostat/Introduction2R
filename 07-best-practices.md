@@ -82,23 +82,134 @@ x <- 10 # definisco massimo numero risposte
 ```
 Il primo commento è inutile poichè è facilmente comprensibile dal codice stesso, mentre il secondo commento è motlo utile perchè chiarisce il significato della variabile e mi faciliterà nella comprensione del codice. 
 
-#### Spazie, Indentazione ed allineamento {-}
-
-In quasi tutti i linguaggi di programmazione gli spazi sono ignorati
-R a differenza di altri linguaggi di programmazione non è 
-
 #### Nomi Oggetti {-}
+
+Abbiamo visto nel Capitolo \@ref(objects-names) le regole che discriminano nomi validi da nomi non validi e le convenzioni da seguire nella definizione di un nome. Ricordiamo qui le caratterisiche che un nome deve avere per facilitare la comprensione del codice. Il nome di un oggetto deve essere:
+
+- **auto-descrittivo** - Dal solo nome dovrebbe essere possibile intuire il contenuto dell'oggetto. E' meglio quindi evitare nomi generici (quali `x` o `y`) ed utilizzare invece nomi che chiaramente descrivano il contenuto dell'oggetto.
+- **della giusta lunghezza** - Non deve essere ne troppo breve (evitare sigle incomprensibili) ma neppure troppo lunghi. In genere sono sufficienti 2 o 3 parole per descrivere chiaramente un oggetto.
+
+E' inoltre importante essere **consistenti** nella scelta dello stile con cui si nominano le variabili. In genere è preferibile usare lo **snake_case** rispetto al **CamelCase**, ma la scelta è comunque libera. Tuttavia, una volta presa una decisione, è bene mantenerla per facilitare la comprensione del codice.
+
 #### Esplicitare Argomenti {-}
 
-Un'altra buona norma per mantenere 
-- sintassi (gli spazi e gli indent corretti alineamenti)
-- pulizia script
-- comments
-- nomi informativi (snake_case)
-- funzioni esspliciti
+Abbiamo visto nel Capitolo \@ref(function-arguments) l'importanza di esplicitare il nome degli argomenti quando vengono utilizzati nelle funzioni. Specificando a che cosa si riferiscono i vari valori facilitiamo la lettura e la comprensione del codice. Ad esempio:
 
+
+```r
+seq(0, 10, 2)
+```
+
+Potrebbe non essere chiaro se intendiamo una sequennza tra 0 e 10 di lunghezza 2 o a intervalli di 2. Specificando gli argomenti evitiamo incomprensioni e possibili errori.
+
+
+```r
+seq(from = 0, to = 10, by = 2)
+seq(from = 0, to = 10, length.out = 2)
+```
+
+#### Spazi, Indentazione ed allineamento {-}
+
+Al contrario di molti altri software, R non impone regole severe nell'utilizzo di spazi, indentazioni ed allineamenti ed in genere è molto permissivo per quanto riguarda la sintassi del codice. Tuttavia è importante ricordare che:
+
+> Good coding style is like using correct punctuation. You can manage without it, but it sure makes things easier to read. Hadley Wickham
+
+Prendiamo ad esempio le seguenti linee di codice, che includono delle funzioni avanzate di R:
+
+
+```r
+# Stile 1
+k=10;if(k<5){x<-5:15}else{x<-seq(0,16,4)};y=7*2-12;mean(x/y)
+## [1] 4
+
+# Stile 2
+k <-  10
+
+if (k < 5){
+  x <- 5:15
+} else {
+  x<-seq(from = 0, to = 16, by = 4)
+}
+
+y <- 7 * 2 - 12
+
+mean(x / y)
+## [1] 4
+```
+
+Come puoi notare otteniamo in entrambi i casi gli stessi risultati, per R non c'è alcuna differenza. Tuttavia, l'uso di spazi, una corretta indentazione ed un appropriato allineamento facilita la lettura e comprensione del codice.
+
+In genere sono valide le seguenti norme:
+
+- Aggiungi degli **spazi** intorno agli operatori (`+`, `-`, `<-`, etc.) per separargli dagli argomenti ad eccezione di `:`.
+
+```r
+# Good
+35 / 5 + 7
+x <- 0:10
+
+# Bad
+35/5+7
+x<-0 : 10
+```
+
+- Nelle funzioni aggiungi degli **spazi** intorno al simbolo `=` che separa il nome degli argomenti e il loro valore. Aggiungi uno spazio dopo ogni virogola ma non separare il nome della funzione dalla parentesi sinistra.
+
+```r
+# Good
+seq(from = 0, to = 10, by = 2)
+
+# Bad
+seq (from=0,to=10,by=2)
+```
+
+- Usa la corretta **indentazione** per i blocchi di codice posti all'interno delle parentesi graffe. Il livello  di indentazione deve rispecchiare la struttura di  annidamento del codice.
+
+```r
+# Good
+for (...) {       # loop più esterno
+  ...
+  for (...) {     # loop interno
+    ...
+    if (...) {    # isruzione condizionale
+      ...
+    }
+  }
+}
+
+# Bad
+for (...) {       # loop più esterno
+...
+for (...) {     # loop interno
+...
+if (...) {    # isruzione condizionale
+...
+}
+}
+}
+```
+- **Allinea** gli argomenti di una funzione se questi spaziano più righe.
+
+```r
+# Good
+data.frame(id = ...,
+           name = ...,
+           age = ...,
+           sex = ...)
+
+# Bad
+data.frame(id = ..., name = ...,
+age = ..., sex = ...)
+```
+
+
+:::{.design title="Tutta una Questione di Stile" data-latex="[Tutta una Questione di Stile]"}
+Potente trovare  ulteriori norme e consigli riguardo lo stile nella scrittura del codice al seguente link <https://irudnyts.github.io/r-coding-style-guide/>
+:::
 
 ## R projects
+
+TODO
 
 ### Più di uno script
 

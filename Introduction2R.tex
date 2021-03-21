@@ -686,6 +686,18 @@ L'utilizzo dei commenti è molto importante nel caso di script complessi poichè
 
 \end{tip}
 
+\begin{design}[Creare e Salvare uno Script]
+
+Per creare un nuovo script è sufficiente premere il pulsante in alto a sinistra come mostrato in Figura e selezionare \emph{``R Script''}.
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/script-new.png}
+
+Unn nuovo script senza nome verrà creato. Per salvare lo script premere l'icona del floppy e indicare il nome. Ricorda di usare l'estensione ``\textbf{.R}'' per salvare gli script.
+
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/script-save.png}
+
+\end{design}
+
 \hypertarget{environment-e-history-la-sessione-di-lavoro}{%
 \subsubsection*{3. Environment e History: la sessione di lavoro}\label{environment-e-history-la-sessione-di-lavoro}}
 \addcontentsline{toc}{subsubsection}{3. Environment e History: la sessione di lavoro}
@@ -1204,8 +1216,8 @@ La decisione su quale operatore adottare è comunque libera, ma ricorda che una 
 
 \end{design}
 
-\hypertarget{nomi-degli-oggetti}{%
-\subsection{Nomi degli oggetti}\label{nomi-degli-oggetti}}
+\hypertarget{objects-names}{%
+\subsection{Nomi degli oggetti}\label{objects-names}}
 
 La scelta dei nomi degli oggetti sembra un aspetto secondario ma invece ha una grande importanza per facilitare la chiarezza e la comprensione dei codici.
 
@@ -1248,7 +1260,7 @@ Inoltre, il nome ideale di un oggetto dovrebbe essere:
 \item
   \textbf{auto-descrittivo}: dal solo nome dovrebbe essere possibile intuire il contenuto dell'oggetto. Un nome generico quale \texttt{x} o \texttt{y} ci sarebbero di poco aiuto poichè potrebbero contenere qualsiasi informazione. Invece un nome come \texttt{weight} o \texttt{gender} ci suggerirebbe chiaramente il contenuto dell'oggetto (e.g., il peso o il gender dei partecipanti del nostro studio).
 \item
-  \textbf{della giusta lunghezza}: non deve essere ne troppo breve (evitare sigle incomprensibili) ne neppure troppo lunghi. La lunghezza corretta è quella che permette al nome di esssere sufficientemente informativo senza aggiungere inutili dettagli. In genere sono sufficienti 2 o 3 parole.
+  \textbf{della giusta lunghezza}: non deve essere ne troppo breve (evitare sigle incomprensibili) ma neppure troppo lunghi. La lunghezza corretta è quella che permette al nome di esssere sufficientemente informativo senza aggiungere inutili dettagli. In genere sono sufficienti 2 o 3 parole.
 \end{itemize}
 
 \begin{design}[CamelCase vs snake\_case]
@@ -1346,8 +1358,8 @@ Ad esempio per creare una sequenza di valori con incrementi di 1 posso usare la 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{argomenti-di-una-funzione}{%
-\subsection{Argomenti di una Funzione}\label{argomenti-di-una-funzione}}
+\hypertarget{function-arguments}{%
+\subsection{Argomenti di una Funzione}\label{function-arguments}}
 
 Nel definire gli argomenti di una funzione non è necessario specificare il nome degli argomenti. Ad esempio il comando precedente può essere eseguito anche specificando solamente i valori.
 
@@ -2179,30 +2191,177 @@ La capacità di scrivere commenti utili ed eviare quelli rindondanti si impara c
 
 Il primo commento è inutile poichè è facilmente comprensibile dal codice stesso, mentre il secondo commento è motlo utile perchè chiarisce il significato della variabile e mi faciliterà nella comprensione del codice.
 
-\hypertarget{spazie-indentazione-ed-allineamento}{%
-\subsubsection*{Spazie, Indentazione ed allineamento}\label{spazie-indentazione-ed-allineamento}}
-\addcontentsline{toc}{subsubsection}{Spazie, Indentazione ed allineamento}
-
-In quasi tutti i linguaggi di programmazione gli spazi sono ignorati
-R a differenza di altri linguaggi di programmazione non è
-
 \hypertarget{nomi-oggetti}{%
 \subsubsection*{Nomi Oggetti}\label{nomi-oggetti}}
 \addcontentsline{toc}{subsubsection}{Nomi Oggetti}
+
+Abbiamo visto nel Capitolo \ref{objects-names} le regole che discriminano nomi validi da nomi non validi e le convenzioni da seguire nella definizione di un nome. Ricordiamo qui le caratterisiche che un nome deve avere per facilitare la comprensione del codice. Il nome di un oggetto deve essere:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{auto-descrittivo} - Dal solo nome dovrebbe essere possibile intuire il contenuto dell'oggetto. E' meglio quindi evitare nomi generici (quali \texttt{x} o \texttt{y}) ed utilizzare invece nomi che chiaramente descrivano il contenuto dell'oggetto.
+\item
+  \textbf{della giusta lunghezza} - Non deve essere ne troppo breve (evitare sigle incomprensibili) ma neppure troppo lunghi. In genere sono sufficienti 2 o 3 parole per descrivere chiaramente un oggetto.
+\end{itemize}
+
+E' inoltre importante essere \textbf{consistenti} nella scelta dello stile con cui si nominano le variabili. In genere è preferibile usare lo \textbf{snake\_case} rispetto al \textbf{CamelCase}, ma la scelta è comunque libera. Tuttavia, una volta presa una decisione, è bene mantenerla per facilitare la comprensione del codice.
 
 \hypertarget{esplicitare-argomenti}{%
 \subsubsection*{Esplicitare Argomenti}\label{esplicitare-argomenti}}
 \addcontentsline{toc}{subsubsection}{Esplicitare Argomenti}
 
-Un'altra buona norma per mantenere
-- sintassi (gli spazi e gli indent corretti alineamenti)
-- pulizia script
-- comments
-- nomi informativi (snake\_case)
-- funzioni esspliciti
+Abbiamo visto nel Capitolo \ref{function-arguments} l'importanza di esplicitare il nome degli argomenti quando vengono utilizzati nelle funzioni. Specificando a che cosa si riferiscono i vari valori facilitiamo la lettura e la comprensione del codice. Ad esempio:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Potrebbe non essere chiaro se intendiamo una sequennza tra 0 e 10 di lunghezza 2 o a intervalli di 2. Specificando gli argomenti evitiamo incomprensioni e possibili errori.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{0}\NormalTok{, }\DataTypeTok{to =} \DecValTok{10}\NormalTok{, }\DataTypeTok{by =} \DecValTok{2}\NormalTok{)}
+\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{0}\NormalTok{, }\DataTypeTok{to =} \DecValTok{10}\NormalTok{, }\DataTypeTok{length.out =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{spazi-indentazione-ed-allineamento}{%
+\subsubsection*{Spazi, Indentazione ed allineamento}\label{spazi-indentazione-ed-allineamento}}
+\addcontentsline{toc}{subsubsection}{Spazi, Indentazione ed allineamento}
+
+Al contrario di molti altri software, R non impone regole severe nell'utilizzo di spazi, indentazioni ed allineamenti ed in genere è molto permissivo per quanto riguarda la sintassi del codice. Tuttavia è importante ricordare che:
+
+\begin{quote}
+Good coding style is like using correct punctuation. You can manage without it, but it sure makes things easier to read. Hadley Wickham
+\end{quote}
+
+Prendiamo ad esempio le seguenti linee di codice, che includono delle funzioni avanzate di R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Stile 1}
+\NormalTok{k=}\DecValTok{10}\NormalTok{;}\ControlFlowTok{if}\NormalTok{(k}\OperatorTok{<}\DecValTok{5}\NormalTok{)\{x<-}\DecValTok{5}\OperatorTok{:}\DecValTok{15}\NormalTok{\}}\ControlFlowTok{else}\NormalTok{\{x<-}\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{16}\NormalTok{,}\DecValTok{4}\NormalTok{)\};y=}\DecValTok{7}\OperatorTok{*}\DecValTok{2-12}\NormalTok{;}\KeywordTok{mean}\NormalTok{(x}\OperatorTok{/}\NormalTok{y)}
+\CommentTok{## [1] 4}
+
+\CommentTok{# Stile 2}
+\NormalTok{k <-}\StringTok{  }\DecValTok{10}
+
+\ControlFlowTok{if}\NormalTok{ (k }\OperatorTok{<}\StringTok{ }\DecValTok{5}\NormalTok{)\{}
+\NormalTok{  x <-}\StringTok{ }\DecValTok{5}\OperatorTok{:}\DecValTok{15}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{  x<-}\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{0}\NormalTok{, }\DataTypeTok{to =} \DecValTok{16}\NormalTok{, }\DataTypeTok{by =} \DecValTok{4}\NormalTok{)}
+\NormalTok{\}}
+
+\NormalTok{y <-}\StringTok{ }\DecValTok{7} \OperatorTok{*}\StringTok{ }\DecValTok{2} \OperatorTok{-}\StringTok{ }\DecValTok{12}
+
+\KeywordTok{mean}\NormalTok{(x }\OperatorTok{/}\StringTok{ }\NormalTok{y)}
+\CommentTok{## [1] 4}
+\end{Highlighting}
+\end{Shaded}
+
+Come puoi notare otteniamo in entrambi i casi gli stessi risultati, per R non c'è alcuna differenza. Tuttavia, l'uso di spazi, una corretta indentazione ed un appropriato allineamento facilita la lettura e comprensione del codice.
+
+In genere sono valide le seguenti norme:
+
+\begin{itemize}
+\tightlist
+\item
+  Aggiungi degli \textbf{spazi} intorno agli operatori (\texttt{+}, \texttt{-}, \texttt{\textless{}-}, etc.) per separargli dagli argomenti ad eccezione di \texttt{:}.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\DecValTok{35} \OperatorTok{/}\StringTok{ }\DecValTok{5} \OperatorTok{+}\StringTok{ }\DecValTok{7}
+\NormalTok{x <-}\StringTok{ }\DecValTok{0}\OperatorTok{:}\DecValTok{10}
+
+\CommentTok{# Bad}
+\DecValTok{35}\OperatorTok{/}\DecValTok{5}\OperatorTok{+}\DecValTok{7}
+\NormalTok{x<-}\DecValTok{0} \OperatorTok{:}\StringTok{ }\DecValTok{10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Nelle funzioni aggiungi degli \textbf{spazi} intorno al simbolo \texttt{=} che separa il nome degli argomenti e il loro valore. Aggiungi uno spazio dopo ogni virogola ma non separare il nome della funzione dalla parentesi sinistra.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{0}\NormalTok{, }\DataTypeTok{to =} \DecValTok{10}\NormalTok{, }\DataTypeTok{by =} \DecValTok{2}\NormalTok{)}
+
+\CommentTok{# Bad}
+\KeywordTok{seq}\NormalTok{ (}\DataTypeTok{from=}\DecValTok{0}\NormalTok{,}\DataTypeTok{to=}\DecValTok{10}\NormalTok{,}\DataTypeTok{by=}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Usa la corretta \textbf{indentazione} per i blocchi di codice posti all'interno delle parentesi graffe. Il livello di indentazione deve rispecchiare la struttura di annidamento del codice.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\ControlFlowTok{for}\NormalTok{ (...) \{       }\CommentTok{# loop più esterno}
+\NormalTok{  ...}
+  \ControlFlowTok{for}\NormalTok{ (...) \{     }\CommentTok{# loop interno}
+\NormalTok{    ...}
+    \ControlFlowTok{if}\NormalTok{ (...) \{    }\CommentTok{# isruzione condizionale}
+\NormalTok{      ...}
+\NormalTok{    \}}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\CommentTok{# Bad}
+\ControlFlowTok{for}\NormalTok{ (...) \{       }\CommentTok{# loop più esterno}
+\NormalTok{...}
+\ControlFlowTok{for}\NormalTok{ (...) \{     }\CommentTok{# loop interno}
+\NormalTok{...}
+\ControlFlowTok{if}\NormalTok{ (...) \{    }\CommentTok{# isruzione condizionale}
+\NormalTok{...}
+\NormalTok{\}}
+\NormalTok{\}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Allinea} gli argomenti di una funzione se questi spaziano più righe.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{id =}\NormalTok{ ...,}
+           \DataTypeTok{name =}\NormalTok{ ...,}
+           \DataTypeTok{age =}\NormalTok{ ...,}
+           \DataTypeTok{sex =}\NormalTok{ ...)}
+
+\CommentTok{# Bad}
+\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{id =}\NormalTok{ ..., }\DataTypeTok{name =}\NormalTok{ ...,}
+\DataTypeTok{age =}\NormalTok{ ..., }\DataTypeTok{sex =}\NormalTok{ ...)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{design}[Tutta una Questione di Stile]
+
+Potente trovare ulteriori norme e consigli riguardo lo stile nella scrittura del codice al seguente link \url{https://irudnyts.github.io/r-coding-style-guide/}
+
+\end{design}
 
 \hypertarget{r-projects}{%
 \section{R projects}\label{r-projects}}
+
+TODO
 
 \hypertarget{piuxf9-di-uno-script}{%
 \subsection{Più di uno script}\label{piuxf9-di-uno-script}}

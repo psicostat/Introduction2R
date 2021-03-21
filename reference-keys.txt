@@ -53,10 +53,10 @@ ordine-valutazione-relazioni
 objects-functions
 objects-section
 assegnare-e-richiamare-un-oggetto
-nomi-degli-oggetti
+objects-names
 tipologie-dati-e-strutture-dati
 functions-def
-argomenti-di-una-funzione
+function-arguments
 help-i-need-somebodyhelp
 working-environment
 environment

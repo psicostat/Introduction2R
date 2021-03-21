@@ -75,6 +75,23 @@ Se hai guardato con attenzione lo script rappresentato in Figura \@ref(fig:scrip
 L'utilizzo dei commenti è molto importante nel caso di script complessi poichè ci permette di spiegare e documentare il codice che viene eseguito. Nel Capitolo TODO approfondiremo il loro utilizzo.
 :::
 
+:::{.design title="Creare e Salvare uno Script" data-latex="[Creare e Salvare uno Script]"}
+Per creare un nuovo script è sufficiente premere il pulsante in alto a sinistra come mostrato in Figura e selezionare *"R Script"*.
+
+<center>
+![](images/script-new.png){ width=75% }
+</center>
+<br>
+
+Unn nuovo script senza nome verrà creato. Per salvare lo script premere l'icona del floppy e indicare il nome. Ricorda di usare l'estensione "**.R**" per salvare gli script.
+
+<center>
+![](images/script-save.png){ width=75% }
+</center>
+<br>
+
+:::
+
 #### 3. Environment e History: la sessione di lavoro {-}
 
 Qui sono presentati una serie di pannelli utili per valutare informazioni inerenti alla propria sessione di lavoro. I pannelli principali sono *Environment* e *History* (gli altri pannelli presenti in Figura \@ref(fig:environment) riguardanno funzioni avanzate di RStudio).

@@ -176,11 +176,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="objects-functions.html"><a href="objects-functions.html"><i class="fa fa-check"></i><b>4</b> Due Compagni Inseparabili</a><ul>
 <li class="chapter" data-level="4.1" data-path="objects-functions.html"><a href="objects-functions.html#objects-section"><i class="fa fa-check"></i><b>4.1</b> Oggetti</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="objects-functions.html"><a href="objects-functions.html#assegnare-e-richiamare-un-oggetto"><i class="fa fa-check"></i><b>4.1.1</b> Assegnare e Richiamare un oggetto</a></li>
-<li class="chapter" data-level="4.1.2" data-path="objects-functions.html"><a href="objects-functions.html#nomi-degli-oggetti"><i class="fa fa-check"></i><b>4.1.2</b> Nomi degli oggetti</a></li>
+<li class="chapter" data-level="4.1.2" data-path="objects-functions.html"><a href="objects-functions.html#objects-names"><i class="fa fa-check"></i><b>4.1.2</b> Nomi degli oggetti</a></li>
 <li class="chapter" data-level="4.1.3" data-path="objects-functions.html"><a href="objects-functions.html#tipologie-dati-e-strutture-dati"><i class="fa fa-check"></i><b>4.1.3</b> Tipologie Dati e Strutture Dati</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="objects-functions.html"><a href="objects-functions.html#functions-def"><i class="fa fa-check"></i><b>4.2</b> Funzioni</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#argomenti-di-una-funzione"><i class="fa fa-check"></i><b>4.2.1</b> Argomenti di una Funzione</a></li>
+<li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#function-arguments"><i class="fa fa-check"></i><b>4.2.1</b> Argomenti di una Funzione</a></li>
 <li class="chapter" data-level="4.2.2" data-path="objects-functions.html"><a href="objects-functions.html#help-i-need-somebodyhelp"><i class="fa fa-check"></i><b>4.2.2</b> Help! I need Somebody…Help!</a></li>
 </ul></li>
 </ul></li>
@@ -377,27 +377,112 @@ Figure 6.4: Compattare ed espandere le sezioni di codice
 <span id="cb36-2"><a href="working-session.html#cb36-2"></a>x &lt;-<span class="st"> </span><span class="dv">10</span> <span class="co"># definisco massimo numero risposte</span></span></code></pre></div>
 <p>Il primo commento è inutile poichè è facilmente comprensibile dal codice stesso, mentre il secondo commento è motlo utile perchè chiarisce il significato della variabile e mi faciliterà nella comprensione del codice.</p>
 </div>
-<div id="spazie-indentazione-ed-allineamento" class="section level4 unnumbered">
-<h4>Spazie, Indentazione ed allineamento</h4>
-<p>In quasi tutti i linguaggi di programmazione gli spazi sono ignorati
-R a differenza di altri linguaggi di programmazione non è</p>
-</div>
 <div id="nomi-oggetti" class="section level4 unnumbered">
 <h4>Nomi Oggetti</h4>
+<p>Abbiamo visto nel Capitolo <a href="objects-functions.html#objects-names">4.1.2</a> le regole che discriminano nomi validi da nomi non validi e le convenzioni da seguire nella definizione di un nome. Ricordiamo qui le caratterisiche che un nome deve avere per facilitare la comprensione del codice. Il nome di un oggetto deve essere:</p>
+<ul>
+<li><strong>auto-descrittivo</strong> - Dal solo nome dovrebbe essere possibile intuire il contenuto dell’oggetto. E’ meglio quindi evitare nomi generici (quali <code>x</code> o <code>y</code>) ed utilizzare invece nomi che chiaramente descrivano il contenuto dell’oggetto.</li>
+<li><strong>della giusta lunghezza</strong> - Non deve essere ne troppo breve (evitare sigle incomprensibili) ma neppure troppo lunghi. In genere sono sufficienti 2 o 3 parole per descrivere chiaramente un oggetto.</li>
+</ul>
+<p>E’ inoltre importante essere <strong>consistenti</strong> nella scelta dello stile con cui si nominano le variabili. In genere è preferibile usare lo <strong>snake_case</strong> rispetto al <strong>CamelCase</strong>, ma la scelta è comunque libera. Tuttavia, una volta presa una decisione, è bene mantenerla per facilitare la comprensione del codice.</p>
 </div>
 <div id="esplicitare-argomenti" class="section level4 unnumbered">
 <h4>Esplicitare Argomenti</h4>
-<p>Un’altra buona norma per mantenere
-- sintassi (gli spazi e gli indent corretti alineamenti)
-- pulizia script
-- comments
-- nomi informativi (snake_case)
-- funzioni esspliciti</p>
+<p>Abbiamo visto nel Capitolo <a href="objects-functions.html#function-arguments">4.2.1</a> l’importanza di esplicitare il nome degli argomenti quando vengono utilizzati nelle funzioni. Specificando a che cosa si riferiscono i vari valori facilitiamo la lettura e la comprensione del codice. Ad esempio:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="working-session.html#cb37-1"></a><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>)</span></code></pre></div>
+<p>Potrebbe non essere chiaro se intendiamo una sequennza tra 0 e 10 di lunghezza 2 o a intervalli di 2. Specificando gli argomenti evitiamo incomprensioni e possibili errori.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="working-session.html#cb38-1"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">by =</span> <span class="dv">2</span>)</span>
+<span id="cb38-2"><a href="working-session.html#cb38-2"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">length.out =</span> <span class="dv">2</span>)</span></code></pre></div>
+</div>
+<div id="spazi-indentazione-ed-allineamento" class="section level4 unnumbered">
+<h4>Spazi, Indentazione ed allineamento</h4>
+<p>Al contrario di molti altri software, R non impone regole severe nell’utilizzo di spazi, indentazioni ed allineamenti ed in genere è molto permissivo per quanto riguarda la sintassi del codice. Tuttavia è importante ricordare che:</p>
+<blockquote>
+<p>Good coding style is like using correct punctuation. You can manage without it, but it sure makes things easier to read. Hadley Wickham</p>
+</blockquote>
+<p>Prendiamo ad esempio le seguenti linee di codice, che includono delle funzioni avanzate di R:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="working-session.html#cb39-1"></a><span class="co"># Stile 1</span></span>
+<span id="cb39-2"><a href="working-session.html#cb39-2"></a>k=<span class="dv">10</span>;<span class="cf">if</span>(k<span class="op">&lt;</span><span class="dv">5</span>){x&lt;-<span class="dv">5</span><span class="op">:</span><span class="dv">15</span>}<span class="cf">else</span>{x&lt;-<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">16</span>,<span class="dv">4</span>)};y=<span class="dv">7</span><span class="op">*</span><span class="dv">2-12</span>;<span class="kw">mean</span>(x<span class="op">/</span>y)</span>
+<span id="cb39-3"><a href="working-session.html#cb39-3"></a><span class="co">## [1] 4</span></span>
+<span id="cb39-4"><a href="working-session.html#cb39-4"></a></span>
+<span id="cb39-5"><a href="working-session.html#cb39-5"></a><span class="co"># Stile 2</span></span>
+<span id="cb39-6"><a href="working-session.html#cb39-6"></a>k &lt;-<span class="st">  </span><span class="dv">10</span></span>
+<span id="cb39-7"><a href="working-session.html#cb39-7"></a></span>
+<span id="cb39-8"><a href="working-session.html#cb39-8"></a><span class="cf">if</span> (k <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>){</span>
+<span id="cb39-9"><a href="working-session.html#cb39-9"></a>  x &lt;-<span class="st"> </span><span class="dv">5</span><span class="op">:</span><span class="dv">15</span></span>
+<span id="cb39-10"><a href="working-session.html#cb39-10"></a>} <span class="cf">else</span> {</span>
+<span id="cb39-11"><a href="working-session.html#cb39-11"></a>  x&lt;-<span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">16</span>, <span class="dt">by =</span> <span class="dv">4</span>)</span>
+<span id="cb39-12"><a href="working-session.html#cb39-12"></a>}</span>
+<span id="cb39-13"><a href="working-session.html#cb39-13"></a></span>
+<span id="cb39-14"><a href="working-session.html#cb39-14"></a>y &lt;-<span class="st"> </span><span class="dv">7</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">12</span></span>
+<span id="cb39-15"><a href="working-session.html#cb39-15"></a></span>
+<span id="cb39-16"><a href="working-session.html#cb39-16"></a><span class="kw">mean</span>(x <span class="op">/</span><span class="st"> </span>y)</span>
+<span id="cb39-17"><a href="working-session.html#cb39-17"></a><span class="co">## [1] 4</span></span></code></pre></div>
+<p>Come puoi notare otteniamo in entrambi i casi gli stessi risultati, per R non c’è alcuna differenza. Tuttavia, l’uso di spazi, una corretta indentazione ed un appropriato allineamento facilita la lettura e comprensione del codice.</p>
+<p>In genere sono valide le seguenti norme:</p>
+<ul>
+<li>Aggiungi degli <strong>spazi</strong> intorno agli operatori (<code>+</code>, <code>-</code>, <code>&lt;-</code>, etc.) per separargli dagli argomenti ad eccezione di <code>:</code>.</li>
+</ul>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="working-session.html#cb40-1"></a><span class="co"># Good</span></span>
+<span id="cb40-2"><a href="working-session.html#cb40-2"></a><span class="dv">35</span> <span class="op">/</span><span class="st"> </span><span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="dv">7</span></span>
+<span id="cb40-3"><a href="working-session.html#cb40-3"></a>x &lt;-<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb40-4"><a href="working-session.html#cb40-4"></a></span>
+<span id="cb40-5"><a href="working-session.html#cb40-5"></a><span class="co"># Bad</span></span>
+<span id="cb40-6"><a href="working-session.html#cb40-6"></a><span class="dv">35</span><span class="op">/</span><span class="dv">5</span><span class="op">+</span><span class="dv">7</span></span>
+<span id="cb40-7"><a href="working-session.html#cb40-7"></a>x&lt;-<span class="dv">0</span> <span class="op">:</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
+<ul>
+<li>Nelle funzioni aggiungi degli <strong>spazi</strong> intorno al simbolo <code>=</code> che separa il nome degli argomenti e il loro valore. Aggiungi uno spazio dopo ogni virogola ma non separare il nome della funzione dalla parentesi sinistra.</li>
+</ul>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="working-session.html#cb41-1"></a><span class="co"># Good</span></span>
+<span id="cb41-2"><a href="working-session.html#cb41-2"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">by =</span> <span class="dv">2</span>)</span>
+<span id="cb41-3"><a href="working-session.html#cb41-3"></a></span>
+<span id="cb41-4"><a href="working-session.html#cb41-4"></a><span class="co"># Bad</span></span>
+<span id="cb41-5"><a href="working-session.html#cb41-5"></a><span class="kw">seq</span> (<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="dv">10</span>,<span class="dt">by=</span><span class="dv">2</span>)</span></code></pre></div>
+<ul>
+<li>Usa la corretta <strong>indentazione</strong> per i blocchi di codice posti all’interno delle parentesi graffe. Il livello di indentazione deve rispecchiare la struttura di annidamento del codice.</li>
+</ul>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="working-session.html#cb42-1"></a><span class="co"># Good</span></span>
+<span id="cb42-2"><a href="working-session.html#cb42-2"></a><span class="cf">for</span> (...) {       <span class="co"># loop più esterno</span></span>
+<span id="cb42-3"><a href="working-session.html#cb42-3"></a>  ...</span>
+<span id="cb42-4"><a href="working-session.html#cb42-4"></a>  <span class="cf">for</span> (...) {     <span class="co"># loop interno</span></span>
+<span id="cb42-5"><a href="working-session.html#cb42-5"></a>    ...</span>
+<span id="cb42-6"><a href="working-session.html#cb42-6"></a>    <span class="cf">if</span> (...) {    <span class="co"># isruzione condizionale</span></span>
+<span id="cb42-7"><a href="working-session.html#cb42-7"></a>      ...</span>
+<span id="cb42-8"><a href="working-session.html#cb42-8"></a>    }</span>
+<span id="cb42-9"><a href="working-session.html#cb42-9"></a>  }</span>
+<span id="cb42-10"><a href="working-session.html#cb42-10"></a>}</span>
+<span id="cb42-11"><a href="working-session.html#cb42-11"></a></span>
+<span id="cb42-12"><a href="working-session.html#cb42-12"></a><span class="co"># Bad</span></span>
+<span id="cb42-13"><a href="working-session.html#cb42-13"></a><span class="cf">for</span> (...) {       <span class="co"># loop più esterno</span></span>
+<span id="cb42-14"><a href="working-session.html#cb42-14"></a>...</span>
+<span id="cb42-15"><a href="working-session.html#cb42-15"></a><span class="cf">for</span> (...) {     <span class="co"># loop interno</span></span>
+<span id="cb42-16"><a href="working-session.html#cb42-16"></a>...</span>
+<span id="cb42-17"><a href="working-session.html#cb42-17"></a><span class="cf">if</span> (...) {    <span class="co"># isruzione condizionale</span></span>
+<span id="cb42-18"><a href="working-session.html#cb42-18"></a>...</span>
+<span id="cb42-19"><a href="working-session.html#cb42-19"></a>}</span>
+<span id="cb42-20"><a href="working-session.html#cb42-20"></a>}</span>
+<span id="cb42-21"><a href="working-session.html#cb42-21"></a>}</span></code></pre></div>
+<ul>
+<li><strong>Allinea</strong> gli argomenti di una funzione se questi spaziano più righe.</li>
+</ul>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="working-session.html#cb43-1"></a><span class="co"># Good</span></span>
+<span id="cb43-2"><a href="working-session.html#cb43-2"></a><span class="kw">data.frame</span>(<span class="dt">id =</span> ...,</span>
+<span id="cb43-3"><a href="working-session.html#cb43-3"></a>           <span class="dt">name =</span> ...,</span>
+<span id="cb43-4"><a href="working-session.html#cb43-4"></a>           <span class="dt">age =</span> ...,</span>
+<span id="cb43-5"><a href="working-session.html#cb43-5"></a>           <span class="dt">sex =</span> ...)</span>
+<span id="cb43-6"><a href="working-session.html#cb43-6"></a></span>
+<span id="cb43-7"><a href="working-session.html#cb43-7"></a><span class="co"># Bad</span></span>
+<span id="cb43-8"><a href="working-session.html#cb43-8"></a><span class="kw">data.frame</span>(<span class="dt">id =</span> ..., <span class="dt">name =</span> ...,</span>
+<span id="cb43-9"><a href="working-session.html#cb43-9"></a><span class="dt">age =</span> ..., <span class="dt">sex =</span> ...)</span></code></pre></div>
+<div class="design" title="Tutta una Questione di Stile">
+<p>Potente trovare ulteriori norme e consigli riguardo lo stile nella scrittura del codice al seguente link <a href="https://irudnyts.github.io/r-coding-style-guide/" class="uri">https://irudnyts.github.io/r-coding-style-guide/</a></p>
+</div>
 </div>
 </div>
 </div>
 <div id="r-projects" class="section level2">
 <h2><span class="header-section-number">6.2</span> R projects</h2>
+<p>TODO</p>
 <div id="più-di-uno-script" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> Più di uno script</h3>
 <ul>
