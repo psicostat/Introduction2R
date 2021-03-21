@@ -314,15 +314,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>L’opzione <code>levels=c(...)</code> è usata per specificare quali sono i possibili livelli della variabile categoriale. E’ possibile modificare o aggiungere nuovi livelli della variabile anche in un secondo momento utilizzando la funzione:</p>
 <p><code>levels(nome_fattore)&lt;- c(..., nuovi_livelli, ...)</code></p>
 <p><strong>Nota</strong>: nel creare un fattore R associa ad ogni livello un valore in ordine crescente e assegna agli elementi del vettore il loro volore numerico a seconda del proprio livello. Pertanto se un fattore è trasformato in un vettore numerico vengono restituiti tali valori numerici e non i livelli anche nel caso fossero dei numeri. Prendiamo per esempio la variabile <code>anni_istruzione</code>:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="factors.html#cb50-1"></a>anni_istruzione&lt;-<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">8</span>,<span class="dv">11</span>,<span class="dv">4</span>,<span class="dv">11</span>,<span class="dv">8</span>))</span>
-<span id="cb50-2"><a href="factors.html#cb50-2"></a>anni_istruzione</span>
-<span id="cb50-3"><a href="factors.html#cb50-3"></a><span class="co">## [1] 11 8  4  8  11 4  11 8 </span></span>
-<span id="cb50-4"><a href="factors.html#cb50-4"></a><span class="co">## Levels: 4 8 11</span></span>
-<span id="cb50-5"><a href="factors.html#cb50-5"></a><span class="kw">as.numeric</span>(anni_istruzione)</span>
-<span id="cb50-6"><a href="factors.html#cb50-6"></a><span class="co">## [1] 3 2 1 2 3 1 3 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="factors.html#cb55-1"></a>anni_istruzione&lt;-<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">8</span>,<span class="dv">11</span>,<span class="dv">4</span>,<span class="dv">11</span>,<span class="dv">8</span>))</span>
+<span id="cb55-2"><a href="factors.html#cb55-2"></a>anni_istruzione</span>
+<span id="cb55-3"><a href="factors.html#cb55-3"></a><span class="co">## [1] 11 8  4  8  11 4  11 8 </span></span>
+<span id="cb55-4"><a href="factors.html#cb55-4"></a><span class="co">## Levels: 4 8 11</span></span>
+<span id="cb55-5"><a href="factors.html#cb55-5"></a><span class="kw">as.numeric</span>(anni_istruzione)</span>
+<span id="cb55-6"><a href="factors.html#cb55-6"></a><span class="co">## [1] 3 2 1 2 3 1 3 2</span></span></code></pre></div>
 <p>Per riottenere gli estti valori numerici è necessario eseguire:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="factors.html#cb51-1"></a><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(anni_istruzione))</span>
-<span id="cb51-2"><a href="factors.html#cb51-2"></a><span class="co">## [1] 11  8  4  8 11  4 11  8</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="factors.html#cb56-1"></a><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(anni_istruzione))</span>
+<span id="cb56-2"><a href="factors.html#cb56-2"></a><span class="co">## [1] 11  8  4  8 11  4 11  8</span></span></code></pre></div>
 <div id="esercizi-5" class="section level3 unnumbered">
 <h3>Esercizi</h3>
 <ol style="list-style-type: decimal">

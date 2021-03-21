@@ -2264,7 +2264,7 @@ Prendiamo ad esempio le seguenti linee di codice, che includono delle funzioni a
 
 Come puoi notare otteniamo in entrambi i casi gli stessi risultati, per R non c'è alcuna differenza. Tuttavia, l'uso di spazi, una corretta indentazione ed un appropriato allineamento facilita la lettura e comprensione del codice.
 
-In genere sono valide le seguenti norme:
+In genere sono valide le seguenti regole:
 
 \begin{itemize}
 \tightlist
@@ -2354,7 +2354,7 @@ In genere sono valide le seguenti norme:
 
 \begin{design}[Tutta una Questione di Stile]
 
-Potente trovare ulteriori norme e consigli riguardo lo stile nella scrittura del codice al seguente link \url{https://irudnyts.github.io/r-coding-style-guide/}
+Potete trovare ulteriori regole e consigli riguardanti lo stile nella scrittura di codici al seguente link \url{https://irudnyts.github.io/r-coding-style-guide/}.
 
 \end{design}
 
@@ -2484,17 +2484,138 @@ Ci sono anche diversi pacchetti in R che rendono automatico creare questi esempi
 \chapter*{Introduzione}\label{introduzione}}
 \addcontentsline{toc}{chapter}{Introduzione}
 
-Working in progress.
+In questa sezione verranno introdotte le principali tipologie di oggetti usati in R . Ovvero le principali strutture in cui possono essere organizzati i dati: Vettori, Matrici, Dataframe e Liste.
+
+Per ognuna di esse descriveremo le loro caretteristiche e vedremo come crearle, modificarle e manipolarle a seconda delle necessità
+
+I capitoli sono così organizzati:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Capitolo \ref{vector} - Vettori}. Impareremo le caratterisiche e l'uso dei vettori soffermandoci anche sulle diverse tipologie di dati.
+\item
+  \textbf{Capitolo \ref{factors} - Fattori}. Impareremo le caratterisiche e l'uso dei fattori un particolare tipo di vettori usati per le variabili categoriali ed ordinali.
+\end{itemize}
 
 \hypertarget{vector}{%
 \chapter{Vettori}\label{vector}}
 
-Working in progress
+I vettori sono la struttura dati più semplice tra quelle presenti in R. Un vettore non è altro che un insieme di elementi disposti in uno specifico ordine e possiamo quindi immaginarlo in modo simile a quanto rappresentato in Figura \ref{fig:vector}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{images/vector} 
+
+}
+
+\caption{Rappresentazione struttura di un vettore di lunghezza *n*}\label{fig:vector}
+\end{figure}
+
+Due caratteristiche importanti di un vettore sono:
+
+\begin{itemize}
+\tightlist
+\item
+  la \textbf{lunghezza} - il numero di elementi da cui è formato il vettore
+\item
+  la \textbf{tipologia} - la tipologia di dati da cui è formato il vettore. Un vettore infatti deve esssere formato da \textbf{elementi dello stesso tipo} e pertanto esistono diversi vettori a seconda della tipologia di dati da cui è formato (valori numerici, valori interi, valori logici, valori carattere).
+\end{itemize}
+
+E' fondamentale inoltre sottolineare come ogni \textbf{elemento} di un vettore sia caratterizzato da:
+
+\begin{itemize}
+\tightlist
+\item
+  un \textbf{valore} - ovvero il valore dell'elemento che può essere di qualsiasi tipo ad esempio un numero o una serie di caratteri.
+\item
+  un \textbf{indice di posizione} - ovvero un numero intero positivo che identifica la sua posizione all'interno del vettore.
+\end{itemize}
+
+Notiamo quindi come i vettori \(x\) e \(y\) così definiti:
+\[
+x = [1, 3, 5];\ \ \ y = [3, 1, 5],
+\]
+sebbene includano gli stessi elementi, non sono identici poichè differiscono per la loro disposizione. Tutto questo ci serve solo per ribadire come l'ordine degli elementi sia fondamentale per la valutazione di un vettore.
+
+Vedimao ora come creare dei vettori in R e come compiere le comuni operazini di selezione e manipolazione di vettori. Successivamente approfondiremo le caratteristiche dei vettori valutandone le diverse tipologie.
 
 \hypertarget{creazione-di-vettori}{%
 \section{Creazione di Vettori}\label{creazione-di-vettori}}
 
-In R per definire un vettore si utilizza il comando \texttt{\textless{}nome-vettore\textgreater{}\ \textless{}-\ c(\textless{}oggetti\textgreater{})}. Ricorda che gli elementi devono essere separati da una virgola.
+In realtà abbiamo già incontrato dei vettori nei precedenti capitoli poichè anche le variabili con un singolo valore altro non sono che un vettore di lunghezza 1. Tuttavia, per creare dei vettori di più elementi dobbiamo utilizzare il comando \texttt{c()}, ovvero \emph{``combine''}, indicando tra le parentesi i valori degli elementi nella sucessione desiderata e separati da una virgola. Avremo quindi la seguente sintassi:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nome_vettore <-}\StringTok{ }\KeywordTok{c}\NormalTok{(x_}\DecValTok{1}\NormalTok{, x_}\DecValTok{2}\NormalTok{, x_}\DecValTok{3}\NormalTok{, ..., x_n)}
+\end{Highlighting}
+\end{Shaded}
+
+Nota come gli elementi di un vettore debbano essere tutti della stessa tipologia ad esempio vaolri numerici o valori carattere.
+
+\begin{design}[Sequenze - ':', seq() e rep() ]
+
+In altrentativa è possibile utilizzare qualsiasi funzione che restituisca come output una sequenza di valori sotto forma di vettore. Tra le funzioni più usate per creare delle sequenze abbiammo:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{\textless{}from\textgreater{}:\textless{}to\textgreater{}} - Genera una sequenza di valori numerici crescenti (o decrescenti) dal primo valore indicato (\texttt{\textless{}from\textgreater{}}) al secondo valore indicato (\texttt{\textless{}to\textgreater{}}) a step di 1 (o -1 ).
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# sequenza crescente}
+\DecValTok{1}\OperatorTok{:}\DecValTok{5}
+\CommentTok{## [1] 1 2 3 4 5}
+
+\CommentTok{# sequenza decrescente}
+\DecValTok{2}\OperatorTok{:-}\DecValTok{2}
+\CommentTok{## [1]  2  1  0 -1 -2}
+
+\CommentTok{# sequenza con valori decimali}
+\FloatTok{5.3}\OperatorTok{:}\DecValTok{10}
+\CommentTok{## [1] 5.3 6.3 7.3 8.3 9.3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{seq(from\ =\ ,\ to\ =\ ,\ by\ =\ ,\ length.out\ =\ )} - Genera una sequenza regolare di valori numerici compresi tra \texttt{from} e \texttt{to} con incrementi indicati da \texttt{by}, oppure di lunghezza conplessiva indicata da \texttt{length.out} (vedi \texttt{?seq()} per maggiori dettagli).
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# sequenza a incrementi di 2}
+\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{0}\NormalTok{, }\DataTypeTok{to =} \DecValTok{10}\NormalTok{, }\DataTypeTok{by =} \DecValTok{2}\NormalTok{)}
+\CommentTok{## [1]  0  2  4  6  8 10}
+
+\CommentTok{# sequenza di 5 elementi}
+\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \DecValTok{0}\NormalTok{, }\DataTypeTok{to =} \DecValTok{1}\NormalTok{, }\DataTypeTok{length.out =} \DecValTok{5}\NormalTok{)}
+\CommentTok{## [1] 0.00 0.25 0.50 0.75 1.00}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{rep(x,\ times\ =\ ,\ each\ =\ )} - Genera una sequenza di valori ripetendo i valori contenuti in \texttt{x}. I valori di \texttt{x} posssono essere ripetuti nello stesso ordine più volte specificando \texttt{times} oppure ripetuti ciascuno più volte specificando \texttt{each} (vedi \texttt{?rep()} per maggiori dettagli).
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# sequenza a incrementi di 2}
+\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"foo"}\NormalTok{, }\StringTok{"bar"}\NormalTok{), }\DataTypeTok{times =} \DecValTok{3}\NormalTok{)}
+\CommentTok{## [1] "foo" "bar" "foo" "bar" "foo" "bar"}
+
+\CommentTok{# sequenza di 5 elementi}
+\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{, }\DataTypeTok{each =} \DecValTok{2}\NormalTok{)}
+\CommentTok{## [1] 1 1 2 2 3 3}
+\end{Highlighting}
+\end{Shaded}
+
+\end{design}
 
 \hypertarget{esercizi-2}{%
 \subsection*{Esercizi}\label{esercizi-2}}
@@ -2513,10 +2634,18 @@ In R per definire un vettore si utilizza il comando \texttt{\textless{}nome-vett
   Crea il vettore \texttt{s} in cui le lettere \texttt{"A"},\texttt{"B"} e \texttt{"C"} vengono ripetute nel medesimo ordine 4 volte (\texttt{?rep()}).
 \item
   Crea il vettore \texttt{t} in cui le letter \texttt{"A"},\texttt{"B"} e \texttt{"C"} vengono ripetute ognuna 4 volte (\texttt{?rep()}).
+\item
+  Genera il seguente output in modo pigro, ovvero scrivendo meno codice possibile ;)
 \end{enumerate}
+
+\begin{verbatim}
+## [1] "foo" "foo" "bar" "bar" "foo" "foo" "bar" "bar"
+\end{verbatim}
 
 \hypertarget{selezione-elementi-di-un-vettore}{%
 \section{Selezione Elementi di un Vettore}\label{selezione-elementi-di-un-vettore}}
+
+\textbf{Working in Progress}
 
 In R per selezioneare gli elementi di un vettore si deve indicare all'interno delle parentesi quadre la \textbf{posizione degli elementi} da selezionare, non il valore dell'elemento stesso:
 
@@ -3471,25 +3600,25 @@ La struttura di base di un dataframe è quindi la stessa di una matrice ma conti
 \hline
 colonna1 & colonna2 & colonna3 & colonna4 & colonna5 & colonna6\\
 \hline
--2.04 & 1.16 & -0.51 & -0.28 & -0.94 & a\\
+-1.63 & 1.20 & -0.20 & -1.42 & 0.17 & a\\
 \hline
--0.13 & 2.09 & -0.38 & 0.96 & -0.45 & b\\
+1.10 & -0.18 & 0.32 & 0.48 & 1.10 & b\\
 \hline
--0.18 & -1.02 & -0.46 & -2.24 & -0.27 & c\\
+-0.17 & -1.47 & 1.29 & -1.23 & -0.35 & c\\
 \hline
--1.02 & -0.43 & -1.63 & 0.96 & 1.16 & d\\
+0.90 & 0.15 & -0.82 & -2.06 & 1.16 & d\\
 \hline
-0.20 & 0.16 & -0.17 & 0.23 & 0.71 & e\\
+-3.23 & 1.02 & -0.27 & -1.03 & -0.36 & e\\
 \hline
-0.65 & 0.54 & -3.52 & 1.37 & 0.16 & f\\
+0.04 & -0.55 & -0.66 & -0.45 & 1.80 & f\\
 \hline
--1.04 & 1.19 & 0.88 & 0.17 & 0.01 & g\\
+-0.99 & 0.75 & -0.65 & -0.32 & -0.08 & g\\
 \hline
-0.97 & 0.23 & 1.33 & -0.48 & -0.50 & h\\
+-0.61 & 0.31 & -1.45 & 0.85 & -1.09 & h\\
 \hline
--0.04 & -0.04 & 0.05 & 0.61 & -1.49 & i\\
+-0.15 & -1.44 & -0.05 & -0.49 & 0.26 & i\\
 \hline
-0.20 & -0.39 & -1.71 & 1.46 & -0.91 & j\\
+-0.73 & 0.35 & 1.74 & -1.06 & -0.28 & j\\
 \hline
 \end{tabular}
 \end{table}

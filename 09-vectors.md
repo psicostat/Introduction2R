@@ -3,20 +3,87 @@
 
 
 
-Working in progress
+I vettori sono la struttura dati più semplice tra quelle presenti in R. Un vettore non è altro che un insieme di elementi disposti in uno specifico ordine e possiamo quindi immaginarlo in modo simile a quanto rappresentato in Figura \@ref(fig:vector). 
 
+<div class="figure" style="text-align: center">
+<img src="images/vector.png" alt="Rappresentazione struttura di un vettore di lunghezza *n*" width="65%" />
+<p class="caption">(\#fig:vector)Rappresentazione struttura di un vettore di lunghezza *n*</p>
+</div>
+
+Due caratteristiche importanti di un vettore sono:
+
+- la **lunghezza** - il numero di elementi da cui è formato il vettore
+- la **tipologia** - la tipologia di dati da cui è formato il vettore. Un vettore infatti deve esssere formato da **elementi dello stesso tipo** e pertanto esistono diversi vettori a seconda della tipologia di dati da cui è formato (valori numerici, valori interi, valori logici, valori carattere).  
+
+
+E' fondamentale inoltre sottolineare come ogni **elemento** di un vettore sia caratterizzato da:
+
+- un **valore** - ovvero il valore dell'elemento che può essere di qualsiasi tipo ad esempio un numero o una serie di caratteri.
+- un **indice di posizione** - ovvero un numero intero positivo che identifica la sua posizione all'interno del vettore.
+
+Notiamo quindi come i vettori $x$ e $y$ così definiti:
+$$
+x = [1, 3, 5];\ \ \ y = [3, 1, 5],
+$$
+sebbene includano gli stessi elementi, non sono identici poichè differiscono per la loro disposizione. Tutto questo ci serve solo per ribadire come l'ordine degli elementi sia fondamentale per la valutazione di un vettore.
+
+
+Vedimao ora come creare dei vettori in R e come compiere le comuni operazini di selezione e manipolazione di vettori. Successivamente approfondiremo le caratteristiche dei vettori valutandone le diverse tipologie.
 
 ## Creazione di Vettori
 
-In R per definire un vettore si utilizza il comando `<nome-vettore> <- c(<oggetti>)`. Ricorda che gli elementi devono essere separati da una virgola.
+In realtà abbiamo già incontrato dei vettori nei precedenti capitoli poichè anche le variabili con un singolo valore altro non sono che un vettore di lunghezza 1. Tuttavia, per creare dei vettori di più elementi dobbiamo utilizzare il comando `c()`, ovvero *"combine"*, indicando tra le parentesi i valori degli elementi nella sucessione desiderata e separati da una virgola. Avremo quindi la seguente sintassi:
 
 
-<!-- specificare diversi tipi di assign -->
-<!-- specificare l'uso di c() -->
-<!-- specificare l'uso di 1:10 -->
-<!-- specificare l'uso di seq() le due differenti versioni -->
-<!-- specificare l'uso di rep() le due differenti versioni -->
+```r
+nome_vettore <- c(x_1, x_2, x_3, ..., x_n)
+```
 
+Nota come gli elementi di un vettore debbano essere tutti della stessa tipologia ad esempio vaolri numerici o valori carattere.
+
+:::{.design title="Sequenze - ':', seq() e rep() " data-latex="[Sequenze - ':', seq() e rep() ]"}
+In altrentativa è possibile utilizzare qualsiasi funzione che restituisca come output una sequenza di valori sotto forma di vettore. Tra le funzioni più usate per creare delle sequenze abbiammo:
+
+- `<from>:<to>` - Genera una sequenza di valori numerici crescenti (o decrescenti) dal primo valore indicato (`<from>`) al secondo valore indicato (`<to>`) a step di 1 (o -1 ).
+
+```r
+# sequenza crescente
+1:5
+## [1] 1 2 3 4 5
+
+# sequenza decrescente
+2:-2
+## [1]  2  1  0 -1 -2
+
+# sequenza con valori decimali
+5.3:10
+## [1] 5.3 6.3 7.3 8.3 9.3
+```
+
+- `seq(from = , to = , by = , length.out = )` - Genera una sequenza regolare di valori numerici compresi tra `from` e `to` con incrementi indicati da `by`, oppure di lunghezza conplessiva indicata da `length.out` (vedi `?seq()` per maggiori dettagli).
+
+```r
+# sequenza a incrementi di 2
+seq(from = 0, to = 10, by = 2)
+## [1]  0  2  4  6  8 10
+
+# sequenza di 5 elementi
+seq(from = 0, to = 1, length.out = 5)
+## [1] 0.00 0.25 0.50 0.75 1.00
+```
+
+- `rep(x, times = , each = )` - Genera una sequenza di valori ripetendo i valori contenuti in `x`. I valori di `x` posssono essere ripetuti nello stesso ordine più volte specificando `times` oppure ripetuti ciascuno più volte specificando `each` (vedi `?rep()` per maggiori dettagli).
+
+```r
+# sequenza a incrementi di 2
+rep(c("foo", "bar"), times = 3)
+## [1] "foo" "bar" "foo" "bar" "foo" "bar"
+
+# sequenza di 5 elementi
+rep(1:3, each = 2)
+## [1] 1 1 2 2 3 3
+```
+:::
 
 ### Esercizi {-}
 
@@ -25,8 +92,16 @@ In R per definire un vettore si utilizza il comando `<nome-vettore> <- c(<oggett
 3. Crea il vettore `z` contenente tutti i primi 10 multipli di 7 partendo da 13 (`?seq()`)
 4. Crea il vettore `s` in cui le lettere `"A"`,`"B"` e `"C"` vengono ripetute nel medesimo ordine 4 volte (`?rep()`).
 5. Crea il vettore `t` in cui le letter `"A"`,`"B"` e `"C"` vengono ripetute ognuna 4 volte (`?rep()`).
+6. Genera il seguente output in modo pigro, ovvero scrivendo meno codice possibile ;)
+
+```
+## [1] "foo" "foo" "bar" "bar" "foo" "foo" "bar" "bar"
+```
+
 
 ## Selezione Elementi di un Vettore
+
+**Working in Progress**
 
 In R per selezioneare gli elementi di un vettore si deve indicare all'interno delle parentesi quadre la **posizione degli elementi** da selezionare, non il valore dell'elemento stesso:
 

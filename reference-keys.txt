@@ -32,6 +32,7 @@ fig:script-template
 fig:toc-side
 fig:toc-bottom
 fig:section-closed
+fig:vector
 tab:table-vector-operators
 fig:mat-comb
 tab:table-matrix-operators

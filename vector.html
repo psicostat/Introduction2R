@@ -308,15 +308,71 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="vector" class="section level1">
 <h1><span class="header-section-number">Capitolo 7</span> Vettori</h1>
-<p>Working in progress</p>
+<p>I vettori sono la struttura dati più semplice tra quelle presenti in R. Un vettore non è altro che un insieme di elementi disposti in uno specifico ordine e possiamo quindi immaginarlo in modo simile a quanto rappresentato in Figura <a href="vector.html#fig:vector">7.1</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:vector"></span>
+<img src="images/vector.png" alt="Rappresentazione struttura di un vettore di lunghezza *n*" width="65%" />
+<p class="caption">
+Figure 7.1: Rappresentazione struttura di un vettore di lunghezza <em>n</em>
+</p>
+</div>
+<p>Due caratteristiche importanti di un vettore sono:</p>
+<ul>
+<li>la <strong>lunghezza</strong> - il numero di elementi da cui è formato il vettore</li>
+<li>la <strong>tipologia</strong> - la tipologia di dati da cui è formato il vettore. Un vettore infatti deve esssere formato da <strong>elementi dello stesso tipo</strong> e pertanto esistono diversi vettori a seconda della tipologia di dati da cui è formato (valori numerici, valori interi, valori logici, valori carattere).</li>
+</ul>
+<p>E’ fondamentale inoltre sottolineare come ogni <strong>elemento</strong> di un vettore sia caratterizzato da:</p>
+<ul>
+<li>un <strong>valore</strong> - ovvero il valore dell’elemento che può essere di qualsiasi tipo ad esempio un numero o una serie di caratteri.</li>
+<li>un <strong>indice di posizione</strong> - ovvero un numero intero positivo che identifica la sua posizione all’interno del vettore.</li>
+</ul>
+<p>Notiamo quindi come i vettori <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> così definiti:
+<span class="math display">\[
+x = [1, 3, 5];\ \ \ y = [3, 1, 5],
+\]</span>
+sebbene includano gli stessi elementi, non sono identici poichè differiscono per la loro disposizione. Tutto questo ci serve solo per ribadire come l’ordine degli elementi sia fondamentale per la valutazione di un vettore.</p>
+<p>Vedimao ora come creare dei vettori in R e come compiere le comuni operazini di selezione e manipolazione di vettori. Successivamente approfondiremo le caratteristiche dei vettori valutandone le diverse tipologie.</p>
 <div id="creazione-di-vettori" class="section level2">
 <h2><span class="header-section-number">7.1</span> Creazione di Vettori</h2>
-<p>In R per definire un vettore si utilizza il comando <code>&lt;nome-vettore&gt; &lt;- c(&lt;oggetti&gt;)</code>. Ricorda che gli elementi devono essere separati da una virgola.</p>
-<!-- specificare diversi tipi di assign -->
-<!-- specificare l'uso di c() -->
-<!-- specificare l'uso di 1:10 -->
-<!-- specificare l'uso di seq() le due differenti versioni -->
-<!-- specificare l'uso di rep() le due differenti versioni -->
+<p>In realtà abbiamo già incontrato dei vettori nei precedenti capitoli poichè anche le variabili con un singolo valore altro non sono che un vettore di lunghezza 1. Tuttavia, per creare dei vettori di più elementi dobbiamo utilizzare il comando <code>c()</code>, ovvero <em>“combine”</em>, indicando tra le parentesi i valori degli elementi nella sucessione desiderata e separati da una virgola. Avremo quindi la seguente sintassi:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="vector.html#cb44-1"></a>nome_vettore &lt;-<span class="st"> </span><span class="kw">c</span>(x_<span class="dv">1</span>, x_<span class="dv">2</span>, x_<span class="dv">3</span>, ..., x_n)</span></code></pre></div>
+<p>Nota come gli elementi di un vettore debbano essere tutti della stessa tipologia ad esempio vaolri numerici o valori carattere.</p>
+<div class="design" title="Sequenze - &#39;:&#39;, seq() e rep() ">
+<p>In altrentativa è possibile utilizzare qualsiasi funzione che restituisca come output una sequenza di valori sotto forma di vettore. Tra le funzioni più usate per creare delle sequenze abbiammo:</p>
+<ul>
+<li><code>&lt;from&gt;:&lt;to&gt;</code> - Genera una sequenza di valori numerici crescenti (o decrescenti) dal primo valore indicato (<code>&lt;from&gt;</code>) al secondo valore indicato (<code>&lt;to&gt;</code>) a step di 1 (o -1 ).</li>
+</ul>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="vector.html#cb45-1"></a><span class="co"># sequenza crescente</span></span>
+<span id="cb45-2"><a href="vector.html#cb45-2"></a><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></span>
+<span id="cb45-3"><a href="vector.html#cb45-3"></a><span class="co">## [1] 1 2 3 4 5</span></span>
+<span id="cb45-4"><a href="vector.html#cb45-4"></a></span>
+<span id="cb45-5"><a href="vector.html#cb45-5"></a><span class="co"># sequenza decrescente</span></span>
+<span id="cb45-6"><a href="vector.html#cb45-6"></a><span class="dv">2</span><span class="op">:-</span><span class="dv">2</span></span>
+<span id="cb45-7"><a href="vector.html#cb45-7"></a><span class="co">## [1]  2  1  0 -1 -2</span></span>
+<span id="cb45-8"><a href="vector.html#cb45-8"></a></span>
+<span id="cb45-9"><a href="vector.html#cb45-9"></a><span class="co"># sequenza con valori decimali</span></span>
+<span id="cb45-10"><a href="vector.html#cb45-10"></a><span class="fl">5.3</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb45-11"><a href="vector.html#cb45-11"></a><span class="co">## [1] 5.3 6.3 7.3 8.3 9.3</span></span></code></pre></div>
+<ul>
+<li><code>seq(from = , to = , by = , length.out = )</code> - Genera una sequenza regolare di valori numerici compresi tra <code>from</code> e <code>to</code> con incrementi indicati da <code>by</code>, oppure di lunghezza conplessiva indicata da <code>length.out</code> (vedi <code>?seq()</code> per maggiori dettagli).</li>
+</ul>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="vector.html#cb46-1"></a><span class="co"># sequenza a incrementi di 2</span></span>
+<span id="cb46-2"><a href="vector.html#cb46-2"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">by =</span> <span class="dv">2</span>)</span>
+<span id="cb46-3"><a href="vector.html#cb46-3"></a><span class="co">## [1]  0  2  4  6  8 10</span></span>
+<span id="cb46-4"><a href="vector.html#cb46-4"></a></span>
+<span id="cb46-5"><a href="vector.html#cb46-5"></a><span class="co"># sequenza di 5 elementi</span></span>
+<span id="cb46-6"><a href="vector.html#cb46-6"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">1</span>, <span class="dt">length.out =</span> <span class="dv">5</span>)</span>
+<span id="cb46-7"><a href="vector.html#cb46-7"></a><span class="co">## [1] 0.00 0.25 0.50 0.75 1.00</span></span></code></pre></div>
+<ul>
+<li><code>rep(x, times = , each = )</code> - Genera una sequenza di valori ripetendo i valori contenuti in <code>x</code>. I valori di <code>x</code> posssono essere ripetuti nello stesso ordine più volte specificando <code>times</code> oppure ripetuti ciascuno più volte specificando <code>each</code> (vedi <code>?rep()</code> per maggiori dettagli).</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="vector.html#cb47-1"></a><span class="co"># sequenza a incrementi di 2</span></span>
+<span id="cb47-2"><a href="vector.html#cb47-2"></a><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>), <span class="dt">times =</span> <span class="dv">3</span>)</span>
+<span id="cb47-3"><a href="vector.html#cb47-3"></a><span class="co">## [1] &quot;foo&quot; &quot;bar&quot; &quot;foo&quot; &quot;bar&quot; &quot;foo&quot; &quot;bar&quot;</span></span>
+<span id="cb47-4"><a href="vector.html#cb47-4"></a></span>
+<span id="cb47-5"><a href="vector.html#cb47-5"></a><span class="co"># sequenza di 5 elementi</span></span>
+<span id="cb47-6"><a href="vector.html#cb47-6"></a><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">2</span>)</span>
+<span id="cb47-7"><a href="vector.html#cb47-7"></a><span class="co">## [1] 1 1 2 2 3 3</span></span></code></pre></div>
+</div>
 <div id="esercizi-2" class="section level3 unnumbered">
 <h3>Esercizi</h3>
 <ol style="list-style-type: decimal">
@@ -325,11 +381,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Crea il vettore <code>z</code> contenente tutti i primi 10 multipli di 7 partendo da 13 (<code>?seq()</code>)</li>
 <li>Crea il vettore <code>s</code> in cui le lettere <code>"A"</code>,<code>"B"</code> e <code>"C"</code> vengono ripetute nel medesimo ordine 4 volte (<code>?rep()</code>).</li>
 <li>Crea il vettore <code>t</code> in cui le letter <code>"A"</code>,<code>"B"</code> e <code>"C"</code> vengono ripetute ognuna 4 volte (<code>?rep()</code>).</li>
+<li>Genera il seguente output in modo pigro, ovvero scrivendo meno codice possibile ;)</li>
 </ol>
+<pre><code>## [1] &quot;foo&quot; &quot;foo&quot; &quot;bar&quot; &quot;bar&quot; &quot;foo&quot; &quot;foo&quot; &quot;bar&quot; &quot;bar&quot;</code></pre>
 </div>
 </div>
 <div id="selezione-elementi-di-un-vettore" class="section level2">
 <h2><span class="header-section-number">7.2</span> Selezione Elementi di un Vettore</h2>
+<p><strong>Working in Progress</strong></p>
 <p>In R per selezioneare gli elementi di un vettore si deve indicare all’interno delle parentesi quadre la <strong>posizione degli elementi</strong> da selezionare, non il valore dell’elemento stesso:</p>
 <p><code>&lt;nome-vettore&gt;[&lt;indice-posizione&gt;]</code>\
 <!-- % esempio selezione con valori e non indici porta errore -->
@@ -439,34 +498,34 @@ Rapporto tra due vettori
 <h3><span class="header-section-number">7.4.1</span> Vettori Numerici</h3>
 <p>I vettori numerici sono utilizzati per compiere operazioni aritmetiche, in R sono indicati come <code>num</code>. In R ci sono è possibil e specificare se i numeri contenuti nel vettore sono numeri interi, avremmo quindi un vettore di valori interi (indicato in R come <code>int</code>). Per fare ciò è possibile aggiungere <code>L</code> ad ogni valore numerico nel definire il vettore oppure usare la funzione <code>as.integer()</code> per trasformare un vettore numerico in un vettore intero.</p>
 <p><strong>Esempio:</strong></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="vector.html#cb44-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(4L, 6L, 12L, 34L, 8L)</span>
-<span id="cb44-2"><a href="vector.html#cb44-2"></a></span>
-<span id="cb44-3"><a href="vector.html#cb44-3"></a>x &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">34</span>, <span class="dv">8</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="vector.html#cb49-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(4L, 6L, 12L, 34L, 8L)</span>
+<span id="cb49-2"><a href="vector.html#cb49-2"></a></span>
+<span id="cb49-3"><a href="vector.html#cb49-3"></a>x &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">34</span>, <span class="dv">8</span>))</span></code></pre></div>
 <p><strong>Nota</strong>: per trasformare un vettore intero in un vettore numerico è possibile usare la funzione <code>as.numeric()</code>.</p>
 </div>
 <div id="vettori-logici" class="section level3">
 <h3><span class="header-section-number">7.4.2</span> Vettori logici</h3>
 <p>I vettori logici sono formati dai volori <code>TRUE</code> e <code>FALSE</code>, che possono essere abbreviati rispettivamente in <code>T</code> e <code>F</code>. In R i vettori logici sono indicati come <code>logi</code>. In genere, i vettori logici sono il risultato delle operazioni in cui viene chiesto ad R di valutare la condizione logica di una proposizione.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="vector.html#cb45-1"></a>x<span class="op">&gt;</span><span class="dv">10</span></span>
-<span id="cb45-2"><a href="vector.html#cb45-2"></a><span class="co">## [1] FALSE FALSE  TRUE  TRUE FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="vector.html#cb50-1"></a>x<span class="op">&gt;</span><span class="dv">10</span></span>
+<span id="cb50-2"><a href="vector.html#cb50-2"></a><span class="co">## [1] FALSE FALSE  TRUE  TRUE FALSE</span></span></code></pre></div>
 <p><strong>Nota:</strong> in R, come in molti altri software di programmazione, <code>TRUE</code> assume il valore numerico <code>1</code> e <code>FALSE</code> assume il valore <code>0</code>.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="vector.html#cb46-1"></a><span class="kw">sum</span>(x<span class="op">&gt;</span><span class="dv">10</span>)</span>
-<span id="cb46-2"><a href="vector.html#cb46-2"></a><span class="co">## [1] 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="vector.html#cb51-1"></a><span class="kw">sum</span>(x<span class="op">&gt;</span><span class="dv">10</span>)</span>
+<span id="cb51-2"><a href="vector.html#cb51-2"></a><span class="co">## [1] 2</span></span></code></pre></div>
 <p>E’ possibile trasformare un vettore numerico in un vettor logico attraverso la funzione <code>as.logical()</code>, gli <code>0</code> assumeranno il valore <code>FALSE</code> mentre qualsiasi altro numero assumerà il valore <code>TRUE</code>.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="vector.html#cb47-1"></a><span class="kw">as.logical</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,.<span class="dv">034</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">8</span>))</span>
-<span id="cb47-2"><a href="vector.html#cb47-2"></a><span class="co">## [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="vector.html#cb52-1"></a><span class="kw">as.logical</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,.<span class="dv">034</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">8</span>))</span>
+<span id="cb52-2"><a href="vector.html#cb52-2"></a><span class="co">## [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE</span></span></code></pre></div>
 </div>
 <div id="vettori-di-caratteri" class="section level3">
 <h3><span class="header-section-number">7.4.3</span> Vettori di caratteri</h3>
 <p>I vettori di caratteri contengono stringhe di caratteri e sono indicati in R con `chr}. Non è possibile eseguire operazioni aritmetiche con vettori di caratteri ma solo valutare se due stringhe sono uguali o differenti.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="vector.html#cb48-1"></a>j&lt;-<span class="kw">c</span>(<span class="st">&quot;Hello&quot;</span>,<span class="st">&quot;World&quot;</span>,<span class="st">&quot;hello&quot;</span>,<span class="st">&quot;world&quot;</span>)</span>
-<span id="cb48-2"><a href="vector.html#cb48-2"></a>j<span class="op">==</span><span class="st">&quot;hello&quot;</span></span>
-<span id="cb48-3"><a href="vector.html#cb48-3"></a><span class="co">## [1] FALSE FALSE  TRUE FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="vector.html#cb53-1"></a>j&lt;-<span class="kw">c</span>(<span class="st">&quot;Hello&quot;</span>,<span class="st">&quot;World&quot;</span>,<span class="st">&quot;hello&quot;</span>,<span class="st">&quot;world&quot;</span>)</span>
+<span id="cb53-2"><a href="vector.html#cb53-2"></a>j<span class="op">==</span><span class="st">&quot;hello&quot;</span></span>
+<span id="cb53-3"><a href="vector.html#cb53-3"></a><span class="co">## [1] FALSE FALSE  TRUE FALSE</span></span></code></pre></div>
 <p>Per trasformare un vettore qualsiasi in una vettore di caratteri e possibile usare la funzione <code>as.character()</code>.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="vector.html#cb49-1"></a><span class="kw">as.character</span>(x)</span>
-<span id="cb49-2"><a href="vector.html#cb49-2"></a><span class="co">## [1] &quot;4&quot;  &quot;6&quot;  &quot;12&quot; &quot;34&quot; &quot;8&quot;</span></span>
-<span id="cb49-3"><a href="vector.html#cb49-3"></a><span class="kw">as.character</span>(x<span class="op">&gt;</span><span class="dv">10</span>)</span>
-<span id="cb49-4"><a href="vector.html#cb49-4"></a><span class="co">## [1] &quot;FALSE&quot; &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;FALSE&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="vector.html#cb54-1"></a><span class="kw">as.character</span>(x)</span>
+<span id="cb54-2"><a href="vector.html#cb54-2"></a><span class="co">## [1] &quot;4&quot;  &quot;6&quot;  &quot;12&quot; &quot;34&quot; &quot;8&quot;</span></span>
+<span id="cb54-3"><a href="vector.html#cb54-3"></a><span class="kw">as.character</span>(x<span class="op">&gt;</span><span class="dv">10</span>)</span>
+<span id="cb54-4"><a href="vector.html#cb54-4"></a><span class="co">## [1] &quot;FALSE&quot; &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;FALSE&quot;</span></span></code></pre></div>
 </div>
 <div id="valori-speciali" class="section level3">
 <h3><span class="header-section-number">7.4.4</span> Valori speciali</h3>
