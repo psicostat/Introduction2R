@@ -65,7 +65,7 @@ La decisione su quale operatore adottare è comunque libera, ma ricorda che una 
 :::
 
 
-### Nomi degli oggetti
+### Nomi degli oggetti {#objects-names}
 
 La scelta dei nomi degli oggetti sembra un aspetto secondario ma invece ha una grande importanza per facilitare la chiarezza e la comprensione dei codici.
 
@@ -92,7 +92,7 @@ my_name
 Inoltre, il nome ideale di un oggetto dovrebbe essere:
 
 - **auto-descrittivo**: dal solo nome dovrebbe essere possibile intuire il contenuto dell'oggetto. Un nome generico quale `x` o `y` ci sarebbero di poco aiuto poichè potrebbero contenere qualsiasi informazione. Invece un nome come `weight` o `gender` ci suggerirebbe chiaramente il contenuto dell'oggetto (e.g., il peso o il gender dei partecipanti del nostro studio).
-- **della giusta lunghezza**: non deve essere ne troppo breve (evitare sigle incomprensibili) ne neppure troppo lunghi. La lunghezza corretta è quella che permette al nome di esssere sufficientemente informativo senza aggiungere inutili dettagli. In genere sono sufficienti 2 o 3 parole.
+- **della giusta lunghezza**: non deve essere ne troppo breve (evitare sigle incomprensibili) ma neppure troppo lunghi. La lunghezza corretta è quella che permette al nome di esssere sufficientemente informativo senza aggiungere inutili dettagli. In genere sono sufficienti 2 o 3 parole.
 
 :::{.design title="CamelCase vs snake_case" data-latex="[CamelCase vs snake\\_case]"}
 Spesso più parole sono usate per ottenere un nome sufficientemente chiaro. Dato che però non è possibile includere spazi in un nome, nasce il problema di come unire più parole senza che il nome diventi incomprensibile, ad esempio `mediatestcontrollo`.
@@ -162,7 +162,7 @@ Ad esempio per creare una sequenza di valori con incrementi di 1 posso usare la 
 seq(from = 0, to = 10)
 ```
 
-### Argomenti di una Funzione
+### Argomenti di una Funzione {#function-arguments}
 
 Nel definire gli argomenti di una funzione non è necessario specificare il nome degli argomenti. Ad esempio il comando precedente può essere eseguito anche specificando solamente i valori.
 
@@ -220,7 +220,7 @@ Conoscere tutte le funzioni e tutti i loro argomenti è impossibile. Per fortuna
 
 Per accedere alla documentazione possiamo utilizzare il comando `?<nome-funzione>` oppure `help(<nome-funzione>)`. Ad esempio:
 
-```{r, echo = TRUE}
+```{r, echo = TRUE, eval = FALSE}
 ?seq
 help(seq)
 ```
@@ -242,6 +242,12 @@ Il formato e le informazioni presenti nella pagina seguono delle norme comuni ma
 - **Value** - Descrizione dell'output dalla funzione. Qui troviamo sia la descrizione della struttura dei dati dell'output che la descrizione dei suei elementi utile per interpretare ed utilizzare i rsultati ottenuti
 - **See Also** - Eventuali link ad altre funzioni simili o in relazione con la nostra funzione
 - **Examples** - Esempi di uso della funzione
+
+#### Ricerca per Parola {-}
+
+Quando non si conosce esattamente il nome di una funzione o si vuole cercare tutte le funzioni e pagine che includono una certa parola, è possibile utilizzare il comando `??<parola>` oppure `help.search(<parola>)`.
+
+R eseguirà una ricerca tra tutta la documentazione disponibile è fornirà un elenco delle pagine che contengono la parola desiderata nel titolo o tra le  keywords.
 
 
 :::{.trick title="Autocompletamento with 'Tab'" data-latex="[Autocompletamento with 'Tab']"}

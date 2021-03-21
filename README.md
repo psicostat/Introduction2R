@@ -25,7 +25,7 @@ At the end of this book you will probably not be hired by Google, but we hope at
 
 ## Psicostat
 
-This book was produced by Psicostat, an interdisciplinary research group interested in Psychology and Statistics, our goal is to promote the connection between the two fields! If you want to know more about our activities visit our website https://psicostat.dpss.psy.unipd.it/ or add yourself to our mailing list https://lists.dpss.psy.unipd.it/postorius/lists.
+This book was produced by [Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) and [Filippo Gambarota](https://filippogambarota.netlify.app/) members of Psicostat, an interdisciplinary research group interested in Psychology and Statistics, our goal is to promote the connection between the two fields! If you want to know more about our activities visit our website https://psicostat.dpss.psy.unipd.it/ or add yourself to our mailing list https://lists.dpss.psy.unipd.it/postorius/lists.
 
 ## Contribute
 
