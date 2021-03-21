@@ -1,7 +1,7 @@
 --- 
-title: "<span style='font-size: 2.5em'>Introduzione a R</span>"
+title: "<span style='font-size: 2.5em'>Introduction to R</span>"
 subtitle: "Corso per imparare le basi di **R**"
-author: "[Psicostat](https://psicostat.dpss.psy.unipd.it/)"
+author: "[Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) and [Filippo Gambarota](https://filippogambarota.netlify.app/) members of [Psicostat](https://psicostat.dpss.psy.unipd.it/)"
 date: "21-03-2021"
 site: bookdown::bookdown_site
 documentclass: book
@@ -67,7 +67,7 @@ Materiale avanzato:
 
 ## Psicostat {-}
 
-Questo libro è stato prodotto da **Psicostat**, un gruppo di ricerca interdisciplinare dell'universita di Padova che unisce la passione per la statistica e la psicologia. Se vuoi conoscere di più riguardo le nostre attività visita il nosto sito https://psicostat.dpss.psy.unipd.it/ o aggiungiti alla nostra mailing list https://lists.dpss.psy.unipd.it/postorius/lists/psicostat.lists.dpss.psy.unipd.it/.
+Questo libro è stato prodotto da [Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) and [Filippo Gambarota](https://filippogambarota.netlify.app/), membri di **Psicostat**. Un gruppo di ricerca interdisciplinare dell'universita di Padova che unisce la passione per la statistica e la psicologia. Se vuoi conoscere di più riguardo le nostre attività visita il nosto sito https://psicostat.dpss.psy.unipd.it/ o aggiungiti alla nostra mailing list https://lists.dpss.psy.unipd.it/postorius/lists/psicostat.lists.dpss.psy.unipd.it/.
 
 ## Collaborazione {-}
 

@@ -36,8 +36,8 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Introduzione a R},
-  pdfauthor={Psicostat},
+  pdftitle={Introduction to R},
+  pdfauthor={Claudio Zandonella Callegher and Filippo Gambarota members of Psicostat},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -217,7 +217,7 @@
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
 
-\title{{Introduzione a R}}
+\title{{Introduction to R}}
 \usepackage{etoolbox}
 \makeatletter
 \providecommand{\subtitle}[1]{% add subtitle to \maketitle
@@ -225,7 +225,7 @@
 }
 \makeatother
 \subtitle{Corso per imparare le basi di \textbf{R}}
-\author{\href{https://psicostat.dpss.psy.unipd.it/}{Psicostat}}
+\author{\href{https://claudiozandonella.netlify.app/}{Claudio Zandonella Callegher} and \href{https://filippogambarota.netlify.app/}{Filippo Gambarota} members of \href{https://psicostat.dpss.psy.unipd.it/}{Psicostat}}
 \date{21-03-2021}
 
 \begin{document}
@@ -321,7 +321,7 @@ Materiale avanzato:
 \section*{Psicostat}\label{psicostat}}
 \addcontentsline{toc}{section}{Psicostat}
 
-Questo libro è stato prodotto da \textbf{Psicostat}, un gruppo di ricerca interdisciplinare dell'universita di Padova che unisce la passione per la statistica e la psicologia. Se vuoi conoscere di più riguardo le nostre attività visita il nosto sito \url{https://psicostat.dpss.psy.unipd.it/} o aggiungiti alla nostra mailing list \url{https://lists.dpss.psy.unipd.it/postorius/lists/psicostat.lists.dpss.psy.unipd.it/}.
+Questo libro è stato prodotto da \href{https://claudiozandonella.netlify.app/}{Claudio Zandonella Callegher} and \href{https://filippogambarota.netlify.app/}{Filippo Gambarota}, membri di \textbf{Psicostat}. Un gruppo di ricerca interdisciplinare dell'universita di Padova che unisce la passione per la statistica e la psicologia. Se vuoi conoscere di più riguardo le nostre attività visita il nosto sito \url{https://psicostat.dpss.psy.unipd.it/} o aggiungiti alla nostra mailing list \url{https://lists.dpss.psy.unipd.it/postorius/lists/psicostat.lists.dpss.psy.unipd.it/}.
 
 \hypertarget{collaborazione}{%
 \section*{Collaborazione}\label{collaborazione}}
@@ -2486,86 +2486,6 @@ Ci sono anche diversi pacchetti in R che rendono automatico creare questi esempi
 
 Working in progress.
 
-\hypertarget{data-type}{%
-\chapter{Data Type}\label{data-type}}
-
-Working in progress.
-
-Tipi di vettori
-
-In R ci sono 4 tipi differenti di vettori: numerici, logici, caratteri e fattori.
-
-\hypertarget{vettori-numerici}{%
-\section{Vettori Numerici}\label{vettori-numerici}}
-
-I vettori numerici sono utilizzati per compiere operazioni aritmetiche, in R sono indicati come \texttt{num}. In R ci sono è possibil e specificare se i numeri contenuti nel vettore sono numeri interi, avremmo quindi un vettore di valori interi (indicato in R come \texttt{int}). Per fare ciò è possibile aggiungere \texttt{L} ad ogni valore numerico nel definire il vettore oppure usare la funzione \texttt{as.integer()} per trasformare un vettore numerico in un vettore intero.
-
-\textbf{Esempio:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(4L, 6L, 12L, 34L, 8L)}
-
-\NormalTok{x <-}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{34}\NormalTok{, }\DecValTok{8}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{Nota}: per trasformare un vettore intero in un vettore numerico è possibile usare la funzione \texttt{as.numeric()}.
-
-\hypertarget{vettori-logici}{%
-\section{Vettori logici}\label{vettori-logici}}
-
-I vettori logici sono formati dai volori \texttt{TRUE} e \texttt{FALSE}, che possono essere abbreviati rispettivamente in \texttt{T} e \texttt{F}. In R i vettori logici sono indicati come \texttt{logi}. In genere, i vettori logici sono il risultato delle operazioni in cui viene chiesto ad R di valutare la condizione logica di una proposizione.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{x}\OperatorTok{>}\DecValTok{10}
-\CommentTok{## [1] FALSE FALSE  TRUE  TRUE FALSE}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{Nota:} in R, come in molti altri software di programmazione, \texttt{TRUE} assume il valore numerico \texttt{1} e \texttt{FALSE} assume il valore \texttt{0}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{sum}\NormalTok{(x}\OperatorTok{>}\DecValTok{10}\NormalTok{)}
-\CommentTok{## [1] 2}
-\end{Highlighting}
-\end{Shaded}
-
-E' possibile trasformare un vettore numerico in un vettor logico attraverso la funzione \texttt{as.logical()}, gli \texttt{0} assumeranno il valore \texttt{FALSE} mentre qualsiasi altro numero assumerà il valore \texttt{TRUE}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{as.logical}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,.}\DecValTok{034}\NormalTok{,}\OperatorTok{-}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{8}\NormalTok{))}
-\CommentTok{## [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{vettori-di-caratteri}{%
-\section{Vettori di caratteri}\label{vettori-di-caratteri}}
-
-I vettori di caratteri contengono stringhe di caratteri e sono indicati in R con `chr\}. Non è possibile eseguire operazioni aritmetiche con vettori di caratteri ma solo valutare se due stringhe sono uguali o differenti.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{j<-}\KeywordTok{c}\NormalTok{(}\StringTok{"Hello"}\NormalTok{,}\StringTok{"World"}\NormalTok{,}\StringTok{"hello"}\NormalTok{,}\StringTok{"world"}\NormalTok{)}
-\NormalTok{j}\OperatorTok{==}\StringTok{"hello"}
-\CommentTok{## [1] FALSE FALSE  TRUE FALSE}
-\end{Highlighting}
-\end{Shaded}
-
-Per trasformare un vettore qualsiasi in una vettore di caratteri e possibile usare la funzione \texttt{as.character()}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{as.character}\NormalTok{(x)}
-\CommentTok{## [1] "4"  "6"  "12" "34" "8"}
-\KeywordTok{as.character}\NormalTok{(x}\OperatorTok{>}\DecValTok{10}\NormalTok{)}
-\CommentTok{## [1] "FALSE" "FALSE" "TRUE"  "TRUE"  "FALSE"}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{vector}{%
 \chapter{Vettori}\label{vector}}
 
@@ -2674,6 +2594,89 @@ Operazione & Nome\\
 \item
   Calcola il prodotto tra i primi 10 elementi del vettore \texttt{y} ed il vettore \texttt{z}.
 \end{enumerate}
+
+\hypertarget{data-type}{%
+\section{Data Type}\label{data-type}}
+
+Working in progress.
+
+Tipi di vettori
+
+In R ci sono 4 tipi differenti di vettori: numerici, logici, caratteri e fattori.
+
+\hypertarget{vettori-numerici}{%
+\subsection{Vettori Numerici}\label{vettori-numerici}}
+
+I vettori numerici sono utilizzati per compiere operazioni aritmetiche, in R sono indicati come \texttt{num}. In R ci sono è possibil e specificare se i numeri contenuti nel vettore sono numeri interi, avremmo quindi un vettore di valori interi (indicato in R come \texttt{int}). Per fare ciò è possibile aggiungere \texttt{L} ad ogni valore numerico nel definire il vettore oppure usare la funzione \texttt{as.integer()} per trasformare un vettore numerico in un vettore intero.
+
+\textbf{Esempio:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(4L, 6L, 12L, 34L, 8L)}
+
+\NormalTok{x <-}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{34}\NormalTok{, }\DecValTok{8}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Nota}: per trasformare un vettore intero in un vettore numerico è possibile usare la funzione \texttt{as.numeric()}.
+
+\hypertarget{vettori-logici}{%
+\subsection{Vettori logici}\label{vettori-logici}}
+
+I vettori logici sono formati dai volori \texttt{TRUE} e \texttt{FALSE}, che possono essere abbreviati rispettivamente in \texttt{T} e \texttt{F}. In R i vettori logici sono indicati come \texttt{logi}. In genere, i vettori logici sono il risultato delle operazioni in cui viene chiesto ad R di valutare la condizione logica di una proposizione.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x}\OperatorTok{>}\DecValTok{10}
+\CommentTok{## [1] FALSE FALSE  TRUE  TRUE FALSE}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Nota:} in R, come in molti altri software di programmazione, \texttt{TRUE} assume il valore numerico \texttt{1} e \texttt{FALSE} assume il valore \texttt{0}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(x}\OperatorTok{>}\DecValTok{10}\NormalTok{)}
+\CommentTok{## [1] 2}
+\end{Highlighting}
+\end{Shaded}
+
+E' possibile trasformare un vettore numerico in un vettor logico attraverso la funzione \texttt{as.logical()}, gli \texttt{0} assumeranno il valore \texttt{FALSE} mentre qualsiasi altro numero assumerà il valore \texttt{TRUE}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{as.logical}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,.}\DecValTok{034}\NormalTok{,}\OperatorTok{-}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{8}\NormalTok{))}
+\CommentTok{## [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{vettori-di-caratteri}{%
+\subsection{Vettori di caratteri}\label{vettori-di-caratteri}}
+
+I vettori di caratteri contengono stringhe di caratteri e sono indicati in R con `chr\}. Non è possibile eseguire operazioni aritmetiche con vettori di caratteri ma solo valutare se due stringhe sono uguali o differenti.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{j<-}\KeywordTok{c}\NormalTok{(}\StringTok{"Hello"}\NormalTok{,}\StringTok{"World"}\NormalTok{,}\StringTok{"hello"}\NormalTok{,}\StringTok{"world"}\NormalTok{)}
+\NormalTok{j}\OperatorTok{==}\StringTok{"hello"}
+\CommentTok{## [1] FALSE FALSE  TRUE FALSE}
+\end{Highlighting}
+\end{Shaded}
+
+Per trasformare un vettore qualsiasi in una vettore di caratteri e possibile usare la funzione \texttt{as.character()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{as.character}\NormalTok{(x)}
+\CommentTok{## [1] "4"  "6"  "12" "34" "8"}
+\KeywordTok{as.character}\NormalTok{(x}\OperatorTok{>}\DecValTok{10}\NormalTok{)}
+\CommentTok{## [1] "FALSE" "FALSE" "TRUE"  "TRUE"  "FALSE"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{valori-speciali}{%
+\subsection{Valori speciali}\label{valori-speciali}}
 
 \hypertarget{factors}{%
 \chapter{Fattori}\label{factors}}
