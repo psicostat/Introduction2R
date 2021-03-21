@@ -1,6 +1,5 @@
 # Matrici {#matrix}
 
-
 ```{r settings, echo = FALSE}
 knitr::opts_chunk$set(
   echo = FALSE,
@@ -9,25 +8,435 @@ knitr::opts_chunk$set(
 )
 
 library(kableExtra)
+library(magrittr)
 ```
 
+## Creazione di una matrice
 
-Working in progress.
+<!-- TODO sistema le cross-ref -->
 
+La matrice è una struttura di dati **bidimensionale** che può contenere solo una tipologia di dato. Nel capitolo \@ref(data-type) sono state introdotte le varie tipologie di dato e come per i vettori, possiamo avere delle matrici di soli numeri o di soli caratteri. Il comando per creare una matrice in R è `matrix()` e contiene diversi argomenti:
 
-## Creazione di Matrici
+```{r, eval=FALSE, echo=TRUE}
+nome_matrice <- matrix(data, nrow = "numero righe", ncol = "numero colonne", byrow = FALSE)
+```
 
+* L'argomento `data` sono i valori con cui vogliamo popolare la matrice e sono considerati come un vettore.
+* Gli argomenti `nrow` e `ncol` sono rispettivamente il numero di colonne e il numero di righe della matrice
+* L'argomento `byrow` indica se la matrice deve essere popolata per riga oppure per colonna.
 
-`<nome-matrice> <- matrix(data, nrow=n, ncol=s, byrow=FALSE)`
+Creiamo come esempio una matrice vuota con soli valori `NA` con 5 righe e 5 colonne
 
-**Nota**: Di default R riempie la matrice per colonne, impostando `byrow = TRUE` si riempie per righe.
+```{r, echo = TRUE}
+mat <- matrix(data = NA, nrow = 5, ncol = 5, byrow = FALSE)
+mat
+```
 
+L'argomento `byrow = FALSE` è il default per il comando `matrix()` quindi R popola le matrici per colonna, se non espressamente richiesto.
+A questo punto popoliamo la matrice con i valori che vanno da 1 a 25.
+
+```{r, echo = T}
+# Dati per popolare la matrice
+vec <- 1:25
+vec
+
+# Matrice popolata per riga
+mat_bycol <- matrix(data = vec, nrow = 5, ncol = 5, byrow = TRUE)
+mat_bycol
+
+# Matrice popolata per colonna
+mat_byrow <- matrix(data = vec, nrow = 5, ncol = 5, byrow = FALSE)
+mat_byrow
+```
+
+Come si vede la matrice ora è popolata dai numeri che abbiamo creato e viene di default, popolata per colonna. Allo stesso modo possiamo semplicemente impostare `byrow = TRUE` per popolare la matrice per riga.
+
+E' importante tenere in considerazione che l'argomento `data` deve essere compatibile con gli argomenti `nrow` e `ncol`. In altre parole **non posso fornire più o meno dati di quelli che la matrice può contenere**. E' invece possibile specificare qualsiasi combinazione di righe e colonne rispettando che il numero totale di elementi corrisponda agli spazi disponibili.
+
+```{r, echo = T, error = TRUE}
+vec <- 1:16
+
+# Numero non compatibile
+mat <- matrix(vec, ncol = 5, nrow = 5, byrow = FALSE)
+mat
+
+# Matrice non quadrata con lo stesso vettore
+mat <- matrix(vec, ncol = 2, nrow = 8, byrow = FALSE)
+mat
+```
+
+Abbiamo visto che possiamo facilmente popolare una matrice con un vettore. Allo stesso modo possiamo vettorizzare una matrice (in altri termini "srotolare" la matrice) per ritornare al vettore originale. Con il comando `c(matrice)` oppure forzando la tipologia di oggetto a vettore con `vector(matrice)` o `as.vector(matrice)`.
+
+```{r, echo = T}
+# Da matrice a vettore
+c(mat)
+as.vector(mat)
+```
+
+:::{.tip title="Matrice di caratteri" data-latex="[Matrice di caratteri]"}
+La matrice è una tipologia di oggetto molto importante sia in R ma anche nella matematica, ad esempio nell'algebra lineare. Come vedremo ci sono diverse operazioni matematice (somma, moltiplicazione, inversione, etc.) che si possono eseguire. Abbiamo inoltre accennato che la matrice può contenere anche valori non numerici.
+
+```{r, echo = T}
+# Creare una matrice di caratteri
+
+chr_mat <- matrix(data = "chr", nrow = 5, ncol = 5, byrow = FALSE)
+chr_mat
+
+# Popolare una matrice di caratteri
+vec_chr <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "l", "m", "n", "o", "p", "q", "r")
+
+chr_mat <- matrix(vec_chr, nrow = 4, ncol = 4, byrow = FALSE)
+chr_mat
+```
+
+Per questo tipo di matrice valgono tutte le proprietà che vedremo o abbiamo visto fino ad ora. Tuttavia, non è molto frequente l'utilizzo di matrici di caratteri visto che chiaramente tutte le operazioni comuni non sono possibili.
+:::
 
 ### Esercizi {-}
 
 1. Crea la matrice `A` così definita: 
 
-$$\begin{matrix}
+$$
+\begin{matrix}
+2 & 34 & 12 & 7\\
+46 & 93 & 27 & 99\\
+23  & 38 & 7 & 04
+\end{matrix}
+$$
+
+2. Crea la matrice `B` contenente tutti i primi 12 numeri dispari disposti su 4 righe e 3 colonne.
+3. Crea la matrice `C` contenente i primi 12 multipli di 9 disposti su 3 righe e 4 colonne.
+4. Crea la matrice `D`  formata da 3 colonne in cui le lettere `"A"`,`"B"` e `"C"` vengano ripetute 4 volte ciascuna rispettivamente nella prima, seconda e terza colonna.
+5. Crea la matrice `E`  formata da 3 righe in cui le lettere `"A"`,`"B"` e `"C"` vengano ripetute 4 volte ciascuna rispettivamente nella prima, seconda e terza riga.
+
+## Proprietà della matrice{#mat-prop}
+
+La matrice essendo **bidimensionale** è formata da due elementi, righe e colonne. Sapendo il numero di righe e colonne infatti sappiamo la quantità di elementi nella matrice. Per ottenere queste informazioni possiamo usare i comandi `ncol()` e `nrow()`.
+
+```{r, echo = T}
+vec <- 1:25
+mat <- matrix(vec, ncol = 5, nrow = 5, byrow = FALSE)
+
+# Numero di righe
+nrow(mat)
+
+# Numero di colonne
+ncol(mat)
+```
+
+Come avete notato, la matrice viene principalmente gestita tramite indici numerici, nella sezione successiva vedremo come accedere ad ogni elemento di una matrice. In R, possiamo però anche assegnare dei nomi alle proprietà (o dimensioni) della matrice. Con i comandi `rownames()` e `colnames()` possiamo accedere ai nomi di righe e colonne o assegnarne di nuovi. Un comando più rapido è `dimnames()` che restituisce direttamente i nomi di riga e/o colonna.
+
+```{r, echo = T}
+vec <- 1:25
+mat <- matrix(vec, ncol = 5, nrow = 5, byrow = FALSE)
+
+# Nome di righe
+rownames(mat)
+
+# Nome di colonne
+colnames(mat)
+```
+
+Non essendo impostati, ottieniamo un `NULL` come output. Se impostare i nomi di righe e/o colonne, è sufficiente assegnare a `rownames(matrice)` o `colnames(matrice)` un vettore di caratteri della stessa lunghezza della dimensione che stiamo rinominando. Se impostiamo un unico carattere, tutte le righe/colonne avranno lo stesso valore. Questo ci fa capire che R richiede che tutte le righe/colonne abbiano un nome.
+
+<!-- TODO Vedi se introdotto il comando letters -->
+
+```{r, echo=TRUE}
+vec <- 1:25
+mat <- matrix(vec, ncol = 5, nrow = 5, byrow = FALSE)
+
+dimnames(mat)
+
+# Assegnamo i nomi
+
+row_names <- letters[1:5]
+col_names <- letters[6:10]
+
+colnames(mat) <- col_names
+rownames(mat) <- row_names
+dimnames(mat)
+mat
+```
+
+## Indicizzazione di matrici
+
+L'aspetto sicuramente più importante (e divertente) riguardo le matrici è accedere ai vari elementi. Indipendentemente da cosa la matrice contenga infatti possiamo pensare ai valori come ad una griglia dove l'incrocio tra righe $i$ e colonne $j$ crea una cella unica $ij$ che contiene uno specifico valore. Un modo utile per capire questo concetto è immaginare una matrice $i \times j$ dove ogni elemento è il numero di riga $i$ e il numero di colonna $j$:
+
+```{r}
+mat <- matrix(NA, 5, 5)
+
+for(i in 1:nrow(mat)){
+  for(j in 1:ncol(mat)){
+    mat[i,j] <- paste0(i,j)
+  }
+}
+
+mat
+```
+
+In questa matrice è chiaro che il primo elemento è nella prima riga e nella prima colonna, il secondo elemento (per riga) è nella prima riga e nella seconda colonna e così via.
+
+Questo introduce un aspetto fondamentale di come funzionano le matrici e i vettori (e come vedremo anche i `dataframe`) ovvero si può fare riferimento agli indici di riga e colonna per accedere a qualsiasi elemento.
+
+```{r, eval = F}
+matrice["indice_riga", "indice_colonna"]
+```
+
+In sostanza, per accedere ad una matrice usiamo le parentesi quadre `matrice[]` e in ordine forniamo il numero di riga e il numero di colonna. L'ordine `[riga, colonna]` è arbitrario e deve essere rispettato.
+
+```{r, echo = TRUE, error=TRUE}
+vec <- 1:25
+mat <- matrix(vec, ncol = 5, nrow = 5, byrow = FALSE)
+
+mat
+
+# Selezioniamo l'elemento alla riga 3 e colonna 5
+
+mat[3,5]
+
+# Selezioniamo l'elemento alla riga 10 e colonna 1
+
+mat[10,1]
+```
+
+Come vedete, possiamo accedere a qualsiasi elemento. Se indichiamo un indice che non è presente nella matrice in oggetto, chiaramente otteniamo un errore.
+
+## Indicizzazione avanzata
+
+Oltre a selezionare uno specifico elemento possiamo essere interessati a selezionare più elementi insieme. La sintassi rimane la stessa quindi `matrice[riga, colonna]` ma possiamo combinare le conoscenze sui vettori e sulla creazione di oggetti. Quello che possiamo fare:
+
+* Selezionare **tutti gli elementi di una riga o colonna**
+* Selezionare la **diagonale** della matrice
+* Selezionare **solo alcune righe e/o colonne**
+* Selezionare elementi con **operazioni logiche**
+
+Per selezionare **tutti** gli elementi di una riga o colonna si usa la sintassi `matrice[, colonna]` o `matrice[riga, ]` per selezionare rispettivamente tutte le righe ma solo una o più colonne e tutte le colonne ma solo una o più righe. Lasciando vuoto il posto prima o dopo la virgola diciamo ad R di selezionare tutto.
+
+```{r, echo = TRUE}
+vec <- 1:25
+mat <- matrix(vec, ncol = 5, nrow = 5, byrow = FALSE)
+
+mat
+
+# Selezioniamo tutta la prima riga
+
+mat[1, ]
+
+# Selezioniamo tutta la terza colonna
+
+mat[, 2]
+```
+
+:::{.tip title="Matrici e vettori" data-latex="[Matrici e vettori]"}
+Selezionando solo una riga/colonna ci rendiamo conto che otteniamo una cosa molto simile ad un **vettore**. Infatti, un vettore può essere anche visto come una matrice con una sola riga o colonna. In R comunque sia il vettore che una matrice con una sola dimensione sono trattati allo stesso modo.
+:::
+
+Riguardo la **diagonale** di una matrice essa può essere vista, dal punto di vista prettamente pratico, come l'insieme di elementi associati allo stesso indice di riga e colonna. Il comando `diag(matrice)` permette di estrarre la diagonale di una matrice e trattarla come un semplice vettore:
+
+```{r, echo = T}
+
+# Matrice quadrata
+vec <- 1:25
+mat <- matrix(vec, ncol = 5, nrow = 5, byrow = FALSE)
+
+mat
+
+diag(mat)
+
+# Matrice non quadrata
+
+vec <- 1:16
+mat <- matrix(vec, ncol = 2, nrow = 8, byrow = FALSE)
+mat
+
+diag(mat)
+```
+
+Per selezionare più righe e colonne insieme possiamo usare diversi metodi. Essenzialmente se devo selezionare più elementi devo fornire ad R più indici insieme. E' chiaro però che la notazione `matrice[riga, colonna]` non è direttamente compatibile se vogliamo più elementi. La scrittura `matrice[riga1, riga2, colonna]` infatti è sbagliata perchè R si aspetta una sola virgola che separa righe e colonne. Il modo più rapido è quindi combinare gli indici che vogliamo in un vettore (usando il comando `c()` ad esempio) e poi selezionare gli elementi. Se le colonne sono indicizzate come numeri in successione, ad esempio seleziono le prime 3 colonne posso utilizzare la scrittura compatta `1:3` che è equivalente a `c(1,2,3)`
+
+```{r, echo = T}
+vec <- 1:25
+mat <- matrix(vec, ncol = 5, nrow = 5, byrow = FALSE)
+mat
+
+# Prime 2 righe e prime 2 colonne
+
+mat[c(1,2), c(1,2)]
+
+# Riga 1 e 4, colonna 4 e 5
+
+mat[c(1,4), c(4,5)]
+
+# Prime tre righe e quinta colonna
+
+mat[1:3, 5]
+```
+
+Essendo la matrice (principalmente) formata da elementi numerici, possiamo anche eseguire le principali operazioni sia matematiche (e.g. somma, differenza, moltiplicazione) ma anche quelle logiche come "quali elementi della matrice sono maggiori di x?". 
+
+Allo stesso modo possiamo selezionare (e quindi estrarre) gli elementi che rispettano una certa condizione usando la sintassi `matrice[operazione logica]`. Le operazioni logiche complesse sono molto utili sopratutto con i `dataframe` come vedremo nelle prossime sezioni.
+
+```{r, echo = T}
+vec <- 1:25
+mat <- matrix(vec, ncol = 5, nrow = 5, byrow = FALSE)
+mat
+
+# Quali elementi sono > 5
+mat > 5
+
+# Quali elementi sono < 1
+mat > 5
+
+# Quali elementi sono = 0
+mat == 5
+
+# Selezioniamo gli elementi
+
+mat[mat > 5]
+
+mat[mat == 0]
+```
+
+Un ultimo aspetto da considerare, anche se non molto diffuso consiste nell'**indicizzare una matrice in base ai nomi delle righe e/o colonne**. Come abbiamo visto nella sezione \@ref(mat-prop) possiamo assegnare dei nomi (quindi delle stringhe) alle righe e colonne. Possiamo quindi selezionare la riga 1 sia con il suo indice `matrice[1, ]` ma anche con il nome assegnato `matrice["nome",]`. Queste sono operazioni fondamentali con i **dataframe** ma meno utili con le matrici.
+
+```{r, echo=TRUE}
+vec <- 1:25
+mat <- matrix(vec, ncol = 5, nrow = 5, byrow = FALSE)
+row_names <- letters[1:5]
+col_names <- letters[6:10]
+colnames(mat) <- col_names
+rownames(mat) <- row_names
+mat
+
+# Selezioniamo la riga "a"
+
+mat["a", ]
+
+# Selezioniamo le colonne "i" e "j"
+
+mat[, c("i", "j")]
+```
+
+## Combinare matrici
+
+Abbiamo visto nel capitolo \@ref(vector) come si possano fare diverse operazioni tra vettori, in particolare combinare ovvero unire vettori diversi. Anche per le matrici è possibile combinare matrici diverse, rispettando alcune regole:
+
+* Posso unire matrici per riga ovvero aggiungo una o più righe ad una matrice, oppure per colonna ovvero aggiungo una o più colonne
+* Posso unire matrici che abbiamo la stessa dimensione (i.e., numero di righe e/o colonne) rispetto alla dimensione che voglio combinare
+* Le matrici che unisco devono essere della stessa tipologia (numeri o caratteri)
+
+Se partiamo da una matrice `mat` per unire a `mat` un'altra matrice `new_mat` possiamo usare il comando `cbind(mat, new_mat)` se vogliamo unire le due matrici per colonna invece `rbind(mat, new_mat)` se vogliamo unire per riga. E' utile pensare all'unione come un collage tra matrici, in figura\@ref(fig:mat-comb) è presente uno schema utile per capire visivamente questo concetto.
+
+```{r mat-comb, fig.cap="Schema per la combinazione di matrici", out.width="50%"}
+knitr::include_graphics("images/matrix_comb.png")
+```
+
+Vediamo in R:
+
+```{r, error=TRUE, echo = T}
+vec <- 1:25
+mat <- matrix(vec, ncol = 5, nrow = 5, byrow = FALSE)
+
+# Nuova matrice da aggiungere
+new_vec <- 11:20
+new_mat <- matrix(new_vec, ncol = 2, nrow = 5, byrow = FALSE)
+
+mat
+new_mat
+
+# Combiniamo per colonna
+
+cbind(mat, new_mat)
+
+# Combiniamo per riga
+
+rbind(mat, new_mat)
+
+# Scambiamo il numero di colonne e righe, per far combaciare le due matrici
+
+new_vec <- 11:20
+new_mat <- matrix(new_vec, ncol = 5, nrow = 2, byrow = FALSE)
+mat
+new_mat
+
+rbind(mat, new_mat)
+```
+
+Possiamo combinare quindi per riga/colonna solo se le righe/colonne delle due matrici sono equivalenti. Otteniamo un errore quando cerchiamo di combinare matrici di dimensioni diverse.
+
+Un ultimo aspetto utile è l'estensione dei comandi `cbind()` ed `rbind()`. Fino ad ora li abbiamo utilizzati con due elementi: matrice di partenza e matrice da aggiungere ma possono essere utilizzati con elementi multipli. Se vogliamo combinare $n$ matrici possiamo usare il comando `cbind(mat1, mat2, mat3, ...)` o `rbind(mat1, mat2, mat3, ...)`. In questo caso il risultato finale dipende dall'ordine degli argomenti quindi prima la `mat1`, poi la `mat2` e così via.
+
+Ci sono molte altre operazioni da eseguire con le matrici. La tabella \@ref(tab:table-matrix-operators) riassume quelle che abbiamo visto e anche alcune operazioni più legate al mondo dell'algebra.
+
+```{r table-matrix-operators}
+
+names_function <- c("Per unire due matrici creando nuove colonne (le matrici devono avere lo stesso numero di righe)",
+                    "Per unire due matrici creando nuove righe (le matrici devono avere lo stesso numero di colonne)", 
+                    "Per valutare il numero di righe della matrice",
+                    "Per valutare il numero di colonne della matrice",
+                    "Per valutare la dimensione della matrice (righe e colonne)",
+                    "Per ottenere la trasposta della matrice",
+                    "Ottenere un vettore con gli elementi della diagonale della matrice",
+                    "Ottenere il determinante della matrice (la matrice deve essere quadrata)",
+                    "Ottenere l'inversa della matrice",
+                    "Nomi delle colonne della matrice",
+                    "Nomi delle righe della matrice",
+                    "Somma elemento per elemento di due matrici",
+                    "Differenza elemento per elemento tra due matrici",
+                    "Prodotto elemento per elemento tra due matrici",
+                    "Rapporto elemento per elemento tra due matrici",
+                    "Prodotto matriciale")
+formula <- c(sprintf("<nuova-matrice> <- %s(<matrice1>, <matrice2>)", 
+                     c("cbind", "rbind")),
+             sprintf("%s(<nome-matrice>)", 
+                     c("nrow", "ncol", "dim", "t", "diag", "det", "solve",
+                       "colnames", "rownames")),
+             sprintf("matrice1 %s matrice2", c("+", "-", "*", "/")))
+
+if (knitr::is_html_output()) {
+  vector_operators <- data.frame(formula = c(formula, "matrice1 %*% matrice2"),
+                                 name = names_function)
+  escape = TRUE
+}
+if (knitr::is_latex_output()) {
+  vector_operators <- data.frame(formula = sprintf("\\texttt{%s}",
+                                                   c(formula, "matrice1 \\%*\\% matrice2")),
+                                 name = names_function)
+  escape = FALSE
+}
+
+kableExtra::kable(vector_operators, col.names = c("Operazione", "Nome"),
+                  escape = escape, caption = "Operazioni con matrici") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                full_width = F,
+                latex_options = c("hold_position"))
+```
+
+### Esercizi {-}
+
+Utilizzando la matrice creata `A` creata negli esercizi precedenti:
+
+1. Utilizzando gli indici di riga e di colonna selziona il numero 27 della matrice `A`
+2. Selziona gli elementi compresi tra la seconda e quarta riga, seconda e terza colonna della matrice `B`
+3. Seleziona solo gli elementi pari della matrice `A` (Nota: utilizza l'operazione resto `%%`)
+4. Elimina dalla matrice `C` la terza riga e la terza colonna
+5. Seleziona tutti gli elementi della seconda e terza riga della matrice `B`
+6. Seleziona tutti gli elementi diversi da  “B” appartenenti alla matrice `D`
+7. Crea la matrice `G` unendo alla matrice `A` le prime due colonne della matrice `C`
+8. Crea la matrice `H` unendo alla matrice `C` le prime due righe della matrice trasposta di `B`
+9. Ridefinisci la matrice `A` eliminando la seconda colonna. Ridefinisci la matrice `B` eliminando la prima riga. Verifica che le  matrici così ottenute abbiano la stessa dimensione.
+10. Commenta i differenti risultati che otteniamo nelle operazioni `A*B`, `B*A`, `A%*%B` e `B%*%A`.
+11. Assegna i seguenti nomi alle colonne e alle righe della matrice `C`: `"col\_1", "col\_2", "col\_3", "col\_4", "row\_1", "row\_2", "row\_3"`.
+
+
+<!--
+
+### Esercizi {-}
+
+1. Crea la matrice `A` così definita: 
+
+$$
+\begin{matrix}
 2 & 34 & 12 & 7\\
 46 & 93 & 27 & 99\\
 23  & 38 & 7 & 04
@@ -59,7 +468,7 @@ In R per selezioneare gli elementi di matrice si deve indicare all'interno delle
 ## Funzioni ed Operazioni tra Matrici
 
 
-```{r table-matrix-operators}
+```{r}
 
 names_function <- c("Per unire due matrici creando nuove colonne (le matrici devono avere lo stesso numero di righe)",
                     "Per unire due matrici creando nuove righe (le matrici devono avere lo stesso numero di colonne)", 
@@ -124,6 +533,7 @@ rownames(<nome-matrice>)<-c("nome-1",...,"nome-n")}
 4. Commenta i differenti risultati che otteniamo nelle operazioni `A*B`, `B*A`, `A%*%B` e `B%*%A`.
 5. Assegna i seguenti nomi alle colonne e alle righe della matrice `C`: `"col\_1", "col\_2", "col\_3", "col\_4", "row\_1", "row\_2", "row\_3"`.
 
+-->
 
 
 
