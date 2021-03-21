@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.2" data-path="working-environment.html"><a href="working-environment.html#absolute-path-e-relative-path"><i class="fa fa-check"></i><b>5.2.2</b> Absolute Path e Relative Path</a></li>
 <li class="chapter" data-level="5.2.3" data-path="working-environment.html"><a href="working-environment.html#working-directory-in-r"><i class="fa fa-check"></i><b>5.2.3</b> Working Directory in R</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="working-environment.html"><a href="working-environment.html#r-packages"><i class="fa fa-check"></i><b>5.3</b> R-packages</a><ul>
+<li class="chapter" data-level="5.3" data-path="working-environment.html"><a href="working-environment.html#packages"><i class="fa fa-check"></i><b>5.3</b> R-packages</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="working-environment.html"><a href="working-environment.html#install.packages"><i class="fa fa-check"></i><b>5.3.1</b> install.packages()</a></li>
 <li class="chapter" data-level="5.3.2" data-path="working-environment.html"><a href="working-environment.html#library"><i class="fa fa-check"></i><b>5.3.2</b> library()</a></li>
 <li class="chapter" data-level="5.3.3" data-path="working-environment.html"><a href="working-environment.html#aggiornare-e-rimuovere-pacchetti"><i class="fa fa-check"></i><b>5.3.3</b> Aggiornare e Rimuovere Pacchetti</a></li>
@@ -202,8 +202,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>6</b> Sessione di Lavoro</a><ul>
-<li class="chapter" data-level="6.1" data-path="working-session.html"><a href="working-session.html#sessione-di-lavoro"><i class="fa fa-check"></i><b>6.1</b> Sessione di Lavoro</a></li>
-<li class="chapter" data-level="6.2" data-path="working-session.html"><a href="working-session.html#r-projects"><i class="fa fa-check"></i><b>6.2</b> R projects</a></li>
+<li class="chapter" data-level="6.1" data-path="working-session.html"><a href="working-session.html#organizzazione-script"><i class="fa fa-check"></i><b>6.1</b> Organizzazione Script</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="working-session.html"><a href="working-session.html#creare-delle-sezioni"><i class="fa fa-check"></i><b>6.1.1</b> Creare delle Sezioni</a></li>
+<li class="chapter" data-level="6.1.2" data-path="working-session.html"><a href="working-session.html#sintassi"><i class="fa fa-check"></i><b>6.1.2</b> Sintassi</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="working-session.html"><a href="working-session.html#r-projects"><i class="fa fa-check"></i><b>6.2</b> R projects</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="working-session.html"><a href="working-session.html#più-di-uno-script"><i class="fa fa-check"></i><b>6.2.1</b> Più di uno script</a></li>
+</ul></li>
 <li class="chapter" data-level="6.3" data-path="working-session.html"><a href="working-session.html#messages-warnings-e-errors"><i class="fa fa-check"></i><b>6.3</b> Messages, Warnings e Errors</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="working-session.html"><a href="working-session.html#risolvere-gli-errori"><i class="fa fa-check"></i><b>6.3.1</b> Risolvere gli Errori</a></li>
 </ul></li>
@@ -310,34 +315,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.1</span> Vettori Numerici</h2>
 <p>I vettori numerici sono utilizzati per compiere operazioni aritmetiche, in R sono indicati come <code>num</code>. In R ci sono è possibil e specificare se i numeri contenuti nel vettore sono numeri interi, avremmo quindi un vettore di valori interi (indicato in R come <code>int</code>). Per fare ciò è possibile aggiungere <code>L</code> ad ogni valore numerico nel definire il vettore oppure usare la funzione <code>as.integer()</code> per trasformare un vettore numerico in un vettore intero.</p>
 <p><strong>Esempio:</strong></p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="data-type.html#cb35-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(4L, 6L, 12L, 34L, 8L)</span>
-<span id="cb35-2"><a href="data-type.html#cb35-2"></a></span>
-<span id="cb35-3"><a href="data-type.html#cb35-3"></a>x &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">34</span>, <span class="dv">8</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="data-type.html#cb37-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(4L, 6L, 12L, 34L, 8L)</span>
+<span id="cb37-2"><a href="data-type.html#cb37-2"></a></span>
+<span id="cb37-3"><a href="data-type.html#cb37-3"></a>x &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">34</span>, <span class="dv">8</span>))</span></code></pre></div>
 <p><strong>Nota</strong>: per trasformare un vettore intero in un vettore numerico è possibile usare la funzione <code>as.numeric()</code>.</p>
 </div>
 <div id="vettori-logici" class="section level2">
 <h2><span class="header-section-number">7.2</span> Vettori logici</h2>
 <p>I vettori logici sono formati dai volori <code>TRUE</code> e <code>FALSE</code>, che possono essere abbreviati rispettivamente in <code>T</code> e <code>F</code>. In R i vettori logici sono indicati come <code>logi</code>. In genere, i vettori logici sono il risultato delle operazioni in cui viene chiesto ad R di valutare la condizione logica di una proposizione.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="data-type.html#cb36-1"></a>x<span class="op">&gt;</span><span class="dv">10</span></span>
-<span id="cb36-2"><a href="data-type.html#cb36-2"></a><span class="co">## [1] FALSE FALSE  TRUE  TRUE FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="data-type.html#cb38-1"></a>x<span class="op">&gt;</span><span class="dv">10</span></span>
+<span id="cb38-2"><a href="data-type.html#cb38-2"></a><span class="co">## [1] FALSE FALSE  TRUE  TRUE FALSE</span></span></code></pre></div>
 <p><strong>Nota:</strong> in R, come in molti altri software di programmazione, <code>TRUE</code> assume il valore numerico <code>1</code> e <code>FALSE</code> assume il valore <code>0</code>.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="data-type.html#cb37-1"></a><span class="kw">sum</span>(x<span class="op">&gt;</span><span class="dv">10</span>)</span>
-<span id="cb37-2"><a href="data-type.html#cb37-2"></a><span class="co">## [1] 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="data-type.html#cb39-1"></a><span class="kw">sum</span>(x<span class="op">&gt;</span><span class="dv">10</span>)</span>
+<span id="cb39-2"><a href="data-type.html#cb39-2"></a><span class="co">## [1] 2</span></span></code></pre></div>
 <p>E’ possibile trasformare un vettore numerico in un vettor logico attraverso la funzione <code>as.logical()</code>, gli <code>0</code> assumeranno il valore <code>FALSE</code> mentre qualsiasi altro numero assumerà il valore <code>TRUE</code>.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="data-type.html#cb38-1"></a><span class="kw">as.logical</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,.<span class="dv">034</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">8</span>))</span>
-<span id="cb38-2"><a href="data-type.html#cb38-2"></a><span class="co">## [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="data-type.html#cb40-1"></a><span class="kw">as.logical</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,.<span class="dv">034</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">8</span>))</span>
+<span id="cb40-2"><a href="data-type.html#cb40-2"></a><span class="co">## [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE</span></span></code></pre></div>
 </div>
 <div id="vettori-di-caratteri" class="section level2">
 <h2><span class="header-section-number">7.3</span> Vettori di caratteri</h2>
 <p>I vettori di caratteri contengono stringhe di caratteri e sono indicati in R con `chr}. Non è possibile eseguire operazioni aritmetiche con vettori di caratteri ma solo valutare se due stringhe sono uguali o differenti.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="data-type.html#cb39-1"></a>j&lt;-<span class="kw">c</span>(<span class="st">&quot;Hello&quot;</span>,<span class="st">&quot;World&quot;</span>,<span class="st">&quot;hello&quot;</span>,<span class="st">&quot;world&quot;</span>)</span>
-<span id="cb39-2"><a href="data-type.html#cb39-2"></a>j<span class="op">==</span><span class="st">&quot;hello&quot;</span></span>
-<span id="cb39-3"><a href="data-type.html#cb39-3"></a><span class="co">## [1] FALSE FALSE  TRUE FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-type.html#cb41-1"></a>j&lt;-<span class="kw">c</span>(<span class="st">&quot;Hello&quot;</span>,<span class="st">&quot;World&quot;</span>,<span class="st">&quot;hello&quot;</span>,<span class="st">&quot;world&quot;</span>)</span>
+<span id="cb41-2"><a href="data-type.html#cb41-2"></a>j<span class="op">==</span><span class="st">&quot;hello&quot;</span></span>
+<span id="cb41-3"><a href="data-type.html#cb41-3"></a><span class="co">## [1] FALSE FALSE  TRUE FALSE</span></span></code></pre></div>
 <p>Per trasformare un vettore qualsiasi in una vettore di caratteri e possibile usare la funzione <code>as.character()</code>.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="data-type.html#cb40-1"></a><span class="kw">as.character</span>(x)</span>
-<span id="cb40-2"><a href="data-type.html#cb40-2"></a><span class="co">## [1] &quot;4&quot;  &quot;6&quot;  &quot;12&quot; &quot;34&quot; &quot;8&quot;</span></span>
-<span id="cb40-3"><a href="data-type.html#cb40-3"></a><span class="kw">as.character</span>(x<span class="op">&gt;</span><span class="dv">10</span>)</span>
-<span id="cb40-4"><a href="data-type.html#cb40-4"></a><span class="co">## [1] &quot;FALSE&quot; &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;FALSE&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-type.html#cb42-1"></a><span class="kw">as.character</span>(x)</span>
+<span id="cb42-2"><a href="data-type.html#cb42-2"></a><span class="co">## [1] &quot;4&quot;  &quot;6&quot;  &quot;12&quot; &quot;34&quot; &quot;8&quot;</span></span>
+<span id="cb42-3"><a href="data-type.html#cb42-3"></a><span class="kw">as.character</span>(x<span class="op">&gt;</span><span class="dv">10</span>)</span>
+<span id="cb42-4"><a href="data-type.html#cb42-4"></a><span class="co">## [1] &quot;FALSE&quot; &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;FALSE&quot;</span></span></code></pre></div>
 
 </div>
 </div>
