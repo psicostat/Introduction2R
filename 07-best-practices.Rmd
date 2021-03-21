@@ -141,7 +141,7 @@ mean(x / y)
 
 Come puoi notare otteniamo in entrambi i casi gli stessi risultati, per R non c'è alcuna differenza. Tuttavia, l'uso di spazi, una corretta indentazione ed un appropriato allineamento facilita la lettura e comprensione del codice.
 
-In genere sono valide le seguenti norme:
+In genere sono valide le seguenti regole:
 
 - Aggiungi degli **spazi** intorno agli operatori (`+`, `-`, `<-`, etc.) per separargli dagli argomenti ad eccezione di `:`.
 ```{r, echo=TRUE, eval = FALSE}
@@ -202,7 +202,7 @@ age = ..., sex = ...)
 
 
 :::{.design title="Tutta una Questione di Stile" data-latex="[Tutta una Questione di Stile]"}
-Potente trovare  ulteriori norme e consigli riguardo lo stile nella scrittura del codice al seguente link <https://irudnyts.github.io/r-coding-style-guide/>
+Potete trovare  ulteriori regole e consigli riguardanti lo stile nella scrittura di codici al seguente link <https://irudnyts.github.io/r-coding-style-guide/>.
 :::
 
 ## R projects
