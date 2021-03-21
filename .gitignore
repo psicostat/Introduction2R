@@ -17,6 +17,7 @@ libs/
 # bookdown build file
 Introduction2R.rds
 *.rds
+*.log
 
 # Other folders
 Documents/
