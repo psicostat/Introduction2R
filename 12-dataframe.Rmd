@@ -326,9 +326,47 @@ data_wide[data_wide$Id != "subj_2", ] # modo 2
 ```
 
 
-:::{.warning title="Attenzione ad eliminare" data-latex="[Attenzione ad eliminare"}
+:::{.warning title="Attenzione ad eliminare" data-latex="[Attenzione ad eliminare]"}
 L'utilizzo dell'operatore `-` è sempre in qualche modo pericoloso, sopratutto se l'oggetto che viene creato (o sovrascritto) viene poi utilizzato in altre operazioni. Eliminare delle informazioni, tranne quando è veramente necessario, non è mai una buona cosa. Se dovete selezionare una parte dei dati è sempre meglio creare un nuovo dataframe (o un nuovo oggetto in generale) e mantendere una versione di quello originale sempre disponibile. 
 :::
+
+Nella tabella \@ref(tab:frame-tab) è contenuto un riassunto delle principali operazioni che si possono eseguire con i dataframe:
+
+```{r frame-tab}
+
+names_function <- c("Per aggiungere una nuova variabile al DataFrame (deve avere lo stesso numero di righe)",
+                    "Per aggiungere delle osservazioni (i nuovi dati devono essere coerenti con la struttura del DataFrame)", 
+                    "Per valutare il numero di osservazioni del DataFrame",
+                    "Per valutare il numero di variabili del DataFrame",
+                    "Nomi delle colonne del DataFrame",
+                    "Nomi delle righe del DataFrame")
+formula <- sprintf("%s(nome_DataFrame)", 
+                   c("nrow", "ncol", "holder", "rownames"))
+
+if (knitr::is_html_output()) {
+  vector_operators <- data.frame(formula = c(
+    "nome_DataFrame &lt;- cbind(nome_DataFrame, nuova_variabile) <br> nome_DataFrame$nome_variabile &lt;- dati",
+    "nome_DataFrame &lt;- rbind(nome_DataFrame, nuova_variabile)",
+    formula),
+    name = names_function)
+  escape = FALSE
+}
+if (knitr::is_latex_output()) {
+  vector_operators <- data.frame(formula = c(
+    "\\texttt{nome\\_DataFrame <- cbind(nome\\_DataFrame, nuova\\_variabile)} \\\\ \\texttt{nome\\_DataFrame\\$nome\\_variabile <- dati}",
+    "\\texttt{nome\\_DataFrame <- rbind(nome\\_DataFrame, nuova\\_variabile)}",
+    sprintf("\\texttt{%s(nome\\_DataFrame)}", 
+            c("nrow", "ncol", "colnames", "rownames"))),
+    name = names_function)
+  escape = FALSE
+}
+
+kableExtra::kable(vector_operators, col.names = c("Operazione", "Nome"),
+                  escape = escape, caption = "Operazioni con dataframe") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                full_width = F,
+                latex_options = c("hold_position"))
+```
 
 
 ### Esercizi {-}

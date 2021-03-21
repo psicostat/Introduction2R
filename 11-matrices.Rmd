@@ -92,6 +92,23 @@ chr_mat
 Per questo tipo di matrice valgono tutte le proprietà che vedremo o abbiamo visto fino ad ora. Tuttavia, non è molto frequente l'utilizzo di matrici di caratteri visto che chiaramente tutte le operazioni comuni non sono possibili.
 :::
 
+### Esercizi {-}
+
+1. Crea la matrice `A` così definita: 
+
+$$
+\begin{matrix}
+2 & 34 & 12 & 7\\
+46 & 93 & 27 & 99\\
+23  & 38 & 7 & 04
+\end{matrix}
+$$
+
+2. Crea la matrice `B` contenente tutti i primi 12 numeri dispari disposti su 4 righe e 3 colonne.
+3. Crea la matrice `C` contenente i primi 12 multipli di 9 disposti su 3 righe e 4 colonne.
+4. Crea la matrice `D`  formata da 3 colonne in cui le lettere `"A"`,`"B"` e `"C"` vengano ripetute 4 volte ciascuna rispettivamente nella prima, seconda e terza colonna.
+5. Crea la matrice `E`  formata da 3 righe in cui le lettere `"A"`,`"B"` e `"C"` vengano ripetute 4 volte ciascuna rispettivamente nella prima, seconda e terza riga.
+
 ## Proprietà della matrice{#mat-prop}
 
 La matrice essendo **bidimensionale** è formata da due elementi, righe e colonne. Sapendo il numero di righe e colonne infatti sappiamo la quantità di elementi nella matrice. Per ottenere queste informazioni possiamo usare i comandi `ncol()` e `nrow()`.
@@ -394,6 +411,23 @@ kableExtra::kable(vector_operators, col.names = c("Operazione", "Nome"),
                 full_width = F,
                 latex_options = c("hold_position"))
 ```
+
+### Esercizi {-}
+
+Utilizzando la matrice creata `A` creata negli esercizi precedenti:
+
+1. Utilizzando gli indici di riga e di colonna selziona il numero 27 della matrice `A`
+2. Selziona gli elementi compresi tra la seconda e quarta riga, seconda e terza colonna della matrice `B`
+3. Seleziona solo gli elementi pari della matrice `A` (Nota: utilizza l'operazione resto `%%`)
+4. Elimina dalla matrice `C` la terza riga e la terza colonna
+5. Seleziona tutti gli elementi della seconda e terza riga della matrice `B`
+6. Seleziona tutti gli elementi diversi da  “B” appartenenti alla matrice `D`
+7. Crea la matrice `G` unendo alla matrice `A` le prime due colonne della matrice `C`
+8. Crea la matrice `H` unendo alla matrice `C` le prime due righe della matrice trasposta di `B`
+9. Ridefinisci la matrice `A` eliminando la seconda colonna. Ridefinisci la matrice `B` eliminando la prima riga. Verifica che le  matrici così ottenute abbiano la stessa dimensione.
+10. Commenta i differenti risultati che otteniamo nelle operazioni `A*B`, `B*A`, `A%*%B` e `B%*%A`.
+11. Assegna i seguenti nomi alle colonne e alle righe della matrice `C`: `"col\_1", "col\_2", "col\_3", "col\_4", "row\_1", "row\_2", "row\_3"`.
+
 
 <!--
 
