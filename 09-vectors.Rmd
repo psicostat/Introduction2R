@@ -83,6 +83,8 @@ rep(1:3, each = 2)
 
 ### Esercizi {-}
 
+Famigliarizza con la creazione di vettori ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07.R)):
+
 1. Crea il vettore `x` contenente i numeri 4, 6, 12, 34, 8
 2. Crea il vettore `y` contenente tutti i numeri pari compresi tra 1 e 25 (`?seq()`)
 3. Crea il vettore `z` contenente tutti i primi 10 multipli di 7 partendo da 13 (`?seq()`)
