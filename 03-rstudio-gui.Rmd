@@ -22,6 +22,15 @@ In genere, per lavorare con R viene utilizzato RStudio. RStudio è un programma 
 knitr::include_graphics("images/rstudio-gui.png")
 ```
 
+:::{.design title="R-Basic vs RStudio" data-latex="[R-Basic vs RStudio]"}
+L'utilizzo di R attraverso l'interfaccia di base piuttosto che RStudio, non è uno scontro tra due scuole di pensiero (o generazioni). Entrambe hanno vantaggi e svantaggi e pertanto vengono scelte a seconda delle dieverse necessità. 
+
+Quando si è alla ricerca della massima ottimizzazione, l'uso dell'interfaccia di base, grazie alla sua semplicità, permette di minimizzare l'utilizzo della memoria limitandosi allo stretto e necessario.
+
+In altri casi, invece, le funzionalità e strumenti aggiuntivi di RStudio permettono una maggiore efficacia nel proprio lavoro.
+:::
+
+
 #### 1. Console: il cuore di R {-}
 
 Qui ritroviamo la *Console* di R dove vengono effetivemente eseguiti tutti i tuoi codici e comandi. Nota come nell'ulitma riga della *Console* appaia il carattere `>`. Questo è definito *prompt* è ci indica che R in attesa di nuovi comandi da eseguire.
