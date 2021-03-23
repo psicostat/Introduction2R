@@ -198,7 +198,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3.1" data-path="working-environment.html"><a href="working-environment.html#install.packages"><i class="fa fa-check"></i><b>5.3.1</b> install.packages()</a></li>
 <li class="chapter" data-level="5.3.2" data-path="working-environment.html"><a href="working-environment.html#library"><i class="fa fa-check"></i><b>5.3.2</b> library()</a></li>
 <li class="chapter" data-level="5.3.3" data-path="working-environment.html"><a href="working-environment.html#aggiornare-e-rimuovere-pacchetti"><i class="fa fa-check"></i><b>5.3.3</b> Aggiornare e Rimuovere Pacchetti</a></li>
-<li class="chapter" data-level="5.3.4" data-path="working-environment.html"><a href="working-environment.html#documantazione-pacchetti"><i class="fa fa-check"></i><b>5.3.4</b> Documantazione Pacchetti</a></li>
+<li class="chapter" data-level="5.3.4" data-path="working-environment.html"><a href="working-environment.html#documentazione-pacchetti"><i class="fa fa-check"></i><b>5.3.4</b> Documentazione Pacchetti</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>6</b> Sessione di Lavoro</a><ul>
@@ -316,13 +316,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="creare-delle-sezioni" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> Creare delle Sezioni</h3>
 <p>Per mantenere chiara l’oreganizzazione degli script e facilitare la sua comprensione, è utile suddividere il codice in sezioni dove vengono eseguiti i diversi step delle analisi. In RStudio è possibile creare una sezione aggiungendo al termine di una linea di commento i caratteri <code>####</code> o <code>----</code>. Il testo del commento verrà considerao il titolo della sezione e comparirà una piccola freccia a lato del numero di riga. E’ possibile utilizzare a piacere i caratteri <code>#</code> o <code>-</code> per creare lo stile desiderato, l’importante è che la linea si concluda con almeno quattro caratteri identici.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="working-session.html#cb35-1"></a><span class="co"># Sezione 1 ####</span></span>
-<span id="cb35-2"><a href="working-session.html#cb35-2"></a></span>
-<span id="cb35-3"><a href="working-session.html#cb35-3"></a><span class="co"># Sezione 2 ----</span></span>
-<span id="cb35-4"><a href="working-session.html#cb35-4"></a></span>
-<span id="cb35-5"><a href="working-session.html#cb35-5"></a><span class="co">#----    Sezione 3    ----</span></span>
-<span id="cb35-6"><a href="working-session.html#cb35-6"></a></span>
-<span id="cb35-7"><a href="working-session.html#cb35-7"></a><span class="co">####   Sezione non valida   --##</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="working-session.html#cb37-1"></a><span class="co"># Sezione 1 ####</span></span>
+<span id="cb37-2"><a href="working-session.html#cb37-2"></a></span>
+<span id="cb37-3"><a href="working-session.html#cb37-3"></a><span class="co"># Sezione 2 ----</span></span>
+<span id="cb37-4"><a href="working-session.html#cb37-4"></a></span>
+<span id="cb37-5"><a href="working-session.html#cb37-5"></a><span class="co">#----    Sezione 3    ----</span></span>
+<span id="cb37-6"><a href="working-session.html#cb37-6"></a></span>
+<span id="cb37-7"><a href="working-session.html#cb37-7"></a><span class="co">####   Sezione non valida   --##</span></span></code></pre></div>
 <p>A titolo del tutto esemplificativo prendiamo in esempio la divisione in sezioni utilizzata nello script in Figura <a href="working-session.html#fig:script-template">6.1</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:script-template"></span>
 <img src="images/script-template.png" alt="Esempio di suddivisione in sezioni di uno script" width="85%" style="background-color: #999999; padding:2px" />
@@ -373,8 +373,8 @@ Figure 6.4: Compattare ed espandere le sezioni di codice
 <h4>Commenti</h4>
 <p>L’uso dei commenti è molto importante, ci permette di documentare le varie parti del codice e chiarire eventuli comandi difficili da capire. Tuttavia, non è necessario commentare ogni singola riga di codice ed anzi è meglio evitare di commentare laddove i comandi sono facilemtne interpetabili semplicemnte leggendo il codice.</p>
 <p>La capacità di scrivere commenti utili ed eviare quelli rindondanti si impara con l’esperienza. In generale un commento non dovrebbe indicare <em>“che cosa”</em> ma piuttosto il <em>“perchè”</em> di quella parte di codice. Infatti il cosa è facilmente interpretabile dal codice stesso mentre il perchè potrebbe essere meno ovvio e soprattutto più utile per la comprensione dell’intero script. Ad esempio:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="working-session.html#cb36-1"></a>x &lt;-<span class="st"> </span><span class="dv">10</span> <span class="co"># assegno a x il valore 10</span></span>
-<span id="cb36-2"><a href="working-session.html#cb36-2"></a>x &lt;-<span class="st"> </span><span class="dv">10</span> <span class="co"># definisco massimo numero risposte</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="working-session.html#cb38-1"></a>x &lt;-<span class="st"> </span><span class="dv">10</span> <span class="co"># assegno a x il valore 10</span></span>
+<span id="cb38-2"><a href="working-session.html#cb38-2"></a>x &lt;-<span class="st"> </span><span class="dv">10</span> <span class="co"># definisco massimo numero risposte</span></span></code></pre></div>
 <p>Il primo commento è inutile poichè è facilmente comprensibile dal codice stesso, mentre il secondo commento è motlo utile perchè chiarisce il significato della variabile e mi faciliterà nella comprensione del codice.</p>
 </div>
 <div id="nomi-oggetti" class="section level4 unnumbered">
@@ -389,10 +389,10 @@ Figure 6.4: Compattare ed espandere le sezioni di codice
 <div id="esplicitare-argomenti" class="section level4 unnumbered">
 <h4>Esplicitare Argomenti</h4>
 <p>Abbiamo visto nel Capitolo <a href="objects-functions.html#function-arguments">4.2.1</a> l’importanza di esplicitare il nome degli argomenti quando vengono utilizzati nelle funzioni. Specificando a che cosa si riferiscono i vari valori facilitiamo la lettura e la comprensione del codice. Ad esempio:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="working-session.html#cb37-1"></a><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="working-session.html#cb39-1"></a><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>)</span></code></pre></div>
 <p>Potrebbe non essere chiaro se intendiamo una sequennza tra 0 e 10 di lunghezza 2 o a intervalli di 2. Specificando gli argomenti evitiamo incomprensioni e possibili errori.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="working-session.html#cb38-1"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">by =</span> <span class="dv">2</span>)</span>
-<span id="cb38-2"><a href="working-session.html#cb38-2"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">length.out =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="working-session.html#cb40-1"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">by =</span> <span class="dv">2</span>)</span>
+<span id="cb40-2"><a href="working-session.html#cb40-2"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">length.out =</span> <span class="dv">2</span>)</span></code></pre></div>
 </div>
 <div id="spazi-indentazione-ed-allineamento" class="section level4 unnumbered">
 <h4>Spazi, Indentazione ed allineamento</h4>
@@ -401,79 +401,79 @@ Figure 6.4: Compattare ed espandere le sezioni di codice
 <p>Good coding style is like using correct punctuation. You can manage without it, but it sure makes things easier to read. Hadley Wickham</p>
 </blockquote>
 <p>Prendiamo ad esempio le seguenti linee di codice, che includono delle funzioni avanzate di R:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="working-session.html#cb39-1"></a><span class="co"># Stile 1</span></span>
-<span id="cb39-2"><a href="working-session.html#cb39-2"></a>k=<span class="dv">10</span>;<span class="cf">if</span>(k<span class="op">&lt;</span><span class="dv">5</span>){x&lt;-<span class="dv">5</span><span class="op">:</span><span class="dv">15</span>}<span class="cf">else</span>{x&lt;-<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">16</span>,<span class="dv">4</span>)};y=<span class="dv">7</span><span class="op">*</span><span class="dv">2-12</span>;<span class="kw">mean</span>(x<span class="op">/</span>y)</span>
-<span id="cb39-3"><a href="working-session.html#cb39-3"></a><span class="co">## [1] 4</span></span>
-<span id="cb39-4"><a href="working-session.html#cb39-4"></a></span>
-<span id="cb39-5"><a href="working-session.html#cb39-5"></a><span class="co"># Stile 2</span></span>
-<span id="cb39-6"><a href="working-session.html#cb39-6"></a>k &lt;-<span class="st">  </span><span class="dv">10</span></span>
-<span id="cb39-7"><a href="working-session.html#cb39-7"></a></span>
-<span id="cb39-8"><a href="working-session.html#cb39-8"></a><span class="cf">if</span> (k <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>){</span>
-<span id="cb39-9"><a href="working-session.html#cb39-9"></a>  x &lt;-<span class="st"> </span><span class="dv">5</span><span class="op">:</span><span class="dv">15</span></span>
-<span id="cb39-10"><a href="working-session.html#cb39-10"></a>} <span class="cf">else</span> {</span>
-<span id="cb39-11"><a href="working-session.html#cb39-11"></a>  x&lt;-<span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">16</span>, <span class="dt">by =</span> <span class="dv">4</span>)</span>
-<span id="cb39-12"><a href="working-session.html#cb39-12"></a>}</span>
-<span id="cb39-13"><a href="working-session.html#cb39-13"></a></span>
-<span id="cb39-14"><a href="working-session.html#cb39-14"></a>y &lt;-<span class="st"> </span><span class="dv">7</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">12</span></span>
-<span id="cb39-15"><a href="working-session.html#cb39-15"></a></span>
-<span id="cb39-16"><a href="working-session.html#cb39-16"></a><span class="kw">mean</span>(x <span class="op">/</span><span class="st"> </span>y)</span>
-<span id="cb39-17"><a href="working-session.html#cb39-17"></a><span class="co">## [1] 4</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="working-session.html#cb41-1"></a><span class="co"># Stile 1</span></span>
+<span id="cb41-2"><a href="working-session.html#cb41-2"></a>k=<span class="dv">10</span>;<span class="cf">if</span>(k<span class="op">&lt;</span><span class="dv">5</span>){x&lt;-<span class="dv">5</span><span class="op">:</span><span class="dv">15</span>}<span class="cf">else</span>{x&lt;-<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">16</span>,<span class="dv">4</span>)};y=<span class="dv">7</span><span class="op">*</span><span class="dv">2-12</span>;<span class="kw">mean</span>(x<span class="op">/</span>y)</span>
+<span id="cb41-3"><a href="working-session.html#cb41-3"></a><span class="co">## [1] 4</span></span>
+<span id="cb41-4"><a href="working-session.html#cb41-4"></a></span>
+<span id="cb41-5"><a href="working-session.html#cb41-5"></a><span class="co"># Stile 2</span></span>
+<span id="cb41-6"><a href="working-session.html#cb41-6"></a>k &lt;-<span class="st">  </span><span class="dv">10</span></span>
+<span id="cb41-7"><a href="working-session.html#cb41-7"></a></span>
+<span id="cb41-8"><a href="working-session.html#cb41-8"></a><span class="cf">if</span> (k <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>){</span>
+<span id="cb41-9"><a href="working-session.html#cb41-9"></a>  x &lt;-<span class="st"> </span><span class="dv">5</span><span class="op">:</span><span class="dv">15</span></span>
+<span id="cb41-10"><a href="working-session.html#cb41-10"></a>} <span class="cf">else</span> {</span>
+<span id="cb41-11"><a href="working-session.html#cb41-11"></a>  x&lt;-<span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">16</span>, <span class="dt">by =</span> <span class="dv">4</span>)</span>
+<span id="cb41-12"><a href="working-session.html#cb41-12"></a>}</span>
+<span id="cb41-13"><a href="working-session.html#cb41-13"></a></span>
+<span id="cb41-14"><a href="working-session.html#cb41-14"></a>y &lt;-<span class="st"> </span><span class="dv">7</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">12</span></span>
+<span id="cb41-15"><a href="working-session.html#cb41-15"></a></span>
+<span id="cb41-16"><a href="working-session.html#cb41-16"></a><span class="kw">mean</span>(x <span class="op">/</span><span class="st"> </span>y)</span>
+<span id="cb41-17"><a href="working-session.html#cb41-17"></a><span class="co">## [1] 4</span></span></code></pre></div>
 <p>Come puoi notare otteniamo in entrambi i casi gli stessi risultati, per R non c’è alcuna differenza. Tuttavia, l’uso di spazi, una corretta indentazione ed un appropriato allineamento facilita la lettura e comprensione del codice.</p>
 <p>In genere sono valide le seguenti regole:</p>
 <ul>
 <li>Aggiungi degli <strong>spazi</strong> intorno agli operatori (<code>+</code>, <code>-</code>, <code>&lt;-</code>, etc.) per separargli dagli argomenti ad eccezione di <code>:</code>.</li>
 </ul>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="working-session.html#cb40-1"></a><span class="co"># Good</span></span>
-<span id="cb40-2"><a href="working-session.html#cb40-2"></a><span class="dv">35</span> <span class="op">/</span><span class="st"> </span><span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="dv">7</span></span>
-<span id="cb40-3"><a href="working-session.html#cb40-3"></a>x &lt;-<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">10</span></span>
-<span id="cb40-4"><a href="working-session.html#cb40-4"></a></span>
-<span id="cb40-5"><a href="working-session.html#cb40-5"></a><span class="co"># Bad</span></span>
-<span id="cb40-6"><a href="working-session.html#cb40-6"></a><span class="dv">35</span><span class="op">/</span><span class="dv">5</span><span class="op">+</span><span class="dv">7</span></span>
-<span id="cb40-7"><a href="working-session.html#cb40-7"></a>x&lt;-<span class="dv">0</span> <span class="op">:</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="working-session.html#cb42-1"></a><span class="co"># Good</span></span>
+<span id="cb42-2"><a href="working-session.html#cb42-2"></a><span class="dv">35</span> <span class="op">/</span><span class="st"> </span><span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="dv">7</span></span>
+<span id="cb42-3"><a href="working-session.html#cb42-3"></a>x &lt;-<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb42-4"><a href="working-session.html#cb42-4"></a></span>
+<span id="cb42-5"><a href="working-session.html#cb42-5"></a><span class="co"># Bad</span></span>
+<span id="cb42-6"><a href="working-session.html#cb42-6"></a><span class="dv">35</span><span class="op">/</span><span class="dv">5</span><span class="op">+</span><span class="dv">7</span></span>
+<span id="cb42-7"><a href="working-session.html#cb42-7"></a>x&lt;-<span class="dv">0</span> <span class="op">:</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
 <ul>
 <li>Nelle funzioni aggiungi degli <strong>spazi</strong> intorno al simbolo <code>=</code> che separa il nome degli argomenti e il loro valore. Aggiungi uno spazio dopo ogni virogola ma non separare il nome della funzione dalla parentesi sinistra.</li>
 </ul>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="working-session.html#cb41-1"></a><span class="co"># Good</span></span>
-<span id="cb41-2"><a href="working-session.html#cb41-2"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">by =</span> <span class="dv">2</span>)</span>
-<span id="cb41-3"><a href="working-session.html#cb41-3"></a></span>
-<span id="cb41-4"><a href="working-session.html#cb41-4"></a><span class="co"># Bad</span></span>
-<span id="cb41-5"><a href="working-session.html#cb41-5"></a><span class="kw">seq</span> (<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="dv">10</span>,<span class="dt">by=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="working-session.html#cb43-1"></a><span class="co"># Good</span></span>
+<span id="cb43-2"><a href="working-session.html#cb43-2"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">by =</span> <span class="dv">2</span>)</span>
+<span id="cb43-3"><a href="working-session.html#cb43-3"></a></span>
+<span id="cb43-4"><a href="working-session.html#cb43-4"></a><span class="co"># Bad</span></span>
+<span id="cb43-5"><a href="working-session.html#cb43-5"></a><span class="kw">seq</span> (<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="dv">10</span>,<span class="dt">by=</span><span class="dv">2</span>)</span></code></pre></div>
 <ul>
 <li>Usa la corretta <strong>indentazione</strong> per i blocchi di codice posti all’interno delle parentesi graffe. Il livello di indentazione deve rispecchiare la struttura di annidamento del codice.</li>
 </ul>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="working-session.html#cb42-1"></a><span class="co"># Good</span></span>
-<span id="cb42-2"><a href="working-session.html#cb42-2"></a><span class="cf">for</span> (...) {       <span class="co"># loop più esterno</span></span>
-<span id="cb42-3"><a href="working-session.html#cb42-3"></a>  ...</span>
-<span id="cb42-4"><a href="working-session.html#cb42-4"></a>  <span class="cf">for</span> (...) {     <span class="co"># loop interno</span></span>
-<span id="cb42-5"><a href="working-session.html#cb42-5"></a>    ...</span>
-<span id="cb42-6"><a href="working-session.html#cb42-6"></a>    <span class="cf">if</span> (...) {    <span class="co"># isruzione condizionale</span></span>
-<span id="cb42-7"><a href="working-session.html#cb42-7"></a>      ...</span>
-<span id="cb42-8"><a href="working-session.html#cb42-8"></a>    }</span>
-<span id="cb42-9"><a href="working-session.html#cb42-9"></a>  }</span>
-<span id="cb42-10"><a href="working-session.html#cb42-10"></a>}</span>
-<span id="cb42-11"><a href="working-session.html#cb42-11"></a></span>
-<span id="cb42-12"><a href="working-session.html#cb42-12"></a><span class="co"># Bad</span></span>
-<span id="cb42-13"><a href="working-session.html#cb42-13"></a><span class="cf">for</span> (...) {       <span class="co"># loop più esterno</span></span>
-<span id="cb42-14"><a href="working-session.html#cb42-14"></a>...</span>
-<span id="cb42-15"><a href="working-session.html#cb42-15"></a><span class="cf">for</span> (...) {     <span class="co"># loop interno</span></span>
-<span id="cb42-16"><a href="working-session.html#cb42-16"></a>...</span>
-<span id="cb42-17"><a href="working-session.html#cb42-17"></a><span class="cf">if</span> (...) {    <span class="co"># isruzione condizionale</span></span>
-<span id="cb42-18"><a href="working-session.html#cb42-18"></a>...</span>
-<span id="cb42-19"><a href="working-session.html#cb42-19"></a>}</span>
-<span id="cb42-20"><a href="working-session.html#cb42-20"></a>}</span>
-<span id="cb42-21"><a href="working-session.html#cb42-21"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="working-session.html#cb44-1"></a><span class="co"># Good</span></span>
+<span id="cb44-2"><a href="working-session.html#cb44-2"></a><span class="cf">for</span> (...) {       <span class="co"># loop più esterno</span></span>
+<span id="cb44-3"><a href="working-session.html#cb44-3"></a>  ...</span>
+<span id="cb44-4"><a href="working-session.html#cb44-4"></a>  <span class="cf">for</span> (...) {     <span class="co"># loop interno</span></span>
+<span id="cb44-5"><a href="working-session.html#cb44-5"></a>    ...</span>
+<span id="cb44-6"><a href="working-session.html#cb44-6"></a>    <span class="cf">if</span> (...) {    <span class="co"># isruzione condizionale</span></span>
+<span id="cb44-7"><a href="working-session.html#cb44-7"></a>      ...</span>
+<span id="cb44-8"><a href="working-session.html#cb44-8"></a>    }</span>
+<span id="cb44-9"><a href="working-session.html#cb44-9"></a>  }</span>
+<span id="cb44-10"><a href="working-session.html#cb44-10"></a>}</span>
+<span id="cb44-11"><a href="working-session.html#cb44-11"></a></span>
+<span id="cb44-12"><a href="working-session.html#cb44-12"></a><span class="co"># Bad</span></span>
+<span id="cb44-13"><a href="working-session.html#cb44-13"></a><span class="cf">for</span> (...) {       <span class="co"># loop più esterno</span></span>
+<span id="cb44-14"><a href="working-session.html#cb44-14"></a>...</span>
+<span id="cb44-15"><a href="working-session.html#cb44-15"></a><span class="cf">for</span> (...) {     <span class="co"># loop interno</span></span>
+<span id="cb44-16"><a href="working-session.html#cb44-16"></a>...</span>
+<span id="cb44-17"><a href="working-session.html#cb44-17"></a><span class="cf">if</span> (...) {    <span class="co"># isruzione condizionale</span></span>
+<span id="cb44-18"><a href="working-session.html#cb44-18"></a>...</span>
+<span id="cb44-19"><a href="working-session.html#cb44-19"></a>}</span>
+<span id="cb44-20"><a href="working-session.html#cb44-20"></a>}</span>
+<span id="cb44-21"><a href="working-session.html#cb44-21"></a>}</span></code></pre></div>
 <ul>
 <li><strong>Allinea</strong> gli argomenti di una funzione se questi spaziano più righe.</li>
 </ul>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="working-session.html#cb43-1"></a><span class="co"># Good</span></span>
-<span id="cb43-2"><a href="working-session.html#cb43-2"></a><span class="kw">data.frame</span>(<span class="dt">id =</span> ...,</span>
-<span id="cb43-3"><a href="working-session.html#cb43-3"></a>           <span class="dt">name =</span> ...,</span>
-<span id="cb43-4"><a href="working-session.html#cb43-4"></a>           <span class="dt">age =</span> ...,</span>
-<span id="cb43-5"><a href="working-session.html#cb43-5"></a>           <span class="dt">sex =</span> ...)</span>
-<span id="cb43-6"><a href="working-session.html#cb43-6"></a></span>
-<span id="cb43-7"><a href="working-session.html#cb43-7"></a><span class="co"># Bad</span></span>
-<span id="cb43-8"><a href="working-session.html#cb43-8"></a><span class="kw">data.frame</span>(<span class="dt">id =</span> ..., <span class="dt">name =</span> ...,</span>
-<span id="cb43-9"><a href="working-session.html#cb43-9"></a><span class="dt">age =</span> ..., <span class="dt">sex =</span> ...)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="working-session.html#cb45-1"></a><span class="co"># Good</span></span>
+<span id="cb45-2"><a href="working-session.html#cb45-2"></a><span class="kw">data.frame</span>(<span class="dt">id =</span> ...,</span>
+<span id="cb45-3"><a href="working-session.html#cb45-3"></a>           <span class="dt">name =</span> ...,</span>
+<span id="cb45-4"><a href="working-session.html#cb45-4"></a>           <span class="dt">age =</span> ...,</span>
+<span id="cb45-5"><a href="working-session.html#cb45-5"></a>           <span class="dt">sex =</span> ...)</span>
+<span id="cb45-6"><a href="working-session.html#cb45-6"></a></span>
+<span id="cb45-7"><a href="working-session.html#cb45-7"></a><span class="co"># Bad</span></span>
+<span id="cb45-8"><a href="working-session.html#cb45-8"></a><span class="kw">data.frame</span>(<span class="dt">id =</span> ..., <span class="dt">name =</span> ...,</span>
+<span id="cb45-9"><a href="working-session.html#cb45-9"></a><span class="dt">age =</span> ..., <span class="dt">sex =</span> ...)</span></code></pre></div>
 <div class="design" title="Tutta una Questione di Stile">
 <p>Potete trovare ulteriori regole e consigli riguardanti lo stile nella scrittura di codici al seguente link <a href="https://irudnyts.github.io/r-coding-style-guide/" class="uri">https://irudnyts.github.io/r-coding-style-guide/</a>.</p>
 </div>

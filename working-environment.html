@@ -198,7 +198,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3.1" data-path="working-environment.html"><a href="working-environment.html#install.packages"><i class="fa fa-check"></i><b>5.3.1</b> install.packages()</a></li>
 <li class="chapter" data-level="5.3.2" data-path="working-environment.html"><a href="working-environment.html#library"><i class="fa fa-check"></i><b>5.3.2</b> library()</a></li>
 <li class="chapter" data-level="5.3.3" data-path="working-environment.html"><a href="working-environment.html#aggiornare-e-rimuovere-pacchetti"><i class="fa fa-check"></i><b>5.3.3</b> Aggiornare e Rimuovere Pacchetti</a></li>
-<li class="chapter" data-level="5.3.4" data-path="working-environment.html"><a href="working-environment.html#documantazione-pacchetti"><i class="fa fa-check"></i><b>5.3.4</b> Documantazione Pacchetti</a></li>
+<li class="chapter" data-level="5.3.4" data-path="working-environment.html"><a href="working-environment.html#documentazione-pacchetti"><i class="fa fa-check"></i><b>5.3.4</b> Documentazione Pacchetti</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>6</b> Sessione di Lavoro</a><ul>
@@ -442,32 +442,39 @@ Figure 5.4: Organizzazione Computer (da Wikipedia vedi link nel testo)
 <p>Come avrai notato dagli esempi precedenti, sia la struttura in cui vengono organizzati i file nel computer sia la sintassi utilizzata per indicare i path è differente in base al sistema operativo utilizzato.</p>
 <h4 id="mac-os-e-linux" class="unnumbered">Mac OS e Linux</h4>
 <ul>
-<li>Il carattere utilizzato per separare la cartelle nella definizione del path è <code>"/"</code>:</li>
+<li>Il carattere utilizzato per separare le cartelle nella definizione del path è <code>"/"</code>:</li>
 </ul>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="working-environment.html#cb24-1"></a><span class="st">&quot;Introduction2R/Dati/My-data.Rda&quot;</span></span></code></pre></div>
 <ul>
-<li>Iniziando il path con il carattere <code>"/"</code> si indica la root-directory:</li>
+<li>La root-directory viene indicata iniziando il path con il carattere <code>"/"</code>:</li>
 </ul>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="working-environment.html#cb25-1"></a><span class="st">&quot;/Users/&lt;username&gt;/Desktop/Introduction2R/Dati/My-data.Rda&quot;</span></span></code></pre></div>
 <ul>
-<li>Iniziando il path con il carattere <code>"~"</code> si indica la cartella <em>home</em> dell’utente ovvero <code>/Users/&lt;username&gt;/</code>:</li>
+<li>La cartella <em>home</em> dell’utente (ovvero <code>/Users/&lt;username&gt;/</code>) viene indicata iniziando il path con il carattere <code>"~"</code>:</li>
 </ul>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="working-environment.html#cb26-1"></a><span class="st">&quot;~/Desktop/Introduction2R/Dati/My-data.Rda&quot;</span></span></code></pre></div>
 <h4 id="windows-1" class="unnumbered">Windows</h4>
 <ul>
-<li>Il carattere utilizzato per separare la cartelle nella definizione del path è <code>"\"</code>:</li>
+<li>Il carattere utilizzato per separare le cartelle nella definizione del path è <code>"\"</code>:</li>
 </ul>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="working-environment.html#cb27-1"></a><span class="st">&quot;Introduction2R\Dati\My-data.Rda&quot;</span></span></code></pre></div>
+<ul>
+<li>La root-directory viene indicata con <code>"c:\"</code>:</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="working-environment.html#cb28-1"></a><span class="st">&quot;c:\Users\&lt;username&gt;\Desktop\Introduction2R\Dati\My-data.Rda&quot;</span></span></code></pre></div>
 </div>
 </div>
 <div id="working-directory-in-r" class="section level3">
 <h3><span class="header-section-number">5.2.3</span> Working Directory in R</h3>
 <p>Vediamo ora i comandi utilizzati in R per valutare e cambiare la working directory nella propria sessione di lavoro.</p>
+<div class="tip" title="One &quot;/&quot; to Rule Them All">
+<p>Nota negli esempi successivi, come in R il caratere <code>"/"</code> sia sempre utilizzato per separare le cartelle nella definizione del path indipendentemente dal sistema operativo.</p>
+</div>
 <div id="attuale-working-directory" class="section level4 unnumbered">
 <h4>Attuale Working Directory</h4>
 <p>In R è possibile valutare l’attuale working directory utilizzando il comando <code>getwd()</code> che restituirà l’absolute path dell’attuale posizione.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="working-environment.html#cb28-1"></a><span class="kw">getwd</span>()</span>
-<span id="cb28-2"><a href="working-environment.html#cb28-2"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/Introduction2R&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="working-environment.html#cb29-1"></a><span class="kw">getwd</span>()</span>
+<span id="cb29-2"><a href="working-environment.html#cb29-2"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/Introduction2R&quot;</span></span></code></pre></div>
 <p>In alternativa, l’attuale working directory è anche riportata in alto a sinistra della Console come mostrato in Figura <a href="working-environment.html#fig:current-wd">5.5</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:current-wd"></span>
 <img src="images/current-wd.png" alt="Workig directory dell'attuale sessione di lavoro" width="95%" />
@@ -486,13 +493,13 @@ Figure 5.6: Workig directory dell’attuale sessione di lavoro
 <div id="cambiare-working-directory" class="section level4 unnumbered">
 <h4>Cambiare Working Directory</h4>
 <p>Per cambiare la working directory è possibile utilizzare il comando <code>setwd()</code> indicando il path (absolute o relative) della nuova working directory. Nota come, nel caso in cui venga indicato un relative path, questo dovrà indicare la posizione della nuova working directory rispetto alla vecchia working directory.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="working-environment.html#cb29-1"></a><span class="kw">getwd</span>()</span>
-<span id="cb29-2"><a href="working-environment.html#cb29-2"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/Introduction2R&quot;</span></span>
-<span id="cb29-3"><a href="working-environment.html#cb29-3"></a></span>
-<span id="cb29-4"><a href="working-environment.html#cb29-4"></a><span class="kw">setwd</span>(<span class="st">&quot;Dati/&quot;</span>)</span>
-<span id="cb29-5"><a href="working-environment.html#cb29-5"></a></span>
-<span id="cb29-6"><a href="working-environment.html#cb29-6"></a><span class="kw">getwd</span>()</span>
-<span id="cb29-7"><a href="working-environment.html#cb29-7"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/Introduction2R/Dati&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="working-environment.html#cb30-1"></a><span class="kw">getwd</span>()</span>
+<span id="cb30-2"><a href="working-environment.html#cb30-2"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/Introduction2R&quot;</span></span>
+<span id="cb30-3"><a href="working-environment.html#cb30-3"></a></span>
+<span id="cb30-4"><a href="working-environment.html#cb30-4"></a><span class="kw">setwd</span>(<span class="st">&quot;Dati/&quot;</span>)</span>
+<span id="cb30-5"><a href="working-environment.html#cb30-5"></a></span>
+<span id="cb30-6"><a href="working-environment.html#cb30-6"></a><span class="kw">getwd</span>()</span>
+<span id="cb30-7"><a href="working-environment.html#cb30-7"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/Introduction2R/Dati&quot;</span></span></code></pre></div>
 <p>In alternativa è possibile selezionare l’opzione <em>“Choose Directory”</em> dal menù <em>“Session”</em> &gt; <em>“Set Working Directory”</em> come mostrato in Figura <a href="working-environment.html#fig:set-wd">5.7</a>. Verrà quindi richiesto di selezionare la working directory desiderata e preme “<em>Open</em>”.</p>
 <div class="figure" style="text-align: center"><span id="fig:set-wd"></span>
 <img src="images/set-wd.png" alt="Definire la working directory" width="95%" />
@@ -507,13 +514,13 @@ Figure 5.7: Definire la working directory
 </center>
 <p><br></p>
 <p>E’ possibile inoltre utilizzare i caratteri speciali <code>"./"</code> e <code>"../"</code> per indicare rispettivamente l’attuale working directory e la cartella del livello superiore (i.e., <em>parent folder</em>) che include l’attuale working directory. <code>"../"</code> ci permette quindi di navigare a ritroso dalla nostra attuale posizione tra le cartelle del computer.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="working-environment.html#cb30-1"></a><span class="kw">getwd</span>()</span>
-<span id="cb30-2"><a href="working-environment.html#cb30-2"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/Introduction2R&quot;</span></span>
-<span id="cb30-3"><a href="working-environment.html#cb30-3"></a></span>
-<span id="cb30-4"><a href="working-environment.html#cb30-4"></a><span class="kw">setwd</span>(<span class="st">&quot;../&quot;</span>)</span>
-<span id="cb30-5"><a href="working-environment.html#cb30-5"></a></span>
-<span id="cb30-6"><a href="working-environment.html#cb30-6"></a><span class="kw">getwd</span>()</span>
-<span id="cb30-7"><a href="working-environment.html#cb30-7"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="working-environment.html#cb31-1"></a><span class="kw">getwd</span>()</span>
+<span id="cb31-2"><a href="working-environment.html#cb31-2"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/Introduction2R&quot;</span></span>
+<span id="cb31-3"><a href="working-environment.html#cb31-3"></a></span>
+<span id="cb31-4"><a href="working-environment.html#cb31-4"></a><span class="kw">setwd</span>(<span class="st">&quot;../&quot;</span>)</span>
+<span id="cb31-5"><a href="working-environment.html#cb31-5"></a></span>
+<span id="cb31-6"><a href="working-environment.html#cb31-6"></a><span class="kw">getwd</span>()</span>
+<span id="cb31-7"><a href="working-environment.html#cb31-7"></a><span class="co">## [1] &quot;/Users/&lt;username&gt;/Desktop/&quot;</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -537,9 +544,9 @@ Figure 5.8: Utilizzare i paccheti in R
 <div id="install.packages" class="section level3">
 <h3><span class="header-section-number">5.3.1</span> install.packages()</h3>
 <p>Per installare dei pacchetti dal CRAN nella nostra library è possibile eseguire il comando <code>install.packages()</code> indicando tra parentesi il nome del pacchetto desiderato.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="working-environment.html#cb31-1"></a><span class="co"># Un ottimo pacchetto per le analisi statistiche di John Fox</span></span>
-<span id="cb31-2"><a href="working-environment.html#cb31-2"></a><span class="co"># un grandissimo statistico...per gli amici Jonny la volpe ;)</span></span>
-<span id="cb31-3"><a href="working-environment.html#cb31-3"></a><span class="kw">install.packages</span>(<span class="st">&quot;car&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="working-environment.html#cb32-1"></a><span class="co"># Un ottimo pacchetto per le analisi statistiche di John Fox</span></span>
+<span id="cb32-2"><a href="working-environment.html#cb32-2"></a><span class="co"># un grandissimo statistico...per gli amici Jonny la volpe ;)</span></span>
+<span id="cb32-3"><a href="working-environment.html#cb32-3"></a><span class="kw">install.packages</span>(<span class="st">&quot;car&quot;</span>)</span></code></pre></div>
 <p>In alternativa è possibile utilizzare il pulsante <em>“Install”</em> nella barra in alto a sinistra del pannello Packages ( vedi Figura <a href="working-environment.html#fig:packages-install">5.9</a>), indicando successivamente il nome del pacchetto desiderato.</p>
 <div class="figure" style="text-align: center"><span id="fig:packages-install"></span>
 <img src="images/packages-install.png" alt="Installare paccektti tramite interfacci RStudio" width="65%" />
@@ -555,11 +562,29 @@ Figure 5.9: Installare paccektti tramite interfacci RStudio
 Figure 5.10: Il pacchetto car è ora disponibile nella library
 </p>
 </div>
+<div class="design" title="Binary or Source Version?">
+<p>Nell’installare dei pacchetti, potrebbe accadere che R presenti un messaggio simile al seguente:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="working-environment.html#cb33-1"></a>There are binary versions available but the</span>
+<span id="cb33-2"><a href="working-environment.html#cb33-2"></a>  source versions are later<span class="op">:</span></span>
+<span id="cb33-3"><a href="working-environment.html#cb33-3"></a><span class="st">           </span>binary source needs_compilation</span>
+<span id="cb33-4"><a href="working-environment.html#cb33-4"></a>devtools   <span class="dv">1</span>.<span class="fl">13.4</span>  <span class="dv">2</span>.<span class="fl">0.1</span>             <span class="ot">FALSE</span></span>
+<span id="cb33-5"><a href="working-environment.html#cb33-5"></a>    [... una lista di vari pacchetti...]</span>
+<span id="cb33-6"><a href="working-environment.html#cb33-6"></a></span>
+<span id="cb33-7"><a href="working-environment.html#cb33-7"></a>Do you want to install from sources the packages which need compilation?</span></code></pre></div>
+<p>In breve, la risposta da dare è <strong>NO</strong> (<code>"n"</code>). Ma che cosa ci sta effetivamente chiedendo R? Esistono diversi modi in cui un pacchetto è disponibile, tra i principali abbiamo:</p>
+<ul>
+<li><strong>Versione Binary</strong> - pronta all’uso e semplice da installare</li>
+<li><strong>Versione Source</strong> - richiede una particolare procedura per essere installata detta compilazione</li>
+</ul>
+<p>In genere quindi, è sempre preferibile installare la versione <em>Binary</em>. Tuttavia, in questo caso R ci avverte che, per alcuni pacchetti, gli aggiornameni più recenti sono disponibili solo nella versione <em>Source</em> e ci chiede quindi se installarli attraverso la procedura di compilazione.</p>
+<p>E’ preferibile rispondere <em>“no”</em>, installando così la versione <em>Binary</em> pronta all’uso anche se meno aggiornata. Qualora fosse richiesto obbligatoriamente di installare un pacchetto nella version <em>Source</em> (perchè ci servono gli ultimi aggiornamenti o perchè non disponibile altrimenti) dovremmo avere prima installato <strong>R tools</strong> (vedi <em>“Approfondimento: R Tools”</em> nel Capitolo <a href="install.html#install-r">1.1</a>), che ci fornirà gli strumenti necessari per compilare i pacchetti.</p>
+<p>Per una discussione dettagliata vedi <a href="https://community.rstudio.com/t/meaning-of-common-message-when-install-a-package-there-are-binary-versions-available-but-the-source-versions-are-later/2431" class="uri">https://community.rstudio.com/t/meaning-of-common-message-when-install-a-package-there-are-binary-versions-available-but-the-source-versions-are-later/2431</a> e <a href="https://r-pkgs.org/package-structure-state.html" class="uri">https://r-pkgs.org/package-structure-state.html</a></p>
+</div>
 </div>
 <div id="library" class="section level3">
 <h3><span class="header-section-number">5.3.2</span> library()</h3>
 <p>Per utilizzare le funzioni di un pacchetto già presente nella notra library, dobbiamo ora caricarlo nella nostra sessione di lavoro. Per fare ciò, posssiamo utilizzare il comando <code>library()</code> indicando tra parentesi il nome del pacchetto richiesto.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="working-environment.html#cb32-1"></a><span class="kw">library</span>(car)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="working-environment.html#cb34-1"></a><span class="kw">library</span>(car)</span></code></pre></div>
 <p>In alternativa è possibile spuntare il riquadro alla sinistra del nome del pacchetto dal pannello Packages come mostrato in Figura <a href="working-environment.html#fig:load-package">5.11</a>. Nota tuttavia come questa procedura sia sconsigliata. Infatti, ogni azione punta-e-clicca dovrebbe essere eseguita ad ogni sessione mentre l’utilizzo di comandi inclusi nello script garantisce la loro esecuzione automatica.</p>
 <div class="figure" style="text-align: center"><span id="fig:load-package"></span>
 <img src="images/load-package.png" alt="Caricare un pacchetto nella sessione di lavoro" width="65%" />
@@ -570,10 +595,10 @@ Figure 5.11: Caricare un pacchetto nella sessione di lavoro
 <p>Ora siamo finalmente pronti per utilizzare le funzioni del pacchetto nella nostra sessione di lavro.</p>
 <div class="trick" title="package::function()">
 <p>Esiste un piccolo trucco per utilizzare la funzione di uno specifico pacchetto senza dover caricare il pacchetto nella propria sessione. Per fare questo è possibile usare la sintassi:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="working-environment.html#cb33-1"></a><span class="op">&lt;</span>nome<span class="op">-</span>pacchetto<span class="op">&gt;</span><span class="er">::&lt;</span>nome<span class="op">-</span>funzione<span class="op">&gt;</span>()</span>
-<span id="cb33-2"><a href="working-environment.html#cb33-2"></a></span>
-<span id="cb33-3"><a href="working-environment.html#cb33-3"></a><span class="co"># Esempio con la funzione Anova del pacchetto car</span></span>
-<span id="cb33-4"><a href="working-environment.html#cb33-4"></a>car<span class="op">::</span><span class="kw">Anova</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="working-environment.html#cb35-1"></a><span class="op">&lt;</span>nome<span class="op">-</span>pacchetto<span class="op">&gt;</span><span class="er">::&lt;</span>nome<span class="op">-</span>funzione<span class="op">&gt;</span>()</span>
+<span id="cb35-2"><a href="working-environment.html#cb35-2"></a></span>
+<span id="cb35-3"><a href="working-environment.html#cb35-3"></a><span class="co"># Esempio con la funzione Anova del pacchetto car</span></span>
+<span id="cb35-4"><a href="working-environment.html#cb35-4"></a>car<span class="op">::</span><span class="kw">Anova</span>()</span></code></pre></div>
 <p>L’utilizzo dei <code>::</code> ci permette di richiamare direttamente la funzione desiderata. La differennza tra l’uso di <code>library()</code> e l’uso di <code>::</code> riguarda aspetti abbastanza avanzati di R (per un approfondimento vedi <a href="https://r-pkgs.org/namespace.html" class="uri">https://r-pkgs.org/namespace.html</a>). In estrema sintesi, possiamo dire che in alcuni casi è preferibile non caricare un’intero pacchetto se di questo abbiamo bisogno di un’unica funzione.</p>
 </div>
 </div>
@@ -596,8 +621,8 @@ Figure 5.13: Rimuovere un pacchetto
 </p>
 </div>
 </div>
-<div id="documantazione-pacchetti" class="section level3">
-<h3><span class="header-section-number">5.3.4</span> Documantazione Pacchetti</h3>
+<div id="documentazione-pacchetti" class="section level3">
+<h3><span class="header-section-number">5.3.4</span> Documentazione Pacchetti</h3>
 <p>Ogni pacchetto include la documentazione delle proprie funzioni e delle <em>vignette</em> ovvero dei brevi tutorial che mostrano degli esempi di applicazione e utilizzo del pacchetto.</p>
 <ul>
 <li><p><strong>Documentazione funzione</strong> - Per accedere alla documentazione di una funzione è sufficiente utilizzare il comando <code>?&lt;nome-funzione&gt;</code> oppure <code>help(&lt;nome-funzione&gt;)</code>. Ricorda è necessario avere prima caricato il pacchetto altrimenti la funzione non risulta ancora disponibile. In alternativa si potrebbe estendere la ricerca utilizzando il comando <code>??</code>.</p></li>
@@ -615,10 +640,10 @@ Figure 5.14: Documetazione del pacchetto car
 <p>Il CRAN non è l’unica risorsa da cui è possibile installare dei pacchetti di R tuttavia è quella ufficiale e garantisce un certo standard e stabilità dei pacchetti presenti. In internet esistono molte altre repository che raccolgono paccetti di R (e software in generale) tra cui una delle più popolari è certamente GitHub (<a href="https://github.com/" class="uri">https://github.com/</a>).</p>
 <p>Github viene utilizzato come piattaforma di sviluppo per molti pacchetti di R ed è quindi possibile trovarve le ultime versioni di sviluppo dei pacchetti con gli aggirnamenti più recenti o anche nuovi pacchetti non ancora disponibili sul CRAN. Va sottolineato tuttavia, come quete siano appunto delle versioni di sviluppo e quindi potrebbero presentare maggiori problemi. Inoltre per installare i pacchetti in questo modo, è richiesta l’installzione di <strong>R tools</strong> (vedi <em>“Approfondimento: R Tools”</em> nel Capitolo <a href="install.html#install-r">1.1</a>).</p>
 <p>Per installare un pacchetto direttamente da Github è posibile utilizzare il comando <code>install_github()</code> del pacchetto <code>devtools</code>, indicanto tra parentesi la l’url della repository desiderata.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="working-environment.html#cb34-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
-<span id="cb34-2"><a href="working-environment.html#cb34-2"></a></span>
-<span id="cb34-3"><a href="working-environment.html#cb34-3"></a><span class="co"># ggplot2 il miglior pacchetto per grafici</span></span>
-<span id="cb34-4"><a href="working-environment.html#cb34-4"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;https://github.com/tidyverse/ggplot2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="working-environment.html#cb36-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb36-2"><a href="working-environment.html#cb36-2"></a></span>
+<span id="cb36-3"><a href="working-environment.html#cb36-3"></a><span class="co"># ggplot2 il miglior pacchetto per grafici</span></span>
+<span id="cb36-4"><a href="working-environment.html#cb36-4"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;https://github.com/tidyverse/ggplot2&quot;</span>)</span></code></pre></div>
 </div>
 
 </div>

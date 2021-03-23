@@ -180,37 +180,46 @@ Ovviamente otterrei lo stesso errore anche usando un absolute path se questo con
 :::
 
 :::{.design title="The Garden of Forking Paths" data-latex="[The Garden of Forking Paths]"}
-Come avrai notato dagli esempi precedenti, sia la struttura in cui vengono organizzati i file nel computer sia la sintassi utilizzata per indicare i path è differente in base al sistema operativo utilizzato.
+Come avrai notato dagli esempi precedenti, sia la struttura in cui vengono organizzati i file nel computer sia la sintassi utilizzata per indicare i path è differente in base al sistema operativo utilizzato. 
 
 #### Mac OS e Linux{-}
 
-- Il carattere utilizzato per separare la cartelle nella definizione del path è `"/"`:
+- Il carattere utilizzato per separare le cartelle nella definizione del path è `"/"`:
 
 ```r
 "Introduction2R/Dati/My-data.Rda"
 ```
-- Iniziando il path con il carattere `"/"` si indica la root-directory:
+- La root-directory viene indicata iniziando il path con il carattere `"/"`:
 
 ```r
 "/Users/<username>/Desktop/Introduction2R/Dati/My-data.Rda"
 ```
-- Iniziando il path con il carattere `"~"` si indica la cartella *home* dell'utente ovvero `/Users/<username>/`:
+- La cartella *home* dell'utente (ovvero `/Users/<username>/`) viene indicata iniziando il path con il carattere `"~"`:
 
 ```r
 "~/Desktop/Introduction2R/Dati/My-data.Rda"
 ```
 
 #### Windows {-}
-- Il carattere utilizzato per separare la cartelle nella definizione del path è `"\"`:
+- Il carattere utilizzato per separare le cartelle nella definizione del path è `"\"`:
 
 ```r
 "Introduction2R\Dati\My-data.Rda"
+```
+- La root-directory viene indicata con `"c:\"`:
+
+```r
+"c:\Users\<username>\Desktop\Introduction2R\Dati\My-data.Rda"
 ```
 :::
 
 ### Working Directory in R 
 
 Vediamo ora i comandi utilizzati in R per valutare e cambiare la working directory nella propria sessione di lavoro.
+
+:::{.tip title='One "/" to Rule Them All' data-latex='[One "/" to Rule Them All]'}
+Nota negli esempi successivi, come in R il caratere `"/"` sia sempre utilizzato per separare le cartelle nella definizione del path indipendentemente dal sistema operativo. 
+:::
 
 #### Attuale Working Directory {-}
 
@@ -327,6 +336,31 @@ Una volta installato il pacchetto, questo comarirà nella library ovvero la list
 <p class="caption">(\#fig:library-car)Il pacchetto car è ora disponibile nella library</p>
 </div>
 
+:::{.design title="Binary or Source Version?" data-latex="[Binary or Source Version?]"}
+Nell'installare dei pacchetti, potrebbe accadere che R presenti un messaggio simile al seguente:
+
+```r
+There are binary versions available but the
+  source versions are later:
+           binary source needs_compilation
+devtools   1.13.4  2.0.1             FALSE
+    [... una lista di vari pacchetti...]
+
+Do you want to install from sources the packages which need compilation?
+```
+In breve, la risposta da dare è **NO** (`"n"`). Ma che cosa ci sta effetivamente chiedendo R? Esistono diversi modi in cui un pacchetto è disponibile, tra i principali abbiamo:
+
+- **Versione Binary** - pronta all'uso e semplice da installare
+- **Versione Source** - richiede una particolare procedura per essere installata detta compilazione 
+
+In genere quindi, è sempre preferibile installare la versione *Binary*. Tuttavia, in questo caso R ci avverte che, per alcuni pacchetti, gli aggiornameni più recenti sono disponibili solo nella versione *Source* e ci chiede quindi se installarli attraverso la procedura di compilazione.
+
+E' preferibile rispondere *"no"*, installando così la versione *Binary* pronta all'uso anche se meno aggiornata. Qualora fosse richiesto obbligatoriamente di installare un pacchetto nella version *Source* (perchè ci servono gli ultimi aggiornamenti o perchè non disponibile altrimenti) dovremmo avere prima installato **R tools** (vedi *"Approfondimento: R Tools"* nel Capitolo \@ref(install-r)), che ci fornirà gli strumenti necessari per compilare i pacchetti.
+
+Per una discussione dettagliata vedi <https://community.rstudio.com/t/meaning-of-common-message-when-install-a-package-there-are-binary-versions-available-but-the-source-versions-are-later/2431> e  <https://r-pkgs.org/package-structure-state.html>
+
+:::
+
 ### library()
 
 Per utilizzare le funzioni di un pacchetto già presente nella notra library, dobbiamo ora caricarlo nella nostra sessione di lavoro. Per fare ciò, posssiamo utilizzare il comando `library()` indicando tra parentesi il nome del pacchetto richiesto.
@@ -380,7 +414,7 @@ In alternativa è possibile premere il pulsante `x` alla destra del paccehettto 
 </div>
 
 
-### Documantazione Pacchetti
+### Documentazione Pacchetti
 
 Ogni pacchetto include la documentazione delle proprie funzioni e delle *vignette* ovvero dei brevi tutorial che mostrano degli esempi di applicazione e utilizzo del pacchetto.
 

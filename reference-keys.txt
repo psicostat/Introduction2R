@@ -73,7 +73,7 @@ packages
 install.packages
 library
 aggiornare-e-rimuovere-pacchetti
-documantazione-pacchetti
+documentazione-pacchetti
 working-session
 organizzazione-script
 creare-delle-sezioni

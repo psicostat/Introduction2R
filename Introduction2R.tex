@@ -226,7 +226,7 @@
 \makeatother
 \subtitle{Corso per imparare le basi di \textbf{R}}
 \author{\href{https://claudiozandonella.netlify.app/}{Claudio Zandonella Callegher} and \href{https://filippogambarota.netlify.app/}{Filippo Gambarota} members of \href{https://psicostat.dpss.psy.unipd.it/}{Psicostat}}
-\date{22-03-2021}
+\date{23-03-2021}
 
 \begin{document}
 \maketitle
@@ -597,6 +597,16 @@ In genere, per lavorare con R viene utilizzato RStudio. RStudio è un programma 
 
 \caption{Interfaccia utente di Rstudio con i suoi 4 pannelli}\label{fig:rstudio-gui}
 \end{figure}
+
+\begin{design}[R-Basic vs RStudio]
+
+L'utilizzo di R attraverso l'interfaccia di base piuttosto che RStudio, non è uno scontro tra due scuole di pensiero (o generazioni). Entrambe hanno vantaggi e svantaggi e pertanto vengono scelte a seconda delle dieverse necessità.
+
+Quando si è alla ricerca della massima ottimizzazione, l'uso dell'interfaccia di base, grazie alla sua semplicità, permette di minimizzare l'utilizzo della memoria limitandosi allo stretto e necessario.
+
+In altri casi, invece, le funzionalità e strumenti aggiuntivi di RStudio permettono una maggiore efficacia nel proprio lavoro.
+
+\end{design}
 
 \hypertarget{console-il-cuore-di-r}{%
 \subsubsection*{1. Console: il cuore di R}\label{console-il-cuore-di-r}}
@@ -1746,7 +1756,7 @@ Come avrai notato dagli esempi precedenti, sia la struttura in cui vengono organ
 \begin{itemize}
 \tightlist
 \item
-  Il carattere utilizzato per separare la cartelle nella definizione del path è \texttt{"/"}:
+  Il carattere utilizzato per separare le cartelle nella definizione del path è \texttt{"/"}:
 \end{itemize}
 
 \begin{Shaded}
@@ -1758,7 +1768,7 @@ Come avrai notato dagli esempi precedenti, sia la struttura in cui vengono organ
 \begin{itemize}
 \tightlist
 \item
-  Iniziando il path con il carattere \texttt{"/"} si indica la root-directory:
+  La root-directory viene indicata iniziando il path con il carattere \texttt{"/"}:
 \end{itemize}
 
 \begin{Shaded}
@@ -1770,7 +1780,7 @@ Come avrai notato dagli esempi precedenti, sia la struttura in cui vengono organ
 \begin{itemize}
 \tightlist
 \item
-  Iniziando il path con il carattere \texttt{"\textasciitilde{}"} si indica la cartella \emph{home} dell'utente ovvero \texttt{/Users/\textless{}username\textgreater{}/}:
+  La cartella \emph{home} dell'utente (ovvero \texttt{/Users/\textless{}username\textgreater{}/}) viene indicata iniziando il path con il carattere \texttt{"\textasciitilde{}"}:
 \end{itemize}
 
 \begin{Shaded}
@@ -1786,12 +1796,24 @@ Come avrai notato dagli esempi precedenti, sia la struttura in cui vengono organ
 \begin{itemize}
 \tightlist
 \item
-  Il carattere utilizzato per separare la cartelle nella definizione del path è \texttt{"\textbackslash{}"}:
+  Il carattere utilizzato per separare le cartelle nella definizione del path è \texttt{"\textbackslash{}"}:
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \StringTok{"Introduction2R\textbackslash{}Dati\textbackslash{}My-data.Rda"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  La root-directory viene indicata con \texttt{"c:\textbackslash{}"}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"c:\textbackslash{}Users\textbackslash{}<username>\textbackslash{}Desktop\textbackslash{}Introduction2R\textbackslash{}Dati\textbackslash{}My-data.Rda"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1801,6 +1823,12 @@ Come avrai notato dagli esempi precedenti, sia la struttura in cui vengono organ
 \subsection{Working Directory in R}\label{working-directory-in-r}}
 
 Vediamo ora i comandi utilizzati in R per valutare e cambiare la working directory nella propria sessione di lavoro.
+
+\begin{tip}[One "/" to Rule Them All]
+
+Nota negli esempi successivi, come in R il caratere \texttt{"/"} sia sempre utilizzato per separare le cartelle nella definizione del path indipendentemente dal sistema operativo.
+
+\end{tip}
 
 \hypertarget{attuale-working-directory}{%
 \subsubsection*{Attuale Working Directory}\label{attuale-working-directory}}
@@ -1953,6 +1981,40 @@ Una volta installato il pacchetto, questo comarirà nella library ovvero la list
 \caption{Il pacchetto car è ora disponibile nella library}\label{fig:library-car}
 \end{figure}
 
+\begin{design}[Binary or Source Version?]
+
+Nell'installare dei pacchetti, potrebbe accadere che R presenti un messaggio simile al seguente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{There are binary versions available but the}
+\NormalTok{  source versions are later}\OperatorTok{:}
+\StringTok{           }\NormalTok{binary source needs_compilation}
+\NormalTok{devtools   }\DecValTok{1}\NormalTok{.}\FloatTok{13.4}  \DecValTok{2}\NormalTok{.}\FloatTok{0.1}             \OtherTok{FALSE}
+\NormalTok{    [... una lista di vari pacchetti...]}
+
+\NormalTok{Do you want to install from sources the packages which need compilation?}
+\end{Highlighting}
+\end{Shaded}
+
+In breve, la risposta da dare è \textbf{NO} (\texttt{"n"}). Ma che cosa ci sta effetivamente chiedendo R? Esistono diversi modi in cui un pacchetto è disponibile, tra i principali abbiamo:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Versione Binary} - pronta all'uso e semplice da installare
+\item
+  \textbf{Versione Source} - richiede una particolare procedura per essere installata detta compilazione
+\end{itemize}
+
+In genere quindi, è sempre preferibile installare la versione \emph{Binary}. Tuttavia, in questo caso R ci avverte che, per alcuni pacchetti, gli aggiornameni più recenti sono disponibili solo nella versione \emph{Source} e ci chiede quindi se installarli attraverso la procedura di compilazione.
+
+E' preferibile rispondere \emph{``no''}, installando così la versione \emph{Binary} pronta all'uso anche se meno aggiornata. Qualora fosse richiesto obbligatoriamente di installare un pacchetto nella version \emph{Source} (perchè ci servono gli ultimi aggiornamenti o perchè non disponibile altrimenti) dovremmo avere prima installato \textbf{R tools} (vedi \emph{``Approfondimento: R Tools''} nel Capitolo \ref{install-r}), che ci fornirà gli strumenti necessari per compilare i pacchetti.
+
+Per una discussione dettagliata vedi \url{https://community.rstudio.com/t/meaning-of-common-message-when-install-a-package-there-are-binary-versions-available-but-the-source-versions-are-later/2431} e \url{https://r-pkgs.org/package-structure-state.html}
+
+\end{design}
+
 \hypertarget{library}{%
 \subsection{library()}\label{library}}
 
@@ -2023,8 +2085,8 @@ In alternativa è possibile premere il pulsante \texttt{x} alla destra del pacce
 \caption{Rimuovere un pacchetto}\label{fig:library-remove}
 \end{figure}
 
-\hypertarget{documantazione-pacchetti}{%
-\subsection{Documantazione Pacchetti}\label{documantazione-pacchetti}}
+\hypertarget{documentazione-pacchetti}{%
+\subsection{Documentazione Pacchetti}\label{documentazione-pacchetti}}
 
 Ogni pacchetto include la documentazione delle proprie funzioni e delle \emph{vignette} ovvero dei brevi tutorial che mostrano degli esempi di applicazione e utilizzo del pacchetto.
 
@@ -2620,6 +2682,8 @@ In altrentativa è possibile utilizzare qualsiasi funzione che restituisca come 
 \hypertarget{esercizi-2}{%
 \subsection*{Esercizi}\label{esercizi-2}}
 \addcontentsline{toc}{subsection}{Esercizi}
+
+Famigliarizza con la creazione di vettori (\href{https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07.R}{soluzioni}):
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3600,25 +3664,25 @@ La struttura di base di un dataframe è quindi la stessa di una matrice ma conti
 \hline
 colonna1 & colonna2 & colonna3 & colonna4 & colonna5 & colonna6\\
 \hline
--1.35 & 0.86 & 0.56 & -0.27 & 0.35 & a\\
+0.27 & 1.48 & 0.13 & 1.01 & -1.63 & a\\
 \hline
--0.39 & 2.08 & 0.54 & -1.50 & -0.11 & b\\
+-1.03 & -1.00 & 0.99 & -2.26 & 0.46 & b\\
 \hline
--0.26 & 0.70 & -0.73 & 1.13 & -1.94 & c\\
+-1.16 & 0.14 & -1.72 & 0.16 & 0.46 & c\\
 \hline
-0.47 & 0.26 & -0.20 & -0.43 & 1.40 & d\\
+-0.66 & -0.41 & 1.25 & 0.02 & -0.38 & d\\
 \hline
-0.63 & -0.83 & 0.27 & 0.57 & 1.13 & e\\
+1.95 & -0.43 & -0.37 & -0.01 & -1.38 & e\\
 \hline
-1.32 & -0.94 & -1.27 & 0.27 & 1.06 & f\\
+0.80 & 0.78 & -0.87 & 1.42 & -0.46 & f\\
 \hline
--1.13 & -0.49 & -1.04 & 0.48 & 1.08 & g\\
+-1.20 & 1.13 & 0.43 & -0.19 & -0.14 & g\\
 \hline
-0.79 & 0.76 & 0.05 & 2.30 & -0.72 & h\\
+-0.45 & -1.76 & 1.50 & -0.52 & -0.78 & h\\
 \hline
-0.73 & -0.33 & -0.59 & -0.76 & 0.29 & i\\
+-0.88 & -1.32 & -1.89 & 1.63 & -0.49 & i\\
 \hline
--0.32 & 1.71 & 1.87 & -0.62 & -1.01 & j\\
+-1.76 & -0.41 & -1.71 & -0.16 & -0.16 & j\\
 \hline
 \end{tabular}
 \end{table}
