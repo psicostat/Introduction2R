@@ -103,21 +103,156 @@ Famigliarizza con la creazione di vettori ([soluzioni](https://github.com/psicos
 
 ## Selezione Elementi di un Vettore
 
-**Working in Progress**
+Una volta creato un vettore potrebbe essere necessario selezionare uno o più dei suoi elementi. In R per selezionare gli elementi di un vettore si utilizzano le **parentesi quadre** `[]` dopo il nome del vettore, indicando al loro interno **l'indice di posizione** degli elementi desiderati:
 
-In R per selezioneare gli elementi di un vettore si deve indicare all'interno delle parentesi quadre la **posizione degli elementi** da selezionare, non il valore dell'elemento stesso:
 
-`<nome-vettore>[<indice-posizione>]`\\
-<!-- % esempio selezione con valori e non indici porta errore -->
-<!-- % specificare selezione c() oppure senza c() che da errore dimensioni -->
-In alternativa si puù definire la condizione logica che gli elementi che si vogliono selezionare devono rispettare.
+```r
+nome_vettore[<indice-posizione>]
+```
 
-Per *\textbf{**eliminare degli elementi** da un vettore si utilizza all'interno delle parentesi quadre l'operatore “-” insieme agli indici di posizione degli elementi da eliminare (esempio: `x[c(-2,-4)]` oppure `x[-c(2,4)]`).
+Attenzione, non devo quindi indicare il valore dell'elemento desiderato ma il suo indice di posizione. Ad esempio: 
+
+
+```r
+# dato il vettore
+my_vector <- c(2,4,6,8)
+
+# per selezionare il valore 4 utilizzo il suo indice di posizione ovvero 2
+my_vector[2]
+## [1] 4
+
+# Se utilizzassi il suo valore (ovvero 4) 
+# otterrei l'elemento che occupa la 4° posizione
+my_vector[4]
+## [1] 8
+```
+
+Per selezionare più elementi è necessario indicare tra le parentesi quadre tutti gli indici di posizione degli elementi desiderati. Nota come non sia possibile fornire semplicemente i singoli indici numerici ma questi devono essere raccolti in un vettore, ad esempio usando la funzione `c()`. Praticamente usiamo un vetore di indici per selezionare gli elemeni desiderati dal nostro vettore iniziale.
+
+
+```r
+# ERRATA selezione più valori 
+my_vector[1,2,3]
+## Error in my_vector[1, 2, 3]: incorrect number of dimensions
+
+# CORRETTA selezione più valori
+my_vector[c(1,2,3)]
+## [1] 2 4 6
+my_vector[1:3]
+## [1] 2 4 6
+```
+
+:::{.warning title="Casi Estremi nella Selezione" data-latex="[Casi Estremi nella Selezione]"}
+Cosa accade se utiliziamo un indice di posizione maggiore del numero di elementi del nostro vettore?
+
+```r
+# Il mio vettore
+my_vector
+## [1] 2 4 6 8
+
+my_vector[10]
+## [1] NA
+```
+R non restituisce un errore ma il valore `NA` ovvero *Not Available*, per indicare che nessun valore è disponibile.
+
+Osserviamo infine anche altri comportamenti particolari o possibili errori nella selezione di elementi. 
+
+- L'indice di posizione deve essere un valore numerico e non un carattere.
+
+```r
+# ERRATA selezione più valori 
+my_vector["3"]
+## [1] NA
+
+# CORRETTA selezione più valori
+my_vector[3]
+## [1] 6
+```
+- I numeri decimali vengono ignorati e non "arrotondati"
+
+```r
+my_vector[2.2]
+## [1] 4
+my_vector[2.8]
+## [1] 4
+```
+- Utilizzando il valore 0 ottengo un vettore vuoto
+
+```r
+my_vector[0]
+## numeric(0)
+```
+:::
+
+### Utilizzi Avanzati Selezione
+
+Vediamo ora alcuni utilizzi avanzati della selezione di elementi di un vettore. In particolare impareremo a:
+
+- utilizzare gli operatori relazionali e logici per selezionare gli elementi di un vettore
+- modificare l'ordine degli elemennti
+- creare nuove combinazioni
+- sostituire degli elementi
+- eliminare degli elementi
+
+#### Operatori Relazionali e Logici {-}
+
+Un'utile funzione è quella di selezionare tra gli elementi di un vetore quelli che rispetano una certa condizione. Per fare questo dobbiamo specificare all'interno delle parentesi quadre la proposizione di interesse utilizzando gli operatori relazionali e logici (vedi Capitolo \@ref(operators-rel-log)). 
+
+Possiamo ad esempio selezionare da un vettore numerico tutti gli elementi maggiori di un certo valore, oppure selezionare in un vettore di caratteri tutti gli elementi uguali ad una data stringa.
+
+```r
+# Vettore numerico - seleziono elemeni maggiori di 0
+numbers <- -5:5
+numbers[numbers >= 0]
+## [1] 0 1 2 3 4 5
+
+# Vettore caratteri - seleziono elemeni uguali a "bar"
+words <- rep(c("foo", "bar"), times = 4)
+words[words == "bar"]
+## [1] "bar" "bar" "bar" "bar"
+```
+
+Per capire meglio questa operazione è importante notare come nello stesso comando ci siano in realtà due passaggi distinti:
+
+- **Vettore logico** (vedi Capitolo TODO) - quando un vettore è valutato in una proposizione, R crea un nuovo vettore che contiene per ogni elemento del vettore iniziale la risposta (`TRUE` o `FALSE`) alla nostra proposizione.
+- **Selezione** - utilizziamo il vettore logico ottenuto per selezionare gli elementi dal vettore iniziale. Gli elementi associati al valore `TRUE` sono selezionati mentre quelli associati al valore `FALSE` sono scartati.
+
+Rendiamo espliciti questi due passaggi nel seguente codice: 
+
+```r
+# Vettore logico
+condition <- words == "bar"
+condition
+## [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE
+
+# Selezione
+words[condition]
+## [1] "bar" "bar" "bar" "bar"
+```
+
+#### Ordinare gli Elementi {-}
+
+#### Combinazioni di Elementi {-}
+
+#### Modificare gli Elementi {-}
+
+#### Eliminare gli Elementi {-}
+
+E' possibile sfruttare gli indici per riordinare a piacere gli elementi di un vettore. Per
+Nota come non sia possibile
+
+E' possibil edeterminare l'ordine degli elementi o 
+
+- warning box selezione out of bound e uso caratteri e non stessa lunghezza
+
+In alternativa si può definire la condizione logica che gli elementi che si vogliono selezionare devono rispettare.
+
+Per **eliminare degli elementi** da un vettore si utilizza all'interno delle parentesi quadre l'operatore “-” insieme agli indici di posizione degli elementi da eliminare (esempio: `x[c(-2,-4)]` oppure `x[-c(2,4)]`).
 
 <!-- % Maggiore descrizione eliminare -->
 <!-- % funzione ?which() -->
 
-
+### Rimuovere o cambiare l'ordine
 ### Esercizi {-}
 
 1. Del vettore `x` seleziona il 2°, 3° e 5° elemento
@@ -125,7 +260,9 @@ Per *\textbf{**eliminare degli elementi** da un vettore si utilizza all'interno 
 3. Del vettore `z` seleziona tutti i valori compresi tra 24 e 50
 4. Elimina dal vettore `z` i valori 28 e 42
 5. Del vettore `s` seleziona tutti gli elementi uguali ad  “A”
-6. Del vettore `t` seleziona tutti gli elementi diversi da  “B”.
+6. Del vettore `t` seleziona tutti gli elementi diversi da  “B”
+
+7. Dato il vettore `my_vector = c(2,4,6,8)` commenta il risultato del comando `my_vector[my_vector]`
 
 ## Funzioni ed Operazioni tra Vettori
 
@@ -242,6 +379,8 @@ as.character(x>10)
 ## [1] "FALSE" "FALSE" "TRUE"  "TRUE"  "FALSE"
 ```
 
+
+is. vecor
 ### Valori speciali
 
 

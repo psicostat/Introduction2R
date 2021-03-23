@@ -2709,14 +2709,214 @@ Famigliarizza con la creazione di vettori (\href{https://github.com/psicostat/In
 \hypertarget{selezione-elementi-di-un-vettore}{%
 \section{Selezione Elementi di un Vettore}\label{selezione-elementi-di-un-vettore}}
 
-\textbf{Working in Progress}
+Una volta creato un vettore potrebbe essere necessario selezionare uno o più dei suoi elementi. In R per selezionare gli elementi di un vettore si utilizzano le \textbf{parentesi quadre} \texttt{{[}{]}} dopo il nome del vettore, indicando al loro interno \textbf{l'indice di posizione} degli elementi desiderati:
 
-In R per selezioneare gli elementi di un vettore si deve indicare all'interno delle parentesi quadre la \textbf{posizione degli elementi} da selezionare, non il valore dell'elemento stesso:
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nome_vettore[}\OperatorTok{<}\NormalTok{indice}\OperatorTok{-}\NormalTok{posizione}\OperatorTok{>}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
 
-\texttt{\textless{}nome-vettore\textgreater{}{[}\textless{}indice-posizione\textgreater{}{]}}\textbackslash{}
-In alternativa si puù definire la condizione logica che gli elementi che si vogliono selezionare devono rispettare.
+Attenzione, non devo quindi indicare il valore dell'elemento desiderato ma il suo indice di posizione. Ad esempio:
 
-Per *\textbackslash textbf\{\textbf{eliminare degli elementi} da un vettore si utilizza all'interno delle parentesi quadre l'operatore ``-'' insieme agli indici di posizione degli elementi da eliminare (esempio: \texttt{x{[}c(-2,-4){]}} oppure \texttt{x{[}-c(2,4){]}}).
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# dato il vettore}
+\NormalTok{my_vector <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{8}\NormalTok{)}
+
+\CommentTok{# per selezionare il valore 4 utilizzo il suo indice di posizione ovvero 2}
+\NormalTok{my_vector[}\DecValTok{2}\NormalTok{]}
+\CommentTok{## [1] 4}
+
+\CommentTok{# Se utilizzassi il suo valore (ovvero 4) }
+\CommentTok{# otterrei l'elemento che occupa la 4° posizione}
+\NormalTok{my_vector[}\DecValTok{4}\NormalTok{]}
+\CommentTok{## [1] 8}
+\end{Highlighting}
+\end{Shaded}
+
+Per selezionare più elementi è necessario indicare tra le parentesi quadre tutti gli indici di posizione degli elementi desiderati. Nota come non sia possibile fornire semplicemente i singoli indici numerici ma questi devono essere raccolti in un vettore, ad esempio usando la funzione \texttt{c()}. Praticamente usiamo un vetore di indici per selezionare gli elemeni desiderati dal nostro vettore iniziale.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# ERRATA selezione più valori }
+\NormalTok{my_vector[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{]}
+\CommentTok{## Error in my_vector[1, 2, 3]: incorrect number of dimensions}
+
+\CommentTok{# CORRETTA selezione più valori}
+\NormalTok{my_vector[}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{)]}
+\CommentTok{## [1] 2 4 6}
+\NormalTok{my_vector[}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{]}
+\CommentTok{## [1] 2 4 6}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{warning}[Casi Estremi nella Selezione]
+
+Cosa accade se utiliziamo un indice di posizione maggiore del numero di elementi del nostro vettore?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Il mio vettore}
+\NormalTok{my_vector}
+\CommentTok{## [1] 2 4 6 8}
+
+\NormalTok{my_vector[}\DecValTok{10}\NormalTok{]}
+\CommentTok{## [1] NA}
+\end{Highlighting}
+\end{Shaded}
+
+R non restituisce un errore ma il valore \texttt{NA} ovvero \emph{Not Available}, per indicare che nessun valore è disponibile.
+
+Osserviamo infine anche altri comportamenti particolari o possibili errori nella selezione di elementi.
+
+\begin{itemize}
+\tightlist
+\item
+  L'indice di posizione deve essere un valore numerico e non un carattere.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# ERRATA selezione più valori }
+\NormalTok{my_vector[}\StringTok{"3"}\NormalTok{]}
+\CommentTok{## [1] NA}
+
+\CommentTok{# CORRETTA selezione più valori}
+\NormalTok{my_vector[}\DecValTok{3}\NormalTok{]}
+\CommentTok{## [1] 6}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  I numeri decimali vengono ignorati e non ``arrotondati''
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_vector[}\FloatTok{2.2}\NormalTok{]}
+\CommentTok{## [1] 4}
+\NormalTok{my_vector[}\FloatTok{2.8}\NormalTok{]}
+\CommentTok{## [1] 4}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Utilizzando il valore 0 ottengo un vettore vuoto
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_vector[}\DecValTok{0}\NormalTok{]}
+\CommentTok{## numeric(0)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{warning}
+
+\hypertarget{utilizzi-avanzati-selezione}{%
+\subsection{Utilizzi Avanzati Selezione}\label{utilizzi-avanzati-selezione}}
+
+Vediamo ora alcuni utilizzi avanzati della selezione di elementi di un vettore. In particolare impareremo a:
+
+\begin{itemize}
+\tightlist
+\item
+  utilizzare gli operatori relazionali e logici per selezionare gli elementi di un vettore
+\item
+  modificare l'ordine degli elemennti
+\item
+  creare nuove combinazioni
+\item
+  sostituire degli elementi
+\item
+  eliminare degli elementi
+\end{itemize}
+
+\hypertarget{operatori-relazionali-e-logici-1}{%
+\subsubsection*{Operatori Relazionali e Logici}\label{operatori-relazionali-e-logici-1}}
+\addcontentsline{toc}{subsubsection}{Operatori Relazionali e Logici}
+
+Un'utile funzione è quella di selezionare tra gli elementi di un vetore quelli che rispetano una certa condizione. Per fare questo dobbiamo specificare all'interno delle parentesi quadre la proposizione di interesse utilizzando gli operatori relazionali e logici (vedi Capitolo \ref{operators-rel-log}).
+
+Possiamo ad esempio selezionare da un vettore numerico tutti gli elementi maggiori di un certo valore, oppure selezionare in un vettore di caratteri tutti gli elementi uguali ad una data stringa.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Vettore numerico - seleziono elemeni maggiori di 0}
+\NormalTok{numbers <-}\StringTok{ }\DecValTok{-5}\OperatorTok{:}\DecValTok{5}
+\NormalTok{numbers[numbers }\OperatorTok{>=}\StringTok{ }\DecValTok{0}\NormalTok{]}
+\CommentTok{## [1] 0 1 2 3 4 5}
+
+\CommentTok{# Vettore caratteri - seleziono elemeni uguali a "bar"}
+\NormalTok{words <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"foo"}\NormalTok{, }\StringTok{"bar"}\NormalTok{), }\DataTypeTok{times =} \DecValTok{4}\NormalTok{)}
+\NormalTok{words[words }\OperatorTok{==}\StringTok{ "bar"}\NormalTok{]}
+\CommentTok{## [1] "bar" "bar" "bar" "bar"}
+\end{Highlighting}
+\end{Shaded}
+
+Per capire meglio questa operazione è importante notare come nello stesso comando ci siano in realtà due passaggi distinti:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Vettore logico} (vedi Capitolo TODO) - quando un vettore è valutato in una proposizione, R crea un nuovo vettore che contiene per ogni elemento del vettore iniziale la risposta (\texttt{TRUE} o \texttt{FALSE}) alla nostra proposizione.
+\item
+  \textbf{Selezione} - utilizziamo il vettore logico ottenuto per selezionare gli elementi dal vettore iniziale. Gli elementi associati al valore \texttt{TRUE} sono selezionati mentre quelli associati al valore \texttt{FALSE} sono scartati.
+\end{itemize}
+
+Rendiamo espliciti questi due passaggi nel seguente codice:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Vettore logico}
+\NormalTok{condition <-}\StringTok{ }\NormalTok{words }\OperatorTok{==}\StringTok{ "bar"}
+\NormalTok{condition}
+\CommentTok{## [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE}
+
+\CommentTok{# Selezione}
+\NormalTok{words[condition]}
+\CommentTok{## [1] "bar" "bar" "bar" "bar"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ordinare-gli-elementi}{%
+\subsubsection*{Ordinare gli Elementi}\label{ordinare-gli-elementi}}
+\addcontentsline{toc}{subsubsection}{Ordinare gli Elementi}
+
+\hypertarget{combinazioni-di-elementi}{%
+\subsubsection*{Combinazioni di Elementi}\label{combinazioni-di-elementi}}
+\addcontentsline{toc}{subsubsection}{Combinazioni di Elementi}
+
+\hypertarget{modificare-gli-elementi}{%
+\subsubsection*{Modificare gli Elementi}\label{modificare-gli-elementi}}
+\addcontentsline{toc}{subsubsection}{Modificare gli Elementi}
+
+\hypertarget{eliminare-gli-elementi}{%
+\subsubsection*{Eliminare gli Elementi}\label{eliminare-gli-elementi}}
+\addcontentsline{toc}{subsubsection}{Eliminare gli Elementi}
+
+E' possibile sfruttare gli indici per riordinare a piacere gli elementi di un vettore. Per
+Nota come non sia possibile
+
+E' possibil edeterminare l'ordine degli elementi o
+
+\begin{itemize}
+\tightlist
+\item
+  warning box selezione out of bound e uso caratteri e non stessa lunghezza
+\end{itemize}
+
+In alternativa si può definire la condizione logica che gli elementi che si vogliono selezionare devono rispettare.
+
+Per \textbf{eliminare degli elementi} da un vettore si utilizza all'interno delle parentesi quadre l'operatore ``-'' insieme agli indici di posizione degli elementi da eliminare (esempio: \texttt{x{[}c(-2,-4){]}} oppure \texttt{x{[}-c(2,4){]}}).
+
+\hypertarget{rimuovere-o-cambiare-lordine}{%
+\subsection{Rimuovere o cambiare l'ordine}\label{rimuovere-o-cambiare-lordine}}
 
 \hypertarget{esercizi-3}{%
 \subsection*{Esercizi}\label{esercizi-3}}
@@ -2724,7 +2924,6 @@ Per *\textbackslash textbf\{\textbf{eliminare degli elementi} da un vettore si u
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   Del vettore \texttt{x} seleziona il 2°, 3° e 5° elemento
 \item
@@ -2736,7 +2935,9 @@ Per *\textbackslash textbf\{\textbf{eliminare degli elementi} da un vettore si u
 \item
   Del vettore \texttt{s} seleziona tutti gli elementi uguali ad ``A''
 \item
-  Del vettore \texttt{t} seleziona tutti gli elementi diversi da ``B''.
+  Del vettore \texttt{t} seleziona tutti gli elementi diversi da ``B''
+\item
+  Dato il vettore \texttt{my\_vector\ =\ c(2,4,6,8)} commenta il risultato del comando \texttt{my\_vector{[}my\_vector{]}}
 \end{enumerate}
 
 \hypertarget{funzioni-ed-operazioni-tra-vettori}{%
@@ -2868,8 +3069,8 @@ Per trasformare un vettore qualsiasi in una vettore di caratteri e possibile usa
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{valori-speciali}{%
-\subsection{Valori speciali}\label{valori-speciali}}
+is. vecor
+\#\#\# Valori speciali
 
 \hypertarget{factors}{%
 \chapter{Fattori}\label{factors}}
@@ -3664,25 +3865,25 @@ La struttura di base di un dataframe è quindi la stessa di una matrice ma conti
 \hline
 colonna1 & colonna2 & colonna3 & colonna4 & colonna5 & colonna6\\
 \hline
-0.27 & 1.48 & 0.13 & 1.01 & -1.63 & a\\
+-0.02 & 0.14 & -0.65 & -1.53 & -1.27 & a\\
 \hline
--1.03 & -1.00 & 0.99 & -2.26 & 0.46 & b\\
+-0.88 & 0.87 & 0.20 & 1.69 & -1.45 & b\\
 \hline
--1.16 & 0.14 & -1.72 & 0.16 & 0.46 & c\\
+-1.31 & 0.84 & -0.25 & -0.51 & 0.41 & c\\
 \hline
--0.66 & -0.41 & 1.25 & 0.02 & -0.38 & d\\
+-1.23 & -0.39 & -0.29 & 0.85 & -0.68 & d\\
 \hline
-1.95 & -0.43 & -0.37 & -0.01 & -1.38 & e\\
+1.95 & -1.52 & -0.03 & -1.06 & 0.41 & e\\
 \hline
-0.80 & 0.78 & -0.87 & 1.42 & -0.46 & f\\
+-1.30 & -0.14 & -0.01 & 0.08 & -0.39 & f\\
 \hline
--1.20 & 1.13 & 0.43 & -0.19 & -0.14 & g\\
+-0.42 & 1.02 & 1.13 & -1.33 & -0.26 & g\\
 \hline
--0.45 & -1.76 & 1.50 & -0.52 & -0.78 & h\\
+-0.58 & -1.03 & -1.01 & 0.86 & -0.02 & h\\
 \hline
--0.88 & -1.32 & -1.89 & 1.63 & -0.49 & i\\
+-1.19 & -0.86 & -0.40 & 1.13 & -1.77 & i\\
 \hline
--1.76 & -0.41 & -1.71 & -0.16 & -0.16 & j\\
+-0.22 & -0.32 & -1.44 & -0.28 & 1.43 & j\\
 \hline
 \end{tabular}
 \end{table}

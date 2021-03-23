@@ -85,12 +85,13 @@ risolvere-gli-errori
 vector
 creazione-di-vettori
 selezione-elementi-di-un-vettore
+utilizzi-avanzati-selezione
+rimuovere-o-cambiare-lordine
 funzioni-ed-operazioni-tra-vettori
 data-type
 vettori-numerici
 vettori-logici
 vettori-di-caratteri
-valori-speciali
 factors
 matrix
 creazione-di-una-matrice
