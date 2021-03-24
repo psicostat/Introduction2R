@@ -49,7 +49,7 @@ rstudio-gui
 first-comands
 math-operators
 ordine-operazioni
-operatori-relazionali-e-logici
+operators-rel-log
 operatori-relazionali
 operatori-logici
 ordine-valutazione-relazioni
@@ -83,11 +83,10 @@ più-di-uno-script
 messages-warnings-e-errors
 risolvere-gli-errori
 vector
-creazione-di-vettori
-selezione-elementi-di-un-vettore
+creazione
+selezione-elementi
 utilizzi-avanzati-selezione
-rimuovere-o-cambiare-lordine
-funzioni-ed-operazioni-tra-vettori
+funzioni-ed-operazioni
 data-type
 vettori-numerici
 vettori-logici

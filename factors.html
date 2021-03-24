@@ -166,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.1" data-path="first-comands.html"><a href="first-comands.html#ordine-operazioni"><i class="fa fa-check"></i><b>3.1.1</b> Ordine Operazioni</a></li>
 <li class="chapter" data-level="" data-path="first-comands.html"><a href="first-comands.html#esercizi"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="first-comands.html"><a href="first-comands.html#operatori-relazionali-e-logici"><i class="fa fa-check"></i><b>3.2</b> Operatori Relazionali e Logici</a><ul>
+<li class="chapter" data-level="3.2" data-path="first-comands.html"><a href="first-comands.html#operators-rel-log"><i class="fa fa-check"></i><b>3.2</b> Operatori Relazionali e Logici</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="first-comands.html"><a href="first-comands.html#operatori-relazionali"><i class="fa fa-check"></i><b>3.2.1</b> Operatori Relazionali</a></li>
 <li class="chapter" data-level="3.2.2" data-path="first-comands.html"><a href="first-comands.html#operatori-logici"><i class="fa fa-check"></i><b>3.2.2</b> Operatori Logici</a></li>
 <li class="chapter" data-level="3.2.3" data-path="first-comands.html"><a href="first-comands.html#ordine-valutazione-relazioni"><i class="fa fa-check"></i><b>3.2.3</b> Ordine valutazione relazioni</a></li>
@@ -216,15 +216,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>Struttura Dati</b></span></li>
 <li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
 <li class="chapter" data-level="7" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>7</b> Vettori</a><ul>
-<li class="chapter" data-level="7.1" data-path="vector.html"><a href="vector.html#creazione-di-vettori"><i class="fa fa-check"></i><b>7.1</b> Creazione di Vettori</a><ul>
+<li class="chapter" data-level="7.1" data-path="vector.html"><a href="vector.html#creazione"><i class="fa fa-check"></i><b>7.1</b> Creazione</a><ul>
 <li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#esercizi-2"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="vector.html"><a href="vector.html#selezione-elementi-di-un-vettore"><i class="fa fa-check"></i><b>7.2</b> Selezione Elementi di un Vettore</a><ul>
+<li class="chapter" data-level="7.2" data-path="vector.html"><a href="vector.html#selezione-elementi"><i class="fa fa-check"></i><b>7.2</b> Selezione Elementi</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="vector.html"><a href="vector.html#utilizzi-avanzati-selezione"><i class="fa fa-check"></i><b>7.2.1</b> Utilizzi Avanzati Selezione</a></li>
-<li class="chapter" data-level="7.2.2" data-path="vector.html"><a href="vector.html#rimuovere-o-cambiare-lordine"><i class="fa fa-check"></i><b>7.2.2</b> Rimuovere o cambiare l’ordine</a></li>
 <li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#esercizi-3"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="vector.html"><a href="vector.html#funzioni-ed-operazioni-tra-vettori"><i class="fa fa-check"></i><b>7.3</b> Funzioni ed Operazioni tra Vettori</a><ul>
+<li class="chapter" data-level="7.3" data-path="vector.html"><a href="vector.html#funzioni-ed-operazioni"><i class="fa fa-check"></i><b>7.3</b> Funzioni ed Operazioni</a><ul>
 <li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#esercizi-4"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="vector.html"><a href="vector.html#data-type"><i class="fa fa-check"></i><b>7.4</b> Data Type</a><ul>
@@ -315,15 +314,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>L’opzione <code>levels=c(...)</code> è usata per specificare quali sono i possibili livelli della variabile categoriale. E’ possibile modificare o aggiungere nuovi livelli della variabile anche in un secondo momento utilizzando la funzione:</p>
 <p><code>levels(nome_fattore)&lt;- c(..., nuovi_livelli, ...)</code></p>
 <p><strong>Nota</strong>: nel creare un fattore R associa ad ogni livello un valore in ordine crescente e assegna agli elementi del vettore il loro volore numerico a seconda del proprio livello. Pertanto se un fattore è trasformato in un vettore numerico vengono restituiti tali valori numerici e non i livelli anche nel caso fossero dei numeri. Prendiamo per esempio la variabile <code>anni_istruzione</code>:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="factors.html#cb66-1"></a>anni_istruzione&lt;-<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">8</span>,<span class="dv">11</span>,<span class="dv">4</span>,<span class="dv">11</span>,<span class="dv">8</span>))</span>
-<span id="cb66-2"><a href="factors.html#cb66-2"></a>anni_istruzione</span>
-<span id="cb66-3"><a href="factors.html#cb66-3"></a><span class="co">## [1] 11 8  4  8  11 4  11 8 </span></span>
-<span id="cb66-4"><a href="factors.html#cb66-4"></a><span class="co">## Levels: 4 8 11</span></span>
-<span id="cb66-5"><a href="factors.html#cb66-5"></a><span class="kw">as.numeric</span>(anni_istruzione)</span>
-<span id="cb66-6"><a href="factors.html#cb66-6"></a><span class="co">## [1] 3 2 1 2 3 1 3 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="factors.html#cb79-1"></a>anni_istruzione&lt;-<span class="kw">factor</span>(<span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">8</span>,<span class="dv">11</span>,<span class="dv">4</span>,<span class="dv">11</span>,<span class="dv">8</span>))</span>
+<span id="cb79-2"><a href="factors.html#cb79-2"></a>anni_istruzione</span>
+<span id="cb79-3"><a href="factors.html#cb79-3"></a><span class="co">## [1] 11 8  4  8  11 4  11 8 </span></span>
+<span id="cb79-4"><a href="factors.html#cb79-4"></a><span class="co">## Levels: 4 8 11</span></span>
+<span id="cb79-5"><a href="factors.html#cb79-5"></a><span class="kw">as.numeric</span>(anni_istruzione)</span>
+<span id="cb79-6"><a href="factors.html#cb79-6"></a><span class="co">## [1] 3 2 1 2 3 1 3 2</span></span></code></pre></div>
 <p>Per riottenere gli estti valori numerici è necessario eseguire:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="factors.html#cb67-1"></a><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(anni_istruzione))</span>
-<span id="cb67-2"><a href="factors.html#cb67-2"></a><span class="co">## [1] 11  8  4  8 11  4 11  8</span></span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="factors.html#cb80-1"></a><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(anni_istruzione))</span>
+<span id="cb80-2"><a href="factors.html#cb80-2"></a><span class="co">## [1] 11  8  4  8 11  4 11  8</span></span></code></pre></div>
 <div id="esercizi-5" class="section level3 unnumbered">
 <h3>Esercizi</h3>
 <ol style="list-style-type: decimal">

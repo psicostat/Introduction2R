@@ -226,7 +226,7 @@
 \makeatother
 \subtitle{Corso per imparare le basi di \textbf{R}}
 \author{\href{https://claudiozandonella.netlify.app/}{Claudio Zandonella Callegher} and \href{https://filippogambarota.netlify.app/}{Filippo Gambarota} members of \href{https://psicostat.dpss.psy.unipd.it/}{Psicostat}}
-\date{23-03-2021}
+\date{24-03-2021}
 
 \begin{document}
 \maketitle
@@ -936,8 +936,8 @@ Note per la risoluzione degli esercizi:
   In R per i logaritmi si usa la funzione \texttt{log(x,\ base=a)}, di base viene considerato il logaritmo naturale.
 \end{itemize}
 
-\hypertarget{operatori-relazionali-e-logici}{%
-\section{Operatori Relazionali e Logici}\label{operatori-relazionali-e-logici}}
+\hypertarget{operators-rel-log}{%
+\section{Operatori Relazionali e Logici}\label{operators-rel-log}}
 
 Queste operazioni al momento potrebbero sembrare non particolrmente interessanti ma si riveleranno molto utili nei capitoli successivi ad esempio per la selezione di elementi (vedi Capitolo TODO) o la definizionne di algoritmi (vedi Capitolo TODO).
 
@@ -1535,7 +1535,7 @@ Il nostro Enviroment raccoglie quindi tutti gli oggetti che vengono creati duran
 \caption{*Environment* - Elenco degli oggetti e variabili presenti nel'ambiente di lavoro}\label{fig:environment2}
 \end{figure}
 
-All'inizio della sessione di lavoro il nostro Environment sarà vuoto (vedi Figura \ref{environment-empty}). Il comando \texttt{ls()} non restituirà alcun oggeto ma per indicare l'assenza di oggerri userà la risposta \texttt{character(0)}, ovvero un vettore di tipo caratteri di lunghezza zero (vedi Capitolo TODO).
+All'inizio della sessione di lavoro il nostro Environment sarà vuoto (vedi Figura \ref{fig:environment-empty}). Il comando \texttt{ls()} non restituirà alcun oggeto ma per indicare l'assenza di oggerri userà la risposta \texttt{character(0)}, ovvero un vettore di tipo caratteri di lunghezza zero (vedi Capitolo TODO).
 
 \begin{figure}
 
@@ -2602,8 +2602,8 @@ sebbene includano gli stessi elementi, non sono identici poichè differiscono pe
 
 Vedimao ora come creare dei vettori in R e come compiere le comuni operazini di selezione e manipolazione di vettori. Successivamente approfondiremo le caratteristiche dei vettori valutandone le diverse tipologie.
 
-\hypertarget{creazione-di-vettori}{%
-\section{Creazione di Vettori}\label{creazione-di-vettori}}
+\hypertarget{creazione}{%
+\section{Creazione}\label{creazione}}
 
 In realtà abbiamo già incontrato dei vettori nei precedenti capitoli poichè anche le variabili con un singolo valore altro non sono che un vettore di lunghezza 1. Tuttavia, per creare dei vettori di più elementi dobbiamo utilizzare il comando \texttt{c()}, ovvero \emph{``combine''}, indicando tra le parentesi i valori degli elementi nella sucessione desiderata e separati da una virgola. Avremo quindi la seguente sintassi:
 
@@ -2695,9 +2695,9 @@ Famigliarizza con la creazione di vettori (\href{https://github.com/psicostat/In
 \item
   Crea il vettore \texttt{z} contenente tutti i primi 10 multipli di 7 partendo da 13 (\texttt{?seq()})
 \item
-  Crea il vettore \texttt{s} in cui le lettere \texttt{"A"},\texttt{"B"} e \texttt{"C"} vengono ripetute nel medesimo ordine 4 volte (\texttt{?rep()}).
+  Crea il vettore \texttt{s} in cui le lettere \texttt{"A"},\texttt{"B"} e \texttt{"C"} vengono ripetute nel medesimo ordine 4 volte (\texttt{?rep()})
 \item
-  Crea il vettore \texttt{t} in cui le letter \texttt{"A"},\texttt{"B"} e \texttt{"C"} vengono ripetute ognuna 4 volte (\texttt{?rep()}).
+  Crea il vettore \texttt{t} in cui le letter \texttt{"A"},\texttt{"B"} e \texttt{"C"} vengono ripetute ognuna 4 volte (\texttt{?rep()})
 \item
   Genera il seguente output in modo pigro, ovvero scrivendo meno codice possibile ;)
 \end{enumerate}
@@ -2706,8 +2706,8 @@ Famigliarizza con la creazione di vettori (\href{https://github.com/psicostat/In
 ## [1] "foo" "foo" "bar" "bar" "foo" "foo" "bar" "bar"
 \end{verbatim}
 
-\hypertarget{selezione-elementi-di-un-vettore}{%
-\section{Selezione Elementi di un Vettore}\label{selezione-elementi-di-un-vettore}}
+\hypertarget{selezione-elementi}{%
+\section{Selezione Elementi}\label{selezione-elementi}}
 
 Una volta creato un vettore potrebbe essere necessario selezionare uno o più dei suoi elementi. In R per selezionare gli elementi di un vettore si utilizzano le \textbf{parentesi quadre} \texttt{{[}{]}} dopo il nome del vettore, indicando al loro interno \textbf{l'indice di posizione} degli elementi desiderati:
 
@@ -2722,15 +2722,15 @@ Attenzione, non devo quindi indicare il valore dell'elemento desiderato ma il su
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# dato il vettore}
-\NormalTok{my_vector <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{8}\NormalTok{)}
+\NormalTok{my_numbers <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{8}\NormalTok{)}
 
 \CommentTok{# per selezionare il valore 4 utilizzo il suo indice di posizione ovvero 2}
-\NormalTok{my_vector[}\DecValTok{2}\NormalTok{]}
+\NormalTok{my_numbers[}\DecValTok{2}\NormalTok{]}
 \CommentTok{## [1] 4}
 
 \CommentTok{# Se utilizzassi il suo valore (ovvero 4) }
 \CommentTok{# otterrei l'elemento che occupa la 4° posizione}
-\NormalTok{my_vector[}\DecValTok{4}\NormalTok{]}
+\NormalTok{my_numbers[}\DecValTok{4}\NormalTok{]}
 \CommentTok{## [1] 8}
 \end{Highlighting}
 \end{Shaded}
@@ -2740,16 +2740,41 @@ Per selezionare più elementi è necessario indicare tra le parentesi quadre tut
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# ERRATA selezione più valori }
-\NormalTok{my_vector[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{]}
-\CommentTok{## Error in my_vector[1, 2, 3]: incorrect number of dimensions}
+\NormalTok{my_numbers[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{]}
+\CommentTok{## Error in my_numbers[1, 2, 3]: incorrect number of dimensions}
 
 \CommentTok{# CORRETTA selezione più valori}
-\NormalTok{my_vector[}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{)]}
+\NormalTok{my_numbers[}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{)]}
 \CommentTok{## [1] 2 4 6}
-\NormalTok{my_vector[}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{my_numbers[}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{]}
 \CommentTok{## [1] 2 4 6}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{tip}[Selezionare non è Modificare]
+
+Nota come l'operazione di selezione non modifichi l'oggetto iniziale. Pertanto è necessario salvare il risultato della selezione se si desidera mantenere le modifiche.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_words <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"foo"}\NormalTok{, }\StringTok{"bar"}\NormalTok{, }\StringTok{"baz"}\NormalTok{, }\StringTok{"qux"}\NormalTok{)}
+
+\CommentTok{# Seleziono i primi 2 elementi}
+\NormalTok{my_words[}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{]}
+\CommentTok{## [1] "foo" "bar"}
+
+\CommentTok{# Ho ancora tutti gli elementi nell'oggetto my_words}
+\NormalTok{my_words}
+\CommentTok{## [1] "foo" "bar" "baz" "qux"}
+
+\CommentTok{# Salvo i risultati}
+\NormalTok{my_words <-}\StringTok{ }\NormalTok{my_words[}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{]}
+\NormalTok{my_words}
+\CommentTok{## [1] "foo" "bar"}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tip}
 
 \begin{warning}[Casi Estremi nella Selezione]
 
@@ -2758,10 +2783,9 @@ Cosa accade se utiliziamo un indice di posizione maggiore del numero di elementi
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Il mio vettore}
-\NormalTok{my_vector}
-\CommentTok{## [1] 2 4 6 8}
+\NormalTok{my_numbers <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{8}\NormalTok{)}
 
-\NormalTok{my_vector[}\DecValTok{10}\NormalTok{]}
+\NormalTok{my_numbers[}\DecValTok{10}\NormalTok{]}
 \CommentTok{## [1] NA}
 \end{Highlighting}
 \end{Shaded}
@@ -2779,11 +2803,11 @@ Osserviamo infine anche altri comportamenti particolari o possibili errori nella
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# ERRATA selezione più valori }
-\NormalTok{my_vector[}\StringTok{"3"}\NormalTok{]}
+\NormalTok{my_numbers[}\StringTok{"3"}\NormalTok{]}
 \CommentTok{## [1] NA}
 
 \CommentTok{# CORRETTA selezione più valori}
-\NormalTok{my_vector[}\DecValTok{3}\NormalTok{]}
+\NormalTok{my_numbers[}\DecValTok{3}\NormalTok{]}
 \CommentTok{## [1] 6}
 \end{Highlighting}
 \end{Shaded}
@@ -2796,9 +2820,9 @@ Osserviamo infine anche altri comportamenti particolari o possibili errori nella
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{my_vector[}\FloatTok{2.2}\NormalTok{]}
+\NormalTok{my_numbers[}\FloatTok{2.2}\NormalTok{]}
 \CommentTok{## [1] 4}
-\NormalTok{my_vector[}\FloatTok{2.8}\NormalTok{]}
+\NormalTok{my_numbers[}\FloatTok{2.8}\NormalTok{]}
 \CommentTok{## [1] 4}
 \end{Highlighting}
 \end{Shaded}
@@ -2811,7 +2835,7 @@ Osserviamo infine anche altri comportamenti particolari o possibili errori nella
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{my_vector[}\DecValTok{0}\NormalTok{]}
+\NormalTok{my_numbers[}\DecValTok{0}\NormalTok{]}
 \CommentTok{## numeric(0)}
 \end{Highlighting}
 \end{Shaded}
@@ -2837,24 +2861,24 @@ Vediamo ora alcuni utilizzi avanzati della selezione di elementi di un vettore. 
   eliminare degli elementi
 \end{itemize}
 
-\hypertarget{operatori-relazionali-e-logici-1}{%
-\subsubsection*{Operatori Relazionali e Logici}\label{operatori-relazionali-e-logici-1}}
+\hypertarget{operatori-relazionali-e-logici}{%
+\subsubsection*{Operatori Relazionali e Logici}\label{operatori-relazionali-e-logici}}
 \addcontentsline{toc}{subsubsection}{Operatori Relazionali e Logici}
 
 Un'utile funzione è quella di selezionare tra gli elementi di un vetore quelli che rispetano una certa condizione. Per fare questo dobbiamo specificare all'interno delle parentesi quadre la proposizione di interesse utilizzando gli operatori relazionali e logici (vedi Capitolo \ref{operators-rel-log}).
 
-Possiamo ad esempio selezionare da un vettore numerico tutti gli elementi maggiori di un certo valore, oppure selezionare in un vettore di caratteri tutti gli elementi uguali ad una data stringa.
+Possiamo ad esempio selezionare da un vettore numerico tutti gli elementi maggiori di un certo valore, oppure selezionare da un vettore di caratteri tutti gli elementi uguali ad una data stringa.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Vettore numerico - seleziono elemeni maggiori di 0}
-\NormalTok{numbers <-}\StringTok{ }\DecValTok{-5}\OperatorTok{:}\DecValTok{5}
-\NormalTok{numbers[numbers }\OperatorTok{>=}\StringTok{ }\DecValTok{0}\NormalTok{]}
+\NormalTok{my_numbers <-}\StringTok{ }\DecValTok{-5}\OperatorTok{:}\DecValTok{5}
+\NormalTok{my_numbers[my_numbers }\OperatorTok{>=}\StringTok{ }\DecValTok{0}\NormalTok{]}
 \CommentTok{## [1] 0 1 2 3 4 5}
 
 \CommentTok{# Vettore caratteri - seleziono elemeni uguali a "bar"}
-\NormalTok{words <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"foo"}\NormalTok{, }\StringTok{"bar"}\NormalTok{), }\DataTypeTok{times =} \DecValTok{4}\NormalTok{)}
-\NormalTok{words[words }\OperatorTok{==}\StringTok{ "bar"}\NormalTok{]}
+\NormalTok{my_words <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"foo"}\NormalTok{, }\StringTok{"bar"}\NormalTok{), }\DataTypeTok{times =} \DecValTok{4}\NormalTok{)}
+\NormalTok{my_words[my_words }\OperatorTok{==}\StringTok{ "bar"}\NormalTok{]}
 \CommentTok{## [1] "bar" "bar" "bar" "bar"}
 \end{Highlighting}
 \end{Shaded}
@@ -2864,7 +2888,7 @@ Per capire meglio questa operazione è importante notare come nello stesso coman
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Vettore logico} (vedi Capitolo TODO) - quando un vettore è valutato in una proposizione, R crea un nuovo vettore che contiene per ogni elemento del vettore iniziale la risposta (\texttt{TRUE} o \texttt{FALSE}) alla nostra proposizione.
+  \textbf{Vettore logico} (vedi Capitolo TODO) - quando un vettore è valutato in una proposizione, R restituisce un nuovo vettore che contiene per ogni elemento del vettore iniziale la risposta (\texttt{TRUE} o \texttt{FALSE}) alla nostra proposizione.
 \item
   \textbf{Selezione} - utilizziamo il vettore logico ottenuto per selezionare gli elementi dal vettore iniziale. Gli elementi associati al valore \texttt{TRUE} sono selezionati mentre quelli associati al valore \texttt{FALSE} sono scartati.
 \end{itemize}
@@ -2874,12 +2898,12 @@ Rendiamo espliciti questi due passaggi nel seguente codice:
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Vettore logico}
-\NormalTok{condition <-}\StringTok{ }\NormalTok{words }\OperatorTok{==}\StringTok{ "bar"}
+\NormalTok{condition <-}\StringTok{ }\NormalTok{my_words }\OperatorTok{==}\StringTok{ "bar"}
 \NormalTok{condition}
 \CommentTok{## [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE}
 
 \CommentTok{# Selezione}
-\NormalTok{words[condition]}
+\NormalTok{my_words[condition]}
 \CommentTok{## [1] "bar" "bar" "bar" "bar"}
 \end{Highlighting}
 \end{Shaded}
@@ -2888,35 +2912,138 @@ Rendiamo espliciti questi due passaggi nel seguente codice:
 \subsubsection*{Ordinare gli Elementi}\label{ordinare-gli-elementi}}
 \addcontentsline{toc}{subsubsection}{Ordinare gli Elementi}
 
+Gli indici di posizione possono essere utilizzati per ordinare gli elementi di un vettore a seconda delle necessità.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{messy_vector <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+
+\CommentTok{# Altero l'ordine degli elementi}
+\NormalTok{messy_vector[}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{)]}
+\CommentTok{## [1] 3 1 7 5}
+
+\CommentTok{# Ordino gli elementi per valori crescenti}
+\NormalTok{messy_vector[}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{)]}
+\CommentTok{## [1] 1 3 5 7}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{trick}[sort() vs order()]
+
+Per ordinare gli elementi di un vettore in ordine crescente o decrescente (sia alfabetico che numerico), è possibile utilizzare la funzione \texttt{sort()} specificando l'argomento \texttt{decreasing}. Vedi l'help page della funzione per ulteriori informazioni (\texttt{?sort()}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Ordine alfabetico}
+\NormalTok{my_letters <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"cb"}\NormalTok{, }\StringTok{"bc"}\NormalTok{, }\StringTok{"ab"}\NormalTok{, }\StringTok{"ba"}\NormalTok{, }\StringTok{"cb"}\NormalTok{, }\StringTok{"ab"}\NormalTok{)}
+\KeywordTok{sort}\NormalTok{(my_letters)}
+\CommentTok{## [1] "ab" "ab" "ba" "bc" "cb" "cb"}
+
+\CommentTok{# ordine decrescente}
+\KeywordTok{sort}\NormalTok{(messy_vector, }\DataTypeTok{decreasing =} \OtherTok{TRUE}\NormalTok{)}
+\CommentTok{## [1] 7 5 3 1}
+\end{Highlighting}
+\end{Shaded}
+
+Nota come esista anche la funzione \texttt{order()} ma questa sia un false-friend perchè non ci fornisce direttamente un vettore con gli elementi ordinati ma bensì gli indici di posizione per riordinare gli elementi (\texttt{?order()}). Vediamo nel seguente esempio come utilizzare questa funzione:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Indici di posizione per riordinare gli elementi}
+\KeywordTok{order}\NormalTok{(messy_vector)}
+\CommentTok{## [1] 2 4 1 3}
+\CommentTok{# Riordino il vettore usando gli indici di posizione}
+\NormalTok{messy_vector[}\KeywordTok{order}\NormalTok{(messy_vector)]}
+\CommentTok{## [1] 1 3 5 7}
+\end{Highlighting}
+\end{Shaded}
+
+\end{trick}
+
 \hypertarget{combinazioni-di-elementi}{%
 \subsubsection*{Combinazioni di Elementi}\label{combinazioni-di-elementi}}
 \addcontentsline{toc}{subsubsection}{Combinazioni di Elementi}
+
+Gli stessi indici di posizione possono essere richiamati più volte per ripetere gli elementi nelle combinazioni desiderate formando un nuovo vettore.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_numbers <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{)}
+\CommentTok{# Ottengo un nuovo vettore con la combinazioen desiderata}
+\NormalTok{my_numbers[}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{)]}
+\CommentTok{## [1] 5 6 6 7 7 7 8}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{modificare-gli-elementi}{%
 \subsubsection*{Modificare gli Elementi}\label{modificare-gli-elementi}}
 \addcontentsline{toc}{subsubsection}{Modificare gli Elementi}
 
+Un importante utilizzo degli indici riguarda la modifica di un elemento di un vettore. Per sostituire un vecchio valore con un nuovo valore, posso utilizzare la funzione \emph{assign} (\texttt{\textless{}-} o \texttt{=}) come nell'esempio:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_names <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Andrea"}\NormalTok{, }\StringTok{"Bianca"}\NormalTok{, }\StringTok{"Carlo"}\NormalTok{)}
+
+\CommentTok{# Modifico il  nome "Bianca" in "Beatrice"}
+\NormalTok{my_names[}\DecValTok{2}\NormalTok{] <-}\StringTok{ "Beatrice"}
+\NormalTok{my_names}
+\CommentTok{## [1] "Andrea"   "Beatrice" "Carlo"}
+\end{Highlighting}
+\end{Shaded}
+
+Per sostituire il valore viene indicato alla sinistra dell'operatore \emph{assign} il valore che si vuole modificare e alla destra il nuovo valore. Nota come questa operazione possa essere usata per aggiungere anche nuovi elementi al vettore.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_names[}\DecValTok{4}\NormalTok{]}
+\CommentTok{## [1] NA}
+
+\CommentTok{# Aggiungo il nome "Daniela"}
+\NormalTok{my_names[}\DecValTok{4}\NormalTok{] <-}\StringTok{ "Daniela"}
+\NormalTok{my_names}
+\CommentTok{## [1] "Andrea"   "Beatrice" "Carlo"    "Daniela"}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{eliminare-gli-elementi}{%
 \subsubsection*{Eliminare gli Elementi}\label{eliminare-gli-elementi}}
 \addcontentsline{toc}{subsubsection}{Eliminare gli Elementi}
 
-E' possibile sfruttare gli indici per riordinare a piacere gli elementi di un vettore. Per
-Nota come non sia possibile
+Per \textbf{eliminare degli elementi} da un vettore, si indicano all'interno delle parentesi quadre gli indici di posizione degli elementi da eliminare preceduti dall'operatore \texttt{-} (\emph{meno}). Nel caso di più elementi è anche possibile indicare il meno solo prima del comando \texttt{c()}, ad esempio il comando \texttt{x{[}c(-2,-4){]}} diviene \texttt{x{[}-c(2,4){]}}.
 
-E' possibil edeterminare l'ordine degli elementi o
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_words <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"foo"}\NormalTok{, }\StringTok{"bar"}\NormalTok{, }\StringTok{"baz"}\NormalTok{, }\StringTok{"qux"}\NormalTok{)}
 
-\begin{itemize}
-\tightlist
-\item
-  warning box selezione out of bound e uso caratteri e non stessa lunghezza
-\end{itemize}
+\CommentTok{# Elimino "bar"}
+\NormalTok{my_words[}\OperatorTok{-}\DecValTok{2}\NormalTok{]}
+\CommentTok{## [1] "foo" "baz" "qux"}
 
-In alternativa si può definire la condizione logica che gli elementi che si vogliono selezionare devono rispettare.
+\CommentTok{# Elimino "foo" e "baz"}
+\NormalTok{my_words[}\OperatorTok{-}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{)]    }\CommentTok{# oppure my_words[c(-1, -3)]}
+\CommentTok{## [1] "bar" "qux"}
+\end{Highlighting}
+\end{Shaded}
 
-Per \textbf{eliminare degli elementi} da un vettore si utilizza all'interno delle parentesi quadre l'operatore ``-'' insieme agli indici di posizione degli elementi da eliminare (esempio: \texttt{x{[}c(-2,-4){]}} oppure \texttt{x{[}-c(2,4){]}}).
+Nota come l'operazione di eliminazione sia comunque un'operazione di selezione. Pertanto è necessario salvare il risultato ottenuto se si desidera mantenere le modifiche.
 
-\hypertarget{rimuovere-o-cambiare-lordine}{%
-\subsection{Rimuovere o cambiare l'ordine}\label{rimuovere-o-cambiare-lordine}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Elimino "foo" e "baz"}
+\NormalTok{my_words[}\OperatorTok{-}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{)]}
+\CommentTok{## [1] "bar" "qux"}
+
+\CommentTok{# Ho ancora tutti gli elementi nell'oggetto my_words}
+\NormalTok{my_words}
+\CommentTok{## [1] "foo" "bar" "baz" "qux"}
+
+\CommentTok{# Salvo i risultati}
+\NormalTok{my_words <-}\StringTok{ }\NormalTok{my_words[}\OperatorTok{-}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{)]}
+\NormalTok{my_words}
+\CommentTok{## [1] "bar" "qux"}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{esercizi-3}{%
 \subsection*{Esercizi}\label{esercizi-3}}
@@ -2924,26 +3051,31 @@ Per \textbf{eliminare degli elementi} da un vettore si utilizza all'interno dell
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   Del vettore \texttt{x} seleziona il 2°, 3° e 5° elemento
+\item
+  Del vettore \texttt{x} seleziona i valori 34 e 4
+\item
+  Dato il vettore \texttt{my\_vector\ =\ c(2,4,6,8)} commenta il risultato del comando \texttt{my\_vector{[}my\_vector{]}}
 \item
   Del vettore \texttt{y} seleziona tutti i valori minori di 13 o maggiori di 19
 \item
   Del vettore \texttt{z} seleziona tutti i valori compresi tra 24 e 50
 \item
+  Del vettore \texttt{s} seleziona tutti gli elementi uguali ad \texttt{"A"}
+\item
+  Del vettore \texttt{t} seleziona tutti gli elementi diversi da \texttt{"B"}
+\item
+  Crea un nuovo vettore \texttt{u} identico a \texttt{s} ma dove le \texttt{"A"} sono sostituite con la lettera \texttt{"U"}
+\item
   Elimina dal vettore \texttt{z} i valori 28 e 42
-\item
-  Del vettore \texttt{s} seleziona tutti gli elementi uguali ad ``A''
-\item
-  Del vettore \texttt{t} seleziona tutti gli elementi diversi da ``B''
-\item
-  Dato il vettore \texttt{my\_vector\ =\ c(2,4,6,8)} commenta il risultato del comando \texttt{my\_vector{[}my\_vector{]}}
 \end{enumerate}
 
-\hypertarget{funzioni-ed-operazioni-tra-vettori}{%
-\section{Funzioni ed Operazioni tra Vettori}\label{funzioni-ed-operazioni-tra-vettori}}
+\hypertarget{funzioni-ed-operazioni}{%
+\section{Funzioni ed Operazioni}\label{funzioni-ed-operazioni}}
 
-Per compiere operazioni tra vettori è necessario che essi abbiano identica lunghezza.
+Vediamo ora alcune utili funzioni e comuni operazioni che è possibile svolgere con i vettori (vedi Tabella \ref{tab:table-vector-operators}).
 
 \begin{table}[!h]
 
@@ -2951,11 +3083,11 @@ Per compiere operazioni tra vettori è necessario che essi abbiano identica lung
 \centering
 \begin{tabular}[t]{l|l}
 \hline
-Operazione & Nome\\
+Funzione & Descrizione\\
 \hline
-\texttt{<nuovo-vettore> <- c(<vettore1>, <vettore2>)} & Per unire più vettori in un unico vettore\\
+\texttt{nuovo\_vettore <- c(vettore1, vettore2)} & Unire più vettori in un unico vettore\\
 \hline
-\texttt{length(<nome-vettore>)} & Per valutare il numero di elementi contenuti in un vettore\\
+\texttt{length(nome\_vettore)} & Valutare il numero di elementi contenuti in un vettore\\
 \hline
 \texttt{vettore1 + vettore2} & Somma di due vettori\\
 \hline
@@ -2968,7 +3100,78 @@ Operazione & Nome\\
 \end{tabular}
 \end{table}
 
-\textbf{Nota:} In R il prodotto e rapporto tra vettori sono eseguiti elemento per elemento (al contrario di molti altri software).
+Nota che l'esecuzione di operazioni matematiche (e.g., \texttt{+}, \texttt{-}, \texttt{*}, \texttt{/} etc.) è possibile sia rispetto ad un singolo valore sia rispetto ad un altro vettore:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Singolo valore} - l'operazione sarà svolta per ogni elemento del vettore rispetto al singolo valore fornito.
+\item
+  \textbf{Altro vettore} - l'operazione sarà svolta per ogni coppia di elementi dei due vettori. E' quindi necessario che i due vettori abbiano la \textbf{stessa lunghezza}, ovvero lo stesso numero di elementi.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{5}
+\NormalTok{y <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{5}
+
+\CommentTok{# Sommo un valore singolo}
+\NormalTok{x }\OperatorTok{+}\StringTok{ }\DecValTok{10}
+\CommentTok{## [1] 11 12 13 14 15}
+
+\CommentTok{# Somma di vettori (elemento per elemento)}
+\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
+\CommentTok{## [1]  2  4  6  8 10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{warning}[Vettori di Diversa Lunghezza]
+
+Qualora i vettori differiscano per la loro lunghezza, R ci presenterà un warning avvisandoci del problema ma eseguirà comunque l'operazione utilizzando più volte il vettore più corto.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{+}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\CommentTok{## Warning in x + c(1, 2): longer object length is not a multiple of shorter object}
+\CommentTok{## length}
+\CommentTok{## [1] 2 4 4 6 6}
+\end{Highlighting}
+\end{Shaded}
+
+Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche multipli) dovrebbe essere evitato perchè facile causa di errori e incomprensioni.
+
+\end{warning}
+
+\begin{design}[Vectorized Operations]
+
+In R la maggior parte degli operatori sono \emph{vettorizzati}, ovvero calcolano direttamente il risultato per ogni elemento di un vettore. Questo è un grandissimo vantaggio poichè ci permette di essere molto efficienti e coincisi nel codice.
+
+Senza vettorizzazione, ogni operazione tra due vettori richiederebbe di specificare l'operazione per ogni elemento del vettore. Nel precedente esempio della somma tra \texttt{x} e \texttt{y} avremmo dovuto usare il seguente codice:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(}\KeywordTok{length}\NormalTok{(x))}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \KeywordTok{seq_along}\NormalTok{(x)) \{}
+\NormalTok{      z[i] <-}\StringTok{ }\NormalTok{x[i] }\OperatorTok{+}\StringTok{ }\NormalTok{y[i]}
+\NormalTok{\}}
+\NormalTok{z}
+\CommentTok{## [1]  2  4  6  8 10}
+\end{Highlighting}
+\end{Shaded}
+
+Nota come questo sia valido anche per gli \textbf{operatori relazionali e logici}. Infatti valutando una proposizione rispetto ad un vettore, otterremmo una risposta per ogni elemento del vettore
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_values <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{8}
+
+\CommentTok{# Valori compresi tra 4 e 7}
+\NormalTok{my_values }\OperatorTok{>=}\StringTok{ }\DecValTok{4} \OperatorTok{&}\StringTok{ }\NormalTok{my_values }\OperatorTok{<=}\StringTok{ }\DecValTok{7}
+\CommentTok{## [1] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE}
+\end{Highlighting}
+\end{Shaded}
+
+\end{design}
 
 \hypertarget{esercizi-4}{%
 \subsection*{Esercizi}\label{esercizi-4}}
@@ -2993,6 +3196,8 @@ Operazione & Nome\\
 \section{Data Type}\label{data-type}}
 
 Working in progress.
+
+Abbimao visto chè un'importante condizione dei vettori è che tutti gli elementi siano dello stesso tipo. Abbiamogià incontrato e osservato la differenza tra valori numerici e caratteri ma approfondiamo i diversi tipi e i relativi vatttori, relazioni tra tipologie di dati
 
 Tipi di vettori
 
@@ -3865,25 +4070,25 @@ La struttura di base di un dataframe è quindi la stessa di una matrice ma conti
 \hline
 colonna1 & colonna2 & colonna3 & colonna4 & colonna5 & colonna6\\
 \hline
--0.02 & 0.14 & -0.65 & -1.53 & -1.27 & a\\
+-0.52 & -0.28 & 1.31 & 0.94 & -0.73 & a\\
 \hline
--0.88 & 0.87 & 0.20 & 1.69 & -1.45 & b\\
+0.01 & -0.20 & -0.53 & -1.75 & 1.31 & b\\
 \hline
--1.31 & 0.84 & -0.25 & -0.51 & 0.41 & c\\
+0.81 & 0.81 & 0.41 & 1.01 & 0.10 & c\\
 \hline
--1.23 & -0.39 & -0.29 & 0.85 & -0.68 & d\\
+0.14 & 0.08 & -0.92 & -0.56 & -0.67 & d\\
 \hline
-1.95 & -1.52 & -0.03 & -1.06 & 0.41 & e\\
+0.44 & 2.55 & 1.24 & -0.67 & 0.98 & e\\
 \hline
--1.30 & -0.14 & -0.01 & 0.08 & -0.39 & f\\
+-0.82 & 1.03 & 0.07 & -0.72 & 1.05 & f\\
 \hline
--0.42 & 1.02 & 1.13 & -1.33 & -0.26 & g\\
+-0.03 & 1.82 & 1.57 & 1.02 & -1.19 & g\\
 \hline
--0.58 & -1.03 & -1.01 & 0.86 & -0.02 & h\\
+-0.90 & -0.54 & 1.94 & -1.26 & -0.16 & h\\
 \hline
--1.19 & -0.86 & -0.40 & 1.13 & -1.77 & i\\
+-0.40 & -0.83 & 0.52 & -0.35 & 0.04 & i\\
 \hline
--0.22 & -0.32 & -1.44 & -0.28 & 1.43 & j\\
+-0.80 & -0.82 & 1.81 & -1.00 & 1.81 & j\\
 \hline
 \end{tabular}
 \end{table}

@@ -166,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.1" data-path="first-comands.html"><a href="first-comands.html#ordine-operazioni"><i class="fa fa-check"></i><b>3.1.1</b> Ordine Operazioni</a></li>
 <li class="chapter" data-level="" data-path="first-comands.html"><a href="first-comands.html#esercizi"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="first-comands.html"><a href="first-comands.html#operatori-relazionali-e-logici"><i class="fa fa-check"></i><b>3.2</b> Operatori Relazionali e Logici</a><ul>
+<li class="chapter" data-level="3.2" data-path="first-comands.html"><a href="first-comands.html#operators-rel-log"><i class="fa fa-check"></i><b>3.2</b> Operatori Relazionali e Logici</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="first-comands.html"><a href="first-comands.html#operatori-relazionali"><i class="fa fa-check"></i><b>3.2.1</b> Operatori Relazionali</a></li>
 <li class="chapter" data-level="3.2.2" data-path="first-comands.html"><a href="first-comands.html#operatori-logici"><i class="fa fa-check"></i><b>3.2.2</b> Operatori Logici</a></li>
 <li class="chapter" data-level="3.2.3" data-path="first-comands.html"><a href="first-comands.html#ordine-valutazione-relazioni"><i class="fa fa-check"></i><b>3.2.3</b> Ordine valutazione relazioni</a></li>
@@ -216,15 +216,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>Struttura Dati</b></span></li>
 <li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
 <li class="chapter" data-level="7" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>7</b> Vettori</a><ul>
-<li class="chapter" data-level="7.1" data-path="vector.html"><a href="vector.html#creazione-di-vettori"><i class="fa fa-check"></i><b>7.1</b> Creazione di Vettori</a><ul>
+<li class="chapter" data-level="7.1" data-path="vector.html"><a href="vector.html#creazione"><i class="fa fa-check"></i><b>7.1</b> Creazione</a><ul>
 <li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#esercizi-2"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="vector.html"><a href="vector.html#selezione-elementi-di-un-vettore"><i class="fa fa-check"></i><b>7.2</b> Selezione Elementi di un Vettore</a><ul>
+<li class="chapter" data-level="7.2" data-path="vector.html"><a href="vector.html#selezione-elementi"><i class="fa fa-check"></i><b>7.2</b> Selezione Elementi</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="vector.html"><a href="vector.html#utilizzi-avanzati-selezione"><i class="fa fa-check"></i><b>7.2.1</b> Utilizzi Avanzati Selezione</a></li>
-<li class="chapter" data-level="7.2.2" data-path="vector.html"><a href="vector.html#rimuovere-o-cambiare-lordine"><i class="fa fa-check"></i><b>7.2.2</b> Rimuovere o cambiare l’ordine</a></li>
 <li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#esercizi-3"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="vector.html"><a href="vector.html#funzioni-ed-operazioni-tra-vettori"><i class="fa fa-check"></i><b>7.3</b> Funzioni ed Operazioni tra Vettori</a><ul>
+<li class="chapter" data-level="7.3" data-path="vector.html"><a href="vector.html#funzioni-ed-operazioni"><i class="fa fa-check"></i><b>7.3</b> Funzioni ed Operazioni</a><ul>
 <li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#esercizi-4"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="vector.html"><a href="vector.html#data-type"><i class="fa fa-check"></i><b>7.4</b> Data Type</a><ul>
@@ -332,8 +331,8 @@ x = [1, 3, 5];\ \ \ y = [3, 1, 5],
 \]</span>
 sebbene includano gli stessi elementi, non sono identici poichè differiscono per la loro disposizione. Tutto questo ci serve solo per ribadire come l’ordine degli elementi sia fondamentale per la valutazione di un vettore.</p>
 <p>Vedimao ora come creare dei vettori in R e come compiere le comuni operazini di selezione e manipolazione di vettori. Successivamente approfondiremo le caratteristiche dei vettori valutandone le diverse tipologie.</p>
-<div id="creazione-di-vettori" class="section level2">
-<h2><span class="header-section-number">7.1</span> Creazione di Vettori</h2>
+<div id="creazione" class="section level2">
+<h2><span class="header-section-number">7.1</span> Creazione</h2>
 <p>In realtà abbiamo già incontrato dei vettori nei precedenti capitoli poichè anche le variabili con un singolo valore altro non sono che un vettore di lunghezza 1. Tuttavia, per creare dei vettori di più elementi dobbiamo utilizzare il comando <code>c()</code>, ovvero <em>“combine”</em>, indicando tra le parentesi i valori degli elementi nella sucessione desiderata e separati da una virgola. Avremo quindi la seguente sintassi:</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="vector.html#cb46-1"></a>nome_vettore &lt;-<span class="st"> </span><span class="kw">c</span>(x_<span class="dv">1</span>, x_<span class="dv">2</span>, x_<span class="dv">3</span>, ..., x_n)</span></code></pre></div>
 <p>Nota come gli elementi di un vettore debbano essere tutti della stessa tipologia ad esempio vaolri numerici o valori carattere.</p>
@@ -381,71 +380,87 @@ sebbene includano gli stessi elementi, non sono identici poichè differiscono pe
 <li>Crea il vettore <code>x</code> contenente i numeri 4, 6, 12, 34, 8</li>
 <li>Crea il vettore <code>y</code> contenente tutti i numeri pari compresi tra 1 e 25 (<code>?seq()</code>)</li>
 <li>Crea il vettore <code>z</code> contenente tutti i primi 10 multipli di 7 partendo da 13 (<code>?seq()</code>)</li>
-<li>Crea il vettore <code>s</code> in cui le lettere <code>"A"</code>,<code>"B"</code> e <code>"C"</code> vengono ripetute nel medesimo ordine 4 volte (<code>?rep()</code>).</li>
-<li>Crea il vettore <code>t</code> in cui le letter <code>"A"</code>,<code>"B"</code> e <code>"C"</code> vengono ripetute ognuna 4 volte (<code>?rep()</code>).</li>
+<li>Crea il vettore <code>s</code> in cui le lettere <code>"A"</code>,<code>"B"</code> e <code>"C"</code> vengono ripetute nel medesimo ordine 4 volte (<code>?rep()</code>)</li>
+<li>Crea il vettore <code>t</code> in cui le letter <code>"A"</code>,<code>"B"</code> e <code>"C"</code> vengono ripetute ognuna 4 volte (<code>?rep()</code>)</li>
 <li>Genera il seguente output in modo pigro, ovvero scrivendo meno codice possibile ;)</li>
 </ol>
 <pre><code>## [1] &quot;foo&quot; &quot;foo&quot; &quot;bar&quot; &quot;bar&quot; &quot;foo&quot; &quot;foo&quot; &quot;bar&quot; &quot;bar&quot;</code></pre>
 </div>
 </div>
-<div id="selezione-elementi-di-un-vettore" class="section level2">
-<h2><span class="header-section-number">7.2</span> Selezione Elementi di un Vettore</h2>
+<div id="selezione-elementi" class="section level2">
+<h2><span class="header-section-number">7.2</span> Selezione Elementi</h2>
 <p>Una volta creato un vettore potrebbe essere necessario selezionare uno o più dei suoi elementi. In R per selezionare gli elementi di un vettore si utilizzano le <strong>parentesi quadre</strong> <code>[]</code> dopo il nome del vettore, indicando al loro interno <strong>l’indice di posizione</strong> degli elementi desiderati:</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="vector.html#cb51-1"></a>nome_vettore[<span class="op">&lt;</span>indice<span class="op">-</span>posizione<span class="op">&gt;</span>]</span></code></pre></div>
 <p>Attenzione, non devo quindi indicare il valore dell’elemento desiderato ma il suo indice di posizione. Ad esempio:</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="vector.html#cb52-1"></a><span class="co"># dato il vettore</span></span>
-<span id="cb52-2"><a href="vector.html#cb52-2"></a>my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>)</span>
+<span id="cb52-2"><a href="vector.html#cb52-2"></a>my_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>)</span>
 <span id="cb52-3"><a href="vector.html#cb52-3"></a></span>
 <span id="cb52-4"><a href="vector.html#cb52-4"></a><span class="co"># per selezionare il valore 4 utilizzo il suo indice di posizione ovvero 2</span></span>
-<span id="cb52-5"><a href="vector.html#cb52-5"></a>my_vector[<span class="dv">2</span>]</span>
+<span id="cb52-5"><a href="vector.html#cb52-5"></a>my_numbers[<span class="dv">2</span>]</span>
 <span id="cb52-6"><a href="vector.html#cb52-6"></a><span class="co">## [1] 4</span></span>
 <span id="cb52-7"><a href="vector.html#cb52-7"></a></span>
 <span id="cb52-8"><a href="vector.html#cb52-8"></a><span class="co"># Se utilizzassi il suo valore (ovvero 4) </span></span>
 <span id="cb52-9"><a href="vector.html#cb52-9"></a><span class="co"># otterrei l&#39;elemento che occupa la 4° posizione</span></span>
-<span id="cb52-10"><a href="vector.html#cb52-10"></a>my_vector[<span class="dv">4</span>]</span>
+<span id="cb52-10"><a href="vector.html#cb52-10"></a>my_numbers[<span class="dv">4</span>]</span>
 <span id="cb52-11"><a href="vector.html#cb52-11"></a><span class="co">## [1] 8</span></span></code></pre></div>
 <p>Per selezionare più elementi è necessario indicare tra le parentesi quadre tutti gli indici di posizione degli elementi desiderati. Nota come non sia possibile fornire semplicemente i singoli indici numerici ma questi devono essere raccolti in un vettore, ad esempio usando la funzione <code>c()</code>. Praticamente usiamo un vetore di indici per selezionare gli elemeni desiderati dal nostro vettore iniziale.</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="vector.html#cb53-1"></a><span class="co"># ERRATA selezione più valori </span></span>
-<span id="cb53-2"><a href="vector.html#cb53-2"></a>my_vector[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
-<span id="cb53-3"><a href="vector.html#cb53-3"></a><span class="co">## Error in my_vector[1, 2, 3]: incorrect number of dimensions</span></span>
+<span id="cb53-2"><a href="vector.html#cb53-2"></a>my_numbers[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb53-3"><a href="vector.html#cb53-3"></a><span class="co">## Error in my_numbers[1, 2, 3]: incorrect number of dimensions</span></span>
 <span id="cb53-4"><a href="vector.html#cb53-4"></a></span>
 <span id="cb53-5"><a href="vector.html#cb53-5"></a><span class="co"># CORRETTA selezione più valori</span></span>
-<span id="cb53-6"><a href="vector.html#cb53-6"></a>my_vector[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)]</span>
+<span id="cb53-6"><a href="vector.html#cb53-6"></a>my_numbers[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)]</span>
 <span id="cb53-7"><a href="vector.html#cb53-7"></a><span class="co">## [1] 2 4 6</span></span>
-<span id="cb53-8"><a href="vector.html#cb53-8"></a>my_vector[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span>
+<span id="cb53-8"><a href="vector.html#cb53-8"></a>my_numbers[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span>
 <span id="cb53-9"><a href="vector.html#cb53-9"></a><span class="co">## [1] 2 4 6</span></span></code></pre></div>
+<div class="tip" title="Selezionare non è Modificare">
+<p>Nota come l’operazione di selezione non modifichi l’oggetto iniziale. Pertanto è necessario salvare il risultato della selezione se si desidera mantenere le modifiche.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="vector.html#cb54-1"></a>my_words &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;baz&quot;</span>, <span class="st">&quot;qux&quot;</span>)</span>
+<span id="cb54-2"><a href="vector.html#cb54-2"></a></span>
+<span id="cb54-3"><a href="vector.html#cb54-3"></a><span class="co"># Seleziono i primi 2 elementi</span></span>
+<span id="cb54-4"><a href="vector.html#cb54-4"></a>my_words[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span>
+<span id="cb54-5"><a href="vector.html#cb54-5"></a><span class="co">## [1] &quot;foo&quot; &quot;bar&quot;</span></span>
+<span id="cb54-6"><a href="vector.html#cb54-6"></a></span>
+<span id="cb54-7"><a href="vector.html#cb54-7"></a><span class="co"># Ho ancora tutti gli elementi nell&#39;oggetto my_words</span></span>
+<span id="cb54-8"><a href="vector.html#cb54-8"></a>my_words</span>
+<span id="cb54-9"><a href="vector.html#cb54-9"></a><span class="co">## [1] &quot;foo&quot; &quot;bar&quot; &quot;baz&quot; &quot;qux&quot;</span></span>
+<span id="cb54-10"><a href="vector.html#cb54-10"></a></span>
+<span id="cb54-11"><a href="vector.html#cb54-11"></a><span class="co"># Salvo i risultati</span></span>
+<span id="cb54-12"><a href="vector.html#cb54-12"></a>my_words &lt;-<span class="st"> </span>my_words[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span>
+<span id="cb54-13"><a href="vector.html#cb54-13"></a>my_words</span>
+<span id="cb54-14"><a href="vector.html#cb54-14"></a><span class="co">## [1] &quot;foo&quot; &quot;bar&quot;</span></span></code></pre></div>
+</div>
 <div class="warning" title="Casi Estremi nella Selezione">
 <p>Cosa accade se utiliziamo un indice di posizione maggiore del numero di elementi del nostro vettore?</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="vector.html#cb54-1"></a><span class="co"># Il mio vettore</span></span>
-<span id="cb54-2"><a href="vector.html#cb54-2"></a>my_vector</span>
-<span id="cb54-3"><a href="vector.html#cb54-3"></a><span class="co">## [1] 2 4 6 8</span></span>
-<span id="cb54-4"><a href="vector.html#cb54-4"></a></span>
-<span id="cb54-5"><a href="vector.html#cb54-5"></a>my_vector[<span class="dv">10</span>]</span>
-<span id="cb54-6"><a href="vector.html#cb54-6"></a><span class="co">## [1] NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="vector.html#cb55-1"></a><span class="co"># Il mio vettore</span></span>
+<span id="cb55-2"><a href="vector.html#cb55-2"></a>my_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>)</span>
+<span id="cb55-3"><a href="vector.html#cb55-3"></a></span>
+<span id="cb55-4"><a href="vector.html#cb55-4"></a>my_numbers[<span class="dv">10</span>]</span>
+<span id="cb55-5"><a href="vector.html#cb55-5"></a><span class="co">## [1] NA</span></span></code></pre></div>
 <p>R non restituisce un errore ma il valore <code>NA</code> ovvero <em>Not Available</em>, per indicare che nessun valore è disponibile.</p>
 <p>Osserviamo infine anche altri comportamenti particolari o possibili errori nella selezione di elementi.</p>
 <ul>
 <li>L’indice di posizione deve essere un valore numerico e non un carattere.</li>
 </ul>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="vector.html#cb55-1"></a><span class="co"># ERRATA selezione più valori </span></span>
-<span id="cb55-2"><a href="vector.html#cb55-2"></a>my_vector[<span class="st">&quot;3&quot;</span>]</span>
-<span id="cb55-3"><a href="vector.html#cb55-3"></a><span class="co">## [1] NA</span></span>
-<span id="cb55-4"><a href="vector.html#cb55-4"></a></span>
-<span id="cb55-5"><a href="vector.html#cb55-5"></a><span class="co"># CORRETTA selezione più valori</span></span>
-<span id="cb55-6"><a href="vector.html#cb55-6"></a>my_vector[<span class="dv">3</span>]</span>
-<span id="cb55-7"><a href="vector.html#cb55-7"></a><span class="co">## [1] 6</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="vector.html#cb56-1"></a><span class="co"># ERRATA selezione più valori </span></span>
+<span id="cb56-2"><a href="vector.html#cb56-2"></a>my_numbers[<span class="st">&quot;3&quot;</span>]</span>
+<span id="cb56-3"><a href="vector.html#cb56-3"></a><span class="co">## [1] NA</span></span>
+<span id="cb56-4"><a href="vector.html#cb56-4"></a></span>
+<span id="cb56-5"><a href="vector.html#cb56-5"></a><span class="co"># CORRETTA selezione più valori</span></span>
+<span id="cb56-6"><a href="vector.html#cb56-6"></a>my_numbers[<span class="dv">3</span>]</span>
+<span id="cb56-7"><a href="vector.html#cb56-7"></a><span class="co">## [1] 6</span></span></code></pre></div>
 <ul>
 <li>I numeri decimali vengono ignorati e non “arrotondati”</li>
 </ul>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="vector.html#cb56-1"></a>my_vector[<span class="fl">2.2</span>]</span>
-<span id="cb56-2"><a href="vector.html#cb56-2"></a><span class="co">## [1] 4</span></span>
-<span id="cb56-3"><a href="vector.html#cb56-3"></a>my_vector[<span class="fl">2.8</span>]</span>
-<span id="cb56-4"><a href="vector.html#cb56-4"></a><span class="co">## [1] 4</span></span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="vector.html#cb57-1"></a>my_numbers[<span class="fl">2.2</span>]</span>
+<span id="cb57-2"><a href="vector.html#cb57-2"></a><span class="co">## [1] 4</span></span>
+<span id="cb57-3"><a href="vector.html#cb57-3"></a>my_numbers[<span class="fl">2.8</span>]</span>
+<span id="cb57-4"><a href="vector.html#cb57-4"></a><span class="co">## [1] 4</span></span></code></pre></div>
 <ul>
 <li>Utilizzando il valore 0 ottengo un vettore vuoto</li>
 </ul>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="vector.html#cb57-1"></a>my_vector[<span class="dv">0</span>]</span>
-<span id="cb57-2"><a href="vector.html#cb57-2"></a><span class="co">## numeric(0)</span></span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="vector.html#cb58-1"></a>my_numbers[<span class="dv">0</span>]</span>
+<span id="cb58-2"><a href="vector.html#cb58-2"></a><span class="co">## numeric(0)</span></span></code></pre></div>
 </div>
 <div id="utilizzi-avanzati-selezione" class="section level3">
 <h3><span class="header-section-number">7.2.1</span> Utilizzi Avanzati Selezione</h3>
@@ -457,76 +472,137 @@ sebbene includano gli stessi elementi, non sono identici poichè differiscono pe
 <li>sostituire degli elementi</li>
 <li>eliminare degli elementi</li>
 </ul>
-<div id="operatori-relazionali-e-logici-1" class="section level4 unnumbered">
+<div id="operatori-relazionali-e-logici" class="section level4 unnumbered">
 <h4>Operatori Relazionali e Logici</h4>
-<p>Un’utile funzione è quella di selezionare tra gli elementi di un vetore quelli che rispetano una certa condizione. Per fare questo dobbiamo specificare all’interno delle parentesi quadre la proposizione di interesse utilizzando gli operatori relazionali e logici (vedi Capitolo <a href="#operators-rel-log"><strong>??</strong></a>).</p>
-<p>Possiamo ad esempio selezionare da un vettore numerico tutti gli elementi maggiori di un certo valore, oppure selezionare in un vettore di caratteri tutti gli elementi uguali ad una data stringa.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="vector.html#cb58-1"></a><span class="co"># Vettore numerico - seleziono elemeni maggiori di 0</span></span>
-<span id="cb58-2"><a href="vector.html#cb58-2"></a>numbers &lt;-<span class="st"> </span><span class="dv">-5</span><span class="op">:</span><span class="dv">5</span></span>
-<span id="cb58-3"><a href="vector.html#cb58-3"></a>numbers[numbers <span class="op">&gt;=</span><span class="st"> </span><span class="dv">0</span>]</span>
-<span id="cb58-4"><a href="vector.html#cb58-4"></a><span class="co">## [1] 0 1 2 3 4 5</span></span>
-<span id="cb58-5"><a href="vector.html#cb58-5"></a></span>
-<span id="cb58-6"><a href="vector.html#cb58-6"></a><span class="co"># Vettore caratteri - seleziono elemeni uguali a &quot;bar&quot;</span></span>
-<span id="cb58-7"><a href="vector.html#cb58-7"></a>words &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>), <span class="dt">times =</span> <span class="dv">4</span>)</span>
-<span id="cb58-8"><a href="vector.html#cb58-8"></a>words[words <span class="op">==</span><span class="st"> &quot;bar&quot;</span>]</span>
-<span id="cb58-9"><a href="vector.html#cb58-9"></a><span class="co">## [1] &quot;bar&quot; &quot;bar&quot; &quot;bar&quot; &quot;bar&quot;</span></span></code></pre></div>
+<p>Un’utile funzione è quella di selezionare tra gli elementi di un vetore quelli che rispetano una certa condizione. Per fare questo dobbiamo specificare all’interno delle parentesi quadre la proposizione di interesse utilizzando gli operatori relazionali e logici (vedi Capitolo <a href="first-comands.html#operators-rel-log">3.2</a>).</p>
+<p>Possiamo ad esempio selezionare da un vettore numerico tutti gli elementi maggiori di un certo valore, oppure selezionare da un vettore di caratteri tutti gli elementi uguali ad una data stringa.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="vector.html#cb59-1"></a><span class="co"># Vettore numerico - seleziono elemeni maggiori di 0</span></span>
+<span id="cb59-2"><a href="vector.html#cb59-2"></a>my_numbers &lt;-<span class="st"> </span><span class="dv">-5</span><span class="op">:</span><span class="dv">5</span></span>
+<span id="cb59-3"><a href="vector.html#cb59-3"></a>my_numbers[my_numbers <span class="op">&gt;=</span><span class="st"> </span><span class="dv">0</span>]</span>
+<span id="cb59-4"><a href="vector.html#cb59-4"></a><span class="co">## [1] 0 1 2 3 4 5</span></span>
+<span id="cb59-5"><a href="vector.html#cb59-5"></a></span>
+<span id="cb59-6"><a href="vector.html#cb59-6"></a><span class="co"># Vettore caratteri - seleziono elemeni uguali a &quot;bar&quot;</span></span>
+<span id="cb59-7"><a href="vector.html#cb59-7"></a>my_words &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>), <span class="dt">times =</span> <span class="dv">4</span>)</span>
+<span id="cb59-8"><a href="vector.html#cb59-8"></a>my_words[my_words <span class="op">==</span><span class="st"> &quot;bar&quot;</span>]</span>
+<span id="cb59-9"><a href="vector.html#cb59-9"></a><span class="co">## [1] &quot;bar&quot; &quot;bar&quot; &quot;bar&quot; &quot;bar&quot;</span></span></code></pre></div>
 <p>Per capire meglio questa operazione è importante notare come nello stesso comando ci siano in realtà due passaggi distinti:</p>
 <ul>
-<li><strong>Vettore logico</strong> (vedi Capitolo TODO) - quando un vettore è valutato in una proposizione, R crea un nuovo vettore che contiene per ogni elemento del vettore iniziale la risposta (<code>TRUE</code> o <code>FALSE</code>) alla nostra proposizione.</li>
+<li><strong>Vettore logico</strong> (vedi Capitolo TODO) - quando un vettore è valutato in una proposizione, R restituisce un nuovo vettore che contiene per ogni elemento del vettore iniziale la risposta (<code>TRUE</code> o <code>FALSE</code>) alla nostra proposizione.</li>
 <li><strong>Selezione</strong> - utilizziamo il vettore logico ottenuto per selezionare gli elementi dal vettore iniziale. Gli elementi associati al valore <code>TRUE</code> sono selezionati mentre quelli associati al valore <code>FALSE</code> sono scartati.</li>
 </ul>
 <p>Rendiamo espliciti questi due passaggi nel seguente codice:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="vector.html#cb59-1"></a><span class="co"># Vettore logico</span></span>
-<span id="cb59-2"><a href="vector.html#cb59-2"></a>condition &lt;-<span class="st"> </span>words <span class="op">==</span><span class="st"> &quot;bar&quot;</span></span>
-<span id="cb59-3"><a href="vector.html#cb59-3"></a>condition</span>
-<span id="cb59-4"><a href="vector.html#cb59-4"></a><span class="co">## [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE</span></span>
-<span id="cb59-5"><a href="vector.html#cb59-5"></a></span>
-<span id="cb59-6"><a href="vector.html#cb59-6"></a><span class="co"># Selezione</span></span>
-<span id="cb59-7"><a href="vector.html#cb59-7"></a>words[condition]</span>
-<span id="cb59-8"><a href="vector.html#cb59-8"></a><span class="co">## [1] &quot;bar&quot; &quot;bar&quot; &quot;bar&quot; &quot;bar&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="vector.html#cb60-1"></a><span class="co"># Vettore logico</span></span>
+<span id="cb60-2"><a href="vector.html#cb60-2"></a>condition &lt;-<span class="st"> </span>my_words <span class="op">==</span><span class="st"> &quot;bar&quot;</span></span>
+<span id="cb60-3"><a href="vector.html#cb60-3"></a>condition</span>
+<span id="cb60-4"><a href="vector.html#cb60-4"></a><span class="co">## [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE</span></span>
+<span id="cb60-5"><a href="vector.html#cb60-5"></a></span>
+<span id="cb60-6"><a href="vector.html#cb60-6"></a><span class="co"># Selezione</span></span>
+<span id="cb60-7"><a href="vector.html#cb60-7"></a>my_words[condition]</span>
+<span id="cb60-8"><a href="vector.html#cb60-8"></a><span class="co">## [1] &quot;bar&quot; &quot;bar&quot; &quot;bar&quot; &quot;bar&quot;</span></span></code></pre></div>
 </div>
 <div id="ordinare-gli-elementi" class="section level4 unnumbered">
 <h4>Ordinare gli Elementi</h4>
+<p>Gli indici di posizione possono essere utilizzati per ordinare gli elementi di un vettore a seconda delle necessità.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="vector.html#cb61-1"></a>messy_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">7</span>,<span class="dv">3</span>)</span>
+<span id="cb61-2"><a href="vector.html#cb61-2"></a></span>
+<span id="cb61-3"><a href="vector.html#cb61-3"></a><span class="co"># Altero l&#39;ordine degli elementi</span></span>
+<span id="cb61-4"><a href="vector.html#cb61-4"></a>messy_vector[<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>)]</span>
+<span id="cb61-5"><a href="vector.html#cb61-5"></a><span class="co">## [1] 3 1 7 5</span></span>
+<span id="cb61-6"><a href="vector.html#cb61-6"></a></span>
+<span id="cb61-7"><a href="vector.html#cb61-7"></a><span class="co"># Ordino gli elementi per valori crescenti</span></span>
+<span id="cb61-8"><a href="vector.html#cb61-8"></a>messy_vector[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">3</span>)]</span>
+<span id="cb61-9"><a href="vector.html#cb61-9"></a><span class="co">## [1] 1 3 5 7</span></span></code></pre></div>
+<div class="trick" title="sort() vs order()">
+<p>Per ordinare gli elementi di un vettore in ordine crescente o decrescente (sia alfabetico che numerico), è possibile utilizzare la funzione <code>sort()</code> specificando l’argomento <code>decreasing</code>. Vedi l’help page della funzione per ulteriori informazioni (<code>?sort()</code>).</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="vector.html#cb62-1"></a><span class="co"># Ordine alfabetico</span></span>
+<span id="cb62-2"><a href="vector.html#cb62-2"></a>my_letters &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;cb&quot;</span>, <span class="st">&quot;bc&quot;</span>, <span class="st">&quot;ab&quot;</span>, <span class="st">&quot;ba&quot;</span>, <span class="st">&quot;cb&quot;</span>, <span class="st">&quot;ab&quot;</span>)</span>
+<span id="cb62-3"><a href="vector.html#cb62-3"></a><span class="kw">sort</span>(my_letters)</span>
+<span id="cb62-4"><a href="vector.html#cb62-4"></a><span class="co">## [1] &quot;ab&quot; &quot;ab&quot; &quot;ba&quot; &quot;bc&quot; &quot;cb&quot; &quot;cb&quot;</span></span>
+<span id="cb62-5"><a href="vector.html#cb62-5"></a></span>
+<span id="cb62-6"><a href="vector.html#cb62-6"></a><span class="co"># ordine decrescente</span></span>
+<span id="cb62-7"><a href="vector.html#cb62-7"></a><span class="kw">sort</span>(messy_vector, <span class="dt">decreasing =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb62-8"><a href="vector.html#cb62-8"></a><span class="co">## [1] 7 5 3 1</span></span></code></pre></div>
+<p>Nota come esista anche la funzione <code>order()</code> ma questa sia un false-friend perchè non ci fornisce direttamente un vettore con gli elementi ordinati ma bensì gli indici di posizione per riordinare gli elementi (<code>?order()</code>). Vediamo nel seguente esempio come utilizzare questa funzione:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="vector.html#cb63-1"></a><span class="co"># Indici di posizione per riordinare gli elementi</span></span>
+<span id="cb63-2"><a href="vector.html#cb63-2"></a><span class="kw">order</span>(messy_vector)</span>
+<span id="cb63-3"><a href="vector.html#cb63-3"></a><span class="co">## [1] 2 4 1 3</span></span>
+<span id="cb63-4"><a href="vector.html#cb63-4"></a><span class="co"># Riordino il vettore usando gli indici di posizione</span></span>
+<span id="cb63-5"><a href="vector.html#cb63-5"></a>messy_vector[<span class="kw">order</span>(messy_vector)]</span>
+<span id="cb63-6"><a href="vector.html#cb63-6"></a><span class="co">## [1] 1 3 5 7</span></span></code></pre></div>
+</div>
 </div>
 <div id="combinazioni-di-elementi" class="section level4 unnumbered">
 <h4>Combinazioni di Elementi</h4>
+<p>Gli stessi indici di posizione possono essere richiamati più volte per ripetere gli elementi nelle combinazioni desiderate formando un nuovo vettore.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="vector.html#cb64-1"></a>my_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>)</span>
+<span id="cb64-2"><a href="vector.html#cb64-2"></a><span class="co"># Ottengo un nuovo vettore con la combinazioen desiderata</span></span>
+<span id="cb64-3"><a href="vector.html#cb64-3"></a>my_numbers[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>)]</span>
+<span id="cb64-4"><a href="vector.html#cb64-4"></a><span class="co">## [1] 5 6 6 7 7 7 8</span></span></code></pre></div>
 </div>
 <div id="modificare-gli-elementi" class="section level4 unnumbered">
 <h4>Modificare gli Elementi</h4>
+<p>Un importante utilizzo degli indici riguarda la modifica di un elemento di un vettore. Per sostituire un vecchio valore con un nuovo valore, posso utilizzare la funzione <em>assign</em> (<code>&lt;-</code> o <code>=</code>) come nell’esempio:</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="vector.html#cb65-1"></a>my_names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Andrea&quot;</span>, <span class="st">&quot;Bianca&quot;</span>, <span class="st">&quot;Carlo&quot;</span>)</span>
+<span id="cb65-2"><a href="vector.html#cb65-2"></a></span>
+<span id="cb65-3"><a href="vector.html#cb65-3"></a><span class="co"># Modifico il  nome &quot;Bianca&quot; in &quot;Beatrice&quot;</span></span>
+<span id="cb65-4"><a href="vector.html#cb65-4"></a>my_names[<span class="dv">2</span>] &lt;-<span class="st"> &quot;Beatrice&quot;</span></span>
+<span id="cb65-5"><a href="vector.html#cb65-5"></a>my_names</span>
+<span id="cb65-6"><a href="vector.html#cb65-6"></a><span class="co">## [1] &quot;Andrea&quot;   &quot;Beatrice&quot; &quot;Carlo&quot;</span></span></code></pre></div>
+<p>Per sostituire il valore viene indicato alla sinistra dell’operatore <em>assign</em> il valore che si vuole modificare e alla destra il nuovo valore. Nota come questa operazione possa essere usata per aggiungere anche nuovi elementi al vettore.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="vector.html#cb66-1"></a>my_names[<span class="dv">4</span>]</span>
+<span id="cb66-2"><a href="vector.html#cb66-2"></a><span class="co">## [1] NA</span></span>
+<span id="cb66-3"><a href="vector.html#cb66-3"></a></span>
+<span id="cb66-4"><a href="vector.html#cb66-4"></a><span class="co"># Aggiungo il nome &quot;Daniela&quot;</span></span>
+<span id="cb66-5"><a href="vector.html#cb66-5"></a>my_names[<span class="dv">4</span>] &lt;-<span class="st"> &quot;Daniela&quot;</span></span>
+<span id="cb66-6"><a href="vector.html#cb66-6"></a>my_names</span>
+<span id="cb66-7"><a href="vector.html#cb66-7"></a><span class="co">## [1] &quot;Andrea&quot;   &quot;Beatrice&quot; &quot;Carlo&quot;    &quot;Daniela&quot;</span></span></code></pre></div>
 </div>
 <div id="eliminare-gli-elementi" class="section level4 unnumbered">
 <h4>Eliminare gli Elementi</h4>
-<p>E’ possibile sfruttare gli indici per riordinare a piacere gli elementi di un vettore. Per
-Nota come non sia possibile</p>
-<p>E’ possibil edeterminare l’ordine degli elementi o</p>
-<ul>
-<li>warning box selezione out of bound e uso caratteri e non stessa lunghezza</li>
-</ul>
-<p>In alternativa si può definire la condizione logica che gli elementi che si vogliono selezionare devono rispettare.</p>
-<p>Per <strong>eliminare degli elementi</strong> da un vettore si utilizza all’interno delle parentesi quadre l’operatore “-” insieme agli indici di posizione degli elementi da eliminare (esempio: <code>x[c(-2,-4)]</code> oppure <code>x[-c(2,4)]</code>).</p>
-<!-- % Maggiore descrizione eliminare -->
-<!-- % funzione ?which() -->
+<p>Per <strong>eliminare degli elementi</strong> da un vettore, si indicano all’interno delle parentesi quadre gli indici di posizione degli elementi da eliminare preceduti dall’operatore <code>-</code> (<em>meno</em>). Nel caso di più elementi è anche possibile indicare il meno solo prima del comando <code>c()</code>, ad esempio il comando <code>x[c(-2,-4)]</code> diviene <code>x[-c(2,4)]</code>.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="vector.html#cb67-1"></a>my_words &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>, <span class="st">&quot;baz&quot;</span>, <span class="st">&quot;qux&quot;</span>)</span>
+<span id="cb67-2"><a href="vector.html#cb67-2"></a></span>
+<span id="cb67-3"><a href="vector.html#cb67-3"></a><span class="co"># Elimino &quot;bar&quot;</span></span>
+<span id="cb67-4"><a href="vector.html#cb67-4"></a>my_words[<span class="op">-</span><span class="dv">2</span>]</span>
+<span id="cb67-5"><a href="vector.html#cb67-5"></a><span class="co">## [1] &quot;foo&quot; &quot;baz&quot; &quot;qux&quot;</span></span>
+<span id="cb67-6"><a href="vector.html#cb67-6"></a></span>
+<span id="cb67-7"><a href="vector.html#cb67-7"></a><span class="co"># Elimino &quot;foo&quot; e &quot;baz&quot;</span></span>
+<span id="cb67-8"><a href="vector.html#cb67-8"></a>my_words[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]    <span class="co"># oppure my_words[c(-1, -3)]</span></span>
+<span id="cb67-9"><a href="vector.html#cb67-9"></a><span class="co">## [1] &quot;bar&quot; &quot;qux&quot;</span></span></code></pre></div>
+<p>Nota come l’operazione di eliminazione sia comunque un’operazione di selezione. Pertanto è necessario salvare il risultato ottenuto se si desidera mantenere le modifiche.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="vector.html#cb68-1"></a><span class="co"># Elimino &quot;foo&quot; e &quot;baz&quot;</span></span>
+<span id="cb68-2"><a href="vector.html#cb68-2"></a>my_words[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</span>
+<span id="cb68-3"><a href="vector.html#cb68-3"></a><span class="co">## [1] &quot;bar&quot; &quot;qux&quot;</span></span>
+<span id="cb68-4"><a href="vector.html#cb68-4"></a></span>
+<span id="cb68-5"><a href="vector.html#cb68-5"></a><span class="co"># Ho ancora tutti gli elementi nell&#39;oggetto my_words</span></span>
+<span id="cb68-6"><a href="vector.html#cb68-6"></a>my_words</span>
+<span id="cb68-7"><a href="vector.html#cb68-7"></a><span class="co">## [1] &quot;foo&quot; &quot;bar&quot; &quot;baz&quot; &quot;qux&quot;</span></span>
+<span id="cb68-8"><a href="vector.html#cb68-8"></a></span>
+<span id="cb68-9"><a href="vector.html#cb68-9"></a><span class="co"># Salvo i risultati</span></span>
+<span id="cb68-10"><a href="vector.html#cb68-10"></a>my_words &lt;-<span class="st"> </span>my_words[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</span>
+<span id="cb68-11"><a href="vector.html#cb68-11"></a>my_words</span>
+<span id="cb68-12"><a href="vector.html#cb68-12"></a><span class="co">## [1] &quot;bar&quot; &quot;qux&quot;</span></span></code></pre></div>
+<!-- %  TODO funzione ?which() -->
 </div>
-</div>
-<div id="rimuovere-o-cambiare-lordine" class="section level3">
-<h3><span class="header-section-number">7.2.2</span> Rimuovere o cambiare l’ordine</h3>
 </div>
 <div id="esercizi-3" class="section level3 unnumbered">
 <h3>Esercizi</h3>
 <ol style="list-style-type: decimal">
-<li><p>Del vettore <code>x</code> seleziona il 2°, 3° e 5° elemento</p></li>
-<li><p>Del vettore <code>y</code> seleziona tutti i valori minori di 13 o maggiori di 19</p></li>
-<li><p>Del vettore <code>z</code> seleziona tutti i valori compresi tra 24 e 50</p></li>
-<li><p>Elimina dal vettore <code>z</code> i valori 28 e 42</p></li>
-<li><p>Del vettore <code>s</code> seleziona tutti gli elementi uguali ad “A”</p></li>
-<li><p>Del vettore <code>t</code> seleziona tutti gli elementi diversi da “B”</p></li>
-<li><p>Dato il vettore <code>my_vector = c(2,4,6,8)</code> commenta il risultato del comando <code>my_vector[my_vector]</code></p></li>
+<li>Del vettore <code>x</code> seleziona il 2°, 3° e 5° elemento</li>
+<li>Del vettore <code>x</code> seleziona i valori 34 e 4</li>
+<li>Dato il vettore <code>my_vector = c(2,4,6,8)</code> commenta il risultato del comando <code>my_vector[my_vector]</code></li>
+<li>Del vettore <code>y</code> seleziona tutti i valori minori di 13 o maggiori di 19</li>
+<li>Del vettore <code>z</code> seleziona tutti i valori compresi tra 24 e 50</li>
+<li>Del vettore <code>s</code> seleziona tutti gli elementi uguali ad <code>"A"</code></li>
+<li>Del vettore <code>t</code> seleziona tutti gli elementi diversi da <code>"B"</code></li>
+<li>Crea un nuovo vettore <code>u</code> identico a <code>s</code> ma dove le <code>"A"</code> sono sostituite con la lettera <code>"U"</code></li>
+<li>Elimina dal vettore <code>z</code> i valori 28 e 42</li>
 </ol>
 </div>
 </div>
-<div id="funzioni-ed-operazioni-tra-vettori" class="section level2">
-<h2><span class="header-section-number">7.3</span> Funzioni ed Operazioni tra Vettori</h2>
-<p>Per compiere operazioni tra vettori è necessario che essi abbiano identica lunghezza.</p>
+<div id="funzioni-ed-operazioni" class="section level2">
+<h2><span class="header-section-number">7.3</span> Funzioni ed Operazioni</h2>
+<p>Vediamo ora alcune utili funzioni e comuni operazioni che è possibile svolgere con i vettori (vedi Tabella <a href="vector.html#tab:table-vector-operators">7.1</a>).</p>
 <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:table-vector-operators">Table 7.1: </span>Operazioni con vettori
@@ -534,28 +610,28 @@ Nota come non sia possibile</p>
 <thead>
 <tr>
 <th style="text-align:left;">
-Operazione
+Funzione
 </th>
 <th style="text-align:left;">
-Nome
+Descrizione
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-&lt;nuovo-vettore&gt; &lt;- c(&lt;vettore1&gt;, &lt;vettore2&gt;)
+nuovo_vettore &lt;- c(vettore1, vettore2)
 </td>
 <td style="text-align:left;">
-Per unire più vettori in un unico vettore
+Unire più vettori in un unico vettore
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-length(&lt;nome-vettore&gt;)
+length(nome_vettore)
 </td>
 <td style="text-align:left;">
-Per valutare il numero di elementi contenuti in un vettore
+Valutare il numero di elementi contenuti in un vettore
 </td>
 </tr>
 <tr>
@@ -592,7 +668,45 @@ Rapporto tra due vettori
 </tr>
 </tbody>
 </table>
-<p><strong>Nota:</strong> In R il prodotto e rapporto tra vettori sono eseguiti elemento per elemento (al contrario di molti altri software).</p>
+<p>Nota che l’esecuzione di operazioni matematiche (e.g., <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> etc.) è possibile sia rispetto ad un singolo valore sia rispetto ad un altro vettore:</p>
+<ul>
+<li><strong>Singolo valore</strong> - l’operazione sarà svolta per ogni elemento del vettore rispetto al singolo valore fornito.</li>
+<li><strong>Altro vettore</strong> - l’operazione sarà svolta per ogni coppia di elementi dei due vettori. E’ quindi necessario che i due vettori abbiano la <strong>stessa lunghezza</strong>, ovvero lo stesso numero di elementi.</li>
+</ul>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="vector.html#cb69-1"></a>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></span>
+<span id="cb69-2"><a href="vector.html#cb69-2"></a>y &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></span>
+<span id="cb69-3"><a href="vector.html#cb69-3"></a></span>
+<span id="cb69-4"><a href="vector.html#cb69-4"></a><span class="co"># Sommo un valore singolo</span></span>
+<span id="cb69-5"><a href="vector.html#cb69-5"></a>x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></span>
+<span id="cb69-6"><a href="vector.html#cb69-6"></a><span class="co">## [1] 11 12 13 14 15</span></span>
+<span id="cb69-7"><a href="vector.html#cb69-7"></a></span>
+<span id="cb69-8"><a href="vector.html#cb69-8"></a><span class="co"># Somma di vettori (elemento per elemento)</span></span>
+<span id="cb69-9"><a href="vector.html#cb69-9"></a>x <span class="op">+</span><span class="st"> </span>y</span>
+<span id="cb69-10"><a href="vector.html#cb69-10"></a><span class="co">## [1]  2  4  6  8 10</span></span></code></pre></div>
+<div class="warning" title="Vettori di Diversa Lunghezza">
+<p>Qualora i vettori differiscano per la loro lunghezza, R ci presenterà un warning avvisandoci del problema ma eseguirà comunque l’operazione utilizzando più volte il vettore più corto.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="vector.html#cb70-1"></a>x <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb70-2"><a href="vector.html#cb70-2"></a><span class="co">## Warning in x + c(1, 2): longer object length is not a multiple of shorter object</span></span>
+<span id="cb70-3"><a href="vector.html#cb70-3"></a><span class="co">## length</span></span>
+<span id="cb70-4"><a href="vector.html#cb70-4"></a><span class="co">## [1] 2 4 4 6 6</span></span></code></pre></div>
+<p>Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche multipli) dovrebbe essere evitato perchè facile causa di errori e incomprensioni.</p>
+</div>
+<div class="design" title="Vectorized Operations">
+<p>In R la maggior parte degli operatori sono <em>vettorizzati</em>, ovvero calcolano direttamente il risultato per ogni elemento di un vettore. Questo è un grandissimo vantaggio poichè ci permette di essere molto efficienti e coincisi nel codice.</p>
+<p>Senza vettorizzazione, ogni operazione tra due vettori richiederebbe di specificare l’operazione per ogni elemento del vettore. Nel precedente esempio della somma tra <code>x</code> e <code>y</code> avremmo dovuto usare il seguente codice:</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="vector.html#cb71-1"></a>z &lt;-<span class="st"> </span><span class="kw">numeric</span>(<span class="kw">length</span>(x))</span>
+<span id="cb71-2"><a href="vector.html#cb71-2"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq_along</span>(x)) {</span>
+<span id="cb71-3"><a href="vector.html#cb71-3"></a>      z[i] &lt;-<span class="st"> </span>x[i] <span class="op">+</span><span class="st"> </span>y[i]</span>
+<span id="cb71-4"><a href="vector.html#cb71-4"></a>}</span>
+<span id="cb71-5"><a href="vector.html#cb71-5"></a>z</span>
+<span id="cb71-6"><a href="vector.html#cb71-6"></a><span class="co">## [1]  2  4  6  8 10</span></span></code></pre></div>
+<p>Nota come questo sia valido anche per gli <strong>operatori relazionali e logici</strong>. Infatti valutando una proposizione rispetto ad un vettore, otterremmo una risposta per ogni elemento del vettore</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="vector.html#cb72-1"></a>my_values &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">8</span></span>
+<span id="cb72-2"><a href="vector.html#cb72-2"></a></span>
+<span id="cb72-3"><a href="vector.html#cb72-3"></a><span class="co"># Valori compresi tra 4 e 7</span></span>
+<span id="cb72-4"><a href="vector.html#cb72-4"></a>my_values <span class="op">&gt;=</span><span class="st"> </span><span class="dv">4</span> <span class="op">&amp;</span><span class="st"> </span>my_values <span class="op">&lt;=</span><span class="st"> </span><span class="dv">7</span></span>
+<span id="cb72-5"><a href="vector.html#cb72-5"></a><span class="co">## [1] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE</span></span></code></pre></div>
+</div>
 <div id="esercizi-4" class="section level3 unnumbered">
 <h3>Esercizi</h3>
 <ol style="list-style-type: decimal">
@@ -607,40 +721,41 @@ Rapporto tra due vettori
 <div id="data-type" class="section level2">
 <h2><span class="header-section-number">7.4</span> Data Type</h2>
 <p>Working in progress.</p>
+<p>Abbimao visto chè un’importante condizione dei vettori è che tutti gli elementi siano dello stesso tipo. Abbiamogià incontrato e osservato la differenza tra valori numerici e caratteri ma approfondiamo i diversi tipi e i relativi vatttori, relazioni tra tipologie di dati</p>
 <p>Tipi di vettori</p>
 <p>In R ci sono 4 tipi differenti di vettori: numerici, logici, caratteri e fattori.</p>
 <div id="vettori-numerici" class="section level3">
 <h3><span class="header-section-number">7.4.1</span> Vettori Numerici</h3>
 <p>I vettori numerici sono utilizzati per compiere operazioni aritmetiche, in R sono indicati come <code>num</code>. In R ci sono è possibil e specificare se i numeri contenuti nel vettore sono numeri interi, avremmo quindi un vettore di valori interi (indicato in R come <code>int</code>). Per fare ciò è possibile aggiungere <code>L</code> ad ogni valore numerico nel definire il vettore oppure usare la funzione <code>as.integer()</code> per trasformare un vettore numerico in un vettore intero.</p>
 <p><strong>Esempio:</strong></p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="vector.html#cb60-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(4L, 6L, 12L, 34L, 8L)</span>
-<span id="cb60-2"><a href="vector.html#cb60-2"></a></span>
-<span id="cb60-3"><a href="vector.html#cb60-3"></a>x &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">34</span>, <span class="dv">8</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="vector.html#cb73-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(4L, 6L, 12L, 34L, 8L)</span>
+<span id="cb73-2"><a href="vector.html#cb73-2"></a></span>
+<span id="cb73-3"><a href="vector.html#cb73-3"></a>x &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">34</span>, <span class="dv">8</span>))</span></code></pre></div>
 <p><strong>Nota</strong>: per trasformare un vettore intero in un vettore numerico è possibile usare la funzione <code>as.numeric()</code>.</p>
 </div>
 <div id="vettori-logici" class="section level3">
 <h3><span class="header-section-number">7.4.2</span> Vettori logici</h3>
 <p>I vettori logici sono formati dai volori <code>TRUE</code> e <code>FALSE</code>, che possono essere abbreviati rispettivamente in <code>T</code> e <code>F</code>. In R i vettori logici sono indicati come <code>logi</code>. In genere, i vettori logici sono il risultato delle operazioni in cui viene chiesto ad R di valutare la condizione logica di una proposizione.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="vector.html#cb61-1"></a>x<span class="op">&gt;</span><span class="dv">10</span></span>
-<span id="cb61-2"><a href="vector.html#cb61-2"></a><span class="co">## [1] FALSE FALSE  TRUE  TRUE FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="vector.html#cb74-1"></a>x<span class="op">&gt;</span><span class="dv">10</span></span>
+<span id="cb74-2"><a href="vector.html#cb74-2"></a><span class="co">## [1] FALSE FALSE  TRUE  TRUE FALSE</span></span></code></pre></div>
 <p><strong>Nota:</strong> in R, come in molti altri software di programmazione, <code>TRUE</code> assume il valore numerico <code>1</code> e <code>FALSE</code> assume il valore <code>0</code>.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="vector.html#cb62-1"></a><span class="kw">sum</span>(x<span class="op">&gt;</span><span class="dv">10</span>)</span>
-<span id="cb62-2"><a href="vector.html#cb62-2"></a><span class="co">## [1] 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="vector.html#cb75-1"></a><span class="kw">sum</span>(x<span class="op">&gt;</span><span class="dv">10</span>)</span>
+<span id="cb75-2"><a href="vector.html#cb75-2"></a><span class="co">## [1] 2</span></span></code></pre></div>
 <p>E’ possibile trasformare un vettore numerico in un vettor logico attraverso la funzione <code>as.logical()</code>, gli <code>0</code> assumeranno il valore <code>FALSE</code> mentre qualsiasi altro numero assumerà il valore <code>TRUE</code>.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="vector.html#cb63-1"></a><span class="kw">as.logical</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,.<span class="dv">034</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">8</span>))</span>
-<span id="cb63-2"><a href="vector.html#cb63-2"></a><span class="co">## [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="vector.html#cb76-1"></a><span class="kw">as.logical</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,.<span class="dv">034</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">8</span>))</span>
+<span id="cb76-2"><a href="vector.html#cb76-2"></a><span class="co">## [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE</span></span></code></pre></div>
 </div>
 <div id="vettori-di-caratteri" class="section level3">
 <h3><span class="header-section-number">7.4.3</span> Vettori di caratteri</h3>
 <p>I vettori di caratteri contengono stringhe di caratteri e sono indicati in R con `chr}. Non è possibile eseguire operazioni aritmetiche con vettori di caratteri ma solo valutare se due stringhe sono uguali o differenti.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="vector.html#cb64-1"></a>j&lt;-<span class="kw">c</span>(<span class="st">&quot;Hello&quot;</span>,<span class="st">&quot;World&quot;</span>,<span class="st">&quot;hello&quot;</span>,<span class="st">&quot;world&quot;</span>)</span>
-<span id="cb64-2"><a href="vector.html#cb64-2"></a>j<span class="op">==</span><span class="st">&quot;hello&quot;</span></span>
-<span id="cb64-3"><a href="vector.html#cb64-3"></a><span class="co">## [1] FALSE FALSE  TRUE FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="vector.html#cb77-1"></a>j&lt;-<span class="kw">c</span>(<span class="st">&quot;Hello&quot;</span>,<span class="st">&quot;World&quot;</span>,<span class="st">&quot;hello&quot;</span>,<span class="st">&quot;world&quot;</span>)</span>
+<span id="cb77-2"><a href="vector.html#cb77-2"></a>j<span class="op">==</span><span class="st">&quot;hello&quot;</span></span>
+<span id="cb77-3"><a href="vector.html#cb77-3"></a><span class="co">## [1] FALSE FALSE  TRUE FALSE</span></span></code></pre></div>
 <p>Per trasformare un vettore qualsiasi in una vettore di caratteri e possibile usare la funzione <code>as.character()</code>.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="vector.html#cb65-1"></a><span class="kw">as.character</span>(x)</span>
-<span id="cb65-2"><a href="vector.html#cb65-2"></a><span class="co">## [1] &quot;4&quot;  &quot;6&quot;  &quot;12&quot; &quot;34&quot; &quot;8&quot;</span></span>
-<span id="cb65-3"><a href="vector.html#cb65-3"></a><span class="kw">as.character</span>(x<span class="op">&gt;</span><span class="dv">10</span>)</span>
-<span id="cb65-4"><a href="vector.html#cb65-4"></a><span class="co">## [1] &quot;FALSE&quot; &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;FALSE&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="vector.html#cb78-1"></a><span class="kw">as.character</span>(x)</span>
+<span id="cb78-2"><a href="vector.html#cb78-2"></a><span class="co">## [1] &quot;4&quot;  &quot;6&quot;  &quot;12&quot; &quot;34&quot; &quot;8&quot;</span></span>
+<span id="cb78-3"><a href="vector.html#cb78-3"></a><span class="kw">as.character</span>(x<span class="op">&gt;</span><span class="dv">10</span>)</span>
+<span id="cb78-4"><a href="vector.html#cb78-4"></a><span class="co">## [1] &quot;FALSE&quot; &quot;FALSE&quot; &quot;TRUE&quot;  &quot;TRUE&quot;  &quot;FALSE&quot;</span></span></code></pre></div>
 <p>is. vecor
 ### Valori speciali</p>
 

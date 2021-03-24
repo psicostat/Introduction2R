@@ -15,7 +15,7 @@ Il nostro Enviroment raccoglie quindi tutti gli oggetti che vengono creati duran
 <p class="caption">(\#fig:environment2)*Environment* - Elenco degli oggetti e variabili presenti nel'ambiente di lavoro</p>
 </div>
 
-All'inizio della sessione di lavoro il nostro Environment sarà vuoto (vedi Figura \@ref(environment-empty)). Il comando `ls()` non restituirà alcun oggeto ma per indicare l'assenza di oggerri userà la risposta `character(0)`, ovvero un vettore di tipo caratteri di lunghezza zero (vedi Capitolo TODO).
+All'inizio della sessione di lavoro il nostro Environment sarà vuoto (vedi Figura \@ref(fig:environment-empty)). Il comando `ls()` non restituirà alcun oggeto ma per indicare l'assenza di oggerri userà la risposta `character(0)`, ovvero un vettore di tipo caratteri di lunghezza zero (vedi Capitolo TODO).
 
 <div class="figure" style="text-align: center">
 <img src="images/environment-empty.png" alt="*Environment* vuoto ad inizio sessione di lavoro" width="60%" />
