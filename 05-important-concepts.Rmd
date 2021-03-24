@@ -115,7 +115,7 @@ Per lavorare in modo ottimale in R, è fondamentale conoscere bene e distinuere 
 In R abbiamo 4 principali tipologie di dati, ovvero tipologie di valori che possono essere utilizzati:
 
 - `character` - *Stringhe di caratteri* i cui valori alfannumerici vengono delimitati dalle doppie vigolette `"Hello world!"` o virgolette singole `'Hello world!'`.
-- `double` - *Valori numerici* con o senza cifre decimali ad esempio `27` o `93.46`.
+- `double` - *Valori reali* con o senza cifre decimali ad esempio `27` o `93.46`.
 - `integer` - *Valori interi* definiti apponendo la lettera `L` al numero desiderato, ad esempio `58L`.
 - `logical` - *Valori logici* `TRUE` e `FALSE` usati nelle operazioni logiche. 
 

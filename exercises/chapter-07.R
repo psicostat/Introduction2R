@@ -28,19 +28,31 @@ rep(rep(c("foo", "bar"), each = 2),times = 2)
 x[c(2,3,5)]
 
 # 2
-y[y<13 | y>19]
+x[c(4,1)]
 
 # 3
-z[z>24 & z<50]
+my_vector = c(2,4,6,8)
+my_vector[my_vector]
 
 # 4
-z[-c(3,5)]
+y[y<13 | y>19]
 
 # 5
-s[s=="A"]
+z[z>24 & z<50]
 
 # 6
+s[s=="A"]
+
+# 7
 t[t!="B"]
+
+# 8
+u <- s
+u[u == "A"] <- "U"
+
+# 9
+z[-c(3,5)]
+
 
 #---------  Operazioni tra vettori ------
 

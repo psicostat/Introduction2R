@@ -383,7 +383,7 @@ Qualora i vettori differiscano per la loro lunghezza, R ci presenterà un warnin
 x + c(1, 2)
 ```
 
-Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche multipli) dovrebbe essere evitato perchè facile causa di errori e incomprensioni. 
+Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche se multipli) dovrebbe essere evitato perchè facile causa di errori ed incomprensioni. 
 :::
 
 :::{.design title="Vectorized Operations" data-latex="[Vectorized Operations]"}
@@ -418,9 +418,35 @@ my_values >= 4 & my_values <= 7
 
 ## Data Type {#data-type}
 
+Abbiamo visto come sia necessario che in un vettore tutti gli elementi siano della stessa tipologia. Avremmo quindi diversi tipi di vettori a seconda della tiopologia di dati che contengono.
+
+In R abbiamo 4 principali tipologie di dati, ovvero tipologie di valori che possono essere utilizzati:
+
+- `character` - *Stringhe di caratteri* i cui valori alfannumerici vengono delimitati dalle doppie vigolette `"Hello world!"` o virgolette singole `'Hello world!'`.
+- `double` - *Valori reali* con o senza cifre decimali ad esempio `27` o `93.46`.
+- `integer` - *Valori interi* definiti apponendo la lettera `L` al numero desiderato, ad esempio `58L`.
+- `logical` - *Valori logici* `TRUE` e `FALSE` usati nelle operazioni logiche.
+
+Esistono molte altre tipologie di dati tra cui `complex` (per rappresentare i numeri complessi del tipo $x + yi$) e `Raw` (usati per rappresenttare i valori come bytes) che però riguardano usi poco comuni o comunque molto avanzati di R e pertanto non verranno trattati.
+
+:::{.design title="Tutta una Questione di Bit" data-latex="[Tutta una Questione di Bit]"}
+Questa distinzione tra le varie tipologie di dati deriva dalla modalità con cui il computer rappresenta internamente i diversi valori. Sappiamo infatti che il computer non possiede caratteri ma solamente bits, ovvero successioni di 0 e 1 ad esempio 01000011. 
+
+Senza scendere nel dettaglio, per ottimizzare l'uso della memoria i diversi valori vengono mappati utilizzando i bits in modo differente a seconda delle tipologie di dati. Pertanto in R il valore `24` sarà rappresentato diversamente a seconda che sia definitio come una stringa di caratteri (`"24"`), un numero intero (`24L`) o un numero double (`24`).
+
+In particolare un aspetto poco intuitivo riguarda la differenza tra valori `double` e `integer`. Mentre i valori interi possono essere rappresentati con precisione dal computer, non tutti i valori reali posssono essere rappresentati esattamente utilizzando il numero massimo di 64 bit. In questi casi i loro valori vengonno quindi approsimati. Nota infatti come nell'esempio seguente non ottteniamo zero come ci aspetteremo, ma osserviamo un piccolo errore dovuto all'approsimazione dei valori `double`.
+```{r, echo = TRUE}
+sqrt(2)^2 - 2
+```
+
+Ricorda infine che i computer hanno un limite rispetto al massimo valore e minimo valore che possono rappresentare sia per quanto riguarda i valori interi che i valori reali. Per approfondire vedi <https://stat.ethz.ch/pipermail/r-help/2012-January/300250.html>.
+:::
+
+
 Working in progress.
 
-Abbimao visto chè un'importante condizione dei vettori è che tutti gli elementi siano dello stesso tipo. Abbiamogià incontrato e osservato la differenza tra valori numerici e caratteri ma approfondiamo i diversi tipi e i relativi vatttori, relazioni tra tipologie di dati
+
+tutti gli un'importante condizione dei vettori è che tutti gli elementi siano dello stesso tipo. Abbiamogià incontrato e osservato la differenza tra valori numerici e caratteri ma approfondiamo i diversi tipi e i relativi vatttori, relazioni tra tipologie di dati
 
 Tipi di vettori
 
@@ -472,6 +498,9 @@ as.character(x>10)
 
 
 is. vecor
+
+is.* famsily
+as.* family
 ### Valori speciali
 
 
