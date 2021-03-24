@@ -37,7 +37,7 @@ sebbene includano gli stessi elementi, non sono identici poichè differiscono pe
 
 Vedimao ora come creare dei vettori in R e come compiere le comuni operazini di selezione e manipolazione di vettori. Successivamente approfondiremo le caratteristiche dei vettori valutandone le diverse tipologie.
 
-## Creazione di Vettori
+## Creazione
 
 In realtà abbiamo già incontrato dei vettori nei precedenti capitoli poichè anche le variabili con un singolo valore altro non sono che un vettore di lunghezza 1. Tuttavia, per creare dei vettori di più elementi dobbiamo utilizzare il comando `c()`, ovvero *"combine"*, indicando tra le parentesi i valori degli elementi nella sucessione desiderata e separati da una virgola. Avremo quindi la seguente sintassi:
 
@@ -96,7 +96,7 @@ rep(rep(c("foo", "bar"), each = 2),times = 2)
 ```
 
 
-## Selezione Elementi di un Vettore
+## Selezione Elementi
 
 Una volta creato un vettore potrebbe essere necessario selezionare uno o più dei suoi elementi. In R per selezionare gli elementi di un vettore si utilizzano le **parentesi quadre** `[]` dopo il nome del vettore, indicando al loro interno **l'indice di posizione** degli elementi desiderati:
 
@@ -330,13 +330,13 @@ my_words
 9. Elimina dal vettore `z` i valori 28 e 42
 
 
-## Funzioni ed Operazioni tra Vettori
+## Funzioni ed Operazioni
 
-Per compiere operazioni tra vettori è necessario che essi abbiano identica lunghezza.
+Vediamo ora alcune utili funzioni e comuni operazioni che è possibile svolgere con i vettori (vedi Tabella \@ref(tab:table-vector-operators)).
 
 ```{r table-vector-operators}
 
-names_function <- c("Per unire più vettori in un unico vettore ", "Per valutare il numero di elementi contenuti in un vettore", "Somma di due vettori", "Differenza tra due vettori",
+names_function <- c("Unire più vettori in un unico vettore ", "Valutare il numero di elementi contenuti in un vettore", "Somma di due vettori", "Differenza tra due vettori",
                     "Prodotto tra due vettori", "Rapporto tra due vettori")
 formula <- sprintf("vettore1 %s vettore2", c("+", "-", "*", "/"))
 
@@ -354,15 +354,59 @@ if (knitr::is_latex_output()) {
   escape = FALSE
 }
 
-kableExtra::kable(vector_operators, col.names = c("Operazione", "Nome"),
+kableExtra::kable(vector_operators, col.names = c("Funzione", "Descrizione"),
                   escape = escape, caption = "Operazioni con vettori") %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
                 full_width = F,
                 latex_options = c("hold_position"))
 ```
 
+Nota che l'esecuzione di operazioni matematiche (e.g., `+`, `-`, `*`, `/` etc.) è possibile sia rispetto ad un singolo valore sia rispetto ad un altro vettore:
 
-**Nota:** In R il prodotto e rapporto tra vettori sono eseguiti  elemento per elemento (al contrario di molti altri software).
+- **Singolo valore** - l'operazione sarà svolta per ogni elemento del vettore rispetto al singolo valore fornito. 
+- **Altro vettore** - l'operazione sarà svolta per ogni coppia di elementi dei due vettori. E' quindi necessario che i due vettori abbiano la **stessa lunghezza**, ovvero lo stesso numero di elementi.
+
+```{r, echo = TRUE}
+x <- 1:5
+y <- 1:5
+
+# Sommo un valore singolo
+x + 10
+
+# Somma di vettori (elemento per elemento)
+x + y
+```
+
+:::{.warning title="Vettori di Diversa Lunghezza" data-latex="[Vettori di Diversa Lunghezza]"}
+Qualora i vettori differiscano per la loro lunghezza, R ci presenterà un warning avvisandoci del problema ma eseguirà comunque l'operazione utilizzando più volte il vettore più corto.
+```{r, echo = TRUE, error = TRUE}
+x + c(1, 2)
+```
+
+Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche multipli) dovrebbe essere evitato perchè facile causa di errori e incomprensioni. 
+:::
+
+:::{.design title="Vectorized Operations" data-latex="[Vectorized Operations]"}
+In R la maggior parte degli operatori sono *vettorizzati*, ovvero calcolano direttamente il risultato per ogni elemento di un vettore. Questo è un grandissimo vantaggio poichè ci permette di essere molto efficienti e coincisi nel codice.
+
+Senza vettorizzazione, ogni operazione tra due vettori richiederebbe di specificare l'operazione per ogni elemento del vettore. Nel precedente esempio della somma tra `x` e `y` avremmo dovuto usare il seguente codice:
+```{r, echo = TRUE}
+z <- numeric(length(x))
+for(i in seq_along(x)) {
+      z[i] <- x[i] + y[i]
+}
+z
+```
+
+Nota come questo sia valido anche per gli **operatori relazionali e logici**. Infatti valutando una proposizione rispetto ad un vettore, otterremmo una risposta per ogni elemento del vettore
+
+```{r, echo = TRUE}
+my_values <- 1:8
+
+# Valori compresi tra 4 e 7
+my_values >= 4 & my_values <= 7
+```
+:::
 
 ### Esercizi {-}
 
@@ -375,6 +419,8 @@ kableExtra::kable(vector_operators, col.names = c("Operazione", "Nome"),
 ## Data Type {#data-type}
 
 Working in progress.
+
+Abbimao visto chè un'importante condizione dei vettori è che tutti gli elementi siano dello stesso tipo. Abbiamogià incontrato e osservato la differenza tra valori numerici e caratteri ma approfondiamo i diversi tipi e i relativi vatttori, relazioni tra tipologie di dati
 
 Tipi di vettori
 

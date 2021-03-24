@@ -20,7 +20,7 @@ Il nostro Enviroment raccoglie quindi tutti gli oggetti che vengono creati duran
 knitr::include_graphics("images/environment.png")
 ```
 
-All'inizio della sessione di lavoro il nostro Environment sarà vuoto (vedi Figura \@ref(environment-empty)). Il comando `ls()` non restituirà alcun oggeto ma per indicare l'assenza di oggerri userà la risposta `character(0)`, ovvero un vettore di tipo caratteri di lunghezza zero (vedi Capitolo TODO).
+All'inizio della sessione di lavoro il nostro Environment sarà vuoto (vedi Figura \@ref(fig:environment-empty)). Il comando `ls()` non restituirà alcun oggeto ma per indicare l'assenza di oggerri userà la risposta `character(0)`, ovvero un vettore di tipo caratteri di lunghezza zero (vedi Capitolo TODO).
 
 ```{r environment-empty, fig.cap="*Environment* vuoto ad inizio sessione di lavoro", out.width="60%"}
 knitr::include_graphics("images/environment-empty.png")
