@@ -88,8 +88,8 @@ Famigliarizza con la creazione di vettori ([soluzioni](https://github.com/psicos
 1. Crea il vettore `x` contenente i numeri 4, 6, 12, 34, 8
 2. Crea il vettore `y` contenente tutti i numeri pari compresi tra 1 e 25 (`?seq()`)
 3. Crea il vettore `z` contenente tutti i primi 10 multipli di 7 partendo da 13 (`?seq()`)
-4. Crea il vettore `s` in cui le lettere `"A"`,`"B"` e `"C"` vengono ripetute nel medesimo ordine 4 volte (`?rep()`).
-5. Crea il vettore `t` in cui le letter `"A"`,`"B"` e `"C"` vengono ripetute ognuna 4 volte (`?rep()`).
+4. Crea il vettore `s` in cui le lettere `"A"`,`"B"` e `"C"` vengono ripetute nel medesimo ordine 4 volte (`?rep()`)
+5. Crea il vettore `t` in cui le letter `"A"`,`"B"` e `"C"` vengono ripetute ognuna 4 volte (`?rep()`)
 6. Genera il seguente output in modo pigro, ovvero scrivendo meno codice possibile ;)
 ```{r}
 rep(rep(c("foo", "bar"), each = 2),times = 2)
@@ -108,34 +108,53 @@ Attenzione, non devo quindi indicare il valore dell'elemento desiderato ma il su
 
 ```{r echo = TRUE}
 # dato il vettore
-my_vector <- c(2,4,6,8)
+my_numbers <- c(2,4,6,8)
 
 # per selezionare il valore 4 utilizzo il suo indice di posizione ovvero 2
-my_vector[2]
+my_numbers[2]
 
 # Se utilizzassi il suo valore (ovvero 4) 
 # otterrei l'elemento che occupa la 4° posizione
-my_vector[4]
+my_numbers[4]
 ```
 
 Per selezionare più elementi è necessario indicare tra le parentesi quadre tutti gli indici di posizione degli elementi desiderati. Nota come non sia possibile fornire semplicemente i singoli indici numerici ma questi devono essere raccolti in un vettore, ad esempio usando la funzione `c()`. Praticamente usiamo un vetore di indici per selezionare gli elemeni desiderati dal nostro vettore iniziale.
 
 ```{r echo = TRUE, error = TRUE}
 # ERRATA selezione più valori 
-my_vector[1,2,3]
+my_numbers[1,2,3]
 
 # CORRETTA selezione più valori
-my_vector[c(1,2,3)]
-my_vector[1:3]
+my_numbers[c(1,2,3)]
+my_numbers[1:3]
 ```
+
+:::{.tip title="Selezionare non è Modificare" data-latex="[Selezionare non è Modificare]"}
+Nota come l'operazione di selezione non modifichi l'oggetto iniziale. Pertanto è necessario salvare il risultato della selezione se si desidera mantenere le modifiche.
+
+```{r, echo = TRUE}
+my_words <- c("foo", "bar", "baz", "qux")
+
+# Seleziono i primi 2 elementi
+my_words[1:2]
+
+# Ho ancora tutti gli elementi nell'oggetto my_words
+my_words
+
+# Salvo i risultati
+my_words <- my_words[1:2]
+my_words
+```
+
+:::
 
 :::{.warning title="Casi Estremi nella Selezione" data-latex="[Casi Estremi nella Selezione]"}
 Cosa accade se utiliziamo un indice di posizione maggiore del numero di elementi del nostro vettore?
 ```{r echo = TRUE}
 # Il mio vettore
-my_vector
+my_numbers <- c(2,4,6,8)
 
-my_vector[10]
+my_numbers[10]
 ```
 R non restituisce un errore ma il valore `NA` ovvero *Not Available*, per indicare che nessun valore è disponibile.
 
@@ -144,19 +163,19 @@ Osserviamo infine anche altri comportamenti particolari o possibili errori nella
 - L'indice di posizione deve essere un valore numerico e non un carattere.
 ```{r echo = TRUE, error = TRUE}
 # ERRATA selezione più valori 
-my_vector["3"]
+my_numbers["3"]
 
 # CORRETTA selezione più valori
-my_vector[3]
+my_numbers[3]
 ```
 - I numeri decimali vengono ignorati e non "arrotondati"
 ```{r echo = TRUE,}
-my_vector[2.2]
-my_vector[2.8]
+my_numbers[2.2]
+my_numbers[2.8]
 ```
 - Utilizzando il valore 0 ottengo un vettore vuoto
 ```{r echo = TRUE,}
-my_vector[0]
+my_numbers[0]
 ```
 :::
 
@@ -174,65 +193,142 @@ Vediamo ora alcuni utilizzi avanzati della selezione di elementi di un vettore. 
 
 Un'utile funzione è quella di selezionare tra gli elementi di un vetore quelli che rispetano una certa condizione. Per fare questo dobbiamo specificare all'interno delle parentesi quadre la proposizione di interesse utilizzando gli operatori relazionali e logici (vedi Capitolo \@ref(operators-rel-log)). 
 
-Possiamo ad esempio selezionare da un vettore numerico tutti gli elementi maggiori di un certo valore, oppure selezionare in un vettore di caratteri tutti gli elementi uguali ad una data stringa.
+Possiamo ad esempio selezionare da un vettore numerico tutti gli elementi maggiori di un certo valore, oppure selezionare da un vettore di caratteri tutti gli elementi uguali ad una data stringa.
 ```{r, echo = TRUE}
 # Vettore numerico - seleziono elemeni maggiori di 0
-numbers <- -5:5
-numbers[numbers >= 0]
+my_numbers <- -5:5
+my_numbers[my_numbers >= 0]
 
 # Vettore caratteri - seleziono elemeni uguali a "bar"
-words <- rep(c("foo", "bar"), times = 4)
-words[words == "bar"]
+my_words <- rep(c("foo", "bar"), times = 4)
+my_words[my_words == "bar"]
 ```
 
 Per capire meglio questa operazione è importante notare come nello stesso comando ci siano in realtà due passaggi distinti:
 
-- **Vettore logico** (vedi Capitolo TODO) - quando un vettore è valutato in una proposizione, R crea un nuovo vettore che contiene per ogni elemento del vettore iniziale la risposta (`TRUE` o `FALSE`) alla nostra proposizione.
+- **Vettore logico** (vedi Capitolo TODO) - quando un vettore è valutato in una proposizione, R restituisce un nuovo vettore che contiene per ogni elemento del vettore iniziale la risposta (`TRUE` o `FALSE`) alla nostra proposizione.
 - **Selezione** - utilizziamo il vettore logico ottenuto per selezionare gli elementi dal vettore iniziale. Gli elementi associati al valore `TRUE` sono selezionati mentre quelli associati al valore `FALSE` sono scartati.
 
 Rendiamo espliciti questi due passaggi nel seguente codice: 
 ```{r, echo = TRUE}
 # Vettore logico
-condition <- words == "bar"
+condition <- my_words == "bar"
 condition
 
 # Selezione
-words[condition]
+my_words[condition]
 ```
 
 #### Ordinare gli Elementi {-}
 
+Gli indici di posizione possono essere utilizzati per ordinare gli elementi di un vettore a seconda delle necessità.
+
+```{r, echo = TRUE}
+messy_vector <- c(5,1,7,3)
+
+# Altero l'ordine degli elementi
+messy_vector[c(4,2,3,1)]
+
+# Ordino gli elementi per valori crescenti
+messy_vector[c(2,4,1,3)]
+```
+
+:::{.trick title="sort() vs order()" data-latex="[sort() vs order()]"}
+Per ordinare gli elementi di un vettore in ordine crescente o decrescente (sia alfabetico che numerico), è possibile utilizzare la funzione `sort()` specificando l'argomento `decreasing`. Vedi l'help page della funzione per ulteriori informazioni (`?sort()`).
+
+```{r, echo = TRUE}
+# Ordine alfabetico
+my_letters <- c("cb", "bc", "ab", "ba", "cb", "ab")
+sort(my_letters)
+
+# ordine decrescente
+sort(messy_vector, decreasing = TRUE)
+```
+
+Nota come esista anche la funzione `order()` ma questa sia un false-friend perchè non ci fornisce direttamente un vettore con gli elementi ordinati ma bensì gli indici di posizione per riordinare gli elementi (`?order()`). Vediamo nel seguente esempio come utilizzare questa funzione:
+```{r, echo = TRUE}
+# Indici di posizione per riordinare gli elementi
+order(messy_vector)
+# Riordino il vettore usando gli indici di posizione
+messy_vector[order(messy_vector)]
+```
+:::
+
 #### Combinazioni di Elementi {-}
+
+Gli stessi indici di posizione possono essere richiamati più volte per ripetere gli elementi nelle combinazioni desiderate formando un nuovo vettore.
+```{r, echo = TRUE}
+my_numbers <- c(5,6,7,8)
+# Ottengo un nuovo vettore con la combinazioen desiderata
+my_numbers[c(1,2,2,3,3,3,4)]
+```
 
 #### Modificare gli Elementi {-}
 
+Un importante utilizzo degli indici riguarda la modifica di un elemento di un vettore. Per sostituire un vecchio valore con un nuovo valore, posso utilizzare la funzione *assign* (`<-` o `=`) come nell'esempio:
+
+```{r, echo = TRUE}
+my_names <- c("Andrea", "Bianca", "Carlo")
+
+# Modifico il  nome "Bianca" in "Beatrice"
+my_names[2] <- "Beatrice"
+my_names
+```
+
+Per sostituire il valore viene indicato alla sinistra dell'operatore *assign* il valore che si vuole modificare e  alla destra il nuovo valore. Nota come questa operazione possa essere usata per aggiungere anche nuovi elementi al vettore.
+
+```{r, echo = TRUE}
+my_names[4]
+
+# Aggiungo il nome "Daniela"
+my_names[4] <- "Daniela"
+my_names
+```
+
+
 #### Eliminare gli Elementi {-}
 
-E' possibile sfruttare gli indici per riordinare a piacere gli elementi di un vettore. Per
-Nota come non sia possibile
+Per **eliminare degli elementi** da un vettore, si indicano all'interno delle parentesi quadre gli indici di posizione degli elementi da eliminare preceduti dall'operatore `-` (*meno*). Nel caso di più elementi è anche possibile indicare il meno solo prima del comando `c()`, ad esempio il comando `x[c(-2,-4)]` diviene `x[-c(2,4)]`.
 
-E' possibil edeterminare l'ordine degli elementi o 
+```{r, echo = TRUE}
+my_words <- c("foo", "bar", "baz", "qux")
 
-- warning box selezione out of bound e uso caratteri e non stessa lunghezza
+# Elimino "bar"
+my_words[-2]
 
-In alternativa si può definire la condizione logica che gli elementi che si vogliono selezionare devono rispettare.
+# Elimino "foo" e "baz"
+my_words[-c(1,3)]    # oppure my_words[c(-1, -3)]
+```
 
-Per **eliminare degli elementi** da un vettore si utilizza all'interno delle parentesi quadre l'operatore “-” insieme agli indici di posizione degli elementi da eliminare (esempio: `x[c(-2,-4)]` oppure `x[-c(2,4)]`).
+Nota come l'operazione di eliminazione sia comunque un'operazione di selezione. Pertanto è necessario salvare il risultato ottenuto se si desidera mantenere le modifiche.
 
-<!-- % Maggiore descrizione eliminare -->
-<!-- % funzione ?which() -->
+```{r, echo = TRUE}
+# Elimino "foo" e "baz"
+my_words[-c(1,3)]
 
-### Rimuovere o cambiare l'ordine
+# Ho ancora tutti gli elementi nell'oggetto my_words
+my_words
+
+# Salvo i risultati
+my_words <- my_words[-c(1,3)]
+my_words
+```
+
+<!-- %  TODO funzione ?which() -->
+
+
 ### Esercizi {-}
 
 1. Del vettore `x` seleziona il 2°, 3° e 5° elemento
-2. Del vettore `y` seleziona tutti i valori minori di 13 o maggiori di 19
-3. Del vettore `z` seleziona tutti i valori compresi tra 24 e 50
-4. Elimina dal vettore `z` i valori 28 e 42
-5. Del vettore `s` seleziona tutti gli elementi uguali ad  “A”
-6. Del vettore `t` seleziona tutti gli elementi diversi da  “B”
+2. Del vettore `x` seleziona i valori 34 e 4
+3. Dato il vettore `my_vector = c(2,4,6,8)` commenta il risultato del comando `my_vector[my_vector]`
+4. Del vettore `y` seleziona tutti i valori minori di 13 o maggiori di 19
+5. Del vettore `z` seleziona tutti i valori compresi tra 24 e 50
+6. Del vettore `s` seleziona tutti gli elementi uguali ad  `"A"`
+7. Del vettore `t` seleziona tutti gli elementi diversi da  `"B"`
+8. Crea un nuovo vettore `u` identico a `s` ma dove le `"A"` sono sostituite con la lettera `"U"`
+9. Elimina dal vettore `z` i valori 28 e 42
 
-7. Dato il vettore `my_vector = c(2,4,6,8)` commenta il risultato del comando `my_vector[my_vector]`
 
 ## Funzioni ed Operazioni tra Vettori
 
@@ -242,17 +338,18 @@ Per compiere operazioni tra vettori è necessario che essi abbiano identica lung
 
 names_function <- c("Per unire più vettori in un unico vettore ", "Per valutare il numero di elementi contenuti in un vettore", "Somma di due vettori", "Differenza tra due vettori",
                     "Prodotto tra due vettori", "Rapporto tra due vettori")
-formula <- c("<nuovo-vettore> <- c(<vettore1>, <vettore2>)", "length(<nome-vettore>)",
-             sprintf("vettore1 %s vettore2", c("+", "-", "*", "/")))
+formula <- sprintf("vettore1 %s vettore2", c("+", "-", "*", "/"))
 
 if (knitr::is_html_output()) {
-  vector_operators <- data.frame(formula = formula,
+  vector_operators <- data.frame(formula = c("nuovo_vettore <- c(vettore1, vettore2)",
+                                             "length(nome_vettore)",formula),
                                  name = names_function)
   escape = TRUE
 }
 if (knitr::is_latex_output()) {
   vector_operators <- data.frame(formula = sprintf("\\texttt{%s}",
-                                                formula),
+                                  c("nuovo\\_vettore <- c(vettore1, vettore2)",
+                                    "length(nome\\_vettore)",formula)),
                                  name = names_function)
   escape = FALSE
 }

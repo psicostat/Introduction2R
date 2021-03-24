@@ -120,7 +120,7 @@ Note per la risoluzione degli esercizi:
 - In R per i logaritmi si usa la funzione `log(x, base=a)`, di base viene  considerato il logaritmo naturale.
 
 
-## Operatori Relazionali e Logici
+## Operatori Relazionali e Logici {#operators-rel-log}
 
 Queste operazioni al momento potrebbero sembrare non particolrmente interessanti ma si riveleranno molto utili nei capitoli successivi ad esempio per la selezione di elementi (vedi Capitolo TODO) o la definizionne di algoritmi (vedi Capitolo TODO).
 
