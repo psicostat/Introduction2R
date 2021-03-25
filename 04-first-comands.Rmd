@@ -126,7 +126,7 @@ Queste operazioni al momento potrebbero sembrare non particolrmente interessanti
 
 ### Operatori Relazionali
 
-In R è possibile valutare se una data relazione è vera o fasa. Ad esempio, posiamo valutare se "*2 è minore di 10*" o se "*4 numero è un numero pari*".
+In R è possibile valutare se una data relazione è vera o falsa. Ad esempio, posiamo valutare se "*2 è minore di 10*" o se "*4 numero è un numero pari*".
 
 R valuterà le proposizioni e ci restituirà il valore `TRUE` se la proposizione è vera oppure `FALSE` se la proposizione è falsa. Nella Tabella \@ref(tab:relational-operators) sono elencati gli operatori relazionali.
 
