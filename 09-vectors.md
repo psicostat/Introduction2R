@@ -667,17 +667,17 @@ FALSE * 10
 
 
 :::{.trick title="sum() e mean()" data-latex="[sum() e mean()]"}
-Utilizzando le funzioni `sum()` e `mean()` con un vettore logico, possiamo valutare riuspettivamente il numero totale e la percentuale di elementi che hanno rispettato una certa condizione logica.
+Utilizzando le funzioni `sum()` e `mean()` con un vettore logico, possiamo valutare rispettivamente il numero totale e la percentuale di elementi che hanno soddisfatto una certa condizione logica.
 
 
 ```r
 my_values <- rnorm(50)  # genero dei numeri casuali 
 
 sum(my_values > 0)      # totale numeri positivi
-## [1] 23
+## [1] 24
 
 mean(my_values > 0)      # percentuale numeri positivi
-## [1] 0.46
+## [1] 0.48
 ```
 :::
 
@@ -685,71 +685,61 @@ mean(my_values > 0)      # percentuale numeri positivi
 :::{.design title="is.* adn as.* Function Families" data-latex="[is.* adn as.* Function Families]"}
 Esistono due famiglie di funzioni che permettono rispettivamene di testare e di modificare la tipologia dei dati.
 
-#### is.* Family
+#### is.* Family {-}
 
 Per testare se un certo valore (o un vettore di valori) appartiene ad una specifica tipologia di dati, possimao utilizzare una tra le seguenti funzioni:
+
+- `is.vector()` - valuta se un oggetto è un generico vettore di qualsiasi tipo
+
+```r
+is.vector("2021")   # TRUE
+is.vector(2021)     # TRUE
+is.vector(2021L)    # TRUE
+is.vector(TRUE)     # TRUE
+```
 
 - `is.character()` - valuta se l'oggetto è una stringa
 
 ```r
-is.character("2021")
-## [1] TRUE
-is.character(2021)
-## [1] FALSE
-is.character(2021L)
-## [1] FALSE
-is.character(TRUE)
-## [1] FALSE
+is.character("2021") # TRUE
+is.character(2021)   # FALSE
+is.character(2021L)  # FALSE
+is.character(TRUE)   # FALSE
 ```
 - `is.numeric()` - valuta se l'oggetto è un valore numerico indipendentemente che sia un double o un integer
 
 ```r
-is.numeric("2021")
-## [1] FALSE
-is.numeric(2021)
-## [1] TRUE
-is.numeric(2021L)
-## [1] TRUE
-is.numeric(TRUE)
-## [1] FALSE
+is.numeric("2021")   # FALSE
+is.numeric(2021)     # TRUE
+is.numeric(2021L)    # TRUE
+is.numeric(TRUE)     # FALSE
 ```
 - `is.double()` - valuta se l'oggetto è un valore `double`
 
 ```r
-is.double("2021")
-## [1] FALSE
-is.double(2021)
-## [1] TRUE
-is.double(2021L)
-## [1] FALSE
-is.double(TRUE)
-## [1] FALSE
+is.double("2021")    # FALSE
+is.double(2021)      # TRUE
+is.double(2021L)     # FALSE
+is.double(TRUE)      # FALSE
 ```
 - `is.integer()` - valuta se l'oggetto è un valore intero
 
 ```r
-is.integer("2021")
-## [1] FALSE
-is.integer(2021)
-## [1] FALSE
-is.integer(2021L)
-## [1] TRUE
-is.integer(TRUE)
-## [1] FALSE
+is.integer("2021")   # FALSE
+is.integer(2021)     # FALSE
+is.integer(2021L)    # TRUE
+is.integer(TRUE)     # FALSE
 ```
 - `is.logical()` - valuta se l'oggetto è un valore logico
 
 ```r
-is.logical("2021")
-## [1] FALSE
-is.logical(2021)
-## [1] FALSE
-is.logical(2021L)
-## [1] FALSE
-is.logical(TRUE)
-## [1] TRUE
+is.logical("2021")   # FALSE
+is.logical(2021)     # FALSE
+is.logical(2021L)    # FALSE
+is.logical(TRUE)     # TRUE
 ```
-#### as.* Family
+
+#### as.* Family {-}
 
 Per modificare la tipologia di un certo valore (o un vettore di valori), possimao utilizzare una tra le seguenti funzioni:
 
@@ -812,8 +802,218 @@ as.logical(2021L)
 
 ### Valori speciali
 
-Vediamo infine alcuni valori speciali che incontreremo spesso e che richiedono particolari accorgimenti: `NULL`, `NA`, `NaN`, `Inf`.
+Vediamo infine alcuni valori speciali utilizzatti in R con dei particolari significati e che richiedono specifici accorgimenti quando vengono manipolati:
+
+- `NULL`- rappresenta l'oggetto nullo, ovvero l'assenza di un oggetto. Spesso viene restituito dalle funzioni quano il loro output è indefinito.
+- `NA` - rappresenta un dato mancate (*Not Available*). E' un valore costante di lunghezza 1 che può essere utlizzato per qualsiasi tipologia di dati.
+- `NaN` - indica un risulato matematico che non può essere rappresentato come un valore numerico (*Not A Number*). E' un valore costante di lunghezza 1 che può essere utlizzato come valore numerico (non intero).
+
+```r
+0/0
+## [1] NaN
+sqrt(-1)
+## Warning in sqrt(-1): NaNs produced
+## [1] NaN
+```
+- `Inf` (o `-Inf`) - indica un risultato matematico inifinito (o infinito negativo). E' anche utilizzato per rappresentare numeri estremamente grandi.
+
+```r
+pi^650
+## [1] Inf
+
+-pi/0
+## [1] -Inf
+```
+
+E' importante essere consapevoli delle caratteristiche di questi valori poichè presentano dei comportamenti peculiari che, se non corretamente gestiti, possono generare conseguenti errori nei codici. Descriviamo ora alcune delle carateristiche più importanti. 
+
+#### Lunghezza Elementi {-}
+
+Notiamo innanzitutto come mentre `NULL` sia effettivamente un oggetto nullo, ovvero privo di dimensione, `NA` sia uno speciale valore che rappresenta la presenza di un dato mancate. Pertanto `NA`, a differenza di `NULL`, è effettivamente un valore di lunghezza 1. 
 
 
+```r
+# Il valore NULL è un oggetto nullo
+values_NULL <- c(1:5, NULL)
+length(values_NULL)
+## [1] 5
+values_NULL # NULL non è presente
+## [1] 1 2 3 4 5
+
+# Il valore NA è un oggetto che testimonia un'assenza
+values_NA <- c(1:5, NA)
+length(values_NA)
+## [1] 6
+values_NA   # NA è presente
+## [1]  1  2  3  4  5 NA
+```
+
+Allo stesso modo, anche i valori `NaN` e `Inf` sono effettivamente dei valori di lunghezza 1 usati per testimoniare speciali risultati numerici. 
+
+```r
+length(c(1:5, NaN))
+## [1] 6
+length(c(1:5, Inf))
+## [1] 6
+```
+
+#### Propagazione Valori {-}
+
+Altra importante caratteristica è quella che viene definita *propagazione* dei valori ovvero le operazioni che includono questi speciali valori resituiscono a loro volta lo stesso speciale. Ciò significa che questi valori si propagheranno di risultato in risultato all'interno del nostro codice se non opportunamente gestiti.
+
+- `NULL`- osserviamo come se il valore `NULL` viene utilizzato in una qualsiasi operazione matematica il risultato sarà un vettore numerico vuoto di dimensione 0, il quale può essere interpretato in modo simile (seppur non identico) al valore `NULL`
+
+```r
+res_NULL <- NULL * 3
+length(res_NULL)
+## [1] 0
+res_NULL
+## numeric(0)
+```
+- `NA` - quando `NA` viene utilizzato in una qualsiasi operazione matematica il risultato sarà nuovamene un `NA`.
+
+```r
+NA * 3
+## [1] NA
+```
+- `NaN` - quando `NaN` viene utilizzato in una qualsiasi operazione matematica il risultato sarà nuovamene un `NaN`.
+
+```r
+NaN * 3
+## [1] NaN
+```
+- `Inf` (o `-Inf`) - qualora `Inf` (o `-Inf`) siano utilizzati in un'operazione matematica il risultato seguirà le comuni regole delle operazioni tra infiti.
+
+```r
+Inf - 3
+## [1] Inf
+
+Inf * -3
+## [1] -Inf
+
+Inf + Inf
+## [1] Inf
+
+Inf + -Inf
+## [1] NaN
+
+Inf * -Inf
+## [1] -Inf
+
+Inf / Inf
+## [1] NaN
+```
+
+#### Testare Valori {-}
+
+E' importante ricordare come per testare l apresenza di uno di questi valori speciali siano presenti delle funzioni specifiche della famiglia `is.*`. Non deve mai essere utlizzato il comune operatore di uguaglianza `==` poichè non fornisce i risultai corretti.
+
+- `is.null`
+
+```r
+NULL == NULL     # logical(0)
+is.null(NULL)    # TRUE
+```
+- `is.na` 
+
+```r
+NA == NA    # NA
+is.na(NA)   # TRUE
+```
+- `is.nan` 
+
+```r
+NaN == NaN  # NA
+is.nan(NaN) # TRUE
+```
+- `Inf`  
+
+```r
+Inf == Inf       # TRUE considero anche il segno
+is.infinite(Inf) # TRUE sia per Inf che -Inf
+```
+
+#### Operatori Logici {-}
+
+Un particolare comportamento riguarda i risultati ottenute con gli operatori logici dove la *propagazione* del valore non segue sempre le attese. Osserviamo i diversi casi:
+
+- `NULL`-  ottenimo come da attese un vettore logico vuoto di dimensione 0
+
+```r
+TRUE & NULL  # logical(0)
+TRUE | NULL  # logical(0)
+
+FALSE & NULL # logical(0)
+FALSE | NULL # logical(0)
+```
+- `NA` - non otteniamo come da attese sempre il valore `NA` ma in alcune condizioni la proposizione sara `TRUE` o `FALSE`
+
+```r
+TRUE & NA  # NA
+TRUE | NA  # TRUE
+
+FALSE & NA # FALSE
+FALSE | NA # NA
+```
+- `NaN` - otteniamo gli stessi risultati del caso precedente utilizzando il valore `NA`
+
+```r
+TRUE & NaN  # NA
+TRUE | NaN  # TRUE
+
+FALSE & NaN # FALSE
+FALSE | NaN # NA
+```
+- `Inf`  - essendo un valore numerico diverso da zero otteniamo i rissultati secondo le attese
+
+```r
+TRUE & Inf  # TRUE
+TRUE | Inf  # TRUE
+
+FALSE & Inf # FALSE
+FALSE | Inf # TRUE
+```
+
+:::{.tip title="A Logical Solution" data-latex="[A Logical Solution]"}
+Un comportamento tanto strano per quanto riguarda l'utilizzo del valore `NA` con gli operatori logici può essere spiegato dal fatto che il valore `NA` in realtà sia un valore logico che indica la mancanza di una risposta.
+
+```r
+is.logical(NA)
+## [1] TRUE
+```
+
+Pertanto le proposizioni vengono correttamente seguendo le comuni regole. Nel caso di `TRUE | NA` la proposizione è giudicata `TRUE` perchè con l'operatore di disgiunzione è sufficiente che una delle due parti sia vera avvinchè la proposizione sia vera. Nel caso di `FALSE & NA`, invece, la proposizione è giudicata `FALSE` perchè con l'operatore di congiunzione è sufficiente che una delle due parti sia falsa avvinchè la proposizione sia falsa. LA non risposta indicata da `NA` i questi casi è ininfluente, mentre determina il risultato nei restanti casi quando la seconda parte  della proposizione deve essere necessariamente valutata. A questo punto gli operatori restituiscono `NA` poichè incapaci di determinare la risposta.
+
+Per quanto riguarda il caso del valore `NaN` è sufficinete ricordare che tale valore sia comunque un valore numerico di cui però non è possibile identificare il valore.
+
+```r
+is.numeric(NaN)
+## [1] TRUE
+```
+Tutti i valori numerici sono considerati validi nelle operazioni logiche, dove qualsiais numero diveros da zero è valutato `TRUE`. Pertanto viene seguito lo stesso ragionamento precedente, quando non è necessario valutare entrambe le parti della proposizione viene fornita una risposta, mentre si ottiene `NA` negli altri casi quando R è obbligato a valutare entrambe la parti ma è incapace di fornire una risspossta poichè non può determinare il valore di `NaN`.
+:::
+
+:::{.design title="L'importanza dei Dati Mancanti" data-latex="[L'importanza dei Dati Mancanti]"}
+Lavorare in presenza di dati mancanti accadrà nella maggior parte dei casi. Molte delle funzioni presenti in R hanno già delle opzioni per rimuovere automaticamete eventuali dati mancanti così da poter ottenre correttamete i risultati.
+
+```r
+my_sample <- c(2,4,6,8, NA)
+mean(my_sample)
+## [1] NA
+mean(my_sample, na.rm = TRUE)
+## [1] 5
+```
+Tuttavia, è importante non  avvalersi in modo automatico di tali opzioni ma avere cura di valutare attentamente la presenza di dati mancanti. Questo ci permetterà di indagare possibili pattern riguardanti i dati mancanti e valutare la loro possibile influenza sui nostri risultati e la validità elle conclusioni.
+
+Inoltre sarà fondamentale controllare sempre l'effittiva dimensione del campione utilizzato nelle vari analisi. Ad esempio se non valutato attentamente potremmo non ottenere il numero effettivo di valori su cui è stata calcolata precedentemente la media.
+
+```r
+length(my_sample)    # NA incluso
+## [1] 5
+length(my_sample[!is.na(my_sample)]) # NA escluso
+## [1] 4
+```
+
+:::
 
 

@@ -27,83 +27,83 @@ La struttura di base di un dataframe è quindi la stessa di una matrice ma conti
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;"> 0.92 </td>
-   <td style="text-align:center;"> -0.99 </td>
-   <td style="text-align:center;"> -0.80 </td>
-   <td style="text-align:center;"> 0.32 </td>
-   <td style="text-align:center;"> 1.18 </td>
+   <td style="text-align:center;"> 0.84 </td>
+   <td style="text-align:center;"> -1.35 </td>
+   <td style="text-align:center;"> 0.73 </td>
+   <td style="text-align:center;"> 0.13 </td>
+   <td style="text-align:center;"> -0.10 </td>
    <td style="text-align:center;"> a </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> -0.78 </td>
-   <td style="text-align:center;"> 0.03 </td>
-   <td style="text-align:center;"> -0.08 </td>
-   <td style="text-align:center;"> 1.44 </td>
-   <td style="text-align:center;"> -1.17 </td>
+   <td style="text-align:center;"> 0.45 </td>
+   <td style="text-align:center;"> -2.28 </td>
+   <td style="text-align:center;"> -0.17 </td>
+   <td style="text-align:center;"> -0.64 </td>
+   <td style="text-align:center;"> -1.32 </td>
    <td style="text-align:center;"> b </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> 0.28 </td>
-   <td style="text-align:center;"> -0.39 </td>
-   <td style="text-align:center;"> -0.20 </td>
-   <td style="text-align:center;"> -1.17 </td>
-   <td style="text-align:center;"> 0.49 </td>
+   <td style="text-align:center;"> -0.71 </td>
+   <td style="text-align:center;"> -0.51 </td>
+   <td style="text-align:center;"> -1.47 </td>
+   <td style="text-align:center;"> 0.17 </td>
+   <td style="text-align:center;"> -0.64 </td>
    <td style="text-align:center;"> c </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> 0.76 </td>
-   <td style="text-align:center;"> -1.19 </td>
-   <td style="text-align:center;"> 1.71 </td>
-   <td style="text-align:center;"> -0.94 </td>
-   <td style="text-align:center;"> 0.63 </td>
+   <td style="text-align:center;"> -0.09 </td>
+   <td style="text-align:center;"> 0.74 </td>
+   <td style="text-align:center;"> 1.60 </td>
+   <td style="text-align:center;"> 0.42 </td>
+   <td style="text-align:center;"> -0.10 </td>
    <td style="text-align:center;"> d </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> 1.52 </td>
-   <td style="text-align:center;"> 0.34 </td>
-   <td style="text-align:center;"> 0.14 </td>
-   <td style="text-align:center;"> 1.25 </td>
-   <td style="text-align:center;"> 0.18 </td>
+   <td style="text-align:center;"> -1.01 </td>
+   <td style="text-align:center;"> 0.88 </td>
+   <td style="text-align:center;"> 0.48 </td>
+   <td style="text-align:center;"> -0.12 </td>
+   <td style="text-align:center;"> -0.10 </td>
    <td style="text-align:center;"> e </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> 1.26 </td>
-   <td style="text-align:center;"> 1.07 </td>
-   <td style="text-align:center;"> 0.87 </td>
-   <td style="text-align:center;"> -1.43 </td>
-   <td style="text-align:center;"> -0.58 </td>
+   <td style="text-align:center;"> 0.29 </td>
+   <td style="text-align:center;"> 0.67 </td>
+   <td style="text-align:center;"> -1.19 </td>
+   <td style="text-align:center;"> -1.93 </td>
+   <td style="text-align:center;"> -0.21 </td>
    <td style="text-align:center;"> f </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> 1.59 </td>
-   <td style="text-align:center;"> 0.65 </td>
-   <td style="text-align:center;"> 0.38 </td>
+   <td style="text-align:center;"> -0.43 </td>
+   <td style="text-align:center;"> 2.11 </td>
+   <td style="text-align:center;"> -0.24 </td>
+   <td style="text-align:center;"> -0.24 </td>
    <td style="text-align:center;"> 0.92 </td>
-   <td style="text-align:center;"> -1.77 </td>
    <td style="text-align:center;"> g </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> 0.23 </td>
-   <td style="text-align:center;"> 1.57 </td>
-   <td style="text-align:center;"> 0.23 </td>
-   <td style="text-align:center;"> -0.24 </td>
-   <td style="text-align:center;"> -0.42 </td>
+   <td style="text-align:center;"> 0.66 </td>
+   <td style="text-align:center;"> -0.78 </td>
+   <td style="text-align:center;"> -0.92 </td>
+   <td style="text-align:center;"> -1.17 </td>
+   <td style="text-align:center;"> -0.96 </td>
    <td style="text-align:center;"> h </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> -0.49 </td>
-   <td style="text-align:center;"> 0.71 </td>
-   <td style="text-align:center;"> -1.91 </td>
-   <td style="text-align:center;"> -1.32 </td>
-   <td style="text-align:center;"> -0.49 </td>
+   <td style="text-align:center;"> -0.11 </td>
+   <td style="text-align:center;"> 1.38 </td>
+   <td style="text-align:center;"> -0.96 </td>
+   <td style="text-align:center;"> -0.63 </td>
+   <td style="text-align:center;"> -2.11 </td>
    <td style="text-align:center;"> i </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> -0.55 </td>
-   <td style="text-align:center;"> -0.31 </td>
-   <td style="text-align:center;"> -0.53 </td>
-   <td style="text-align:center;"> -0.60 </td>
-   <td style="text-align:center;"> 0.55 </td>
+   <td style="text-align:center;"> 0.34 </td>
+   <td style="text-align:center;"> 0.00 </td>
+   <td style="text-align:center;"> -1.48 </td>
+   <td style="text-align:center;"> 0.47 </td>
+   <td style="text-align:center;"> 2.45 </td>
    <td style="text-align:center;"> j </td>
   </tr>
 </tbody>

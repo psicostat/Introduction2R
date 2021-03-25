@@ -833,132 +833,286 @@ Rapporto tra due vettori
 <span id="cb84-4"><a href="vector.html#cb84-4"></a><span class="ot">FALSE</span> <span class="op">*</span><span class="st"> </span><span class="dv">10</span></span>
 <span id="cb84-5"><a href="vector.html#cb84-5"></a><span class="co">## [1] 0</span></span></code></pre></div>
 <div class="trick" title="sum() e mean()">
-<p>Utilizzando le funzioni <code>sum()</code> e <code>mean()</code> con un vettore logico, possiamo valutare riuspettivamente il numero totale e la percentuale di elementi che hanno rispettato una certa condizione logica.</p>
+<p>Utilizzando le funzioni <code>sum()</code> e <code>mean()</code> con un vettore logico, possiamo valutare rispettivamente il numero totale e la percentuale di elementi che hanno soddisfatto una certa condizione logica.</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="vector.html#cb85-1"></a>my_values &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">50</span>)  <span class="co"># genero dei numeri casuali </span></span>
 <span id="cb85-2"><a href="vector.html#cb85-2"></a></span>
 <span id="cb85-3"><a href="vector.html#cb85-3"></a><span class="kw">sum</span>(my_values <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)      <span class="co"># totale numeri positivi</span></span>
-<span id="cb85-4"><a href="vector.html#cb85-4"></a><span class="co">## [1] 25</span></span>
+<span id="cb85-4"><a href="vector.html#cb85-4"></a><span class="co">## [1] 24</span></span>
 <span id="cb85-5"><a href="vector.html#cb85-5"></a></span>
 <span id="cb85-6"><a href="vector.html#cb85-6"></a><span class="kw">mean</span>(my_values <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)      <span class="co"># percentuale numeri positivi</span></span>
-<span id="cb85-7"><a href="vector.html#cb85-7"></a><span class="co">## [1] 0.5</span></span></code></pre></div>
+<span id="cb85-7"><a href="vector.html#cb85-7"></a><span class="co">## [1] 0.48</span></span></code></pre></div>
 </div>
 <div class="design" title="is.* adn as.* Function Families">
 <p>Esistono due famiglie di funzioni che permettono rispettivamene di testare e di modificare la tipologia dei dati.</p>
-<h4 id="is.-family"><span class="header-section-number">7.4.4</span> is.* Family</h4>
+<h4 id="is.-family" class="unnumbered">is.* Family</h4>
 <p>Per testare se un certo valore (o un vettore di valori) appartiene ad una specifica tipologia di dati, possimao utilizzare una tra le seguenti funzioni:</p>
+<ul>
+<li><code>is.vector()</code> - valuta se un oggetto è un generico vettore di qualsiasi tipo</li>
+</ul>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="vector.html#cb86-1"></a><span class="kw">is.vector</span>(<span class="st">&quot;2021&quot;</span>)   <span class="co"># TRUE</span></span>
+<span id="cb86-2"><a href="vector.html#cb86-2"></a><span class="kw">is.vector</span>(<span class="dv">2021</span>)     <span class="co"># TRUE</span></span>
+<span id="cb86-3"><a href="vector.html#cb86-3"></a><span class="kw">is.vector</span>(2021L)    <span class="co"># TRUE</span></span>
+<span id="cb86-4"><a href="vector.html#cb86-4"></a><span class="kw">is.vector</span>(<span class="ot">TRUE</span>)     <span class="co"># TRUE</span></span></code></pre></div>
 <ul>
 <li><code>is.character()</code> - valuta se l’oggetto è una stringa</li>
 </ul>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="vector.html#cb86-1"></a><span class="kw">is.character</span>(<span class="st">&quot;2021&quot;</span>)</span>
-<span id="cb86-2"><a href="vector.html#cb86-2"></a><span class="co">## [1] TRUE</span></span>
-<span id="cb86-3"><a href="vector.html#cb86-3"></a><span class="kw">is.character</span>(<span class="dv">2021</span>)</span>
-<span id="cb86-4"><a href="vector.html#cb86-4"></a><span class="co">## [1] FALSE</span></span>
-<span id="cb86-5"><a href="vector.html#cb86-5"></a><span class="kw">is.character</span>(2021L)</span>
-<span id="cb86-6"><a href="vector.html#cb86-6"></a><span class="co">## [1] FALSE</span></span>
-<span id="cb86-7"><a href="vector.html#cb86-7"></a><span class="kw">is.character</span>(<span class="ot">TRUE</span>)</span>
-<span id="cb86-8"><a href="vector.html#cb86-8"></a><span class="co">## [1] FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="vector.html#cb87-1"></a><span class="kw">is.character</span>(<span class="st">&quot;2021&quot;</span>) <span class="co"># TRUE</span></span>
+<span id="cb87-2"><a href="vector.html#cb87-2"></a><span class="kw">is.character</span>(<span class="dv">2021</span>)   <span class="co"># FALSE</span></span>
+<span id="cb87-3"><a href="vector.html#cb87-3"></a><span class="kw">is.character</span>(2021L)  <span class="co"># FALSE</span></span>
+<span id="cb87-4"><a href="vector.html#cb87-4"></a><span class="kw">is.character</span>(<span class="ot">TRUE</span>)   <span class="co"># FALSE</span></span></code></pre></div>
 <ul>
 <li><code>is.numeric()</code> - valuta se l’oggetto è un valore numerico indipendentemente che sia un double o un integer</li>
 </ul>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="vector.html#cb87-1"></a><span class="kw">is.numeric</span>(<span class="st">&quot;2021&quot;</span>)</span>
-<span id="cb87-2"><a href="vector.html#cb87-2"></a><span class="co">## [1] FALSE</span></span>
-<span id="cb87-3"><a href="vector.html#cb87-3"></a><span class="kw">is.numeric</span>(<span class="dv">2021</span>)</span>
-<span id="cb87-4"><a href="vector.html#cb87-4"></a><span class="co">## [1] TRUE</span></span>
-<span id="cb87-5"><a href="vector.html#cb87-5"></a><span class="kw">is.numeric</span>(2021L)</span>
-<span id="cb87-6"><a href="vector.html#cb87-6"></a><span class="co">## [1] TRUE</span></span>
-<span id="cb87-7"><a href="vector.html#cb87-7"></a><span class="kw">is.numeric</span>(<span class="ot">TRUE</span>)</span>
-<span id="cb87-8"><a href="vector.html#cb87-8"></a><span class="co">## [1] FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="vector.html#cb88-1"></a><span class="kw">is.numeric</span>(<span class="st">&quot;2021&quot;</span>)   <span class="co"># FALSE</span></span>
+<span id="cb88-2"><a href="vector.html#cb88-2"></a><span class="kw">is.numeric</span>(<span class="dv">2021</span>)     <span class="co"># TRUE</span></span>
+<span id="cb88-3"><a href="vector.html#cb88-3"></a><span class="kw">is.numeric</span>(2021L)    <span class="co"># TRUE</span></span>
+<span id="cb88-4"><a href="vector.html#cb88-4"></a><span class="kw">is.numeric</span>(<span class="ot">TRUE</span>)     <span class="co"># FALSE</span></span></code></pre></div>
 <ul>
 <li><code>is.double()</code> - valuta se l’oggetto è un valore <code>double</code></li>
 </ul>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="vector.html#cb88-1"></a><span class="kw">is.double</span>(<span class="st">&quot;2021&quot;</span>)</span>
-<span id="cb88-2"><a href="vector.html#cb88-2"></a><span class="co">## [1] FALSE</span></span>
-<span id="cb88-3"><a href="vector.html#cb88-3"></a><span class="kw">is.double</span>(<span class="dv">2021</span>)</span>
-<span id="cb88-4"><a href="vector.html#cb88-4"></a><span class="co">## [1] TRUE</span></span>
-<span id="cb88-5"><a href="vector.html#cb88-5"></a><span class="kw">is.double</span>(2021L)</span>
-<span id="cb88-6"><a href="vector.html#cb88-6"></a><span class="co">## [1] FALSE</span></span>
-<span id="cb88-7"><a href="vector.html#cb88-7"></a><span class="kw">is.double</span>(<span class="ot">TRUE</span>)</span>
-<span id="cb88-8"><a href="vector.html#cb88-8"></a><span class="co">## [1] FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="vector.html#cb89-1"></a><span class="kw">is.double</span>(<span class="st">&quot;2021&quot;</span>)    <span class="co"># FALSE</span></span>
+<span id="cb89-2"><a href="vector.html#cb89-2"></a><span class="kw">is.double</span>(<span class="dv">2021</span>)      <span class="co"># TRUE</span></span>
+<span id="cb89-3"><a href="vector.html#cb89-3"></a><span class="kw">is.double</span>(2021L)     <span class="co"># FALSE</span></span>
+<span id="cb89-4"><a href="vector.html#cb89-4"></a><span class="kw">is.double</span>(<span class="ot">TRUE</span>)      <span class="co"># FALSE</span></span></code></pre></div>
 <ul>
 <li><code>is.integer()</code> - valuta se l’oggetto è un valore intero</li>
 </ul>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="vector.html#cb89-1"></a><span class="kw">is.integer</span>(<span class="st">&quot;2021&quot;</span>)</span>
-<span id="cb89-2"><a href="vector.html#cb89-2"></a><span class="co">## [1] FALSE</span></span>
-<span id="cb89-3"><a href="vector.html#cb89-3"></a><span class="kw">is.integer</span>(<span class="dv">2021</span>)</span>
-<span id="cb89-4"><a href="vector.html#cb89-4"></a><span class="co">## [1] FALSE</span></span>
-<span id="cb89-5"><a href="vector.html#cb89-5"></a><span class="kw">is.integer</span>(2021L)</span>
-<span id="cb89-6"><a href="vector.html#cb89-6"></a><span class="co">## [1] TRUE</span></span>
-<span id="cb89-7"><a href="vector.html#cb89-7"></a><span class="kw">is.integer</span>(<span class="ot">TRUE</span>)</span>
-<span id="cb89-8"><a href="vector.html#cb89-8"></a><span class="co">## [1] FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="vector.html#cb90-1"></a><span class="kw">is.integer</span>(<span class="st">&quot;2021&quot;</span>)   <span class="co"># FALSE</span></span>
+<span id="cb90-2"><a href="vector.html#cb90-2"></a><span class="kw">is.integer</span>(<span class="dv">2021</span>)     <span class="co"># FALSE</span></span>
+<span id="cb90-3"><a href="vector.html#cb90-3"></a><span class="kw">is.integer</span>(2021L)    <span class="co"># TRUE</span></span>
+<span id="cb90-4"><a href="vector.html#cb90-4"></a><span class="kw">is.integer</span>(<span class="ot">TRUE</span>)     <span class="co"># FALSE</span></span></code></pre></div>
 <ul>
 <li><code>is.logical()</code> - valuta se l’oggetto è un valore logico</li>
 </ul>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="vector.html#cb90-1"></a><span class="kw">is.logical</span>(<span class="st">&quot;2021&quot;</span>)</span>
-<span id="cb90-2"><a href="vector.html#cb90-2"></a><span class="co">## [1] FALSE</span></span>
-<span id="cb90-3"><a href="vector.html#cb90-3"></a><span class="kw">is.logical</span>(<span class="dv">2021</span>)</span>
-<span id="cb90-4"><a href="vector.html#cb90-4"></a><span class="co">## [1] FALSE</span></span>
-<span id="cb90-5"><a href="vector.html#cb90-5"></a><span class="kw">is.logical</span>(2021L)</span>
-<span id="cb90-6"><a href="vector.html#cb90-6"></a><span class="co">## [1] FALSE</span></span>
-<span id="cb90-7"><a href="vector.html#cb90-7"></a><span class="kw">is.logical</span>(<span class="ot">TRUE</span>)</span>
-<span id="cb90-8"><a href="vector.html#cb90-8"></a><span class="co">## [1] TRUE</span></span></code></pre></div>
-<h4 id="as.-family"><span class="header-section-number">7.4.4</span> as.* Family</h4>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="vector.html#cb91-1"></a><span class="kw">is.logical</span>(<span class="st">&quot;2021&quot;</span>)   <span class="co"># FALSE</span></span>
+<span id="cb91-2"><a href="vector.html#cb91-2"></a><span class="kw">is.logical</span>(<span class="dv">2021</span>)     <span class="co"># FALSE</span></span>
+<span id="cb91-3"><a href="vector.html#cb91-3"></a><span class="kw">is.logical</span>(2021L)    <span class="co"># FALSE</span></span>
+<span id="cb91-4"><a href="vector.html#cb91-4"></a><span class="kw">is.logical</span>(<span class="ot">TRUE</span>)     <span class="co"># TRUE</span></span></code></pre></div>
+<h4 id="as.-family" class="unnumbered">as.* Family</h4>
 <p>Per modificare la tipologia di un certo valore (o un vettore di valori), possimao utilizzare una tra le seguenti funzioni:</p>
 <ul>
 <li><code>as.character()</code> - trasforma l’oggetto in una stringa</li>
 </ul>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="vector.html#cb91-1"></a><span class="kw">as.character</span>(<span class="dv">2021</span>)</span>
-<span id="cb91-2"><a href="vector.html#cb91-2"></a><span class="co">## [1] &quot;2021&quot;</span></span>
-<span id="cb91-3"><a href="vector.html#cb91-3"></a><span class="kw">as.character</span>(2021L)</span>
-<span id="cb91-4"><a href="vector.html#cb91-4"></a><span class="co">## [1] &quot;2021&quot;</span></span>
-<span id="cb91-5"><a href="vector.html#cb91-5"></a><span class="kw">as.character</span>(<span class="ot">TRUE</span>)</span>
-<span id="cb91-6"><a href="vector.html#cb91-6"></a><span class="co">## [1] &quot;TRUE&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="vector.html#cb92-1"></a><span class="kw">as.character</span>(<span class="dv">2021</span>)</span>
+<span id="cb92-2"><a href="vector.html#cb92-2"></a><span class="co">## [1] &quot;2021&quot;</span></span>
+<span id="cb92-3"><a href="vector.html#cb92-3"></a><span class="kw">as.character</span>(2021L)</span>
+<span id="cb92-4"><a href="vector.html#cb92-4"></a><span class="co">## [1] &quot;2021&quot;</span></span>
+<span id="cb92-5"><a href="vector.html#cb92-5"></a><span class="kw">as.character</span>(<span class="ot">TRUE</span>)</span>
+<span id="cb92-6"><a href="vector.html#cb92-6"></a><span class="co">## [1] &quot;TRUE&quot;</span></span></code></pre></div>
 <ul>
 <li><code>as.numeric()</code> - trasforma l’oggetto in un <code>double</code></li>
 </ul>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="vector.html#cb92-1"></a><span class="kw">as.numeric</span>(<span class="st">&quot;foo&quot;</span>)  <span class="co"># Non valido con stringhe di caratteri</span></span>
-<span id="cb92-2"><a href="vector.html#cb92-2"></a><span class="co">## Warning: NAs introduced by coercion</span></span>
-<span id="cb92-3"><a href="vector.html#cb92-3"></a><span class="co">## [1] NA</span></span>
-<span id="cb92-4"><a href="vector.html#cb92-4"></a><span class="kw">as.numeric</span>(<span class="st">&quot;2021&quot;</span>) <span class="co"># Valido per stinghe di cifre</span></span>
-<span id="cb92-5"><a href="vector.html#cb92-5"></a><span class="co">## [1] 2021</span></span>
-<span id="cb92-6"><a href="vector.html#cb92-6"></a><span class="kw">as.numeric</span>(2021L)</span>
-<span id="cb92-7"><a href="vector.html#cb92-7"></a><span class="co">## [1] 2021</span></span>
-<span id="cb92-8"><a href="vector.html#cb92-8"></a><span class="kw">as.numeric</span>(<span class="ot">TRUE</span>)</span>
-<span id="cb92-9"><a href="vector.html#cb92-9"></a><span class="co">## [1] 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="vector.html#cb93-1"></a><span class="kw">as.numeric</span>(<span class="st">&quot;foo&quot;</span>)  <span class="co"># Non valido con stringhe di caratteri</span></span>
+<span id="cb93-2"><a href="vector.html#cb93-2"></a><span class="co">## Warning: NAs introduced by coercion</span></span>
+<span id="cb93-3"><a href="vector.html#cb93-3"></a><span class="co">## [1] NA</span></span>
+<span id="cb93-4"><a href="vector.html#cb93-4"></a><span class="kw">as.numeric</span>(<span class="st">&quot;2021&quot;</span>) <span class="co"># Valido per stinghe di cifre</span></span>
+<span id="cb93-5"><a href="vector.html#cb93-5"></a><span class="co">## [1] 2021</span></span>
+<span id="cb93-6"><a href="vector.html#cb93-6"></a><span class="kw">as.numeric</span>(2021L)</span>
+<span id="cb93-7"><a href="vector.html#cb93-7"></a><span class="co">## [1] 2021</span></span>
+<span id="cb93-8"><a href="vector.html#cb93-8"></a><span class="kw">as.numeric</span>(<span class="ot">TRUE</span>)</span>
+<span id="cb93-9"><a href="vector.html#cb93-9"></a><span class="co">## [1] 1</span></span></code></pre></div>
 <ul>
 <li><code>as.double()</code> - trasforma l’oggetto in un <code>double</code></li>
 </ul>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="vector.html#cb93-1"></a><span class="kw">as.double</span>(<span class="st">&quot;2021&quot;</span>) <span class="co"># Valido per stinghe di cifre</span></span>
-<span id="cb93-2"><a href="vector.html#cb93-2"></a><span class="co">## [1] 2021</span></span>
-<span id="cb93-3"><a href="vector.html#cb93-3"></a><span class="kw">as.double</span>(2021L)</span>
-<span id="cb93-4"><a href="vector.html#cb93-4"></a><span class="co">## [1] 2021</span></span>
-<span id="cb93-5"><a href="vector.html#cb93-5"></a><span class="kw">as.double</span>(<span class="ot">TRUE</span>)</span>
-<span id="cb93-6"><a href="vector.html#cb93-6"></a><span class="co">## [1] 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="vector.html#cb94-1"></a><span class="kw">as.double</span>(<span class="st">&quot;2021&quot;</span>) <span class="co"># Valido per stinghe di cifre</span></span>
+<span id="cb94-2"><a href="vector.html#cb94-2"></a><span class="co">## [1] 2021</span></span>
+<span id="cb94-3"><a href="vector.html#cb94-3"></a><span class="kw">as.double</span>(2021L)</span>
+<span id="cb94-4"><a href="vector.html#cb94-4"></a><span class="co">## [1] 2021</span></span>
+<span id="cb94-5"><a href="vector.html#cb94-5"></a><span class="kw">as.double</span>(<span class="ot">TRUE</span>)</span>
+<span id="cb94-6"><a href="vector.html#cb94-6"></a><span class="co">## [1] 1</span></span></code></pre></div>
 <ul>
 <li><code>as.integer()</code> - trasforma l’oggetto in un <code>integer</code></li>
 </ul>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="vector.html#cb94-1"></a><span class="kw">as.integer</span>(<span class="st">&quot;2021&quot;</span>) <span class="co"># Valido per stinghe di cifre</span></span>
-<span id="cb94-2"><a href="vector.html#cb94-2"></a><span class="co">## [1] 2021</span></span>
-<span id="cb94-3"><a href="vector.html#cb94-3"></a><span class="kw">as.integer</span>(<span class="fl">2021.6</span>) <span class="co"># Tronca la parte decimale</span></span>
-<span id="cb94-4"><a href="vector.html#cb94-4"></a><span class="co">## [1] 2021</span></span>
-<span id="cb94-5"><a href="vector.html#cb94-5"></a><span class="kw">as.integer</span>(<span class="ot">TRUE</span>)</span>
-<span id="cb94-6"><a href="vector.html#cb94-6"></a><span class="co">## [1] 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="vector.html#cb95-1"></a><span class="kw">as.integer</span>(<span class="st">&quot;2021&quot;</span>) <span class="co"># Valido per stinghe di cifre</span></span>
+<span id="cb95-2"><a href="vector.html#cb95-2"></a><span class="co">## [1] 2021</span></span>
+<span id="cb95-3"><a href="vector.html#cb95-3"></a><span class="kw">as.integer</span>(<span class="fl">2021.6</span>) <span class="co"># Tronca la parte decimale</span></span>
+<span id="cb95-4"><a href="vector.html#cb95-4"></a><span class="co">## [1] 2021</span></span>
+<span id="cb95-5"><a href="vector.html#cb95-5"></a><span class="kw">as.integer</span>(<span class="ot">TRUE</span>)</span>
+<span id="cb95-6"><a href="vector.html#cb95-6"></a><span class="co">## [1] 1</span></span></code></pre></div>
 <ul>
 <li><code>as.logical()</code> - trasforma un oggetto numerico in un valore logico qualsiasi valore diverso da 0 viene considerato <code>TRUE</code></li>
 </ul>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="vector.html#cb95-1"></a><span class="kw">as.logical</span>(<span class="st">&quot;2021&quot;</span>) <span class="co"># Non valido per le stringhe</span></span>
-<span id="cb95-2"><a href="vector.html#cb95-2"></a><span class="co">## [1] NA</span></span>
-<span id="cb95-3"><a href="vector.html#cb95-3"></a><span class="kw">as.logical</span>(<span class="dv">0</span>)</span>
-<span id="cb95-4"><a href="vector.html#cb95-4"></a><span class="co">## [1] FALSE</span></span>
-<span id="cb95-5"><a href="vector.html#cb95-5"></a><span class="kw">as.logical</span>(<span class="fl">0.5</span>)</span>
-<span id="cb95-6"><a href="vector.html#cb95-6"></a><span class="co">## [1] TRUE</span></span>
-<span id="cb95-7"><a href="vector.html#cb95-7"></a><span class="kw">as.logical</span>(2021L)</span>
-<span id="cb95-8"><a href="vector.html#cb95-8"></a><span class="co">## [1] TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="vector.html#cb96-1"></a><span class="kw">as.logical</span>(<span class="st">&quot;2021&quot;</span>) <span class="co"># Non valido per le stringhe</span></span>
+<span id="cb96-2"><a href="vector.html#cb96-2"></a><span class="co">## [1] NA</span></span>
+<span id="cb96-3"><a href="vector.html#cb96-3"></a><span class="kw">as.logical</span>(<span class="dv">0</span>)</span>
+<span id="cb96-4"><a href="vector.html#cb96-4"></a><span class="co">## [1] FALSE</span></span>
+<span id="cb96-5"><a href="vector.html#cb96-5"></a><span class="kw">as.logical</span>(<span class="fl">0.5</span>)</span>
+<span id="cb96-6"><a href="vector.html#cb96-6"></a><span class="co">## [1] TRUE</span></span>
+<span id="cb96-7"><a href="vector.html#cb96-7"></a><span class="kw">as.logical</span>(2021L)</span>
+<span id="cb96-8"><a href="vector.html#cb96-8"></a><span class="co">## [1] TRUE</span></span></code></pre></div>
 </div>
 </div>
 <div id="valori-speciali" class="section level3">
 <h3><span class="header-section-number">7.4.5</span> Valori speciali</h3>
-<p>Vediamo infine alcuni valori speciali che incontreremo spesso e che richiedono particolari accorgimenti: <code>NULL</code>, <code>NA</code>, <code>NaN</code>, <code>Inf</code>.</p>
+<p>Vediamo infine alcuni valori speciali utilizzatti in R con dei particolari significati e che richiedono specifici accorgimenti quando vengono manipolati:</p>
+<ul>
+<li><code>NULL</code>- rappresenta l’oggetto nullo, ovvero l’assenza di un oggetto. Spesso viene restituito dalle funzioni quano il loro output è indefinito.</li>
+<li><code>NA</code> - rappresenta un dato mancate (<em>Not Available</em>). E’ un valore costante di lunghezza 1 che può essere utlizzato per qualsiasi tipologia di dati.</li>
+<li><code>NaN</code> - indica un risulato matematico che non può essere rappresentato come un valore numerico (<em>Not A Number</em>). E’ un valore costante di lunghezza 1 che può essere utlizzato come valore numerico (non intero).</li>
+</ul>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="vector.html#cb97-1"></a><span class="dv">0</span><span class="op">/</span><span class="dv">0</span></span>
+<span id="cb97-2"><a href="vector.html#cb97-2"></a><span class="co">## [1] NaN</span></span>
+<span id="cb97-3"><a href="vector.html#cb97-3"></a><span class="kw">sqrt</span>(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb97-4"><a href="vector.html#cb97-4"></a><span class="co">## Warning in sqrt(-1): NaNs produced</span></span>
+<span id="cb97-5"><a href="vector.html#cb97-5"></a><span class="co">## [1] NaN</span></span></code></pre></div>
+<ul>
+<li><code>Inf</code> (o <code>-Inf</code>) - indica un risultato matematico inifinito (o infinito negativo). E’ anche utilizzato per rappresentare numeri estremamente grandi.</li>
+</ul>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="vector.html#cb98-1"></a>pi<span class="op">^</span><span class="dv">650</span></span>
+<span id="cb98-2"><a href="vector.html#cb98-2"></a><span class="co">## [1] Inf</span></span>
+<span id="cb98-3"><a href="vector.html#cb98-3"></a></span>
+<span id="cb98-4"><a href="vector.html#cb98-4"></a><span class="op">-</span>pi<span class="op">/</span><span class="dv">0</span></span>
+<span id="cb98-5"><a href="vector.html#cb98-5"></a><span class="co">## [1] -Inf</span></span></code></pre></div>
+<p>E’ importante essere consapevoli delle caratteristiche di questi valori poichè presentano dei comportamenti peculiari che, se non corretamente gestiti, possono generare conseguenti errori nei codici. Descriviamo ora alcune delle carateristiche più importanti.</p>
+<div id="lunghezza-elementi" class="section level4 unnumbered">
+<h4>Lunghezza Elementi</h4>
+<p>Notiamo innanzitutto come mentre <code>NULL</code> sia effettivamente un oggetto nullo, ovvero privo di dimensione, <code>NA</code> sia uno speciale valore che rappresenta la presenza di un dato mancate. Pertanto <code>NA</code>, a differenza di <code>NULL</code>, è effettivamente un valore di lunghezza 1.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="vector.html#cb99-1"></a><span class="co"># Il valore NULL è un oggetto nullo</span></span>
+<span id="cb99-2"><a href="vector.html#cb99-2"></a>values_NULL &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="ot">NULL</span>)</span>
+<span id="cb99-3"><a href="vector.html#cb99-3"></a><span class="kw">length</span>(values_NULL)</span>
+<span id="cb99-4"><a href="vector.html#cb99-4"></a><span class="co">## [1] 5</span></span>
+<span id="cb99-5"><a href="vector.html#cb99-5"></a>values_NULL <span class="co"># NULL non è presente</span></span>
+<span id="cb99-6"><a href="vector.html#cb99-6"></a><span class="co">## [1] 1 2 3 4 5</span></span>
+<span id="cb99-7"><a href="vector.html#cb99-7"></a></span>
+<span id="cb99-8"><a href="vector.html#cb99-8"></a><span class="co"># Il valore NA è un oggetto che testimonia un&#39;assenza</span></span>
+<span id="cb99-9"><a href="vector.html#cb99-9"></a>values_NA &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="ot">NA</span>)</span>
+<span id="cb99-10"><a href="vector.html#cb99-10"></a><span class="kw">length</span>(values_NA)</span>
+<span id="cb99-11"><a href="vector.html#cb99-11"></a><span class="co">## [1] 6</span></span>
+<span id="cb99-12"><a href="vector.html#cb99-12"></a>values_NA   <span class="co"># NA è presente</span></span>
+<span id="cb99-13"><a href="vector.html#cb99-13"></a><span class="co">## [1]  1  2  3  4  5 NA</span></span></code></pre></div>
+<p>Allo stesso modo, anche i valori <code>NaN</code> e <code>Inf</code> sono effettivamente dei valori di lunghezza 1 usati per testimoniare speciali risultati numerici.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="vector.html#cb100-1"></a><span class="kw">length</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="ot">NaN</span>))</span>
+<span id="cb100-2"><a href="vector.html#cb100-2"></a><span class="co">## [1] 6</span></span>
+<span id="cb100-3"><a href="vector.html#cb100-3"></a><span class="kw">length</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="ot">Inf</span>))</span>
+<span id="cb100-4"><a href="vector.html#cb100-4"></a><span class="co">## [1] 6</span></span></code></pre></div>
+</div>
+<div id="propagazione-valori" class="section level4 unnumbered">
+<h4>Propagazione Valori</h4>
+<p>Altra importante caratteristica è quella che viene definita <em>propagazione</em> dei valori ovvero le operazioni che includono questi speciali valori resituiscono a loro volta lo stesso speciale. Ciò significa che questi valori si propagheranno di risultato in risultato all’interno del nostro codice se non opportunamente gestiti.</p>
+<ul>
+<li><code>NULL</code>- osserviamo come se il valore <code>NULL</code> viene utilizzato in una qualsiasi operazione matematica il risultato sarà un vettore numerico vuoto di dimensione 0, il quale può essere interpretato in modo simile (seppur non identico) al valore <code>NULL</code></li>
+</ul>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="vector.html#cb101-1"></a>res_NULL &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></span>
+<span id="cb101-2"><a href="vector.html#cb101-2"></a><span class="kw">length</span>(res_NULL)</span>
+<span id="cb101-3"><a href="vector.html#cb101-3"></a><span class="co">## [1] 0</span></span>
+<span id="cb101-4"><a href="vector.html#cb101-4"></a>res_NULL</span>
+<span id="cb101-5"><a href="vector.html#cb101-5"></a><span class="co">## numeric(0)</span></span></code></pre></div>
+<ul>
+<li><code>NA</code> - quando <code>NA</code> viene utilizzato in una qualsiasi operazione matematica il risultato sarà nuovamene un <code>NA</code>.</li>
+</ul>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="vector.html#cb102-1"></a><span class="ot">NA</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></span>
+<span id="cb102-2"><a href="vector.html#cb102-2"></a><span class="co">## [1] NA</span></span></code></pre></div>
+<ul>
+<li><code>NaN</code> - quando <code>NaN</code> viene utilizzato in una qualsiasi operazione matematica il risultato sarà nuovamene un <code>NaN</code>.</li>
+</ul>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="vector.html#cb103-1"></a><span class="ot">NaN</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></span>
+<span id="cb103-2"><a href="vector.html#cb103-2"></a><span class="co">## [1] NaN</span></span></code></pre></div>
+<ul>
+<li><code>Inf</code> (o <code>-Inf</code>) - qualora <code>Inf</code> (o <code>-Inf</code>) siano utilizzati in un’operazione matematica il risultato seguirà le comuni regole delle operazioni tra infiti.</li>
+</ul>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="vector.html#cb104-1"></a><span class="ot">Inf</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span></span>
+<span id="cb104-2"><a href="vector.html#cb104-2"></a><span class="co">## [1] Inf</span></span>
+<span id="cb104-3"><a href="vector.html#cb104-3"></a></span>
+<span id="cb104-4"><a href="vector.html#cb104-4"></a><span class="ot">Inf</span> <span class="op">*</span><span class="st"> </span><span class="dv">-3</span></span>
+<span id="cb104-5"><a href="vector.html#cb104-5"></a><span class="co">## [1] -Inf</span></span>
+<span id="cb104-6"><a href="vector.html#cb104-6"></a></span>
+<span id="cb104-7"><a href="vector.html#cb104-7"></a><span class="ot">Inf</span> <span class="op">+</span><span class="st"> </span><span class="ot">Inf</span></span>
+<span id="cb104-8"><a href="vector.html#cb104-8"></a><span class="co">## [1] Inf</span></span>
+<span id="cb104-9"><a href="vector.html#cb104-9"></a></span>
+<span id="cb104-10"><a href="vector.html#cb104-10"></a><span class="ot">Inf</span> <span class="op">+</span><span class="st"> </span><span class="op">-</span><span class="ot">Inf</span></span>
+<span id="cb104-11"><a href="vector.html#cb104-11"></a><span class="co">## [1] NaN</span></span>
+<span id="cb104-12"><a href="vector.html#cb104-12"></a></span>
+<span id="cb104-13"><a href="vector.html#cb104-13"></a><span class="ot">Inf</span> <span class="op">*</span><span class="st"> </span><span class="op">-</span><span class="ot">Inf</span></span>
+<span id="cb104-14"><a href="vector.html#cb104-14"></a><span class="co">## [1] -Inf</span></span>
+<span id="cb104-15"><a href="vector.html#cb104-15"></a></span>
+<span id="cb104-16"><a href="vector.html#cb104-16"></a><span class="ot">Inf</span> <span class="op">/</span><span class="st"> </span><span class="ot">Inf</span></span>
+<span id="cb104-17"><a href="vector.html#cb104-17"></a><span class="co">## [1] NaN</span></span></code></pre></div>
+</div>
+<div id="testare-valori" class="section level4 unnumbered">
+<h4>Testare Valori</h4>
+<p>E’ importante ricordare come per testare l apresenza di uno di questi valori speciali siano presenti delle funzioni specifiche della famiglia <code>is.*</code>. Non deve mai essere utlizzato il comune operatore di uguaglianza <code>==</code> poichè non fornisce i risultai corretti.</p>
+<ul>
+<li><code>is.null</code></li>
+</ul>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="vector.html#cb105-1"></a><span class="ot">NULL</span> <span class="op">==</span><span class="st"> </span><span class="ot">NULL</span>     <span class="co"># logical(0)</span></span>
+<span id="cb105-2"><a href="vector.html#cb105-2"></a><span class="kw">is.null</span>(<span class="ot">NULL</span>)    <span class="co"># TRUE</span></span></code></pre></div>
+<ul>
+<li><code>is.na</code></li>
+</ul>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="vector.html#cb106-1"></a><span class="ot">NA</span> <span class="op">==</span><span class="st"> </span><span class="ot">NA</span>    <span class="co"># NA</span></span>
+<span id="cb106-2"><a href="vector.html#cb106-2"></a><span class="kw">is.na</span>(<span class="ot">NA</span>)   <span class="co"># TRUE</span></span></code></pre></div>
+<ul>
+<li><code>is.nan</code></li>
+</ul>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="vector.html#cb107-1"></a><span class="ot">NaN</span> <span class="op">==</span><span class="st"> </span><span class="ot">NaN</span>  <span class="co"># NA</span></span>
+<span id="cb107-2"><a href="vector.html#cb107-2"></a><span class="kw">is.nan</span>(<span class="ot">NaN</span>) <span class="co"># TRUE</span></span></code></pre></div>
+<ul>
+<li><code>Inf</code></li>
+</ul>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="vector.html#cb108-1"></a><span class="ot">Inf</span> <span class="op">==</span><span class="st"> </span><span class="ot">Inf</span>       <span class="co"># TRUE considero anche il segno</span></span>
+<span id="cb108-2"><a href="vector.html#cb108-2"></a><span class="kw">is.infinite</span>(<span class="ot">Inf</span>) <span class="co"># TRUE sia per Inf che -Inf</span></span></code></pre></div>
+</div>
+<div id="operatori-logici-1" class="section level4 unnumbered">
+<h4>Operatori Logici</h4>
+<p>Un particolare comportamento riguarda i risultati ottenute con gli operatori logici dove la <em>propagazione</em> del valore non segue sempre le attese. Osserviamo i diversi casi:</p>
+<ul>
+<li><code>NULL</code>- ottenimo come da attese un vettore logico vuoto di dimensione 0</li>
+</ul>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="vector.html#cb109-1"></a><span class="ot">TRUE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">NULL</span>  <span class="co"># logical(0)</span></span>
+<span id="cb109-2"><a href="vector.html#cb109-2"></a><span class="ot">TRUE</span> <span class="op">|</span><span class="st"> </span><span class="ot">NULL</span>  <span class="co"># logical(0)</span></span>
+<span id="cb109-3"><a href="vector.html#cb109-3"></a></span>
+<span id="cb109-4"><a href="vector.html#cb109-4"></a><span class="ot">FALSE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">NULL</span> <span class="co"># logical(0)</span></span>
+<span id="cb109-5"><a href="vector.html#cb109-5"></a><span class="ot">FALSE</span> <span class="op">|</span><span class="st"> </span><span class="ot">NULL</span> <span class="co"># logical(0)</span></span></code></pre></div>
+<ul>
+<li><code>NA</code> - non otteniamo come da attese sempre il valore <code>NA</code> ma in alcune condizioni la proposizione sara <code>TRUE</code> o <code>FALSE</code></li>
+</ul>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="vector.html#cb110-1"></a><span class="ot">TRUE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">NA</span>  <span class="co"># NA</span></span>
+<span id="cb110-2"><a href="vector.html#cb110-2"></a><span class="ot">TRUE</span> <span class="op">|</span><span class="st"> </span><span class="ot">NA</span>  <span class="co"># TRUE</span></span>
+<span id="cb110-3"><a href="vector.html#cb110-3"></a></span>
+<span id="cb110-4"><a href="vector.html#cb110-4"></a><span class="ot">FALSE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">NA</span> <span class="co"># FALSE</span></span>
+<span id="cb110-5"><a href="vector.html#cb110-5"></a><span class="ot">FALSE</span> <span class="op">|</span><span class="st"> </span><span class="ot">NA</span> <span class="co"># NA</span></span></code></pre></div>
+<ul>
+<li><code>NaN</code> - otteniamo gli stessi risultati del caso precedente utilizzando il valore <code>NA</code></li>
+</ul>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="vector.html#cb111-1"></a><span class="ot">TRUE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">NaN</span>  <span class="co"># NA</span></span>
+<span id="cb111-2"><a href="vector.html#cb111-2"></a><span class="ot">TRUE</span> <span class="op">|</span><span class="st"> </span><span class="ot">NaN</span>  <span class="co"># TRUE</span></span>
+<span id="cb111-3"><a href="vector.html#cb111-3"></a></span>
+<span id="cb111-4"><a href="vector.html#cb111-4"></a><span class="ot">FALSE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">NaN</span> <span class="co"># FALSE</span></span>
+<span id="cb111-5"><a href="vector.html#cb111-5"></a><span class="ot">FALSE</span> <span class="op">|</span><span class="st"> </span><span class="ot">NaN</span> <span class="co"># NA</span></span></code></pre></div>
+<ul>
+<li><code>Inf</code> - essendo un valore numerico diverso da zero otteniamo i rissultati secondo le attese</li>
+</ul>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="vector.html#cb112-1"></a><span class="ot">TRUE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">Inf</span>  <span class="co"># TRUE</span></span>
+<span id="cb112-2"><a href="vector.html#cb112-2"></a><span class="ot">TRUE</span> <span class="op">|</span><span class="st"> </span><span class="ot">Inf</span>  <span class="co"># TRUE</span></span>
+<span id="cb112-3"><a href="vector.html#cb112-3"></a></span>
+<span id="cb112-4"><a href="vector.html#cb112-4"></a><span class="ot">FALSE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">Inf</span> <span class="co"># FALSE</span></span>
+<span id="cb112-5"><a href="vector.html#cb112-5"></a><span class="ot">FALSE</span> <span class="op">|</span><span class="st"> </span><span class="ot">Inf</span> <span class="co"># TRUE</span></span></code></pre></div>
+<div class="tip" title="A Logical Solution">
+<p>Un comportamento tanto strano per quanto riguarda l’utilizzo del valore <code>NA</code> con gli operatori logici può essere spiegato dal fatto che il valore <code>NA</code> in realtà sia un valore logico che indica la mancanza di una risposta.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="vector.html#cb113-1"></a><span class="kw">is.logical</span>(<span class="ot">NA</span>)</span>
+<span id="cb113-2"><a href="vector.html#cb113-2"></a><span class="co">## [1] TRUE</span></span></code></pre></div>
+<p>Pertanto le proposizioni vengono correttamente seguendo le comuni regole. Nel caso di <code>TRUE | NA</code> la proposizione è giudicata <code>TRUE</code> perchè con l’operatore di disgiunzione è sufficiente che una delle due parti sia vera avvinchè la proposizione sia vera. Nel caso di <code>FALSE &amp; NA</code>, invece, la proposizione è giudicata <code>FALSE</code> perchè con l’operatore di congiunzione è sufficiente che una delle due parti sia falsa avvinchè la proposizione sia falsa. LA non risposta indicata da <code>NA</code> i questi casi è ininfluente, mentre determina il risultato nei restanti casi quando la seconda parte della proposizione deve essere necessariamente valutata. A questo punto gli operatori restituiscono <code>NA</code> poichè incapaci di determinare la risposta.</p>
+<p>Per quanto riguarda il caso del valore <code>NaN</code> è sufficinete ricordare che tale valore sia comunque un valore numerico di cui però non è possibile identificare il valore.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="vector.html#cb114-1"></a><span class="kw">is.numeric</span>(<span class="ot">NaN</span>)</span>
+<span id="cb114-2"><a href="vector.html#cb114-2"></a><span class="co">## [1] TRUE</span></span></code></pre></div>
+<p>Tutti i valori numerici sono considerati validi nelle operazioni logiche, dove qualsiais numero diveros da zero è valutato <code>TRUE</code>. Pertanto viene seguito lo stesso ragionamento precedente, quando non è necessario valutare entrambe le parti della proposizione viene fornita una risposta, mentre si ottiene <code>NA</code> negli altri casi quando R è obbligato a valutare entrambe la parti ma è incapace di fornire una risspossta poichè non può determinare il valore di <code>NaN</code>.</p>
+</div>
+<div class="design" title="L&#39;importanza dei Dati Mancanti">
+<p>Lavorare in presenza di dati mancanti accadrà nella maggior parte dei casi. Molte delle funzioni presenti in R hanno già delle opzioni per rimuovere automaticamete eventuali dati mancanti così da poter ottenre correttamete i risultati.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="vector.html#cb115-1"></a>my_sample &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>, <span class="ot">NA</span>)</span>
+<span id="cb115-2"><a href="vector.html#cb115-2"></a><span class="kw">mean</span>(my_sample)</span>
+<span id="cb115-3"><a href="vector.html#cb115-3"></a><span class="co">## [1] NA</span></span>
+<span id="cb115-4"><a href="vector.html#cb115-4"></a><span class="kw">mean</span>(my_sample, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb115-5"><a href="vector.html#cb115-5"></a><span class="co">## [1] 5</span></span></code></pre></div>
+<p>Tuttavia, è importante non avvalersi in modo automatico di tali opzioni ma avere cura di valutare attentamente la presenza di dati mancanti. Questo ci permetterà di indagare possibili pattern riguardanti i dati mancanti e valutare la loro possibile influenza sui nostri risultati e la validità elle conclusioni.</p>
+<p>Inoltre sarà fondamentale controllare sempre l’effittiva dimensione del campione utilizzato nelle vari analisi. Ad esempio se non valutato attentamente potremmo non ottenere il numero effettivo di valori su cui è stata calcolata precedentemente la media.</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="vector.html#cb116-1"></a><span class="kw">length</span>(my_sample)    <span class="co"># NA incluso</span></span>
+<span id="cb116-2"><a href="vector.html#cb116-2"></a><span class="co">## [1] 5</span></span>
+<span id="cb116-3"><a href="vector.html#cb116-3"></a><span class="kw">length</span>(my_sample[<span class="op">!</span><span class="kw">is.na</span>(my_sample)]) <span class="co"># NA escluso</span></span>
+<span id="cb116-4"><a href="vector.html#cb116-4"></a><span class="co">## [1] 4</span></span></code></pre></div>
+</div>
 
+</div>
 </div>
 </div>
 </div>

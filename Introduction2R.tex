@@ -946,7 +946,7 @@ Queste operazioni al momento potrebbero sembrare non particolrmente interessanti
 \hypertarget{operatori-relazionali}{%
 \subsection{Operatori Relazionali}\label{operatori-relazionali}}
 
-In R è possibile valutare se una data relazione è vera o fasa. Ad esempio, posiamo valutare se ``\emph{2 è minore di 10}'' o se ``\emph{4 numero è un numero pari}''.
+In R è possibile valutare se una data relazione è vera o falsa. Ad esempio, posiamo valutare se ``\emph{2 è minore di 10}'' o se ``\emph{4 numero è un numero pari}''.
 
 R valuterà le proposizioni e ci restituirà il valore \texttt{TRUE} se la proposizione è vera oppure \texttt{FALSE} se la proposizione è falsa. Nella Tabella \ref{tab:relational-operators} sono elencati gli operatori relazionali.
 
@@ -3400,17 +3400,17 @@ Tuttavia ricordiamo che ai valori \texttt{TRUE} e \texttt{FALSE} sono associati 
 
 \begin{trick}[sum() e mean()]
 
-Utilizzando le funzioni \texttt{sum()} e \texttt{mean()} con un vettore logico, possiamo valutare riuspettivamente il numero totale e la percentuale di elementi che hanno rispettato una certa condizione logica.
+Utilizzando le funzioni \texttt{sum()} e \texttt{mean()} con un vettore logico, possiamo valutare rispettivamente il numero totale e la percentuale di elementi che hanno soddisfatto una certa condizione logica.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{my_values <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{)  }\CommentTok{# genero dei numeri casuali }
 
 \KeywordTok{sum}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# totale numeri positivi}
-\CommentTok{## [1] 23}
+\CommentTok{## [1] 29}
 
 \KeywordTok{mean}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# percentuale numeri positivi}
-\CommentTok{## [1] 0.46}
+\CommentTok{## [1] 0.58}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3421,9 +3421,25 @@ Utilizzando le funzioni \texttt{sum()} e \texttt{mean()} con un vettore logico, 
 Esistono due famiglie di funzioni che permettono rispettivamene di testare e di modificare la tipologia dei dati.
 
 \hypertarget{is.-family}{%
-\subsubsection{is.* Family}\label{is.-family}}
+\subsubsection*{is.* Family}\label{is.-family}}
+\addcontentsline{toc}{subsubsection}{is.* Family}
 
 Per testare se un certo valore (o un vettore di valori) appartiene ad una specifica tipologia di dati, possimao utilizzare una tra le seguenti funzioni:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{is.vector()} - valuta se un oggetto è un generico vettore di qualsiasi tipo
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{is.vector}\NormalTok{(}\StringTok{"2021"}\NormalTok{)   }\CommentTok{# TRUE}
+\KeywordTok{is.vector}\NormalTok{(}\DecValTok{2021}\NormalTok{)     }\CommentTok{# TRUE}
+\KeywordTok{is.vector}\NormalTok{(2021L)    }\CommentTok{# TRUE}
+\KeywordTok{is.vector}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)     }\CommentTok{# TRUE}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{itemize}
 \tightlist
@@ -3433,14 +3449,10 @@ Per testare se un certo valore (o un vettore di valori) appartiene ad una specif
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{is.character}\NormalTok{(}\StringTok{"2021"}\NormalTok{)}
-\CommentTok{## [1] TRUE}
-\KeywordTok{is.character}\NormalTok{(}\DecValTok{2021}\NormalTok{)}
-\CommentTok{## [1] FALSE}
-\KeywordTok{is.character}\NormalTok{(2021L)}
-\CommentTok{## [1] FALSE}
-\KeywordTok{is.character}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
-\CommentTok{## [1] FALSE}
+\KeywordTok{is.character}\NormalTok{(}\StringTok{"2021"}\NormalTok{) }\CommentTok{# TRUE}
+\KeywordTok{is.character}\NormalTok{(}\DecValTok{2021}\NormalTok{)   }\CommentTok{# FALSE}
+\KeywordTok{is.character}\NormalTok{(2021L)  }\CommentTok{# FALSE}
+\KeywordTok{is.character}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)   }\CommentTok{# FALSE}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3452,14 +3464,10 @@ Per testare se un certo valore (o un vettore di valori) appartiene ad una specif
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{is.numeric}\NormalTok{(}\StringTok{"2021"}\NormalTok{)}
-\CommentTok{## [1] FALSE}
-\KeywordTok{is.numeric}\NormalTok{(}\DecValTok{2021}\NormalTok{)}
-\CommentTok{## [1] TRUE}
-\KeywordTok{is.numeric}\NormalTok{(2021L)}
-\CommentTok{## [1] TRUE}
-\KeywordTok{is.numeric}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
-\CommentTok{## [1] FALSE}
+\KeywordTok{is.numeric}\NormalTok{(}\StringTok{"2021"}\NormalTok{)   }\CommentTok{# FALSE}
+\KeywordTok{is.numeric}\NormalTok{(}\DecValTok{2021}\NormalTok{)     }\CommentTok{# TRUE}
+\KeywordTok{is.numeric}\NormalTok{(2021L)    }\CommentTok{# TRUE}
+\KeywordTok{is.numeric}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)     }\CommentTok{# FALSE}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3471,14 +3479,10 @@ Per testare se un certo valore (o un vettore di valori) appartiene ad una specif
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{is.double}\NormalTok{(}\StringTok{"2021"}\NormalTok{)}
-\CommentTok{## [1] FALSE}
-\KeywordTok{is.double}\NormalTok{(}\DecValTok{2021}\NormalTok{)}
-\CommentTok{## [1] TRUE}
-\KeywordTok{is.double}\NormalTok{(2021L)}
-\CommentTok{## [1] FALSE}
-\KeywordTok{is.double}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
-\CommentTok{## [1] FALSE}
+\KeywordTok{is.double}\NormalTok{(}\StringTok{"2021"}\NormalTok{)    }\CommentTok{# FALSE}
+\KeywordTok{is.double}\NormalTok{(}\DecValTok{2021}\NormalTok{)      }\CommentTok{# TRUE}
+\KeywordTok{is.double}\NormalTok{(2021L)     }\CommentTok{# FALSE}
+\KeywordTok{is.double}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)      }\CommentTok{# FALSE}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3490,14 +3494,10 @@ Per testare se un certo valore (o un vettore di valori) appartiene ad una specif
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{is.integer}\NormalTok{(}\StringTok{"2021"}\NormalTok{)}
-\CommentTok{## [1] FALSE}
-\KeywordTok{is.integer}\NormalTok{(}\DecValTok{2021}\NormalTok{)}
-\CommentTok{## [1] FALSE}
-\KeywordTok{is.integer}\NormalTok{(2021L)}
-\CommentTok{## [1] TRUE}
-\KeywordTok{is.integer}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
-\CommentTok{## [1] FALSE}
+\KeywordTok{is.integer}\NormalTok{(}\StringTok{"2021"}\NormalTok{)   }\CommentTok{# FALSE}
+\KeywordTok{is.integer}\NormalTok{(}\DecValTok{2021}\NormalTok{)     }\CommentTok{# FALSE}
+\KeywordTok{is.integer}\NormalTok{(2021L)    }\CommentTok{# TRUE}
+\KeywordTok{is.integer}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)     }\CommentTok{# FALSE}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3509,19 +3509,16 @@ Per testare se un certo valore (o un vettore di valori) appartiene ad una specif
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{is.logical}\NormalTok{(}\StringTok{"2021"}\NormalTok{)}
-\CommentTok{## [1] FALSE}
-\KeywordTok{is.logical}\NormalTok{(}\DecValTok{2021}\NormalTok{)}
-\CommentTok{## [1] FALSE}
-\KeywordTok{is.logical}\NormalTok{(2021L)}
-\CommentTok{## [1] FALSE}
-\KeywordTok{is.logical}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
-\CommentTok{## [1] TRUE}
+\KeywordTok{is.logical}\NormalTok{(}\StringTok{"2021"}\NormalTok{)   }\CommentTok{# FALSE}
+\KeywordTok{is.logical}\NormalTok{(}\DecValTok{2021}\NormalTok{)     }\CommentTok{# FALSE}
+\KeywordTok{is.logical}\NormalTok{(2021L)    }\CommentTok{# FALSE}
+\KeywordTok{is.logical}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)     }\CommentTok{# TRUE}
 \end{Highlighting}
 \end{Shaded}
 
 \hypertarget{as.-family}{%
-\subsubsection{as.* Family}\label{as.-family}}
+\subsubsection*{as.* Family}\label{as.-family}}
+\addcontentsline{toc}{subsubsection}{as.* Family}
 
 Per modificare la tipologia di un certo valore (o un vettore di valori), possimao utilizzare una tra le seguenti funzioni:
 
@@ -3620,7 +3617,339 @@ Per modificare la tipologia di un certo valore (o un vettore di valori), possima
 \hypertarget{valori-speciali}{%
 \subsection{Valori speciali}\label{valori-speciali}}
 
-Vediamo infine alcuni valori speciali che incontreremo spesso e che richiedono particolari accorgimenti: \texttt{NULL}, \texttt{NA}, \texttt{NaN}, \texttt{Inf}.
+Vediamo infine alcuni valori speciali utilizzatti in R con dei particolari significati e che richiedono specifici accorgimenti quando vengono manipolati:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{NULL}- rappresenta l'oggetto nullo, ovvero l'assenza di un oggetto. Spesso viene restituito dalle funzioni quano il loro output è indefinito.
+\item
+  \texttt{NA} - rappresenta un dato mancate (\emph{Not Available}). E' un valore costante di lunghezza 1 che può essere utlizzato per qualsiasi tipologia di dati.
+\item
+  \texttt{NaN} - indica un risulato matematico che non può essere rappresentato come un valore numerico (\emph{Not A Number}). E' un valore costante di lunghezza 1 che può essere utlizzato come valore numerico (non intero).
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{0}\OperatorTok{/}\DecValTok{0}
+\CommentTok{## [1] NaN}
+\KeywordTok{sqrt}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{)}
+\CommentTok{## Warning in sqrt(-1): NaNs produced}
+\CommentTok{## [1] NaN}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Inf} (o \texttt{-Inf}) - indica un risultato matematico inifinito (o infinito negativo). E' anche utilizzato per rappresentare numeri estremamente grandi.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pi}\OperatorTok{^}\DecValTok{650}
+\CommentTok{## [1] Inf}
+
+\OperatorTok{-}\NormalTok{pi}\OperatorTok{/}\DecValTok{0}
+\CommentTok{## [1] -Inf}
+\end{Highlighting}
+\end{Shaded}
+
+E' importante essere consapevoli delle caratteristiche di questi valori poichè presentano dei comportamenti peculiari che, se non corretamente gestiti, possono generare conseguenti errori nei codici. Descriviamo ora alcune delle carateristiche più importanti.
+
+\hypertarget{lunghezza-elementi}{%
+\subsubsection*{Lunghezza Elementi}\label{lunghezza-elementi}}
+\addcontentsline{toc}{subsubsection}{Lunghezza Elementi}
+
+Notiamo innanzitutto come mentre \texttt{NULL} sia effettivamente un oggetto nullo, ovvero privo di dimensione, \texttt{NA} sia uno speciale valore che rappresenta la presenza di un dato mancate. Pertanto \texttt{NA}, a differenza di \texttt{NULL}, è effettivamente un valore di lunghezza 1.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Il valore NULL è un oggetto nullo}
+\NormalTok{values_NULL <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\OtherTok{NULL}\NormalTok{)}
+\KeywordTok{length}\NormalTok{(values_NULL)}
+\CommentTok{## [1] 5}
+\NormalTok{values_NULL }\CommentTok{# NULL non è presente}
+\CommentTok{## [1] 1 2 3 4 5}
+
+\CommentTok{# Il valore NA è un oggetto che testimonia un'assenza}
+\NormalTok{values_NA <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\OtherTok{NA}\NormalTok{)}
+\KeywordTok{length}\NormalTok{(values_NA)}
+\CommentTok{## [1] 6}
+\NormalTok{values_NA   }\CommentTok{# NA è presente}
+\CommentTok{## [1]  1  2  3  4  5 NA}
+\end{Highlighting}
+\end{Shaded}
+
+Allo stesso modo, anche i valori \texttt{NaN} e \texttt{Inf} sono effettivamente dei valori di lunghezza 1 usati per testimoniare speciali risultati numerici.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{length}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\OtherTok{NaN}\NormalTok{))}
+\CommentTok{## [1] 6}
+\KeywordTok{length}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\OtherTok{Inf}\NormalTok{))}
+\CommentTok{## [1] 6}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{propagazione-valori}{%
+\subsubsection*{Propagazione Valori}\label{propagazione-valori}}
+\addcontentsline{toc}{subsubsection}{Propagazione Valori}
+
+Altra importante caratteristica è quella che viene definita \emph{propagazione} dei valori ovvero le operazioni che includono questi speciali valori resituiscono a loro volta lo stesso speciale. Ciò significa che questi valori si propagheranno di risultato in risultato all'interno del nostro codice se non opportunamente gestiti.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{NULL}- osserviamo come se il valore \texttt{NULL} viene utilizzato in una qualsiasi operazione matematica il risultato sarà un vettore numerico vuoto di dimensione 0, il quale può essere interpretato in modo simile (seppur non identico) al valore \texttt{NULL}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res_NULL <-}\StringTok{ }\OtherTok{NULL} \OperatorTok{*}\StringTok{ }\DecValTok{3}
+\KeywordTok{length}\NormalTok{(res_NULL)}
+\CommentTok{## [1] 0}
+\NormalTok{res_NULL}
+\CommentTok{## numeric(0)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{NA} - quando \texttt{NA} viene utilizzato in una qualsiasi operazione matematica il risultato sarà nuovamene un \texttt{NA}.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OtherTok{NA} \OperatorTok{*}\StringTok{ }\DecValTok{3}
+\CommentTok{## [1] NA}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{NaN} - quando \texttt{NaN} viene utilizzato in una qualsiasi operazione matematica il risultato sarà nuovamene un \texttt{NaN}.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OtherTok{NaN} \OperatorTok{*}\StringTok{ }\DecValTok{3}
+\CommentTok{## [1] NaN}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Inf} (o \texttt{-Inf}) - qualora \texttt{Inf} (o \texttt{-Inf}) siano utilizzati in un'operazione matematica il risultato seguirà le comuni regole delle operazioni tra infiti.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OtherTok{Inf} \OperatorTok{-}\StringTok{ }\DecValTok{3}
+\CommentTok{## [1] Inf}
+
+\OtherTok{Inf} \OperatorTok{*}\StringTok{ }\DecValTok{-3}
+\CommentTok{## [1] -Inf}
+
+\OtherTok{Inf} \OperatorTok{+}\StringTok{ }\OtherTok{Inf}
+\CommentTok{## [1] Inf}
+
+\OtherTok{Inf} \OperatorTok{+}\StringTok{ }\OperatorTok{-}\OtherTok{Inf}
+\CommentTok{## [1] NaN}
+
+\OtherTok{Inf} \OperatorTok{*}\StringTok{ }\OperatorTok{-}\OtherTok{Inf}
+\CommentTok{## [1] -Inf}
+
+\OtherTok{Inf} \OperatorTok{/}\StringTok{ }\OtherTok{Inf}
+\CommentTok{## [1] NaN}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{testare-valori}{%
+\subsubsection*{Testare Valori}\label{testare-valori}}
+\addcontentsline{toc}{subsubsection}{Testare Valori}
+
+E' importante ricordare come per testare l apresenza di uno di questi valori speciali siano presenti delle funzioni specifiche della famiglia \texttt{is.*}. Non deve mai essere utlizzato il comune operatore di uguaglianza \texttt{==} poichè non fornisce i risultai corretti.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{is.null}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OtherTok{NULL} \OperatorTok{==}\StringTok{ }\OtherTok{NULL}     \CommentTok{# logical(0)}
+\KeywordTok{is.null}\NormalTok{(}\OtherTok{NULL}\NormalTok{)    }\CommentTok{# TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{is.na}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OtherTok{NA} \OperatorTok{==}\StringTok{ }\OtherTok{NA}    \CommentTok{# NA}
+\KeywordTok{is.na}\NormalTok{(}\OtherTok{NA}\NormalTok{)   }\CommentTok{# TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{is.nan}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OtherTok{NaN} \OperatorTok{==}\StringTok{ }\OtherTok{NaN}  \CommentTok{# NA}
+\KeywordTok{is.nan}\NormalTok{(}\OtherTok{NaN}\NormalTok{) }\CommentTok{# TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Inf}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OtherTok{Inf} \OperatorTok{==}\StringTok{ }\OtherTok{Inf}       \CommentTok{# TRUE considero anche il segno}
+\KeywordTok{is.infinite}\NormalTok{(}\OtherTok{Inf}\NormalTok{) }\CommentTok{# TRUE sia per Inf che -Inf}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{operatori-logici-1}{%
+\subsubsection*{Operatori Logici}\label{operatori-logici-1}}
+\addcontentsline{toc}{subsubsection}{Operatori Logici}
+
+Un particolare comportamento riguarda i risultati ottenute con gli operatori logici dove la \emph{propagazione} del valore non segue sempre le attese. Osserviamo i diversi casi:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{NULL}- ottenimo come da attese un vettore logico vuoto di dimensione 0
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\OtherTok{NULL}  \CommentTok{# logical(0)}
+\OtherTok{TRUE} \OperatorTok{|}\StringTok{ }\OtherTok{NULL}  \CommentTok{# logical(0)}
+
+\OtherTok{FALSE} \OperatorTok{&}\StringTok{ }\OtherTok{NULL} \CommentTok{# logical(0)}
+\OtherTok{FALSE} \OperatorTok{|}\StringTok{ }\OtherTok{NULL} \CommentTok{# logical(0)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{NA} - non otteniamo come da attese sempre il valore \texttt{NA} ma in alcune condizioni la proposizione sara \texttt{TRUE} o \texttt{FALSE}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\OtherTok{NA}  \CommentTok{# NA}
+\OtherTok{TRUE} \OperatorTok{|}\StringTok{ }\OtherTok{NA}  \CommentTok{# TRUE}
+
+\OtherTok{FALSE} \OperatorTok{&}\StringTok{ }\OtherTok{NA} \CommentTok{# FALSE}
+\OtherTok{FALSE} \OperatorTok{|}\StringTok{ }\OtherTok{NA} \CommentTok{# NA}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{NaN} - otteniamo gli stessi risultati del caso precedente utilizzando il valore \texttt{NA}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\OtherTok{NaN}  \CommentTok{# NA}
+\OtherTok{TRUE} \OperatorTok{|}\StringTok{ }\OtherTok{NaN}  \CommentTok{# TRUE}
+
+\OtherTok{FALSE} \OperatorTok{&}\StringTok{ }\OtherTok{NaN} \CommentTok{# FALSE}
+\OtherTok{FALSE} \OperatorTok{|}\StringTok{ }\OtherTok{NaN} \CommentTok{# NA}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Inf} - essendo un valore numerico diverso da zero otteniamo i rissultati secondo le attese
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OtherTok{TRUE} \OperatorTok{&}\StringTok{ }\OtherTok{Inf}  \CommentTok{# TRUE}
+\OtherTok{TRUE} \OperatorTok{|}\StringTok{ }\OtherTok{Inf}  \CommentTok{# TRUE}
+
+\OtherTok{FALSE} \OperatorTok{&}\StringTok{ }\OtherTok{Inf} \CommentTok{# FALSE}
+\OtherTok{FALSE} \OperatorTok{|}\StringTok{ }\OtherTok{Inf} \CommentTok{# TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tip}[A Logical Solution]
+
+Un comportamento tanto strano per quanto riguarda l'utilizzo del valore \texttt{NA} con gli operatori logici può essere spiegato dal fatto che il valore \texttt{NA} in realtà sia un valore logico che indica la mancanza di una risposta.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{is.logical}\NormalTok{(}\OtherTok{NA}\NormalTok{)}
+\CommentTok{## [1] TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+Pertanto le proposizioni vengono correttamente seguendo le comuni regole. Nel caso di \texttt{TRUE\ \textbar{}\ NA} la proposizione è giudicata \texttt{TRUE} perchè con l'operatore di disgiunzione è sufficiente che una delle due parti sia vera avvinchè la proposizione sia vera. Nel caso di \texttt{FALSE\ \&\ NA}, invece, la proposizione è giudicata \texttt{FALSE} perchè con l'operatore di congiunzione è sufficiente che una delle due parti sia falsa avvinchè la proposizione sia falsa. LA non risposta indicata da \texttt{NA} i questi casi è ininfluente, mentre determina il risultato nei restanti casi quando la seconda parte della proposizione deve essere necessariamente valutata. A questo punto gli operatori restituiscono \texttt{NA} poichè incapaci di determinare la risposta.
+
+Per quanto riguarda il caso del valore \texttt{NaN} è sufficinete ricordare che tale valore sia comunque un valore numerico di cui però non è possibile identificare il valore.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{is.numeric}\NormalTok{(}\OtherTok{NaN}\NormalTok{)}
+\CommentTok{## [1] TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+Tutti i valori numerici sono considerati validi nelle operazioni logiche, dove qualsiais numero diveros da zero è valutato \texttt{TRUE}. Pertanto viene seguito lo stesso ragionamento precedente, quando non è necessario valutare entrambe le parti della proposizione viene fornita una risposta, mentre si ottiene \texttt{NA} negli altri casi quando R è obbligato a valutare entrambe la parti ma è incapace di fornire una risspossta poichè non può determinare il valore di \texttt{NaN}.
+
+\end{tip}
+
+\begin{design}[L'importanza dei Dati Mancanti]
+
+Lavorare in presenza di dati mancanti accadrà nella maggior parte dei casi. Molte delle funzioni presenti in R hanno già delle opzioni per rimuovere automaticamete eventuali dati mancanti così da poter ottenre correttamete i risultati.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_sample <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{8}\NormalTok{, }\OtherTok{NA}\NormalTok{)}
+\KeywordTok{mean}\NormalTok{(my_sample)}
+\CommentTok{## [1] NA}
+\KeywordTok{mean}\NormalTok{(my_sample, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\CommentTok{## [1] 5}
+\end{Highlighting}
+\end{Shaded}
+
+Tuttavia, è importante non avvalersi in modo automatico di tali opzioni ma avere cura di valutare attentamente la presenza di dati mancanti. Questo ci permetterà di indagare possibili pattern riguardanti i dati mancanti e valutare la loro possibile influenza sui nostri risultati e la validità elle conclusioni.
+
+Inoltre sarà fondamentale controllare sempre l'effittiva dimensione del campione utilizzato nelle vari analisi. Ad esempio se non valutato attentamente potremmo non ottenere il numero effettivo di valori su cui è stata calcolata precedentemente la media.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{length}\NormalTok{(my_sample)    }\CommentTok{# NA incluso}
+\CommentTok{## [1] 5}
+\KeywordTok{length}\NormalTok{(my_sample[}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(my_sample)]) }\CommentTok{# NA escluso}
+\CommentTok{## [1] 4}
+\end{Highlighting}
+\end{Shaded}
+
+\end{design}
 
 \hypertarget{factors}{%
 \chapter{Fattori}\label{factors}}
@@ -4415,25 +4744,25 @@ La struttura di base di un dataframe è quindi la stessa di una matrice ma conti
 \hline
 colonna1 & colonna2 & colonna3 & colonna4 & colonna5 & colonna6\\
 \hline
--0.43 & -1.43 & 0.39 & 2.00 & -0.05 & a\\
+1.13 & -1.01 & 0.77 & -1.27 & 0.11 & a\\
 \hline
--0.64 & 0.18 & 2.28 & 0.01 & 0.71 & b\\
+-0.05 & -1.63 & -0.17 & 0.48 & 0.87 & b\\
 \hline
--0.44 & 2.31 & 0.53 & 0.75 & 0.18 & c\\
+1.12 & 1.21 & 0.62 & -0.41 & 1.09 & c\\
 \hline
-1.06 & -0.09 & 0.26 & -0.25 & -0.31 & d\\
+-0.47 & -0.20 & -1.16 & 2.10 & 0.96 & d\\
 \hline
--0.05 & -0.17 & 1.23 & -0.68 & -0.94 & e\\
+0.49 & -0.56 & 1.15 & 0.16 & -1.44 & e\\
 \hline
-1.02 & -0.81 & 0.37 & 0.60 & -0.50 & f\\
+1.43 & -0.97 & 1.11 & 0.11 & -0.34 & f\\
 \hline
-0.92 & -0.45 & 1.07 & -0.88 & -0.22 & g\\
+0.21 & -0.10 & 1.29 & 0.87 & -1.37 & g\\
 \hline
--0.49 & -0.12 & -1.25 & 1.86 & 1.50 & h\\
+-0.46 & 0.39 & 0.30 & 0.14 & 1.06 & h\\
 \hline
--0.81 & 0.69 & 0.17 & -1.10 & -1.77 & i\\
+0.07 & -0.80 & -1.87 & 1.22 & -0.76 & i\\
 \hline
-1.39 & -0.21 & 0.25 & 1.80 & -0.03 & j\\
+-1.12 & 0.62 & -1.70 & -0.29 & -0.71 & j\\
 \hline
 \end{tabular}
 \end{table}
