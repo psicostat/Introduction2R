@@ -28,7 +28,9 @@
 \definecolor{trick-text}{HTML}{8c3031}
 \definecolor{trick-line}{HTML}{A3595A}
 
+\tcbuselibrary{breakable}
 \newtcolorbox{mybox}[1][black]{
+  breakable,
   colback=background,
   coltext=black,
   colframe=#1,
