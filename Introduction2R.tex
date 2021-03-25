@@ -137,7 +137,9 @@
 \definecolor{trick-text}{HTML}{8c3031}
 \definecolor{trick-line}{HTML}{A3595A}
 
+\tcbuselibrary{breakable}
 \newtcolorbox{mybox}[1][black]{
+  breakable,
   colback=background,
   coltext=black,
   colframe=#1,
@@ -226,7 +228,7 @@
 \makeatother
 \subtitle{Corso per imparare le basi di \textbf{R}}
 \author{\href{https://claudiozandonella.netlify.app/}{Claudio Zandonella Callegher} and \href{https://filippogambarota.netlify.app/}{Filippo Gambarota} members of \href{https://psicostat.dpss.psy.unipd.it/}{Psicostat}}
-\date{24-03-2021}
+\date{25-03-2021}
 
 \begin{document}
 \maketitle
@@ -1305,7 +1307,7 @@ In R abbiamo 4 principali tipologie di dati, ovvero tipologie di valori che poss
 \item
   \texttt{character} - \emph{Stringhe di caratteri} i cui valori alfannumerici vengono delimitati dalle doppie vigolette \texttt{"Hello\ world!"} o virgolette singole \texttt{\textquotesingle{}Hello\ world!\textquotesingle{}}.
 \item
-  \texttt{double} - \emph{Valori numerici} con o senza cifre decimali ad esempio \texttt{27} o \texttt{93.46}.
+  \texttt{double} - \emph{Valori reali} con o senza cifre decimali ad esempio \texttt{27} o \texttt{93.46}.
 \item
   \texttt{integer} - \emph{Valori interi} definiti apponendo la lettera \texttt{L} al numero desiderato, ad esempio \texttt{58L}.
 \item
@@ -3138,7 +3140,7 @@ Qualora i vettori differiscano per la loro lunghezza, R ci presenterà un warnin
 \end{Highlighting}
 \end{Shaded}
 
-Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche multipli) dovrebbe essere evitato perchè facile causa di errori e incomprensioni.
+Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche se multipli) dovrebbe essere evitato perchè facile causa di errori ed incomprensioni.
 
 \end{warning}
 
@@ -3195,87 +3197,430 @@ Nota come questo sia valido anche per gli \textbf{operatori relazionali e logici
 \hypertarget{data-type}{%
 \section{Data Type}\label{data-type}}
 
-Working in progress.
+Abbiamo visto come sia necessario che in un vettore tutti gli elementi siano della stessa tipologia. Avremmo quindi diversi tipi di vettori a seconda della tiopologia di dati che contengono.
 
-Abbimao visto chè un'importante condizione dei vettori è che tutti gli elementi siano dello stesso tipo. Abbiamogià incontrato e osservato la differenza tra valori numerici e caratteri ma approfondiamo i diversi tipi e i relativi vatttori, relazioni tra tipologie di dati
+In R abbiamo 4 principali tipologie di dati, ovvero tipologie di valori che possono essere utilizzati:
 
-Tipi di vettori
+\begin{itemize}
+\tightlist
+\item
+  \texttt{character} - \emph{Stringhe di caratteri} i cui valori alfannumerici vengono delimitati dalle doppie vigolette \texttt{"Hello\ world!"} o virgolette singole \texttt{\textquotesingle{}Hello\ world!\textquotesingle{}}.
+\item
+  \texttt{double} - \emph{Valori reali} con o senza cifre decimali ad esempio \texttt{27} o \texttt{93.46}.
+\item
+  \texttt{integer} - \emph{Valori interi} definiti apponendo la lettera \texttt{L} al numero desiderato, ad esempio \texttt{58L}.
+\item
+  \texttt{logical} - \emph{Valori logici} \texttt{TRUE} e \texttt{FALSE} usati nelle operazioni logiche.
+\end{itemize}
 
-In R ci sono 4 tipi differenti di vettori: numerici, logici, caratteri e fattori.
-
-\hypertarget{vettori-numerici}{%
-\subsection{Vettori Numerici}\label{vettori-numerici}}
-
-I vettori numerici sono utilizzati per compiere operazioni aritmetiche, in R sono indicati come \texttt{num}. In R ci sono è possibil e specificare se i numeri contenuti nel vettore sono numeri interi, avremmo quindi un vettore di valori interi (indicato in R come \texttt{int}). Per fare ciò è possibile aggiungere \texttt{L} ad ogni valore numerico nel definire il vettore oppure usare la funzione \texttt{as.integer()} per trasformare un vettore numerico in un vettore intero.
-
-\textbf{Esempio:}
+Possiamo verificare la tipologia di un valore utlizzando la funzione \texttt{typeof()}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(4L, 6L, 12L, 34L, 8L)}
+\KeywordTok{typeof}\NormalTok{(}\StringTok{"foo"}\NormalTok{) }
+\CommentTok{## [1] "character"}
 
-\NormalTok{x <-}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{34}\NormalTok{, }\DecValTok{8}\NormalTok{))}
+\KeywordTok{typeof}\NormalTok{(}\DecValTok{2021}\NormalTok{)}
+\CommentTok{## [1] "double"}
+
+\KeywordTok{typeof}\NormalTok{(2021L) }\CommentTok{# nota la lettera L}
+\CommentTok{## [1] "integer"}
+
+\KeywordTok{typeof}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{## [1] "logical"}
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Nota}: per trasformare un vettore intero in un vettore numerico è possibile usare la funzione \texttt{as.numeric()}.
+Esistono molte altre tipologie di dati tra cui \texttt{complex} (per rappresentare i numeri complessi del tipo \(x + yi\)) e \texttt{Raw} (usati per rappresenttare i valori come bytes) che però riguardano usi poco comuni o comunque molto avanzati di R e pertanto non verranno trattati.
 
-\hypertarget{vettori-logici}{%
-\subsection{Vettori logici}\label{vettori-logici}}
+\begin{design}[Tutta una Questione di Bit]
 
-I vettori logici sono formati dai volori \texttt{TRUE} e \texttt{FALSE}, che possono essere abbreviati rispettivamente in \texttt{T} e \texttt{F}. In R i vettori logici sono indicati come \texttt{logi}. In genere, i vettori logici sono il risultato delle operazioni in cui viene chiesto ad R di valutare la condizione logica di una proposizione.
+Questa distinzione tra le varie tipologie di dati deriva dalla modalità con cui il computer rappresenta internamente i diversi valori. Sappiamo infatti che il computer non possiede caratteri ma solamente bits, ovvero successioni di 0 e 1 ad esempio 01000011.
+
+Senza scendere nel dettaglio, per ottimizzare l'uso della memoria i diversi valori vengono \emph{``mappati''} utilizzando i bits in modo differente a seconda delle tipologie di dati. Pertanto in R il valore \texttt{24} sarà rappresentato diversamente a seconda che sia definitio come una stringa di caratteri (\texttt{"24"}), un numero intero (\texttt{24L}) o un numero double (\texttt{24}).
+
+\hypertarget{integer-vs-double}{%
+\subsubsection*{Integer vs Double}\label{integer-vs-double}}
+\addcontentsline{toc}{subsubsection}{Integer vs Double}
+
+In particolare un aspetto poco intuitivo riguarda la differenza tra valori \texttt{double} e \texttt{integer}. Mentre i valori interi possono essere rappresentati con precisione dal computer, non tutti i valori reali posssono essere rappresentati esattamente utilizzando il numero massimo di 64 bit. In questi casi i loro valori vengonno quindi approsimati e, sebbene questo venga fatto con molta precisione, a volte potrebbe portare a dei risultati inaspettati. Nota infatti come nell'esempio seguente non otteniamo zero, ma osserviamo un piccolo errore dovuto all'approsimazione dei valori \texttt{double}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{x}\OperatorTok{>}\DecValTok{10}
-\CommentTok{## [1] FALSE FALSE  TRUE  TRUE FALSE}
+\NormalTok{my_value <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(}\DecValTok{2}\NormalTok{)}\OperatorTok{^}\DecValTok{2} \CommentTok{# dovrei ottenere 2}
+\NormalTok{my_value }\OperatorTok{-}\StringTok{ }\DecValTok{2}          \CommentTok{# dovrei ottenre 0}
+\CommentTok{## [1] 4.440892e-16}
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Nota:} in R, come in molti altri software di programmazione, \texttt{TRUE} assume il valore numerico \texttt{1} e \texttt{FALSE} assume il valore \texttt{0}.
+E' importante tenere a mente questo problema nei test di ugualianza dove l'utilizzo dell'operatore \texttt{==} potrebbe generare delle risposte inaspettate. In genere viene quindi preferita la funzione \texttt{all.equal()} che prevede un certo margine di tolleranza (vedi \texttt{?all.equal()} per ulteriori dettagli).
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{sum}\NormalTok{(x}\OperatorTok{>}\DecValTok{10}\NormalTok{)}
-\CommentTok{## [1] 2}
+\NormalTok{my_value }\OperatorTok{==}\StringTok{ }\DecValTok{2}          \CommentTok{# Problema di approsimazione }
+\CommentTok{## [1] FALSE}
+\KeywordTok{all.equal}\NormalTok{(my_value, }\DecValTok{2}\NormalTok{) }\CommentTok{# Test con tolleranza}
+\CommentTok{## [1] TRUE}
 \end{Highlighting}
 \end{Shaded}
 
-E' possibile trasformare un vettore numerico in un vettor logico attraverso la funzione \texttt{as.logical()}, gli \texttt{0} assumeranno il valore \texttt{FALSE} mentre qualsiasi altro numero assumerà il valore \texttt{TRUE}.
+Ricorda infine che i computer hanno un limite rispetto al massimo valore e minimo valore che possono rappresentare sia per quanto riguarda i valori interi che i valori reali. Per approfondire vedi \url{https://stat.ethz.ch/pipermail/r-help/2012-January/300250.html}.
+
+\end{design}
+
+Vediamo ora i diversi tipi di vettori a seconda della tipologia di dati utilizzati.
+
+\hypertarget{character}{%
+\subsection{Character}\label{character}}
+
+I vettori formati da stringhe di caratteri sono definiti vettori di caratteri. Per valutare la tipologia di un oggetto possiamo utilizzare la funzione \texttt{class()}, mentre ricordiamo che la funzionne \texttt{typeof()} valuta la tipologia di dati. In questo caso otteniamo per entrambi il valore \texttt{character}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{as.logical}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,.}\DecValTok{034}\NormalTok{,}\OperatorTok{-}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{8}\NormalTok{))}
-\CommentTok{## [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE}
+\NormalTok{my_words<-}\KeywordTok{c}\NormalTok{(}\StringTok{"Foo"}\NormalTok{,}\StringTok{"Bar"}\NormalTok{,}\StringTok{"foo"}\NormalTok{,}\StringTok{"bar"}\NormalTok{)}
+
+\KeywordTok{class}\NormalTok{(my_words) }\CommentTok{# tipologia oggetto}
+\CommentTok{## [1] "character"}
+
+\KeywordTok{class}\NormalTok{(my_words) }\CommentTok{# tipologia dati}
+\CommentTok{## [1] "character"}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{vettori-di-caratteri}{%
-\subsection{Vettori di caratteri}\label{vettori-di-caratteri}}
-
-I vettori di caratteri contengono stringhe di caratteri e sono indicati in R con `chr\}. Non è possibile eseguire operazioni aritmetiche con vettori di caratteri ma solo valutare se due stringhe sono uguali o differenti.
+Non è possibile eseguire operazioni aritmetiche con vettori di caratteri ma solo valutare relazioni di uguaglianza o disuguaglianza ripetto ad un'altra stringa.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{j<-}\KeywordTok{c}\NormalTok{(}\StringTok{"Hello"}\NormalTok{,}\StringTok{"World"}\NormalTok{,}\StringTok{"hello"}\NormalTok{,}\StringTok{"world"}\NormalTok{)}
-\NormalTok{j}\OperatorTok{==}\StringTok{"hello"}
+\NormalTok{my_words }\OperatorTok{+}\StringTok{ "foo"}
+\CommentTok{## Error in my_words + "foo": non-numeric argument to binary operator}
+
+\NormalTok{my_words }\OperatorTok{==}\StringTok{ "foo"}
 \CommentTok{## [1] FALSE FALSE  TRUE FALSE}
 \end{Highlighting}
 \end{Shaded}
 
-Per trasformare un vettore qualsiasi in una vettore di caratteri e possibile usare la funzione \texttt{as.character()}.
+\hypertarget{numeric}{%
+\subsection{Numeric}\label{numeric}}
+
+In R, se non altrimenti specificato, ogni valore numerico viene rappresentato come un \texttt{double} indipendentemente che abbia o meno valori decimali. I vettori formati da valori double sono definiti vettori numerici. In R la tipologia del vettore è indicata con \texttt{numeric} mentre i dati sono \texttt{double}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{as.character}\NormalTok{(x)}
-\CommentTok{## [1] "4"  "6"  "12" "34" "8"}
-\KeywordTok{as.character}\NormalTok{(x}\OperatorTok{>}\DecValTok{10}\NormalTok{)}
-\CommentTok{## [1] "FALSE" "FALSE" "TRUE"  "TRUE"  "FALSE"}
+\NormalTok{my_values <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{)}
+\KeywordTok{class}\NormalTok{(my_values)  }\CommentTok{# tipologia oggetto}
+\CommentTok{## [1] "numeric"}
+
+\KeywordTok{typeof}\NormalTok{(my_values) }\CommentTok{# tipologia dati}
+\CommentTok{## [1] "double"}
 \end{Highlighting}
 \end{Shaded}
 
-is. vecor
-\#\#\# Valori speciali
+I vettori numerici sono utilizzati per compiere qualsiasi tipo di operazioni matematiche o logico-relazionali.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_values }\OperatorTok{+}\StringTok{ }\DecValTok{10}
+\CommentTok{## [1] 11 12 13 14 15}
+
+\NormalTok{my_values }\OperatorTok{<=}\StringTok{ }\DecValTok{3}
+\CommentTok{## [1]  TRUE  TRUE  TRUE FALSE FALSE}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{integer}{%
+\subsection{Integer}\label{integer}}
+
+In R per specificare che un valore è un numero intero viene aggiunta la lettera \texttt{L} immediatamente dopo il numero. I vettori formati da valori interi sono definiti vettori di valori interi. In R la tipologia del vettore è indicata con \texttt{integer} allo stesso modo dei dati.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_integers <-}\StringTok{ }\KeywordTok{c}\NormalTok{(1L,2L,3L,4L,5L)}
+\KeywordTok{class}\NormalTok{(my_integers)  }\CommentTok{# tipologia oggetto}
+\CommentTok{## [1] "integer"}
+
+\KeywordTok{typeof}\NormalTok{(my_integers) }\CommentTok{# tipologia dati}
+\CommentTok{## [1] "integer"}
+\end{Highlighting}
+\end{Shaded}
+
+Come per i vettori numerici, i vettori di valori interi possono esssere utilizzati per compiere qualsiasi tipo di operazioni matematiche o logico-relazionali. Nota tuttavia che operazioni tra integer e doubles restituiranno dei doubles ed anche nel caso di operazioni tra integers il risultato potrebbe non essere un integer.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{is.integer}\NormalTok{(5L }\OperatorTok{*}\StringTok{ }\DecValTok{5}\NormalTok{)   }\CommentTok{# integer e double}
+\CommentTok{## [1] FALSE}
+
+\KeywordTok{is.integer}\NormalTok{(5L }\OperatorTok{*}\StringTok{ }\NormalTok{5L)  }\CommentTok{# integer e integer}
+\CommentTok{## [1] TRUE}
+
+\KeywordTok{is.integer}\NormalTok{(5L }\OperatorTok{/}\StringTok{ }\NormalTok{5L)  }\CommentTok{# integer e integer}
+\CommentTok{## [1] FALSE}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{logical}{%
+\subsection{Logical}\label{logical}}
+
+I vettori formati da valori logici (\texttt{TRUE} e \texttt{FALSE}) sono definiti vettori logici. In R la tipologia del vettore è indicata con \texttt{logical} allo stesso modo dei dati.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_logical <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{class}\NormalTok{(my_logical)  }\CommentTok{# tipologia oggetto}
+\CommentTok{## [1] "logical"}
+
+\KeywordTok{typeof}\NormalTok{(my_logical) }\CommentTok{# tipologia dati}
+\CommentTok{## [1] "logical"}
+\end{Highlighting}
+\end{Shaded}
+
+I vettori di valori logici possono esssere utilizzati con gli operatori logici.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_logical }\OperatorTok{&}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{## [1] FALSE FALSE  TRUE}
+
+\NormalTok{my_logical }\OperatorTok{&}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\CommentTok{## [1] FALSE FALSE  TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+Tuttavia ricordiamo che ai valori \texttt{TRUE} e \texttt{FALSE} sono associati rispettivamente i valori numerici 1 e 0 (o più precisamente i valori interi \texttt{1L} e \texttt{0L}). Pertanto è possibile eseguire anche operazioni matematiche dove verrano automaticamente considerati i rispettivi valori numerici. Ovviamente il risultato ottenuto sarà un valore numeirco e non logico.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OtherTok{TRUE} \OperatorTok{*}\StringTok{ }\DecValTok{10}
+\CommentTok{## [1] 10}
+
+\OtherTok{FALSE} \OperatorTok{*}\StringTok{ }\DecValTok{10}
+\CommentTok{## [1] 0}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{trick}[sum() e mean()]
+
+Utilizzando le funzioni \texttt{sum()} e \texttt{mean()} con un vettore logico, possiamo valutare riuspettivamente il numero totale e la percentuale di elementi che hanno rispettato una certa condizione logica.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_values <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{)  }\CommentTok{# genero dei numeri casuali }
+
+\KeywordTok{sum}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# totale numeri positivi}
+\CommentTok{## [1] 23}
+
+\KeywordTok{mean}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# percentuale numeri positivi}
+\CommentTok{## [1] 0.46}
+\end{Highlighting}
+\end{Shaded}
+
+\end{trick}
+
+\begin{design}[is.* adn as.* Function Families]
+
+Esistono due famiglie di funzioni che permettono rispettivamene di testare e di modificare la tipologia dei dati.
+
+\hypertarget{is.-family}{%
+\subsubsection{is.* Family}\label{is.-family}}
+
+Per testare se un certo valore (o un vettore di valori) appartiene ad una specifica tipologia di dati, possimao utilizzare una tra le seguenti funzioni:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{is.character()} - valuta se l'oggetto è una stringa
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{is.character}\NormalTok{(}\StringTok{"2021"}\NormalTok{)}
+\CommentTok{## [1] TRUE}
+\KeywordTok{is.character}\NormalTok{(}\DecValTok{2021}\NormalTok{)}
+\CommentTok{## [1] FALSE}
+\KeywordTok{is.character}\NormalTok{(2021L)}
+\CommentTok{## [1] FALSE}
+\KeywordTok{is.character}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{## [1] FALSE}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{is.numeric()} - valuta se l'oggetto è un valore numerico indipendentemente che sia un double o un integer
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{is.numeric}\NormalTok{(}\StringTok{"2021"}\NormalTok{)}
+\CommentTok{## [1] FALSE}
+\KeywordTok{is.numeric}\NormalTok{(}\DecValTok{2021}\NormalTok{)}
+\CommentTok{## [1] TRUE}
+\KeywordTok{is.numeric}\NormalTok{(2021L)}
+\CommentTok{## [1] TRUE}
+\KeywordTok{is.numeric}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{## [1] FALSE}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{is.double()} - valuta se l'oggetto è un valore \texttt{double}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{is.double}\NormalTok{(}\StringTok{"2021"}\NormalTok{)}
+\CommentTok{## [1] FALSE}
+\KeywordTok{is.double}\NormalTok{(}\DecValTok{2021}\NormalTok{)}
+\CommentTok{## [1] TRUE}
+\KeywordTok{is.double}\NormalTok{(2021L)}
+\CommentTok{## [1] FALSE}
+\KeywordTok{is.double}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{## [1] FALSE}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{is.integer()} - valuta se l'oggetto è un valore intero
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{is.integer}\NormalTok{(}\StringTok{"2021"}\NormalTok{)}
+\CommentTok{## [1] FALSE}
+\KeywordTok{is.integer}\NormalTok{(}\DecValTok{2021}\NormalTok{)}
+\CommentTok{## [1] FALSE}
+\KeywordTok{is.integer}\NormalTok{(2021L)}
+\CommentTok{## [1] TRUE}
+\KeywordTok{is.integer}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{## [1] FALSE}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{is.logical()} - valuta se l'oggetto è un valore logico
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{is.logical}\NormalTok{(}\StringTok{"2021"}\NormalTok{)}
+\CommentTok{## [1] FALSE}
+\KeywordTok{is.logical}\NormalTok{(}\DecValTok{2021}\NormalTok{)}
+\CommentTok{## [1] FALSE}
+\KeywordTok{is.logical}\NormalTok{(2021L)}
+\CommentTok{## [1] FALSE}
+\KeywordTok{is.logical}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{## [1] TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{as.-family}{%
+\subsubsection{as.* Family}\label{as.-family}}
+
+Per modificare la tipologia di un certo valore (o un vettore di valori), possimao utilizzare una tra le seguenti funzioni:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{as.character()} - trasforma l'oggetto in una stringa
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{as.character}\NormalTok{(}\DecValTok{2021}\NormalTok{)}
+\CommentTok{## [1] "2021"}
+\KeywordTok{as.character}\NormalTok{(2021L)}
+\CommentTok{## [1] "2021"}
+\KeywordTok{as.character}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{## [1] "TRUE"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{as.numeric()} - trasforma l'oggetto in un \texttt{double}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{as.numeric}\NormalTok{(}\StringTok{"foo"}\NormalTok{)  }\CommentTok{# Non valido con stringhe di caratteri}
+\CommentTok{## Warning: NAs introduced by coercion}
+\CommentTok{## [1] NA}
+\KeywordTok{as.numeric}\NormalTok{(}\StringTok{"2021"}\NormalTok{) }\CommentTok{# Valido per stinghe di cifre}
+\CommentTok{## [1] 2021}
+\KeywordTok{as.numeric}\NormalTok{(2021L)}
+\CommentTok{## [1] 2021}
+\KeywordTok{as.numeric}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{## [1] 1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{as.double()} - trasforma l'oggetto in un \texttt{double}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{as.double}\NormalTok{(}\StringTok{"2021"}\NormalTok{) }\CommentTok{# Valido per stinghe di cifre}
+\CommentTok{## [1] 2021}
+\KeywordTok{as.double}\NormalTok{(2021L)}
+\CommentTok{## [1] 2021}
+\KeywordTok{as.double}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{## [1] 1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{as.integer()} - trasforma l'oggetto in un \texttt{integer}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{as.integer}\NormalTok{(}\StringTok{"2021"}\NormalTok{) }\CommentTok{# Valido per stinghe di cifre}
+\CommentTok{## [1] 2021}
+\KeywordTok{as.integer}\NormalTok{(}\FloatTok{2021.6}\NormalTok{) }\CommentTok{# Tronca la parte decimale}
+\CommentTok{## [1] 2021}
+\KeywordTok{as.integer}\NormalTok{(}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{## [1] 1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{as.logical()} - trasforma un oggetto numerico in un valore logico qualsiasi valore diverso da 0 viene considerato \texttt{TRUE}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{as.logical}\NormalTok{(}\StringTok{"2021"}\NormalTok{) }\CommentTok{# Non valido per le stringhe}
+\CommentTok{## [1] NA}
+\KeywordTok{as.logical}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+\CommentTok{## [1] FALSE}
+\KeywordTok{as.logical}\NormalTok{(}\FloatTok{0.5}\NormalTok{)}
+\CommentTok{## [1] TRUE}
+\KeywordTok{as.logical}\NormalTok{(2021L)}
+\CommentTok{## [1] TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+\end{design}
+
+\hypertarget{valori-speciali}{%
+\subsection{Valori speciali}\label{valori-speciali}}
+
+Vediamo infine alcuni valori speciali che incontreremo spesso e che richiedono particolari accorgimenti: \texttt{NULL}, \texttt{NA}, \texttt{NaN}, \texttt{Inf}.
 
 \hypertarget{factors}{%
 \chapter{Fattori}\label{factors}}
@@ -4070,25 +4415,25 @@ La struttura di base di un dataframe è quindi la stessa di una matrice ma conti
 \hline
 colonna1 & colonna2 & colonna3 & colonna4 & colonna5 & colonna6\\
 \hline
--0.52 & -0.28 & 1.31 & 0.94 & -0.73 & a\\
+-0.43 & -1.43 & 0.39 & 2.00 & -0.05 & a\\
 \hline
-0.01 & -0.20 & -0.53 & -1.75 & 1.31 & b\\
+-0.64 & 0.18 & 2.28 & 0.01 & 0.71 & b\\
 \hline
-0.81 & 0.81 & 0.41 & 1.01 & 0.10 & c\\
+-0.44 & 2.31 & 0.53 & 0.75 & 0.18 & c\\
 \hline
-0.14 & 0.08 & -0.92 & -0.56 & -0.67 & d\\
+1.06 & -0.09 & 0.26 & -0.25 & -0.31 & d\\
 \hline
-0.44 & 2.55 & 1.24 & -0.67 & 0.98 & e\\
+-0.05 & -0.17 & 1.23 & -0.68 & -0.94 & e\\
 \hline
--0.82 & 1.03 & 0.07 & -0.72 & 1.05 & f\\
+1.02 & -0.81 & 0.37 & 0.60 & -0.50 & f\\
 \hline
--0.03 & 1.82 & 1.57 & 1.02 & -1.19 & g\\
+0.92 & -0.45 & 1.07 & -0.88 & -0.22 & g\\
 \hline
--0.90 & -0.54 & 1.94 & -1.26 & -0.16 & h\\
+-0.49 & -0.12 & -1.25 & 1.86 & 1.50 & h\\
 \hline
--0.40 & -0.83 & 0.52 & -0.35 & 0.04 & i\\
+-0.81 & 0.69 & 0.17 & -1.10 & -1.77 & i\\
 \hline
--0.80 & -0.82 & 1.81 & -1.00 & 1.81 & j\\
+1.39 & -0.21 & 0.25 & 1.80 & -0.03 & j\\
 \hline
 \end{tabular}
 \end{table}

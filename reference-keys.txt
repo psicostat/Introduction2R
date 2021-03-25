@@ -88,9 +88,11 @@ selezione-elementi
 utilizzi-avanzati-selezione
 funzioni-ed-operazioni
 data-type
-vettori-numerici
-vettori-logici
-vettori-di-caratteri
+character
+numeric
+integer
+logical
+valori-speciali
 factors
 matrix
 creazione-di-una-matrice

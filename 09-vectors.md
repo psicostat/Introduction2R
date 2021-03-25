@@ -455,7 +455,7 @@ x + c(1, 2)
 ## [1] 2 4 4 6 6
 ```
 
-Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche multipli) dovrebbe essere evitato perchè facile causa di errori e incomprensioni. 
+Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche se multipli) dovrebbe essere evitato perchè facile causa di errori ed incomprensioni. 
 :::
 
 :::{.design title="Vectorized Operations" data-latex="[Vectorized Operations]"}
@@ -494,75 +494,325 @@ my_values >= 4 & my_values <= 7
 
 ## Data Type {#data-type}
 
-Working in progress.
+Abbiamo visto come sia necessario che in un vettore tutti gli elementi siano della stessa tipologia. Avremmo quindi diversi tipi di vettori a seconda della tiopologia di dati che contengono.
 
-Abbimao visto chè un'importante condizione dei vettori è che tutti gli elementi siano dello stesso tipo. Abbiamogià incontrato e osservato la differenza tra valori numerici e caratteri ma approfondiamo i diversi tipi e i relativi vatttori, relazioni tra tipologie di dati
+In R abbiamo 4 principali tipologie di dati, ovvero tipologie di valori che possono essere utilizzati:
 
-Tipi di vettori
+- `character` - *Stringhe di caratteri* i cui valori alfannumerici vengono delimitati dalle doppie vigolette `"Hello world!"` o virgolette singole `'Hello world!'`.
+- `double` - *Valori reali* con o senza cifre decimali ad esempio `27` o `93.46`.
+- `integer` - *Valori interi* definiti apponendo la lettera `L` al numero desiderato, ad esempio `58L`.
+- `logical` - *Valori logici* `TRUE` e `FALSE` usati nelle operazioni logiche.
 
-In R ci sono 4 tipi differenti di vettori: numerici, logici, caratteri e fattori.
-
-### Vettori Numerici
-
-I vettori numerici sono utilizzati per compiere operazioni aritmetiche, in R sono indicati come `num`. In R ci sono è possibil e specificare se i numeri contenuti nel vettore sono numeri interi, avremmo quindi un vettore di valori interi (indicato in R come `int`). Per fare ciò è possibile aggiungere `L` ad ogni valore numerico nel definire il vettore oppure usare la funzione `as.integer()` per trasformare un vettore numerico in un vettore intero.
-
-**Esempio:**
-
+Possiamo verificare la tipologia di un valore utlizzando la funzione `typeof()`.
 
 ```r
-x <- c(4L, 6L, 12L, 34L, 8L)
+typeof("foo") 
+## [1] "character"
 
-x <- as.integer(c(4, 6, 12, 34, 8))
+typeof(2021)
+## [1] "double"
+
+typeof(2021L) # nota la lettera L
+## [1] "integer"
+
+typeof(TRUE)
+## [1] "logical"
 ```
 
-**Nota**: per trasformare un vettore intero in un vettore numerico è possibile usare la funzione `as.numeric()`.
+Esistono molte altre tipologie di dati tra cui `complex` (per rappresentare i numeri complessi del tipo $x + yi$) e `Raw` (usati per rappresenttare i valori come bytes) che però riguardano usi poco comuni o comunque molto avanzati di R e pertanto non verranno trattati.
 
-### Vettori logici
+:::{.design title="Tutta una Questione di Bit" data-latex="[Tutta una Questione di Bit]"}
+Questa distinzione tra le varie tipologie di dati deriva dalla modalità con cui il computer rappresenta internamente i diversi valori. Sappiamo infatti che il computer non possiede caratteri ma solamente bits, ovvero successioni di 0 e 1 ad esempio 01000011. 
 
-I vettori logici sono formati dai volori `TRUE` e `FALSE`, che possono essere  abbreviati rispettivamente in `T` e `F`. In R i vettori logici sono indicati come `logi`. In genere, i vettori logici sono il risultato delle operazioni in cui viene chiesto ad R di valutare la condizione logica di una proposizione.
+Senza scendere nel dettaglio, per ottimizzare l'uso della memoria i diversi valori vengono *"mappati"* utilizzando i bits in modo differente a seconda delle tipologie di dati. Pertanto in R il valore `24` sarà rappresentato diversamente a seconda che sia definitio come una stringa di caratteri (`"24"`), un numero intero (`24L`) o un numero double (`24`).
+
+#### Integer vs Double {-}
+
+In particolare un aspetto poco intuitivo riguarda la differenza tra valori `double` e `integer`. Mentre i valori interi possono essere rappresentati con precisione dal computer, non tutti i valori reali posssono essere rappresentati esattamente utilizzando il numero massimo di 64 bit. In questi casi i loro valori vengonno quindi approsimati e, sebbene questo venga fatto con molta precisione, a volte potrebbe portare a dei risultati inaspettati. Nota infatti come nell'esempio seguente non otteniamo zero, ma osserviamo un piccolo errore dovuto all'approsimazione dei valori `double`.
 
 ```r
-x>10
-## [1] FALSE FALSE  TRUE  TRUE FALSE
+my_value <- sqrt(2)^2 # dovrei ottenere 2
+my_value - 2          # dovrei ottenre 0
+## [1] 4.440892e-16
 ```
 
-**Nota:** in R, come in molti altri software di programmazione, `TRUE` assume il valore numerico `1` e `FALSE` assume il valore `0`. 
+E' importante tenere a mente questo problema nei test di ugualianza dove l'utilizzo dell'operatore `==` potrebbe generare delle risposte inaspettate. In genere viene quindi preferita la funzione `all.equal()` che prevede un certo margine di tolleranza (vedi `?all.equal()` per ulteriori dettagli).
 
 ```r
-sum(x>10)
-## [1] 2
-```
-E' possibile trasformare un vettore numerico in un vettor logico attraverso la funzione `as.logical()`, gli `0` assumeranno il valore `FALSE` mentre qualsiasi altro numero assumerà il valore `TRUE`.
-
-```r
-as.logical(c(1,0,.034,-1,0,8))
-## [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE
+my_value == 2          # Problema di approsimazione 
+## [1] FALSE
+all.equal(my_value, 2) # Test con tolleranza
+## [1] TRUE
 ```
 
-### Vettori di caratteri
+Ricorda infine che i computer hanno un limite rispetto al massimo valore e minimo valore che possono rappresentare sia per quanto riguarda i valori interi che i valori reali. Per approfondire vedi <https://stat.ethz.ch/pipermail/r-help/2012-January/300250.html>.
+:::
 
-I vettori di caratteri contengono stringhe di caratteri e sono indicati in R con `chr}. Non è possibile eseguire operazioni aritmetiche con vettori di caratteri ma solo valutare se due stringhe sono uguali o differenti.
+Vediamo ora i diversi tipi di vettori a seconda della tipologia di dati utilizzati.
+
+### Character
+
+I vettori formati da stringhe di caratteri sono definiti vettori di caratteri. Per valutare la tipologia di un oggetto possiamo utilizzare la  funzione `class()`, mentre ricordiamo che la funzionne `typeof()` valuta la tipologia di dati. In questo caso otteniamo per entrambi il valore `character`. 
 
 
 ```r
-j<-c("Hello","World","hello","world")
-j=="hello"
+my_words<-c("Foo","Bar","foo","bar")
+
+class(my_words) # tipologia oggetto
+## [1] "character"
+
+class(my_words) # tipologia dati
+## [1] "character"
+```
+
+Non è possibile eseguire operazioni aritmetiche con vettori di caratteri ma solo valutare relazioni di uguaglianza o disuguaglianza ripetto ad un'altra stringa.
+
+
+```r
+my_words + "foo"
+## Error in my_words + "foo": non-numeric argument to binary operator
+
+my_words == "foo"
 ## [1] FALSE FALSE  TRUE FALSE
 ```
-Per trasformare un vettore qualsiasi in una vettore di caratteri e possibile usare la funzione `as.character()`.
+
+### Numeric
+
+In R, se non altrimenti specificato, ogni valore numerico viene rappresentato come un `double` indipendentemente che abbia o meno valori decimali. I vettori formati da valori double sono definiti vettori numerici. In R la tipologia del vettore è indicata con `numeric` mentre i dati sono `double`. 
+
 
 ```r
-as.character(x)
-## [1] "4"  "6"  "12" "34" "8"
-as.character(x>10)
-## [1] "FALSE" "FALSE" "TRUE"  "TRUE"  "FALSE"
+my_values <- c(1,2,3,4,5)
+class(my_values)  # tipologia oggetto
+## [1] "numeric"
+
+typeof(my_values) # tipologia dati
+## [1] "double"
+```
+
+I vettori numerici sono utilizzati per compiere qualsiasi tipo di operazioni matematiche o logico-relazionali. 
+
+
+```r
+my_values + 10
+## [1] 11 12 13 14 15
+
+my_values <= 3
+## [1]  TRUE  TRUE  TRUE FALSE FALSE
+```
+
+### Integer
+
+In R per specificare che un valore è un numero intero viene aggiunta la lettera `L` immediatamente dopo il numero. I vettori formati da valori interi sono definiti vettori di valori interi. In R la tipologia del vettore è indicata con `integer` allo stesso modo dei dati. 
+
+
+```r
+my_integers <- c(1L,2L,3L,4L,5L)
+class(my_integers)  # tipologia oggetto
+## [1] "integer"
+
+typeof(my_integers) # tipologia dati
+## [1] "integer"
+```
+
+Come per i vettori numerici, i vettori di valori interi possono esssere utilizzati per compiere qualsiasi tipo di operazioni matematiche o logico-relazionali. Nota tuttavia che operazioni tra integer e doubles restituiranno dei doubles ed anche nel caso di operazioni tra integers il risultato potrebbe non essere un integer.
+
+
+```r
+is.integer(5L * 5)   # integer e double
+## [1] FALSE
+
+is.integer(5L * 5L)  # integer e integer
+## [1] TRUE
+
+is.integer(5L / 5L)  # integer e integer
+## [1] FALSE
+```
+
+### Logical
+
+I vettori formati da valori logici (`TRUE` e `FALSE`) sono definiti vettori logici. In R la tipologia del vettore è indicata con `logical` allo stesso modo dei dati. 
+
+
+```r
+my_logical <- c(TRUE, FALSE, TRUE)
+class(my_logical)  # tipologia oggetto
+## [1] "logical"
+
+typeof(my_logical) # tipologia dati
+## [1] "logical"
+```
+
+I vettori di valori logici possono esssere utilizzati con gli operatori logici.
+
+
+```r
+my_logical & c(FALSE, TRUE, TRUE)
+## [1] FALSE FALSE  TRUE
+
+my_logical & c(0, 1, 3)
+## [1] FALSE FALSE  TRUE
+```
+
+Tuttavia ricordiamo  che ai valori `TRUE` e `FALSE` sono associati rispettivamente i valori numerici 1 e 0 (o più precisamente i valori interi `1L` e `0L`). Pertanto è possibile eseguire anche operazioni matematiche dove verrano automaticamente considerati i rispettivi valori numerici. Ovviamente il risultato ottenuto sarà un valore numeirco e non logico.
+
+
+```r
+TRUE * 10
+## [1] 10
+
+FALSE * 10
+## [1] 0
 ```
 
 
-is. vecor
+:::{.trick title="sum() e mean()" data-latex="[sum() e mean()]"}
+Utilizzando le funzioni `sum()` e `mean()` con un vettore logico, possiamo valutare riuspettivamente il numero totale e la percentuale di elementi che hanno rispettato una certa condizione logica.
+
+
+```r
+my_values <- rnorm(50)  # genero dei numeri casuali 
+
+sum(my_values > 0)      # totale numeri positivi
+## [1] 23
+
+mean(my_values > 0)      # percentuale numeri positivi
+## [1] 0.46
+```
+:::
+
+
+:::{.design title="is.* adn as.* Function Families" data-latex="[is.* adn as.* Function Families]"}
+Esistono due famiglie di funzioni che permettono rispettivamene di testare e di modificare la tipologia dei dati.
+
+#### is.* Family
+
+Per testare se un certo valore (o un vettore di valori) appartiene ad una specifica tipologia di dati, possimao utilizzare una tra le seguenti funzioni:
+
+- `is.character()` - valuta se l'oggetto è una stringa
+
+```r
+is.character("2021")
+## [1] TRUE
+is.character(2021)
+## [1] FALSE
+is.character(2021L)
+## [1] FALSE
+is.character(TRUE)
+## [1] FALSE
+```
+- `is.numeric()` - valuta se l'oggetto è un valore numerico indipendentemente che sia un double o un integer
+
+```r
+is.numeric("2021")
+## [1] FALSE
+is.numeric(2021)
+## [1] TRUE
+is.numeric(2021L)
+## [1] TRUE
+is.numeric(TRUE)
+## [1] FALSE
+```
+- `is.double()` - valuta se l'oggetto è un valore `double`
+
+```r
+is.double("2021")
+## [1] FALSE
+is.double(2021)
+## [1] TRUE
+is.double(2021L)
+## [1] FALSE
+is.double(TRUE)
+## [1] FALSE
+```
+- `is.integer()` - valuta se l'oggetto è un valore intero
+
+```r
+is.integer("2021")
+## [1] FALSE
+is.integer(2021)
+## [1] FALSE
+is.integer(2021L)
+## [1] TRUE
+is.integer(TRUE)
+## [1] FALSE
+```
+- `is.logical()` - valuta se l'oggetto è un valore logico
+
+```r
+is.logical("2021")
+## [1] FALSE
+is.logical(2021)
+## [1] FALSE
+is.logical(2021L)
+## [1] FALSE
+is.logical(TRUE)
+## [1] TRUE
+```
+#### as.* Family
+
+Per modificare la tipologia di un certo valore (o un vettore di valori), possimao utilizzare una tra le seguenti funzioni:
+
+- `as.character()` - trasforma l'oggetto in una stringa
+
+```r
+as.character(2021)
+## [1] "2021"
+as.character(2021L)
+## [1] "2021"
+as.character(TRUE)
+## [1] "TRUE"
+```
+- `as.numeric()` - trasforma l'oggetto in un `double`
+
+```r
+as.numeric("foo")  # Non valido con stringhe di caratteri
+## Warning: NAs introduced by coercion
+## [1] NA
+as.numeric("2021") # Valido per stinghe di cifre
+## [1] 2021
+as.numeric(2021L)
+## [1] 2021
+as.numeric(TRUE)
+## [1] 1
+```
+- `as.double()` - trasforma l'oggetto in un `double`
+
+```r
+as.double("2021") # Valido per stinghe di cifre
+## [1] 2021
+as.double(2021L)
+## [1] 2021
+as.double(TRUE)
+## [1] 1
+```
+- `as.integer()` - trasforma l'oggetto in un `integer`
+
+```r
+as.integer("2021") # Valido per stinghe di cifre
+## [1] 2021
+as.integer(2021.6) # Tronca la parte decimale
+## [1] 2021
+as.integer(TRUE)
+## [1] 1
+```
+- `as.logical()` - trasforma un oggetto numerico in un valore logico qualsiasi valore diverso da 0 viene considerato `TRUE`
+
+```r
+as.logical("2021") # Non valido per le stringhe
+## [1] NA
+as.logical(0)
+## [1] FALSE
+as.logical(0.5)
+## [1] TRUE
+as.logical(2021L)
+## [1] TRUE
+```
+:::
+
 ### Valori speciali
 
-
+Vediamo infine alcuni valori speciali che incontreremo spesso e che richiedono particolari accorgimenti: `NULL`, `NA`, `NaN`, `Inf`.
 
 
 
