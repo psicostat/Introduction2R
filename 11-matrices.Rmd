@@ -710,7 +710,7 @@ Utilizzando le matrici create nei precedenti esercizi, esegui le seguentti conse
 
 
 ## estensione array
-
+TODO
 
 
 

@@ -383,7 +383,7 @@ Qualora i vettori differiscano per la loro lunghezza, R ci presenterà un warnin
 x + c(1, 2)
 ```
 
-Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche se multipli) dovrebbe essere evitato perchè facile causa di errori ed incomprensioni. 
+Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche se multipli) dovrebbe essere evitato poichè è facile causa di errori ed incomprensioni. 
 :::
 
 :::{.design title="Vectorized Operations" data-latex="[Vectorized Operations]"}
