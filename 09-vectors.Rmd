@@ -330,7 +330,7 @@ my_words
 9. Elimina dal vettore `z` i valori 28 e 42
 
 
-## Funzioni ed Operazioni
+## Funzioni ed Operazioni {#vector-functions}
 
 Vediamo ora alcune utili funzioni e comuni operazioni che è possibile svolgere con i vettori (vedi Tabella \@ref(tab:table-vector-operators)).
 
