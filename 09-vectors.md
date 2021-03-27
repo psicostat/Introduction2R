@@ -6,14 +6,14 @@
 I vettori sono la struttura dati più semplice tra quelle presenti in R. Un vettore non è altro che un insieme di elementi disposti in uno specifico ordine e possiamo quindi immaginarlo in modo simile a quanto rappresentato in Figura \@ref(fig:vector). 
 
 <div class="figure" style="text-align: center">
-<img src="images/vector.png" alt="Rappresentazione struttura di un vettore di lunghezza *n*" width="65%" />
-<p class="caption">(\#fig:vector)Rappresentazione struttura di un vettore di lunghezza *n*</p>
+<img src="images/vector.png" alt="Rappresentazione della struttura di un vettore di lunghezza *n*" width="65%" />
+<p class="caption">(\#fig:vector)Rappresentazione della struttura di un vettore di lunghezza *n*</p>
 </div>
 
 Due caratteristiche importanti di un vettore sono:
 
 - la **lunghezza** - il numero di elementi da cui è formato il vettore
-- la **tipologia** - la tipologia di dati da cui è formato il vettore. Un vettore infatti deve esssere formato da **elementi dello stesso tipo** e pertanto esistono diversi vettori a seconda della tipologia di dati da cui è formato (valori numerici, valori interi, valori logici, valori carattere).  
+- la **tipologia** - la tipologia di dati da cui è formato il vettore. Un vettore infatti deve esssere formato da **elementi tutti dello stesso tipo** e pertanto esistono diversi vettori a seconda della tipologia di dati da cui è formato (valori numerici, valori interi, valori logici, valori carattere).  
 
 
 E' fondamentale inoltre sottolineare come ogni **elemento** di un vettore sia caratterizzato da:
@@ -39,7 +39,7 @@ In realtà abbiamo già incontrato dei vettori nei precedenti capitoli poichè a
 nome_vettore <- c(x_1, x_2, x_3, ..., x_n)
 ```
 
-Nota come gli elementi di un vettore debbano essere tutti della stessa tipologia ad esempio vaolri numerici o valori carattere.
+Nota come gli elementi di un vettore debbano essere tutti della stessa tipologia ad esempio valori numerici o valori carattere.
 
 :::{.design title="Sequenze - ':', seq() e rep() " data-latex="[Sequenze - ':', seq() e rep() ]"}
 In altrentativa è possibile utilizzare qualsiasi funzione che restituisca come output una sequenza di valori sotto forma di vettore. Tra le funzioni più usate per creare delle sequenze abbiammo:
@@ -211,7 +211,7 @@ my_numbers[0]
 Vediamo ora alcuni utilizzi avanzati della selezione di elementi di un vettore. In particolare impareremo a:
 
 - utilizzare gli operatori relazionali e logici per selezionare gli elementi di un vettore
-- modificare l'ordine degli elemennti
+- modificare l'ordine degli elementi
 - creare nuove combinazioni
 - sostituire degli elementi
 - eliminare degli elementi
@@ -391,7 +391,7 @@ my_words
 Vediamo ora alcune utili funzioni e comuni operazioni che è possibile svolgere con i vettori (vedi Tabella \@ref(tab:table-vector-operators)).
 
 <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:table-vector-operators)Operazioni con vettori</caption>
+<caption>(\#tab:table-vector-operators)Funzioni e  operazioni con vettori</caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Funzione </th>
@@ -561,7 +561,7 @@ my_words<-c("Foo","Bar","foo","bar")
 class(my_words) # tipologia oggetto
 ## [1] "character"
 
-class(my_words) # tipologia dati
+typeof(my_words) # tipologia dati
 ## [1] "character"
 ```
 
@@ -654,7 +654,7 @@ my_logical & c(0, 1, 3)
 ## [1] FALSE FALSE  TRUE
 ```
 
-Tuttavia ricordiamo  che ai valori `TRUE` e `FALSE` sono associati rispettivamente i valori numerici 1 e 0 (o più precisamente i valori interi `1L` e `0L`). Pertanto è possibile eseguire anche operazioni matematiche dove verrano automaticamente considerati i rispettivi valori numerici. Ovviamente il risultato ottenuto sarà un valore numeirco e non logico.
+Tuttavia ricordiamo  che ai valori `TRUE` e `FALSE` sono associati rispettivamente i valori numerici 1 e 0 (o più precisamente i valori interi `1L` e `0L`). Pertanto è possibile eseguire anche operazioni matematiche dove verrano automaticamente considerati i rispettivi valori numerici. Ovviamente il risultato ottenuto sarà un valore numerico e non logico.
 
 
 ```r
@@ -674,10 +674,10 @@ Utilizzando le funzioni `sum()` e `mean()` con un vettore logico, possiamo valut
 my_values <- rnorm(50)  # genero dei numeri casuali 
 
 sum(my_values > 0)      # totale numeri positivi
-## [1] 24
+## [1] 22
 
 mean(my_values > 0)      # percentuale numeri positivi
-## [1] 0.48
+## [1] 0.44
 ```
 :::
 

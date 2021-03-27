@@ -238,15 +238,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="factors.html"><a href="factors.html#esercizi-5"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>9</b> Matrici</a><ul>
-<li class="chapter" data-level="9.1" data-path="matrix.html"><a href="matrix.html#creazione-di-una-matrice"><i class="fa fa-check"></i><b>9.1</b> Creazione di una matrice</a><ul>
+<li class="chapter" data-level="9.1" data-path="matrix.html"><a href="matrix.html#creazione-1"><i class="fa fa-check"></i><b>9.1</b> Creazione</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="matrix.html"><a href="matrix.html#tipologie-di-matrici"><i class="fa fa-check"></i><b>9.1.1</b> Tipologie di Matrici</a></li>
 <li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#esercizi-6"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="matrix.html"><a href="matrix.html#mat-prop"><i class="fa fa-check"></i><b>9.2</b> Proprietà della matrice</a></li>
-<li class="chapter" data-level="9.3" data-path="matrix.html"><a href="matrix.html#indicizzazione-di-matrici"><i class="fa fa-check"></i><b>9.3</b> Indicizzazione di matrici</a></li>
-<li class="chapter" data-level="9.4" data-path="matrix.html"><a href="matrix.html#indicizzazione-avanzata"><i class="fa fa-check"></i><b>9.4</b> Indicizzazione avanzata</a></li>
-<li class="chapter" data-level="9.5" data-path="matrix.html"><a href="matrix.html#combinare-matrici"><i class="fa fa-check"></i><b>9.5</b> Combinare matrici</a><ul>
+<li class="chapter" data-level="9.2" data-path="matrix.html"><a href="matrix.html#sel-matrix"><i class="fa fa-check"></i><b>9.2</b> Selezione Elementi</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="matrix.html"><a href="matrix.html#utilizzi-avanzati-selezione-1"><i class="fa fa-check"></i><b>9.2.1</b> Utilizzi Avanzati Selezione</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="matrix.html"><a href="matrix.html#funzioni-ed-operazioni-1"><i class="fa fa-check"></i><b>9.3</b> Funzioni ed Operazioni</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="matrix.html"><a href="matrix.html#mat-prop"><i class="fa fa-check"></i><b>9.3.1</b> Attributi di una Matrice</a></li>
+<li class="chapter" data-level="9.3.2" data-path="matrix.html"><a href="matrix.html#combinare-matrici"><i class="fa fa-check"></i><b>9.3.2</b> Combinare Matrici</a></li>
+<li class="chapter" data-level="9.3.3" data-path="matrix.html"><a href="matrix.html#operatori-matematici"><i class="fa fa-check"></i><b>9.3.3</b> Operatori Matematici</a></li>
 <li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#esercizi-7"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
+<li class="chapter" data-level="9.4" data-path="matrix.html"><a href="matrix.html#estensione-array"><i class="fa fa-check"></i><b>9.4</b> estensione array</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>10</b> Dataframe</a><ul>
 <li class="chapter" data-level="10.1" data-path="dataframe.html"><a href="dataframe.html#creazione-di-un-dataframe"><i class="fa fa-check"></i><b>10.1</b> Creazione di un dataframe</a><ul>
@@ -254,7 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10.2" data-path="dataframe.html"><a href="dataframe.html#proprietà-di-un-dataframe"><i class="fa fa-check"></i><b>10.2</b> Proprietà di un dataframe</a></li>
 <li class="chapter" data-level="10.3" data-path="dataframe.html"><a href="dataframe.html#indicizzazione-di-dataframe"><i class="fa fa-check"></i><b>10.3</b> Indicizzazione di dataframe</a></li>
-<li class="chapter" data-level="10.4" data-path="dataframe.html"><a href="dataframe.html#indicizzazione-avanzata-1"><i class="fa fa-check"></i><b>10.4</b> Indicizzazione avanzata</a><ul>
+<li class="chapter" data-level="10.4" data-path="dataframe.html"><a href="dataframe.html#indicizzazione-avanzata"><i class="fa fa-check"></i><b>10.4</b> Indicizzazione avanzata</a><ul>
 <li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-9"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
 </ul></li>
@@ -312,15 +317,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Capitolo 7</span> Vettori</h1>
 <p>I vettori sono la struttura dati più semplice tra quelle presenti in R. Un vettore non è altro che un insieme di elementi disposti in uno specifico ordine e possiamo quindi immaginarlo in modo simile a quanto rappresentato in Figura <a href="vector.html#fig:vector">7.1</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:vector"></span>
-<img src="images/vector.png" alt="Rappresentazione struttura di un vettore di lunghezza *n*" width="65%" />
+<img src="images/vector.png" alt="Rappresentazione della struttura di un vettore di lunghezza *n*" width="65%" />
 <p class="caption">
-Figure 7.1: Rappresentazione struttura di un vettore di lunghezza <em>n</em>
+Figure 7.1: Rappresentazione della struttura di un vettore di lunghezza <em>n</em>
 </p>
 </div>
 <p>Due caratteristiche importanti di un vettore sono:</p>
 <ul>
 <li>la <strong>lunghezza</strong> - il numero di elementi da cui è formato il vettore</li>
-<li>la <strong>tipologia</strong> - la tipologia di dati da cui è formato il vettore. Un vettore infatti deve esssere formato da <strong>elementi dello stesso tipo</strong> e pertanto esistono diversi vettori a seconda della tipologia di dati da cui è formato (valori numerici, valori interi, valori logici, valori carattere).</li>
+<li>la <strong>tipologia</strong> - la tipologia di dati da cui è formato il vettore. Un vettore infatti deve esssere formato da <strong>elementi tutti dello stesso tipo</strong> e pertanto esistono diversi vettori a seconda della tipologia di dati da cui è formato (valori numerici, valori interi, valori logici, valori carattere).</li>
 </ul>
 <p>E’ fondamentale inoltre sottolineare come ogni <strong>elemento</strong> di un vettore sia caratterizzato da:</p>
 <ul>
@@ -337,7 +342,7 @@ sebbene includano gli stessi elementi, non sono identici poichè differiscono pe
 <h2><span class="header-section-number">7.1</span> Creazione</h2>
 <p>In realtà abbiamo già incontrato dei vettori nei precedenti capitoli poichè anche le variabili con un singolo valore altro non sono che un vettore di lunghezza 1. Tuttavia, per creare dei vettori di più elementi dobbiamo utilizzare il comando <code>c()</code>, ovvero <em>“combine”</em>, indicando tra le parentesi i valori degli elementi nella sucessione desiderata e separati da una virgola. Avremo quindi la seguente sintassi:</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="vector.html#cb46-1"></a>nome_vettore &lt;-<span class="st"> </span><span class="kw">c</span>(x_<span class="dv">1</span>, x_<span class="dv">2</span>, x_<span class="dv">3</span>, ..., x_n)</span></code></pre></div>
-<p>Nota come gli elementi di un vettore debbano essere tutti della stessa tipologia ad esempio vaolri numerici o valori carattere.</p>
+<p>Nota come gli elementi di un vettore debbano essere tutti della stessa tipologia ad esempio valori numerici o valori carattere.</p>
 <div class="design" title="Sequenze - &#39;:&#39;, seq() e rep() ">
 <p>In altrentativa è possibile utilizzare qualsiasi funzione che restituisca come output una sequenza di valori sotto forma di vettore. Tra le funzioni più usate per creare delle sequenze abbiammo:</p>
 <ul>
@@ -469,7 +474,7 @@ sebbene includano gli stessi elementi, non sono identici poichè differiscono pe
 <p>Vediamo ora alcuni utilizzi avanzati della selezione di elementi di un vettore. In particolare impareremo a:</p>
 <ul>
 <li>utilizzare gli operatori relazionali e logici per selezionare gli elementi di un vettore</li>
-<li>modificare l’ordine degli elemennti</li>
+<li>modificare l’ordine degli elementi</li>
 <li>creare nuove combinazioni</li>
 <li>sostituire degli elementi</li>
 <li>eliminare degli elementi</li>
@@ -607,7 +612,7 @@ sebbene includano gli stessi elementi, non sono identici poichè differiscono pe
 <p>Vediamo ora alcune utili funzioni e comuni operazioni che è possibile svolgere con i vettori (vedi Tabella <a href="vector.html#tab:table-vector-operators">7.1</a>).</p>
 <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:table-vector-operators">Table 7.1: </span>Operazioni con vettori
+<span id="tab:table-vector-operators">Table 7.1: </span>Funzioni e operazioni con vettori
 </caption>
 <thead>
 <tr>
@@ -767,7 +772,7 @@ Rapporto tra due vettori
 <span id="cb76-3"><a href="vector.html#cb76-3"></a><span class="kw">class</span>(my_words) <span class="co"># tipologia oggetto</span></span>
 <span id="cb76-4"><a href="vector.html#cb76-4"></a><span class="co">## [1] &quot;character&quot;</span></span>
 <span id="cb76-5"><a href="vector.html#cb76-5"></a></span>
-<span id="cb76-6"><a href="vector.html#cb76-6"></a><span class="kw">class</span>(my_words) <span class="co"># tipologia dati</span></span>
+<span id="cb76-6"><a href="vector.html#cb76-6"></a><span class="kw">typeof</span>(my_words) <span class="co"># tipologia dati</span></span>
 <span id="cb76-7"><a href="vector.html#cb76-7"></a><span class="co">## [1] &quot;character&quot;</span></span></code></pre></div>
 <p>Non è possibile eseguire operazioni aritmetiche con vettori di caratteri ma solo valutare relazioni di uguaglianza o disuguaglianza ripetto ad un’altra stringa.</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="vector.html#cb77-1"></a>my_words <span class="op">+</span><span class="st"> &quot;foo&quot;</span></span>
@@ -826,7 +831,7 @@ Rapporto tra due vettori
 <span id="cb83-3"><a href="vector.html#cb83-3"></a></span>
 <span id="cb83-4"><a href="vector.html#cb83-4"></a>my_logical <span class="op">&amp;</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span>
 <span id="cb83-5"><a href="vector.html#cb83-5"></a><span class="co">## [1] FALSE FALSE  TRUE</span></span></code></pre></div>
-<p>Tuttavia ricordiamo che ai valori <code>TRUE</code> e <code>FALSE</code> sono associati rispettivamente i valori numerici 1 e 0 (o più precisamente i valori interi <code>1L</code> e <code>0L</code>). Pertanto è possibile eseguire anche operazioni matematiche dove verrano automaticamente considerati i rispettivi valori numerici. Ovviamente il risultato ottenuto sarà un valore numeirco e non logico.</p>
+<p>Tuttavia ricordiamo che ai valori <code>TRUE</code> e <code>FALSE</code> sono associati rispettivamente i valori numerici 1 e 0 (o più precisamente i valori interi <code>1L</code> e <code>0L</code>). Pertanto è possibile eseguire anche operazioni matematiche dove verrano automaticamente considerati i rispettivi valori numerici. Ovviamente il risultato ottenuto sarà un valore numerico e non logico.</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="vector.html#cb84-1"></a><span class="ot">TRUE</span> <span class="op">*</span><span class="st"> </span><span class="dv">10</span></span>
 <span id="cb84-2"><a href="vector.html#cb84-2"></a><span class="co">## [1] 10</span></span>
 <span id="cb84-3"><a href="vector.html#cb84-3"></a></span>

@@ -6,6 +6,11 @@
 
 Working in progress.
 
+- attributes
+- named vectors
+- factors, ordered factors
+
+
 I fattori sono utilizzati per definire delle variabili categoriali, sono indicati in R con `Factor`. Per creare una variabile categoriale in R si utilizza la funzione:
 
 `nome_variabile<-factor(c(..., data, ...), levels=c(...))`
