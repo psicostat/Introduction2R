@@ -3407,10 +3407,10 @@ Utilizzando le funzioni \texttt{sum()} e \texttt{mean()} con un vettore logico, 
 \NormalTok{my_values <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{)  }\CommentTok{# genero dei numeri casuali }
 
 \KeywordTok{sum}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# totale numeri positivi}
-\CommentTok{## [1] 23}
+\CommentTok{## [1] 25}
 
 \KeywordTok{mean}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# percentuale numeri positivi}
-\CommentTok{## [1] 0.46}
+\CommentTok{## [1] 0.5}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5086,25 +5086,25 @@ La struttura di base di un dataframe è quindi la stessa di una matrice ma conti
 \hline
 colonna1 & colonna2 & colonna3 & colonna4 & colonna5 & colonna6\\
 \hline
-1.70 & -1.01 & -1.19 & 0.95 & 0.77 & a\\
+0.37 & -0.90 & 1.09 & -0.64 & 0.22 & a\\
 \hline
-0.39 & 0.65 & -2.70 & 1.41 & -0.86 & b\\
+0.15 & -0.56 & 0.01 & 0.73 & 1.07 & b\\
 \hline
-1.56 & -0.82 & -0.12 & 0.32 & -1.35 & c\\
+0.81 & 0.24 & -1.43 & -0.16 & 0.19 & c\\
 \hline
-1.15 & -0.56 & -0.55 & -0.88 & 0.09 & d\\
+-0.85 & 0.16 & 0.64 & 0.09 & -0.80 & d\\
 \hline
--1.45 & 1.34 & -0.95 & -1.10 & -0.04 & e\\
+0.06 & 0.53 & 1.33 & 1.63 & 1.48 & e\\
 \hline
-0.35 & 0.54 & -0.65 & 0.65 & -1.22 & f\\
+0.25 & 0.38 & 0.25 & 0.86 & 0.13 & f\\
 \hline
--0.71 & -1.35 & 1.28 & -1.80 & -0.49 & g\\
+-0.60 & -1.15 & -0.43 & 0.59 & -0.68 & g\\
 \hline
--0.86 & -1.59 & -0.88 & -1.10 & 0.64 & h\\
+-2.40 & 0.42 & -2.57 & 0.34 & -0.03 & h\\
 \hline
--0.60 & 0.29 & 0.13 & -0.68 & -0.22 & i\\
+1.05 & -2.30 & 1.20 & -0.47 & 1.18 & i\\
 \hline
-0.34 & -1.42 & -1.38 & 2.61 & -0.43 & j\\
+0.42 & -0.51 & -1.29 & -0.29 & -0.07 & j\\
 \hline
 \end{tabular}
 \end{table}
@@ -5710,18 +5710,43 @@ Facendo riferimento ai dataframe \texttt{data\_long} e \texttt{data\_wide}:
 \hypertarget{list}{%
 \chapter{Liste}\label{list}}
 
-Working in progress.
+La \textbf{lista} è uno degli oggetti più versatili e utili all'interno del linguaggio R. A parte alcune caratteristiche in comune con gli altri oggetti che abbiamo già affrontato, l'aspetto crucuale della lista è la capacità di contenere \textbf{tipologie diverse di oggetti} al suo interno come ad esempio vettori, dataframe, matrici e anche altre liste. Se da un punto di vista pratico la lista è un oggetto molto semplice (praticamente un vettore) essendo molto versatile può diventare molto complesso sopratutto per l'indicizzazione.
 
 \hypertarget{creazione-di-liste}{%
 \section{Creazione di Liste}\label{creazione-di-liste}}
 
-Le liste sono degli speciali oggi in R che permettono di contenere al loro interno altri oggetti indipendentemente dalla loro tipologia. Possiamo quindi avere nella stessa lista sia vettori, sia matrici sia DataFrames.
-
 In R per definire una lista si utilizza il comando:
 
-\textless- list(nome\_oggetto\_1 = oggetto\_1, \ldots, nome\_oggetto\_n = oggetto\_n)
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{<}\NormalTok{nome}\OperatorTok{-}\NormalTok{Lista}\OperatorTok{>}\StringTok{ }\ErrorTok{<}\OperatorTok{-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{nome_oggetto_1 =}\NormalTok{ oggetto_}\DecValTok{1}\NormalTok{, ..., }\DataTypeTok{nome_oggetto_n =}\NormalTok{ oggetto_n)}
+\end{Highlighting}
+\end{Shaded}
 
-All'interno si possono riportare vari oggettiche si vogliono inserire con i relativi nomi, separati da virgole.
+Nonostante il parametro \texttt{nome\_oggetto\_x} non sia necessario, come vedremo è assolutamente consigliato rinominare tutti gli elementi della lista per agevolare l'indicizzazione. Se non nominiamo gli elementi, questi saranno identificati con il numero progressivo \(1...n\) esattamente come un vettore. Quindi, se nel nostro workspace abbiamo degli oggetti diversi come un \texttt{vettore}, un \texttt{dataframe} e una semplice \texttt{variabile} possiamo assegnare ognuno di questi elementi dentro ad una lista.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{<}\NormalTok{nome}\OperatorTok{-}\NormalTok{Lista}\OperatorTok{>}\StringTok{ }\ErrorTok{<}\OperatorTok{-}\StringTok{ }\KeywordTok{list}\NormalTok{(oggetto_}\DecValTok{1}\NormalTok{, ..., oggetto_n)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tip}[Lista vs dataframe/matrice]
+
+Rispetto ai \texttt{dataframe} o alle \texttt{matrici} gli elementi della lista sono completamente indipendenti tra loro. Mentre una matrice/dataframe di \(i\) righe e \(j\) colonne aveva necessariamente tutte le righe e colonne di lunghezza uguali, la \texttt{lista} può contendere oggetti completamente diversi tra loro sia in tipologia che in dimensioni.
+
+\end{tip}
+
+Un modo utile per immaginarsi una lista (vedi \ref{fig:list-example}) è pensare ad un corridoio di un albergo dove ogni porta conduce ad una stanza diversa per caratteristiche, numero di elementi e così via:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.3\linewidth,height=0.3\textheight]{images/list_example} 
+
+}
+
+\caption{Esempio concettuale di una lista}\label{fig:list-example}
+\end{figure}
 
 \hypertarget{esercizi-10}{%
 \subsection*{Esercizi}\label{esercizi-10}}
@@ -5760,22 +5785,189 @@ All'interno si possono riportare vari oggettiche si vogliono inserire con i rela
   \end{itemize}
 \end{enumerate}
 
-\hypertarget{selezione-di-elementi-di-una-lista}{%
-\section{Selezione di Elementi di una Lista}\label{selezione-di-elementi-di-una-lista}}
+\hypertarget{indicizzazione-di-una-lista}{%
+\section{Indicizzazione di una lista}\label{indicizzazione-di-una-lista}}
 
-In R per selezioneare gli elementi di una lista si possono usare le doppie parentesi quadre indicando l'indice della posizione dell'oggetto che si vuole selezionare:
+Come dicevamo in precedenza, la lista è molto semplice da indicizzare e segue la stessa logica di un semplice vettore, dove ogni elemento ha il suo indice numerico progressivo. Una differenza rispetto ai vettori è il tipo di oggetto contenuto nella lista. Mentre nel vettore la scrittura \texttt{vettore{[}i{]}} ci fa accedere ad un singolo carattere e/o numero alla posizione \(i\) la scrittura \texttt{lista{[}i{]}} non ci fa accedere direttamente al suo elemento. Essendo che ogni elemento di una lista può essere un oggetto complesso, per accedere direttamente è necessario usare le doppie parentesi quadrate \texttt{lista{[}{[}i{]}{]}}. Vediamo la differenza:
 
-\texttt{nome\_lista{[}{[}indice\_posizione{]}{]}}
-In alternativa, se i nomi degli oggetti sono stati specificati, è possibile utilizzare l'operatore ``\$'' e il nome dell'oggetto da selezionare all'interno della lista:
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{10}\NormalTok{)}
+\NormalTok{b <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
+  \DataTypeTok{id =} \DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{,}
+  \DataTypeTok{gender =} \KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"m"}\NormalTok{, }\StringTok{"f"}\NormalTok{), }\DataTypeTok{each =} \DecValTok{5}\NormalTok{),}
+  \DataTypeTok{y =} \DecValTok{1}\OperatorTok{:}\DecValTok{10}
+\NormalTok{)}
 
-\texttt{nome\_lista\$nome\_oggetto}
-In seguito per accedere a specifici elementi all'interno degli oggetti si utilizzano le stesse norme precedentemente presentate a seconda del tipo di oggetto.
+\NormalTok{c <-}\StringTok{ "prova"}
 
-\textbf{Esempio:}
-- \texttt{esperimento\_1{[}{[}2{]}{]}{[},2{]}}
-- \texttt{esperimento\_1\$data\_wide\$age}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\StringTok{"elemento1"}\NormalTok{ =}\StringTok{ }\NormalTok{a, }\StringTok{"elemento2"}\NormalTok{ =}\StringTok{ }\NormalTok{b, }\StringTok{"elemento3"}\NormalTok{ =}\StringTok{ }\NormalTok{c)}
 
-\textbf{Nota:} per definire o cambiare i nomi degli oggetti contenuti in una lista è possibile utilizzare la funzione: \texttt{names(nome\_lista)\ \textless{}-\ c(nome\_oggetto\_1,\ ...,\ nome\_oggetto\_n)}
+\NormalTok{x}
+\CommentTok{## $elemento1}
+\CommentTok{## [1]  1  3  5  6 10}
+\CommentTok{## }
+\CommentTok{## $elemento2}
+\CommentTok{##    id gender  y}
+\CommentTok{## 1   1      m  1}
+\CommentTok{## 2   2      m  2}
+\CommentTok{## 3   3      m  3}
+\CommentTok{## 4   4      m  4}
+\CommentTok{## 5   5      m  5}
+\CommentTok{## 6   6      f  6}
+\CommentTok{## 7   7      f  7}
+\CommentTok{## 8   8      f  8}
+\CommentTok{## 9   9      f  9}
+\CommentTok{## 10 10      f 10}
+\CommentTok{## }
+\CommentTok{## $elemento3}
+\CommentTok{## [1] "prova"}
+
+\CommentTok{# Indicizzazione con una parentesi}
+
+\NormalTok{x[}\DecValTok{1}\NormalTok{]}
+\CommentTok{## $elemento1}
+\CommentTok{## [1]  1  3  5  6 10}
+
+\CommentTok{# Indicizzazione con 2 parentesi}
+
+\NormalTok{x[[}\DecValTok{1}\NormalTok{]]}
+\CommentTok{## [1]  1  3  5  6 10}
+\end{Highlighting}
+\end{Shaded}
+
+Questo aspetto è importante perchè usando \texttt{{[}i{]}} in realtà sto accedendo al primo elemento della lista ancora legato però alla lista originaria. Mentre con la scrittura \texttt{{[}{[}i{]}{]}} accedo direttamente all'oggetto contenuto. Questo diventa chiaro applicando una funzione generica allo stesso elemento indicizzato in modo diverso oppure usando la funzione \texttt{str()} per capire la tipologia. Come vedete solo accedendo direttamente all'elemento possiamo eseguire le normali operazioni. Infatti, indicizzando con 1 parentesi, l'oggetto è riconosciuto come una lista a singolo elemento.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{# Applichiamo la media al vettore `elemento1` indicizzato con 1 o 2 parentesi}
+
+\KeywordTok{mean}\NormalTok{(x[}\DecValTok{1}\NormalTok{])}
+\CommentTok{## Warning in mean.default(x[1]): argument is not numeric or logical: returning NA}
+\CommentTok{## [1] NA}
+
+\KeywordTok{mean}\NormalTok{(x[[}\DecValTok{1}\NormalTok{]])}
+\CommentTok{## [1] 5}
+
+\CommentTok{# Vediamo la struttura}
+
+\KeywordTok{str}\NormalTok{(x[}\DecValTok{1}\NormalTok{])}
+\CommentTok{## List of 1}
+\CommentTok{##  $ elemento1: num [1:5] 1 3 5 6 10}
+\KeywordTok{str}\NormalTok{(x[[}\DecValTok{1}\NormalTok{]])}
+\CommentTok{##  num [1:5] 1 3 5 6 10}
+\end{Highlighting}
+\end{Shaded}
+
+Fino ad ora abbiamo indicizzato la lista usando le parentesi \texttt{{[}{[}i{]}{]}} e un indice numerico \(i\) che rappresenta la posizione. Allo stesso modo dei dataframe e in parte delle matrici però possiamo anche accedere agli elementi usando \texttt{\$nome}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x}
+\CommentTok{## $elemento1}
+\CommentTok{## [1]  1  3  5  6 10}
+\CommentTok{## }
+\CommentTok{## $elemento2}
+\CommentTok{##    id gender  y}
+\CommentTok{## 1   1      m  1}
+\CommentTok{## 2   2      m  2}
+\CommentTok{## 3   3      m  3}
+\CommentTok{## 4   4      m  4}
+\CommentTok{## 5   5      m  5}
+\CommentTok{## 6   6      f  6}
+\CommentTok{## 7   7      f  7}
+\CommentTok{## 8   8      f  8}
+\CommentTok{## 9   9      f  9}
+\CommentTok{## 10 10      f 10}
+\CommentTok{## }
+\CommentTok{## $elemento3}
+\CommentTok{## [1] "prova"}
+\CommentTok{# Selezioniamo il primo elemento}
+
+\NormalTok{x}\OperatorTok{$}\NormalTok{elemento1}
+\CommentTok{## [1]  1  3  5  6 10}
+\end{Highlighting}
+\end{Shaded}
+
+Una volta che abbiamo avuto accesso ad uno specifico elemento, possiamo utilizzare quell'oggetto nel modo che preferiamo, chiaramente in base alle operazione specifiche che sono consentite. Possiamo assegnare l'elemento di una lista ad un nuovo oggetto, oppure eseguire direttamente delle funzioni o altre operazioni generiche.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{# Seleziono il primo elemento dell'oggetto $elemento1}
+
+\NormalTok{x}\OperatorTok{$}\NormalTok{elemento1}
+\CommentTok{## [1]  1  3  5  6 10}
+
+\NormalTok{x}\OperatorTok{$}\NormalTok{elemento1[}\DecValTok{1}\NormalTok{]}
+\CommentTok{## [1] 1}
+\NormalTok{x[[}\DecValTok{1}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\CommentTok{# equivalente a alla precedente}
+\CommentTok{## [1] 1}
+
+\CommentTok{# Seleziono la colonna $gender dell'oggetto $elemento2}
+
+\NormalTok{x}\OperatorTok{$}\NormalTok{elemento2}\OperatorTok{$}\NormalTok{gender}
+\CommentTok{##  [1] "m" "m" "m" "m" "m" "f" "f" "f" "f" "f"}
+
+\CommentTok{# Altre scritture equivalenti}
+\NormalTok{x[[}\DecValTok{2}\NormalTok{]]}\OperatorTok{$}\NormalTok{gender}
+\CommentTok{##  [1] "m" "m" "m" "m" "m" "f" "f" "f" "f" "f"}
+\NormalTok{x[[}\DecValTok{2}\NormalTok{]][, }\DecValTok{2}\NormalTok{]}
+\CommentTok{##  [1] "m" "m" "m" "m" "m" "f" "f" "f" "f" "f"}
+\NormalTok{x[[}\DecValTok{2}\NormalTok{]][, }\StringTok{"gender"}\NormalTok{]}
+\CommentTok{##  [1] "m" "m" "m" "m" "m" "f" "f" "f" "f" "f"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{proprietuxe0-della-lista}{%
+\section{Proprietà della lista}\label{proprietuxe0-della-lista}}
+
+Come per gli oggetti precedenti, anche la lista ha una \textbf{dimensionalità} e delle proprietà (come i nomi degli elementi). Usando il comando \texttt{names(lista)} possiamo accedere ai nomi (se sono stati assegnati). Per assegnare dei nomi possiamo:
+
+\begin{itemize}
+\tightlist
+\item
+  Creare la lista con i nomi già assegnati: \texttt{list("nome"\ =\ oggetto)}
+\item
+  Assegnare ad ogni elemento un nome, con un vettore di stringhe: \texttt{names(lista)\ \textless{}-\ c("nome")}.
+\end{itemize}
+
+Rispetto al \textbf{numero di elementi}, possiamo usar, analogalmente ai vettori, il comando \texttt{length(lista)}. Per avere invece una visione più chiara della struttura della lista, sopratutto se molto complessa il comando \texttt{str(lista)} ci fornisce una utile panoramica.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{names}\NormalTok{(x)}
+\CommentTok{## [1] "elemento1" "elemento2" "elemento3"}
+
+\KeywordTok{names}\NormalTok{(x) <-}\StringTok{ }\OtherTok{NULL} \CommentTok{# eliminiamo i nomi (come se non gli avessimo assegnati in fase di creazione)}
+
+\KeywordTok{names}\NormalTok{(x)}
+\CommentTok{## NULL}
+
+\CommentTok{# Assegnamo dei nomi}
+
+\KeywordTok{names}\NormalTok{(x) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"nome1"}\NormalTok{, }\StringTok{"nome2"}\NormalTok{, }\StringTok{"nome3"}\NormalTok{)}
+\KeywordTok{names}\NormalTok{(x)}
+\CommentTok{## [1] "nome1" "nome2" "nome3"}
+
+\CommentTok{# Dimensioni Lista}
+
+\KeywordTok{length}\NormalTok{(x)}
+\CommentTok{## [1] 3}
+
+\CommentTok{# Struttura}
+
+\KeywordTok{str}\NormalTok{(x)}
+\CommentTok{## List of 3}
+\CommentTok{##  $ nome1: num [1:5] 1 3 5 6 10}
+\CommentTok{##  $ nome2:'data.frame':   10 obs. of  3 variables:}
+\CommentTok{##   ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##   ..$ gender: chr [1:10] "m" "m" "m" "m" ...}
+\CommentTok{##   ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##  $ nome3: chr "prova"}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{esercizi-11}{%
 \subsection*{Esercizi}\label{esercizi-11}}
@@ -5793,6 +5985,150 @@ In seguito per accedere a specifici elementi all'interno degli oggetti si utiliz
 \item
   Cambia i nomi degli oggetti contenuti nella lista \texttt{esperimento\_2} rispettivamente in \texttt{"dati\_esperimento"}, \texttt{"matrice\_VCV"}, \texttt{"codici\_Id"} e \texttt{"note"}
 \end{enumerate}
+
+\hypertarget{creazione-e-indicizzazione-avanzata}{%
+\section{Creazione e indicizzazione avanzata}\label{creazione-e-indicizzazione-avanzata}}
+
+Al contrario dei vettori che si estendono in \emph{lunghezza} o dei dataframe/matrici che sono caratterizzati da righe e colonne, la peculiarità della lista (oltre alla lunghezza come abbaimo visto) è il concetto di \textbf{profondità}. Infatti una lista può contenere al suo interno una o più liste di fatto creando una \textbf{struttura nidificata molto complessa}. Nonostante la struttura più complessa, il principio di indicizzazione e creazione è lo stesso. La figura \ref{fig:list-depth} rappresenta l'idea di una lista nidificata (o nested):
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth,height=0.5\textheight]{images/list_depth} 
+
+}
+
+\caption{Rappresentazione concettuale di una lista nested}\label{fig:list-depth}
+\end{figure}
+
+Per fare un esempio pratico, immaginiamo che \(n\) soggetti abbiamo eseguito \(k\) diversi esperimenti e vogliamo organizzare questa struttura di dati in R in modo efficace e ordinato. Possiamo immaginare una lista \texttt{esperimenti} che contiene:
+
+\begin{itemize}
+\tightlist
+\item
+  Ogni soggetto come una lista, chiamata \texttt{s1,\ s2,\ ...,\ sn}
+\item
+  Ogni elemento della lista-soggetto è un dataframe per lo specifico esperimento chiamato \texttt{exp1,\ exp2,\ ...,\ expn}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{# Per comodità ripetiamo lo stesso esperimento e lo stesso soggetto}
+
+\CommentTok{# Esperimento generico}
+\NormalTok{exp_x <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
+  \DataTypeTok{id =} \DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{,}
+  \DataTypeTok{gender =} \KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"m"}\NormalTok{, }\StringTok{"f"}\NormalTok{), }\DataTypeTok{each =} \DecValTok{5}\NormalTok{),}
+  \DataTypeTok{y =} \DecValTok{1}\OperatorTok{:}\DecValTok{10}
+\NormalTok{)}
+
+\CommentTok{# Soggetto generico}
+\NormalTok{sx <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+  \DataTypeTok{exp1 =}\NormalTok{ exp_x,}
+  \DataTypeTok{exp2 =}\NormalTok{ exp_x,}
+  \DataTypeTok{exp3 =}\NormalTok{ exp_x}
+\NormalTok{)}
+
+\CommentTok{# Lista Completa}
+
+\NormalTok{esperimenti <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+  \DataTypeTok{s1 =}\NormalTok{ sx,}
+  \DataTypeTok{s2 =}\NormalTok{ sx,}
+  \DataTypeTok{s3 =}\NormalTok{ sx}
+\NormalTok{)}
+
+\KeywordTok{str}\NormalTok{(esperimenti)}
+\CommentTok{## List of 3}
+\CommentTok{##  $ s1:List of 3}
+\CommentTok{##   ..$ exp1:'data.frame': 10 obs. of  3 variables:}
+\CommentTok{##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##   .. ..$ gender: chr [1:10] "m" "m" "m" "m" ...}
+\CommentTok{##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##   ..$ exp2:'data.frame': 10 obs. of  3 variables:}
+\CommentTok{##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##   .. ..$ gender: chr [1:10] "m" "m" "m" "m" ...}
+\CommentTok{##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##   ..$ exp3:'data.frame': 10 obs. of  3 variables:}
+\CommentTok{##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##   .. ..$ gender: chr [1:10] "m" "m" "m" "m" ...}
+\CommentTok{##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##  $ s2:List of 3}
+\CommentTok{##   ..$ exp1:'data.frame': 10 obs. of  3 variables:}
+\CommentTok{##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##   .. ..$ gender: chr [1:10] "m" "m" "m" "m" ...}
+\CommentTok{##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##   ..$ exp2:'data.frame': 10 obs. of  3 variables:}
+\CommentTok{##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##   .. ..$ gender: chr [1:10] "m" "m" "m" "m" ...}
+\CommentTok{##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##   ..$ exp3:'data.frame': 10 obs. of  3 variables:}
+\CommentTok{##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##   .. ..$ gender: chr [1:10] "m" "m" "m" "m" ...}
+\CommentTok{##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##  $ s3:List of 3}
+\CommentTok{##   ..$ exp1:'data.frame': 10 obs. of  3 variables:}
+\CommentTok{##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##   .. ..$ gender: chr [1:10] "m" "m" "m" "m" ...}
+\CommentTok{##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##   ..$ exp2:'data.frame': 10 obs. of  3 variables:}
+\CommentTok{##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##   .. ..$ gender: chr [1:10] "m" "m" "m" "m" ...}
+\CommentTok{##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##   ..$ exp3:'data.frame': 10 obs. of  3 variables:}
+\CommentTok{##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\CommentTok{##   .. ..$ gender: chr [1:10] "m" "m" "m" "m" ...}
+\CommentTok{##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10}
+\end{Highlighting}
+\end{Shaded}
+
+Ora la struttura è molto più complessa, ma se abbiamo chiara la figura \ref{fig:list-depth} e l'indicizzazione per le liste precedenti, accedere agli elementi della lista \texttt{esperimenti} è semplice ed intuitivo. Se vogliamo accedere al dataset del \texttt{soggetto\ 3} che riguarda \texttt{l\textquotesingle{}esperimento\ 2}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Con indici numerici}
+\NormalTok{esperimenti[[}\DecValTok{3}\NormalTok{]][[}\DecValTok{2}\NormalTok{]] }\CommentTok{# elemento 3 (una lista) e poi l'elemento 2}
+\CommentTok{##    id gender  y}
+\CommentTok{## 1   1      m  1}
+\CommentTok{## 2   2      m  2}
+\CommentTok{## 3   3      m  3}
+\CommentTok{## 4   4      m  4}
+\CommentTok{## 5   5      m  5}
+\CommentTok{## 6   6      f  6}
+\CommentTok{## 7   7      f  7}
+\CommentTok{## 8   8      f  8}
+\CommentTok{## 9   9      f  9}
+\CommentTok{## 10 10      f 10}
+
+\CommentTok{# Con i nomi (molto più intuitivo)}
+\NormalTok{esperimenti}\OperatorTok{$}\NormalTok{s3}\OperatorTok{$}\NormalTok{exp2}
+\CommentTok{##    id gender  y}
+\CommentTok{## 1   1      m  1}
+\CommentTok{## 2   2      m  2}
+\CommentTok{## 3   3      m  3}
+\CommentTok{## 4   4      m  4}
+\CommentTok{## 5   5      m  5}
+\CommentTok{## 6   6      f  6}
+\CommentTok{## 7   7      f  7}
+\CommentTok{## 8   8      f  8}
+\CommentTok{## 9   9      f  9}
+\CommentTok{## 10 10      f 10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tip}[A cosa servono le liste?]
+
+Se il vantaggio di un dataframe rispetto ad una matrice è palese, quale è la vera utilità delle liste essendo ``semplicemente'' dei contenitori?
+I vantaggi principali che rendono le liste degli oggetti estremamente potenti sono:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Organizzare strutture complesse di dati}: come abbiamo visto nell'esempio precedente, insiemi di oggetti nidificati possono essere organizzati in un oggetto unico senza avere decine di singoli oggetti nel workspace.
+\item
+  \textbf{Effettuare operazioni complesse su più oggetti parallelamente}. Immaginate di avere una lista di dataframe strutturalmente simili ma con dati diversi all'interno. Se volete applicare una funzione ad ogni dataframe potete organizzare i dati in una lista e usare le funzioni dell'\texttt{apply} family che vedremo nei prossimi capitoli.
+\end{itemize}
+
+\end{tip}
 
 \hypertarget{part-algoritmi}{%
 \part*{Algoritmi}\label{part-algoritmi}}

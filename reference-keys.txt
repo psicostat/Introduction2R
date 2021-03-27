@@ -39,6 +39,8 @@ tab:table-matrix-operators
 fig:mat-comb
 tab:ex-dataframe
 tab:frame-tab
+fig:list-example
+fig:list-depth
 install
 install-r
 r-windows
@@ -112,7 +114,9 @@ indicizzazione-di-dataframe
 indicizzazione-avanzata
 list
 creazione-di-liste
-selezione-di-elementi-di-una-lista
+indicizzazione-di-una-lista
+proprietà-della-lista
+creazione-e-indicizzazione-avanzata
 functions
 coditionals
 loop
