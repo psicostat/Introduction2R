@@ -386,7 +386,7 @@ my_words
 9. Elimina dal vettore `z` i valori 28 e 42
 
 
-## Funzioni ed Operazioni
+## Funzioni ed Operazioni {#vector-functions}
 
 Vediamo ora alcune utili funzioni e comuni operazioni che è possibile svolgere con i vettori (vedi Tabella \@ref(tab:table-vector-operators)).
 
@@ -455,7 +455,7 @@ x + c(1, 2)
 ## [1] 2 4 4 6 6
 ```
 
-Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche se multipli) dovrebbe essere evitato perchè facile causa di errori ed incomprensioni. 
+Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche se multipli) dovrebbe essere evitato poichè è facile causa di errori ed incomprensioni. 
 :::
 
 :::{.design title="Vectorized Operations" data-latex="[Vectorized Operations]"}
@@ -674,10 +674,10 @@ Utilizzando le funzioni `sum()` e `mean()` con un vettore logico, possiamo valut
 my_values <- rnorm(50)  # genero dei numeri casuali 
 
 sum(my_values > 0)      # totale numeri positivi
-## [1] 28
+## [1] 25
 
 mean(my_values > 0)      # percentuale numeri positivi
-## [1] 0.56
+## [1] 0.5
 ```
 :::
 

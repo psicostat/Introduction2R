@@ -253,7 +253,7 @@ my_matrix[20,30]
 
 Oltre alla selezione di un singolo elemento è possibile eseguire altri tipi di selezione:
 
-#### Selezione per Riga o Colonna {-}
+#### Selezionare Riga o Colonna {-}
 
 E' possibile selezionare **tutti** gli elementi di una riga o di una colonna utilizzando la seguente sintassi:
 
@@ -450,7 +450,7 @@ my_matrix[test]
 
 Nota come in questo caso non sia necessaria alcuna virgola all'interno delle parentesi quadre e come il risultato ottenuto sia un vettore.
 
-#### Modificare l'Ordine Righe e Colonne {-}
+#### Modificare Ordine Righe e Colonne {-}
 
 Gli indici di riga e di colonna possono essere utilizzati per riordinare le righe e le colonne di una matrice a seconda delle necessità.
 
@@ -552,6 +552,18 @@ my_matrix[-2, -c(2,3)]
 ```
 
 Nota come l'operazione di eliminazione sia comunque un'operazione di selezione. Pertanto è necessario salvare il risultato ottenuto se si desidera mantenere le modifiche.
+
+
+### Esercizi {-}
+
+Utilizzando le matrici create nei precedenti esercizi esegui le seguenti consegne:
+
+1. Utilizzando gli indici di riga e di colonna selziona il numero 27 della matrice `A`
+2. Selziona gli elementi compresi tra la seconda e quarta riga, seconda e terza colonna della matrice `B`
+3. Seleziona solo gli elementi pari della matrice `A` (Nota: utilizza l'operazione resto `%%`)
+4. Elimina dalla matrice `C` la terza riga e la terza colonna
+5. Seleziona tutti gli elementi della seconda e terza riga della matrice `B`
+6. Seleziona tutti gli elementi diversi da  “B” appartenenti alla matrice `D`
 
 ## Funzioni ed Operazioni
 
@@ -742,293 +754,232 @@ my_matrix[c("A", "C"), ]
 
 ### Combinare Matrici
 
-Abbiamo visto nel Capitolo \@ref(vector) come si possano fare diverse operazioni tra vettori, in particolare combinare ovvero unire vettori diversi. Anche per le matrici è possibile combinare matrici diverse, rispettando alcune regole:
+Abbiamo visto nel Capitolo \@ref(vector-functions) come si possono unire diversi vettori tramite la funnzione `c()`. Anche per le matrici è possibile combinare matrici diverse, rispettando però alcune regole:
 
-* Posso unire matrici per riga ovvero aggiungo una o più righe ad una matrice, in questo caso le matrici devono avere lo stesso numero di colonne
-* Posso unire matrici per colonna ovvero aggiungo una o più colonne ad una matrice, in questo caso le matrici devono avere lo stesso numero di righe
-* Le matrici che unisco devono essere della stessa tipologia (numeri o caratteri)
+* `rbind()` - Posso unire matrici **per riga**  ovvero aggiungo una o più righe ad una matrice, in questo caso le matrici devono avere lo stesso numero di colonne
+* `cbind()` - Posso unire matrici **per colonna** ovvero aggiungo una o più colonne ad una matrice, in questo caso le matrici devono avere lo stesso numero di righe
+* Le matrici che unisco devono essere della **stessa tipologia** (numeri o caratteri)
 
-Se partiamo da una matrice `mat` per unire a `mat` un'altra matrice `new_mat` possiamo usare il comando `cbind(mat, new_mat)` se vogliamo unire le due matrici per colonna invece `rbind(mat, new_mat)` se vogliamo unire per riga. E' utile pensare all'unione come un collage tra matrici, in figura\@ref(fig:mat-comb) è presente uno schema utile per capire visivamente questo concetto.
+Quindi, data una  matrice `my_matrix` di dimensione $m \times n$  se volgiamo aggiungere le righe di una seconda matrice `row_matrix` possiamo utlizzare il comando `rbind(my_matrix, row_matrix)` a patto che abbiano lo stesso numero di colonnne ($n$). Se vogliamo invece aggiungere le colonne di una nuova matrice `col_matrix` possiamo utlizzare il comando `cbind(my_matrix, col_matrix)` a patto che abbiano lo stesso numero di righe ($m$). E' utile pensare all'unione come ad un collage tra matrici. In Figura\@ref(fig:mat-comb) è presente uno schema utile per capire visivamente questo concetto, dove le matrici colorate in verde possono essere correttamente unite mentre le matrici in rosso non presentano la corretta dimensionalità.
 
 <div class="figure" style="text-align: center">
 <img src="images/matrix_comb.png" alt="Schema per la combinazione di matrici" width="50%" />
 <p class="caption">(\#fig:mat-comb)Schema per la combinazione di matrici</p>
 </div>
 
-Vediamo in R:
+Vediamo un esempio in R:
 
 
 ```r
-vec <- 1:25
-mat <- matrix(vec, ncol = 5, nrow = 5, byrow = FALSE)
+# Matrice di partenza
+my_matrix <- matrix(1:12, nrow = 3, ncol = 4)
+my_matrix
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    4    7   10
+## [2,]    2    5    8   11
+## [3,]    3    6    9   12
 
-# Nuova matrice da aggiungere
-new_vec <- 11:20
-new_mat <- matrix(new_vec, ncol = 2, nrow = 5, byrow = FALSE)
+# Matrice con stesso numero di colonne
+row_matrix <- matrix(77, nrow = 2, ncol = 4)
+row_matrix
+##      [,1] [,2] [,3] [,4]
+## [1,]   77   77   77   77
+## [2,]   77   77   77   77
 
-mat
-##      [,1] [,2] [,3] [,4] [,5]
-## [1,]    1    6   11   16   21
-## [2,]    2    7   12   17   22
-## [3,]    3    8   13   18   23
-## [4,]    4    9   14   19   24
-## [5,]    5   10   15   20   25
-new_mat
+# Unione per riga
+rbind(my_matrix, row_matrix)
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    4    7   10
+## [2,]    2    5    8   11
+## [3,]    3    6    9   12
+## [4,]   77   77   77   77
+## [5,]   77   77   77   77
+
+
+# Matrice con stesso numero di righe
+col_matrix <- matrix(99, nrow = 3, ncol = 2)
+col_matrix
 ##      [,1] [,2]
-## [1,]   11   16
-## [2,]   12   17
-## [3,]   13   18
-## [4,]   14   19
-## [5,]   15   20
+## [1,]   99   99
+## [2,]   99   99
+## [3,]   99   99
 
-# Combiniamo per colonna
-
-cbind(mat, new_mat)
-##      [,1] [,2] [,3] [,4] [,5] [,6] [,7]
-## [1,]    1    6   11   16   21   11   16
-## [2,]    2    7   12   17   22   12   17
-## [3,]    3    8   13   18   23   13   18
-## [4,]    4    9   14   19   24   14   19
-## [5,]    5   10   15   20   25   15   20
-
-# Combiniamo per riga
-
-rbind(mat, new_mat)
-## Error in rbind(mat, new_mat): number of columns of matrices must match (see arg 2)
-
-# Scambiamo il numero di colonne e righe, per far combaciare le due matrici
-
-new_vec <- 11:20
-new_mat <- matrix(new_vec, ncol = 5, nrow = 2, byrow = FALSE)
-mat
-##      [,1] [,2] [,3] [,4] [,5]
-## [1,]    1    6   11   16   21
-## [2,]    2    7   12   17   22
-## [3,]    3    8   13   18   23
-## [4,]    4    9   14   19   24
-## [5,]    5   10   15   20   25
-new_mat
-##      [,1] [,2] [,3] [,4] [,5]
-## [1,]   11   13   15   17   19
-## [2,]   12   14   16   18   20
-
-rbind(mat, new_mat)
-##      [,1] [,2] [,3] [,4] [,5]
-## [1,]    1    6   11   16   21
-## [2,]    2    7   12   17   22
-## [3,]    3    8   13   18   23
-## [4,]    4    9   14   19   24
-## [5,]    5   10   15   20   25
-## [6,]   11   13   15   17   19
-## [7,]   12   14   16   18   20
+# Unione per colonna
+cbind(my_matrix, col_matrix)
+##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    1    4    7   10   99   99
+## [2,]    2    5    8   11   99   99
+## [3,]    3    6    9   12   99   99
 ```
 
-Possiamo combinare quindi per riga/colonna solo se le righe/colonne delle due matrici sono equivalenti. Otteniamo un errore quando cerchiamo di combinare matrici di dimensioni diverse.
+Un ultimo aspetto utile è l'estensione dei comandi `cbind()` ed `rbind()`. Fino ad ora li abbiamo utilizzati con due soli elementi: matrice di partenza e matrice da aggiungere. Tuttavia, è possibile indicare più matrici che si vogliono unire, separandole con una virgola. Se vogliamo combinare $n$ matrici possiamo usare il comando `cbind(mat1, mat2, mat3, ...)` o `rbind(mat1, mat2, mat3, ...)`. In questo caso il risultato finale sarà l'unione delle matrici nell'ordine utilizzato nel definire gli argomenti quindi prima la `mat1`, poi la `mat2` e così via.
 
-Un ultimo aspetto utile è l'estensione dei comandi `cbind()` ed `rbind()`. Fino ad ora li abbiamo utilizzati con due elementi: matrice di partenza e matrice da aggiungere ma possono essere utilizzati con elementi multipli. Se vogliamo combinare $n$ matrici possiamo usare il comando `cbind(mat1, mat2, mat3, ...)` o `rbind(mat1, mat2, mat3, ...)`. In questo caso il risultato finale dipende dall'ordine degli argomenti quindi prima la `mat1`, poi la `mat2` e così via.
+:::{.warning title='"Matrices Must Match"' data-latex='["Matrices Must Match"]'}
+Abbiamo visto che possiamo unire matrici per riga/colonna solo se il numero di colonne/righe delle due matrici sono equivalenti. Otteniamo un errore, invece, quando cerchiamo di combinare matrici di dimensioni diverse *"number of columns/rows of matrices must match "*.
+
+
+```r
+my_matrix <- matrix(1:12, nrow = 3, ncol = 4)
+
+# Matrice con errato numero di colonne
+wrong_matrix <- matrix(77, nrow = 2, ncol = 7)
+rbind(my_matrix, wrong_matrix)
+## Error in rbind(my_matrix, wrong_matrix): number of columns of matrices must match (see arg 2)
+```
+:::
 
 ### Operatori Matematici
 
-- condizioni sulle dimensioni
+Gli operatori matematici (e.g., `+`, `-`, `*`, `/`, etc.) svolgono le operazioni tra una matrice ed un singolo valore, tra una matrice ed un vettore oppure tra due matrici.
+
+#### Operazione tra Matrice e Valore Singolo {-}
+
+Nel caso di un singolo valore, la stessa operazione viene semplicemente eseguita su tutti gli elementi della matrice. Possiamo ad esempio aggiungere a tutti gli elementi di una matrice il volore 100.
+
+
+```r
+my_matrix <- matrix(1:12, nrow = 3, ncol = 4)
+my_matrix
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    4    7   10
+## [2,]    2    5    8   11
+## [3,]    3    6    9   12
+
+# Aggiungo 100
+my_matrix + 100
+##      [,1] [,2] [,3] [,4]
+## [1,]  101  104  107  110
+## [2,]  102  105  108  111
+## [3,]  103  106  109  112
+```
+
+#### Operazione tra Matrice e Vettore {-}
+
+Nel caso di un vettore, l'operazione viene eseguita **elemento per elemento** ciclando i valori del vettore qualora la sua lunghezza non sia suficiente. Possiamo ad esempio aggiungere a tutti gli elementi di una matrice il vettore di valori `c(100, 200, 300, 400)`.
+
+
+```r
+# Aggiungo un vettore di valori
+my_matrix + c(100, 200, 300, 400)
+##      [,1] [,2] [,3] [,4]
+## [1,]  101  404  307  210
+## [2,]  202  105  408  311
+## [3,]  303  206  109  412
+```
+
+Com'è facilmente intuibile, questa operazione è poco connsigliata poichè è facile causa di errori ed incomprensioni.
+
+#### Operazione tra Matrici {-}
+
+Nel caso di operazioni tra matrici, l'operazione viene eseguita **elemento per elemento** ed è quindi importante che le matrici abbiano la **stessa dimensione**. Possiamo ad esempio aggiungere a tutti gli elementi di una matrice nelle cui righe abbiamo i valori 100, 200, 300 e 400.
+
+
+```r
+sum_matrix <- matrix(rep(c(100, 200, 300, 400), each = 3), nrow = 3, ncol = 4)
+sum_matrix
+##      [,1] [,2] [,3] [,4]
+## [1,]  100  200  300  400
+## [2,]  100  200  300  400
+## [3,]  100  200  300  400
+
+# sommo due matrici
+my_matrix + sum_matrix
+##      [,1] [,2] [,3] [,4]
+## [1,]  101  204  307  410
+## [2,]  102  205  308  411
+## [3,]  103  206  309  412
+```
+
+:::{.tip title="Matrix Multiplication" data-latex="[Matrix Multiplication]"}
+Nota come in R l'operatore `*` indichi il semmplice prodotto elemento per elemento mentre per ottenere il prodotto matriciale è necessario utilizzare l'operatore `%*%`.
+
+Il prodotto matriciale segue delle specifiche regole e specifiche proprietà. In particolare, il numero di colonne della prima matrice deve essere uguale al numero di righe della seconda matrice. Per un approfondimento vedi <https://it.wikipedia.org/wiki/Moltiplicazione_di_matrici>.
+
+
+#### Algebra Lineare {-}
+
+Anche altri aspetti che riguardano le operazioni con le matrici non vengono qui discusse ma si rimanda il lettore interessato alle seguenti pagine:
+
+- Per il significato di determinante di una matrice considera <https://it.wikipedia.org/wiki/Determinante>
+- Per il significato di matrice inversa considera <https://it.wikipedia.org/wiki/Matrice_invertibile>
 
 #### Diagonale {-}
 
-Riguardo la **diagonale** di una matrice essa può essere vista, dal punto di vista prettamente pratico, come l'insieme di elementi associati allo stesso indice di riga e colonna. Il comando `diag(matrice)` permette di estrarre la diagonale di una matrice e trattarla come un semplice vettore:
+Vediamo ora alcuni utili funzioni che riguardano la diagonale di una matrice. La diagonale di una matrice è formata dagli elementi i cui indici di riga e di colonna sono uguali, ovvero l'insieme di elementi associati allo stesso indice di riga e colonna ($x_{i,i}$).
+
+Il comando `diag(nome_matrice)` permette di estrarre la diagonale di una matrice e trattarla come un semplice vettore:
 
 
 ```r
-
 # Matrice quadrata
-vec <- 1:25
-mat <- matrix(vec, ncol = 5, nrow = 5, byrow = FALSE)
+square_matrix <- matrix(1:16, nrow = 4, ncol = 4)
+square_matrix
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    5    9   13
+## [2,]    2    6   10   14
+## [3,]    3    7   11   15
+## [4,]    4    8   12   16
 
-mat
-##      [,1] [,2] [,3] [,4] [,5]
-## [1,]    1    6   11   16   21
-## [2,]    2    7   12   17   22
-## [3,]    3    8   13   18   23
-## [4,]    4    9   14   19   24
-## [5,]    5   10   15   20   25
-
-diag(mat)
-## [1]  1  7 13 19 25
+diag(square_matrix)
+## [1]  1  6 11 16
 
 # Matrice non quadrata
+my_matrix <- matrix(1:12, nrow = 3, ncol = 4)
+my_matrix
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    4    7   10
+## [2,]    2    5    8   11
+## [3,]    3    6    9   12
 
-vec <- 1:16
-mat <- matrix(vec, ncol = 2, nrow = 8, byrow = FALSE)
-mat
-##      [,1] [,2]
-## [1,]    1    9
-## [2,]    2   10
-## [3,]    3   11
-## [4,]    4   12
-## [5,]    5   13
-## [6,]    6   14
-## [7,]    7   15
-## [8,]    8   16
-
-diag(mat)
-## [1]  1 10
+diag(my_matrix)
+## [1] 1 5 9
 ```
 
+La funzione `diag()` può anche essere usata per sostituire gli elementi sulla diagonale di una matrice oppure per creare una matrice diagonale in cui gli altri valori siano tutti zero, ad esempio la matrice identità.
 
-### Esercizi {-}
-
-Utilizzando le matrici `A` e `B` create nei precedenti esercizi:
-
-1. Utilizzando gli indici di riga e di colonna selziona il numero 27 della matrice `A`
-2. Selziona gli elementi compresi tra la seconda e quarta riga, seconda e terza colonna della matrice `B`
-3. Seleziona solo gli elementi pari della matrice `A` (Nota: utilizza l'operazione resto `%%`)
-4. Elimina dalla matrice `C` la terza riga e la terza colonna
-5. Seleziona tutti gli elementi della seconda e terza riga della matrice `B`
-6. Seleziona tutti gli elementi diversi da  “B” appartenenti alla matrice `D`
-7. Crea la matrice `G` unendo alla matrice `A` le prime due colonne della matrice `C`
-8. Crea la matrice `H` unendo alla matrice `C` le prime due righe della matrice trasposta di `B`
-9. Ridefinisci la matrice `A` eliminando la seconda colonna. Ridefinisci la matrice `B` eliminando la prima riga. Verifica che le  matrici così ottenute abbiano la stessa dimensione.
-10. Commenta i differenti risultati che otteniamo nelle operazioni `A*B`, `B*A`, `A%*%B` e `B%*%A`.
-11. Assegna i seguenti nomi alle colonne e alle righe della matrice `C`: `"col_1", "col_2", "col_3", "col_4", "row_1", "row_2", "row_3"`.
-
-
-## estensione array
-<!--
-
-### Esercizi {-}
-
-1. Crea la matrice `A` così definita: 
-
-$$
-\begin{matrix}
-2 & 34 & 12 & 7\\
-46 & 93 & 27 & 99\\
-23  & 38 & 7 & 04
-\end{matrix}
-$$
-
-2. Crea la matrice `B` contenente tutti i primi 12 numeri dispari disposti su 4 righe e 3 colonne.
-3. Crea la matrice `C` contenente i primi 12 multipli di 9 disposti su 3 righe e 4 colonne.
-4. Crea la matrice `D`  formata da 3 colonne in cui le lettere `"A"`,`"B"` e `"C"` vengano ripetute 4 volte ciascuna rispettivamente nella prima, seconda e terza colonna.
-5. Crea la matrice `E`  formata da 3 righe in cui le lettere `"A"`,`"B"` e `"C"` vengano ripetute 4 volte ciascuna rispettivamente nella prima, seconda e terza riga.
-
-## Selezione di Elementi di una Matrice
-
-In R per selezioneare gli elementi di matrice si deve indicare all'interno delle parentesi quadre l'indice di riga e l'indice di colonna (**separati da virgola**) degli elementi da selezionare oppure la condizione logica che devono rispettare.
-
-`<nome-matrice>[<indice-riga>, <indice-colonna>]`
-
-**Nota:** per selezionare tutti gli elementi di una data riga o di una data colonna basta lasciare vuoto rispettivamente l'indice di riga o l'indice di colonna.
-
-### Esercizi {-}
-
-1. Utilizzando gli indici di riga e di colonna selziona il numero 27 della matrice `A`
-2. Selziona gli elementi compresi tra la seconda e quarta riga, seconda e terza colonna della matrice `B`
-3. Seleziona solo gli elementi pari della matrice `A` (Nota: utilizza l'operazione resto `%%`)
-4. Elimina dalla matrice `C` la terza riga e la terza colonna
-5. Seleziona tutti gli elementi della seconda e terza riga della matrice `B`
-6. Seleziona tutti gli elementi diversi da  “B” appartenenti alla matrice `D`
-
-## Funzioni ed Operazioni tra Matrici
-
-
-<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:unnamed-chunk-38)Operazioni con matrici</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Operazione </th>
-   <th style="text-align:left;"> Nome </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> &lt;nuova-matrice&gt; &lt;- cbind(&lt;matrice1&gt;, &lt;matrice2&gt;) </td>
-   <td style="text-align:left;"> Per unire due matrici creando nuove colonne (le matrici devono avere lo stesso numero di righe) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> &lt;nuova-matrice&gt; &lt;- rbind(&lt;matrice1&gt;, &lt;matrice2&gt;) </td>
-   <td style="text-align:left;"> Per unire due matrici creando nuove righe (le matrici devono avere lo stesso numero di colonne) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> nrow(&lt;nome-matrice&gt;) </td>
-   <td style="text-align:left;"> Per valutare il numero di righe della matrice </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> ncol(&lt;nome-matrice&gt;) </td>
-   <td style="text-align:left;"> Per valutare il numero di colonne della matrice </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> dim(&lt;nome-matrice&gt;) </td>
-   <td style="text-align:left;"> Per valutare la dimensione della matrice (righe e colonne) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> t(&lt;nome-matrice&gt;) </td>
-   <td style="text-align:left;"> Per ottenere la trasposta della matrice </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> diag(&lt;nome-matrice&gt;) </td>
-   <td style="text-align:left;"> Ottenere un vettore con gli elementi della diagonale della matrice </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> det(&lt;nome-matrice&gt;) </td>
-   <td style="text-align:left;"> Ottenere il determinante della matrice (la matrice deve essere quadrata) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> solve(&lt;nome-matrice&gt;) </td>
-   <td style="text-align:left;"> Ottenere l'inversa della matrice </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> colnames(&lt;nome-matrice&gt;) </td>
-   <td style="text-align:left;"> Nomi delle colonne della matrice </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> rownames(&lt;nome-matrice&gt;) </td>
-   <td style="text-align:left;"> Nomi delle righe della matrice </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> matrice1 + matrice2 </td>
-   <td style="text-align:left;"> Somma elemento per elemento di due matrici </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> matrice1 - matrice2 </td>
-   <td style="text-align:left;"> Differenza elemento per elemento tra due matrici </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> matrice1 * matrice2 </td>
-   <td style="text-align:left;"> Prodotto elemento per elemento tra due matrici </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> matrice1 / matrice2 </td>
-   <td style="text-align:left;"> Rapporto elemento per elemento tra due matrici </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> matrice1 %*% matrice2 </td>
-   <td style="text-align:left;"> Prodotto matriciale </td>
-  </tr>
-</tbody>
-</table>
-
-**Note:**
-
-- Per il significato di determinante di una matrice considera: <https://it.wikipedia.org/wiki/Determinante>
-- Per il significato di matrice inversa considera: <https://it.wikipedia.org/wiki/Matrice_invertibile>
-- Per  compiere operazioni elemento per elemento tra due matrici, esse devono avere la stessa dimensione
-- Per compiere il prodotto matriciale il numero di colonne della prima matrice deve essere uguale al numero di righe della seconda matrice (vedi <https://it.wikipedia.org/wiki/Moltiplicazione_di_matrici>). 
-- E' possibile assegnare nomi alle colonne e righe di una matrice rispettivamente atttraverso i comandi:
 
 ```r
-colnames(<nome-matrice>)<-c("nome-1",...,"nome-s")}
+# Sostituisco gli elementi della diagonale
+diag(my_matrix) <- 999
+my_matrix
+##      [,1] [,2] [,3] [,4]
+## [1,]  999    4    7   10
+## [2,]    2  999    8   11
+## [3,]    3    6  999   12
 
-rownames(<nome-matrice>)<-c("nome-1",...,"nome-n")}
+# Creo una matrice diagonale
+diag(4, nrow = 3, ncol = 4)
+##      [,1] [,2] [,3] [,4]
+## [1,]    4    0    0    0
+## [2,]    0    4    0    0
+## [3,]    0    0    4    0
+
+# Creo una matrice identità 4X4
+diag(4)
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    0    0    0
+## [2,]    0    1    0    0
+## [3,]    0    0    1    0
+## [4,]    0    0    0    1
 ```
+:::
+
+
+
 
 ### Esercizi {-}
+
+Utilizzando le matrici create nei precedenti esercizi, esegui le seguentti consegne:
 
 1. Crea la matrice `G` unendo alla matrice `A` le prime due colonne della matrice `C`
 2. Crea la matrice `H` unendo alla matrice `C` le prime due righe della matrice trasposta di `B`
 3. Ridefinisci la matrice `A` eliminando la seconda colonna. Ridefinisci la matrice `B` eliminando la prima riga. Verifica che le  matrici così ottenute abbiano la stessa dimensione.
 4. Commenta i differenti risultati che otteniamo nelle operazioni `A*B`, `B*A`, `A%*%B` e `B%*%A`.
-5. Assegna i seguenti nomi alle colonne e alle righe della matrice `C`: `"col\_1", "col\_2", "col\_3", "col\_4", "row\_1", "row\_2", "row\_3"`.
+5. Assegna i seguenti nomi alle colonne e alle righe della matrice `C`: `"col_1", "col_2", "col_3", "col_4", "row_1", "row_2", "row_3"`.
 
--->
+
+## estensione array
+TODO
 
 
 

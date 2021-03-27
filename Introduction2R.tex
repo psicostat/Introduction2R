@@ -3074,8 +3074,8 @@ Nota come l'operazione di eliminazione sia comunque un'operazione di selezione. 
   Elimina dal vettore \texttt{z} i valori 28 e 42
 \end{enumerate}
 
-\hypertarget{funzioni-ed-operazioni}{%
-\section{Funzioni ed Operazioni}\label{funzioni-ed-operazioni}}
+\hypertarget{vector-functions}{%
+\section{Funzioni ed Operazioni}\label{vector-functions}}
 
 Vediamo ora alcune utili funzioni e comuni operazioni che è possibile svolgere con i vettori (vedi Tabella \ref{tab:table-vector-operators}).
 
@@ -3140,7 +3140,7 @@ Qualora i vettori differiscano per la loro lunghezza, R ci presenterà un warnin
 \end{Highlighting}
 \end{Shaded}
 
-Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche se multipli) dovrebbe essere evitato perchè facile causa di errori ed incomprensioni.
+Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche se multipli) dovrebbe essere evitato poichè è facile causa di errori ed incomprensioni.
 
 \end{warning}
 
@@ -3407,10 +3407,10 @@ Utilizzando le funzioni \texttt{sum()} e \texttt{mean()} con un vettore logico, 
 \NormalTok{my_values <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{)  }\CommentTok{# genero dei numeri casuali }
 
 \KeywordTok{sum}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# totale numeri positivi}
-\CommentTok{## [1] 25}
+\CommentTok{## [1] 22}
 
 \KeywordTok{mean}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# percentuale numeri positivi}
-\CommentTok{## [1] 0.5}
+\CommentTok{## [1] 0.44}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4367,9 +4367,9 @@ Notiamo come indicando degli indici al di fuori della dimensione della matrice o
 
 Oltre alla selezione di un singolo elemento è possibile eseguire altri tipi di selezione:
 
-\hypertarget{selezione-per-riga-o-colonna}{%
-\subsubsection*{Selezione per Riga o Colonna}\label{selezione-per-riga-o-colonna}}
-\addcontentsline{toc}{subsubsection}{Selezione per Riga o Colonna}
+\hypertarget{selezionare-riga-o-colonna}{%
+\subsubsection*{Selezionare Riga o Colonna}\label{selezionare-riga-o-colonna}}
+\addcontentsline{toc}{subsubsection}{Selezionare Riga o Colonna}
 
 E' possibile selezionare \textbf{tutti} gli elementi di una riga o di una colonna utilizzando la seguente sintassi:
 
@@ -4599,9 +4599,9 @@ Questa matrice può essere utilizzata all'interno delle parentesi quadre per sel
 
 Nota come in questo caso non sia necessaria alcuna virgola all'interno delle parentesi quadre e come il risultato ottenuto sia un vettore.
 
-\hypertarget{modificare-lordine-righe-e-colonne}{%
-\subsubsection*{Modificare l'Ordine Righe e Colonne}\label{modificare-lordine-righe-e-colonne}}
-\addcontentsline{toc}{subsubsection}{Modificare l'Ordine Righe e Colonne}
+\hypertarget{modificare-ordine-righe-e-colonne}{%
+\subsubsection*{Modificare Ordine Righe e Colonne}\label{modificare-ordine-righe-e-colonne}}
+\addcontentsline{toc}{subsubsection}{Modificare Ordine Righe e Colonne}
 
 Gli indici di riga e di colonna possono essere utilizzati per riordinare le righe e le colonne di una matrice a seconda delle necessità.
 
@@ -4713,8 +4713,31 @@ Per \textbf{eliminare} delle righe (o delle colonne) da una matrice, è necessar
 
 Nota come l'operazione di eliminazione sia comunque un'operazione di selezione. Pertanto è necessario salvare il risultato ottenuto se si desidera mantenere le modifiche.
 
-\hypertarget{funzioni-ed-operazioni-1}{%
-\section{Funzioni ed Operazioni}\label{funzioni-ed-operazioni-1}}
+\hypertarget{esercizi-7}{%
+\subsection*{Esercizi}\label{esercizi-7}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+Utilizzando le matrici create nei precedenti esercizi esegui le seguenti consegne:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Utilizzando gli indici di riga e di colonna selziona il numero 27 della matrice \texttt{A}
+\item
+  Selziona gli elementi compresi tra la seconda e quarta riga, seconda e terza colonna della matrice \texttt{B}
+\item
+  Seleziona solo gli elementi pari della matrice \texttt{A} (Nota: utilizza l'operazione resto \texttt{\%\%})
+\item
+  Elimina dalla matrice \texttt{C} la terza riga e la terza colonna
+\item
+  Seleziona tutti gli elementi della seconda e terza riga della matrice \texttt{B}
+\item
+  Seleziona tutti gli elementi diversi da ``B'' appartenenti alla matrice \texttt{D}
+\end{enumerate}
+
+\hypertarget{funzioni-ed-operazioni}{%
+\section{Funzioni ed Operazioni}\label{funzioni-ed-operazioni}}
 
 Vediamo ora alcune funzioni frequentemente usate e le comuni operazioni eseguite con le matrici (vedi Tabella \ref{tab:table-matrix-operators}).
 
@@ -4882,19 +4905,19 @@ Possiamo quindi selezionare la prima colonna sia con il suo indice numerico \tex
 \hypertarget{combinare-matrici}{%
 \subsection{Combinare Matrici}\label{combinare-matrici}}
 
-Abbiamo visto nel Capitolo \ref{vector} come si possano fare diverse operazioni tra vettori, in particolare combinare ovvero unire vettori diversi. Anche per le matrici è possibile combinare matrici diverse, rispettando alcune regole:
+Abbiamo visto nel Capitolo \ref{vector-functions} come si possono unire diversi vettori tramite la funnzione \texttt{c()}. Anche per le matrici è possibile combinare matrici diverse, rispettando però alcune regole:
 
 \begin{itemize}
 \tightlist
 \item
-  Posso unire matrici per riga ovvero aggiungo una o più righe ad una matrice, in questo caso le matrici devono avere lo stesso numero di colonne
+  \texttt{rbind()} - Posso unire matrici \textbf{per riga} ovvero aggiungo una o più righe ad una matrice, in questo caso le matrici devono avere lo stesso numero di colonne
 \item
-  Posso unire matrici per colonna ovvero aggiungo una o più colonne ad una matrice, in questo caso le matrici devono avere lo stesso numero di righe
+  \texttt{cbind()} - Posso unire matrici \textbf{per colonna} ovvero aggiungo una o più colonne ad una matrice, in questo caso le matrici devono avere lo stesso numero di righe
 \item
-  Le matrici che unisco devono essere della stessa tipologia (numeri o caratteri)
+  Le matrici che unisco devono essere della \textbf{stessa tipologia} (numeri o caratteri)
 \end{itemize}
 
-Se partiamo da una matrice \texttt{mat} per unire a \texttt{mat} un'altra matrice \texttt{new\_mat} possiamo usare il comando \texttt{cbind(mat,\ new\_mat)} se vogliamo unire le due matrici per colonna invece \texttt{rbind(mat,\ new\_mat)} se vogliamo unire per riga. E' utile pensare all'unione come un collage tra matrici, in figura\ref{fig:mat-comb} è presente uno schema utile per capire visivamente questo concetto.
+Quindi, data una matrice \texttt{my\_matrix} di dimensione \(m \times n\) se volgiamo aggiungere le righe di una seconda matrice \texttt{row\_matrix} possiamo utlizzare il comando \texttt{rbind(my\_matrix,\ row\_matrix)} a patto che abbiano lo stesso numero di colonnne (\(n\)). Se vogliamo invece aggiungere le colonne di una nuova matrice \texttt{col\_matrix} possiamo utlizzare il comando \texttt{cbind(my\_matrix,\ col\_matrix)} a patto che abbiano lo stesso numero di righe (\(m\)). E' utile pensare all'unione come ad un collage tra matrici. In Figura\ref{fig:mat-comb} è presente uno schema utile per capire visivamente questo concetto, dove le matrici colorate in verde possono essere correttamente unite mentre le matrici in rosso non presentano la corretta dimensionalità.
 
 \begin{figure}
 
@@ -4905,153 +4928,238 @@ Se partiamo da una matrice \texttt{mat} per unire a \texttt{mat} un'altra matric
 \caption{Schema per la combinazione di matrici}\label{fig:mat-comb}
 \end{figure}
 
-Vediamo in R:
+Vediamo un esempio in R:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{vec <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{25}
-\NormalTok{mat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(vec, }\DataTypeTok{ncol =} \DecValTok{5}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{5}\NormalTok{, }\DataTypeTok{byrow =} \OtherTok{FALSE}\NormalTok{)}
+\CommentTok{# Matrice di partenza}
+\NormalTok{my_matrix <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{12}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{3}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{4}\NormalTok{)}
+\NormalTok{my_matrix}
+\CommentTok{##      [,1] [,2] [,3] [,4]}
+\CommentTok{## [1,]    1    4    7   10}
+\CommentTok{## [2,]    2    5    8   11}
+\CommentTok{## [3,]    3    6    9   12}
 
-\CommentTok{# Nuova matrice da aggiungere}
-\NormalTok{new_vec <-}\StringTok{ }\DecValTok{11}\OperatorTok{:}\DecValTok{20}
-\NormalTok{new_mat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(new_vec, }\DataTypeTok{ncol =} \DecValTok{2}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{5}\NormalTok{, }\DataTypeTok{byrow =} \OtherTok{FALSE}\NormalTok{)}
+\CommentTok{# Matrice con stesso numero di colonne}
+\NormalTok{row_matrix <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{77}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{2}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{4}\NormalTok{)}
+\NormalTok{row_matrix}
+\CommentTok{##      [,1] [,2] [,3] [,4]}
+\CommentTok{## [1,]   77   77   77   77}
+\CommentTok{## [2,]   77   77   77   77}
 
-\NormalTok{mat}
-\CommentTok{##      [,1] [,2] [,3] [,4] [,5]}
-\CommentTok{## [1,]    1    6   11   16   21}
-\CommentTok{## [2,]    2    7   12   17   22}
-\CommentTok{## [3,]    3    8   13   18   23}
-\CommentTok{## [4,]    4    9   14   19   24}
-\CommentTok{## [5,]    5   10   15   20   25}
-\NormalTok{new_mat}
+\CommentTok{# Unione per riga}
+\KeywordTok{rbind}\NormalTok{(my_matrix, row_matrix)}
+\CommentTok{##      [,1] [,2] [,3] [,4]}
+\CommentTok{## [1,]    1    4    7   10}
+\CommentTok{## [2,]    2    5    8   11}
+\CommentTok{## [3,]    3    6    9   12}
+\CommentTok{## [4,]   77   77   77   77}
+\CommentTok{## [5,]   77   77   77   77}
+
+
+\CommentTok{# Matrice con stesso numero di righe}
+\NormalTok{col_matrix <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{99}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{3}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{2}\NormalTok{)}
+\NormalTok{col_matrix}
 \CommentTok{##      [,1] [,2]}
-\CommentTok{## [1,]   11   16}
-\CommentTok{## [2,]   12   17}
-\CommentTok{## [3,]   13   18}
-\CommentTok{## [4,]   14   19}
-\CommentTok{## [5,]   15   20}
+\CommentTok{## [1,]   99   99}
+\CommentTok{## [2,]   99   99}
+\CommentTok{## [3,]   99   99}
 
-\CommentTok{# Combiniamo per colonna}
-
-\KeywordTok{cbind}\NormalTok{(mat, new_mat)}
-\CommentTok{##      [,1] [,2] [,3] [,4] [,5] [,6] [,7]}
-\CommentTok{## [1,]    1    6   11   16   21   11   16}
-\CommentTok{## [2,]    2    7   12   17   22   12   17}
-\CommentTok{## [3,]    3    8   13   18   23   13   18}
-\CommentTok{## [4,]    4    9   14   19   24   14   19}
-\CommentTok{## [5,]    5   10   15   20   25   15   20}
-
-\CommentTok{# Combiniamo per riga}
-
-\KeywordTok{rbind}\NormalTok{(mat, new_mat)}
-\CommentTok{## Error in rbind(mat, new_mat): number of columns of matrices must match (see arg 2)}
-
-\CommentTok{# Scambiamo il numero di colonne e righe, per far combaciare le due matrici}
-
-\NormalTok{new_vec <-}\StringTok{ }\DecValTok{11}\OperatorTok{:}\DecValTok{20}
-\NormalTok{new_mat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(new_vec, }\DataTypeTok{ncol =} \DecValTok{5}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{2}\NormalTok{, }\DataTypeTok{byrow =} \OtherTok{FALSE}\NormalTok{)}
-\NormalTok{mat}
-\CommentTok{##      [,1] [,2] [,3] [,4] [,5]}
-\CommentTok{## [1,]    1    6   11   16   21}
-\CommentTok{## [2,]    2    7   12   17   22}
-\CommentTok{## [3,]    3    8   13   18   23}
-\CommentTok{## [4,]    4    9   14   19   24}
-\CommentTok{## [5,]    5   10   15   20   25}
-\NormalTok{new_mat}
-\CommentTok{##      [,1] [,2] [,3] [,4] [,5]}
-\CommentTok{## [1,]   11   13   15   17   19}
-\CommentTok{## [2,]   12   14   16   18   20}
-
-\KeywordTok{rbind}\NormalTok{(mat, new_mat)}
-\CommentTok{##      [,1] [,2] [,3] [,4] [,5]}
-\CommentTok{## [1,]    1    6   11   16   21}
-\CommentTok{## [2,]    2    7   12   17   22}
-\CommentTok{## [3,]    3    8   13   18   23}
-\CommentTok{## [4,]    4    9   14   19   24}
-\CommentTok{## [5,]    5   10   15   20   25}
-\CommentTok{## [6,]   11   13   15   17   19}
-\CommentTok{## [7,]   12   14   16   18   20}
+\CommentTok{# Unione per colonna}
+\KeywordTok{cbind}\NormalTok{(my_matrix, col_matrix)}
+\CommentTok{##      [,1] [,2] [,3] [,4] [,5] [,6]}
+\CommentTok{## [1,]    1    4    7   10   99   99}
+\CommentTok{## [2,]    2    5    8   11   99   99}
+\CommentTok{## [3,]    3    6    9   12   99   99}
 \end{Highlighting}
 \end{Shaded}
 
-Possiamo combinare quindi per riga/colonna solo se le righe/colonne delle due matrici sono equivalenti. Otteniamo un errore quando cerchiamo di combinare matrici di dimensioni diverse.
+Un ultimo aspetto utile è l'estensione dei comandi \texttt{cbind()} ed \texttt{rbind()}. Fino ad ora li abbiamo utilizzati con due soli elementi: matrice di partenza e matrice da aggiungere. Tuttavia, è possibile indicare più matrici che si vogliono unire, separandole con una virgola. Se vogliamo combinare \(n\) matrici possiamo usare il comando \texttt{cbind(mat1,\ mat2,\ mat3,\ ...)} o \texttt{rbind(mat1,\ mat2,\ mat3,\ ...)}. In questo caso il risultato finale sarà l'unione delle matrici nell'ordine utilizzato nel definire gli argomenti quindi prima la \texttt{mat1}, poi la \texttt{mat2} e così via.
 
-Un ultimo aspetto utile è l'estensione dei comandi \texttt{cbind()} ed \texttt{rbind()}. Fino ad ora li abbiamo utilizzati con due elementi: matrice di partenza e matrice da aggiungere ma possono essere utilizzati con elementi multipli. Se vogliamo combinare \(n\) matrici possiamo usare il comando \texttt{cbind(mat1,\ mat2,\ mat3,\ ...)} o \texttt{rbind(mat1,\ mat2,\ mat3,\ ...)}. In questo caso il risultato finale dipende dall'ordine degli argomenti quindi prima la \texttt{mat1}, poi la \texttt{mat2} e così via.
+\begin{warning}["Matrices Must Match"]
+
+Abbiamo visto che possiamo unire matrici per riga/colonna solo se il numero di colonne/righe delle due matrici sono equivalenti. Otteniamo un errore, invece, quando cerchiamo di combinare matrici di dimensioni diverse \emph{``number of columns/rows of matrices must match''}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_matrix <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{12}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{3}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{4}\NormalTok{)}
+
+\CommentTok{# Matrice con errato numero di colonne}
+\NormalTok{wrong_matrix <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{77}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{2}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{7}\NormalTok{)}
+\KeywordTok{rbind}\NormalTok{(my_matrix, wrong_matrix)}
+\CommentTok{## Error in rbind(my_matrix, wrong_matrix): number of columns of matrices must match (see arg 2)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{warning}
 
 \hypertarget{operatori-matematici}{%
 \subsection{Operatori Matematici}\label{operatori-matematici}}
 
+Gli operatori matematici (e.g., \texttt{+}, \texttt{-}, \texttt{*}, \texttt{/}, etc.) svolgono le operazioni tra una matrice ed un singolo valore, tra una matrice ed un vettore oppure tra due matrici.
+
+\hypertarget{operazione-tra-matrice-e-valore-singolo}{%
+\subsubsection*{Operazione tra Matrice e Valore Singolo}\label{operazione-tra-matrice-e-valore-singolo}}
+\addcontentsline{toc}{subsubsection}{Operazione tra Matrice e Valore Singolo}
+
+Nel caso di un singolo valore, la stessa operazione viene semplicemente eseguita su tutti gli elementi della matrice. Possiamo ad esempio aggiungere a tutti gli elementi di una matrice il volore 100.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_matrix <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{12}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{3}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{4}\NormalTok{)}
+\NormalTok{my_matrix}
+\CommentTok{##      [,1] [,2] [,3] [,4]}
+\CommentTok{## [1,]    1    4    7   10}
+\CommentTok{## [2,]    2    5    8   11}
+\CommentTok{## [3,]    3    6    9   12}
+
+\CommentTok{# Aggiungo 100}
+\NormalTok{my_matrix }\OperatorTok{+}\StringTok{ }\DecValTok{100}
+\CommentTok{##      [,1] [,2] [,3] [,4]}
+\CommentTok{## [1,]  101  104  107  110}
+\CommentTok{## [2,]  102  105  108  111}
+\CommentTok{## [3,]  103  106  109  112}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{operazione-tra-matrice-e-vettore}{%
+\subsubsection*{Operazione tra Matrice e Vettore}\label{operazione-tra-matrice-e-vettore}}
+\addcontentsline{toc}{subsubsection}{Operazione tra Matrice e Vettore}
+
+Nel caso di un vettore, l'operazione viene eseguita \textbf{elemento per elemento} ciclando i valori del vettore qualora la sua lunghezza non sia suficiente. Possiamo ad esempio aggiungere a tutti gli elementi di una matrice il vettore di valori \texttt{c(100,\ 200,\ 300,\ 400)}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Aggiungo un vettore di valori}
+\NormalTok{my_matrix }\OperatorTok{+}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{, }\DecValTok{300}\NormalTok{, }\DecValTok{400}\NormalTok{)}
+\CommentTok{##      [,1] [,2] [,3] [,4]}
+\CommentTok{## [1,]  101  404  307  210}
+\CommentTok{## [2,]  202  105  408  311}
+\CommentTok{## [3,]  303  206  109  412}
+\end{Highlighting}
+\end{Shaded}
+
+Com'è facilmente intuibile, questa operazione è poco connsigliata poichè è facile causa di errori ed incomprensioni.
+
+\hypertarget{operazione-tra-matrici}{%
+\subsubsection*{Operazione tra Matrici}\label{operazione-tra-matrici}}
+\addcontentsline{toc}{subsubsection}{Operazione tra Matrici}
+
+Nel caso di operazioni tra matrici, l'operazione viene eseguita \textbf{elemento per elemento} ed è quindi importante che le matrici abbiano la \textbf{stessa dimensione}. Possiamo ad esempio aggiungere a tutti gli elementi di una matrice nelle cui righe abbiamo i valori 100, 200, 300 e 400.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sum_matrix <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{, }\DecValTok{300}\NormalTok{, }\DecValTok{400}\NormalTok{), }\DataTypeTok{each =} \DecValTok{3}\NormalTok{), }\DataTypeTok{nrow =} \DecValTok{3}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{4}\NormalTok{)}
+\NormalTok{sum_matrix}
+\CommentTok{##      [,1] [,2] [,3] [,4]}
+\CommentTok{## [1,]  100  200  300  400}
+\CommentTok{## [2,]  100  200  300  400}
+\CommentTok{## [3,]  100  200  300  400}
+
+\CommentTok{# sommo due matrici}
+\NormalTok{my_matrix }\OperatorTok{+}\StringTok{ }\NormalTok{sum_matrix}
+\CommentTok{##      [,1] [,2] [,3] [,4]}
+\CommentTok{## [1,]  101  204  307  410}
+\CommentTok{## [2,]  102  205  308  411}
+\CommentTok{## [3,]  103  206  309  412}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tip}[Matrix Multiplication]
+
+Nota come in R l'operatore \texttt{*} indichi il semmplice prodotto elemento per elemento mentre per ottenere il prodotto matriciale è necessario utilizzare l'operatore \texttt{\%*\%}.
+
+Il prodotto matriciale segue delle specifiche regole e specifiche proprietà. In particolare, il numero di colonne della prima matrice deve essere uguale al numero di righe della seconda matrice. Per un approfondimento vedi \url{https://it.wikipedia.org/wiki/Moltiplicazione_di_matrici}.
+
+\hypertarget{algebra-lineare}{%
+\subsubsection*{Algebra Lineare}\label{algebra-lineare}}
+\addcontentsline{toc}{subsubsection}{Algebra Lineare}
+
+Anche altri aspetti che riguardano le operazioni con le matrici non vengono qui discusse ma si rimanda il lettore interessato alle seguenti pagine:
+
 \begin{itemize}
 \tightlist
 \item
-  condizioni sulle dimensioni
+  Per il significato di determinante di una matrice considera \url{https://it.wikipedia.org/wiki/Determinante}
+\item
+  Per il significato di matrice inversa considera \url{https://it.wikipedia.org/wiki/Matrice_invertibile}
 \end{itemize}
 
 \hypertarget{diagonale}{%
 \subsubsection*{Diagonale}\label{diagonale}}
 \addcontentsline{toc}{subsubsection}{Diagonale}
 
-Riguardo la \textbf{diagonale} di una matrice essa può essere vista, dal punto di vista prettamente pratico, come l'insieme di elementi associati allo stesso indice di riga e colonna. Il comando \texttt{diag(matrice)} permette di estrarre la diagonale di una matrice e trattarla come un semplice vettore:
+Vediamo ora alcuni utili funzioni che riguardano la diagonale di una matrice. La diagonale di una matrice è formata dagli elementi i cui indici di riga e di colonna sono uguali, ovvero l'insieme di elementi associati allo stesso indice di riga e colonna (\(x_{i,i}\)).
+
+Il comando \texttt{diag(nome\_matrice)} permette di estrarre la diagonale di una matrice e trattarla come un semplice vettore:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-
 \CommentTok{# Matrice quadrata}
-\NormalTok{vec <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{25}
-\NormalTok{mat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(vec, }\DataTypeTok{ncol =} \DecValTok{5}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{5}\NormalTok{, }\DataTypeTok{byrow =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{square_matrix <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{16}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{4}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{4}\NormalTok{)}
+\NormalTok{square_matrix}
+\CommentTok{##      [,1] [,2] [,3] [,4]}
+\CommentTok{## [1,]    1    5    9   13}
+\CommentTok{## [2,]    2    6   10   14}
+\CommentTok{## [3,]    3    7   11   15}
+\CommentTok{## [4,]    4    8   12   16}
 
-\NormalTok{mat}
-\CommentTok{##      [,1] [,2] [,3] [,4] [,5]}
-\CommentTok{## [1,]    1    6   11   16   21}
-\CommentTok{## [2,]    2    7   12   17   22}
-\CommentTok{## [3,]    3    8   13   18   23}
-\CommentTok{## [4,]    4    9   14   19   24}
-\CommentTok{## [5,]    5   10   15   20   25}
-
-\KeywordTok{diag}\NormalTok{(mat)}
-\CommentTok{## [1]  1  7 13 19 25}
+\KeywordTok{diag}\NormalTok{(square_matrix)}
+\CommentTok{## [1]  1  6 11 16}
 
 \CommentTok{# Matrice non quadrata}
+\NormalTok{my_matrix <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{12}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{3}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{4}\NormalTok{)}
+\NormalTok{my_matrix}
+\CommentTok{##      [,1] [,2] [,3] [,4]}
+\CommentTok{## [1,]    1    4    7   10}
+\CommentTok{## [2,]    2    5    8   11}
+\CommentTok{## [3,]    3    6    9   12}
 
-\NormalTok{vec <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{16}
-\NormalTok{mat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(vec, }\DataTypeTok{ncol =} \DecValTok{2}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{8}\NormalTok{, }\DataTypeTok{byrow =} \OtherTok{FALSE}\NormalTok{)}
-\NormalTok{mat}
-\CommentTok{##      [,1] [,2]}
-\CommentTok{## [1,]    1    9}
-\CommentTok{## [2,]    2   10}
-\CommentTok{## [3,]    3   11}
-\CommentTok{## [4,]    4   12}
-\CommentTok{## [5,]    5   13}
-\CommentTok{## [6,]    6   14}
-\CommentTok{## [7,]    7   15}
-\CommentTok{## [8,]    8   16}
-
-\KeywordTok{diag}\NormalTok{(mat)}
-\CommentTok{## [1]  1 10}
+\KeywordTok{diag}\NormalTok{(my_matrix)}
+\CommentTok{## [1] 1 5 9}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{esercizi-7}{%
-\subsection*{Esercizi}\label{esercizi-7}}
+La funzione \texttt{diag()} può anche essere usata per sostituire gli elementi sulla diagonale di una matrice oppure per creare una matrice diagonale in cui gli altri valori siano tutti zero, ad esempio la matrice identità.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Sostituisco gli elementi della diagonale}
+\KeywordTok{diag}\NormalTok{(my_matrix) <-}\StringTok{ }\DecValTok{999}
+\NormalTok{my_matrix}
+\CommentTok{##      [,1] [,2] [,3] [,4]}
+\CommentTok{## [1,]  999    4    7   10}
+\CommentTok{## [2,]    2  999    8   11}
+\CommentTok{## [3,]    3    6  999   12}
+
+\CommentTok{# Creo una matrice diagonale}
+\KeywordTok{diag}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{3}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{4}\NormalTok{)}
+\CommentTok{##      [,1] [,2] [,3] [,4]}
+\CommentTok{## [1,]    4    0    0    0}
+\CommentTok{## [2,]    0    4    0    0}
+\CommentTok{## [3,]    0    0    4    0}
+
+\CommentTok{# Creo una matrice identità 4X4}
+\KeywordTok{diag}\NormalTok{(}\DecValTok{4}\NormalTok{)}
+\CommentTok{##      [,1] [,2] [,3] [,4]}
+\CommentTok{## [1,]    1    0    0    0}
+\CommentTok{## [2,]    0    1    0    0}
+\CommentTok{## [3,]    0    0    1    0}
+\CommentTok{## [4,]    0    0    0    1}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tip}
+
+\hypertarget{esercizi-8}{%
+\subsection*{Esercizi}\label{esercizi-8}}
 \addcontentsline{toc}{subsection}{Esercizi}
 
-Utilizzando le matrici \texttt{A} e \texttt{B} create nei precedenti esercizi:
+Utilizzando le matrici create nei precedenti esercizi, esegui le seguentti consegne:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
-\item
-  Utilizzando gli indici di riga e di colonna selziona il numero 27 della matrice \texttt{A}
-\item
-  Selziona gli elementi compresi tra la seconda e quarta riga, seconda e terza colonna della matrice \texttt{B}
-\item
-  Seleziona solo gli elementi pari della matrice \texttt{A} (Nota: utilizza l'operazione resto \texttt{\%\%})
-\item
-  Elimina dalla matrice \texttt{C} la terza riga e la terza colonna
-\item
-  Seleziona tutti gli elementi della seconda e terza riga della matrice \texttt{B}
-\item
-  Seleziona tutti gli elementi diversi da ``B'' appartenenti alla matrice \texttt{D}
 \item
   Crea la matrice \texttt{G} unendo alla matrice \texttt{A} le prime due colonne della matrice \texttt{C}
 \item
@@ -5066,6 +5174,8 @@ Utilizzando le matrici \texttt{A} e \texttt{B} create nei precedenti esercizi:
 
 \hypertarget{estensione-array}{%
 \section{estensione array}\label{estensione-array}}
+
+TODO
 
 \hypertarget{dataframe}{%
 \chapter{Dataframe}\label{dataframe}}
@@ -5086,25 +5196,25 @@ La struttura di base di un dataframe è quindi la stessa di una matrice ma conti
 \hline
 colonna1 & colonna2 & colonna3 & colonna4 & colonna5 & colonna6\\
 \hline
-0.37 & -0.90 & 1.09 & -0.64 & 0.22 & a\\
+-0.04 & 1.71 & 0.37 & 1.07 & 0.10 & a\\
 \hline
-0.15 & -0.56 & 0.01 & 0.73 & 1.07 & b\\
+0.98 & 0.32 & -0.27 & -1.92 & 1.92 & b\\
 \hline
-0.81 & 0.24 & -1.43 & -0.16 & 0.19 & c\\
+1.00 & -0.77 & 0.00 & 0.01 & 0.45 & c\\
 \hline
--0.85 & 0.16 & 0.64 & 0.09 & -0.80 & d\\
+1.71 & -0.89 & 1.17 & -0.94 & 0.71 & d\\
 \hline
-0.06 & 0.53 & 1.33 & 1.63 & 1.48 & e\\
+-1.16 & 0.22 & 0.31 & -0.62 & 0.26 & e\\
 \hline
-0.25 & 0.38 & 0.25 & 0.86 & 0.13 & f\\
+0.59 & 1.01 & -0.37 & 0.98 & 1.08 & f\\
 \hline
--0.60 & -1.15 & -0.43 & 0.59 & -0.68 & g\\
+0.28 & -0.83 & -1.02 & -0.35 & -2.13 & g\\
 \hline
--2.40 & 0.42 & -2.57 & 0.34 & -0.03 & h\\
+1.11 & 0.48 & -0.16 & 1.02 & -0.15 & h\\
 \hline
-1.05 & -2.30 & 1.20 & -0.47 & 1.18 & i\\
+-0.19 & 1.39 & 1.18 & -0.81 & -1.79 & i\\
 \hline
-0.42 & -0.51 & -1.29 & -0.29 & -0.07 & j\\
+1.41 & -0.13 & 0.91 & 0.64 & -0.53 & j\\
 \hline
 \end{tabular}
 \end{table}
@@ -5211,8 +5321,8 @@ Come per le \texttt{matrici}, anche i dataframe richiedono che tutte le colonne 
 
 \textbf{Nota:} di default R considera una variabile stringa all'interno di un DataFrame come una variabile categoriale. E' possibile cambiare questa opzione specificando \texttt{stringsAsFactors=FALSE}.
 
-\hypertarget{esercizi-8}{%
-\subsection*{Esercizi}\label{esercizi-8}}
+\hypertarget{esercizi-9}{%
+\subsection*{Esercizi}\label{esercizi-9}}
 \addcontentsline{toc}{subsection}{Esercizi}
 
 \begin{enumerate}
@@ -5631,8 +5741,8 @@ Operazione & Nome\\
 \end{tabular}
 \end{table}
 
-\hypertarget{esercizi-9}{%
-\subsection*{Esercizi}\label{esercizi-9}}
+\hypertarget{esercizi-10}{%
+\subsection*{Esercizi}\label{esercizi-10}}
 \addcontentsline{toc}{subsection}{Esercizi}
 
 Facendo riferimento ai dataframe \texttt{data\_long} e \texttt{data\_wide}:
@@ -5748,8 +5858,8 @@ Un modo utile per immaginarsi una lista (vedi \ref{fig:list-example}) è pensare
 \caption{Esempio concettuale di una lista}\label{fig:list-example}
 \end{figure}
 
-\hypertarget{esercizi-10}{%
-\subsection*{Esercizi}\label{esercizi-10}}
+\hypertarget{esercizi-11}{%
+\subsection*{Esercizi}\label{esercizi-11}}
 \addcontentsline{toc}{subsection}{Esercizi}
 
 \begin{enumerate}
@@ -5969,8 +6079,8 @@ Rispetto al \textbf{numero di elementi}, possiamo usar, analogalmente ai vettori
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{esercizi-11}{%
-\subsection*{Esercizi}\label{esercizi-11}}
+\hypertarget{esercizi-12}{%
+\subsection*{Esercizi}\label{esercizi-12}}
 \addcontentsline{toc}{subsection}{Esercizi}
 
 \begin{enumerate}

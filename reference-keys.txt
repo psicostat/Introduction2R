@@ -89,7 +89,7 @@ vector
 creazione
 selezione-elementi
 utilizzi-avanzati-selezione
-funzioni-ed-operazioni
+vector-functions
 data-type
 character
 numeric
@@ -102,7 +102,7 @@ creazione-1
 tipologie-di-matrici
 sel-matrix
 utilizzi-avanzati-selezione-1
-funzioni-ed-operazioni-1
+funzioni-ed-operazioni
 mat-prop
 combinare-matrici
 operatori-matematici
