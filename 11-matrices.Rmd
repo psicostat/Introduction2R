@@ -555,7 +555,7 @@ my_matrix[c("A", "C"), ]
 ```
 :::
 
-### Combinare Matrici
+### Unire Matrici
 
 Abbiamo visto nel Capitolo \@ref(vector-functions) come si possono unire diversi vettori tramite la funnzione `c()`. Anche per le matrici è possibile combinare matrici diverse, rispettando però alcune regole:
 
@@ -680,7 +680,7 @@ my_matrix
 diag(my_matrix)
 ```
 
-La funzione `diag()` può anche essere usata per sostituire gli elementi sulla diagonale di una matrice oppure per creare una matrice diagonale in cui gli altri valori siano tutti zero, ad esempio la matrice identità.
+La funzione `diag()` può anche essere usata per sostituire in modo semplice gli elementi sulla diagonale di una matrice oppure per creare una matrice diagonale in cui gli altri valori siano tutti zero, ad esempio la matrice identità.
 
 ```{r, echo = TRUE}
 # Sostituisco gli elementi della diagonale
@@ -709,10 +709,58 @@ Utilizzando le matrici create nei precedenti esercizi, esegui le seguentti conse
 5. Assegna i seguenti nomi alle colonne e alle righe della matrice `C`: `"col_1", "col_2", "col_3", "col_4", "row_1", "row_2", "row_3"`.
 
 
-## estensione array
-TODO
+## Array
+
+Abbiamo visto come le matrici siano un oggetto *bidimensionale*, tuttavia è possibile anche creare oggetti che abbiano 3, 4 o un qualsiasi numero (*n*) di dimensioni. Tali oggetti sono definiti **array** e possono essere creati con il comando `array()` indicando il vettore di valori utilizzati per popolare l'oggetto e la grandezza di ciascuna delle sue dimensioni.
+
+```{r, echo = TRUE, eval = FALSE}
+array(data = , dim = )
+```
+
+Ad esempio per creare un cubo di lato 3 contenete i valori interi dall'1 al 27 possiamo eseguire il seguente comando.
+
+```{r, echo = TRUE}
+my_cube <- array(1:27, dim = c(3,3,3))
+my_cube
+```
+
+Tutte le principali funzioni ed operazioni di selezione che abbiamo visto per le matrici ed i vettori posono essere eseguite in modo analogo anche con gli array. Il funzinonamento generale della selezione di elementi tramite parentesi quadre risulterà ora certamente pù chiaro. Per ogni dimensione vengono indicarti gli indici di posizioni desiderati. L'ordine all'interno delle parentesi quadre determina la specifica deimensione a cui ci si riferisce e le virgole sono utilizzate per separare gli indici delle diverse dimensioni.
+
+```{r, echo = TRUE, eval = FALSE}
+my_hypercube[<dim-1>, <dim-2>, <dim-3>, ..., <dim-n>]
+```
+
+Vediamo ora alcuni semplici eempi di selezione.
+
+```{r}
+# Seleziono un singolo elemento
+my_cube[1,1,1]
+
+# Seleziono un singolo vettore
+my_cube[ ,1,1]
+
+# Seleziono un singolo piano
+my_cube[ , ,1]
+
+# Seleziono una porzione
+my_cube[ 1:2, 1:2, 1:2]
+```
 
 
+:::{.tip title="Array Mother of All Matrix" data-latex="[Array Mother of All Matrix]"}
+E' facilmente intuibile come le matrici non siano altro che un caso speciale di array con 2 dimensioni. Infatti i più attenti avranno notato che il valore `"array"` compariva insieme a `"matrix"` nel valutare la tipologia di oggetto.
 
+```{r, echo = TRUE}
+my_matrix <- matrix(1:12, nrow = 2, ncol = 2)
+is.array(my_matrix)
+class(my_matrix)
+```
 
+Tuttavia nota come un semplice vettore non sia un array. Ricordiamo infatti che un vettore non possiede una dimensione (`dim`) ma semplicemente una lunghezza (`length`).
+```{r,  echo = TRUE}
+my_vector <- 1:12
+is.array(my_vector)
+dim(my_vector)
+```
+:::
 
