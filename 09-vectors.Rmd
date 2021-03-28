@@ -418,7 +418,7 @@ my_values >= 4 & my_values <= 7
 
 ## Data Type {#data-type}
 
-Abbiamo visto come sia necessario che in un vettore tutti gli elementi siano della stessa tipologia. Avremmo quindi diversi tipi di vettori a seconda della tiopologia di dati che contengono.
+Abbiamo visto come sia necessario che in un vettore tutti gli elementi siano della stessa tipologia. Avremo quindi diversi tipi di vettori a seconda della tiopologia di dati che contengono.
 
 In R abbiamo 4 principali tipologie di dati, ovvero tipologie di valori che possono essere utilizzati:
 
@@ -715,18 +715,18 @@ NA * 3
 NaN * 3
 ```
 - `Inf` (o `-Inf`) - qualora `Inf` (o `-Inf`) siano utilizzati in un'operazione matematica il risultato seguirà le comuni regole delle operazioni tra infiti.
-```{r, echo = TRUE}
-Inf - 3
+```{r, echo = TRUE, eval = FALSE}
+Inf - 3     # Inf
 
-Inf * -3
+Inf * -3    # - Inf
 
-Inf + Inf
+Inf + Inf   # Inf
 
-Inf + -Inf
+Inf + -Inf  # NaN
 
-Inf * -Inf
+Inf * -Inf  # -Inf
 
-Inf / Inf
+Inf / Inf   # NaN
 ```
 
 #### Testare Valori {-}
