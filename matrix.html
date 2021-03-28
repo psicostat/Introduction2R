@@ -248,11 +248,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="matrix.html"><a href="matrix.html#funzioni-ed-operazioni"><i class="fa fa-check"></i><b>9.3</b> Funzioni ed Operazioni</a><ul>
 <li class="chapter" data-level="9.3.1" data-path="matrix.html"><a href="matrix.html#mat-prop"><i class="fa fa-check"></i><b>9.3.1</b> Attributi di una Matrice</a></li>
-<li class="chapter" data-level="9.3.2" data-path="matrix.html"><a href="matrix.html#combinare-matrici"><i class="fa fa-check"></i><b>9.3.2</b> Combinare Matrici</a></li>
+<li class="chapter" data-level="9.3.2" data-path="matrix.html"><a href="matrix.html#unire-matrici"><i class="fa fa-check"></i><b>9.3.2</b> Unire Matrici</a></li>
 <li class="chapter" data-level="9.3.3" data-path="matrix.html"><a href="matrix.html#operatori-matematici"><i class="fa fa-check"></i><b>9.3.3</b> Operatori Matematici</a></li>
 <li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#esercizi-8"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="matrix.html"><a href="matrix.html#estensione-array"><i class="fa fa-check"></i><b>9.4</b> estensione array</a></li>
+<li class="chapter" data-level="9.4" data-path="matrix.html"><a href="matrix.html#array"><i class="fa fa-check"></i><b>9.4</b> Array</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>10</b> Dataframe</a><ul>
 <li class="chapter" data-level="10.1" data-path="dataframe.html"><a href="dataframe.html#creazione-di-un-dataframe"><i class="fa fa-check"></i><b>10.1</b> Creazione di un dataframe</a><ul>
@@ -458,9 +458,8 @@ abbiamo che <span class="math inline">\(x_{2, 3} = 9\)</span> mentre <span class
 </div>
 <div id="esercizi-6" class="section level3 unnumbered">
 <h3>Esercizi</h3>
-<ol style="list-style-type: decimal">
-<li>Crea la matrice <code>A</code> così definita:</li>
-</ol>
+<p>Esegui i seguenti esercizi (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09.R">soluzioni</a>):
+1. Crea la matrice <code>A</code> così definita:</p>
 <p><span class="math display">\[
 \begin{matrix}
 2 &amp; 34 &amp; 12 &amp; 7\\
@@ -733,7 +732,7 @@ abbiamo che <span class="math inline">\(x_{2, 3} = 9\)</span> mentre <span class
 </div>
 <div id="esercizi-7" class="section level3 unnumbered">
 <h3>Esercizi</h3>
-<p>Utilizzando le matrici create nei precedenti esercizi esegui le seguenti consegne:</p>
+<p>Utilizzando le matrici create nei precedenti esercizi esegui le seguenti consegne (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09.R">soluzioni</a>):</p>
 <ol style="list-style-type: decimal">
 <li>Utilizzando gli indici di riga e di colonna selziona il numero 27 della matrice <code>A</code></li>
 <li>Selziona gli elementi compresi tra la seconda e quarta riga, seconda e terza colonna della matrice <code>B</code></li>
@@ -972,8 +971,8 @@ Prodotto matriciale
 </div>
 </div>
 </div>
-<div id="combinare-matrici" class="section level3">
-<h3><span class="header-section-number">9.3.2</span> Combinare Matrici</h3>
+<div id="unire-matrici" class="section level3">
+<h3><span class="header-section-number">9.3.2</span> Unire Matrici</h3>
 <p>Abbiamo visto nel Capitolo <a href="vector.html#vector-functions">7.3</a> come si possono unire diversi vettori tramite la funnzione <code>c()</code>. Anche per le matrici è possibile combinare matrici diverse, rispettando però alcune regole:</p>
 <ul>
 <li><code>rbind()</code> - Posso unire matrici <strong>per riga</strong> ovvero aggiungo una o più righe ad una matrice, in questo caso le matrici devono avere lo stesso numero di colonne</li>
@@ -1119,7 +1118,7 @@ Figure 9.2: Schema per la combinazione di matrici
 <span id="cb162-20"><a href="matrix.html#cb162-20"></a></span>
 <span id="cb162-21"><a href="matrix.html#cb162-21"></a><span class="kw">diag</span>(my_matrix)</span>
 <span id="cb162-22"><a href="matrix.html#cb162-22"></a><span class="co">## [1] 1 5 9</span></span></code></pre></div>
-<p>La funzione <code>diag()</code> può anche essere usata per sostituire gli elementi sulla diagonale di una matrice oppure per creare una matrice diagonale in cui gli altri valori siano tutti zero, ad esempio la matrice identità.</p>
+<p>La funzione <code>diag()</code> può anche essere usata per sostituire in modo semplice gli elementi sulla diagonale di una matrice oppure per creare una matrice diagonale in cui gli altri valori siano tutti zero, ad esempio la matrice identità.</p>
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="matrix.html#cb163-1"></a><span class="co"># Sostituisco gli elementi della diagonale</span></span>
 <span id="cb163-2"><a href="matrix.html#cb163-2"></a><span class="kw">diag</span>(my_matrix) &lt;-<span class="st"> </span><span class="dv">999</span></span>
 <span id="cb163-3"><a href="matrix.html#cb163-3"></a>my_matrix</span>
@@ -1147,7 +1146,7 @@ Figure 9.2: Schema per la combinazione di matrici
 </div>
 <div id="esercizi-8" class="section level3 unnumbered">
 <h3>Esercizi</h3>
-<p>Utilizzando le matrici create nei precedenti esercizi, esegui le seguentti consegne:</p>
+<p>Utilizzando le matrici create nei precedenti esercizi, esegui le seguentti consegne (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09.R">soluzioni</a>):</p>
 <ol style="list-style-type: decimal">
 <li>Crea la matrice <code>G</code> unendo alla matrice <code>A</code> le prime due colonne della matrice <code>C</code></li>
 <li>Crea la matrice <code>H</code> unendo alla matrice <code>C</code> le prime due righe della matrice trasposta di <code>B</code></li>
@@ -1157,9 +1156,67 @@ Figure 9.2: Schema per la combinazione di matrici
 </ol>
 </div>
 </div>
-<div id="estensione-array" class="section level2">
-<h2><span class="header-section-number">9.4</span> estensione array</h2>
-<p>TODO</p>
+<div id="array" class="section level2">
+<h2><span class="header-section-number">9.4</span> Array</h2>
+<p>Abbiamo visto come le matrici siano un oggetto <em>bidimensionale</em>, tuttavia è possibile anche creare oggetti che abbiano 3, 4 o un qualsiasi numero (<em>n</em>) di dimensioni. Tali oggetti sono definiti <strong>array</strong> e possono essere creati con il comando <code>array()</code> indicando il vettore di valori utilizzati per popolare l’oggetto e la grandezza di ciascuna delle sue dimensioni.</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="matrix.html#cb164-1"></a><span class="kw">array</span>(<span class="dt">data =</span> , <span class="dt">dim =</span> )</span></code></pre></div>
+<p>Ad esempio per creare un cubo di lato 3 contenete i valori interi dall’1 al 27 possiamo eseguire il seguente comando.</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="matrix.html#cb165-1"></a>my_cube &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">27</span>, <span class="dt">dim =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>))</span>
+<span id="cb165-2"><a href="matrix.html#cb165-2"></a>my_cube</span>
+<span id="cb165-3"><a href="matrix.html#cb165-3"></a><span class="co">## , , 1</span></span>
+<span id="cb165-4"><a href="matrix.html#cb165-4"></a><span class="co">## </span></span>
+<span id="cb165-5"><a href="matrix.html#cb165-5"></a><span class="co">##      [,1] [,2] [,3]</span></span>
+<span id="cb165-6"><a href="matrix.html#cb165-6"></a><span class="co">## [1,]    1    4    7</span></span>
+<span id="cb165-7"><a href="matrix.html#cb165-7"></a><span class="co">## [2,]    2    5    8</span></span>
+<span id="cb165-8"><a href="matrix.html#cb165-8"></a><span class="co">## [3,]    3    6    9</span></span>
+<span id="cb165-9"><a href="matrix.html#cb165-9"></a><span class="co">## </span></span>
+<span id="cb165-10"><a href="matrix.html#cb165-10"></a><span class="co">## , , 2</span></span>
+<span id="cb165-11"><a href="matrix.html#cb165-11"></a><span class="co">## </span></span>
+<span id="cb165-12"><a href="matrix.html#cb165-12"></a><span class="co">##      [,1] [,2] [,3]</span></span>
+<span id="cb165-13"><a href="matrix.html#cb165-13"></a><span class="co">## [1,]   10   13   16</span></span>
+<span id="cb165-14"><a href="matrix.html#cb165-14"></a><span class="co">## [2,]   11   14   17</span></span>
+<span id="cb165-15"><a href="matrix.html#cb165-15"></a><span class="co">## [3,]   12   15   18</span></span>
+<span id="cb165-16"><a href="matrix.html#cb165-16"></a><span class="co">## </span></span>
+<span id="cb165-17"><a href="matrix.html#cb165-17"></a><span class="co">## , , 3</span></span>
+<span id="cb165-18"><a href="matrix.html#cb165-18"></a><span class="co">## </span></span>
+<span id="cb165-19"><a href="matrix.html#cb165-19"></a><span class="co">##      [,1] [,2] [,3]</span></span>
+<span id="cb165-20"><a href="matrix.html#cb165-20"></a><span class="co">## [1,]   19   22   25</span></span>
+<span id="cb165-21"><a href="matrix.html#cb165-21"></a><span class="co">## [2,]   20   23   26</span></span>
+<span id="cb165-22"><a href="matrix.html#cb165-22"></a><span class="co">## [3,]   21   24   27</span></span></code></pre></div>
+<p>Tutte le principali funzioni ed operazioni di selezione che abbiamo visto per le matrici ed i vettori posono essere eseguite in modo analogo anche con gli array. Il funzinonamento generale della selezione di elementi tramite parentesi quadre risulterà ora certamente pù chiaro. Per ogni dimensione vengono indicarti gli indici di posizioni desiderati. L’ordine all’interno delle parentesi quadre determina la specifica deimensione a cui ci si riferisce e le virgole sono utilizzate per separare gli indici delle diverse dimensioni.</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="matrix.html#cb166-1"></a>my_hypercube[<span class="op">&lt;</span>dim<span class="dv">-1</span><span class="op">&gt;</span>, <span class="op">&lt;</span>dim<span class="dv">-2</span><span class="op">&gt;</span>, <span class="op">&lt;</span>dim<span class="dv">-3</span><span class="op">&gt;</span>, ..., <span class="op">&lt;</span>dim<span class="op">-</span>n<span class="op">&gt;</span>]</span></code></pre></div>
+<p>Vediamo ora alcuni semplici eempi di selezione.</p>
+<pre><code>## [1] 1
+## [1] 1 2 3
+##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9
+## , , 1
+## 
+##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## 
+## , , 2
+## 
+##      [,1] [,2]
+## [1,]   10   13
+## [2,]   11   14</code></pre>
+<div class="tip" title="Array Mother of All Matrix">
+<p>E’ facilmente intuibile come le matrici non siano altro che un caso speciale di array con 2 dimensioni. Infatti i più attenti avranno notato che il valore <code>"array"</code> compariva insieme a <code>"matrix"</code> nel valutare la tipologia di oggetto.</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="matrix.html#cb168-1"></a>my_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb168-2"><a href="matrix.html#cb168-2"></a><span class="kw">is.array</span>(my_matrix)</span>
+<span id="cb168-3"><a href="matrix.html#cb168-3"></a><span class="co">## [1] TRUE</span></span>
+<span id="cb168-4"><a href="matrix.html#cb168-4"></a><span class="kw">class</span>(my_matrix)</span>
+<span id="cb168-5"><a href="matrix.html#cb168-5"></a><span class="co">## [1] &quot;matrix&quot; &quot;array&quot;</span></span></code></pre></div>
+<p>Tuttavia nota come un semplice vettore non sia un array. Ricordiamo infatti che un vettore non possiede una dimensione (<code>dim</code>) ma semplicemente una lunghezza (<code>length</code>).</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="matrix.html#cb169-1"></a>my_vector &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">12</span></span>
+<span id="cb169-2"><a href="matrix.html#cb169-2"></a><span class="kw">is.array</span>(my_vector)</span>
+<span id="cb169-3"><a href="matrix.html#cb169-3"></a><span class="co">## [1] FALSE</span></span>
+<span id="cb169-4"><a href="matrix.html#cb169-4"></a><span class="kw">dim</span>(my_vector)</span>
+<span id="cb169-5"><a href="matrix.html#cb169-5"></a><span class="co">## NULL</span></span></code></pre></div>
+</div>
 
 </div>
 </div>

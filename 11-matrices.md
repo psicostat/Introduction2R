@@ -185,6 +185,7 @@ Ricordiamo che è comunque possibile eseguire operazioni matematiche con i valor
 
 ### Esercizi {-}
 
+Esegui i seguenti esercizi ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09.R)):
 1. Crea la matrice `A` così definita: 
 
 $$
@@ -556,7 +557,7 @@ Nota come l'operazione di eliminazione sia comunque un'operazione di selezione. 
 
 ### Esercizi {-}
 
-Utilizzando le matrici create nei precedenti esercizi esegui le seguenti consegne:
+Utilizzando le matrici create nei precedenti esercizi esegui le seguenti consegne ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09.R)):
 
 1. Utilizzando gli indici di riga e di colonna selziona il numero 27 della matrice `A`
 2. Selziona gli elementi compresi tra la seconda e quarta riga, seconda e terza colonna della matrice `B`
@@ -752,7 +753,7 @@ my_matrix[c("A", "C"), ]
 ```
 :::
 
-### Combinare Matrici
+### Unire Matrici
 
 Abbiamo visto nel Capitolo \@ref(vector-functions) come si possono unire diversi vettori tramite la funnzione `c()`. Anche per le matrici è possibile combinare matrici diverse, rispettando però alcune regole:
 
@@ -935,7 +936,7 @@ diag(my_matrix)
 ## [1] 1 5 9
 ```
 
-La funzione `diag()` può anche essere usata per sostituire gli elementi sulla diagonale di una matrice oppure per creare una matrice diagonale in cui gli altri valori siano tutti zero, ad esempio la matrice identità.
+La funzione `diag()` può anche essere usata per sostituire in modo semplice gli elementi sulla diagonale di una matrice oppure per creare una matrice diagonale in cui gli altri valori siano tutti zero, ad esempio la matrice identità.
 
 
 ```r
@@ -969,7 +970,7 @@ diag(4)
 
 ### Esercizi {-}
 
-Utilizzando le matrici create nei precedenti esercizi, esegui le seguentti consegne:
+Utilizzando le matrici create nei precedenti esercizi, esegui le seguentti consegne ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09.R)):
 
 1. Crea la matrice `G` unendo alla matrice `A` le prime due colonne della matrice `C`
 2. Crea la matrice `H` unendo alla matrice `C` le prime due righe della matrice trasposta di `B`
@@ -978,10 +979,94 @@ Utilizzando le matrici create nei precedenti esercizi, esegui le seguentti conse
 5. Assegna i seguenti nomi alle colonne e alle righe della matrice `C`: `"col_1", "col_2", "col_3", "col_4", "row_1", "row_2", "row_3"`.
 
 
-## estensione array
-TODO
+## Array
+
+Abbiamo visto come le matrici siano un oggetto *bidimensionale*, tuttavia è possibile anche creare oggetti che abbiano 3, 4 o un qualsiasi numero (*n*) di dimensioni. Tali oggetti sono definiti **array** e possono essere creati con il comando `array()` indicando il vettore di valori utilizzati per popolare l'oggetto e la grandezza di ciascuna delle sue dimensioni.
 
 
+```r
+array(data = , dim = )
+```
+
+Ad esempio per creare un cubo di lato 3 contenete i valori interi dall'1 al 27 possiamo eseguire il seguente comando.
 
 
+```r
+my_cube <- array(1:27, dim = c(3,3,3))
+my_cube
+## , , 1
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3]
+## [1,]   10   13   16
+## [2,]   11   14   17
+## [3,]   12   15   18
+## 
+## , , 3
+## 
+##      [,1] [,2] [,3]
+## [1,]   19   22   25
+## [2,]   20   23   26
+## [3,]   21   24   27
+```
+
+Tutte le principali funzioni ed operazioni di selezione che abbiamo visto per le matrici ed i vettori posono essere eseguite in modo analogo anche con gli array. Il funzinonamento generale della selezione di elementi tramite parentesi quadre risulterà ora certamente pù chiaro. Per ogni dimensione vengono indicarti gli indici di posizioni desiderati. L'ordine all'interno delle parentesi quadre determina la specifica deimensione a cui ci si riferisce e le virgole sono utilizzate per separare gli indici delle diverse dimensioni.
+
+
+```r
+my_hypercube[<dim-1>, <dim-2>, <dim-3>, ..., <dim-n>]
+```
+
+Vediamo ora alcuni semplici eempi di selezione.
+
+
+```
+## [1] 1
+## [1] 1 2 3
+##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9
+## , , 1
+## 
+##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## 
+## , , 2
+## 
+##      [,1] [,2]
+## [1,]   10   13
+## [2,]   11   14
+```
+
+
+:::{.tip title="Array Mother of All Matrix" data-latex="[Array Mother of All Matrix]"}
+E' facilmente intuibile come le matrici non siano altro che un caso speciale di array con 2 dimensioni. Infatti i più attenti avranno notato che il valore `"array"` compariva insieme a `"matrix"` nel valutare la tipologia di oggetto.
+
+
+```r
+my_matrix <- matrix(1:12, nrow = 2, ncol = 2)
+is.array(my_matrix)
+## [1] TRUE
+class(my_matrix)
+## [1] "matrix" "array"
+```
+
+Tuttavia nota come un semplice vettore non sia un array. Ricordiamo infatti che un vettore non possiede una dimensione (`dim`) ma semplicemente una lunghezza (`length`).
+
+```r
+my_vector <- 1:12
+is.array(my_vector)
+## [1] FALSE
+dim(my_vector)
+## NULL
+```
+:::
 

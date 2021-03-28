@@ -248,11 +248,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="matrix.html"><a href="matrix.html#funzioni-ed-operazioni"><i class="fa fa-check"></i><b>9.3</b> Funzioni ed Operazioni</a><ul>
 <li class="chapter" data-level="9.3.1" data-path="matrix.html"><a href="matrix.html#mat-prop"><i class="fa fa-check"></i><b>9.3.1</b> Attributi di una Matrice</a></li>
-<li class="chapter" data-level="9.3.2" data-path="matrix.html"><a href="matrix.html#combinare-matrici"><i class="fa fa-check"></i><b>9.3.2</b> Combinare Matrici</a></li>
+<li class="chapter" data-level="9.3.2" data-path="matrix.html"><a href="matrix.html#unire-matrici"><i class="fa fa-check"></i><b>9.3.2</b> Unire Matrici</a></li>
 <li class="chapter" data-level="9.3.3" data-path="matrix.html"><a href="matrix.html#operatori-matematici"><i class="fa fa-check"></i><b>9.3.3</b> Operatori Matematici</a></li>
 <li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#esercizi-8"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="matrix.html"><a href="matrix.html#estensione-array"><i class="fa fa-check"></i><b>9.4</b> estensione array</a></li>
+<li class="chapter" data-level="9.4" data-path="matrix.html"><a href="matrix.html#array"><i class="fa fa-check"></i><b>9.4</b> Array</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>10</b> Dataframe</a><ul>
 <li class="chapter" data-level="10.1" data-path="dataframe.html"><a href="dataframe.html#creazione-di-un-dataframe"><i class="fa fa-check"></i><b>10.1</b> Creazione di un dataframe</a><ul>
@@ -730,7 +730,7 @@ Rapporto tra due vettori
 </div>
 <div id="data-type" class="section level2">
 <h2><span class="header-section-number">7.4</span> Data Type</h2>
-<p>Abbiamo visto come sia necessario che in un vettore tutti gli elementi siano della stessa tipologia. Avremmo quindi diversi tipi di vettori a seconda della tiopologia di dati che contengono.</p>
+<p>Abbiamo visto come sia necessario che in un vettore tutti gli elementi siano della stessa tipologia. Avremo quindi diversi tipi di vettori a seconda della tiopologia di dati che contengono.</p>
 <p>In R abbiamo 4 principali tipologie di dati, ovvero tipologie di valori che possono essere utilizzati:</p>
 <ul>
 <li><code>character</code> - <em>Stringhe di caratteri</em> i cui valori alfannumerici vengono delimitati dalle doppie vigolette <code>"Hello world!"</code> o virgolette singole <code>'Hello world!'</code>.</li>
@@ -845,10 +845,10 @@ Rapporto tra due vettori
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="vector.html#cb85-1"></a>my_values &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">50</span>)  <span class="co"># genero dei numeri casuali </span></span>
 <span id="cb85-2"><a href="vector.html#cb85-2"></a></span>
 <span id="cb85-3"><a href="vector.html#cb85-3"></a><span class="kw">sum</span>(my_values <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)      <span class="co"># totale numeri positivi</span></span>
-<span id="cb85-4"><a href="vector.html#cb85-4"></a><span class="co">## [1] 29</span></span>
+<span id="cb85-4"><a href="vector.html#cb85-4"></a><span class="co">## [1] 24</span></span>
 <span id="cb85-5"><a href="vector.html#cb85-5"></a></span>
 <span id="cb85-6"><a href="vector.html#cb85-6"></a><span class="kw">mean</span>(my_values <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)      <span class="co"># percentuale numeri positivi</span></span>
-<span id="cb85-7"><a href="vector.html#cb85-7"></a><span class="co">## [1] 0.58</span></span></code></pre></div>
+<span id="cb85-7"><a href="vector.html#cb85-7"></a><span class="co">## [1] 0.48</span></span></code></pre></div>
 </div>
 <div class="design" title="is.* adn as.* Function Families">
 <p>Esistono due famiglie di funzioni che permettono rispettivamene di testare e di modificare la tipologia dei dati.</p>
@@ -1018,23 +1018,17 @@ Rapporto tra due vettori
 <ul>
 <li><code>Inf</code> (o <code>-Inf</code>) - qualora <code>Inf</code> (o <code>-Inf</code>) siano utilizzati in un’operazione matematica il risultato seguirà le comuni regole delle operazioni tra infiti.</li>
 </ul>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="vector.html#cb104-1"></a><span class="ot">Inf</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span></span>
-<span id="cb104-2"><a href="vector.html#cb104-2"></a><span class="co">## [1] Inf</span></span>
-<span id="cb104-3"><a href="vector.html#cb104-3"></a></span>
-<span id="cb104-4"><a href="vector.html#cb104-4"></a><span class="ot">Inf</span> <span class="op">*</span><span class="st"> </span><span class="dv">-3</span></span>
-<span id="cb104-5"><a href="vector.html#cb104-5"></a><span class="co">## [1] -Inf</span></span>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="vector.html#cb104-1"></a><span class="ot">Inf</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span>     <span class="co"># Inf</span></span>
+<span id="cb104-2"><a href="vector.html#cb104-2"></a></span>
+<span id="cb104-3"><a href="vector.html#cb104-3"></a><span class="ot">Inf</span> <span class="op">*</span><span class="st"> </span><span class="dv">-3</span>    <span class="co"># - Inf</span></span>
+<span id="cb104-4"><a href="vector.html#cb104-4"></a></span>
+<span id="cb104-5"><a href="vector.html#cb104-5"></a><span class="ot">Inf</span> <span class="op">+</span><span class="st"> </span><span class="ot">Inf</span>   <span class="co"># Inf</span></span>
 <span id="cb104-6"><a href="vector.html#cb104-6"></a></span>
-<span id="cb104-7"><a href="vector.html#cb104-7"></a><span class="ot">Inf</span> <span class="op">+</span><span class="st"> </span><span class="ot">Inf</span></span>
-<span id="cb104-8"><a href="vector.html#cb104-8"></a><span class="co">## [1] Inf</span></span>
-<span id="cb104-9"><a href="vector.html#cb104-9"></a></span>
-<span id="cb104-10"><a href="vector.html#cb104-10"></a><span class="ot">Inf</span> <span class="op">+</span><span class="st"> </span><span class="op">-</span><span class="ot">Inf</span></span>
-<span id="cb104-11"><a href="vector.html#cb104-11"></a><span class="co">## [1] NaN</span></span>
-<span id="cb104-12"><a href="vector.html#cb104-12"></a></span>
-<span id="cb104-13"><a href="vector.html#cb104-13"></a><span class="ot">Inf</span> <span class="op">*</span><span class="st"> </span><span class="op">-</span><span class="ot">Inf</span></span>
-<span id="cb104-14"><a href="vector.html#cb104-14"></a><span class="co">## [1] -Inf</span></span>
-<span id="cb104-15"><a href="vector.html#cb104-15"></a></span>
-<span id="cb104-16"><a href="vector.html#cb104-16"></a><span class="ot">Inf</span> <span class="op">/</span><span class="st"> </span><span class="ot">Inf</span></span>
-<span id="cb104-17"><a href="vector.html#cb104-17"></a><span class="co">## [1] NaN</span></span></code></pre></div>
+<span id="cb104-7"><a href="vector.html#cb104-7"></a><span class="ot">Inf</span> <span class="op">+</span><span class="st"> </span><span class="op">-</span><span class="ot">Inf</span>  <span class="co"># NaN</span></span>
+<span id="cb104-8"><a href="vector.html#cb104-8"></a></span>
+<span id="cb104-9"><a href="vector.html#cb104-9"></a><span class="ot">Inf</span> <span class="op">*</span><span class="st"> </span><span class="op">-</span><span class="ot">Inf</span>  <span class="co"># -Inf</span></span>
+<span id="cb104-10"><a href="vector.html#cb104-10"></a></span>
+<span id="cb104-11"><a href="vector.html#cb104-11"></a><span class="ot">Inf</span> <span class="op">/</span><span class="st"> </span><span class="ot">Inf</span>   <span class="co"># NaN</span></span></code></pre></div>
 </div>
 <div id="testare-valori" class="section level4 unnumbered">
 <h4>Testare Valori</h4>

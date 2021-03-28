@@ -494,7 +494,7 @@ my_values >= 4 & my_values <= 7
 
 ## Data Type {#data-type}
 
-Abbiamo visto come sia necessario che in un vettore tutti gli elementi siano della stessa tipologia. Avremmo quindi diversi tipi di vettori a seconda della tiopologia di dati che contengono.
+Abbiamo visto come sia necessario che in un vettore tutti gli elementi siano della stessa tipologia. Avremo quindi diversi tipi di vettori a seconda della tiopologia di dati che contengono.
 
 In R abbiamo 4 principali tipologie di dati, ovvero tipologie di valori che possono essere utilizzati:
 
@@ -674,10 +674,10 @@ Utilizzando le funzioni `sum()` e `mean()` con un vettore logico, possiamo valut
 my_values <- rnorm(50)  # genero dei numeri casuali 
 
 sum(my_values > 0)      # totale numeri positivi
-## [1] 25
+## [1] 20
 
 mean(my_values > 0)      # percentuale numeri positivi
-## [1] 0.5
+## [1] 0.4
 ```
 :::
 
@@ -885,23 +885,17 @@ NaN * 3
 - `Inf` (o `-Inf`) - qualora `Inf` (o `-Inf`) siano utilizzati in un'operazione matematica il risultato seguirà le comuni regole delle operazioni tra infiti.
 
 ```r
-Inf - 3
-## [1] Inf
+Inf - 3     # Inf
 
-Inf * -3
-## [1] -Inf
+Inf * -3    # - Inf
 
-Inf + Inf
-## [1] Inf
+Inf + Inf   # Inf
 
-Inf + -Inf
-## [1] NaN
+Inf + -Inf  # NaN
 
-Inf * -Inf
-## [1] -Inf
+Inf * -Inf  # -Inf
 
-Inf / Inf
-## [1] NaN
+Inf / Inf   # NaN
 ```
 
 #### Testare Valori {-}

@@ -228,7 +228,7 @@
 \makeatother
 \subtitle{Corso per imparare le basi di \textbf{R}}
 \author{\href{https://claudiozandonella.netlify.app/}{Claudio Zandonella Callegher} and \href{https://filippogambarota.netlify.app/}{Filippo Gambarota} members of \href{https://psicostat.dpss.psy.unipd.it/}{Psicostat}}
-\date{27-03-2021}
+\date{28-03-2021}
 
 \begin{document}
 \maketitle
@@ -3197,7 +3197,7 @@ Nota come questo sia valido anche per gli \textbf{operatori relazionali e logici
 \hypertarget{data-type}{%
 \section{Data Type}\label{data-type}}
 
-Abbiamo visto come sia necessario che in un vettore tutti gli elementi siano della stessa tipologia. Avremmo quindi diversi tipi di vettori a seconda della tiopologia di dati che contengono.
+Abbiamo visto come sia necessario che in un vettore tutti gli elementi siano della stessa tipologia. Avremo quindi diversi tipi di vettori a seconda della tiopologia di dati che contengono.
 
 In R abbiamo 4 principali tipologie di dati, ovvero tipologie di valori che possono essere utilizzati:
 
@@ -3407,10 +3407,10 @@ Utilizzando le funzioni \texttt{sum()} e \texttt{mean()} con un vettore logico, 
 \NormalTok{my_values <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{)  }\CommentTok{# genero dei numeri casuali }
 
 \KeywordTok{sum}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# totale numeri positivi}
-\CommentTok{## [1] 22}
+\CommentTok{## [1] 25}
 
 \KeywordTok{mean}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# percentuale numeri positivi}
-\CommentTok{## [1] 0.44}
+\CommentTok{## [1] 0.5}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3748,23 +3748,17 @@ Altra importante caratteristica è quella che viene definita \emph{propagazione}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\OtherTok{Inf} \OperatorTok{-}\StringTok{ }\DecValTok{3}
-\CommentTok{## [1] Inf}
+\OtherTok{Inf} \OperatorTok{-}\StringTok{ }\DecValTok{3}     \CommentTok{# Inf}
 
-\OtherTok{Inf} \OperatorTok{*}\StringTok{ }\DecValTok{-3}
-\CommentTok{## [1] -Inf}
+\OtherTok{Inf} \OperatorTok{*}\StringTok{ }\DecValTok{-3}    \CommentTok{# - Inf}
 
-\OtherTok{Inf} \OperatorTok{+}\StringTok{ }\OtherTok{Inf}
-\CommentTok{## [1] Inf}
+\OtherTok{Inf} \OperatorTok{+}\StringTok{ }\OtherTok{Inf}   \CommentTok{# Inf}
 
-\OtherTok{Inf} \OperatorTok{+}\StringTok{ }\OperatorTok{-}\OtherTok{Inf}
-\CommentTok{## [1] NaN}
+\OtherTok{Inf} \OperatorTok{+}\StringTok{ }\OperatorTok{-}\OtherTok{Inf}  \CommentTok{# NaN}
 
-\OtherTok{Inf} \OperatorTok{*}\StringTok{ }\OperatorTok{-}\OtherTok{Inf}
-\CommentTok{## [1] -Inf}
+\OtherTok{Inf} \OperatorTok{*}\StringTok{ }\OperatorTok{-}\OtherTok{Inf}  \CommentTok{# -Inf}
 
-\OtherTok{Inf} \OperatorTok{/}\StringTok{ }\OtherTok{Inf}
-\CommentTok{## [1] NaN}
+\OtherTok{Inf} \OperatorTok{/}\StringTok{ }\OtherTok{Inf}   \CommentTok{# NaN}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4280,12 +4274,8 @@ Ricordiamo che è comunque possibile eseguire operazioni matematiche con i valor
 \subsection*{Esercizi}\label{esercizi-6}}
 \addcontentsline{toc}{subsection}{Esercizi}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Crea la matrice \texttt{A} così definita:
-\end{enumerate}
+Esegui i seguenti esercizi (\href{https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09.R}{soluzioni}):
+1. Crea la matrice \texttt{A} così definita:
 
 \[
 \begin{matrix}
@@ -4717,7 +4707,7 @@ Nota come l'operazione di eliminazione sia comunque un'operazione di selezione. 
 \subsection*{Esercizi}\label{esercizi-7}}
 \addcontentsline{toc}{subsection}{Esercizi}
 
-Utilizzando le matrici create nei precedenti esercizi esegui le seguenti consegne:
+Utilizzando le matrici create nei precedenti esercizi esegui le seguenti consegne (\href{https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09.R}{soluzioni}):
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -4902,8 +4892,8 @@ Possiamo quindi selezionare la prima colonna sia con il suo indice numerico \tex
 
 \end{design}
 
-\hypertarget{combinare-matrici}{%
-\subsection{Combinare Matrici}\label{combinare-matrici}}
+\hypertarget{unire-matrici}{%
+\subsection{Unire Matrici}\label{unire-matrici}}
 
 Abbiamo visto nel Capitolo \ref{vector-functions} come si possono unire diversi vettori tramite la funnzione \texttt{c()}. Anche per le matrici è possibile combinare matrici diverse, rispettando però alcune regole:
 
@@ -5120,7 +5110,7 @@ Il comando \texttt{diag(nome\_matrice)} permette di estrarre la diagonale di una
 \end{Highlighting}
 \end{Shaded}
 
-La funzione \texttt{diag()} può anche essere usata per sostituire gli elementi sulla diagonale di una matrice oppure per creare una matrice diagonale in cui gli altri valori siano tutti zero, ad esempio la matrice identità.
+La funzione \texttt{diag()} può anche essere usata per sostituire in modo semplice gli elementi sulla diagonale di una matrice oppure per creare una matrice diagonale in cui gli altri valori siano tutti zero, ad esempio la matrice identità.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5155,7 +5145,7 @@ La funzione \texttt{diag()} può anche essere usata per sostituire gli elementi 
 \subsection*{Esercizi}\label{esercizi-8}}
 \addcontentsline{toc}{subsection}{Esercizi}
 
-Utilizzando le matrici create nei precedenti esercizi, esegui le seguentti consegne:
+Utilizzando le matrici create nei precedenti esercizi, esegui le seguentti consegne (\href{https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09.R}{soluzioni}):
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -5172,10 +5162,103 @@ Utilizzando le matrici create nei precedenti esercizi, esegui le seguentti conse
   Assegna i seguenti nomi alle colonne e alle righe della matrice \texttt{C}: \texttt{"col\_1",\ "col\_2",\ "col\_3",\ "col\_4",\ "row\_1",\ "row\_2",\ "row\_3"}.
 \end{enumerate}
 
-\hypertarget{estensione-array}{%
-\section{estensione array}\label{estensione-array}}
+\hypertarget{array}{%
+\section{Array}\label{array}}
 
-TODO
+Abbiamo visto come le matrici siano un oggetto \emph{bidimensionale}, tuttavia è possibile anche creare oggetti che abbiano 3, 4 o un qualsiasi numero (\emph{n}) di dimensioni. Tali oggetti sono definiti \textbf{array} e possono essere creati con il comando \texttt{array()} indicando il vettore di valori utilizzati per popolare l'oggetto e la grandezza di ciascuna delle sue dimensioni.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{array}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ , }\DataTypeTok{dim =}\NormalTok{ )}
+\end{Highlighting}
+\end{Shaded}
+
+Ad esempio per creare un cubo di lato 3 contenete i valori interi dall'1 al 27 possiamo eseguire il seguente comando.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_cube <-}\StringTok{ }\KeywordTok{array}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{27}\NormalTok{, }\DataTypeTok{dim =} \KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+\NormalTok{my_cube}
+\CommentTok{## , , 1}
+\CommentTok{## }
+\CommentTok{##      [,1] [,2] [,3]}
+\CommentTok{## [1,]    1    4    7}
+\CommentTok{## [2,]    2    5    8}
+\CommentTok{## [3,]    3    6    9}
+\CommentTok{## }
+\CommentTok{## , , 2}
+\CommentTok{## }
+\CommentTok{##      [,1] [,2] [,3]}
+\CommentTok{## [1,]   10   13   16}
+\CommentTok{## [2,]   11   14   17}
+\CommentTok{## [3,]   12   15   18}
+\CommentTok{## }
+\CommentTok{## , , 3}
+\CommentTok{## }
+\CommentTok{##      [,1] [,2] [,3]}
+\CommentTok{## [1,]   19   22   25}
+\CommentTok{## [2,]   20   23   26}
+\CommentTok{## [3,]   21   24   27}
+\end{Highlighting}
+\end{Shaded}
+
+Tutte le principali funzioni ed operazioni di selezione che abbiamo visto per le matrici ed i vettori posono essere eseguite in modo analogo anche con gli array. Il funzinonamento generale della selezione di elementi tramite parentesi quadre risulterà ora certamente pù chiaro. Per ogni dimensione vengono indicarti gli indici di posizioni desiderati. L'ordine all'interno delle parentesi quadre determina la specifica deimensione a cui ci si riferisce e le virgole sono utilizzate per separare gli indici delle diverse dimensioni.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_hypercube[}\OperatorTok{<}\NormalTok{dim}\DecValTok{-1}\OperatorTok{>}\NormalTok{, }\OperatorTok{<}\NormalTok{dim}\DecValTok{-2}\OperatorTok{>}\NormalTok{, }\OperatorTok{<}\NormalTok{dim}\DecValTok{-3}\OperatorTok{>}\NormalTok{, ..., }\OperatorTok{<}\NormalTok{dim}\OperatorTok{-}\NormalTok{n}\OperatorTok{>}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+Vediamo ora alcuni semplici eempi di selezione.
+
+\begin{verbatim}
+## [1] 1
+## [1] 1 2 3
+##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9
+## , , 1
+## 
+##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## 
+## , , 2
+## 
+##      [,1] [,2]
+## [1,]   10   13
+## [2,]   11   14
+\end{verbatim}
+
+\begin{tip}[Array Mother of All Matrix]
+
+E' facilmente intuibile come le matrici non siano altro che un caso speciale di array con 2 dimensioni. Infatti i più attenti avranno notato che il valore \texttt{"array"} compariva insieme a \texttt{"matrix"} nel valutare la tipologia di oggetto.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_matrix <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{12}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{2}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{2}\NormalTok{)}
+\KeywordTok{is.array}\NormalTok{(my_matrix)}
+\CommentTok{## [1] TRUE}
+\KeywordTok{class}\NormalTok{(my_matrix)}
+\CommentTok{## [1] "matrix" "array"}
+\end{Highlighting}
+\end{Shaded}
+
+Tuttavia nota come un semplice vettore non sia un array. Ricordiamo infatti che un vettore non possiede una dimensione (\texttt{dim}) ma semplicemente una lunghezza (\texttt{length}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_vector <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{12}
+\KeywordTok{is.array}\NormalTok{(my_vector)}
+\CommentTok{## [1] FALSE}
+\KeywordTok{dim}\NormalTok{(my_vector)}
+\CommentTok{## NULL}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tip}
 
 \hypertarget{dataframe}{%
 \chapter{Dataframe}\label{dataframe}}
@@ -5196,25 +5279,25 @@ La struttura di base di un dataframe è quindi la stessa di una matrice ma conti
 \hline
 colonna1 & colonna2 & colonna3 & colonna4 & colonna5 & colonna6\\
 \hline
--0.04 & 1.71 & 0.37 & 1.07 & 0.10 & a\\
+1.38 & -0.80 & 0.91 & -0.50 & -0.49 & a\\
 \hline
-0.98 & 0.32 & -0.27 & -1.92 & 1.92 & b\\
+1.64 & -0.89 & -1.52 & 0.71 & -0.57 & b\\
 \hline
-1.00 & -0.77 & 0.00 & 0.01 & 0.45 & c\\
+0.67 & 0.82 & 2.24 & -1.66 & 0.31 & c\\
 \hline
-1.71 & -0.89 & 1.17 & -0.94 & 0.71 & d\\
+-0.80 & 0.38 & 0.76 & -2.82 & 0.22 & d\\
 \hline
--1.16 & 0.22 & 0.31 & -0.62 & 0.26 & e\\
+0.41 & 2.20 & -0.07 & 0.16 & -0.88 & e\\
 \hline
-0.59 & 1.01 & -0.37 & 0.98 & 1.08 & f\\
+1.55 & 0.91 & -0.14 & -0.39 & -1.95 & f\\
 \hline
-0.28 & -0.83 & -1.02 & -0.35 & -2.13 & g\\
+-0.15 & 0.14 & 1.37 & 0.52 & 0.87 & g\\
 \hline
-1.11 & 0.48 & -0.16 & 1.02 & -0.15 & h\\
+-1.98 & -1.35 & -1.11 & -1.03 & -0.94 & h\\
 \hline
--0.19 & 1.39 & 1.18 & -0.81 & -1.79 & i\\
+0.05 & 0.59 & -0.55 & 1.88 & 0.16 & i\\
 \hline
-1.41 & -0.13 & 0.91 & 0.64 & -0.53 & j\\
+-0.37 & -1.28 & -1.17 & -3.02 & 1.12 & j\\
 \hline
 \end{tabular}
 \end{table}

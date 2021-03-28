@@ -104,9 +104,9 @@ sel-matrix
 utilizzi-avanzati-selezione-1
 funzioni-ed-operazioni
 mat-prop
-combinare-matrici
+unire-matrici
 operatori-matematici
-estensione-array
+array
 dataframe
 creazione-di-un-dataframe
 proprietà-di-un-dataframe
