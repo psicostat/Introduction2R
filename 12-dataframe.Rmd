@@ -11,62 +11,18 @@ knitr::opts_chunk$set(
 library(kableExtra)
 ```
 
-Il `dataframe` è uno degli oggetti più interessanti ed anche utilizzati del linguaggio R. Inoltre, se vi capiterà di utilizzare altri linguaggi di programmazione sopratutto mirati all'analisi dati (Matlab ad esempio) noterete come vi mancherà un oggetto potente e intuitivo come il dataframe.
+I `dataframe` sono uno degli oggetti più utilizzati in R per rappresentare i propri dati. In modo analogo alle matrici, i `dataframe` sono una struttura **bidimensionale** dove i dati sono disposti secondo righe e colonne. Può essere utile pensare al dataframe esattamente come ad una normale tabella che si può creare in un foglio di calcolo (e.g., Excel) dove possiamo inserire i nostri dati. Dati in questo caso è volutamente generico poichè i dataframe, a differenza delle matrici, possono contenere nello stesso oggetto tipi diversi di dati (e.g., *nomi*, *date* e *numeri*).
 
-Come vedremo ci sono molte somiglianze tra il `dataframe` e la `matrice`. Quando necessario, si farà riferimento al capitolo precedente per far notare quali aspetti sono in comune tra queste due strutture di dati.
+La struttura di base di un dataframe è quindi la stessa di una matrice ma ci permette di includere diversi tipi di dati nello stesso oggetto come caratteri e valori numerici. Questo ci consente di raccogliere in un unico oggetto tutte le caratteristiche delle unità statistiche (variabili numeriche, categoriali, nominali etc.) che intendiamo successivamente analizzare. Un aspetto cruciale quindi è proprio quello che il dataframe è stato pensato per gestire dati complessi ed eterogenei come quelli che si trovano in un’analisi di dati reale. Se vi capiterà di utilizzare altri linguaggi di programmazione sopratutto mirati all'analisi dati (e.g., Matlab) noterete come vi mancherà un oggetto potente e intuitivo come il dataframe.
 
-Il `dataframe` come dice il nome fa riferimento ad una struttura per i dati. Dati in questo caso è volutamente generico perchè il dataframe rispetto alla matrice può contenere nello stesso oggetto, tipi diversi di dato come fattori, caratteri e numeri. Può essere utile pensare al dataframe esattamente come ad una normale tabella che si può creare un un foglio di calcolo (Excel) dove possiamo mettere *nomi*, *date*, *numeri*, etc. 
+In genere in un dataframe le righe rappresentano le unità statitiche (ad esempio persone o osservazioni) e le colonne rappresentano variabili ovvero delle proprietà misurate su quelle unità statistiche. Esistono tuttavia due formati principali di dataframe a seconda del modo in cui vengono organizzati i dati. Abbiamo i dataframe in forma **wide** (oppure larga) oppure i dataframe in forma **long** (oppure lunga). Valutiamo la differenza tra i due formati ipotizzando dei dati dove per ogni soggetto abbiamo misuriamo l'età, il genere, e la risposta a tre item di un questionario.
 
-La struttura di base di un dataframe è quindi la stessa di una matrice ma contiene i nomi delle colonne (e anche delle righe eventualmente) di default. Un esempio di dataframe è rappresentato nella tabella \@ref(tab:ex-dataframe)
 
-<!-- TODO fare meglio la tabella -->
+#### Wide Dataframe {-}
 
-```{r ex-dataframe}
-dat <- matrix(rnorm(50), ncol = 5, nrow = 10)
-dat <- data.frame(dat)
-dat <- round(dat, 2)
-colnames(dat) <- c("colonna1", "colonna2", "colonna3", "colonna4", "colonna5")
-dat$colonna6 <- letters[1:10]
-dat %>% 
-  kable(align = "c",
-        caption = "Esempio di dataframe") %>% 
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F)
-```
+Nel formato **wide**, ogni singola riga del dataframe rappresenta un soggetto e ogni sua risposta o variabile misurata sarà riportata in una diversa colonna.  In Tabelle \@ref(tab:table-wide-db) vengono presentati i darti dell'esempio in un formato wide.
 
-Come si vede abbiamo colonne con un nome che contengono sia numeri che caratteri. Questo non era chiaramente possibile con le matrici.
-
-## Creazione di un dataframe
-
-Il comando per creare un dataframe è il comando `data.frame()` tuttavia la creazione è leggermente diversa rispetto alla matrice. Pensando all'analogia con il foglio di calcolo Excel, intuitivamente è più facile immaginare la creazione di una dataframe mettendo insieme colonne relativamente indipendenti (dove una può contenere dei nomi, un'altra delle date e così via) piuttosto che un insieme di numeri inseriti per riga o per colonna come per le matrici.
-
-Infatti il modo di creare un `dataframe` è priprio questo ovvero specificando `nomecolonna = valori` all'interno del comando `data.frame()`. Vediamo un esempio in R:
-
-```{r, echo = TRUE}
-
-dat <- data.frame(
-  
-  Id = c("subj_1","subj_2","subj_3"),
-  age = c(21,23,19),
-  sex = c("F","M","F"),
-  item1 = c(2,1,1),
-  item2 = c(0,2,1),
-  item3 = c(2,0,1)
-  
-)
-
-dat
-
-```
-
-In questo caso abbiamo creato un ipotetico dataframe dove in ogni riga abbiamo un soggetto e ogni colonna rappresenta una data caratteristica del soggetto come il genere, l'età e così via.
-
-Un aspetto importante adesso è proprio quello che il dataframe è stato pensato per gestire dati complessi ed eterogenei come quelli che si trovano in un'analisi di dati reale. Una convenzione molto utile da ricordare infatti è quella che le righe di un dataframe rappresentano le **osservazioni** (ad esempio persone) e le colonne rappresentano **variabili** ovvero delle proprietà misurate su quelle osservazioni.
-
-Una distinzione fondamentale nella pratica di analisi dei dati è quella tra dati in forma **long** (oppure lunga) o dati in forma **wide** (oppure larga). Non c'è un formato corretto o sbagliato ma dipende dal tipo di analisi e dal software o pacchetto che si utilizza. Alcune operazioni o analisi richiedono il dataset in forma **long** altre in forma **wide**. Mantenendo l'esempio di soggetti e caratteristiche misurate sui soggetti i due formati sono definiti come:
-
-- **Wide**: ogni singola riga rappresenta un soggetto e ogni sua risposta o variabile misurata sarà riportata in una diversa colonna. Il dataset creato in precedenza era infatti proprio nel formato wide:
-
-```{r, echo = TRUE}
+```{r table-wide-db}
 data_wide<-data.frame(
   Id=c("subj_1","subj_2","subj_3"),
   age=c(21,23,19),
@@ -76,55 +32,92 @@ data_wide<-data.frame(
   item_3=c(2,0,1)
   )
 
-data_wide
+data_wide %>%
+  kable(align = "c",
+        caption = "Dataframe nel formato wong") %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F)
 ```
 
-- **Long**: ogni singola riga rappresenta una singola osservazione. Quindi i dati di ogni soggetto saranno riportati su più righe e le variabili che non cambiano tra le osservazioni saranno ripetute.
+Osserviamo come ogni soggetto si identificato da un codice riportato nella variabile *Id* e le risposte ai tre item siano riportate in tre diverse variabili *item_1*, *item_2* e *item_3*.
 
-```{r, echo = TRUE}
+#### Long Dataframe {-}
+
+Nel formato **long**, ogni singola riga rappresenta una singola osservazione. Quindi i dati di ogni soggetto saranno riportati su più righe e le variabili che non cambiano tra le osservazioni saranno ripetute.  In Tabelle \@ref(tab:table-long-db) vengono presentati i darti dell'esempio in un formato lide.
+
+```{r table-long-db}
 data_long<-data.frame(Id=rep(c("subj_1","subj_2","subj_3"),each=3),
                       age=rep(c(21,23,19),each=3),
                       sex=rep(c("F","M","F"),each=3),
                       item=rep(1:3,3),
                       response=c(2,1,1,0,2,1,2,0,1))
-data_long
+data_long %>%
+  kable(align = "c",
+        caption = "Dataframe nel formato long") %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F)
 ```
-Come potete vedere, nel dataset in forma **long** ogni soggetto ha 3 righe perchè oltre al genere e l'età che sono uniche, ci sono 3 variabili diverse misurate sulla stessa persona.
+
+Osserviamo come le risposte di ogni soggetto siano distribuite su più righe. Le caratterische che non variano vengono ripetute ad ogni riga (*Id*, *age* e *sex*) mentre le risposte agli item vengono registrate utilizzando due colonne *item*, ovvero il numero dell'item, e *response* l'effettiva risposta di quel partecipante a quello specifico item.
 
 :::{.tip title="Long o Wide?" data-latex="[Long o Wide?]"}
 I dati in forma long e wide hanno delle proprietà diverse sopratutto in riferimento all'utilizzo. La tipologia di dato e il risultato finale è esattamente lo stesso tuttavia alcuni software o alcuni pacchetti di R funzionano solo con dataset organizzati in un certo modo.
+
+Non c'è quindi un formato corretto o sbagliato ma dipende dal tipo di analisi e dal software o pacchetto che si utilizza. Alcune operazioni o analisi richiedono il dataset in forma **long** altre in forma **wide**.
+
 Il consiglio però è di abituarsi il più possibile a ragionare in forma **long** perchè la maggior parte dei moderni pacchetti per l'analisi dati e per la creazione di grafici richiedono i dati in questo formato. Ci sono comunque delle funzioni (più avanzate) per passare velocemente da un formato all'altro.
 :::
 
-Come per le `matrici`, anche i dataframe richiedono che tutte le colonne (variabili) abbiano lo stesso numero di elementi.
+Nota come nei precedenti esempi abbiamo utilizzato sia colonne che contengono valori numerici numeri sia colonne con caratteri. Questo non era chiaramente possibile con le matrici. Ricorda tuttavia che, come per le matrici, anche i dataframe richiedono che tutte le colonne (variabili) abbiano lo stesso numero di elementi.
 
-**Nota:** di default R considera una variabile stringa all'interno di un DataFrame come una variabile categoriale. E' possibile cambiare questa opzione specificando `stringsAsFactors=FALSE`.
+
+Vedremo ora come creare dei dataframe in R e come compiere le comuni operazini di selezione. Infine descriveremo alcune semplici manipolazioni e operazioni con i dataframe. Come vedremo ci sono molte somiglianze nell'utilizzo dei dataframe e delle matrici. Quando necessario, si farà riferimento al capitolo precedente per far notare aspetti in comune e differenze tra queste due strutture di dati.
+
+## Creazione di un dataframe
+
+Il comando per creare un dataframe è il comando `data.frame()`:
+
+```{r, eval=FALSE, echo=TRUE}
+nome_df <- data.frame(
+  variable1 = c(...),
+  variable2 = c(...),
+  ...)
+```
+
+La creazione è leggermente diversa rispetto al caso delle matrici. Intuitivamente è più facile immaginarla come l'unione di diverse colonne  (dove una può contenere dei nomi, un'altra delle date e così via) piuttosto che un insieme di valori inseriti per riga o per colonna come per le matrici. Infatti per creare un `dataframe` è proprio necessario specificare le colonne una alla volta, indicando `nome_colonna = valori` all'interno del comando `data.frame()`. Vediamo un esempio in R, 
+
+```{r, echo = TRUE}
+my_data <- data.frame(
+  Id = c(1:5),
+  names = c("Alice", "Bruno", "Carla", "Diego", "Elisa"),
+  sex = c("F","M","F", "M", "F"),
+  age = c(22, 25, 23, 22, 24),
+  faculty = c("Psicologia", "Ingegneria", "Medicina", "Lettere", "Psicologia")
+)
+
+my_data
+```
+
+In questo caso abbiamo creato un ipotetico dataframe dove in ogni riga abbiamo un soggetto e ogni colonna rappresenta una data caratteristica del soggetto come il genere, l'età e così via.
+
+<!-- TODO approfondimento sulla colonna id -->
+
+:::{.tip title="ID" data-latex="[ID]"}
+E' sempre consigliato definire una colonna (e.g., `Id`) in cui assegnnare un idenificativo univoco ad ogni soggetto. Questo ci permetto di poterlo indentificare senza correre il rischio di compiere errori. Ad esempio l'utlizzo del nome (o anche nome e cognome) potrebbe non essere indicato poichè più persone potrebbero avere lo stesso nome e non saremo quindi in grado di discriminare i due soggetti.
+:::
+
+:::{.warning title="stringsAsFactors" data-latex="[stringsAsFactors]"}
+Una variabile di caratteri all'interno di un DataFrame è considerata di default come una semplice varibile nominale. E' possibile specificare l'argomento `stringsAsFactors = TRUE` per ottenere che tutte le variabili di caratteri siano considerate come delle variabili catgoriali creando automaticamente dei fattori (vedi Capitolo TODO).
+
+Noa come il comportamento di default sia differente a seconda della versione di R. Versioni precedenti a R 4.0 avevano infatti come default `stringsAsFactors = TRUE` mentre dalla 4.0 in poi abbiamo `stringsAsFactors = FALSE`.
+
+Presta quindi molta attenzione quando utilizzi codici e soluzioni scritte prima della versione 4.0.
+:::
 
 ### Esercizi {-}
 
-1. Crea il dataframe `data_wide` riportato precedentemente
-2. Crea il dataframe `data_long` riportato precedentemente
+1. Crea il dataframe `data_wide` riportato in Tabella \@ref(tab:table-wide-db)
+2. Crea il dataframe `data_long` riportato in Tabella \@ref(tab:table-long-db)
 
-## Proprietà di un dataframe
-
-In modo simile alle matrici, i dataframe contengono dei metadati per assegnare dei nomi alle righe `rownames()` e alle colonne `colnames()`. Inoltre il dataframe ha una dimensione intesa come numero di righe e colonne esattamente come la matrice. Di default il dataframe richiede dei nomi solo alle colonne ma è possibile anche nominare le righe. Utilizzando il dataframe precedente:
-
-```{r, echo = TRUE}
-data_long
-
-# Controllo dei nomi
-
-rownames(data_long)
-colnames(data_long)
-names(data_long) # nel caso dei dataframe questo è analogo a colnames()
-
-# Dimensioni
-
-nrow(data_long)
-ncol(data_long)
-```
-
-## Indicizzazione di dataframe
+## Selezione Elementi {#sel-df}
 
 Ancora di più che per le matrici, è nell'indicizzazione che si vede la vera potenza dei dataframe. Rimandendo su un'indicizzazione tramiti indici di riga e colonna il funzionamento è esattamente analogo a quello della matrice, quindi `dataframe[riga, colonna]`:
 
@@ -146,6 +139,7 @@ data_long[c(1,3), ]
 
 La reale differenza tra matrici e dataframe sta nel poter accedere direttamente alle colonne tramite il loro nome e utilizzando l'operatore `$`. Con la scrittura `dataframe$nomevariabile` accediamo direttamente a quella specifica colonna senza utilizzare indici e parentesi quadre.
 
+
 ```{r, echo = TRUE}
 
 # Seleziono la variabile ID (soggetto)
@@ -158,6 +152,186 @@ data_long$sex
 data_long[, 1] # seleziono id con indice di colonna
 data_long[, 3] # seleziono sex con indice di colonna
 ```
+
+
+### Utilizzi Avanzati Selezione
+
+Quello che avevamo accennato per le matrici rispetto all'indicizzazione avanzata per *nome* e per *operazioni logiche* qui è invece molto utile e rilevante. Quando trattiamo dati che non sono solo numerici e sopratutto hanno delle proprietà come "soggetti", "età", "genere", è intuitivo pensare un modo altrettanto logico e intuitivo di lavorare con queste strutture di dati. Per rendere il tutto più intuitivo facciamo un esempio con un dataset fittizio dove sono inseriti i nostri amici su Facebook ed alcune caratteristiche su di loro in particolare:
+
+* Nome
+* Età (`age`)
+* Genere (`sex`)
+* Data iscrizione a Facebook (`facebook`)
+* Numero di fratelli/sorelle (`nsiblings`)
+* Numero di foto assieme a noi (`foto`)
+
+Vediamo il dataset in R:
+
+```{r}
+# importiamo i dati come abbiamo visto nei capitoli precedenti
+
+dat <- read.csv("datasets/data_facebook.csv", header = T, sep = ",")
+dat
+```
+
+
+#### Operatori Relazionali e Logici {-}
+
+Ora se volessimo usare l'indicizzazione standard possiamo semplicemente usare la sintassi solita `dataframe[riga/e, colonna/e]`. Tuttavia se volessimo trovare tutte le informazioni associate alla nostra amica **Elettra**, usare gli indici di riga/colonna diventa scomodo. Quello che è stato introdotto nei capitolo iniziali rispetto agli operatori logici qui diventa molto rilevante. Possiamo infatti "interrogare" il nostro dataframe dicendo di farci vedere tutte le informazioni che rispettano una specifica richiesta.
+
+La sintassi "Tutte le informazioni riguardo Elettra" diventa **tutte le colonne (informazioni) solo per la riga dove il nome è Elettra**. In R questo può essere controllato in questo modo:
+
+```{r, echo = T}
+# nomi sono nella colonna "nome"
+dat$nome
+```
+
+
+```{r, echo = T}
+# Per sapere quale riga corrisponde ad elettra
+dat$nome == "Elettra"
+
+which(dat$nome == "Elettra") # Elettra è la riga 10
+```
+Praticamente con `dat$nome == "Elettra"` otteniamo una serie di `TRUE` e `FALSE` in base a se il nome è "Elettra" oppure no. Combinando questo con l'indicizzazione classica `dataframe[riga/e, colonna/e]` possiamo usare gli operatori logici per interrogare il dataset.
+
+```{r, echo = T}
+dat[dat$nome == "Elettra", ]
+```
+
+Ora la sintassi `dataframe[riga/e, colonna/e]` assume un significato molto diverso ovvero:
+
+```r
+dataframe[operazioni_logiche_righe, operazioni_logiche_colonne]
+```
+
+Utilizzando gli operatori booleani **AND**(`$`) **OR**(`|`) e **NOT**(`!`) possiamo inoltre combinare più operazioni logiche insieme per ottenere indicizzazioni più complesse, ma sempre intuitive dal punto di vista della scrittura. Ad esempio: "Gli amici con età maggiore di 20 anni e con più di 5 foto assieme a noi". In questo caso un amico per ottenere un valore `TRUE` ed essere così inserito nei risultati deve rispettare due condizioni:
+
+```{r, echo = T}
+dat[dat$age > 20 & dat$foto > 5, ]
+```
+
+Possiamo chiaramente eseguire selezioni sulle colonne, per esempio sapere solo il numero di fratelli/sorelle degli amici che rispettano la condizione precedente:
+
+```{r, echo = T}
+dat[dat$age > 20 & dat$foto > 5, "nsiblings"]
+```
+
+Un ultimo aspetto da notare riguarda il tipo di output che otteniamo. Se la nostra selezione comprende più di 1 riga/colonna otteniamo un `dataframe` che è considerato un subset di quello iniziale. Se come nell'ultimo esempio otteniamo una singola colonna (o variabile) allora il risultato è un semplice vettore.
+
+```{r, echo = T}
+res1 <- dat[dat$age > 20 & dat$foto > 5, ]
+res2 <- dat[dat$age > 20 & dat$foto > 5, "nsiblings"]
+
+str(res1) # è un dataframe
+str(res2) # è un vettore
+```
+
+
+#### Modificare gli Elementi {-}
+
+#### Eliminare Righe o Colonne {-}
+Allo stesso modo di selezionare una specifica colonna o riga possiamo eliminare una osservazione. Il concetto di eliminazione o sovrascrittura in R è diverso da quello di un normale file perchè tutte le operazioni che facciamo solitamente portano a tre strade:
+
+1. Eseguiamo le operazioni in modalità "volatile" senza assegnare il risultato
+2. Creiamo un nuovo oggetto `B` che deriva da applicare ad `A` una certa operazione `B <- funzione(A)`
+3. Assegnamo ad `A` una serie di operazioni su se stesso, di fatto sovrascrivendo l'oggetto `A <- funzione(A)`
+
+Nel caso dei dataframe possiamo usare l'operatore `-` (meno) per escludere una certa selezione:
+
+```{r}
+
+# Escludo la prima riga
+data_wide[-1, ]
+
+# Escludo la 3 colonna
+data_wide[, -3]
+
+# Escludo la 1 e la 3 riga, e la 2 colonna
+data_wide[-c(1,3), -2]
+```
+
+E' possibile anche escludere (ed eliminare in un certo senso) delle informazioni usando gli operatori logici in gli operatori **NOT**(`!`) e diverso da (`!=`):
+
+```{r, echo = T}
+
+# Seleziono tutto tranne il soggetto 2
+
+data_wide[!data_wide$Id == "subj_2", ] # modo 1
+
+data_wide[data_wide$Id != "subj_2", ] # modo 2
+```
+
+
+:::{.warning title="Attenzione ad eliminare" data-latex="[Attenzione ad eliminare]"}
+L'utilizzo dell'operatore `-` è sempre in qualche modo pericoloso, sopratutto se l'oggetto che viene creato (o sovrascritto) viene poi utilizzato in altre operazioni. Eliminare delle informazioni, tranne quando è veramente necessario, non è mai una buona cosa. Se dovete selezionare una parte dei dati è sempre meglio creare un nuovo dataframe (o un nuovo oggetto in generale) e mantendere una versione di quello originale sempre disponibile. 
+:::
+
+
+## Funzioni ed Operazioni
+
+
+
+Nella tabella \@ref(tab:frame-tab) è contenuto un riassunto delle principali operazioni che si possono eseguire con i dataframe:
+
+```{r frame-tab}
+
+names_function <- c("Per aggiungere una nuova variabile al DataFrame (deve avere lo stesso numero di righe)",
+                    "Per aggiungere delle osservazioni (i nuovi dati devono essere coerenti con la struttura del DataFrame)", 
+                    "Per valutare il numero di osservazioni del DataFrame",
+                    "Per valutare il numero di variabili del DataFrame",
+                    "Nomi delle colonne del DataFrame",
+                    "Nomi delle righe del DataFrame")
+formula <- sprintf("%s(nome_DataFrame)", 
+                   c("nrow", "ncol", "holder", "rownames"))
+
+if (knitr::is_html_output()) {
+  vector_operators <- data.frame(formula = c(
+    "nome_DataFrame &lt;- cbind(nome_DataFrame, nuova_variabile) <br> nome_DataFrame$nome_variabile &lt;- dati",
+    "nome_DataFrame &lt;- rbind(nome_DataFrame, nuova_variabile)",
+    formula),
+    name = names_function)
+  escape = FALSE
+}
+if (knitr::is_latex_output()) {
+  vector_operators <- data.frame(formula = c(
+    "\\texttt{nome\\_DataFrame <- cbind(nome\\_DataFrame, nuova\\_variabile)} \\\\ \\texttt{nome\\_DataFrame\\$nome\\_variabile <- dati}",
+    "\\texttt{nome\\_DataFrame <- rbind(nome\\_DataFrame, nuova\\_variabile)}",
+    sprintf("\\texttt{%s(nome\\_DataFrame)}", 
+            c("nrow", "ncol", "colnames", "rownames"))),
+    name = names_function)
+  escape = FALSE
+}
+
+kableExtra::kable(vector_operators, col.names = c("Operazione", "Nome"),
+                  escape = escape, caption = "Operazioni con dataframe") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                full_width = F,
+                latex_options = c("hold_position"))
+```
+
+
+### Nomi Righe e Colonne {-}
+
+In modo simile alle matrici, i dataframe contengono dei metadati per assegnare dei nomi alle righe `rownames()` e alle colonne `colnames()`. Inoltre il dataframe ha una dimensione intesa come numero di righe e colonne esattamente come la matrice. Di default il dataframe richiede dei nomi solo alle colonne ma è possibile anche nominare le righe. Utilizzando il dataframe precedente:
+
+```{r, echo = TRUE}
+data_long
+
+# Controllo dei nomi
+
+rownames(data_long)
+colnames(data_long)
+names(data_long) # nel caso dei dataframe questo è analogo a colnames()
+
+# Dimensioni
+
+nrow(data_long)
+ncol(data_long)
+```
+
+
+### Unire Df
 
 Un ulteriore differenza rispetto alle matrici è quella della **combinazione di dataframe** o della **creazione di nuove righe o colonne**. Sono sempre valide le indicazioni riguardo a `cbind()` e `rbind()` ma nel caso di nuove colonne è possibile utilizzare l'operatore `$`. Con la scrittura `dataframe$name <- new_var` otteniamo che nel dataframe in oggetto ci sarà una nuova colonna chiamata `name` che prende i valori all'interno di `new_var`. 
 
@@ -222,150 +396,6 @@ new_row
 
 rbind(data_wide, new_row) # Corretto
 
-```
-
-## Indicizzazione avanzata
-
-Quello che avevamo accennato per le matrici rispetto all'indicizzazione avanzata per *nome* e per *operazioni logiche* qui è invece molto utile e rilevante. Quando trattiamo dati che non sono solo numerici e sopratutto hanno delle proprietà come "soggetti", "età", "genere", è intuitivo pensare un modo altrettanto logico e intuitivo di lavorare con queste strutture di dati. Per rendere il tutto più intuitivo facciamo un esempio con un dataset fittizio dove sono inseriti i nostri amici su Facebook ed alcune caratteristiche su di loro in particolare:
-
-* Nome
-* Età (`age`)
-* Genere (`sex`)
-* Data iscrizione a Facebook (`facebook`)
-* Numero di fratelli/sorelle (`nsiblings`)
-* Numero di foto assieme a noi (`foto`)
-
-Vediamo il dataset in R:
-
-```{r}
-# importiamo i dati come abbiamo visto nei capitoli precedenti
-
-dat <- read.csv("datasets/data_facebook.csv", header = T, sep = ",")
-dat
-```
-
-Ora se volessimo usare l'indicizzazione standard possiamo semplicemente usare la sintassi solita `dataframe[riga/e, colonna/e]`. Tuttavia se volessimo trovare tutte le informazioni associate alla nostra amica **Elettra**, usare gli indici di riga/colonna diventa scomodo. Quello che è stato introdotto nei capitolo iniziali rispetto agli operatori logici qui diventa molto rilevante. Possiamo infatti "interrogare" il nostro dataframe dicendo di farci vedere tutte le informazioni che rispettano una specifica richiesta.
-
-La sintassi "Tutte le informazioni riguardo Elettra" diventa **tutte le colonne (informazioni) solo per la riga dove il nome è Elettra**. In R questo può essere controllato in questo modo:
-
-```{r, echo = T}
-# nomi sono nella colonna "nome"
-dat$nome
-```
-
-
-```{r, echo = T}
-# Per sapere quale riga corrisponde ad elettra
-dat$nome == "Elettra"
-
-which(dat$nome == "Elettra") # Elettra è la riga 10
-```
-Praticamente con `dat$nome == "Elettra"` otteniamo una serie di `TRUE` e `FALSE` in base a se il nome è "Elettra" oppure no. Combinando questo con l'indicizzazione classica `dataframe[riga/e, colonna/e]` possiamo usare gli operatori logici per interrogare il dataset.
-
-```{r, echo = T}
-dat[dat$nome == "Elettra", ]
-```
-
-Ora la sintassi `dataframe[riga/e, colonna/e]` assume un significato molto diverso ovvero:
-
-```r
-dataframe[operazioni_logiche_righe, operazioni_logiche_colonne]
-```
-
-Utilizzando gli operatori booleani **AND**(`$`) **OR**(`|`) e **NOT**(`!`) possiamo inoltre combinare più operazioni logiche insieme per ottenere indicizzazioni più complesse, ma sempre intuitive dal punto di vista della scrittura. Ad esempio: "Gli amici con età maggiore di 20 anni e con più di 5 foto assieme a noi". In questo caso un amico per ottenere un valore `TRUE` ed essere così inserito nei risultati deve rispettare due condizioni:
-
-```{r, echo = T}
-dat[dat$age > 20 & dat$foto > 5, ]
-```
-
-Possiamo chiaramente eseguire selezioni sulle colonne, per esempio sapere solo il numero di fratelli/sorelle degli amici che rispettano la condizione precedente:
-
-```{r, echo = T}
-dat[dat$age > 20 & dat$foto > 5, "nsiblings"]
-```
-
-Un ultimo aspetto da notare riguarda il tipo di output che otteniamo. Se la nostra selezione comprende più di 1 riga/colonna otteniamo un `dataframe` che è considerato un subset di quello iniziale. Se come nell'ultimo esempio otteniamo una singola colonna (o variabile) allora il risultato è un semplice vettore.
-
-```{r, echo = T}
-res1 <- dat[dat$age > 20 & dat$foto > 5, ]
-res2 <- dat[dat$age > 20 & dat$foto > 5, "nsiblings"]
-
-str(res1) # è un dataframe
-str(res2) # è un vettore
-```
-
-Allo stesso modo di selezionare una specifica colonna o riga possiamo eliminare una osservazione. Il concetto di eliminazione o sovrascrittura in R è diverso da quello di un normale file perchè tutte le operazioni che facciamo solitamente portano a tre strade:
-
-1. Eseguiamo le operazioni in modalità "volatile" senza assegnare il risultato
-2. Creiamo un nuovo oggetto `B` che deriva da applicare ad `A` una certa operazione `B <- funzione(A)`
-3. Assegnamo ad `A` una serie di operazioni su se stesso, di fatto sovrascrivendo l'oggetto `A <- funzione(A)`
-
-Nel caso dei dataframe possiamo usare l'operatore `-` (meno) per escludere una certa selezione:
-
-```{r}
-
-# Escludo la prima riga
-data_wide[-1, ]
-
-# Escludo la 3 colonna
-data_wide[, -3]
-
-# Escludo la 1 e la 3 riga, e la 2 colonna
-data_wide[-c(1,3), -2]
-```
-
-E' possibile anche escludere (ed eliminare in un certo senso) delle informazioni usando gli operatori logici in gli operatori **NOT**(`!`) e diverso da (`!=`):
-
-```{r, echo = T}
-
-# Seleziono tutto tranne il soggetto 2
-
-data_wide[!data_wide$Id == "subj_2", ] # modo 1
-
-data_wide[data_wide$Id != "subj_2", ] # modo 2
-```
-
-
-:::{.warning title="Attenzione ad eliminare" data-latex="[Attenzione ad eliminare]"}
-L'utilizzo dell'operatore `-` è sempre in qualche modo pericoloso, sopratutto se l'oggetto che viene creato (o sovrascritto) viene poi utilizzato in altre operazioni. Eliminare delle informazioni, tranne quando è veramente necessario, non è mai una buona cosa. Se dovete selezionare una parte dei dati è sempre meglio creare un nuovo dataframe (o un nuovo oggetto in generale) e mantendere una versione di quello originale sempre disponibile. 
-:::
-
-Nella tabella \@ref(tab:frame-tab) è contenuto un riassunto delle principali operazioni che si possono eseguire con i dataframe:
-
-```{r frame-tab}
-
-names_function <- c("Per aggiungere una nuova variabile al DataFrame (deve avere lo stesso numero di righe)",
-                    "Per aggiungere delle osservazioni (i nuovi dati devono essere coerenti con la struttura del DataFrame)", 
-                    "Per valutare il numero di osservazioni del DataFrame",
-                    "Per valutare il numero di variabili del DataFrame",
-                    "Nomi delle colonne del DataFrame",
-                    "Nomi delle righe del DataFrame")
-formula <- sprintf("%s(nome_DataFrame)", 
-                   c("nrow", "ncol", "holder", "rownames"))
-
-if (knitr::is_html_output()) {
-  vector_operators <- data.frame(formula = c(
-    "nome_DataFrame &lt;- cbind(nome_DataFrame, nuova_variabile) <br> nome_DataFrame$nome_variabile &lt;- dati",
-    "nome_DataFrame &lt;- rbind(nome_DataFrame, nuova_variabile)",
-    formula),
-    name = names_function)
-  escape = FALSE
-}
-if (knitr::is_latex_output()) {
-  vector_operators <- data.frame(formula = c(
-    "\\texttt{nome\\_DataFrame <- cbind(nome\\_DataFrame, nuova\\_variabile)} \\\\ \\texttt{nome\\_DataFrame\\$nome\\_variabile <- dati}",
-    "\\texttt{nome\\_DataFrame <- rbind(nome\\_DataFrame, nuova\\_variabile)}",
-    sprintf("\\texttt{%s(nome\\_DataFrame)}", 
-            c("nrow", "ncol", "colnames", "rownames"))),
-    name = names_function)
-  escape = FALSE
-}
-
-kableExtra::kable(vector_operators, col.names = c("Operazione", "Nome"),
-                  escape = escape, caption = "Operazioni con dataframe") %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
-                full_width = F,
-                latex_options = c("hold_position"))
 ```
 
 
