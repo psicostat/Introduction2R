@@ -457,7 +457,7 @@ names_function <- c("Unire due matrici creando nuove colonne (le matrici devono 
 formula <- sprintf("matrice1 %s matrice2", c("+", "-", "*", "/"))
 
 if (knitr::is_html_output()) {
-  vector_operators <- data.frame(formula = c(
+  matrix_operators <- data.frame(formula = c(
     sprintf("nuova_matrice <- %s(matrice1, matrice2)", c("cbind", "rbind")),
     sprintf("%s(nome_matrice)", c("nrow", "ncol", "dim", "colnames", "rownames", "dimnames",
                                   "t", "diag", "det", "solve")),
@@ -466,7 +466,7 @@ if (knitr::is_html_output()) {
   escape = TRUE
 }
 if (knitr::is_latex_output()) {
-  vector_operators <- data.frame(formula = sprintf("\\texttt{%s}", c(
+  matrix_operators <- data.frame(formula = sprintf("\\texttt{%s}", c(
     sprintf("nuova\\_matrice <- %s(matrice1, matrice2)", c("cbind", "rbind")),
     sprintf("%s(nome\\_matrice)", c("nrow", "ncol", "dim", "colnames", "rownames", "dimnames",
                                     "t", "diag", "det", "solve")),
@@ -475,7 +475,7 @@ if (knitr::is_latex_output()) {
   escape = FALSE
 }
 
-kableExtra::kable(vector_operators, col.names = c("Funzione", "Descrizione"),
+kableExtra::kable(matrix_operators, col.names = c("Funzione", "Descrizione"),
                   escape = escape, caption = "Funzioni e operazioni con matrici") %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
                 full_width = F,
@@ -492,7 +492,7 @@ Abbiamo visto nel Capitolo TODO che gli oggetti in R possiedono quelli che sono 
 
 Ricordiamo che la matrice è un oggetto **bidimensionale** formato da righe e colonne. Queste formano pertanto le dimensioni di una matrice. Per ottenere il numero di righe e di colonne di una matrice, possiamo usare rispettivamente i comandi `nrow()` e `ncol()`.
 
-```{r, echo = T}
+```{r, echo = TRUE}
 my_matrix <- matrix(1:12, ncol = 3, nrow = 4)
 
 # Numero di righe
