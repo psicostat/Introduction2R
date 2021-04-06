@@ -319,6 +319,8 @@ my_words
 
 ### Esercizi {-}
 
+Esegui i seguenti esercizi ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07.R)):
+
 1. Del vettore `x` seleziona il 2°, 3° e 5° elemento
 2. Del vettore `x` seleziona i valori 34 e 4
 3. Dato il vettore `my_vector = c(2,4,6,8)` commenta il risultato del comando `my_vector[my_vector]`
@@ -409,6 +411,8 @@ my_values >= 4 & my_values <= 7
 :::
 
 ### Esercizi {-}
+
+Esegui i seguenti esercizi ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07.R)):
 
 1. Crea il vettore `j` unendo i vettori `x` ed `z`.
 2. Elimina gli ultimi tre elementi del vettore `j` e controlla che i vettori `j` e `y` abbiano la stessa lunghezza.
