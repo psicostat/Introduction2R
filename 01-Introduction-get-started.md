@@ -1,6 +1,6 @@
 # (PART\*) Get Started {-}
 
-# Intorduzione {-}
+# Introduzione {-}
 
 In questa sezione verranno prima presentate le istruzioni per installare R ed RStudio. Successivamente, svolgeremo le prime oprazioni in R e famiglierizzeremo con dei concetti di base della programmazioene quali gli oggetti e le funzioni. Introdurremmo infine altri concetti relativi alle sessioni di lavoro in R e descriveremo alcune buone regole per nell'utilizzo di R.
 

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Intorduzione | Introduction to R</title>
+  <title>Introduzione | Introduction to R</title>
   <meta name="description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Intorduzione | Introduction to R" />
+  <meta property="og:title" content="Introduzione | Introduction to R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://psicostat.github.io/Introduction2R/" />
   <meta property="og:image" content="https://psicostat.github.io/Introduction2R/images/logo_psicostat.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="psicostat/Introduction2R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Intorduzione | Introduction to R" />
+  <meta name="twitter:title" content="Introduzione | Introduction to R" />
   
   <meta name="twitter:description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
   <meta name="twitter:image" content="https://psicostat.github.io/Introduction2R/images/logo_psicostat.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="install.html"/>
+<link rel="prev" href="loop.html"/>
+<link rel="next" href="attachment.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -149,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#licenza"><i class="fa fa-check"></i>Licenza</a></li>
 </ul></li>
 <li class="part"><span><b>Get Started</b></span></li>
-<li class="chapter" data-level="" data-path="intorduzione.html"><a href="intorduzione.html"><i class="fa fa-check"></i>Intorduzione</a></li>
+<li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
 <li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Installare R e RStudio</a><ul>
 <li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#install-r"><i class="fa fa-check"></i><b>1.1</b> Installare R</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="install.html"><a href="install.html#r-windows"><i class="fa fa-check"></i><b>1.1.1</b> R Windows</a></li>
@@ -214,7 +214,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="part"><span><b>Struttura Dati</b></span></li>
-<li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="" data-path="introduzione-1.html"><a href="introduzione-1.html"><i class="fa fa-check"></i>Introduzione</a></li>
 <li class="chapter" data-level="7" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>7</b> Vettori</a><ul>
 <li class="chapter" data-level="7.1" data-path="vector.html"><a href="vector.html#creazione"><i class="fa fa-check"></i><b>7.1</b> Creazione</a><ul>
 <li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#esercizi-2"><i class="fa fa-check"></i>Esercizi</a></li>
@@ -258,29 +258,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1" data-path="dataframe.html"><a href="dataframe.html#creazione-di-un-dataframe"><i class="fa fa-check"></i><b>10.1</b> Creazione di un dataframe</a><ul>
 <li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-9"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="dataframe.html"><a href="dataframe.html#proprietà-di-un-dataframe"><i class="fa fa-check"></i><b>10.2</b> Proprietà di un dataframe</a></li>
-<li class="chapter" data-level="10.3" data-path="dataframe.html"><a href="dataframe.html#indicizzazione-di-dataframe"><i class="fa fa-check"></i><b>10.3</b> Indicizzazione di dataframe</a></li>
-<li class="chapter" data-level="10.4" data-path="dataframe.html"><a href="dataframe.html#indicizzazione-avanzata"><i class="fa fa-check"></i><b>10.4</b> Indicizzazione avanzata</a><ul>
+<li class="chapter" data-level="10.2" data-path="dataframe.html"><a href="dataframe.html#sel-df"><i class="fa fa-check"></i><b>10.2</b> Selezione Elementi</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="dataframe.html"><a href="dataframe.html#utilizzi-avanzati-selezione-2"><i class="fa fa-check"></i><b>10.2.1</b> Utilizzi Avanzati Selezione</a></li>
 <li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-10"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="dataframe.html"><a href="dataframe.html#funzioni-ed-operazioni-1"><i class="fa fa-check"></i><b>10.3</b> Funzioni ed Operazioni</a><ul>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#nomi-righe-e-colonne-1"><i class="fa fa-check"></i>Nomi Righe e Colonne</a></li>
+<li class="chapter" data-level="10.3.1" data-path="dataframe.html"><a href="dataframe.html#unire-df"><i class="fa fa-check"></i><b>10.3.1</b> Unire Df</a></li>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-11"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>11</b> Liste</a><ul>
 <li class="chapter" data-level="11.1" data-path="list.html"><a href="list.html#creazione-di-liste"><i class="fa fa-check"></i><b>11.1</b> Creazione di Liste</a><ul>
-<li class="chapter" data-level="" data-path="list.html"><a href="list.html#esercizi-11"><i class="fa fa-check"></i>Esercizi</a></li>
+<li class="chapter" data-level="" data-path="list.html"><a href="list.html#esercizi-12"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
 <li class="chapter" data-level="11.2" data-path="list.html"><a href="list.html#indicizzazione-di-una-lista"><i class="fa fa-check"></i><b>11.2</b> Indicizzazione di una lista</a></li>
 <li class="chapter" data-level="11.3" data-path="list.html"><a href="list.html#proprietà-della-lista"><i class="fa fa-check"></i><b>11.3</b> Proprietà della lista</a><ul>
-<li class="chapter" data-level="" data-path="list.html"><a href="list.html#esercizi-12"><i class="fa fa-check"></i>Esercizi</a></li>
+<li class="chapter" data-level="" data-path="list.html"><a href="list.html#esercizi-13"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
 <li class="chapter" data-level="11.4" data-path="list.html"><a href="list.html#creazione-e-indicizzazione-avanzata"><i class="fa fa-check"></i><b>11.4</b> Creazione e indicizzazione avanzata</a></li>
 </ul></li>
 <li class="part"><span><b>Algoritmi</b></span></li>
-<li class="chapter" data-level="" data-path="introduzione-1.html"><a href="introduzione-1.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="" data-path="introduzione-2.html"><a href="introduzione-2.html"><i class="fa fa-check"></i>Introduzione</a></li>
 <li class="chapter" data-level="12" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>12</b> Definizione di Funzioni</a></li>
 <li class="chapter" data-level="13" data-path="coditionals.html"><a href="coditionals.html"><i class="fa fa-check"></i><b>13</b> Programmazione Condizionale</a></li>
 <li class="chapter" data-level="14" data-path="loop.html"><a href="loop.html"><i class="fa fa-check"></i><b>14</b> Attenti al loop</a></li>
 <li class="part"><span><b>Case study</b></span></li>
-<li class="chapter" data-level="" data-path="introduzione-2.html"><a href="introduzione-2.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="" data-path="introduzione-3.html"><a href="introduzione-3.html"><i class="fa fa-check"></i>Introduzione</a></li>
 <li class="chapter" data-level="15" data-path="attachment.html"><a href="attachment.html"><i class="fa fa-check"></i><b>15</b> Caso Studio I: Attaccamento</a><ul>
 <li class="chapter" data-level="15.1" data-path="attachment.html"><a href="attachment.html#infobox"><i class="fa fa-check"></i><b>15.1</b> Infobox</a></li>
 </ul></li>
@@ -316,18 +320,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container">
   <img class= "hero-image" src="images/banner.png">
 </div>
-<div id="intorduzione" class="section level1 unnumbered">
-<h1>Intorduzione</h1>
-<p>In questa sezione verranno prima presentate le istruzioni per installare R ed RStudio. Successivamente, svolgeremo le prime oprazioni in R e famiglierizzeremo con dei concetti di base della programmazioene quali gli oggetti e le funzioni. Introdurremmo infine altri concetti relativi alle sessioni di lavoro in R e descriveremo alcune buone regole per nell’utilizzo di R.</p>
-<p>I capitoli sono così organizzati:</p>
-<ul>
-<li><strong>Capitolo <a href="install.html#install">1</a> - Installare R e RStudio</strong>. Instruzioni passo a passo per installare R e RStudio</li>
-<li><strong>Capitolo <a href="rstudio-gui.html#rstudio-gui">2</a> - Interfaccia RStudio</strong>. Introduzione all’interfaccia utente di RStudio.</li>
-<li><strong>Capitolo <a href="first-comands.html#first-comands">3</a> - Primi Passi in R</strong>. Operatori matematici, operatori relazionali, operatori logici.</li>
-<li><strong>Capitolo <a href="objects-functions.html#objects-functions">4</a> - Due Compagni Inseparabili</strong>. Introduzione dei concetti di oggetti e funzioni in R.</li>
-<li><strong>Capitolo <a href="working-environment.html#working-environment">5</a> - Ambiente di Lavoro</strong>. Introduzione dei concetti di Envieronment, working directory e dei pacchetti di R.</li>
-<li><strong>Capitolo <a href="working-session.html#working-session">6</a> - Sessione di Lavoro</strong>. Descrizione di buone pratiche nelle sessioni di lavoro e gestione degli errori.</li>
-</ul>
+<div id="introduzione-3" class="section level1 unnumbered">
+<h1>Introduzione</h1>
+<p>Working in progress.</p>
 
 </div>
 <hr>
@@ -345,8 +340,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="install.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="loop.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="attachment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -377,7 +372,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/psicostat/Introduction2R/edit/master/01-Introduction-get-started.Rmd",
+"link": "https://github.com/psicostat/Introduction2R/edit/master/18-introduction-case-study.Rmd",
 "text": "Edit"
 },
 "history": {

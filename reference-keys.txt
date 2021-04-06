@@ -37,8 +37,9 @@ tab:table-vector-operators
 fig:matrix
 tab:table-matrix-operators
 fig:mat-comb
-tab:ex-dataframe
-tab:frame-tab
+tab:table-wide-db
+tab:table-long-db
+tab:table-df-functions
 fig:list-example
 fig:list-depth
 install
@@ -109,9 +110,10 @@ operatori-matematici
 array
 dataframe
 creazione-di-un-dataframe
-proprietà-di-un-dataframe
-indicizzazione-di-dataframe
-indicizzazione-avanzata
+sel-df
+utilizzi-avanzati-selezione-2
+funzioni-ed-operazioni-1
+unire-df
 list
 creazione-di-liste
 indicizzazione-di-una-lista

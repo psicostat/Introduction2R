@@ -228,7 +228,7 @@
 \makeatother
 \subtitle{Corso per imparare le basi di \textbf{R}}
 \author{\href{https://claudiozandonella.netlify.app/}{Claudio Zandonella Callegher} and \href{https://filippogambarota.netlify.app/}{Filippo Gambarota} members of \href{https://psicostat.dpss.psy.unipd.it/}{Psicostat}}
-\date{28-03-2021}
+\date{06-04-2021}
 
 \begin{document}
 \maketitle
@@ -348,9 +348,9 @@ Le illustrazioni utilizzate nelle vignette appartengono a \href{https://rstudio4
 \part*{Get Started}\label{part-get-started}}
 \addcontentsline{toc}{part}{Get Started}
 
-\hypertarget{intorduzione}{%
-\chapter*{Intorduzione}\label{intorduzione}}
-\addcontentsline{toc}{chapter}{Intorduzione}
+\hypertarget{introduzione}{%
+\chapter*{Introduzione}\label{introduzione}}
+\addcontentsline{toc}{chapter}{Introduzione}
 
 In questa sezione verranno prima presentate le istruzioni per installare R ed RStudio. Successivamente, svolgeremo le prime oprazioni in R e famiglierizzeremo con dei concetti di base della programmazioene quali gli oggetti e le funzioni. Introdurremmo infine altri concetti relativi alle sessioni di lavoro in R e descriveremo alcune buone regole per nell'utilizzo di R.
 
@@ -2544,8 +2544,8 @@ Ci sono anche diversi pacchetti in R che rendono automatico creare questi esempi
 \part*{Struttura Dati}\label{part-struttura-dati}}
 \addcontentsline{toc}{part}{Struttura Dati}
 
-\hypertarget{introduzione}{%
-\chapter*{Introduzione}\label{introduzione}}
+\hypertarget{introduzione-1}{%
+\chapter*{Introduzione}\label{introduzione-1}}
 \addcontentsline{toc}{chapter}{Introduzione}
 
 In questa sezione verranno introdotte le principali tipologie di oggetti usati in R . Ovvero le principali strutture in cui possono essere organizzati i dati: Vettori, Matrici, Dataframe e Liste.
@@ -3051,6 +3051,8 @@ Nota come l'operazione di eliminazione sia comunque un'operazione di selezione. 
 \subsection*{Esercizi}\label{esercizi-3}}
 \addcontentsline{toc}{subsection}{Esercizi}
 
+Esegui i seguenti esercizi (\href{https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07.R}{soluzioni}):
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
@@ -3178,6 +3180,8 @@ Nota come questo sia valido anche per gli \textbf{operatori relazionali e logici
 \hypertarget{esercizi-4}{%
 \subsection*{Esercizi}\label{esercizi-4}}
 \addcontentsline{toc}{subsection}{Esercizi}
+
+Esegui i seguenti esercizi (\href{https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07.R}{soluzioni}):
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3407,10 +3411,10 @@ Utilizzando le funzioni \texttt{sum()} e \texttt{mean()} con un vettore logico, 
 \NormalTok{my_values <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{)  }\CommentTok{# genero dei numeri casuali }
 
 \KeywordTok{sum}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# totale numeri positivi}
-\CommentTok{## [1] 25}
+\CommentTok{## [1] 30}
 
 \KeywordTok{mean}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# percentuale numeri positivi}
-\CommentTok{## [1] 0.5}
+\CommentTok{## [1] 0.6}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5263,547 +5267,519 @@ Tuttavia nota come un semplice vettore non sia un array. Ricordiamo infatti che 
 \hypertarget{dataframe}{%
 \chapter{Dataframe}\label{dataframe}}
 
-Il \texttt{dataframe} è uno degli oggetti più interessanti ed anche utilizzati del linguaggio R. Inoltre, se vi capiterà di utilizzare altri linguaggi di programmazione sopratutto mirati all'analisi dati (Matlab ad esempio) noterete come vi mancherà un oggetto potente e intuitivo come il dataframe.
+I \texttt{dataframe} sono uno degli oggetti più utilizzati in R per rappresentare i propri dati. In modo analogo alle matrici, i \texttt{dataframe} sono una struttura \textbf{bidimensionale} dove i dati sono disposti secondo righe e colonne. Può essere utile pensare al dataframe esattamente come ad una normale tabella che si può creare in un foglio di calcolo (e.g., Excel) dove possiamo inserire i nostri dati. Dati in questo caso è volutamente generico poichè i dataframe, a differenza delle matrici, possono contenere nello stesso oggetto tipi diversi di dati (e.g., \emph{nomi}, \emph{date} e \emph{numeri}).
 
-Come vedremo ci sono molte somiglianze tra il \texttt{dataframe} e la \texttt{matrice}. Quando necessario, si farà riferimento al capitolo precedente per far notare quali aspetti sono in comune tra queste due strutture di dati.
+La struttura di base di un dataframe è quindi la stessa di una matrice ma ci permette di includere diversi tipi di dati nello stesso oggetto come caratteri e valori numerici. Questo ci consente di raccogliere in un unico oggetto tutte le caratteristiche delle unità statistiche (variabili numeriche, categoriali, nominali etc.) che intendiamo successivamente analizzare. Un aspetto cruciale quindi è proprio quello che il dataframe è stato pensato per gestire dati complessi ed eterogenei come quelli che si trovano in un'analisi di dati reale. Se vi capiterà di utilizzare altri linguaggi di programmazione sopratutto mirati all'analisi dati (e.g., Matlab) noterete come vi mancherà un oggetto potente e intuitivo come il dataframe.
 
-Il \texttt{dataframe} come dice il nome fa riferimento ad una struttura per i dati. Dati in questo caso è volutamente generico perchè il dataframe rispetto alla matrice può contenere nello stesso oggetto, tipi diversi di dato come fattori, caratteri e numeri. Può essere utile pensare al dataframe esattamente come ad una normale tabella che si può creare un un foglio di calcolo (Excel) dove possiamo mettere \emph{nomi}, \emph{date}, \emph{numeri}, etc.
+In genere in un dataframe le righe rappresentano le unità statitiche (ad esempio persone o osservazioni) e le colonne rappresentano variabili ovvero delle proprietà misurate su quelle unità statistiche. Esistono tuttavia due formati principali di dataframe a seconda del modo in cui vengono organizzati i dati. Abbiamo i dataframe in forma \textbf{wide} (oppure larga) oppure i dataframe in forma \textbf{long} (oppure lunga). Valutiamo la differenza tra i due formati ipotizzando dei dati dove per ogni soggetto abbiamo misuriamo l'età, il genere, e la risposta a tre item di un questionario.
 
-La struttura di base di un dataframe è quindi la stessa di una matrice ma contiene i nomi delle colonne (e anche delle righe eventualmente) di default. Un esempio di dataframe è rappresentato nella tabella \ref{tab:ex-dataframe}
+\hypertarget{wide-dataframe}{%
+\subsubsection*{Wide Dataframe}\label{wide-dataframe}}
+\addcontentsline{toc}{subsubsection}{Wide Dataframe}
+
+Nel formato \textbf{wide}, ogni singola riga del dataframe rappresenta un soggetto e ogni sua risposta o variabile misurata sarà riportata in una diversa colonna. In Tabelle \ref{tab:table-wide-db} vengono presentati i darti dell'esempio in un formato wide.
 
 \begin{table}
 
-\caption{\label{tab:ex-dataframe}Esempio di dataframe}
+\caption{\label{tab:table-wide-db}Dataframe nel formato wong}
 \centering
 \begin{tabular}[t]{c|c|c|c|c|c}
 \hline
-colonna1 & colonna2 & colonna3 & colonna4 & colonna5 & colonna6\\
+Id & age & gender & item\_1 & item\_2 & item\_3\\
 \hline
-1.38 & -0.80 & 0.91 & -0.50 & -0.49 & a\\
+subj\_1 & 21 & F & 2 & 0 & 2\\
 \hline
-1.64 & -0.89 & -1.52 & 0.71 & -0.57 & b\\
+subj\_2 & 23 & M & 1 & 2 & 0\\
 \hline
-0.67 & 0.82 & 2.24 & -1.66 & 0.31 & c\\
-\hline
--0.80 & 0.38 & 0.76 & -2.82 & 0.22 & d\\
-\hline
-0.41 & 2.20 & -0.07 & 0.16 & -0.88 & e\\
-\hline
-1.55 & 0.91 & -0.14 & -0.39 & -1.95 & f\\
-\hline
--0.15 & 0.14 & 1.37 & 0.52 & 0.87 & g\\
-\hline
--1.98 & -1.35 & -1.11 & -1.03 & -0.94 & h\\
-\hline
-0.05 & 0.59 & -0.55 & 1.88 & 0.16 & i\\
-\hline
--0.37 & -1.28 & -1.17 & -3.02 & 1.12 & j\\
+subj\_3 & 19 & F & 1 & 1 & 1\\
 \hline
 \end{tabular}
 \end{table}
 
-Come si vede abbiamo colonne con un nome che contengono sia numeri che caratteri. Questo non era chiaramente possibile con le matrici.
+Osserviamo come ogni soggetto si identificato da un codice riportato nella variabile \emph{Id} e le risposte ai tre item siano riportate in tre diverse variabili \emph{item\_1}, \emph{item\_2} e \emph{item\_3}.
+
+\hypertarget{long-dataframe}{%
+\subsubsection*{Long Dataframe}\label{long-dataframe}}
+\addcontentsline{toc}{subsubsection}{Long Dataframe}
+
+Nel formato \textbf{long}, ogni singola riga rappresenta una singola osservazione. Quindi i dati di ogni soggetto saranno riportati su più righe e le variabili che non cambiano tra le osservazioni saranno ripetute. In Tabelle \ref{tab:table-long-db} vengono presentati i darti dell'esempio in un formato lide.
+
+\begin{table}
+
+\caption{\label{tab:table-long-db}Dataframe nel formato long}
+\centering
+\begin{tabular}[t]{c|c|c|c|c}
+\hline
+Id & age & gender & item & response\\
+\hline
+subj\_1 & 21 & F & 1 & 2\\
+\hline
+subj\_1 & 21 & F & 2 & 1\\
+\hline
+subj\_1 & 21 & F & 3 & 1\\
+\hline
+subj\_2 & 23 & M & 1 & 0\\
+\hline
+subj\_2 & 23 & M & 2 & 2\\
+\hline
+subj\_2 & 23 & M & 3 & 1\\
+\hline
+subj\_3 & 19 & F & 1 & 2\\
+\hline
+subj\_3 & 19 & F & 2 & 0\\
+\hline
+subj\_3 & 19 & F & 3 & 1\\
+\hline
+\end{tabular}
+\end{table}
+
+Osserviamo come le risposte di ogni soggetto siano distribuite su più righe. Le caratterische che non variano vengono ripetute ad ogni riga (\emph{Id}, \emph{age} e \emph{gender}) mentre le risposte agli item vengono registrate utilizzando due colonne \emph{item}, ovvero il numero dell'item, e \emph{response} l'effettiva risposta di quel partecipante a quello specifico item.
+
+\begin{tip}[Long o Wide?]
+
+I dati in forma long e wide hanno delle proprietà diverse sopratutto in riferimento all'utilizzo. La tipologia di dato e il risultato finale è esattamente lo stesso tuttavia alcuni software o alcuni pacchetti di R funzionano solo con dataset organizzati in un certo modo.
+
+Non c'è quindi un formato corretto o sbagliato ma dipende dal tipo di analisi e dal software o pacchetto che si utilizza. Alcune operazioni o analisi richiedono il dataset in forma \textbf{long} altre in forma \textbf{wide}.
+
+Il consiglio però è di abituarsi il più possibile a ragionare in forma \textbf{long} perchè la maggior parte dei moderni pacchetti per l'analisi dati e per la creazione di grafici richiedono i dati in questo formato. Ci sono comunque delle funzioni (più avanzate) per passare velocemente da un formato all'altro.
+
+\end{tip}
+
+Nota come nei precedenti esempi abbiamo utilizzato sia colonne che contengono valori numerici numeri sia colonne con caratteri. Questo non era chiaramente possibile con le matrici. Ricorda tuttavia che, come per le matrici, anche i dataframe richiedono che tutte le colonne (variabili) abbiano lo stesso numero di elementi.
+
+Vedremo ora come creare dei dataframe in R e come compiere le comuni operazini di selezione. Infine descriveremo alcune semplici manipolazioni e operazioni con i dataframe. Come vedremo ci sono molte somiglianze nell'utilizzo dei dataframe e delle matrici. Quando necessario, si farà riferimento al capitolo precedente per far notare aspetti in comune e differenze tra queste due strutture di dati.
 
 \hypertarget{creazione-di-un-dataframe}{%
 \section{Creazione di un dataframe}\label{creazione-di-un-dataframe}}
 
-Il comando per creare un dataframe è il comando \texttt{data.frame()} tuttavia la creazione è leggermente diversa rispetto alla matrice. Pensando all'analogia con il foglio di calcolo Excel, intuitivamente è più facile immaginare la creazione di una dataframe mettendo insieme colonne relativamente indipendenti (dove una può contenere dei nomi, un'altra delle date e così via) piuttosto che un insieme di numeri inseriti per riga o per colonna come per le matrici.
-
-Infatti il modo di creare un \texttt{dataframe} è priprio questo ovvero specificando \texttt{nomecolonna\ =\ valori} all'interno del comando \texttt{data.frame()}. Vediamo un esempio in R:
+Il comando per creare un dataframe è il comando \texttt{data.frame()}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\NormalTok{nome_df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
+  \DataTypeTok{variable1 =} \KeywordTok{c}\NormalTok{(...),}
+  \DataTypeTok{variable2 =} \KeywordTok{c}\NormalTok{(...),}
+\NormalTok{  ...)}
+\end{Highlighting}
+\end{Shaded}
 
-\NormalTok{dat <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
-  
-  \DataTypeTok{Id =} \KeywordTok{c}\NormalTok{(}\StringTok{"subj_1"}\NormalTok{,}\StringTok{"subj_2"}\NormalTok{,}\StringTok{"subj_3"}\NormalTok{),}
-  \DataTypeTok{age =} \KeywordTok{c}\NormalTok{(}\DecValTok{21}\NormalTok{,}\DecValTok{23}\NormalTok{,}\DecValTok{19}\NormalTok{),}
-  \DataTypeTok{sex =} \KeywordTok{c}\NormalTok{(}\StringTok{"F"}\NormalTok{,}\StringTok{"M"}\NormalTok{,}\StringTok{"F"}\NormalTok{),}
-  \DataTypeTok{item1 =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{),}
-  \DataTypeTok{item2 =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{),}
-  \DataTypeTok{item3 =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{)}
-  
+La creazione è leggermente diversa rispetto al caso delle matrici. Intuitivamente è più facile immaginarla come l'unione di diverse colonne (dove una può contenere dei nomi, un'altra delle date e così via) piuttosto che un insieme di valori inseriti per riga o per colonna come per le matrici. Infatti per creare un \texttt{dataframe} è proprio necessario specificare le colonne una alla volta, indicando \texttt{nome\_colonna\ =\ valori} all'interno del comando \texttt{data.frame()}. Vediamo un esempio in R,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_data <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
+  \DataTypeTok{Id =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{),}
+  \DataTypeTok{names =} \KeywordTok{c}\NormalTok{(}\StringTok{"Alice"}\NormalTok{, }\StringTok{"Bruno"}\NormalTok{, }\StringTok{"Carla"}\NormalTok{, }\StringTok{"Diego"}\NormalTok{, }\StringTok{"Elisa"}\NormalTok{),}
+  \DataTypeTok{gender =} \KeywordTok{c}\NormalTok{(}\StringTok{"F"}\NormalTok{,}\StringTok{"M"}\NormalTok{,}\StringTok{"F"}\NormalTok{, }\StringTok{"M"}\NormalTok{, }\StringTok{"F"}\NormalTok{),}
+  \DataTypeTok{age =} \KeywordTok{c}\NormalTok{(}\DecValTok{22}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{24}\NormalTok{),}
+  \DataTypeTok{faculty =} \KeywordTok{c}\NormalTok{(}\StringTok{"Psicologia"}\NormalTok{, }\StringTok{"Ingegneria"}\NormalTok{, }\StringTok{"Medicina"}\NormalTok{, }\StringTok{"Lettere"}\NormalTok{, }\StringTok{"Psicologia"}\NormalTok{)}
 \NormalTok{)}
 
-\NormalTok{dat}
-\CommentTok{##       Id age sex item1 item2 item3}
-\CommentTok{## 1 subj_1  21   F     2     0     2}
-\CommentTok{## 2 subj_2  23   M     1     2     0}
-\CommentTok{## 3 subj_3  19   F     1     1     1}
+\NormalTok{my_data}
+\CommentTok{##   Id names gender age    faculty}
+\CommentTok{## 1  1 Alice      F  22 Psicologia}
+\CommentTok{## 2  2 Bruno      M  25 Ingegneria}
+\CommentTok{## 3  3 Carla      F  23   Medicina}
+\CommentTok{## 4  4 Diego      M  22    Lettere}
+\CommentTok{## 5  5 Elisa      F  24 Psicologia}
 \end{Highlighting}
 \end{Shaded}
 
 In questo caso abbiamo creato un ipotetico dataframe dove in ogni riga abbiamo un soggetto e ogni colonna rappresenta una data caratteristica del soggetto come il genere, l'età e così via.
 
-Un aspetto importante adesso è proprio quello che il dataframe è stato pensato per gestire dati complessi ed eterogenei come quelli che si trovano in un'analisi di dati reale. Una convenzione molto utile da ricordare infatti è quella che le righe di un dataframe rappresentano le \textbf{osservazioni} (ad esempio persone) e le colonne rappresentano \textbf{variabili} ovvero delle proprietà misurate su quelle osservazioni.
+\begin{tip}[ID]
 
-Una distinzione fondamentale nella pratica di analisi dei dati è quella tra dati in forma \textbf{long} (oppure lunga) o dati in forma \textbf{wide} (oppure larga). Non c'è un formato corretto o sbagliato ma dipende dal tipo di analisi e dal software o pacchetto che si utilizza. Alcune operazioni o analisi richiedono il dataset in forma \textbf{long} altre in forma \textbf{wide}. Mantenendo l'esempio di soggetti e caratteristiche misurate sui soggetti i due formati sono definiti come:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Wide}: ogni singola riga rappresenta un soggetto e ogni sua risposta o variabile misurata sarà riportata in una diversa colonna. Il dataset creato in precedenza era infatti proprio nel formato wide:
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{data_wide<-}\KeywordTok{data.frame}\NormalTok{(}
-  \DataTypeTok{Id=}\KeywordTok{c}\NormalTok{(}\StringTok{"subj_1"}\NormalTok{,}\StringTok{"subj_2"}\NormalTok{,}\StringTok{"subj_3"}\NormalTok{),}
-  \DataTypeTok{age=}\KeywordTok{c}\NormalTok{(}\DecValTok{21}\NormalTok{,}\DecValTok{23}\NormalTok{,}\DecValTok{19}\NormalTok{),}
-  \DataTypeTok{sex=}\KeywordTok{c}\NormalTok{(}\StringTok{"F"}\NormalTok{,}\StringTok{"M"}\NormalTok{,}\StringTok{"F"}\NormalTok{),}
-  \DataTypeTok{item_1=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{),}
-  \DataTypeTok{item_2=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{),}
-  \DataTypeTok{item_3=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{)}
-\NormalTok{  )}
-
-\NormalTok{data_wide}
-\CommentTok{##       Id age sex item_1 item_2 item_3}
-\CommentTok{## 1 subj_1  21   F      2      0      2}
-\CommentTok{## 2 subj_2  23   M      1      2      0}
-\CommentTok{## 3 subj_3  19   F      1      1      1}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Long}: ogni singola riga rappresenta una singola osservazione. Quindi i dati di ogni soggetto saranno riportati su più righe e le variabili che non cambiano tra le osservazioni saranno ripetute.
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{data_long<-}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Id=}\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"subj_1"}\NormalTok{,}\StringTok{"subj_2"}\NormalTok{,}\StringTok{"subj_3"}\NormalTok{),}\DataTypeTok{each=}\DecValTok{3}\NormalTok{),}
-                      \DataTypeTok{age=}\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{21}\NormalTok{,}\DecValTok{23}\NormalTok{,}\DecValTok{19}\NormalTok{),}\DataTypeTok{each=}\DecValTok{3}\NormalTok{),}
-                      \DataTypeTok{sex=}\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"F"}\NormalTok{,}\StringTok{"M"}\NormalTok{,}\StringTok{"F"}\NormalTok{),}\DataTypeTok{each=}\DecValTok{3}\NormalTok{),}
-                      \DataTypeTok{item=}\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{),}
-                      \DataTypeTok{response=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{))}
-\NormalTok{data_long}
-\CommentTok{##       Id age sex item response}
-\CommentTok{## 1 subj_1  21   F    1        2}
-\CommentTok{## 2 subj_1  21   F    2        1}
-\CommentTok{## 3 subj_1  21   F    3        1}
-\CommentTok{## 4 subj_2  23   M    1        0}
-\CommentTok{## 5 subj_2  23   M    2        2}
-\CommentTok{## 6 subj_2  23   M    3        1}
-\CommentTok{## 7 subj_3  19   F    1        2}
-\CommentTok{## 8 subj_3  19   F    2        0}
-\CommentTok{## 9 subj_3  19   F    3        1}
-\end{Highlighting}
-\end{Shaded}
-
-Come potete vedere, nel dataset in forma \textbf{long} ogni soggetto ha 3 righe perchè oltre al genere e l'età che sono uniche, ci sono 3 variabili diverse misurate sulla stessa persona.
-
-\begin{tip}[Long o Wide?]
-
-I dati in forma long e wide hanno delle proprietà diverse sopratutto in riferimento all'utilizzo. La tipologia di dato e il risultato finale è esattamente lo stesso tuttavia alcuni software o alcuni pacchetti di R funzionano solo con dataset organizzati in un certo modo.
-Il consiglio però è di abituarsi il più possibile a ragionare in forma \textbf{long} perchè la maggior parte dei moderni pacchetti per l'analisi dati e per la creazione di grafici richiedono i dati in questo formato. Ci sono comunque delle funzioni (più avanzate) per passare velocemente da un formato all'altro.
+E' sempre consigliato definire una colonna (e.g., \texttt{Id}) in cui assegnnare un idenificativo univoco ad ogni soggetto. Questo ci permetto di poterlo indentificare senza correre il rischio di compiere errori. Ad esempio l'utlizzo del nome (o anche nome e cognome) potrebbe non essere indicato poichè più persone potrebbero avere lo stesso nome e non saremo quindi in grado di discriminare i due soggetti.
 
 \end{tip}
 
-Come per le \texttt{matrici}, anche i dataframe richiedono che tutte le colonne (variabili) abbiano lo stesso numero di elementi.
+\begin{warning}[stringsAsFactors]
 
-\textbf{Nota:} di default R considera una variabile stringa all'interno di un DataFrame come una variabile categoriale. E' possibile cambiare questa opzione specificando \texttt{stringsAsFactors=FALSE}.
+Una variabile di caratteri all'interno di un DataFrame è considerata di default come una semplice varibile nominale. E' possibile specificare l'argomento \texttt{stringsAsFactors\ =\ TRUE} per ottenere che tutte le variabili di caratteri siano considerate come delle variabili catgoriali creando automaticamente dei fattori (vedi Capitolo TODO).
+
+Noa come il comportamento di default sia differente a seconda della versione di R. Versioni precedenti a R 4.0 avevano infatti come default \texttt{stringsAsFactors\ =\ TRUE} mentre dalla 4.0 in poi abbiamo \texttt{stringsAsFactors\ =\ FALSE}.
+
+Presta quindi molta attenzione quando utilizzi codici e soluzioni scritte prima della versione 4.0.
+
+\end{warning}
 
 \hypertarget{esercizi-9}{%
 \subsection*{Esercizi}\label{esercizi-9}}
 \addcontentsline{toc}{subsection}{Esercizi}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Crea il dataframe \texttt{data\_wide} riportato precedentemente
-\item
-  Crea il dataframe \texttt{data\_long} riportato precedentemente
-\end{enumerate}
-
-\hypertarget{proprietuxe0-di-un-dataframe}{%
-\section{Proprietà di un dataframe}\label{proprietuxe0-di-un-dataframe}}
-
-In modo simile alle matrici, i dataframe contengono dei metadati per assegnare dei nomi alle righe \texttt{rownames()} e alle colonne \texttt{colnames()}. Inoltre il dataframe ha una dimensione intesa come numero di righe e colonne esattamente come la matrice. Di default il dataframe richiede dei nomi solo alle colonne ma è possibile anche nominare le righe. Utilizzando il dataframe precedente:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{data_long}
-\CommentTok{##       Id age sex item response}
-\CommentTok{## 1 subj_1  21   F    1        2}
-\CommentTok{## 2 subj_1  21   F    2        1}
-\CommentTok{## 3 subj_1  21   F    3        1}
-\CommentTok{## 4 subj_2  23   M    1        0}
-\CommentTok{## 5 subj_2  23   M    2        2}
-\CommentTok{## 6 subj_2  23   M    3        1}
-\CommentTok{## 7 subj_3  19   F    1        2}
-\CommentTok{## 8 subj_3  19   F    2        0}
-\CommentTok{## 9 subj_3  19   F    3        1}
-
-\CommentTok{# Controllo dei nomi}
-
-\KeywordTok{rownames}\NormalTok{(data_long)}
-\CommentTok{## [1] "1" "2" "3" "4" "5" "6" "7" "8" "9"}
-\KeywordTok{colnames}\NormalTok{(data_long)}
-\CommentTok{## [1] "Id"       "age"      "sex"      "item"     "response"}
-\KeywordTok{names}\NormalTok{(data_long) }\CommentTok{# nel caso dei dataframe questo è analogo a colnames()}
-\CommentTok{## [1] "Id"       "age"      "sex"      "item"     "response"}
-
-\CommentTok{# Dimensioni}
-
-\KeywordTok{nrow}\NormalTok{(data_long)}
-\CommentTok{## [1] 9}
-\KeywordTok{ncol}\NormalTok{(data_long)}
-\CommentTok{## [1] 5}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{indicizzazione-di-dataframe}{%
-\section{Indicizzazione di dataframe}\label{indicizzazione-di-dataframe}}
-
-Ancora di più che per le matrici, è nell'indicizzazione che si vede la vera potenza dei dataframe. Rimandendo su un'indicizzazione tramiti indici di riga e colonna il funzionamento è esattamente analogo a quello della matrice, quindi \texttt{dataframe{[}riga,\ colonna{]}}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{data_long}
-\CommentTok{##       Id age sex item response}
-\CommentTok{## 1 subj_1  21   F    1        2}
-\CommentTok{## 2 subj_1  21   F    2        1}
-\CommentTok{## 3 subj_1  21   F    3        1}
-\CommentTok{## 4 subj_2  23   M    1        0}
-\CommentTok{## 5 subj_2  23   M    2        2}
-\CommentTok{## 6 subj_2  23   M    3        1}
-\CommentTok{## 7 subj_3  19   F    1        2}
-\CommentTok{## 8 subj_3  19   F    2        0}
-\CommentTok{## 9 subj_3  19   F    3        1}
-
-\CommentTok{# Seleziono 1 riga e 4 colonna}
-
-\NormalTok{data_long[}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{]}
-\CommentTok{## [1] 1}
-
-\CommentTok{# Seleziono 1 riga e tutte le colonne}
-
-\NormalTok{data_long[}\DecValTok{1}\NormalTok{, ]}
-\CommentTok{##       Id age sex item response}
-\CommentTok{## 1 subj_1  21   F    1        2}
-
-\CommentTok{# Seleziono righe 1 e 3 e tutte le colonne}
-
-\NormalTok{data_long[}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{), ]}
-\CommentTok{##       Id age sex item response}
-\CommentTok{## 1 subj_1  21   F    1        2}
-\CommentTok{## 3 subj_1  21   F    3        1}
-\end{Highlighting}
-\end{Shaded}
-
-La reale differenza tra matrici e dataframe sta nel poter accedere direttamente alle colonne tramite il loro nome e utilizzando l'operatore \texttt{\$}. Con la scrittura \texttt{dataframe\$nomevariabile} accediamo direttamente a quella specifica colonna senza utilizzare indici e parentesi quadre.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-
-\CommentTok{# Seleziono la variabile ID (soggetto)}
-\NormalTok{data_long}\OperatorTok{$}\NormalTok{Id}
-\CommentTok{## [1] "subj_1" "subj_1" "subj_1" "subj_2" "subj_2" "subj_2" "subj_3" "subj_3"}
-\CommentTok{## [9] "subj_3"}
-
-\CommentTok{# Seleziono la variabile Sex}
-\NormalTok{data_long}\OperatorTok{$}\NormalTok{sex}
-\CommentTok{## [1] "F" "F" "F" "M" "M" "M" "F" "F" "F"}
-
-\CommentTok{# Analogalmente}
-\NormalTok{data_long[, }\DecValTok{1}\NormalTok{] }\CommentTok{# seleziono id con indice di colonna}
-\CommentTok{## [1] "subj_1" "subj_1" "subj_1" "subj_2" "subj_2" "subj_2" "subj_3" "subj_3"}
-\CommentTok{## [9] "subj_3"}
-\NormalTok{data_long[, }\DecValTok{3}\NormalTok{] }\CommentTok{# seleziono sex con indice di colonna}
-\CommentTok{## [1] "F" "F" "F" "M" "M" "M" "F" "F" "F"}
-\end{Highlighting}
-\end{Shaded}
-
-Un ulteriore differenza rispetto alle matrici è quella della \textbf{combinazione di dataframe} o della \textbf{creazione di nuove righe o colonne}. Sono sempre valide le indicazioni riguardo a \texttt{cbind()} e \texttt{rbind()} ma nel caso di nuove colonne è possibile utilizzare l'operatore \texttt{\$}. Con la scrittura \texttt{dataframe\$name\ \textless{}-\ new\_var} otteniamo che nel dataframe in oggetto ci sarà una nuova colonna chiamata \texttt{name} che prende i valori all'interno di \texttt{new\_var}.
-
-Attenzione che mentre la scrittura \texttt{dataframe\$name\ \textless{}-\ new\_var} aggiunge direttamente la colonna al dataframe, usando \texttt{cbind()} dobbiamo assegnare l'operazione ad un nuovo oggetto \texttt{dataframe\ \textless{}-\ cbind(dataframe,\ new\_var)}. In quest'ultimo caso il nome della colonna sarà \texttt{new\_var}. Se vogliamo anche rinominare la colonna possiamo usare la sintassi \texttt{cbind(dataframe,\ "nome"\ =\ new\_var)} oppure chiamare l'oggetto direttamente con il nome desiderato:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{data_wide}
-\CommentTok{##       Id age sex item_1 item_2 item_3}
-\CommentTok{## 1 subj_1  21   F      2      0      2}
-\CommentTok{## 2 subj_2  23   M      1      2      0}
-\CommentTok{## 3 subj_3  19   F      1      1      1}
-
-\CommentTok{# Aggiungiamo una colonna item4 al nostro dataset}
-
-\NormalTok{new_var <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{7}\NormalTok{)}
-
-\NormalTok{data_wide}\OperatorTok{$}\NormalTok{item_}\DecValTok{4}\NormalTok{ <-}\StringTok{ }\NormalTok{new_var}
-
-\CommentTok{# Equivalente a}
-
-\NormalTok{data_wide}\OperatorTok{$}\NormalTok{item_}\DecValTok{4}\NormalTok{ <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{7}\NormalTok{)}
-
-\CommentTok{# Equivalente a }
-
-\KeywordTok{cbind}\NormalTok{(data_wide, new_var) }\CommentTok{# senza specificare il nome}
-\CommentTok{##       Id age sex item_1 item_2 item_3 item_4 new_var}
-\CommentTok{## 1 subj_1  21   F      2      0      2      3       3}
-\CommentTok{## 2 subj_2  23   M      1      2      0      4       4}
-\CommentTok{## 3 subj_3  19   F      1      1      1      7       7}
-\KeywordTok{cbind}\NormalTok{(data_wide, }\StringTok{"item_4"}\NormalTok{ =}\StringTok{ }\NormalTok{new_var) }\CommentTok{# specificando anche il nome}
-\CommentTok{##       Id age sex item_1 item_2 item_3 item_4 item_4}
-\CommentTok{## 1 subj_1  21   F      2      0      2      3      3}
-\CommentTok{## 2 subj_2  23   M      1      2      0      4      4}
-\CommentTok{## 3 subj_3  19   F      1      1      1      7      7}
-\end{Highlighting}
-\end{Shaded}
-
-Leggermente più complessa (e inusuale) è l'aggiunta di righe ad un dataframe. Al contrario della matrice che di base non aveva nomi per le colonne e solo numeri o stringhe come tipologia di dato, per combinare per riga due dataframe dobbiamo avere:
-
-\begin{itemize}
-\tightlist
-\item
-  Lo stesso numero di colonne (come per le matrici)
-\item
-  Lo stesso nome delle colonne tra i due dataframe
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{data_wide}
-\CommentTok{##       Id age sex item_1 item_2 item_3 item_4}
-\CommentTok{## 1 subj_1  21   F      2      0      2      3}
-\CommentTok{## 2 subj_2  23   M      1      2      0      4}
-\CommentTok{## 3 subj_3  19   F      1      1      1      7}
-
-\CommentTok{# Nuovo dataset con le stesse colonne ma chiamate in un modo diverso}
-
-\NormalTok{new_row <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
-  \DataTypeTok{Id =} \StringTok{"subj_4"}\NormalTok{,}
-  \DataTypeTok{gender =} \StringTok{"M"}\NormalTok{, }\CommentTok{# gender invece che sex}
-  \DataTypeTok{age =} \DecValTok{44}\NormalTok{,}
-  \DataTypeTok{item_1 =} \DecValTok{2}\NormalTok{,}
-  \DataTypeTok{item_2 =} \DecValTok{7}\NormalTok{,}
-  \DataTypeTok{item_3 =} \DecValTok{3}\NormalTok{,}
-  \DataTypeTok{item_4 =} \DecValTok{1}
-\NormalTok{)}
-
-\NormalTok{new_row}
-\CommentTok{##       Id gender age item_1 item_2 item_3 item_4}
-\CommentTok{## 1 subj_4      M  44      2      7      3      1}
-
-\KeywordTok{rbind}\NormalTok{(data_wide, new_row) }\CommentTok{# Errore}
-\CommentTok{## Error in match.names(clabs, names(xi)): names do not match previous names}
-
-\CommentTok{# Nuovo dataset con le stesse colonne con il nome corretto}
-
-\NormalTok{new_row <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
-  \DataTypeTok{Id =} \StringTok{"subj_4"}\NormalTok{,}
-  \DataTypeTok{sex =} \StringTok{"M"}\NormalTok{,}
-  \DataTypeTok{age =} \DecValTok{44}\NormalTok{,}
-  \DataTypeTok{item_1 =} \DecValTok{2}\NormalTok{,}
-  \DataTypeTok{item_2 =} \DecValTok{7}\NormalTok{,}
-  \DataTypeTok{item_3 =} \DecValTok{3}\NormalTok{,}
-  \DataTypeTok{item_4 =} \DecValTok{1}
-\NormalTok{)}
-
-\NormalTok{new_row}
-\CommentTok{##       Id sex age item_1 item_2 item_3 item_4}
-\CommentTok{## 1 subj_4   M  44      2      7      3      1}
-
-\KeywordTok{rbind}\NormalTok{(data_wide, new_row) }\CommentTok{# Corretto}
-\CommentTok{##       Id age sex item_1 item_2 item_3 item_4}
-\CommentTok{## 1 subj_1  21   F      2      0      2      3}
-\CommentTok{## 2 subj_2  23   M      1      2      0      4}
-\CommentTok{## 3 subj_3  19   F      1      1      1      7}
-\CommentTok{## 4 subj_4  44   M      2      7      3      1}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{indicizzazione-avanzata}{%
-\section{Indicizzazione avanzata}\label{indicizzazione-avanzata}}
-
-Quello che avevamo accennato per le matrici rispetto all'indicizzazione avanzata per \emph{nome} e per \emph{operazioni logiche} qui è invece molto utile e rilevante. Quando trattiamo dati che non sono solo numerici e sopratutto hanno delle proprietà come ``soggetti'', ``età'', ``genere'', è intuitivo pensare un modo altrettanto logico e intuitivo di lavorare con queste strutture di dati. Per rendere il tutto più intuitivo facciamo un esempio con un dataset fittizio dove sono inseriti i nostri amici su Facebook ed alcune caratteristiche su di loro in particolare:
-
-\begin{itemize}
-\tightlist
-\item
-  Nome
-\item
-  Età (\texttt{age})
-\item
-  Genere (\texttt{sex})
-\item
-  Data iscrizione a Facebook (\texttt{facebook})
-\item
-  Numero di fratelli/sorelle (\texttt{nsiblings})
-\item
-  Numero di foto assieme a noi (\texttt{foto})
-\end{itemize}
-
-Vediamo il dataset in R:
-
-\begin{verbatim}
-##         nome age sex facebook nsiblings foto
-## 1    Filippo  17   M       17         0   13
-## 2    Claudio  51   M       51         4   14
-## 3   Giovanni  55   M       55         2   11
-## 4  Francesco  23   M       23         3   18
-## 5      Luigi  18   M       18         5   17
-## 6    Giacomo  34   M       34         1    2
-## 7  Gianmarco  49   M       49         4   20
-## 8      Bruna  47   F       47         3   12
-## 9     Franco  44   M       44         3    7
-## 10   Elettra  56   F       56         5    0
-## 11     Livia  32   F       32         2    2
-## 12      Anna  56   F       56         3    2
-## 13      Luca  25   M       25         5    2
-## 14    Giulia  52   F       52         4   18
-## 15     Alice  42   F       42         4   15
-\end{verbatim}
-
-Ora se volessimo usare l'indicizzazione standard possiamo semplicemente usare la sintassi solita \texttt{dataframe{[}riga/e,\ colonna/e{]}}. Tuttavia se volessimo trovare tutte le informazioni associate alla nostra amica \textbf{Elettra}, usare gli indici di riga/colonna diventa scomodo. Quello che è stato introdotto nei capitolo iniziali rispetto agli operatori logici qui diventa molto rilevante. Possiamo infatti ``interrogare'' il nostro dataframe dicendo di farci vedere tutte le informazioni che rispettano una specifica richiesta.
-
-La sintassi ``Tutte le informazioni riguardo Elettra'' diventa \textbf{tutte le colonne (informazioni) solo per la riga dove il nome è Elettra}. In R questo può essere controllato in questo modo:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# nomi sono nella colonna "nome"}
-\NormalTok{dat}\OperatorTok{$}\NormalTok{nome}
-\CommentTok{##  [1] "Filippo"   "Claudio"   "Giovanni"  "Francesco" "Luigi"     "Giacomo"  }
-\CommentTok{##  [7] "Gianmarco" "Bruna"     "Franco"    "Elettra"   "Livia"     "Anna"     }
-\CommentTok{## [13] "Luca"      "Giulia"    "Alice"}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# Per sapere quale riga corrisponde ad elettra}
-\NormalTok{dat}\OperatorTok{$}\NormalTok{nome }\OperatorTok{==}\StringTok{ "Elettra"}
-\CommentTok{##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE}
-\CommentTok{## [13] FALSE FALSE FALSE}
-
-\KeywordTok{which}\NormalTok{(dat}\OperatorTok{$}\NormalTok{nome }\OperatorTok{==}\StringTok{ "Elettra"}\NormalTok{) }\CommentTok{# Elettra è la riga 10}
-\CommentTok{## [1] 10}
-\end{Highlighting}
-\end{Shaded}
-
-Praticamente con \texttt{dat\$nome\ ==\ "Elettra"} otteniamo una serie di \texttt{TRUE} e \texttt{FALSE} in base a se il nome è ``Elettra'' oppure no. Combinando questo con l'indicizzazione classica \texttt{dataframe{[}riga/e,\ colonna/e{]}} possiamo usare gli operatori logici per interrogare il dataset.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dat[dat}\OperatorTok{$}\NormalTok{nome }\OperatorTok{==}\StringTok{ "Elettra"}\NormalTok{, ]}
-\CommentTok{##       nome age sex facebook nsiblings foto}
-\CommentTok{## 10 Elettra  56   F       56         5    0}
-\end{Highlighting}
-\end{Shaded}
-
-Ora la sintassi \texttt{dataframe{[}riga/e,\ colonna/e{]}} assume un significato molto diverso ovvero:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dataframe[operazioni_logiche_righe, operazioni_logiche_colonne]}
-\end{Highlighting}
-\end{Shaded}
-
-Utilizzando gli operatori booleani \textbf{AND}(\texttt{\$}) \textbf{OR}(\texttt{\textbar{}}) e \textbf{NOT}(\texttt{!}) possiamo inoltre combinare più operazioni logiche insieme per ottenere indicizzazioni più complesse, ma sempre intuitive dal punto di vista della scrittura. Ad esempio: ``Gli amici con età maggiore di 20 anni e con più di 5 foto assieme a noi''. In questo caso un amico per ottenere un valore \texttt{TRUE} ed essere così inserito nei risultati deve rispettare due condizioni:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dat[dat}\OperatorTok{$}\NormalTok{age }\OperatorTok{>}\StringTok{ }\DecValTok{20} \OperatorTok{&}\StringTok{ }\NormalTok{dat}\OperatorTok{$}\NormalTok{foto }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{, ]}
-\CommentTok{##         nome age sex facebook nsiblings foto}
-\CommentTok{## 2    Claudio  51   M       51         4   14}
-\CommentTok{## 3   Giovanni  55   M       55         2   11}
-\CommentTok{## 4  Francesco  23   M       23         3   18}
-\CommentTok{## 7  Gianmarco  49   M       49         4   20}
-\CommentTok{## 8      Bruna  47   F       47         3   12}
-\CommentTok{## 9     Franco  44   M       44         3    7}
-\CommentTok{## 14    Giulia  52   F       52         4   18}
-\CommentTok{## 15     Alice  42   F       42         4   15}
-\end{Highlighting}
-\end{Shaded}
-
-Possiamo chiaramente eseguire selezioni sulle colonne, per esempio sapere solo il numero di fratelli/sorelle degli amici che rispettano la condizione precedente:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dat[dat}\OperatorTok{$}\NormalTok{age }\OperatorTok{>}\StringTok{ }\DecValTok{20} \OperatorTok{&}\StringTok{ }\NormalTok{dat}\OperatorTok{$}\NormalTok{foto }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{, }\StringTok{"nsiblings"}\NormalTok{]}
-\CommentTok{## [1] 4 2 3 4 3 3 4 4}
-\end{Highlighting}
-\end{Shaded}
-
-Un ultimo aspetto da notare riguarda il tipo di output che otteniamo. Se la nostra selezione comprende più di 1 riga/colonna otteniamo un \texttt{dataframe} che è considerato un subset di quello iniziale. Se come nell'ultimo esempio otteniamo una singola colonna (o variabile) allora il risultato è un semplice vettore.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{res1 <-}\StringTok{ }\NormalTok{dat[dat}\OperatorTok{$}\NormalTok{age }\OperatorTok{>}\StringTok{ }\DecValTok{20} \OperatorTok{&}\StringTok{ }\NormalTok{dat}\OperatorTok{$}\NormalTok{foto }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{, ]}
-\NormalTok{res2 <-}\StringTok{ }\NormalTok{dat[dat}\OperatorTok{$}\NormalTok{age }\OperatorTok{>}\StringTok{ }\DecValTok{20} \OperatorTok{&}\StringTok{ }\NormalTok{dat}\OperatorTok{$}\NormalTok{foto }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{, }\StringTok{"nsiblings"}\NormalTok{]}
-
-\KeywordTok{str}\NormalTok{(res1) }\CommentTok{# è un dataframe}
-\CommentTok{## 'data.frame':    8 obs. of  6 variables:}
-\CommentTok{##  $ nome     : chr  "Claudio" "Giovanni" "Francesco" "Gianmarco" ...}
-\CommentTok{##  $ age      : int  51 55 23 49 47 44 52 42}
-\CommentTok{##  $ sex      : chr  "M" "M" "M" "M" ...}
-\CommentTok{##  $ facebook : int  51 55 23 49 47 44 52 42}
-\CommentTok{##  $ nsiblings: int  4 2 3 4 3 3 4 4}
-\CommentTok{##  $ foto     : int  14 11 18 20 12 7 18 15}
-\KeywordTok{str}\NormalTok{(res2) }\CommentTok{# è un vettore}
-\CommentTok{##  int [1:8] 4 2 3 4 3 3 4 4}
-\end{Highlighting}
-\end{Shaded}
-
-Allo stesso modo di selezionare una specifica colonna o riga possiamo eliminare una osservazione. Il concetto di eliminazione o sovrascrittura in R è diverso da quello di un normale file perchè tutte le operazioni che facciamo solitamente portano a tre strade:
+Esegui i seguenti esercizi (\href{https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-10.R}{soluzioni}):
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Eseguiamo le operazioni in modalità ``volatile'' senza assegnare il risultato
+  Crea il dataframe \texttt{data\_wide} riportato in Tabella \ref{tab:table-wide-db}
 \item
-  Creiamo un nuovo oggetto \texttt{B} che deriva da applicare ad \texttt{A} una certa operazione \texttt{B\ \textless{}-\ funzione(A)}
-\item
-  Assegnamo ad \texttt{A} una serie di operazioni su se stesso, di fatto sovrascrivendo l'oggetto \texttt{A\ \textless{}-\ funzione(A)}
+  Crea il dataframe \texttt{data\_long} riportato in Tabella \ref{tab:table-long-db}
 \end{enumerate}
 
-Nel caso dei dataframe possiamo usare l'operatore \texttt{-} (meno) per escludere una certa selezione:
+\hypertarget{sel-df}{%
+\section{Selezione Elementi}\label{sel-df}}
 
-\begin{verbatim}
-##       Id age sex item_1 item_2 item_3 item_4
-## 2 subj_2  23   M      1      2      0      4
-## 3 subj_3  19   F      1      1      1      7
-##       Id age item_1 item_2 item_3 item_4
-## 1 subj_1  21      2      0      2      3
-## 2 subj_2  23      1      2      0      4
-## 3 subj_3  19      1      1      1      7
-##       Id sex item_1 item_2 item_3 item_4
-## 2 subj_2   M      1      2      0      4
-\end{verbatim}
+Per selezionare uno o pù valori da un dataframe è possibile, in modo analogo alle matrici, utilizzare gli indici di riga e di colonna all'interno delle parentesi quadre:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nome_dataframe[}\OperatorTok{<}\NormalTok{indice}\OperatorTok{-}\NormalTok{riga}\OperatorTok{>}\NormalTok{, }\OperatorTok{<}\NormalTok{indice}\OperatorTok{-}\NormalTok{colonna}\OperatorTok{>}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+Ricordiamo che l'ordine \texttt{{[}\textless{}indice-riga\textgreater{},\ \textless{}indice-colonna\textgreater{}{]}} è prestabilito e deve essere rispettato affinché la selezione avvenga correttamente. Possiamo quindi eseguire diverse tipologie di selezioni a seconda delle necessità ussanto le stesse procedure viste per le matrici. Ad esempio, riprendeno il dataframe \texttt{my\_data} creato precedentemente possiamo selezionare:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_data}
+\CommentTok{##    Id    names gender age    faculty}
+\CommentTok{## 1   1    Alice      F  22 Psicologia}
+\CommentTok{## 2   2    Bruno      M  25 Ingegneria}
+\CommentTok{## 3   3    Carla      F  23   Medicina}
+\CommentTok{## 4   4    Diego      M  22    Lettere}
+\CommentTok{## 5   5    Elisa      F  24 Psicologia}
+\CommentTok{## 6   6 Fabrizio      M  35    Lettere}
+\CommentTok{## 7   7   Gloria      F  26 Ingegneria}
+\CommentTok{## 8   8   Herman      M  20 Psicologia}
+\CommentTok{## 9   9    Irene      F  23 Statistica}
+\CommentTok{## 10 10     Luca      M  22 Ingegneria}
+
+\CommentTok{# Valore 3° riga e 2° colonna}
+\NormalTok{my_data[}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{]}
+\CommentTok{## [1] 23}
+
+\CommentTok{# Tutte le variabili della 1° e 3° riga}
+\NormalTok{my_data[}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{), ]}
+\CommentTok{##   Id names gender age    faculty}
+\CommentTok{## 2  2 Bruno      M  25 Ingegneria}
+\CommentTok{## 3  3 Carla      F  23   Medicina}
+
+\CommentTok{# Tutti i valori della 5° variabile}
+\NormalTok{my_data[ , }\DecValTok{5}\NormalTok{]}
+\CommentTok{##  [1] "Psicologia" "Ingegneria" "Medicina"   "Lettere"    "Psicologia"}
+\CommentTok{##  [6] "Lettere"    "Ingegneria" "Psicologia" "Statistica" "Ingegneria"}
+
+\CommentTok{# I valori della 2° e 4° variabile per la 3° e 5° riga}
+\NormalTok{my_data[}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{)]}
+\CommentTok{##   names age}
+\CommentTok{## 3 Carla  23}
+\CommentTok{## 5 Elisa  24}
+\end{Highlighting}
+\end{Shaded}
+
+Tuttavia, nell'utilizzo dei dataframe è più comune indicare i nomi delle variabili e le condizioni logico relazionali per selezionare i valori di interesse.
+
+\hypertarget{selezione-colonne-con-nomi-delle-variabili}{%
+\subsubsection*{Selezione Colonne con Nomi delle Variabili}\label{selezione-colonne-con-nomi-delle-variabili}}
+\addcontentsline{toc}{subsubsection}{Selezione Colonne con Nomi delle Variabili}
+
+Una granade differenza tra le matrici ed i dataframe sta nel poter accedere alle colonne utilizzando l'operatore \texttt{\$} ed indicando il loro nome attraverso la seguente sintassi:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nome_dataframe}\OperatorTok{$}\NormalTok{nome_variabile}
+\end{Highlighting}
+\end{Shaded}
+
+In questo modo accediamo direttamente a quella specifica colonna senza utilizzare indici e parentesi quadre. Ad esempio:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Seleziono la variabile "names"}
+\NormalTok{my_data}\OperatorTok{$}\NormalTok{names}
+\CommentTok{##  [1] "Alice"    "Bruno"    "Carla"    "Diego"    "Elisa"    "Fabrizio"}
+\CommentTok{##  [7] "Gloria"   "Herman"   "Irene"    "Luca"}
+
+\CommentTok{# Seleziono la variabile "gender"}
+\NormalTok{my_data}\OperatorTok{$}\NormalTok{faculty}
+\CommentTok{##  [1] "Psicologia" "Ingegneria" "Medicina"   "Lettere"    "Psicologia"}
+\CommentTok{##  [6] "Lettere"    "Ingegneria" "Psicologia" "Statistica" "Ingegneria"}
+\end{Highlighting}
+\end{Shaded}
+
+In alternativa è possibile utilizzare la normale procedura di selezione tramite parentesi quadre indicando al cposto degli indici di colonna i nomi delle variabili desiderate. Questo ci permette di selezionare anche più variabili contemporaneamente, ad esempio:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Seleziono solo la variabile "names"}
+\NormalTok{my_data[ , }\StringTok{"names"}\NormalTok{]}
+\CommentTok{##  [1] "Alice"    "Bruno"    "Carla"    "Diego"    "Elisa"    "Fabrizio"}
+\CommentTok{##  [7] "Gloria"   "Herman"   "Irene"    "Luca"}
+
+\CommentTok{# Seleziono la variabile "names", "gender" e "faculty"}
+\NormalTok{my_data[, }\KeywordTok{c}\NormalTok{(}\StringTok{"names"}\NormalTok{, }\StringTok{"gender"}\NormalTok{, }\StringTok{"faculty"}\NormalTok{)]}
+\CommentTok{##       names gender    faculty}
+\CommentTok{## 1     Alice      F Psicologia}
+\CommentTok{## 2     Bruno      M Ingegneria}
+\CommentTok{## 3     Carla      F   Medicina}
+\CommentTok{## 4     Diego      M    Lettere}
+\CommentTok{## 5     Elisa      F Psicologia}
+\CommentTok{## 6  Fabrizio      M    Lettere}
+\CommentTok{## 7    Gloria      F Ingegneria}
+\CommentTok{## 8    Herman      M Psicologia}
+\CommentTok{## 9     Irene      F Statistica}
+\CommentTok{## 10     Luca      M Ingegneria}
+\end{Highlighting}
+\end{Shaded}
+
+Nota come i nomi delle variabili debbano essere forniti come delle stringhe.
+
+\hypertarget{selezione-righe-con-condizioni-logiche}{%
+\subsubsection*{Selezione Righe con Condizioni Logiche}\label{selezione-righe-con-condizioni-logiche}}
+\addcontentsline{toc}{subsubsection}{Selezione Righe con Condizioni Logiche}
+
+Avevamo visto precedentemete nel caso dei vettori e delle matrici come sia possibile costruire delle preposizioni logiche per selezionare solo i valori che rispettino una data condizione. Ora questa funzione si rivela particolarmente utile poichè ci permette di \emph{interrogare} il nostro dataframe in modo semplice ed intuitivo. Utilizzando una condizione logica possiamo, infatti, \emph{filtrare} le oservazioni che soddisfano una data condizione ed ottenere solo le informazioni di interesse.
+
+Nella canonica sintassi \texttt{{[}\textless{}indice-riga\textgreater{},\ \textless{}indice-colonna\textgreater{}{]}}, gli indici di riga vengono sostituiti con una condizione logica che ci permette di filtrare le righe e al posto degli indici di colonna vengono indicati i nomi delle variabili di interesse. Utilizzeremo quindi la seguente sintassi:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nome_dataframe[}\OperatorTok{<}\NormalTok{condizione_logica_righe}\OperatorTok{>}\NormalTok{, }\OperatorTok{<}\NormalTok{nomi_variabili}\OperatorTok{>}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+Vediamo ora degli esempi di selezione:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Tutti i dati di "Diego" (Id == 4)}
+\NormalTok{my_data[my_data}\OperatorTok{$}\NormalTok{Id }\OperatorTok{==}\StringTok{ }\DecValTok{4}\NormalTok{, ]}
+\CommentTok{##   Id names gender age faculty}
+\CommentTok{## 4  4 Diego      M  22 Lettere}
+
+\CommentTok{# Tutti i dai delle ragazze}
+\NormalTok{my_data[my_data}\OperatorTok{$}\NormalTok{gender }\OperatorTok{==}\StringTok{ "F"}\NormalTok{, ]}
+\CommentTok{##   Id  names gender age    faculty}
+\CommentTok{## 1  1  Alice      F  22 Psicologia}
+\CommentTok{## 3  3  Carla      F  23   Medicina}
+\CommentTok{## 5  5  Elisa      F  24 Psicologia}
+\CommentTok{## 7  7 Gloria      F  26 Ingegneria}
+\CommentTok{## 9  9  Irene      F  23 Statistica}
+
+\CommentTok{# Le facoltà dei soggeti con più di 24 anni}
+\NormalTok{my_data[my_data}\OperatorTok{$}\NormalTok{age }\OperatorTok{>}\StringTok{ }\DecValTok{24}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\StringTok{"age"}\NormalTok{, }\StringTok{"faculty"}\NormalTok{)]}
+\CommentTok{##   age    faculty}
+\CommentTok{## 2  25 Ingegneria}
+\CommentTok{## 6  35    Lettere}
+\CommentTok{## 7  26 Ingegneria}
+\end{Highlighting}
+\end{Shaded}
+
+Nota come, nel definire una condizione logica utilizzano le variabili dello stesso dataframe, sia comunque necessario indicare sempre anche il nome del dataframe. Nel caso precendente avremmo ottenuto un errore indicando semplicemente \texttt{age\ \textgreater{}\ 24} poichè così indichiamo l'oggetto \texttt{age} (che non esiste) e non la variabile \texttt{age} contenuta in \texttt{my\_data}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_data[age }\OperatorTok{>}\StringTok{ }\DecValTok{24}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\StringTok{"age"}\NormalTok{, }\StringTok{"faculty"}\NormalTok{)]}
+\CommentTok{## Error in `[.data.frame`(my_data, age > 24, c("age", "faculty")): object 'age' not found}
+\end{Highlighting}
+\end{Shaded}
+
+In modo analogo a quanto visto con i vettori, utlizzando la condizione \texttt{my\_data\$age\ \textgreater{}\ 24} otteniamo un vettore di valori \texttt{TRUE} e \texttt{FALSE} a seconda che la condizione sia rispettata o meno.
+
+Utilizzando gli operatori logici \textbf{AND}(\texttt{\&}) \textbf{OR}(\texttt{\textbar{}}) e \textbf{NOT}(\texttt{!}) possiamo combinare più operazioni logiche insieme per ottenere indicizzazioni più complesse, ma sempre intuitive dal punto di vista della scrittura. Ad esempio, per selezionare ``I soggetti tra i 20 e i 25 anni iscrittti a psicologia'' eseguiremo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_data[my_data}\OperatorTok{$}\NormalTok{age }\OperatorTok{>=}\StringTok{ }\DecValTok{20} \OperatorTok{&}\StringTok{ }\NormalTok{my_data}\OperatorTok{$}\NormalTok{age }\OperatorTok{<=}\DecValTok{25} \OperatorTok{&}\StringTok{ }\NormalTok{my_data}\OperatorTok{$}\NormalTok{faculty }\OperatorTok{==}\StringTok{ "Psicologia"}\NormalTok{, ]}
+\CommentTok{##   Id  names gender age    faculty}
+\CommentTok{## 1  1  Alice      F  22 Psicologia}
+\CommentTok{## 5  5  Elisa      F  24 Psicologia}
+\CommentTok{## 8  8 Herman      M  20 Psicologia}
+\end{Highlighting}
+\end{Shaded}
+
+Utilizzando questo metodo di indicizzazione possiamo apprezzare la vera potenza dei dataframe. Abbiamo, infatti, un metodo molto semplice ed intuitivo per lavorare con strutture di dati complesse formate da diverse tipologie di dati.
+
+\begin{design}[Output Selezione]
+
+Due aspetti importanti riguardanti il risultato di una selezione sono la tipologia di ouput ottenuto e come salvarla.
+
+\hypertarget{tiplogia-output}{%
+\subsubsection*{Tiplogia Output}\label{tiplogia-output}}
+\addcontentsline{toc}{subsubsection}{Tiplogia Output}
+
+In modo analogo alle matrici, i comandi di selezione non restituiscono sempre la stessa tipologia di oggetto. Infatti, quando selezioniamo una singola variabile otteniamo come risultato un vettore mentre selezionando due o più variabili oteniamo un dataframe.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Singola variabile}
+\KeywordTok{class}\NormalTok{(my_data}\OperatorTok{$}\NormalTok{age)}
+\CommentTok{## [1] "numeric"}
+
+\CommentTok{# Più variabili}
+\KeywordTok{class}\NormalTok{(my_data[ , }\KeywordTok{c}\NormalTok{(}\StringTok{"names"}\NormalTok{, }\StringTok{"age"}\NormalTok{)])}
+\CommentTok{## [1] "data.frame"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{salvare-selezione}{%
+\subsubsection*{Salvare Selezione}\label{salvare-selezione}}
+\addcontentsline{toc}{subsubsection}{Salvare Selezione}
+
+Come per tutte le altre tipologie di oggetti, le operazioni di selezione non modificano l'oggetto iniziale. Pertanto è necessario salvare il risultato della selezione se si desidera mantenere le modifiche. In questo caso, è cosigliabile creare un nuovo oggetto e non sovrascrivere l'oggetto iniziale poichè non ci permetterebbe di compiere nuove selezioni od operazioni su tutti i dati iniziali. E' buona norma quindi mantenere sempre un dataframe con la versione dei dati originali.
+
+\end{design}
+
+\hypertarget{utilizzi-avanzati-selezione-2}{%
+\subsection{Utilizzi Avanzati Selezione}\label{utilizzi-avanzati-selezione-2}}
+
+Vediamo ora alcuni utilizzi avanzati della selezione di elementi di un dataframe.
+
+\hypertarget{modificare-gli-elementi-2}{%
+\subsubsection*{Modificare gli Elementi}\label{modificare-gli-elementi-2}}
+\addcontentsline{toc}{subsubsection}{Modificare gli Elementi}
+
+In modo analogo agli altri oggetti, possiamo modificare dei valori selezionando il vecchio valore della matrice e utilizzo la funzione \texttt{\textless{}-} (o \texttt{=}) per assegnare il nuovo valore.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_data[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, ]}
+\CommentTok{##   Id names gender age    faculty}
+\CommentTok{## 1  1 Alice      F  22 Psicologia}
+\CommentTok{## 2  2 Bruno      M  25 Ingegneria}
+\CommentTok{## 3  3 Carla      F  23   Medicina}
+\CommentTok{## 4  4 Diego      M  22    Lettere}
+\CommentTok{## 5  5 Elisa      F  24 Psicologia}
+
+\CommentTok{# Sostituisco il nome "Diego" con "Davide"}
+\NormalTok{my_data[}\DecValTok{4}\NormalTok{, }\StringTok{"names"}\NormalTok{] <-}\StringTok{ "Davide"}
+
+\NormalTok{my_data[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{]}
+\CommentTok{##    Id    names gender age    faculty}
+\CommentTok{## 1   1    Alice      F  22 Psicologia}
+\CommentTok{## 2   2    Bruno      M  25 Ingegneria}
+\CommentTok{## 3   3    Carla      F  23   Medicina}
+\CommentTok{## 4   4   Davide      M  22    Lettere}
+\CommentTok{## 5   5    Elisa      F  24 Psicologia}
+\CommentTok{## 6   6 Fabrizio      M  35    Lettere}
+\CommentTok{## 7   7   Gloria      F  26 Ingegneria}
+\CommentTok{## 8   8   Herman      M  20 Psicologia}
+\CommentTok{## 9   9    Irene      F  23 Statistica}
+\CommentTok{## 10 10     Luca      M  22 Ingegneria}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{eliminare-righe-o-colonne-1}{%
+\subsubsection*{Eliminare Righe o Colonne}\label{eliminare-righe-o-colonne-1}}
+\addcontentsline{toc}{subsubsection}{Eliminare Righe o Colonne}
+
+In modo analogo agli altri oggetti, per \textbf{eliminare} delle righe (o delle colonne) da un dataframe, è necessario indicare all'interno delle parentesi quadre gli indici di riga (o di colonna) che si intende eliminare, preceduti dall'operatore \texttt{-} (\emph{meno}). Nel caso di più righe (o colone) è possibile indicare il meno solo prima del comando \texttt{c()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Elimino le variabili "gender" e "age"}
+\NormalTok{my_data[ , }\KeywordTok{c}\NormalTok{(}\StringTok{"gender"}\NormalTok{, }\StringTok{"age"}\NormalTok{)]}
+\CommentTok{##    gender age}
+\CommentTok{## 1       F  22}
+\CommentTok{## 2       M  25}
+\CommentTok{## 3       F  23}
+\CommentTok{## 4       M  22}
+\CommentTok{## 5       F  24}
+\CommentTok{## 6       M  35}
+\CommentTok{## 7       F  26}
+\CommentTok{## 8       M  20}
+\CommentTok{## 9       F  23}
+\CommentTok{## 10      M  22}
+
+\CommentTok{# Elimino le prime 5 osservazioni}
+\NormalTok{my_data[}\OperatorTok{-}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{), ]}
+\CommentTok{##    Id    names gender age    faculty}
+\CommentTok{## 6   6 Fabrizio      M  35    Lettere}
+\CommentTok{## 7   7   Gloria      F  26 Ingegneria}
+\CommentTok{## 8   8   Herman      M  20 Psicologia}
+\CommentTok{## 9   9    Irene      F  23 Statistica}
+\CommentTok{## 10 10     Luca      M  22 Ingegneria}
+
+\CommentTok{# Elimino le prime 5 osservazioni e la variabile "names"}
+\NormalTok{my_data[}\OperatorTok{-}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{), }\DecValTok{-3}\NormalTok{]}
+\CommentTok{##    Id    names age    faculty}
+\CommentTok{## 6   6 Fabrizio  35    Lettere}
+\CommentTok{## 7   7   Gloria  26 Ingegneria}
+\CommentTok{## 8   8   Herman  20 Psicologia}
+\CommentTok{## 9   9    Irene  23 Statistica}
+\CommentTok{## 10 10     Luca  22 Ingegneria}
+\end{Highlighting}
+\end{Shaded}
 
 E' possibile anche escludere (ed eliminare in un certo senso) delle informazioni usando gli operatori logici in gli operatori \textbf{NOT}(\texttt{!}) e diverso da (\texttt{!=}):
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# Seleziono tutto tranne gli studenti di psicologia}
 
-\CommentTok{# Seleziono tutto tranne il soggetto 2}
+\CommentTok{# Modo 1 (valuto disuguaglianza)}
+\NormalTok{my_data[my_data}\OperatorTok{$}\NormalTok{faculty }\OperatorTok{!=}\StringTok{ "Psicologia"}\NormalTok{, ]}
+\CommentTok{##    Id    names gender age    faculty}
+\CommentTok{## 2   2    Bruno      M  25 Ingegneria}
+\CommentTok{## 3   3    Carla      F  23   Medicina}
+\CommentTok{## 4   4   Davide      M  22    Lettere}
+\CommentTok{## 6   6 Fabrizio      M  35    Lettere}
+\CommentTok{## 7   7   Gloria      F  26 Ingegneria}
+\CommentTok{## 9   9    Irene      F  23 Statistica}
+\CommentTok{## 10 10     Luca      M  22 Ingegneria}
 
-\NormalTok{data_wide[}\OperatorTok{!}\NormalTok{data_wide}\OperatorTok{$}\NormalTok{Id }\OperatorTok{==}\StringTok{ "subj_2"}\NormalTok{, ] }\CommentTok{# modo 1}
-\CommentTok{##       Id age sex item_1 item_2 item_3 item_4}
-\CommentTok{## 1 subj_1  21   F      2      0      2      3}
-\CommentTok{## 3 subj_3  19   F      1      1      1      7}
-
-\NormalTok{data_wide[data_wide}\OperatorTok{$}\NormalTok{Id }\OperatorTok{!=}\StringTok{ "subj_2"}\NormalTok{, ] }\CommentTok{# modo 2}
-\CommentTok{##       Id age sex item_1 item_2 item_3 item_4}
-\CommentTok{## 1 subj_1  21   F      2      0      2      3}
-\CommentTok{## 3 subj_3  19   F      1      1      1      7}
+\CommentTok{# Modo 1 (nego l'uguaglianza)}
+\NormalTok{my_data[}\OperatorTok{!}\NormalTok{my_data}\OperatorTok{$}\NormalTok{faculty }\OperatorTok{==}\StringTok{ "Psicologia"}\NormalTok{, ]}
+\CommentTok{##    Id    names gender age    faculty}
+\CommentTok{## 2   2    Bruno      M  25 Ingegneria}
+\CommentTok{## 3   3    Carla      F  23   Medicina}
+\CommentTok{## 4   4   Davide      M  22    Lettere}
+\CommentTok{## 6   6 Fabrizio      M  35    Lettere}
+\CommentTok{## 7   7   Gloria      F  26 Ingegneria}
+\CommentTok{## 9   9    Irene      F  23 Statistica}
+\CommentTok{## 10 10     Luca      M  22 Ingegneria}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{warning}[Attenzione ad eliminare]
+Nota come l'operazione di eliminazione sia comunque un'operazione di selezione. Pertanto è necessario salvare il risultato ottenuto se si desidera mantenere le modifiche.
+
+\begin{warning}[Attenzione ad Esliminare]
 
 L'utilizzo dell'operatore \texttt{-} è sempre in qualche modo pericoloso, sopratutto se l'oggetto che viene creato (o sovrascritto) viene poi utilizzato in altre operazioni. Eliminare delle informazioni, tranne quando è veramente necessario, non è mai una buona cosa. Se dovete selezionare una parte dei dati è sempre meglio creare un nuovo dataframe (o un nuovo oggetto in generale) e mantendere una versione di quello originale sempre disponibile.
 
 \end{warning}
 
-Nella tabella \ref{tab:frame-tab} è contenuto un riassunto delle principali operazioni che si possono eseguire con i dataframe:
+\hypertarget{esercizi-10}{%
+\subsection*{Esercizi}\label{esercizi-10}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+Facendo riferimento ai dataframe \texttt{data\_long} e \texttt{data\_wide} precedentemente creati, esegui i seguenti esercizi (\href{https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-10.R}{soluzioni}):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Utilizzando gli \textbf{indici numerici} di riga e di colonna seleziona i dati del soggetto \texttt{subj\_2} riguardanti le variabili \texttt{item} e \texttt{response} dal DataFrame \texttt{data\_long}.
+\item
+  Compi la stessa selezione dell'esercizio precedente usando però questa volta una condizione logica per gli indici di riga e indicando direttamente il nome delle variabili per gli indici di colonna.
+\item
+  Considerando il DataFrame \texttt{data\_wide} seleziona le variabili \texttt{Id} e \texttt{gender} dei soggetti che hanno risposto 1 alla variabile \texttt{item\_1}.
+\item
+  Considerando il DataFrame \texttt{data\_long} seleziona solamente i dati riguardanti le ragazze con etè superiore ai 20 anni.
+\item
+  Elimina dal DataFrame \texttt{data\_long} le osservazioni riguardanti il soggetto \texttt{subj\_2} e la variabile \texttt{"gender"}.
+\end{enumerate}
+
+\hypertarget{funzioni-ed-operazioni-1}{%
+\section{Funzioni ed Operazioni}\label{funzioni-ed-operazioni-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  head
+\item
+  tail
+\item
+  str
+\end{itemize}
+
+Vediamo ora alcune funzioni frequentemente usate e le comuni operazioni eseguite con i dataframe (vedi Tabella \ref{tab:table-df-functions}).
 
 \begin{table}[!h]
 
-\caption{\label{tab:frame-tab}Operazioni con dataframe}
+\caption{\label{tab:table-df-functions}Operazioni con dataframe}
 \centering
 \begin{tabular}[t]{l|l}
 \hline
@@ -5824,8 +5800,152 @@ Operazione & Nome\\
 \end{tabular}
 \end{table}
 
-\hypertarget{esercizi-10}{%
-\subsection*{Esercizi}\label{esercizi-10}}
+\hypertarget{nomi-righe-e-colonne-1}{%
+\subsection*{Nomi Righe e Colonne}\label{nomi-righe-e-colonne-1}}
+\addcontentsline{toc}{subsection}{Nomi Righe e Colonne}
+
+In modo simile alle matrici, i dataframe contengono dei metadati per assegnare dei nomi alle righe \texttt{rownames()} e alle colonne \texttt{colnames()}. Inoltre il dataframe ha una dimensione intesa come numero di righe e colonne esattamente come la matrice. Di default il dataframe richiede dei nomi solo alle colonne ma è possibile anche nominare le righe. Utilizzando il dataframe precedente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data_long}
+\CommentTok{##       Id age gender item response}
+\CommentTok{## 1 subj_1  21      F    1        2}
+\CommentTok{## 2 subj_1  21      F    2        1}
+\CommentTok{## 3 subj_1  21      F    3        1}
+\CommentTok{## 4 subj_2  23      M    1        0}
+\CommentTok{## 5 subj_2  23      M    2        2}
+\CommentTok{## 6 subj_2  23      M    3        1}
+\CommentTok{## 7 subj_3  19      F    1        2}
+\CommentTok{## 8 subj_3  19      F    2        0}
+\CommentTok{## 9 subj_3  19      F    3        1}
+
+\CommentTok{# Controllo dei nomi}
+
+\KeywordTok{rownames}\NormalTok{(data_long)}
+\CommentTok{## [1] "1" "2" "3" "4" "5" "6" "7" "8" "9"}
+\KeywordTok{colnames}\NormalTok{(data_long)}
+\CommentTok{## [1] "Id"       "age"      "gender"   "item"     "response"}
+\KeywordTok{names}\NormalTok{(data_long) }\CommentTok{# nel caso dei dataframe questo è analogo a colnames()}
+\CommentTok{## [1] "Id"       "age"      "gender"   "item"     "response"}
+
+\CommentTok{# Dimensioni}
+
+\KeywordTok{nrow}\NormalTok{(data_long)}
+\CommentTok{## [1] 9}
+\KeywordTok{ncol}\NormalTok{(data_long)}
+\CommentTok{## [1] 5}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{unire-df}{%
+\subsection{Unire Df}\label{unire-df}}
+
+Un ulteriore differenza rispetto alle matrici è quella della \textbf{combinazione di dataframe} o della \textbf{creazione di nuove righe o colonne}. Sono sempre valide le indicazioni riguardo a \texttt{cbind()} e \texttt{rbind()} ma nel caso di nuove colonne è possibile utilizzare l'operatore \texttt{\$}. Con la scrittura \texttt{dataframe\$name\ \textless{}-\ new\_var} otteniamo che nel dataframe in oggetto ci sarà una nuova colonna chiamata \texttt{name} che prende i valori all'interno di \texttt{new\_var}.
+
+Attenzione che mentre la scrittura \texttt{dataframe\$name\ \textless{}-\ new\_var} aggiunge direttamente la colonna al dataframe, usando \texttt{cbind()} dobbiamo assegnare l'operazione ad un nuovo oggetto \texttt{dataframe\ \textless{}-\ cbind(dataframe,\ new\_var)}. In quest'ultimo caso il nome della colonna sarà \texttt{new\_var}. Se vogliamo anche rinominare la colonna possiamo usare la sintassi \texttt{cbind(dataframe,\ "nome"\ =\ new\_var)} oppure chiamare l'oggetto direttamente con il nome desiderato:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data_wide}
+\CommentTok{##       Id age gender item_1 item_2 item_3}
+\CommentTok{## 1 subj_1  21      F      2      0      2}
+\CommentTok{## 2 subj_2  23      M      1      2      0}
+\CommentTok{## 3 subj_3  19      F      1      1      1}
+
+\CommentTok{# Aggiungiamo una colonna item4 al nostro dataset}
+
+\NormalTok{new_var <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+
+\NormalTok{data_wide}\OperatorTok{$}\NormalTok{item_}\DecValTok{4}\NormalTok{ <-}\StringTok{ }\NormalTok{new_var}
+
+\CommentTok{# Equivalente a}
+
+\NormalTok{data_wide}\OperatorTok{$}\NormalTok{item_}\DecValTok{4}\NormalTok{ <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+
+\CommentTok{# Equivalente a }
+
+\KeywordTok{cbind}\NormalTok{(data_wide, new_var) }\CommentTok{# senza specificare il nome}
+\CommentTok{##       Id age gender item_1 item_2 item_3 item_4 new_var}
+\CommentTok{## 1 subj_1  21      F      2      0      2      3       3}
+\CommentTok{## 2 subj_2  23      M      1      2      0      4       4}
+\CommentTok{## 3 subj_3  19      F      1      1      1      7       7}
+\KeywordTok{cbind}\NormalTok{(data_wide, }\StringTok{"item_4"}\NormalTok{ =}\StringTok{ }\NormalTok{new_var) }\CommentTok{# specificando anche il nome}
+\CommentTok{##       Id age gender item_1 item_2 item_3 item_4 item_4}
+\CommentTok{## 1 subj_1  21      F      2      0      2      3      3}
+\CommentTok{## 2 subj_2  23      M      1      2      0      4      4}
+\CommentTok{## 3 subj_3  19      F      1      1      1      7      7}
+\end{Highlighting}
+\end{Shaded}
+
+Leggermente più complessa (e inusuale) è l'aggiunta di righe ad un dataframe. Al contrario della matrice che di base non aveva nomi per le colonne e solo numeri o stringhe come tipologia di dato, per combinare per riga due dataframe dobbiamo avere:
+
+\begin{itemize}
+\tightlist
+\item
+  Lo stesso numero di colonne (come per le matrici)
+\item
+  Lo stesso nome delle colonne tra i due dataframe
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data_wide}
+\CommentTok{##       Id age gender item_1 item_2 item_3 item_4}
+\CommentTok{## 1 subj_1  21      F      2      0      2      3}
+\CommentTok{## 2 subj_2  23      M      1      2      0      4}
+\CommentTok{## 3 subj_3  19      F      1      1      1      7}
+
+\CommentTok{# Nuovo dataset con le stesse colonne ma chiamate in un modo diverso}
+
+\NormalTok{new_row <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
+  \DataTypeTok{Id =} \StringTok{"subj_4"}\NormalTok{,}
+  \DataTypeTok{gender =} \StringTok{"M"}\NormalTok{, }\CommentTok{# gender invece che gender}
+  \DataTypeTok{age =} \DecValTok{44}\NormalTok{,}
+  \DataTypeTok{item_1 =} \DecValTok{2}\NormalTok{,}
+  \DataTypeTok{item_2 =} \DecValTok{7}\NormalTok{,}
+  \DataTypeTok{item_3 =} \DecValTok{3}\NormalTok{,}
+  \DataTypeTok{item_4 =} \DecValTok{1}
+\NormalTok{)}
+
+\NormalTok{new_row}
+\CommentTok{##       Id gender age item_1 item_2 item_3 item_4}
+\CommentTok{## 1 subj_4      M  44      2      7      3      1}
+
+\KeywordTok{rbind}\NormalTok{(data_wide, new_row) }\CommentTok{# Errore}
+\CommentTok{##       Id age gender item_1 item_2 item_3 item_4}
+\CommentTok{## 1 subj_1  21      F      2      0      2      3}
+\CommentTok{## 2 subj_2  23      M      1      2      0      4}
+\CommentTok{## 3 subj_3  19      F      1      1      1      7}
+\CommentTok{## 4 subj_4  44      M      2      7      3      1}
+
+\CommentTok{# Nuovo dataset con le stesse colonne con il nome corretto}
+
+\NormalTok{new_row <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
+  \DataTypeTok{Id =} \StringTok{"subj_4"}\NormalTok{,}
+  \DataTypeTok{gender =} \StringTok{"M"}\NormalTok{,}
+  \DataTypeTok{age =} \DecValTok{44}\NormalTok{,}
+  \DataTypeTok{item_1 =} \DecValTok{2}\NormalTok{,}
+  \DataTypeTok{item_2 =} \DecValTok{7}\NormalTok{,}
+  \DataTypeTok{item_3 =} \DecValTok{3}\NormalTok{,}
+  \DataTypeTok{item_4 =} \DecValTok{1}
+\NormalTok{)}
+
+\NormalTok{new_row}
+\CommentTok{##       Id gender age item_1 item_2 item_3 item_4}
+\CommentTok{## 1 subj_4      M  44      2      7      3      1}
+
+\KeywordTok{rbind}\NormalTok{(data_wide, new_row) }\CommentTok{# Corretto}
+\CommentTok{##       Id age gender item_1 item_2 item_3 item_4}
+\CommentTok{## 1 subj_1  21      F      2      0      2      3}
+\CommentTok{## 2 subj_2  23      M      1      2      0      4}
+\CommentTok{## 3 subj_3  19      F      1      1      1      7}
+\CommentTok{## 4 subj_4  44      M      2      7      3      1}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esercizi-11}{%
+\subsection*{Esercizi}\label{esercizi-11}}
 \addcontentsline{toc}{subsection}{Esercizi}
 
 Facendo riferimento ai dataframe \texttt{data\_long} e \texttt{data\_wide}:
@@ -5833,16 +5953,6 @@ Facendo riferimento ai dataframe \texttt{data\_long} e \texttt{data\_wide}:
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
-\item
-  Utilizzando gli \textbf{indici numerici} di riga e di colonna seleziona i dati del soggetto \texttt{subj\_2} riguardanti le variabili \texttt{item} e \texttt{response} dal DataFrame \texttt{data\_long}.
-\item
-  Compi la stessa selezione dell'esercizio precedente usando però questa volta una condizione logica per gli indici di riga e indicando direttamente il nome delle variabili per gli indici di colonna.
-\item
-  Considerando il DataFrame \texttt{data\_wide} seleziona le variabili \texttt{Id} e \texttt{sex} dei soggetti che hanno risposto 1 alla variabile \texttt{item\_1}.
-\item
-  Considerando il DataFrame \texttt{data\_long} seleziona solamente i dati riguardanti le ragazze con etè superiore ai 20 anni.
-\item
-  Elimina dal DataFrame \texttt{data\_long} le osservazioni riguardanti il soggetto \texttt{subj\_2} e la variabile \texttt{"sex"}.
 \item
   Aggiungi sia al DataFrame \texttt{data\_wide} che \texttt{data\_long} la variabile numerica \texttt{"memory\_pre"}.
 \end{enumerate}
@@ -5856,7 +5966,7 @@ Facendo riferimento ai dataframe \texttt{data\_long} e \texttt{data\_wide}:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{6}
+\setcounter{enumi}{1}
 \tightlist
 \item
   Aggiungi sia al DataFrame \texttt{data\_wide} che \texttt{data\_long} la variabile categoriale \texttt{"gruppo"}.
@@ -5871,7 +5981,7 @@ Facendo riferimento ai dataframe \texttt{data\_long} e \texttt{data\_wide}:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{7}
+\setcounter{enumi}{2}
 \tightlist
 \item
   Aggiungi al DataFrame \texttt{data\_wide} i dati del soggetto \texttt{subj\_4} e \texttt{subj\_5}.
@@ -5881,7 +5991,7 @@ Facendo riferimento ai dataframe \texttt{data\_long} e \texttt{data\_wide}:
 \begin{Highlighting}[]
 \KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Id=}\KeywordTok{c}\NormalTok{(}\StringTok{"subj_4"}\NormalTok{,}\StringTok{"subj_5"}\NormalTok{),}
            \DataTypeTok{age=}\KeywordTok{c}\NormalTok{(}\DecValTok{25}\NormalTok{,}\DecValTok{22}\NormalTok{),}
-           \DataTypeTok{sex=}\KeywordTok{c}\NormalTok{(}\StringTok{"F"}\NormalTok{,}\StringTok{"M"}\NormalTok{),}
+           \DataTypeTok{gender=}\KeywordTok{c}\NormalTok{(}\StringTok{"F"}\NormalTok{,}\StringTok{"M"}\NormalTok{),}
            \DataTypeTok{item_1=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{),}
            \DataTypeTok{item_2=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{),}
            \DataTypeTok{item_3=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{),}
@@ -5892,7 +6002,7 @@ Facendo riferimento ai dataframe \texttt{data\_long} e \texttt{data\_wide}:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{8}
+\setcounter{enumi}{3}
 \tightlist
 \item
   Considerando il DataFrame \texttt{datawide} calcola la variabile \texttt{"memory\_post"} data dalla somma degli item.
@@ -5941,8 +6051,8 @@ Un modo utile per immaginarsi una lista (vedi \ref{fig:list-example}) è pensare
 \caption{Esempio concettuale di una lista}\label{fig:list-example}
 \end{figure}
 
-\hypertarget{esercizi-11}{%
-\subsection*{Esercizi}\label{esercizi-11}}
+\hypertarget{esercizi-12}{%
+\subsection*{Esercizi}\label{esercizi-12}}
 \addcontentsline{toc}{subsection}{Esercizi}
 
 \begin{enumerate}
@@ -6162,8 +6272,8 @@ Rispetto al \textbf{numero di elementi}, possiamo usar, analogalmente ai vettori
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{esercizi-12}{%
-\subsection*{Esercizi}\label{esercizi-12}}
+\hypertarget{esercizi-13}{%
+\subsection*{Esercizi}\label{esercizi-13}}
 \addcontentsline{toc}{subsection}{Esercizi}
 
 \begin{enumerate}
@@ -6327,8 +6437,8 @@ I vantaggi principali che rendono le liste degli oggetti estremamente potenti so
 \part*{Algoritmi}\label{part-algoritmi}}
 \addcontentsline{toc}{part}{Algoritmi}
 
-\hypertarget{introduzione-1}{%
-\chapter*{Introduzione}\label{introduzione-1}}
+\hypertarget{introduzione-2}{%
+\chapter*{Introduzione}\label{introduzione-2}}
 \addcontentsline{toc}{chapter}{Introduzione}
 
 Working in progress.
@@ -6352,8 +6462,8 @@ Working in progress.
 \part*{Case study}\label{part-case-study}}
 \addcontentsline{toc}{part}{Case study}
 
-\hypertarget{introduzione-2}{%
-\chapter*{Introduzione}\label{introduzione-2}}
+\hypertarget{introduzione-3}{%
+\chapter*{Introduzione}\label{introduzione-3}}
 \addcontentsline{toc}{chapter}{Introduzione}
 
 Working in progress.
