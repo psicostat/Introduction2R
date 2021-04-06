@@ -263,8 +263,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-10"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="dataframe.html"><a href="dataframe.html#funzioni-ed-operazioni-1"><i class="fa fa-check"></i><b>10.3</b> Funzioni ed Operazioni</a><ul>
-<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#nomi-righe-e-colonne-1"><i class="fa fa-check"></i>Nomi Righe e Colonne</a></li>
-<li class="chapter" data-level="10.3.1" data-path="dataframe.html"><a href="dataframe.html#unire-df"><i class="fa fa-check"></i><b>10.3.1</b> Unire Df</a></li>
+<li class="chapter" data-level="10.3.1" data-path="matrix.html"><a href="matrix.html#mat-prop"><i class="fa fa-check"></i><b>10.3.1</b> Attributi di un Dataframe</a></li>
+<li class="chapter" data-level="10.3.2" data-path="dataframe.html"><a href="dataframe.html#unire-dataframe"><i class="fa fa-check"></i><b>10.3.2</b> Unire Dataframe</a></li>
+<li class="chapter" data-level="10.3.3" data-path="dataframe.html"><a href="dataframe.html#informazioni-dataframe"><i class="fa fa-check"></i><b>10.3.3</b> Informazioni Dataframe</a></li>
 <li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-11"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
 </ul></li>
@@ -326,9 +327,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="creazione-di-liste" class="section level2">
 <h2><span class="header-section-number">11.1</span> Creazione di Liste</h2>
 <p>In R per definire una lista si utilizza il comando:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="list.html#cb191-1"></a><span class="op">&lt;</span>nome<span class="op">-</span>Lista<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span><span class="op">-</span><span class="st"> </span><span class="kw">list</span>(<span class="dt">nome_oggetto_1 =</span> oggetto_<span class="dv">1</span>, ..., <span class="dt">nome_oggetto_n =</span> oggetto_n)</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="list.html#cb199-1"></a><span class="op">&lt;</span>nome<span class="op">-</span>Lista<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span><span class="op">-</span><span class="st"> </span><span class="kw">list</span>(<span class="dt">nome_oggetto_1 =</span> oggetto_<span class="dv">1</span>, ..., <span class="dt">nome_oggetto_n =</span> oggetto_n)</span></code></pre></div>
 <p>Nonostante il parametro <code>nome_oggetto_x</code> non sia necessario, come vedremo è assolutamente consigliato rinominare tutti gli elementi della lista per agevolare l’indicizzazione. Se non nominiamo gli elementi, questi saranno identificati con il numero progressivo <span class="math inline">\(1...n\)</span> esattamente come un vettore. Quindi, se nel nostro workspace abbiamo degli oggetti diversi come un <code>vettore</code>, un <code>dataframe</code> e una semplice <code>variabile</code> possiamo assegnare ognuno di questi elementi dentro ad una lista.</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="list.html#cb192-1"></a><span class="op">&lt;</span>nome<span class="op">-</span>Lista<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span><span class="op">-</span><span class="st"> </span><span class="kw">list</span>(oggetto_<span class="dv">1</span>, ..., oggetto_n)</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="list.html#cb200-1"></a><span class="op">&lt;</span>nome<span class="op">-</span>Lista<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span><span class="op">-</span><span class="st"> </span><span class="kw">list</span>(oggetto_<span class="dv">1</span>, ..., oggetto_n)</span></code></pre></div>
 <div class="tip" title="Lista vs dataframe/matrice">
 <p>Rispetto ai <code>dataframe</code> o alle <code>matrici</code> gli elementi della lista sono completamente indipendenti tra loro. Mentre una matrice/dataframe di <span class="math inline">\(i\)</span> righe e <span class="math inline">\(j\)</span> colonne aveva necessariamente tutte le righe e colonne di lunghezza uguali, la <code>lista</code> può contendere oggetti completamente diversi tra loro sia in tipologia che in dimensioni.</p>
 </div>
@@ -362,113 +363,113 @@ Figure 11.1: Esempio concettuale di una lista
 <div id="indicizzazione-di-una-lista" class="section level2">
 <h2><span class="header-section-number">11.2</span> Indicizzazione di una lista</h2>
 <p>Come dicevamo in precedenza, la lista è molto semplice da indicizzare e segue la stessa logica di un semplice vettore, dove ogni elemento ha il suo indice numerico progressivo. Una differenza rispetto ai vettori è il tipo di oggetto contenuto nella lista. Mentre nel vettore la scrittura <code>vettore[i]</code> ci fa accedere ad un singolo carattere e/o numero alla posizione <span class="math inline">\(i\)</span> la scrittura <code>lista[i]</code> non ci fa accedere direttamente al suo elemento. Essendo che ogni elemento di una lista può essere un oggetto complesso, per accedere direttamente è necessario usare le doppie parentesi quadrate <code>lista[[i]]</code>. Vediamo la differenza:</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="list.html#cb193-1"></a>a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">10</span>)</span>
-<span id="cb193-2"><a href="list.html#cb193-2"></a>b &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb193-3"><a href="list.html#cb193-3"></a>  <span class="dt">id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</span>
-<span id="cb193-4"><a href="list.html#cb193-4"></a>  <span class="dt">gender =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>), <span class="dt">each =</span> <span class="dv">5</span>),</span>
-<span id="cb193-5"><a href="list.html#cb193-5"></a>  <span class="dt">y =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
-<span id="cb193-6"><a href="list.html#cb193-6"></a>)</span>
-<span id="cb193-7"><a href="list.html#cb193-7"></a></span>
-<span id="cb193-8"><a href="list.html#cb193-8"></a>c &lt;-<span class="st"> &quot;prova&quot;</span></span>
-<span id="cb193-9"><a href="list.html#cb193-9"></a></span>
-<span id="cb193-10"><a href="list.html#cb193-10"></a>x &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;elemento1&quot;</span> =<span class="st"> </span>a, <span class="st">&quot;elemento2&quot;</span> =<span class="st"> </span>b, <span class="st">&quot;elemento3&quot;</span> =<span class="st"> </span>c)</span>
-<span id="cb193-11"><a href="list.html#cb193-11"></a></span>
-<span id="cb193-12"><a href="list.html#cb193-12"></a>x</span>
-<span id="cb193-13"><a href="list.html#cb193-13"></a><span class="co">## $elemento1</span></span>
-<span id="cb193-14"><a href="list.html#cb193-14"></a><span class="co">## [1]  1  3  5  6 10</span></span>
-<span id="cb193-15"><a href="list.html#cb193-15"></a><span class="co">## </span></span>
-<span id="cb193-16"><a href="list.html#cb193-16"></a><span class="co">## $elemento2</span></span>
-<span id="cb193-17"><a href="list.html#cb193-17"></a><span class="co">##    id gender  y</span></span>
-<span id="cb193-18"><a href="list.html#cb193-18"></a><span class="co">## 1   1      m  1</span></span>
-<span id="cb193-19"><a href="list.html#cb193-19"></a><span class="co">## 2   2      m  2</span></span>
-<span id="cb193-20"><a href="list.html#cb193-20"></a><span class="co">## 3   3      m  3</span></span>
-<span id="cb193-21"><a href="list.html#cb193-21"></a><span class="co">## 4   4      m  4</span></span>
-<span id="cb193-22"><a href="list.html#cb193-22"></a><span class="co">## 5   5      m  5</span></span>
-<span id="cb193-23"><a href="list.html#cb193-23"></a><span class="co">## 6   6      f  6</span></span>
-<span id="cb193-24"><a href="list.html#cb193-24"></a><span class="co">## 7   7      f  7</span></span>
-<span id="cb193-25"><a href="list.html#cb193-25"></a><span class="co">## 8   8      f  8</span></span>
-<span id="cb193-26"><a href="list.html#cb193-26"></a><span class="co">## 9   9      f  9</span></span>
-<span id="cb193-27"><a href="list.html#cb193-27"></a><span class="co">## 10 10      f 10</span></span>
-<span id="cb193-28"><a href="list.html#cb193-28"></a><span class="co">## </span></span>
-<span id="cb193-29"><a href="list.html#cb193-29"></a><span class="co">## $elemento3</span></span>
-<span id="cb193-30"><a href="list.html#cb193-30"></a><span class="co">## [1] &quot;prova&quot;</span></span>
-<span id="cb193-31"><a href="list.html#cb193-31"></a></span>
-<span id="cb193-32"><a href="list.html#cb193-32"></a><span class="co"># Indicizzazione con una parentesi</span></span>
-<span id="cb193-33"><a href="list.html#cb193-33"></a></span>
-<span id="cb193-34"><a href="list.html#cb193-34"></a>x[<span class="dv">1</span>]</span>
-<span id="cb193-35"><a href="list.html#cb193-35"></a><span class="co">## $elemento1</span></span>
-<span id="cb193-36"><a href="list.html#cb193-36"></a><span class="co">## [1]  1  3  5  6 10</span></span>
-<span id="cb193-37"><a href="list.html#cb193-37"></a></span>
-<span id="cb193-38"><a href="list.html#cb193-38"></a><span class="co"># Indicizzazione con 2 parentesi</span></span>
-<span id="cb193-39"><a href="list.html#cb193-39"></a></span>
-<span id="cb193-40"><a href="list.html#cb193-40"></a>x[[<span class="dv">1</span>]]</span>
-<span id="cb193-41"><a href="list.html#cb193-41"></a><span class="co">## [1]  1  3  5  6 10</span></span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="list.html#cb201-1"></a>a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">10</span>)</span>
+<span id="cb201-2"><a href="list.html#cb201-2"></a>b &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb201-3"><a href="list.html#cb201-3"></a>  <span class="dt">id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</span>
+<span id="cb201-4"><a href="list.html#cb201-4"></a>  <span class="dt">gender =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>), <span class="dt">each =</span> <span class="dv">5</span>),</span>
+<span id="cb201-5"><a href="list.html#cb201-5"></a>  <span class="dt">y =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb201-6"><a href="list.html#cb201-6"></a>)</span>
+<span id="cb201-7"><a href="list.html#cb201-7"></a></span>
+<span id="cb201-8"><a href="list.html#cb201-8"></a>c &lt;-<span class="st"> &quot;prova&quot;</span></span>
+<span id="cb201-9"><a href="list.html#cb201-9"></a></span>
+<span id="cb201-10"><a href="list.html#cb201-10"></a>x &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;elemento1&quot;</span> =<span class="st"> </span>a, <span class="st">&quot;elemento2&quot;</span> =<span class="st"> </span>b, <span class="st">&quot;elemento3&quot;</span> =<span class="st"> </span>c)</span>
+<span id="cb201-11"><a href="list.html#cb201-11"></a></span>
+<span id="cb201-12"><a href="list.html#cb201-12"></a>x</span>
+<span id="cb201-13"><a href="list.html#cb201-13"></a><span class="co">## $elemento1</span></span>
+<span id="cb201-14"><a href="list.html#cb201-14"></a><span class="co">## [1]  1  3  5  6 10</span></span>
+<span id="cb201-15"><a href="list.html#cb201-15"></a><span class="co">## </span></span>
+<span id="cb201-16"><a href="list.html#cb201-16"></a><span class="co">## $elemento2</span></span>
+<span id="cb201-17"><a href="list.html#cb201-17"></a><span class="co">##    id gender  y</span></span>
+<span id="cb201-18"><a href="list.html#cb201-18"></a><span class="co">## 1   1      m  1</span></span>
+<span id="cb201-19"><a href="list.html#cb201-19"></a><span class="co">## 2   2      m  2</span></span>
+<span id="cb201-20"><a href="list.html#cb201-20"></a><span class="co">## 3   3      m  3</span></span>
+<span id="cb201-21"><a href="list.html#cb201-21"></a><span class="co">## 4   4      m  4</span></span>
+<span id="cb201-22"><a href="list.html#cb201-22"></a><span class="co">## 5   5      m  5</span></span>
+<span id="cb201-23"><a href="list.html#cb201-23"></a><span class="co">## 6   6      f  6</span></span>
+<span id="cb201-24"><a href="list.html#cb201-24"></a><span class="co">## 7   7      f  7</span></span>
+<span id="cb201-25"><a href="list.html#cb201-25"></a><span class="co">## 8   8      f  8</span></span>
+<span id="cb201-26"><a href="list.html#cb201-26"></a><span class="co">## 9   9      f  9</span></span>
+<span id="cb201-27"><a href="list.html#cb201-27"></a><span class="co">## 10 10      f 10</span></span>
+<span id="cb201-28"><a href="list.html#cb201-28"></a><span class="co">## </span></span>
+<span id="cb201-29"><a href="list.html#cb201-29"></a><span class="co">## $elemento3</span></span>
+<span id="cb201-30"><a href="list.html#cb201-30"></a><span class="co">## [1] &quot;prova&quot;</span></span>
+<span id="cb201-31"><a href="list.html#cb201-31"></a></span>
+<span id="cb201-32"><a href="list.html#cb201-32"></a><span class="co"># Indicizzazione con una parentesi</span></span>
+<span id="cb201-33"><a href="list.html#cb201-33"></a></span>
+<span id="cb201-34"><a href="list.html#cb201-34"></a>x[<span class="dv">1</span>]</span>
+<span id="cb201-35"><a href="list.html#cb201-35"></a><span class="co">## $elemento1</span></span>
+<span id="cb201-36"><a href="list.html#cb201-36"></a><span class="co">## [1]  1  3  5  6 10</span></span>
+<span id="cb201-37"><a href="list.html#cb201-37"></a></span>
+<span id="cb201-38"><a href="list.html#cb201-38"></a><span class="co"># Indicizzazione con 2 parentesi</span></span>
+<span id="cb201-39"><a href="list.html#cb201-39"></a></span>
+<span id="cb201-40"><a href="list.html#cb201-40"></a>x[[<span class="dv">1</span>]]</span>
+<span id="cb201-41"><a href="list.html#cb201-41"></a><span class="co">## [1]  1  3  5  6 10</span></span></code></pre></div>
 <p>Questo aspetto è importante perchè usando <code>[i]</code> in realtà sto accedendo al primo elemento della lista ancora legato però alla lista originaria. Mentre con la scrittura <code>[[i]]</code> accedo direttamente all’oggetto contenuto. Questo diventa chiaro applicando una funzione generica allo stesso elemento indicizzato in modo diverso oppure usando la funzione <code>str()</code> per capire la tipologia. Come vedete solo accedendo direttamente all’elemento possiamo eseguire le normali operazioni. Infatti, indicizzando con 1 parentesi, l’oggetto è riconosciuto come una lista a singolo elemento.</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="list.html#cb194-1"></a></span>
-<span id="cb194-2"><a href="list.html#cb194-2"></a><span class="co"># Applichiamo la media al vettore `elemento1` indicizzato con 1 o 2 parentesi</span></span>
-<span id="cb194-3"><a href="list.html#cb194-3"></a></span>
-<span id="cb194-4"><a href="list.html#cb194-4"></a><span class="kw">mean</span>(x[<span class="dv">1</span>])</span>
-<span id="cb194-5"><a href="list.html#cb194-5"></a><span class="co">## Warning in mean.default(x[1]): argument is not numeric or logical: returning NA</span></span>
-<span id="cb194-6"><a href="list.html#cb194-6"></a><span class="co">## [1] NA</span></span>
-<span id="cb194-7"><a href="list.html#cb194-7"></a></span>
-<span id="cb194-8"><a href="list.html#cb194-8"></a><span class="kw">mean</span>(x[[<span class="dv">1</span>]])</span>
-<span id="cb194-9"><a href="list.html#cb194-9"></a><span class="co">## [1] 5</span></span>
-<span id="cb194-10"><a href="list.html#cb194-10"></a></span>
-<span id="cb194-11"><a href="list.html#cb194-11"></a><span class="co"># Vediamo la struttura</span></span>
-<span id="cb194-12"><a href="list.html#cb194-12"></a></span>
-<span id="cb194-13"><a href="list.html#cb194-13"></a><span class="kw">str</span>(x[<span class="dv">1</span>])</span>
-<span id="cb194-14"><a href="list.html#cb194-14"></a><span class="co">## List of 1</span></span>
-<span id="cb194-15"><a href="list.html#cb194-15"></a><span class="co">##  $ elemento1: num [1:5] 1 3 5 6 10</span></span>
-<span id="cb194-16"><a href="list.html#cb194-16"></a><span class="kw">str</span>(x[[<span class="dv">1</span>]])</span>
-<span id="cb194-17"><a href="list.html#cb194-17"></a><span class="co">##  num [1:5] 1 3 5 6 10</span></span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="list.html#cb202-1"></a></span>
+<span id="cb202-2"><a href="list.html#cb202-2"></a><span class="co"># Applichiamo la media al vettore `elemento1` indicizzato con 1 o 2 parentesi</span></span>
+<span id="cb202-3"><a href="list.html#cb202-3"></a></span>
+<span id="cb202-4"><a href="list.html#cb202-4"></a><span class="kw">mean</span>(x[<span class="dv">1</span>])</span>
+<span id="cb202-5"><a href="list.html#cb202-5"></a><span class="co">## Warning in mean.default(x[1]): argument is not numeric or logical: returning NA</span></span>
+<span id="cb202-6"><a href="list.html#cb202-6"></a><span class="co">## [1] NA</span></span>
+<span id="cb202-7"><a href="list.html#cb202-7"></a></span>
+<span id="cb202-8"><a href="list.html#cb202-8"></a><span class="kw">mean</span>(x[[<span class="dv">1</span>]])</span>
+<span id="cb202-9"><a href="list.html#cb202-9"></a><span class="co">## [1] 5</span></span>
+<span id="cb202-10"><a href="list.html#cb202-10"></a></span>
+<span id="cb202-11"><a href="list.html#cb202-11"></a><span class="co"># Vediamo la struttura</span></span>
+<span id="cb202-12"><a href="list.html#cb202-12"></a></span>
+<span id="cb202-13"><a href="list.html#cb202-13"></a><span class="kw">str</span>(x[<span class="dv">1</span>])</span>
+<span id="cb202-14"><a href="list.html#cb202-14"></a><span class="co">## List of 1</span></span>
+<span id="cb202-15"><a href="list.html#cb202-15"></a><span class="co">##  $ elemento1: num [1:5] 1 3 5 6 10</span></span>
+<span id="cb202-16"><a href="list.html#cb202-16"></a><span class="kw">str</span>(x[[<span class="dv">1</span>]])</span>
+<span id="cb202-17"><a href="list.html#cb202-17"></a><span class="co">##  num [1:5] 1 3 5 6 10</span></span></code></pre></div>
 <p>Fino ad ora abbiamo indicizzato la lista usando le parentesi <code>[[i]]</code> e un indice numerico <span class="math inline">\(i\)</span> che rappresenta la posizione. Allo stesso modo dei dataframe e in parte delle matrici però possiamo anche accedere agli elementi usando <code>$nome</code>:</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="list.html#cb195-1"></a>x</span>
-<span id="cb195-2"><a href="list.html#cb195-2"></a><span class="co">## $elemento1</span></span>
-<span id="cb195-3"><a href="list.html#cb195-3"></a><span class="co">## [1]  1  3  5  6 10</span></span>
-<span id="cb195-4"><a href="list.html#cb195-4"></a><span class="co">## </span></span>
-<span id="cb195-5"><a href="list.html#cb195-5"></a><span class="co">## $elemento2</span></span>
-<span id="cb195-6"><a href="list.html#cb195-6"></a><span class="co">##    id gender  y</span></span>
-<span id="cb195-7"><a href="list.html#cb195-7"></a><span class="co">## 1   1      m  1</span></span>
-<span id="cb195-8"><a href="list.html#cb195-8"></a><span class="co">## 2   2      m  2</span></span>
-<span id="cb195-9"><a href="list.html#cb195-9"></a><span class="co">## 3   3      m  3</span></span>
-<span id="cb195-10"><a href="list.html#cb195-10"></a><span class="co">## 4   4      m  4</span></span>
-<span id="cb195-11"><a href="list.html#cb195-11"></a><span class="co">## 5   5      m  5</span></span>
-<span id="cb195-12"><a href="list.html#cb195-12"></a><span class="co">## 6   6      f  6</span></span>
-<span id="cb195-13"><a href="list.html#cb195-13"></a><span class="co">## 7   7      f  7</span></span>
-<span id="cb195-14"><a href="list.html#cb195-14"></a><span class="co">## 8   8      f  8</span></span>
-<span id="cb195-15"><a href="list.html#cb195-15"></a><span class="co">## 9   9      f  9</span></span>
-<span id="cb195-16"><a href="list.html#cb195-16"></a><span class="co">## 10 10      f 10</span></span>
-<span id="cb195-17"><a href="list.html#cb195-17"></a><span class="co">## </span></span>
-<span id="cb195-18"><a href="list.html#cb195-18"></a><span class="co">## $elemento3</span></span>
-<span id="cb195-19"><a href="list.html#cb195-19"></a><span class="co">## [1] &quot;prova&quot;</span></span>
-<span id="cb195-20"><a href="list.html#cb195-20"></a><span class="co"># Selezioniamo il primo elemento</span></span>
-<span id="cb195-21"><a href="list.html#cb195-21"></a></span>
-<span id="cb195-22"><a href="list.html#cb195-22"></a>x<span class="op">$</span>elemento1</span>
-<span id="cb195-23"><a href="list.html#cb195-23"></a><span class="co">## [1]  1  3  5  6 10</span></span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="list.html#cb203-1"></a>x</span>
+<span id="cb203-2"><a href="list.html#cb203-2"></a><span class="co">## $elemento1</span></span>
+<span id="cb203-3"><a href="list.html#cb203-3"></a><span class="co">## [1]  1  3  5  6 10</span></span>
+<span id="cb203-4"><a href="list.html#cb203-4"></a><span class="co">## </span></span>
+<span id="cb203-5"><a href="list.html#cb203-5"></a><span class="co">## $elemento2</span></span>
+<span id="cb203-6"><a href="list.html#cb203-6"></a><span class="co">##    id gender  y</span></span>
+<span id="cb203-7"><a href="list.html#cb203-7"></a><span class="co">## 1   1      m  1</span></span>
+<span id="cb203-8"><a href="list.html#cb203-8"></a><span class="co">## 2   2      m  2</span></span>
+<span id="cb203-9"><a href="list.html#cb203-9"></a><span class="co">## 3   3      m  3</span></span>
+<span id="cb203-10"><a href="list.html#cb203-10"></a><span class="co">## 4   4      m  4</span></span>
+<span id="cb203-11"><a href="list.html#cb203-11"></a><span class="co">## 5   5      m  5</span></span>
+<span id="cb203-12"><a href="list.html#cb203-12"></a><span class="co">## 6   6      f  6</span></span>
+<span id="cb203-13"><a href="list.html#cb203-13"></a><span class="co">## 7   7      f  7</span></span>
+<span id="cb203-14"><a href="list.html#cb203-14"></a><span class="co">## 8   8      f  8</span></span>
+<span id="cb203-15"><a href="list.html#cb203-15"></a><span class="co">## 9   9      f  9</span></span>
+<span id="cb203-16"><a href="list.html#cb203-16"></a><span class="co">## 10 10      f 10</span></span>
+<span id="cb203-17"><a href="list.html#cb203-17"></a><span class="co">## </span></span>
+<span id="cb203-18"><a href="list.html#cb203-18"></a><span class="co">## $elemento3</span></span>
+<span id="cb203-19"><a href="list.html#cb203-19"></a><span class="co">## [1] &quot;prova&quot;</span></span>
+<span id="cb203-20"><a href="list.html#cb203-20"></a><span class="co"># Selezioniamo il primo elemento</span></span>
+<span id="cb203-21"><a href="list.html#cb203-21"></a></span>
+<span id="cb203-22"><a href="list.html#cb203-22"></a>x<span class="op">$</span>elemento1</span>
+<span id="cb203-23"><a href="list.html#cb203-23"></a><span class="co">## [1]  1  3  5  6 10</span></span></code></pre></div>
 <p>Una volta che abbiamo avuto accesso ad uno specifico elemento, possiamo utilizzare quell’oggetto nel modo che preferiamo, chiaramente in base alle operazione specifiche che sono consentite. Possiamo assegnare l’elemento di una lista ad un nuovo oggetto, oppure eseguire direttamente delle funzioni o altre operazioni generiche.</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="list.html#cb196-1"></a></span>
-<span id="cb196-2"><a href="list.html#cb196-2"></a><span class="co"># Seleziono il primo elemento dell&#39;oggetto $elemento1</span></span>
-<span id="cb196-3"><a href="list.html#cb196-3"></a></span>
-<span id="cb196-4"><a href="list.html#cb196-4"></a>x<span class="op">$</span>elemento1</span>
-<span id="cb196-5"><a href="list.html#cb196-5"></a><span class="co">## [1]  1  3  5  6 10</span></span>
-<span id="cb196-6"><a href="list.html#cb196-6"></a></span>
-<span id="cb196-7"><a href="list.html#cb196-7"></a>x<span class="op">$</span>elemento1[<span class="dv">1</span>]</span>
-<span id="cb196-8"><a href="list.html#cb196-8"></a><span class="co">## [1] 1</span></span>
-<span id="cb196-9"><a href="list.html#cb196-9"></a>x[[<span class="dv">1</span>]][<span class="dv">1</span>] <span class="co"># equivalente a alla precedente</span></span>
-<span id="cb196-10"><a href="list.html#cb196-10"></a><span class="co">## [1] 1</span></span>
-<span id="cb196-11"><a href="list.html#cb196-11"></a></span>
-<span id="cb196-12"><a href="list.html#cb196-12"></a><span class="co"># Seleziono la colonna $gender dell&#39;oggetto $elemento2</span></span>
-<span id="cb196-13"><a href="list.html#cb196-13"></a></span>
-<span id="cb196-14"><a href="list.html#cb196-14"></a>x<span class="op">$</span>elemento2<span class="op">$</span>gender</span>
-<span id="cb196-15"><a href="list.html#cb196-15"></a><span class="co">##  [1] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot;</span></span>
-<span id="cb196-16"><a href="list.html#cb196-16"></a></span>
-<span id="cb196-17"><a href="list.html#cb196-17"></a><span class="co"># Altre scritture equivalenti</span></span>
-<span id="cb196-18"><a href="list.html#cb196-18"></a>x[[<span class="dv">2</span>]]<span class="op">$</span>gender</span>
-<span id="cb196-19"><a href="list.html#cb196-19"></a><span class="co">##  [1] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot;</span></span>
-<span id="cb196-20"><a href="list.html#cb196-20"></a>x[[<span class="dv">2</span>]][, <span class="dv">2</span>]</span>
-<span id="cb196-21"><a href="list.html#cb196-21"></a><span class="co">##  [1] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot;</span></span>
-<span id="cb196-22"><a href="list.html#cb196-22"></a>x[[<span class="dv">2</span>]][, <span class="st">&quot;gender&quot;</span>]</span>
-<span id="cb196-23"><a href="list.html#cb196-23"></a><span class="co">##  [1] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="list.html#cb204-1"></a></span>
+<span id="cb204-2"><a href="list.html#cb204-2"></a><span class="co"># Seleziono il primo elemento dell&#39;oggetto $elemento1</span></span>
+<span id="cb204-3"><a href="list.html#cb204-3"></a></span>
+<span id="cb204-4"><a href="list.html#cb204-4"></a>x<span class="op">$</span>elemento1</span>
+<span id="cb204-5"><a href="list.html#cb204-5"></a><span class="co">## [1]  1  3  5  6 10</span></span>
+<span id="cb204-6"><a href="list.html#cb204-6"></a></span>
+<span id="cb204-7"><a href="list.html#cb204-7"></a>x<span class="op">$</span>elemento1[<span class="dv">1</span>]</span>
+<span id="cb204-8"><a href="list.html#cb204-8"></a><span class="co">## [1] 1</span></span>
+<span id="cb204-9"><a href="list.html#cb204-9"></a>x[[<span class="dv">1</span>]][<span class="dv">1</span>] <span class="co"># equivalente a alla precedente</span></span>
+<span id="cb204-10"><a href="list.html#cb204-10"></a><span class="co">## [1] 1</span></span>
+<span id="cb204-11"><a href="list.html#cb204-11"></a></span>
+<span id="cb204-12"><a href="list.html#cb204-12"></a><span class="co"># Seleziono la colonna $gender dell&#39;oggetto $elemento2</span></span>
+<span id="cb204-13"><a href="list.html#cb204-13"></a></span>
+<span id="cb204-14"><a href="list.html#cb204-14"></a>x<span class="op">$</span>elemento2<span class="op">$</span>gender</span>
+<span id="cb204-15"><a href="list.html#cb204-15"></a><span class="co">##  [1] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot;</span></span>
+<span id="cb204-16"><a href="list.html#cb204-16"></a></span>
+<span id="cb204-17"><a href="list.html#cb204-17"></a><span class="co"># Altre scritture equivalenti</span></span>
+<span id="cb204-18"><a href="list.html#cb204-18"></a>x[[<span class="dv">2</span>]]<span class="op">$</span>gender</span>
+<span id="cb204-19"><a href="list.html#cb204-19"></a><span class="co">##  [1] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot;</span></span>
+<span id="cb204-20"><a href="list.html#cb204-20"></a>x[[<span class="dv">2</span>]][, <span class="dv">2</span>]</span>
+<span id="cb204-21"><a href="list.html#cb204-21"></a><span class="co">##  [1] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot;</span></span>
+<span id="cb204-22"><a href="list.html#cb204-22"></a>x[[<span class="dv">2</span>]][, <span class="st">&quot;gender&quot;</span>]</span>
+<span id="cb204-23"><a href="list.html#cb204-23"></a><span class="co">##  [1] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot;</span></span></code></pre></div>
 </div>
 <div id="proprietà-della-lista" class="section level2">
 <h2><span class="header-section-number">11.3</span> Proprietà della lista</h2>
@@ -478,35 +479,35 @@ Figure 11.1: Esempio concettuale di una lista
 <li>Assegnare ad ogni elemento un nome, con un vettore di stringhe: <code>names(lista) &lt;- c("nome")</code>.</li>
 </ul>
 <p>Rispetto al <strong>numero di elementi</strong>, possiamo usar, analogalmente ai vettori, il comando <code>length(lista)</code>. Per avere invece una visione più chiara della struttura della lista, sopratutto se molto complessa il comando <code>str(lista)</code> ci fornisce una utile panoramica.</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="list.html#cb197-1"></a><span class="kw">names</span>(x)</span>
-<span id="cb197-2"><a href="list.html#cb197-2"></a><span class="co">## [1] &quot;elemento1&quot; &quot;elemento2&quot; &quot;elemento3&quot;</span></span>
-<span id="cb197-3"><a href="list.html#cb197-3"></a></span>
-<span id="cb197-4"><a href="list.html#cb197-4"></a><span class="kw">names</span>(x) &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># eliminiamo i nomi (come se non gli avessimo assegnati in fase di creazione)</span></span>
-<span id="cb197-5"><a href="list.html#cb197-5"></a></span>
-<span id="cb197-6"><a href="list.html#cb197-6"></a><span class="kw">names</span>(x)</span>
-<span id="cb197-7"><a href="list.html#cb197-7"></a><span class="co">## NULL</span></span>
-<span id="cb197-8"><a href="list.html#cb197-8"></a></span>
-<span id="cb197-9"><a href="list.html#cb197-9"></a><span class="co"># Assegnamo dei nomi</span></span>
-<span id="cb197-10"><a href="list.html#cb197-10"></a></span>
-<span id="cb197-11"><a href="list.html#cb197-11"></a><span class="kw">names</span>(x) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;nome1&quot;</span>, <span class="st">&quot;nome2&quot;</span>, <span class="st">&quot;nome3&quot;</span>)</span>
-<span id="cb197-12"><a href="list.html#cb197-12"></a><span class="kw">names</span>(x)</span>
-<span id="cb197-13"><a href="list.html#cb197-13"></a><span class="co">## [1] &quot;nome1&quot; &quot;nome2&quot; &quot;nome3&quot;</span></span>
-<span id="cb197-14"><a href="list.html#cb197-14"></a></span>
-<span id="cb197-15"><a href="list.html#cb197-15"></a><span class="co"># Dimensioni Lista</span></span>
-<span id="cb197-16"><a href="list.html#cb197-16"></a></span>
-<span id="cb197-17"><a href="list.html#cb197-17"></a><span class="kw">length</span>(x)</span>
-<span id="cb197-18"><a href="list.html#cb197-18"></a><span class="co">## [1] 3</span></span>
-<span id="cb197-19"><a href="list.html#cb197-19"></a></span>
-<span id="cb197-20"><a href="list.html#cb197-20"></a><span class="co"># Struttura</span></span>
-<span id="cb197-21"><a href="list.html#cb197-21"></a></span>
-<span id="cb197-22"><a href="list.html#cb197-22"></a><span class="kw">str</span>(x)</span>
-<span id="cb197-23"><a href="list.html#cb197-23"></a><span class="co">## List of 3</span></span>
-<span id="cb197-24"><a href="list.html#cb197-24"></a><span class="co">##  $ nome1: num [1:5] 1 3 5 6 10</span></span>
-<span id="cb197-25"><a href="list.html#cb197-25"></a><span class="co">##  $ nome2:&#39;data.frame&#39;:   10 obs. of  3 variables:</span></span>
-<span id="cb197-26"><a href="list.html#cb197-26"></a><span class="co">##   ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb197-27"><a href="list.html#cb197-27"></a><span class="co">##   ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
-<span id="cb197-28"><a href="list.html#cb197-28"></a><span class="co">##   ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb197-29"><a href="list.html#cb197-29"></a><span class="co">##  $ nome3: chr &quot;prova&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="list.html#cb205-1"></a><span class="kw">names</span>(x)</span>
+<span id="cb205-2"><a href="list.html#cb205-2"></a><span class="co">## [1] &quot;elemento1&quot; &quot;elemento2&quot; &quot;elemento3&quot;</span></span>
+<span id="cb205-3"><a href="list.html#cb205-3"></a></span>
+<span id="cb205-4"><a href="list.html#cb205-4"></a><span class="kw">names</span>(x) &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># eliminiamo i nomi (come se non gli avessimo assegnati in fase di creazione)</span></span>
+<span id="cb205-5"><a href="list.html#cb205-5"></a></span>
+<span id="cb205-6"><a href="list.html#cb205-6"></a><span class="kw">names</span>(x)</span>
+<span id="cb205-7"><a href="list.html#cb205-7"></a><span class="co">## NULL</span></span>
+<span id="cb205-8"><a href="list.html#cb205-8"></a></span>
+<span id="cb205-9"><a href="list.html#cb205-9"></a><span class="co"># Assegnamo dei nomi</span></span>
+<span id="cb205-10"><a href="list.html#cb205-10"></a></span>
+<span id="cb205-11"><a href="list.html#cb205-11"></a><span class="kw">names</span>(x) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;nome1&quot;</span>, <span class="st">&quot;nome2&quot;</span>, <span class="st">&quot;nome3&quot;</span>)</span>
+<span id="cb205-12"><a href="list.html#cb205-12"></a><span class="kw">names</span>(x)</span>
+<span id="cb205-13"><a href="list.html#cb205-13"></a><span class="co">## [1] &quot;nome1&quot; &quot;nome2&quot; &quot;nome3&quot;</span></span>
+<span id="cb205-14"><a href="list.html#cb205-14"></a></span>
+<span id="cb205-15"><a href="list.html#cb205-15"></a><span class="co"># Dimensioni Lista</span></span>
+<span id="cb205-16"><a href="list.html#cb205-16"></a></span>
+<span id="cb205-17"><a href="list.html#cb205-17"></a><span class="kw">length</span>(x)</span>
+<span id="cb205-18"><a href="list.html#cb205-18"></a><span class="co">## [1] 3</span></span>
+<span id="cb205-19"><a href="list.html#cb205-19"></a></span>
+<span id="cb205-20"><a href="list.html#cb205-20"></a><span class="co"># Struttura</span></span>
+<span id="cb205-21"><a href="list.html#cb205-21"></a></span>
+<span id="cb205-22"><a href="list.html#cb205-22"></a><span class="kw">str</span>(x)</span>
+<span id="cb205-23"><a href="list.html#cb205-23"></a><span class="co">## List of 3</span></span>
+<span id="cb205-24"><a href="list.html#cb205-24"></a><span class="co">##  $ nome1: num [1:5] 1 3 5 6 10</span></span>
+<span id="cb205-25"><a href="list.html#cb205-25"></a><span class="co">##  $ nome2:&#39;data.frame&#39;:   10 obs. of  3 variables:</span></span>
+<span id="cb205-26"><a href="list.html#cb205-26"></a><span class="co">##   ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb205-27"><a href="list.html#cb205-27"></a><span class="co">##   ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
+<span id="cb205-28"><a href="list.html#cb205-28"></a><span class="co">##   ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb205-29"><a href="list.html#cb205-29"></a><span class="co">##  $ nome3: chr &quot;prova&quot;</span></span></code></pre></div>
 <div id="esercizi-13" class="section level3 unnumbered">
 <h3>Esercizi</h3>
 <ol style="list-style-type: decimal">
@@ -531,100 +532,100 @@ Figure 11.2: Rappresentazione concettuale di una lista nested
 <li>Ogni soggetto come una lista, chiamata <code>s1, s2, ..., sn</code></li>
 <li>Ogni elemento della lista-soggetto è un dataframe per lo specifico esperimento chiamato <code>exp1, exp2, ..., expn</code></li>
 </ul>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="list.html#cb198-1"></a></span>
-<span id="cb198-2"><a href="list.html#cb198-2"></a><span class="co"># Per comodità ripetiamo lo stesso esperimento e lo stesso soggetto</span></span>
-<span id="cb198-3"><a href="list.html#cb198-3"></a></span>
-<span id="cb198-4"><a href="list.html#cb198-4"></a><span class="co"># Esperimento generico</span></span>
-<span id="cb198-5"><a href="list.html#cb198-5"></a>exp_x &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb198-6"><a href="list.html#cb198-6"></a>  <span class="dt">id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</span>
-<span id="cb198-7"><a href="list.html#cb198-7"></a>  <span class="dt">gender =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>), <span class="dt">each =</span> <span class="dv">5</span>),</span>
-<span id="cb198-8"><a href="list.html#cb198-8"></a>  <span class="dt">y =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
-<span id="cb198-9"><a href="list.html#cb198-9"></a>)</span>
-<span id="cb198-10"><a href="list.html#cb198-10"></a></span>
-<span id="cb198-11"><a href="list.html#cb198-11"></a><span class="co"># Soggetto generico</span></span>
-<span id="cb198-12"><a href="list.html#cb198-12"></a>sx &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
-<span id="cb198-13"><a href="list.html#cb198-13"></a>  <span class="dt">exp1 =</span> exp_x,</span>
-<span id="cb198-14"><a href="list.html#cb198-14"></a>  <span class="dt">exp2 =</span> exp_x,</span>
-<span id="cb198-15"><a href="list.html#cb198-15"></a>  <span class="dt">exp3 =</span> exp_x</span>
-<span id="cb198-16"><a href="list.html#cb198-16"></a>)</span>
-<span id="cb198-17"><a href="list.html#cb198-17"></a></span>
-<span id="cb198-18"><a href="list.html#cb198-18"></a><span class="co"># Lista Completa</span></span>
-<span id="cb198-19"><a href="list.html#cb198-19"></a></span>
-<span id="cb198-20"><a href="list.html#cb198-20"></a>esperimenti &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
-<span id="cb198-21"><a href="list.html#cb198-21"></a>  <span class="dt">s1 =</span> sx,</span>
-<span id="cb198-22"><a href="list.html#cb198-22"></a>  <span class="dt">s2 =</span> sx,</span>
-<span id="cb198-23"><a href="list.html#cb198-23"></a>  <span class="dt">s3 =</span> sx</span>
-<span id="cb198-24"><a href="list.html#cb198-24"></a>)</span>
-<span id="cb198-25"><a href="list.html#cb198-25"></a></span>
-<span id="cb198-26"><a href="list.html#cb198-26"></a><span class="kw">str</span>(esperimenti)</span>
-<span id="cb198-27"><a href="list.html#cb198-27"></a><span class="co">## List of 3</span></span>
-<span id="cb198-28"><a href="list.html#cb198-28"></a><span class="co">##  $ s1:List of 3</span></span>
-<span id="cb198-29"><a href="list.html#cb198-29"></a><span class="co">##   ..$ exp1:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
-<span id="cb198-30"><a href="list.html#cb198-30"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-31"><a href="list.html#cb198-31"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
-<span id="cb198-32"><a href="list.html#cb198-32"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-33"><a href="list.html#cb198-33"></a><span class="co">##   ..$ exp2:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
-<span id="cb198-34"><a href="list.html#cb198-34"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-35"><a href="list.html#cb198-35"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
-<span id="cb198-36"><a href="list.html#cb198-36"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-37"><a href="list.html#cb198-37"></a><span class="co">##   ..$ exp3:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
-<span id="cb198-38"><a href="list.html#cb198-38"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-39"><a href="list.html#cb198-39"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
-<span id="cb198-40"><a href="list.html#cb198-40"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-41"><a href="list.html#cb198-41"></a><span class="co">##  $ s2:List of 3</span></span>
-<span id="cb198-42"><a href="list.html#cb198-42"></a><span class="co">##   ..$ exp1:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
-<span id="cb198-43"><a href="list.html#cb198-43"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-44"><a href="list.html#cb198-44"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
-<span id="cb198-45"><a href="list.html#cb198-45"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-46"><a href="list.html#cb198-46"></a><span class="co">##   ..$ exp2:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
-<span id="cb198-47"><a href="list.html#cb198-47"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-48"><a href="list.html#cb198-48"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
-<span id="cb198-49"><a href="list.html#cb198-49"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-50"><a href="list.html#cb198-50"></a><span class="co">##   ..$ exp3:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
-<span id="cb198-51"><a href="list.html#cb198-51"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-52"><a href="list.html#cb198-52"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
-<span id="cb198-53"><a href="list.html#cb198-53"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-54"><a href="list.html#cb198-54"></a><span class="co">##  $ s3:List of 3</span></span>
-<span id="cb198-55"><a href="list.html#cb198-55"></a><span class="co">##   ..$ exp1:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
-<span id="cb198-56"><a href="list.html#cb198-56"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-57"><a href="list.html#cb198-57"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
-<span id="cb198-58"><a href="list.html#cb198-58"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-59"><a href="list.html#cb198-59"></a><span class="co">##   ..$ exp2:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
-<span id="cb198-60"><a href="list.html#cb198-60"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-61"><a href="list.html#cb198-61"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
-<span id="cb198-62"><a href="list.html#cb198-62"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-63"><a href="list.html#cb198-63"></a><span class="co">##   ..$ exp3:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
-<span id="cb198-64"><a href="list.html#cb198-64"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb198-65"><a href="list.html#cb198-65"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
-<span id="cb198-66"><a href="list.html#cb198-66"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="list.html#cb206-1"></a></span>
+<span id="cb206-2"><a href="list.html#cb206-2"></a><span class="co"># Per comodità ripetiamo lo stesso esperimento e lo stesso soggetto</span></span>
+<span id="cb206-3"><a href="list.html#cb206-3"></a></span>
+<span id="cb206-4"><a href="list.html#cb206-4"></a><span class="co"># Esperimento generico</span></span>
+<span id="cb206-5"><a href="list.html#cb206-5"></a>exp_x &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb206-6"><a href="list.html#cb206-6"></a>  <span class="dt">id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</span>
+<span id="cb206-7"><a href="list.html#cb206-7"></a>  <span class="dt">gender =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>), <span class="dt">each =</span> <span class="dv">5</span>),</span>
+<span id="cb206-8"><a href="list.html#cb206-8"></a>  <span class="dt">y =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb206-9"><a href="list.html#cb206-9"></a>)</span>
+<span id="cb206-10"><a href="list.html#cb206-10"></a></span>
+<span id="cb206-11"><a href="list.html#cb206-11"></a><span class="co"># Soggetto generico</span></span>
+<span id="cb206-12"><a href="list.html#cb206-12"></a>sx &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
+<span id="cb206-13"><a href="list.html#cb206-13"></a>  <span class="dt">exp1 =</span> exp_x,</span>
+<span id="cb206-14"><a href="list.html#cb206-14"></a>  <span class="dt">exp2 =</span> exp_x,</span>
+<span id="cb206-15"><a href="list.html#cb206-15"></a>  <span class="dt">exp3 =</span> exp_x</span>
+<span id="cb206-16"><a href="list.html#cb206-16"></a>)</span>
+<span id="cb206-17"><a href="list.html#cb206-17"></a></span>
+<span id="cb206-18"><a href="list.html#cb206-18"></a><span class="co"># Lista Completa</span></span>
+<span id="cb206-19"><a href="list.html#cb206-19"></a></span>
+<span id="cb206-20"><a href="list.html#cb206-20"></a>esperimenti &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
+<span id="cb206-21"><a href="list.html#cb206-21"></a>  <span class="dt">s1 =</span> sx,</span>
+<span id="cb206-22"><a href="list.html#cb206-22"></a>  <span class="dt">s2 =</span> sx,</span>
+<span id="cb206-23"><a href="list.html#cb206-23"></a>  <span class="dt">s3 =</span> sx</span>
+<span id="cb206-24"><a href="list.html#cb206-24"></a>)</span>
+<span id="cb206-25"><a href="list.html#cb206-25"></a></span>
+<span id="cb206-26"><a href="list.html#cb206-26"></a><span class="kw">str</span>(esperimenti)</span>
+<span id="cb206-27"><a href="list.html#cb206-27"></a><span class="co">## List of 3</span></span>
+<span id="cb206-28"><a href="list.html#cb206-28"></a><span class="co">##  $ s1:List of 3</span></span>
+<span id="cb206-29"><a href="list.html#cb206-29"></a><span class="co">##   ..$ exp1:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
+<span id="cb206-30"><a href="list.html#cb206-30"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-31"><a href="list.html#cb206-31"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
+<span id="cb206-32"><a href="list.html#cb206-32"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-33"><a href="list.html#cb206-33"></a><span class="co">##   ..$ exp2:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
+<span id="cb206-34"><a href="list.html#cb206-34"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-35"><a href="list.html#cb206-35"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
+<span id="cb206-36"><a href="list.html#cb206-36"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-37"><a href="list.html#cb206-37"></a><span class="co">##   ..$ exp3:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
+<span id="cb206-38"><a href="list.html#cb206-38"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-39"><a href="list.html#cb206-39"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
+<span id="cb206-40"><a href="list.html#cb206-40"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-41"><a href="list.html#cb206-41"></a><span class="co">##  $ s2:List of 3</span></span>
+<span id="cb206-42"><a href="list.html#cb206-42"></a><span class="co">##   ..$ exp1:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
+<span id="cb206-43"><a href="list.html#cb206-43"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-44"><a href="list.html#cb206-44"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
+<span id="cb206-45"><a href="list.html#cb206-45"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-46"><a href="list.html#cb206-46"></a><span class="co">##   ..$ exp2:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
+<span id="cb206-47"><a href="list.html#cb206-47"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-48"><a href="list.html#cb206-48"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
+<span id="cb206-49"><a href="list.html#cb206-49"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-50"><a href="list.html#cb206-50"></a><span class="co">##   ..$ exp3:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
+<span id="cb206-51"><a href="list.html#cb206-51"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-52"><a href="list.html#cb206-52"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
+<span id="cb206-53"><a href="list.html#cb206-53"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-54"><a href="list.html#cb206-54"></a><span class="co">##  $ s3:List of 3</span></span>
+<span id="cb206-55"><a href="list.html#cb206-55"></a><span class="co">##   ..$ exp1:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
+<span id="cb206-56"><a href="list.html#cb206-56"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-57"><a href="list.html#cb206-57"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
+<span id="cb206-58"><a href="list.html#cb206-58"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-59"><a href="list.html#cb206-59"></a><span class="co">##   ..$ exp2:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
+<span id="cb206-60"><a href="list.html#cb206-60"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-61"><a href="list.html#cb206-61"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
+<span id="cb206-62"><a href="list.html#cb206-62"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-63"><a href="list.html#cb206-63"></a><span class="co">##   ..$ exp3:&#39;data.frame&#39;: 10 obs. of  3 variables:</span></span>
+<span id="cb206-64"><a href="list.html#cb206-64"></a><span class="co">##   .. ..$ id    : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb206-65"><a href="list.html#cb206-65"></a><span class="co">##   .. ..$ gender: chr [1:10] &quot;m&quot; &quot;m&quot; &quot;m&quot; &quot;m&quot; ...</span></span>
+<span id="cb206-66"><a href="list.html#cb206-66"></a><span class="co">##   .. ..$ y     : int [1:10] 1 2 3 4 5 6 7 8 9 10</span></span></code></pre></div>
 <p>Ora la struttura è molto più complessa, ma se abbiamo chiara la figura <a href="list.html#fig:list-depth">11.2</a> e l’indicizzazione per le liste precedenti, accedere agli elementi della lista <code>esperimenti</code> è semplice ed intuitivo. Se vogliamo accedere al dataset del <code>soggetto 3</code> che riguarda <code>l'esperimento 2</code>:</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="list.html#cb199-1"></a><span class="co"># Con indici numerici</span></span>
-<span id="cb199-2"><a href="list.html#cb199-2"></a>esperimenti[[<span class="dv">3</span>]][[<span class="dv">2</span>]] <span class="co"># elemento 3 (una lista) e poi l&#39;elemento 2</span></span>
-<span id="cb199-3"><a href="list.html#cb199-3"></a><span class="co">##    id gender  y</span></span>
-<span id="cb199-4"><a href="list.html#cb199-4"></a><span class="co">## 1   1      m  1</span></span>
-<span id="cb199-5"><a href="list.html#cb199-5"></a><span class="co">## 2   2      m  2</span></span>
-<span id="cb199-6"><a href="list.html#cb199-6"></a><span class="co">## 3   3      m  3</span></span>
-<span id="cb199-7"><a href="list.html#cb199-7"></a><span class="co">## 4   4      m  4</span></span>
-<span id="cb199-8"><a href="list.html#cb199-8"></a><span class="co">## 5   5      m  5</span></span>
-<span id="cb199-9"><a href="list.html#cb199-9"></a><span class="co">## 6   6      f  6</span></span>
-<span id="cb199-10"><a href="list.html#cb199-10"></a><span class="co">## 7   7      f  7</span></span>
-<span id="cb199-11"><a href="list.html#cb199-11"></a><span class="co">## 8   8      f  8</span></span>
-<span id="cb199-12"><a href="list.html#cb199-12"></a><span class="co">## 9   9      f  9</span></span>
-<span id="cb199-13"><a href="list.html#cb199-13"></a><span class="co">## 10 10      f 10</span></span>
-<span id="cb199-14"><a href="list.html#cb199-14"></a></span>
-<span id="cb199-15"><a href="list.html#cb199-15"></a><span class="co"># Con i nomi (molto più intuitivo)</span></span>
-<span id="cb199-16"><a href="list.html#cb199-16"></a>esperimenti<span class="op">$</span>s3<span class="op">$</span>exp2</span>
-<span id="cb199-17"><a href="list.html#cb199-17"></a><span class="co">##    id gender  y</span></span>
-<span id="cb199-18"><a href="list.html#cb199-18"></a><span class="co">## 1   1      m  1</span></span>
-<span id="cb199-19"><a href="list.html#cb199-19"></a><span class="co">## 2   2      m  2</span></span>
-<span id="cb199-20"><a href="list.html#cb199-20"></a><span class="co">## 3   3      m  3</span></span>
-<span id="cb199-21"><a href="list.html#cb199-21"></a><span class="co">## 4   4      m  4</span></span>
-<span id="cb199-22"><a href="list.html#cb199-22"></a><span class="co">## 5   5      m  5</span></span>
-<span id="cb199-23"><a href="list.html#cb199-23"></a><span class="co">## 6   6      f  6</span></span>
-<span id="cb199-24"><a href="list.html#cb199-24"></a><span class="co">## 7   7      f  7</span></span>
-<span id="cb199-25"><a href="list.html#cb199-25"></a><span class="co">## 8   8      f  8</span></span>
-<span id="cb199-26"><a href="list.html#cb199-26"></a><span class="co">## 9   9      f  9</span></span>
-<span id="cb199-27"><a href="list.html#cb199-27"></a><span class="co">## 10 10      f 10</span></span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="list.html#cb207-1"></a><span class="co"># Con indici numerici</span></span>
+<span id="cb207-2"><a href="list.html#cb207-2"></a>esperimenti[[<span class="dv">3</span>]][[<span class="dv">2</span>]] <span class="co"># elemento 3 (una lista) e poi l&#39;elemento 2</span></span>
+<span id="cb207-3"><a href="list.html#cb207-3"></a><span class="co">##    id gender  y</span></span>
+<span id="cb207-4"><a href="list.html#cb207-4"></a><span class="co">## 1   1      m  1</span></span>
+<span id="cb207-5"><a href="list.html#cb207-5"></a><span class="co">## 2   2      m  2</span></span>
+<span id="cb207-6"><a href="list.html#cb207-6"></a><span class="co">## 3   3      m  3</span></span>
+<span id="cb207-7"><a href="list.html#cb207-7"></a><span class="co">## 4   4      m  4</span></span>
+<span id="cb207-8"><a href="list.html#cb207-8"></a><span class="co">## 5   5      m  5</span></span>
+<span id="cb207-9"><a href="list.html#cb207-9"></a><span class="co">## 6   6      f  6</span></span>
+<span id="cb207-10"><a href="list.html#cb207-10"></a><span class="co">## 7   7      f  7</span></span>
+<span id="cb207-11"><a href="list.html#cb207-11"></a><span class="co">## 8   8      f  8</span></span>
+<span id="cb207-12"><a href="list.html#cb207-12"></a><span class="co">## 9   9      f  9</span></span>
+<span id="cb207-13"><a href="list.html#cb207-13"></a><span class="co">## 10 10      f 10</span></span>
+<span id="cb207-14"><a href="list.html#cb207-14"></a></span>
+<span id="cb207-15"><a href="list.html#cb207-15"></a><span class="co"># Con i nomi (molto più intuitivo)</span></span>
+<span id="cb207-16"><a href="list.html#cb207-16"></a>esperimenti<span class="op">$</span>s3<span class="op">$</span>exp2</span>
+<span id="cb207-17"><a href="list.html#cb207-17"></a><span class="co">##    id gender  y</span></span>
+<span id="cb207-18"><a href="list.html#cb207-18"></a><span class="co">## 1   1      m  1</span></span>
+<span id="cb207-19"><a href="list.html#cb207-19"></a><span class="co">## 2   2      m  2</span></span>
+<span id="cb207-20"><a href="list.html#cb207-20"></a><span class="co">## 3   3      m  3</span></span>
+<span id="cb207-21"><a href="list.html#cb207-21"></a><span class="co">## 4   4      m  4</span></span>
+<span id="cb207-22"><a href="list.html#cb207-22"></a><span class="co">## 5   5      m  5</span></span>
+<span id="cb207-23"><a href="list.html#cb207-23"></a><span class="co">## 6   6      f  6</span></span>
+<span id="cb207-24"><a href="list.html#cb207-24"></a><span class="co">## 7   7      f  7</span></span>
+<span id="cb207-25"><a href="list.html#cb207-25"></a><span class="co">## 8   8      f  8</span></span>
+<span id="cb207-26"><a href="list.html#cb207-26"></a><span class="co">## 9   9      f  9</span></span>
+<span id="cb207-27"><a href="list.html#cb207-27"></a><span class="co">## 10 10      f 10</span></span></code></pre></div>
 <div class="tip" title="A cosa servono le liste?">
 <p>Se il vantaggio di un dataframe rispetto ad una matrice è palese, quale è la vera utilità delle liste essendo “semplicemente” dei contenitori?
 I vantaggi principali che rendono le liste degli oggetti estremamente potenti sono:</p>

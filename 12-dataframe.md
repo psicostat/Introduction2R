@@ -172,9 +172,9 @@ La creazione è leggermente diversa rispetto al caso delle matrici. Intuitivamen
 my_data <- data.frame(
   Id = c(1:5),
   names = c("Alice", "Bruno", "Carla", "Diego", "Elisa"),
-  gender = c("F","M","F", "M", "F"),
+  gender = factor(c("F","M","F", "M", "F")),
   age = c(22, 25, 23, 22, 24),
-  faculty = c("Psicologia", "Ingegneria", "Medicina", "Lettere", "Psicologia")
+  faculty = factor(c("Psicologia", "Ingegneria", "Medicina", "Lettere", "Psicologia"))
 )
 
 my_data
@@ -195,7 +195,7 @@ E' sempre consigliato definire una colonna (e.g., `Id`) in cui assegnnare un ide
 :::{.warning title="stringsAsFactors" data-latex="[stringsAsFactors]"}
 Una variabile di caratteri all'interno di un DataFrame è considerata di default come una semplice varibile nominale. E' possibile specificare l'argomento `stringsAsFactors = TRUE` per ottenere che tutte le variabili di caratteri siano considerate come delle variabili catgoriali creando automaticamente dei fattori (vedi Capitolo TODO).
 
-Noa come il comportamento di default sia differente a seconda della versione di R. Versioni precedenti a R 4.0 avevano infatti come default `stringsAsFactors = TRUE` mentre dalla 4.0 in poi abbiamo `stringsAsFactors = FALSE`.
+Nota come il comportamento di default sia differente a seconda della versione di R. Versioni precedenti a R 4.0 avevano infatti come default `stringsAsFactors = TRUE` mentre dalla 4.0 in poi abbiamo `stringsAsFactors = FALSE`.
 
 Presta quindi molta attenzione quando utilizzi codici e soluzioni scritte prima della versione 4.0.
 :::
@@ -248,8 +248,9 @@ my_data[c(2,3), ]
 
 # Tutti i valori della 5° variabile
 my_data[ , 5]
-##  [1] "Psicologia" "Ingegneria" "Medicina"   "Lettere"    "Psicologia"
-##  [6] "Lettere"    "Ingegneria" "Psicologia" "Statistica" "Ingegneria"
+##  [1] Psicologia Ingegneria Medicina   Lettere    Psicologia Lettere   
+##  [7] Ingegneria Psicologia Statistica Ingegneria
+## Levels: Ingegneria Lettere Medicina Psicologia Statistica
 
 # I valori della 2° e 4° variabile per la 3° e 5° riga
 my_data[c(3,5), c(2,4)]
@@ -280,8 +281,9 @@ my_data$names
 
 # Seleziono la variabile "gender"
 my_data$faculty
-##  [1] "Psicologia" "Ingegneria" "Medicina"   "Lettere"    "Psicologia"
-##  [6] "Lettere"    "Ingegneria" "Psicologia" "Statistica" "Ingegneria"
+##  [1] Psicologia Ingegneria Medicina   Lettere    Psicologia Lettere   
+##  [7] Ingegneria Psicologia Statistica Ingegneria
+## Levels: Ingegneria Lettere Medicina Psicologia Statistica
 ```
 
 In alternativa è possibile utilizzare la normale procedura di selezione tramite parentesi quadre indicando al cposto degli indici di colonna i nomi delle variabili desiderate. Questo ci permette di selezionare anche più variabili contemporaneamente, ad esempio:
@@ -523,279 +525,324 @@ Facendo riferimento ai dataframe `data_long` e `data_wide` precedentemente creat
 Vediamo ora alcune funzioni frequentemente usate e le comuni operazioni eseguite con i dataframe (vedi Tabella \@ref(tab:table-df-functions)).
 
 <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:table-df-functions)Operazioni con dataframe</caption>
+<caption>(\#tab:table-df-functions)Funzioni e operazioni con dataframe</caption>
  <thead>
   <tr>
-   <th style="text-align:left;"> Operazione </th>
-   <th style="text-align:left;"> Nome </th>
+   <th style="text-align:left;"> Funzione </th>
+   <th style="text-align:left;"> Descrizione </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> nome_DataFrame &lt;- cbind(nome_DataFrame, nuova_variabile) <br> nome_DataFrame$nome_variabile &lt;- dati </td>
-   <td style="text-align:left;"> Per aggiungere una nuova variabile al DataFrame (deve avere lo stesso numero di righe) </td>
+   <td style="text-align:left;"> nrow(nome_df) </td>
+   <td style="text-align:left;"> Numero di osservazioni del dataframe </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> nome_DataFrame &lt;- rbind(nome_DataFrame, nuova_variabile) </td>
-   <td style="text-align:left;"> Per aggiungere delle osservazioni (i nuovi dati devono essere coerenti con la struttura del DataFrame) </td>
+   <td style="text-align:left;"> ncol(nome_df) </td>
+   <td style="text-align:left;"> Numero di variabili del dataframe </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> nrow(nome_DataFrame) </td>
-   <td style="text-align:left;"> Per valutare il numero di osservazioni del DataFrame </td>
+   <td style="text-align:left;"> colnames(nome_df) </td>
+   <td style="text-align:left;"> Nomi delle colonne del dataframe </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> ncol(nome_DataFrame) </td>
-   <td style="text-align:left;"> Per valutare il numero di variabili del DataFrame </td>
+   <td style="text-align:left;"> rownames(nome_df) </td>
+   <td style="text-align:left;"> Nomi delle righe del dataframe </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> holder(nome_DataFrame) </td>
-   <td style="text-align:left;"> Nomi delle colonne del DataFrame </td>
+   <td style="text-align:left;"> nome_df &lt;-<br> cbind(nome_df, dati) <br> nome_df$nome_var &lt;-<br> dati </td>
+   <td style="text-align:left;"> Aggiungi una nuova variabile al dataframe (deve avere lo stesso numero di righe) </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> rownames(nome_DataFrame) </td>
-   <td style="text-align:left;"> Nomi delle righe del DataFrame </td>
+   <td style="text-align:left;"> nome_df &lt;- rbind(nome_df, dati) </td>
+   <td style="text-align:left;"> Aggiungi delle osservazioni (i nuovi dati devono essere coerenti con la struttura del dataframe) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> head(nome_df) </td>
+   <td style="text-align:left;"> Prime righe del dataframe </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tail(nome_df) </td>
+   <td style="text-align:left;"> Ultime righe del dataframe </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> str(nome_df) </td>
+   <td style="text-align:left;"> Struttura del dataframe </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> summary(nome_df) </td>
+   <td style="text-align:left;"> Summary del dataframe </td>
   </tr>
 </tbody>
 </table>
 
-
-### Nomi Righe e Colonne {-}
-
-In modo simile alle matrici, i dataframe contengono dei metadati per assegnare dei nomi alle righe `rownames()` e alle colonne `colnames()`. Inoltre il dataframe ha una dimensione intesa come numero di righe e colonne esattamente come la matrice. Di default il dataframe richiede dei nomi solo alle colonne ma è possibile anche nominare le righe. Utilizzando il dataframe precedente:
+Descriviamo ora nel dettaglio alcuni particolari utilizzi, considrando come esempio una versione ridotta del dataframe `my_data` precedentemente creata.
 
 
 ```r
-data_long
-##       Id age gender item response
-## 1 subj_1  21      F    1        2
-## 2 subj_1  21      F    2        1
-## 3 subj_1  21      F    3        1
-## 4 subj_2  23      M    1        0
-## 5 subj_2  23      M    2        2
-## 6 subj_2  23      M    3        1
-## 7 subj_3  19      F    1        2
-## 8 subj_3  19      F    2        0
-## 9 subj_3  19      F    3        1
+data_short <- my_data[1:5, ]
+data_short
+##   Id  names gender age    faculty
+## 1  1  Alice      F  22 Psicologia
+## 2  2  Bruno      M  25 Ingegneria
+## 3  3  Carla      F  23   Medicina
+## 4  4 Davide      M  22    Lettere
+## 5  5  Elisa      F  24 Psicologia
+```
 
-# Controllo dei nomi
 
-rownames(data_long)
-## [1] "1" "2" "3" "4" "5" "6" "7" "8" "9"
-colnames(data_long)
-## [1] "Id"       "age"      "gender"   "item"     "response"
-names(data_long) # nel caso dei dataframe questo è analogo a colnames()
-## [1] "Id"       "age"      "gender"   "item"     "response"
+### Attributi di un Dataframe {#mat-prop}
 
-# Dimensioni
+Abbiamo visto nel Capitolo TODO che gli oggetti in R possiedono quelli che sono definiti *attibuti* ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di *metadata*. Vediamo ora, in modo analogo alle matrici, come valutare la dimensione di un dataframe e i nomi delle righe e delle colonne. 
 
-nrow(data_long)
-## [1] 9
-ncol(data_long)
+#### Dimensione {-}
+
+Ricordiamo che un daaframe è un oggetto **bidimensionale** formato da righe e colonne. Per ottenere il numero di righe e di colonne di un dataframe, possiamo usare rispettivamente i comandi `nrow()` e `ncol()`.
+
+
+```r
+# Numero di righe
+nrow(my_data)
+## [1] 10
+
+# Numero di colonne
+ncol(my_data)
 ## [1] 5
 ```
 
+In alternativa, come per le matrici, è possibile usare la funzione `dim()`che restituisce un vettore con due valori dove il primo rappresenta il numero di righe e il secondo il numero di colonne. 
 
-### Unire Df
+#### Nomi Righe e Colonne {-}
 
-Un ulteriore differenza rispetto alle matrici è quella della **combinazione di dataframe** o della **creazione di nuove righe o colonne**. Sono sempre valide le indicazioni riguardo a `cbind()` e `rbind()` ma nel caso di nuove colonne è possibile utilizzare l'operatore `$`. Con la scrittura `dataframe$name <- new_var` otteniamo che nel dataframe in oggetto ci sarà una nuova colonna chiamata `name` che prende i valori all'interno di `new_var`. 
-
-Attenzione che mentre la scrittura `dataframe$name <- new_var` aggiunge direttamente la colonna al dataframe, usando `cbind()` dobbiamo assegnare l'operazione ad un nuovo oggetto `dataframe <- cbind(dataframe, new_var)`. In quest'ultimo caso il nome della colonna sarà `new_var`. Se vogliamo anche rinominare la colonna possiamo usare la sintassi `cbind(dataframe, "nome" = new_var)` oppure chiamare l'oggetto direttamente con il nome desiderato:
+In modo simile alle matrici, è possibile accedere ai nomi delle righe e delle colonne utilizzando rispettivamente le funzioni `rownames()` e `colnames()`. Di default il dataframe richiede dei nomi solo alle colonne mentre il alle righe viene assegnato un nome in accordo con l'indice di riga. Tuttavia, è possibile anche nominare le righe con valori arbitrari sebbene sia una funzione raramente utilizzata.
 
 
 ```r
-data_wide
-##       Id age gender item_1 item_2 item_3
-## 1 subj_1  21      F      2      0      2
-## 2 subj_2  23      M      1      2      0
-## 3 subj_3  19      F      1      1      1
+# Controllo i nomi attuali
+rownames(data_short)
+## [1] "1" "2" "3" "4" "5"
+colnames(data_short)
+## [1] "Id"      "names"   "gender"  "age"     "faculty"
+```
 
-# Aggiungiamo una colonna item4 al nostro dataset
+Per impostare i nomi di righe e/o colonne, sarà quindi necessario assegnare a `rownames(nome_dataframe)` e `colnames(nome_dataframe)` un vettore di caratteri della stessa lunghezza della dimensione che stiamo rinominando.
 
-new_var <- c(3, 4, 7)
 
-data_wide$item_4 <- new_var
+```r
+# Assegnamo i nomi alle righe
+rownames(data_short) <- paste0("Subj_", 1:nrow(data_short))
+
+# Assegno i nomi alle colonne
+colnames(data_short) <- c("Id", "Nome", "Genere", "Eta", "Facolta")
+
+data_short
+##        Id   Nome Genere Eta    Facolta
+## Subj_1  1  Alice      F  22 Psicologia
+## Subj_2  2  Bruno      M  25 Ingegneria
+## Subj_3  3  Carla      F  23   Medicina
+## Subj_4  4 Davide      M  22    Lettere
+## Subj_5  5  Elisa      F  24 Psicologia
+```
+
+Infine, nota come la funzione `names()` nel caso dei dataframe sia analoga alla funzione `colnames()` e sia possibile usare il vaore `NULL` per eliminare ad esempio i nomi delle righe.
+
+```r
+names(data_short)
+## [1] "Id"      "Nome"    "Genere"  "Eta"     "Facolta"
+
+rownames(data_short) <- NULL
+data_short
+##   Id   Nome Genere Eta    Facolta
+## 1  1  Alice      F  22 Psicologia
+## 2  2  Bruno      M  25 Ingegneria
+## 3  3  Carla      F  23   Medicina
+## 4  4 Davide      M  22    Lettere
+## 5  5  Elisa      F  24 Psicologia
+```
+
+
+### Unire Dataframe
+
+In modo analogo alle matrici è possibile unire più dataframe utilizzando le funzioni `cbind()` e `rbind()` per cui valgono gli stesssi accorgimenti riguardanti la dimensione rispettivamente di righe e colonne. Tuttavia, nel caso dei dataframe è possibile creare una nuova colonna anche utilizzando l'operatore `$`. Descriviamo ora in modo accurato i differenti utilizzi.
+
+#### `dataframe$name <- new_var` {-}
+
+Con la scrittura `dataframe$name <- new_var` aggiungiamo al dataframe in oggetto una nuova colonna chiamata `name` che prende i valori all'interno di `new_var`. Sarà necessario che la nuova variabile abbia lo stesso numero di valori delle righe del dataframe.
+
+
+```r
+# Aggiungiamo la colonna "media"
+data_short$Media <- c(27.5, 23.6, 28.3, 29.2, 24.8)
 
 # Equivalente a
+media_voti <- c(27.5, 23.6, 28.3, 29.2, 24.8)
+data_short$Media <- media_voti
 
-data_wide$item_4 <- c(3, 4, 7)
-
-# Equivalente a 
-
-cbind(data_wide, new_var) # senza specificare il nome
-##       Id age gender item_1 item_2 item_3 item_4 new_var
-## 1 subj_1  21      F      2      0      2      3       3
-## 2 subj_2  23      M      1      2      0      4       4
-## 3 subj_3  19      F      1      1      1      7       7
-cbind(data_wide, "item_4" = new_var) # specificando anche il nome
-##       Id age gender item_1 item_2 item_3 item_4 item_4
-## 1 subj_1  21      F      2      0      2      3      3
-## 2 subj_2  23      M      1      2      0      4      4
-## 3 subj_3  19      F      1      1      1      7      7
+data_short
+##   Id   Nome Genere Eta    Facolta Media
+## 1  1  Alice      F  22 Psicologia  27.5
+## 2  2  Bruno      M  25 Ingegneria  23.6
+## 3  3  Carla      F  23   Medicina  28.3
+## 4  4 Davide      M  22    Lettere  29.2
+## 5  5  Elisa      F  24 Psicologia  24.8
 ```
 
-Leggermente più complessa (e inusuale) è l'aggiunta di righe ad un dataframe. Al contrario della matrice che di base non aveva nomi per le colonne e solo numeri o stringhe come tipologia di dato, per combinare per riga due dataframe dobbiamo avere:
+#### `cbind()` {-}
+
+Con la funzione `cbind()` possiamo aggiungere una o più variabili al nostro dataframe. Nota come a differenza dell'utilizzo dell'operatore `$,`usando `cbind()` il risultato non venga automaticamente salvato ma sia necessario assegnare l'operazione ad un nuovo oggetto `dataframe <- cbind(dataframe, new_var)`. In quest'ultimo caso il nome della colonna sarà `new_var`. Se vogliamo anche rinominare la colonna possiamo usare la sintassi `cbind(dataframe, "nome" = new_var)` oppure chiamare l'oggetto direttamente con il nome desiderato:
+
+
+```r
+# aggiungo la variabile Numero_esami
+numero_esami <- c(12, 14, 13, 10, 8)
+
+cbind(data_short, numero_esami) # senza specificare il nome
+##   Id   Nome Genere Eta    Facolta Media numero_esami
+## 1  1  Alice      F  22 Psicologia  27.5           12
+## 2  2  Bruno      M  25 Ingegneria  23.6           14
+## 3  3  Carla      F  23   Medicina  28.3           13
+## 4  4 Davide      M  22    Lettere  29.2           10
+## 5  5  Elisa      F  24 Psicologia  24.8            8
+
+cbind(data_short, "N_esami" = numero_esami) # specificando anche il nome
+##   Id   Nome Genere Eta    Facolta Media N_esami
+## 1  1  Alice      F  22 Psicologia  27.5      12
+## 2  2  Bruno      M  25 Ingegneria  23.6      14
+## 3  3  Carla      F  23   Medicina  28.3      13
+## 4  4 Davide      M  22    Lettere  29.2      10
+## 5  5  Elisa      F  24 Psicologia  24.8       8
+```
+
+Anche in questo caso sarà necessario che le nuove variabili abbia lo stesso numero di valori delle righe del dataframe.
+
+#### `rbind()` {-}
+
+Leggermente più complessa (e inusuale) è l'aggiunta di righe ad un dataframe. Al contrario della matrice che di base non aveva nomi per le colonne e solo numeri o stringhe come tipologia di dato, per combinare per riga due dataframe dobbiamo avere la stessa struttura. Ovvero:
 
 * Lo stesso numero di colonne (come per le matrici)
-* Lo stesso nome delle colonne tra i due dataframe
+* Lo stesso nome delle colonne
 
 
 ```r
-data_wide
-##       Id age gender item_1 item_2 item_3 item_4
-## 1 subj_1  21      F      2      0      2      3
-## 2 subj_2  23      M      1      2      0      4
-## 3 subj_3  19      F      1      1      1      7
+data_short
+##   Id   Nome Genere Eta    Facolta Media
+## 1  1  Alice      F  22 Psicologia  27.5
+## 2  2  Bruno      M  25 Ingegneria  23.6
+## 3  3  Carla      F  23   Medicina  28.3
+## 4  4 Davide      M  22    Lettere  29.2
+## 5  5  Elisa      F  24 Psicologia  24.8
 
-# Nuovo dataset con le stesse colonne ma chiamate in un modo diverso
-
+# Nuovo dataset con le stesse colonne ma diverso nome
 new_row <- data.frame(
-  Id = "subj_4",
-  gender = "M", # gender invece che gender
-  age = 44,
-  item_1 = 2,
-  item_2 = 7,
-  item_3 = 3,
-  item_4 = 1
+  Id = 6,
+  Nome = "Marta",
+  Sex = "F",      # Sex invece di Genere
+  Eta = 44,
+  Facolta = "Filosofia",
+  Media = 28.7
 )
 
 new_row
-##       Id gender age item_1 item_2 item_3 item_4
-## 1 subj_4      M  44      2      7      3      1
+##   Id  Nome Sex Eta   Facolta Media
+## 1  6 Marta   F  44 Filosofia  28.7
 
-rbind(data_wide, new_row) # Errore
-##       Id age gender item_1 item_2 item_3 item_4
-## 1 subj_1  21      F      2      0      2      3
-## 2 subj_2  23      M      1      2      0      4
-## 3 subj_3  19      F      1      1      1      7
-## 4 subj_4  44      M      2      7      3      1
+rbind(data_short, new_row) # Errore
+## Error in match.names(clabs, names(xi)): names do not match previous names
 
 # Nuovo dataset con le stesse colonne con il nome corretto
-
 new_row <- data.frame(
-  Id = "subj_4",
-  gender = "M",
-  age = 44,
-  item_1 = 2,
-  item_2 = 7,
-  item_3 = 3,
-  item_4 = 1
+  Id = 6,
+  Nome = "Marta",
+  Genere = "F", 
+  Eta = 44,
+  Facolta = "Filosofia",
+  Media = 28.7
 )
 
-new_row
-##       Id gender age item_1 item_2 item_3 item_4
-## 1 subj_4      M  44      2      7      3      1
+rbind(data_short, new_row)
+##   Id   Nome Genere Eta    Facolta Media
+## 1  1  Alice      F  22 Psicologia  27.5
+## 2  2  Bruno      M  25 Ingegneria  23.6
+## 3  3  Carla      F  23   Medicina  28.3
+## 4  4 Davide      M  22    Lettere  29.2
+## 5  5  Elisa      F  24 Psicologia  24.8
+## 6  6  Marta      F  44  Filosofia  28.7
+```
 
-rbind(data_wide, new_row) # Corretto
-##       Id age gender item_1 item_2 item_3 item_4
-## 1 subj_1  21      F      2      0      2      3
-## 2 subj_2  23      M      1      2      0      4
-## 3 subj_3  19      F      1      1      1      7
-## 4 subj_4  44      M      2      7      3      1
+Anche in questo caso sarà necessario salvare il risultato ottenuto per mantenere i cambiamenti.
+
+### Informazioni Dataframe
+
+Vediamo infine alcune funzioni molto comuni usate per otttenere informazioin riassuntive riguardo ai dati contenuti in un dataframe:
+
+- `head()` (o `tail()`) ci permete di visualizzare le prime (o le ulitme righe del nostro dataframe)
+
+```r
+head(my_data)
+##   Id    names gender age    faculty
+## 1  1    Alice      F  22 Psicologia
+## 2  2    Bruno      M  25 Ingegneria
+## 3  3    Carla      F  23   Medicina
+## 4  4   Davide      M  22    Lettere
+## 5  5    Elisa      F  24 Psicologia
+## 6  6 Fabrizio      M  35    Lettere
+```
+- `str()` ci permete di valutare la struttura del dataset ottenendo utli informazini quali in numero di osservazioni, il numero di variabili e la ipologia di variabili
+
+```r
+str(my_data)
+## 'data.frame':	10 obs. of  5 variables:
+##  $ Id     : int  1 2 3 4 5 6 7 8 9 10
+##  $ names  : chr  "Alice" "Bruno" "Carla" "Davide" ...
+##  $ gender : Factor w/ 2 levels "F","M": 1 2 1 2 1 2 1 2 1 2
+##  $ age    : num  22 25 23 22 24 35 26 20 23 22
+##  $ faculty: Factor w/ 5 levels "Ingegneria","Lettere",..: 4 1 3 2 4 2 1 4 5 1
+```
+- `summary()` ci permete avere delle informazioni riassuntive delle variabili a seconda della loro tipologia
+
+```r
+summary(my_data)
+##        Id           names           gender      age              faculty 
+##  Min.   : 1.00   Length:10          F:5    Min.   :20.00   Ingegneria:3  
+##  1st Qu.: 3.25   Class :character   M:5    1st Qu.:22.00   Lettere   :2  
+##  Median : 5.50   Mode  :character          Median :23.00   Medicina  :1  
+##  Mean   : 5.50                             Mean   :24.20   Psicologia:3  
+##  3rd Qu.: 7.75                             3rd Qu.:24.75   Statistica:1  
+##  Max.   :10.00                             Max.   :35.00
 ```
 
 
 ### Esercizi {-}
 
-Facendo riferimento ai dataframe `data_long` e `data_wide`: 
+Facendo riferimento ai dataframe `data_long` e `data_wide` ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-10.R)): 
 
 1. Aggiungi sia al DataFrame `data_wide` che `data_long` la variabile numerica `"memory_pre"`.
 
-```r
-data.frame(Id=c("subj_1","subj_2","subj_3"),
-                      memory_pre=c(3,2,1))
+```
+##       Id memory_pre
+## 1 subj_1          3
+## 2 subj_2          2
+## 3 subj_3          1
 ```
 
 2. Aggiungi sia al DataFrame `data_wide` che `data_long` la variabile categoriale `"gruppo"`.
 
 
-```r
-data.frame(Id=c("subj_1","subj_2","subj_3"),
-                      gruppo=c("trattamento","trattemento","controllo"))
+```
+##       Id      gruppo
+## 1 subj_1 trattamento
+## 2 subj_2 trattemento
+## 3 subj_3   controllo
 ```
 
 3. Aggiungi al DataFrame `data_wide` i dati del soggetto `subj_4` e `subj_5`.
 
 
-```r
-data.frame(Id=c("subj_4","subj_5"),
-           age=c(25,22),
-           gender=c("F","M"),
-           item_1=c(1,1),
-           item_2=c(0,1),
-           item_3=c(2,0),
-           memory_pre=c(1,3),
-           gruppo=c("trattemento","controllo"))
+```
+##       Id age gender item_1 item_2 item_3 memory_pre      gruppo
+## 1 subj_4  25      F      1      0      2          1 trattemento
+## 2 subj_5  22      M      1      1      0          3   controllo
 ```
 
 4. Considerando il DataFrame `datawide` calcola la variabile `"memory_post"` data dalla somma degli item.
 5. Considerando il DataFrame `data_wide` cambia i nomi delle variabili `item_1`, `item_2` e `item_3` rispettivamente in `problem_1`, `problem_2` e `problem_3`.
-
-<!--
-## Funzioni con DataFrames
-
-<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:unnamed-chunk-23)Operazioni con matrici</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Operazione </th>
-   <th style="text-align:left;"> Nome </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> nome_DataFrame &lt;- cbind(nome_DataFrame, nuova_variabile) <br> nome_DataFrame$nome_variabile &lt;- dati </td>
-   <td style="text-align:left;"> Per aggiungere una nuova variabile al DataFrame (deve avere lo stesso numero di righe) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> nome_DataFrame &lt;- rbind(nome_DataFrame, nuova_variabile) </td>
-   <td style="text-align:left;"> Per sggiungere delle osservazioni (i nuovi dati devono essere coerenti con la struttura del DataFrame) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> nrow(nome_DataFrame) </td>
-   <td style="text-align:left;"> Per valutare il numero di osservazioni del DataFrame </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> ncol(nome_DataFrame) </td>
-   <td style="text-align:left;"> Per valutare il numero di variabili del DataFrame </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> holder(nome_DataFrame) </td>
-   <td style="text-align:left;"> Nomi delle colonne del DataFrame </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> rownames(nome_DataFrame) </td>
-   <td style="text-align:left;"> Nomi delle righe del DataFrame </td>
-  </tr>
-</tbody>
-</table>
-
-### Esercizi {-}
-
-1. Aggiungi sia al DataFrame `data_wide` che `data_long` la variabile numerica `"memory_pre"`.
-
-```r
-data.frame(Id=c("subj_1","subj_2","subj_3"),
-                      memory_pre=c(3,2,1))
-```
-
-2. Aggiungi sia al DataFrame `data_wide` che `data_long` la variabile categoriale `"gruppo"`.
-
-```r
-data.frame(Id=c("subj_1","subj_2","subj_3"),
-                      gruppo=c("trattamento","trattemento","controllo"))
-```
-3. Aggiungi al DataFrame `data_wide` i dati del soggetto `subj_4` e `subj_5`.
-
-```r
-data.frame(Id=c("subj_4","subj_5"),
-           age=c(25,22),
-           gender=c("F","M"),
-           item_1=c(1,1),
-           item_2=c(0,1),
-           item_3=c(2,0),
-           memory_pre=c(1,3),
-           gruppo=c("trattemento","controllo"))
-```
-4. Considerando il DataFrame `datawide` calcola la variabile `"memory_post"` data dalla somma degli item.
-5. Considerando il DataFrame `data_wide` cambia i nomi delle variabili `item_1`, `item_2` e `item_3` rispettivamente in `problem_1`, `problem_2` e `problem_3`.
--->
