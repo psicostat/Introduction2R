@@ -678,10 +678,10 @@ Utilizzando le funzioni `sum()` e `mean()` con un vettore logico, possiamo valut
 my_values <- rnorm(50)  # genero dei numeri casuali 
 
 sum(my_values > 0)      # totale numeri positivi
-## [1] 24
+## [1] 25
 
 mean(my_values > 0)      # percentuale numeri positivi
-## [1] 0.48
+## [1] 0.5
 ```
 :::
 

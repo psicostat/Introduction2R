@@ -99,6 +99,12 @@ integer
 logical
 valori-speciali
 factors
+attributi-di-un-oggetto
+attributi-di-un-vettore
+fattori
+funzionamento-fatori
+operazioni-fattori
+fattori-ordinali
 matrix
 creazione-1
 tipologie-di-matrici

@@ -235,7 +235,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="factors.html"><a href="factors.html"><i class="fa fa-check"></i><b>8</b> Fattori</a><ul>
+<li class="chapter" data-level="8.1" data-path="factors.html"><a href="factors.html#attributi-di-un-oggetto"><i class="fa fa-check"></i><b>8.1</b> Attributi di un Oggetto</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="factors.html"><a href="factors.html#attributi-di-un-vettore"><i class="fa fa-check"></i><b>8.1.1</b> Attributi di un Vettore</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="factors.html"><a href="factors.html#fattori"><i class="fa fa-check"></i><b>8.2</b> Fattori</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="factors.html"><a href="factors.html#funzionamento-fatori"><i class="fa fa-check"></i><b>8.2.1</b> Funzionamento Fatori</a></li>
+<li class="chapter" data-level="8.2.2" data-path="factors.html"><a href="factors.html#operazioni-fattori"><i class="fa fa-check"></i><b>8.2.2</b> Operazioni Fattori</a></li>
+<li class="chapter" data-level="8.2.3" data-path="factors.html"><a href="factors.html#fattori-ordinali"><i class="fa fa-check"></i><b>8.2.3</b> Fattori Ordinali</a></li>
 <li class="chapter" data-level="" data-path="factors.html"><a href="factors.html#esercizi-5"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>9</b> Matrici</a><ul>
 <li class="chapter" data-level="9.1" data-path="matrix.html"><a href="matrix.html#creazione-1"><i class="fa fa-check"></i><b>9.1</b> Creazione</a><ul>
@@ -619,32 +627,32 @@ F
 <div id="creazione-di-un-dataframe" class="section level2">
 <h2><span class="header-section-number">10.1</span> Creazione di un dataframe</h2>
 <p>Il comando per creare un dataframe è <code>data.frame()</code>:</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="dataframe.html#cb170-1"></a>nome_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb170-2"><a href="dataframe.html#cb170-2"></a>  <span class="dt">variable1 =</span> <span class="kw">c</span>(...),</span>
-<span id="cb170-3"><a href="dataframe.html#cb170-3"></a>  <span class="dt">variable2 =</span> <span class="kw">c</span>(...),</span>
-<span id="cb170-4"><a href="dataframe.html#cb170-4"></a>  ...)</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="dataframe.html#cb189-1"></a>nome_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb189-2"><a href="dataframe.html#cb189-2"></a>  <span class="dt">variable1 =</span> <span class="kw">c</span>(...),</span>
+<span id="cb189-3"><a href="dataframe.html#cb189-3"></a>  <span class="dt">variable2 =</span> <span class="kw">c</span>(...),</span>
+<span id="cb189-4"><a href="dataframe.html#cb189-4"></a>  ...)</span></code></pre></div>
 <p>La creazione è leggermente diversa rispetto al caso delle matrici. Intuitivamente è più facile immaginarla come l’unione di diverse colonne (dove una può contenere dei nomi, un’altra delle date e così via) piuttosto che un insieme di valori inseriti per riga o per colonna come per le matrici. Infatti per creare un <code>dataframe</code> è proprio necessario specificare le colonne una alla volta, indicando <code>nome_colonna = valori</code> all’interno del comando <code>data.frame()</code>. Vediamo un esempio in R,</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="dataframe.html#cb171-1"></a>my_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb171-2"><a href="dataframe.html#cb171-2"></a>  <span class="dt">Id =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>),</span>
-<span id="cb171-3"><a href="dataframe.html#cb171-3"></a>  <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bruno&quot;</span>, <span class="st">&quot;Carla&quot;</span>, <span class="st">&quot;Diego&quot;</span>, <span class="st">&quot;Elisa&quot;</span>),</span>
-<span id="cb171-4"><a href="dataframe.html#cb171-4"></a>  <span class="dt">gender =</span> <span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>)),</span>
-<span id="cb171-5"><a href="dataframe.html#cb171-5"></a>  <span class="dt">age =</span> <span class="kw">c</span>(<span class="dv">22</span>, <span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">22</span>, <span class="dv">24</span>),</span>
-<span id="cb171-6"><a href="dataframe.html#cb171-6"></a>  <span class="dt">faculty =</span> <span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Psicologia&quot;</span>, <span class="st">&quot;Ingegneria&quot;</span>, <span class="st">&quot;Medicina&quot;</span>, <span class="st">&quot;Lettere&quot;</span>, <span class="st">&quot;Psicologia&quot;</span>))</span>
-<span id="cb171-7"><a href="dataframe.html#cb171-7"></a>)</span>
-<span id="cb171-8"><a href="dataframe.html#cb171-8"></a></span>
-<span id="cb171-9"><a href="dataframe.html#cb171-9"></a>my_data</span>
-<span id="cb171-10"><a href="dataframe.html#cb171-10"></a><span class="co">##   Id names gender age    faculty</span></span>
-<span id="cb171-11"><a href="dataframe.html#cb171-11"></a><span class="co">## 1  1 Alice      F  22 Psicologia</span></span>
-<span id="cb171-12"><a href="dataframe.html#cb171-12"></a><span class="co">## 2  2 Bruno      M  25 Ingegneria</span></span>
-<span id="cb171-13"><a href="dataframe.html#cb171-13"></a><span class="co">## 3  3 Carla      F  23   Medicina</span></span>
-<span id="cb171-14"><a href="dataframe.html#cb171-14"></a><span class="co">## 4  4 Diego      M  22    Lettere</span></span>
-<span id="cb171-15"><a href="dataframe.html#cb171-15"></a><span class="co">## 5  5 Elisa      F  24 Psicologia</span></span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="dataframe.html#cb190-1"></a>my_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb190-2"><a href="dataframe.html#cb190-2"></a>  <span class="dt">Id =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>),</span>
+<span id="cb190-3"><a href="dataframe.html#cb190-3"></a>  <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bruno&quot;</span>, <span class="st">&quot;Carla&quot;</span>, <span class="st">&quot;Diego&quot;</span>, <span class="st">&quot;Elisa&quot;</span>),</span>
+<span id="cb190-4"><a href="dataframe.html#cb190-4"></a>  <span class="dt">gender =</span> <span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>)),</span>
+<span id="cb190-5"><a href="dataframe.html#cb190-5"></a>  <span class="dt">age =</span> <span class="kw">c</span>(<span class="dv">22</span>, <span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">22</span>, <span class="dv">24</span>),</span>
+<span id="cb190-6"><a href="dataframe.html#cb190-6"></a>  <span class="dt">faculty =</span> <span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Psicologia&quot;</span>, <span class="st">&quot;Ingegneria&quot;</span>, <span class="st">&quot;Medicina&quot;</span>, <span class="st">&quot;Lettere&quot;</span>, <span class="st">&quot;Psicologia&quot;</span>))</span>
+<span id="cb190-7"><a href="dataframe.html#cb190-7"></a>)</span>
+<span id="cb190-8"><a href="dataframe.html#cb190-8"></a></span>
+<span id="cb190-9"><a href="dataframe.html#cb190-9"></a>my_data</span>
+<span id="cb190-10"><a href="dataframe.html#cb190-10"></a><span class="co">##   Id names gender age    faculty</span></span>
+<span id="cb190-11"><a href="dataframe.html#cb190-11"></a><span class="co">## 1  1 Alice      F  22 Psicologia</span></span>
+<span id="cb190-12"><a href="dataframe.html#cb190-12"></a><span class="co">## 2  2 Bruno      M  25 Ingegneria</span></span>
+<span id="cb190-13"><a href="dataframe.html#cb190-13"></a><span class="co">## 3  3 Carla      F  23   Medicina</span></span>
+<span id="cb190-14"><a href="dataframe.html#cb190-14"></a><span class="co">## 4  4 Diego      M  22    Lettere</span></span>
+<span id="cb190-15"><a href="dataframe.html#cb190-15"></a><span class="co">## 5  5 Elisa      F  24 Psicologia</span></span></code></pre></div>
 <p>In questo caso abbiamo creato un ipotetico dataframe dove in ogni riga abbiamo un soggetto e ogni colonna rappresenta una data caratteristica del soggetto come il genere, l’età e così via.</p>
 <div class="tip" title="ID">
 <p>E’ sempre consigliato definire una colonna (e.g., <code>Id</code>) in cui assegnnare un idenificativo univoco ad ogni soggetto. Questo ci permetto di poterlo indentificare senza correre il rischio di compiere errori. Ad esempio l’utlizzo del nome (o anche nome e cognome) potrebbe non essere indicato poichè più persone potrebbero avere lo stesso nome e non saremo quindi in grado di discriminare i due soggetti.</p>
 </div>
 <div class="warning" title="stringsAsFactors">
-<p>Una variabile di caratteri all’interno di un DataFrame è considerata di default come una semplice varibile nominale. E’ possibile specificare l’argomento <code>stringsAsFactors = TRUE</code> per ottenere che tutte le variabili di caratteri siano considerate come delle variabili catgoriali creando automaticamente dei fattori (vedi Capitolo TODO).</p>
+<p>Una variabile di caratteri all’interno di un DataFrame è considerata di default come una semplice sequenza di caratteri. E’ possibile specificare l’argomento <code>stringsAsFactors = TRUE</code> per ottenere che tutte le variabili di caratteri siano considerate come delle variabili catgoriali creando automaticamente dei fattori (vedi Capitolo TODO).</p>
 <p>Nota come il comportamento di default sia differente a seconda della versione di R. Versioni precedenti a R 4.0 avevano infatti come default <code>stringsAsFactors = TRUE</code> mentre dalla 4.0 in poi abbiamo <code>stringsAsFactors = FALSE</code>.</p>
 <p>Presta quindi molta attenzione quando utilizzi codici e soluzioni scritte prima della versione 4.0.</p>
 </div>
@@ -660,127 +668,127 @@ F
 <div id="sel-df" class="section level2">
 <h2><span class="header-section-number">10.2</span> Selezione Elementi</h2>
 <p>Per selezionare uno o pù valori da un dataframe è possibile, in modo analogo alle matrici, utilizzare gli indici di riga e di colonna all’interno delle parentesi quadre:</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="dataframe.html#cb172-1"></a>nome_dataframe[<span class="op">&lt;</span>indice<span class="op">-</span>riga<span class="op">&gt;</span>, <span class="op">&lt;</span>indice<span class="op">-</span>colonna<span class="op">&gt;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="dataframe.html#cb191-1"></a>nome_dataframe[<span class="op">&lt;</span>indice<span class="op">-</span>riga<span class="op">&gt;</span>, <span class="op">&lt;</span>indice<span class="op">-</span>colonna<span class="op">&gt;</span>]</span></code></pre></div>
 <p>Ricordiamo che l’ordine <code>[&lt;indice-riga&gt;, &lt;indice-colonna&gt;]</code> è prestabilito e deve essere rispettato affinché la selezione avvenga correttamente. Possiamo quindi eseguire diverse tipologie di selezioni a seconda delle necessità ussanto le stesse procedure viste per le matrici. Ad esempio, riprendeno il dataframe <code>my_data</code> creato precedentemente possiamo selezionare:</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="dataframe.html#cb173-1"></a>my_data</span>
-<span id="cb173-2"><a href="dataframe.html#cb173-2"></a><span class="co">##    Id    names gender age    faculty</span></span>
-<span id="cb173-3"><a href="dataframe.html#cb173-3"></a><span class="co">## 1   1    Alice      F  22 Psicologia</span></span>
-<span id="cb173-4"><a href="dataframe.html#cb173-4"></a><span class="co">## 2   2    Bruno      M  25 Ingegneria</span></span>
-<span id="cb173-5"><a href="dataframe.html#cb173-5"></a><span class="co">## 3   3    Carla      F  23   Medicina</span></span>
-<span id="cb173-6"><a href="dataframe.html#cb173-6"></a><span class="co">## 4   4    Diego      M  22    Lettere</span></span>
-<span id="cb173-7"><a href="dataframe.html#cb173-7"></a><span class="co">## 5   5    Elisa      F  24 Psicologia</span></span>
-<span id="cb173-8"><a href="dataframe.html#cb173-8"></a><span class="co">## 6   6 Fabrizio      M  35    Lettere</span></span>
-<span id="cb173-9"><a href="dataframe.html#cb173-9"></a><span class="co">## 7   7   Gloria      F  26 Ingegneria</span></span>
-<span id="cb173-10"><a href="dataframe.html#cb173-10"></a><span class="co">## 8   8   Herman      M  20 Psicologia</span></span>
-<span id="cb173-11"><a href="dataframe.html#cb173-11"></a><span class="co">## 9   9    Irene      F  23 Statistica</span></span>
-<span id="cb173-12"><a href="dataframe.html#cb173-12"></a><span class="co">## 10 10     Luca      M  22 Ingegneria</span></span>
-<span id="cb173-13"><a href="dataframe.html#cb173-13"></a></span>
-<span id="cb173-14"><a href="dataframe.html#cb173-14"></a><span class="co"># Valore 3° riga e 2° colonna</span></span>
-<span id="cb173-15"><a href="dataframe.html#cb173-15"></a>my_data[<span class="dv">3</span>,<span class="dv">4</span>]</span>
-<span id="cb173-16"><a href="dataframe.html#cb173-16"></a><span class="co">## [1] 23</span></span>
-<span id="cb173-17"><a href="dataframe.html#cb173-17"></a></span>
-<span id="cb173-18"><a href="dataframe.html#cb173-18"></a><span class="co"># Tutte le variabili della 1° e 3° riga</span></span>
-<span id="cb173-19"><a href="dataframe.html#cb173-19"></a>my_data[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), ]</span>
-<span id="cb173-20"><a href="dataframe.html#cb173-20"></a><span class="co">##   Id names gender age    faculty</span></span>
-<span id="cb173-21"><a href="dataframe.html#cb173-21"></a><span class="co">## 2  2 Bruno      M  25 Ingegneria</span></span>
-<span id="cb173-22"><a href="dataframe.html#cb173-22"></a><span class="co">## 3  3 Carla      F  23   Medicina</span></span>
-<span id="cb173-23"><a href="dataframe.html#cb173-23"></a></span>
-<span id="cb173-24"><a href="dataframe.html#cb173-24"></a><span class="co"># Tutti i valori della 5° variabile</span></span>
-<span id="cb173-25"><a href="dataframe.html#cb173-25"></a>my_data[ , <span class="dv">5</span>]</span>
-<span id="cb173-26"><a href="dataframe.html#cb173-26"></a><span class="co">##  [1] Psicologia Ingegneria Medicina   Lettere    Psicologia Lettere   </span></span>
-<span id="cb173-27"><a href="dataframe.html#cb173-27"></a><span class="co">##  [7] Ingegneria Psicologia Statistica Ingegneria</span></span>
-<span id="cb173-28"><a href="dataframe.html#cb173-28"></a><span class="co">## Levels: Ingegneria Lettere Medicina Psicologia Statistica</span></span>
-<span id="cb173-29"><a href="dataframe.html#cb173-29"></a></span>
-<span id="cb173-30"><a href="dataframe.html#cb173-30"></a><span class="co"># I valori della 2° e 4° variabile per la 3° e 5° riga</span></span>
-<span id="cb173-31"><a href="dataframe.html#cb173-31"></a>my_data[<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)]</span>
-<span id="cb173-32"><a href="dataframe.html#cb173-32"></a><span class="co">##   names age</span></span>
-<span id="cb173-33"><a href="dataframe.html#cb173-33"></a><span class="co">## 3 Carla  23</span></span>
-<span id="cb173-34"><a href="dataframe.html#cb173-34"></a><span class="co">## 5 Elisa  24</span></span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="dataframe.html#cb192-1"></a>my_data</span>
+<span id="cb192-2"><a href="dataframe.html#cb192-2"></a><span class="co">##    Id    names gender age    faculty</span></span>
+<span id="cb192-3"><a href="dataframe.html#cb192-3"></a><span class="co">## 1   1    Alice      F  22 Psicologia</span></span>
+<span id="cb192-4"><a href="dataframe.html#cb192-4"></a><span class="co">## 2   2    Bruno      M  25 Ingegneria</span></span>
+<span id="cb192-5"><a href="dataframe.html#cb192-5"></a><span class="co">## 3   3    Carla      F  23   Medicina</span></span>
+<span id="cb192-6"><a href="dataframe.html#cb192-6"></a><span class="co">## 4   4    Diego      M  22    Lettere</span></span>
+<span id="cb192-7"><a href="dataframe.html#cb192-7"></a><span class="co">## 5   5    Elisa      F  24 Psicologia</span></span>
+<span id="cb192-8"><a href="dataframe.html#cb192-8"></a><span class="co">## 6   6 Fabrizio      M  35    Lettere</span></span>
+<span id="cb192-9"><a href="dataframe.html#cb192-9"></a><span class="co">## 7   7   Gloria      F  26 Ingegneria</span></span>
+<span id="cb192-10"><a href="dataframe.html#cb192-10"></a><span class="co">## 8   8   Herman      M  20 Psicologia</span></span>
+<span id="cb192-11"><a href="dataframe.html#cb192-11"></a><span class="co">## 9   9    Irene      F  23 Statistica</span></span>
+<span id="cb192-12"><a href="dataframe.html#cb192-12"></a><span class="co">## 10 10     Luca      M  22 Ingegneria</span></span>
+<span id="cb192-13"><a href="dataframe.html#cb192-13"></a></span>
+<span id="cb192-14"><a href="dataframe.html#cb192-14"></a><span class="co"># Valore 3° riga e 2° colonna</span></span>
+<span id="cb192-15"><a href="dataframe.html#cb192-15"></a>my_data[<span class="dv">3</span>,<span class="dv">4</span>]</span>
+<span id="cb192-16"><a href="dataframe.html#cb192-16"></a><span class="co">## [1] 23</span></span>
+<span id="cb192-17"><a href="dataframe.html#cb192-17"></a></span>
+<span id="cb192-18"><a href="dataframe.html#cb192-18"></a><span class="co"># Tutte le variabili della 1° e 3° riga</span></span>
+<span id="cb192-19"><a href="dataframe.html#cb192-19"></a>my_data[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), ]</span>
+<span id="cb192-20"><a href="dataframe.html#cb192-20"></a><span class="co">##   Id names gender age    faculty</span></span>
+<span id="cb192-21"><a href="dataframe.html#cb192-21"></a><span class="co">## 2  2 Bruno      M  25 Ingegneria</span></span>
+<span id="cb192-22"><a href="dataframe.html#cb192-22"></a><span class="co">## 3  3 Carla      F  23   Medicina</span></span>
+<span id="cb192-23"><a href="dataframe.html#cb192-23"></a></span>
+<span id="cb192-24"><a href="dataframe.html#cb192-24"></a><span class="co"># Tutti i valori della 5° variabile</span></span>
+<span id="cb192-25"><a href="dataframe.html#cb192-25"></a>my_data[ , <span class="dv">5</span>]</span>
+<span id="cb192-26"><a href="dataframe.html#cb192-26"></a><span class="co">##  [1] Psicologia Ingegneria Medicina   Lettere    Psicologia Lettere   </span></span>
+<span id="cb192-27"><a href="dataframe.html#cb192-27"></a><span class="co">##  [7] Ingegneria Psicologia Statistica Ingegneria</span></span>
+<span id="cb192-28"><a href="dataframe.html#cb192-28"></a><span class="co">## Levels: Ingegneria Lettere Medicina Psicologia Statistica</span></span>
+<span id="cb192-29"><a href="dataframe.html#cb192-29"></a></span>
+<span id="cb192-30"><a href="dataframe.html#cb192-30"></a><span class="co"># I valori della 2° e 4° variabile per la 3° e 5° riga</span></span>
+<span id="cb192-31"><a href="dataframe.html#cb192-31"></a>my_data[<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)]</span>
+<span id="cb192-32"><a href="dataframe.html#cb192-32"></a><span class="co">##   names age</span></span>
+<span id="cb192-33"><a href="dataframe.html#cb192-33"></a><span class="co">## 3 Carla  23</span></span>
+<span id="cb192-34"><a href="dataframe.html#cb192-34"></a><span class="co">## 5 Elisa  24</span></span></code></pre></div>
 <p>Tuttavia, nell’utilizzo dei dataframe è più comune indicare i nomi delle variabili e le condizioni logico relazionali per selezionare i valori di interesse.</p>
 <div id="selezione-colonne-con-nomi-delle-variabili" class="section level4 unnumbered">
 <h4>Selezione Colonne con Nomi delle Variabili</h4>
 <p>Una granade differenza tra le matrici ed i dataframe sta nel poter accedere alle colonne utilizzando l’operatore <code>$</code> ed indicando il loro nome attraverso la seguente sintassi:</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="dataframe.html#cb174-1"></a>nome_dataframe<span class="op">$</span>nome_variabile</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="dataframe.html#cb193-1"></a>nome_dataframe<span class="op">$</span>nome_variabile</span></code></pre></div>
 <p>In questo modo accediamo direttamente a quella specifica colonna senza utilizzare indici e parentesi quadre. Ad esempio:</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="dataframe.html#cb175-1"></a><span class="co"># Seleziono la variabile &quot;names&quot;</span></span>
-<span id="cb175-2"><a href="dataframe.html#cb175-2"></a>my_data<span class="op">$</span>names</span>
-<span id="cb175-3"><a href="dataframe.html#cb175-3"></a><span class="co">##  [1] &quot;Alice&quot;    &quot;Bruno&quot;    &quot;Carla&quot;    &quot;Diego&quot;    &quot;Elisa&quot;    &quot;Fabrizio&quot;</span></span>
-<span id="cb175-4"><a href="dataframe.html#cb175-4"></a><span class="co">##  [7] &quot;Gloria&quot;   &quot;Herman&quot;   &quot;Irene&quot;    &quot;Luca&quot;</span></span>
-<span id="cb175-5"><a href="dataframe.html#cb175-5"></a></span>
-<span id="cb175-6"><a href="dataframe.html#cb175-6"></a><span class="co"># Seleziono la variabile &quot;gender&quot;</span></span>
-<span id="cb175-7"><a href="dataframe.html#cb175-7"></a>my_data<span class="op">$</span>faculty</span>
-<span id="cb175-8"><a href="dataframe.html#cb175-8"></a><span class="co">##  [1] Psicologia Ingegneria Medicina   Lettere    Psicologia Lettere   </span></span>
-<span id="cb175-9"><a href="dataframe.html#cb175-9"></a><span class="co">##  [7] Ingegneria Psicologia Statistica Ingegneria</span></span>
-<span id="cb175-10"><a href="dataframe.html#cb175-10"></a><span class="co">## Levels: Ingegneria Lettere Medicina Psicologia Statistica</span></span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="dataframe.html#cb194-1"></a><span class="co"># Seleziono la variabile &quot;names&quot;</span></span>
+<span id="cb194-2"><a href="dataframe.html#cb194-2"></a>my_data<span class="op">$</span>names</span>
+<span id="cb194-3"><a href="dataframe.html#cb194-3"></a><span class="co">##  [1] &quot;Alice&quot;    &quot;Bruno&quot;    &quot;Carla&quot;    &quot;Diego&quot;    &quot;Elisa&quot;    &quot;Fabrizio&quot;</span></span>
+<span id="cb194-4"><a href="dataframe.html#cb194-4"></a><span class="co">##  [7] &quot;Gloria&quot;   &quot;Herman&quot;   &quot;Irene&quot;    &quot;Luca&quot;</span></span>
+<span id="cb194-5"><a href="dataframe.html#cb194-5"></a></span>
+<span id="cb194-6"><a href="dataframe.html#cb194-6"></a><span class="co"># Seleziono la variabile &quot;gender&quot;</span></span>
+<span id="cb194-7"><a href="dataframe.html#cb194-7"></a>my_data<span class="op">$</span>faculty</span>
+<span id="cb194-8"><a href="dataframe.html#cb194-8"></a><span class="co">##  [1] Psicologia Ingegneria Medicina   Lettere    Psicologia Lettere   </span></span>
+<span id="cb194-9"><a href="dataframe.html#cb194-9"></a><span class="co">##  [7] Ingegneria Psicologia Statistica Ingegneria</span></span>
+<span id="cb194-10"><a href="dataframe.html#cb194-10"></a><span class="co">## Levels: Ingegneria Lettere Medicina Psicologia Statistica</span></span></code></pre></div>
 <p>In alternativa è possibile utilizzare la normale procedura di selezione tramite parentesi quadre indicando al cposto degli indici di colonna i nomi delle variabili desiderate. Questo ci permette di selezionare anche più variabili contemporaneamente, ad esempio:</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="dataframe.html#cb176-1"></a><span class="co"># Seleziono solo la variabile &quot;names&quot;</span></span>
-<span id="cb176-2"><a href="dataframe.html#cb176-2"></a>my_data[ , <span class="st">&quot;names&quot;</span>]</span>
-<span id="cb176-3"><a href="dataframe.html#cb176-3"></a><span class="co">##  [1] &quot;Alice&quot;    &quot;Bruno&quot;    &quot;Carla&quot;    &quot;Diego&quot;    &quot;Elisa&quot;    &quot;Fabrizio&quot;</span></span>
-<span id="cb176-4"><a href="dataframe.html#cb176-4"></a><span class="co">##  [7] &quot;Gloria&quot;   &quot;Herman&quot;   &quot;Irene&quot;    &quot;Luca&quot;</span></span>
-<span id="cb176-5"><a href="dataframe.html#cb176-5"></a></span>
-<span id="cb176-6"><a href="dataframe.html#cb176-6"></a><span class="co"># Seleziono la variabile &quot;names&quot;, &quot;gender&quot; e &quot;faculty&quot;</span></span>
-<span id="cb176-7"><a href="dataframe.html#cb176-7"></a>my_data[, <span class="kw">c</span>(<span class="st">&quot;names&quot;</span>, <span class="st">&quot;gender&quot;</span>, <span class="st">&quot;faculty&quot;</span>)]</span>
-<span id="cb176-8"><a href="dataframe.html#cb176-8"></a><span class="co">##       names gender    faculty</span></span>
-<span id="cb176-9"><a href="dataframe.html#cb176-9"></a><span class="co">## 1     Alice      F Psicologia</span></span>
-<span id="cb176-10"><a href="dataframe.html#cb176-10"></a><span class="co">## 2     Bruno      M Ingegneria</span></span>
-<span id="cb176-11"><a href="dataframe.html#cb176-11"></a><span class="co">## 3     Carla      F   Medicina</span></span>
-<span id="cb176-12"><a href="dataframe.html#cb176-12"></a><span class="co">## 4     Diego      M    Lettere</span></span>
-<span id="cb176-13"><a href="dataframe.html#cb176-13"></a><span class="co">## 5     Elisa      F Psicologia</span></span>
-<span id="cb176-14"><a href="dataframe.html#cb176-14"></a><span class="co">## 6  Fabrizio      M    Lettere</span></span>
-<span id="cb176-15"><a href="dataframe.html#cb176-15"></a><span class="co">## 7    Gloria      F Ingegneria</span></span>
-<span id="cb176-16"><a href="dataframe.html#cb176-16"></a><span class="co">## 8    Herman      M Psicologia</span></span>
-<span id="cb176-17"><a href="dataframe.html#cb176-17"></a><span class="co">## 9     Irene      F Statistica</span></span>
-<span id="cb176-18"><a href="dataframe.html#cb176-18"></a><span class="co">## 10     Luca      M Ingegneria</span></span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="dataframe.html#cb195-1"></a><span class="co"># Seleziono solo la variabile &quot;names&quot;</span></span>
+<span id="cb195-2"><a href="dataframe.html#cb195-2"></a>my_data[ , <span class="st">&quot;names&quot;</span>]</span>
+<span id="cb195-3"><a href="dataframe.html#cb195-3"></a><span class="co">##  [1] &quot;Alice&quot;    &quot;Bruno&quot;    &quot;Carla&quot;    &quot;Diego&quot;    &quot;Elisa&quot;    &quot;Fabrizio&quot;</span></span>
+<span id="cb195-4"><a href="dataframe.html#cb195-4"></a><span class="co">##  [7] &quot;Gloria&quot;   &quot;Herman&quot;   &quot;Irene&quot;    &quot;Luca&quot;</span></span>
+<span id="cb195-5"><a href="dataframe.html#cb195-5"></a></span>
+<span id="cb195-6"><a href="dataframe.html#cb195-6"></a><span class="co"># Seleziono la variabile &quot;names&quot;, &quot;gender&quot; e &quot;faculty&quot;</span></span>
+<span id="cb195-7"><a href="dataframe.html#cb195-7"></a>my_data[, <span class="kw">c</span>(<span class="st">&quot;names&quot;</span>, <span class="st">&quot;gender&quot;</span>, <span class="st">&quot;faculty&quot;</span>)]</span>
+<span id="cb195-8"><a href="dataframe.html#cb195-8"></a><span class="co">##       names gender    faculty</span></span>
+<span id="cb195-9"><a href="dataframe.html#cb195-9"></a><span class="co">## 1     Alice      F Psicologia</span></span>
+<span id="cb195-10"><a href="dataframe.html#cb195-10"></a><span class="co">## 2     Bruno      M Ingegneria</span></span>
+<span id="cb195-11"><a href="dataframe.html#cb195-11"></a><span class="co">## 3     Carla      F   Medicina</span></span>
+<span id="cb195-12"><a href="dataframe.html#cb195-12"></a><span class="co">## 4     Diego      M    Lettere</span></span>
+<span id="cb195-13"><a href="dataframe.html#cb195-13"></a><span class="co">## 5     Elisa      F Psicologia</span></span>
+<span id="cb195-14"><a href="dataframe.html#cb195-14"></a><span class="co">## 6  Fabrizio      M    Lettere</span></span>
+<span id="cb195-15"><a href="dataframe.html#cb195-15"></a><span class="co">## 7    Gloria      F Ingegneria</span></span>
+<span id="cb195-16"><a href="dataframe.html#cb195-16"></a><span class="co">## 8    Herman      M Psicologia</span></span>
+<span id="cb195-17"><a href="dataframe.html#cb195-17"></a><span class="co">## 9     Irene      F Statistica</span></span>
+<span id="cb195-18"><a href="dataframe.html#cb195-18"></a><span class="co">## 10     Luca      M Ingegneria</span></span></code></pre></div>
 <p>Nota come i nomi delle variabili debbano essere forniti come delle stringhe.</p>
 </div>
 <div id="selezione-righe-con-condizioni-logiche" class="section level4 unnumbered">
 <h4>Selezione Righe con Condizioni Logiche</h4>
 <p>Avevamo visto precedentemete nel caso dei vettori e delle matrici come sia possibile costruire delle preposizioni logiche per selezionare solo i valori che rispettino una data condizione. Ora questa funzione si rivela particolarmente utile poichè ci permette di <em>interrogare</em> il nostro dataframe in modo semplice ed intuitivo. Utilizzando una condizione logica possiamo, infatti, <em>filtrare</em> le oservazioni che soddisfano una data condizione ed ottenere solo le informazioni di interesse.</p>
 <p>Nella canonica sintassi <code>[&lt;indice-riga&gt;, &lt;indice-colonna&gt;]</code>, gli indici di riga vengono sostituiti con una condizione logica che ci permette di filtrare le righe e al posto degli indici di colonna vengono indicati i nomi delle variabili di interesse. Utilizzeremo quindi la seguente sintassi:</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="dataframe.html#cb177-1"></a>nome_dataframe[<span class="op">&lt;</span>condizione_logica_righe<span class="op">&gt;</span>, <span class="op">&lt;</span>nomi_variabili<span class="op">&gt;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="dataframe.html#cb196-1"></a>nome_dataframe[<span class="op">&lt;</span>condizione_logica_righe<span class="op">&gt;</span>, <span class="op">&lt;</span>nomi_variabili<span class="op">&gt;</span>]</span></code></pre></div>
 <p>Vediamo ora degli esempi di selezione:</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="dataframe.html#cb178-1"></a><span class="co"># Tutti i dati di &quot;Diego&quot; (Id == 4)</span></span>
-<span id="cb178-2"><a href="dataframe.html#cb178-2"></a>my_data[my_data<span class="op">$</span>Id <span class="op">==</span><span class="st"> </span><span class="dv">4</span>, ]</span>
-<span id="cb178-3"><a href="dataframe.html#cb178-3"></a><span class="co">##   Id names gender age faculty</span></span>
-<span id="cb178-4"><a href="dataframe.html#cb178-4"></a><span class="co">## 4  4 Diego      M  22 Lettere</span></span>
-<span id="cb178-5"><a href="dataframe.html#cb178-5"></a></span>
-<span id="cb178-6"><a href="dataframe.html#cb178-6"></a><span class="co"># Tutti i dai delle ragazze</span></span>
-<span id="cb178-7"><a href="dataframe.html#cb178-7"></a>my_data[my_data<span class="op">$</span>gender <span class="op">==</span><span class="st"> &quot;F&quot;</span>, ]</span>
-<span id="cb178-8"><a href="dataframe.html#cb178-8"></a><span class="co">##   Id  names gender age    faculty</span></span>
-<span id="cb178-9"><a href="dataframe.html#cb178-9"></a><span class="co">## 1  1  Alice      F  22 Psicologia</span></span>
-<span id="cb178-10"><a href="dataframe.html#cb178-10"></a><span class="co">## 3  3  Carla      F  23   Medicina</span></span>
-<span id="cb178-11"><a href="dataframe.html#cb178-11"></a><span class="co">## 5  5  Elisa      F  24 Psicologia</span></span>
-<span id="cb178-12"><a href="dataframe.html#cb178-12"></a><span class="co">## 7  7 Gloria      F  26 Ingegneria</span></span>
-<span id="cb178-13"><a href="dataframe.html#cb178-13"></a><span class="co">## 9  9  Irene      F  23 Statistica</span></span>
-<span id="cb178-14"><a href="dataframe.html#cb178-14"></a></span>
-<span id="cb178-15"><a href="dataframe.html#cb178-15"></a><span class="co"># Le facoltà dei soggeti con più di 24 anni</span></span>
-<span id="cb178-16"><a href="dataframe.html#cb178-16"></a>my_data[my_data<span class="op">$</span>age <span class="op">&gt;</span><span class="st"> </span><span class="dv">24</span>, <span class="kw">c</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;faculty&quot;</span>)]</span>
-<span id="cb178-17"><a href="dataframe.html#cb178-17"></a><span class="co">##   age    faculty</span></span>
-<span id="cb178-18"><a href="dataframe.html#cb178-18"></a><span class="co">## 2  25 Ingegneria</span></span>
-<span id="cb178-19"><a href="dataframe.html#cb178-19"></a><span class="co">## 6  35    Lettere</span></span>
-<span id="cb178-20"><a href="dataframe.html#cb178-20"></a><span class="co">## 7  26 Ingegneria</span></span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="dataframe.html#cb197-1"></a><span class="co"># Tutti i dati di &quot;Diego&quot; (Id == 4)</span></span>
+<span id="cb197-2"><a href="dataframe.html#cb197-2"></a>my_data[my_data<span class="op">$</span>Id <span class="op">==</span><span class="st"> </span><span class="dv">4</span>, ]</span>
+<span id="cb197-3"><a href="dataframe.html#cb197-3"></a><span class="co">##   Id names gender age faculty</span></span>
+<span id="cb197-4"><a href="dataframe.html#cb197-4"></a><span class="co">## 4  4 Diego      M  22 Lettere</span></span>
+<span id="cb197-5"><a href="dataframe.html#cb197-5"></a></span>
+<span id="cb197-6"><a href="dataframe.html#cb197-6"></a><span class="co"># Tutti i dai delle ragazze</span></span>
+<span id="cb197-7"><a href="dataframe.html#cb197-7"></a>my_data[my_data<span class="op">$</span>gender <span class="op">==</span><span class="st"> &quot;F&quot;</span>, ]</span>
+<span id="cb197-8"><a href="dataframe.html#cb197-8"></a><span class="co">##   Id  names gender age    faculty</span></span>
+<span id="cb197-9"><a href="dataframe.html#cb197-9"></a><span class="co">## 1  1  Alice      F  22 Psicologia</span></span>
+<span id="cb197-10"><a href="dataframe.html#cb197-10"></a><span class="co">## 3  3  Carla      F  23   Medicina</span></span>
+<span id="cb197-11"><a href="dataframe.html#cb197-11"></a><span class="co">## 5  5  Elisa      F  24 Psicologia</span></span>
+<span id="cb197-12"><a href="dataframe.html#cb197-12"></a><span class="co">## 7  7 Gloria      F  26 Ingegneria</span></span>
+<span id="cb197-13"><a href="dataframe.html#cb197-13"></a><span class="co">## 9  9  Irene      F  23 Statistica</span></span>
+<span id="cb197-14"><a href="dataframe.html#cb197-14"></a></span>
+<span id="cb197-15"><a href="dataframe.html#cb197-15"></a><span class="co"># Le facoltà dei soggeti con più di 24 anni</span></span>
+<span id="cb197-16"><a href="dataframe.html#cb197-16"></a>my_data[my_data<span class="op">$</span>age <span class="op">&gt;</span><span class="st"> </span><span class="dv">24</span>, <span class="kw">c</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;faculty&quot;</span>)]</span>
+<span id="cb197-17"><a href="dataframe.html#cb197-17"></a><span class="co">##   age    faculty</span></span>
+<span id="cb197-18"><a href="dataframe.html#cb197-18"></a><span class="co">## 2  25 Ingegneria</span></span>
+<span id="cb197-19"><a href="dataframe.html#cb197-19"></a><span class="co">## 6  35    Lettere</span></span>
+<span id="cb197-20"><a href="dataframe.html#cb197-20"></a><span class="co">## 7  26 Ingegneria</span></span></code></pre></div>
 <p>Nota come, nel definire una condizione logica utilizzano le variabili dello stesso dataframe, sia comunque necessario indicare sempre anche il nome del dataframe. Nel caso precendente avremmo ottenuto un errore indicando semplicemente <code>age &gt; 24</code> poichè così indichiamo l’oggetto <code>age</code> (che non esiste) e non la variabile <code>age</code> contenuta in <code>my_data</code>.</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="dataframe.html#cb179-1"></a>my_data[age <span class="op">&gt;</span><span class="st"> </span><span class="dv">24</span>, <span class="kw">c</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;faculty&quot;</span>)]</span>
-<span id="cb179-2"><a href="dataframe.html#cb179-2"></a><span class="co">## Error in `[.data.frame`(my_data, age &gt; 24, c(&quot;age&quot;, &quot;faculty&quot;)): object &#39;age&#39; not found</span></span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="dataframe.html#cb198-1"></a>my_data[age <span class="op">&gt;</span><span class="st"> </span><span class="dv">24</span>, <span class="kw">c</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;faculty&quot;</span>)]</span>
+<span id="cb198-2"><a href="dataframe.html#cb198-2"></a><span class="co">## Error in `[.data.frame`(my_data, age &gt; 24, c(&quot;age&quot;, &quot;faculty&quot;)): object &#39;age&#39; not found</span></span></code></pre></div>
 <p>In modo analogo a quanto visto con i vettori, utlizzando la condizione <code>my_data$age &gt; 24</code> otteniamo un vettore di valori <code>TRUE</code> e <code>FALSE</code> a seconda che la condizione sia rispettata o meno.</p>
 <p>Utilizzando gli operatori logici <strong>AND</strong>(<code>&amp;</code>) <strong>OR</strong>(<code>|</code>) e <strong>NOT</strong>(<code>!</code>) possiamo combinare più operazioni logiche insieme per ottenere indicizzazioni più complesse, ma sempre intuitive dal punto di vista della scrittura. Ad esempio, per selezionare “I soggetti tra i 20 e i 25 anni iscrittti a psicologia” eseguiremo:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="dataframe.html#cb180-1"></a>my_data[my_data<span class="op">$</span>age <span class="op">&gt;=</span><span class="st"> </span><span class="dv">20</span> <span class="op">&amp;</span><span class="st"> </span>my_data<span class="op">$</span>age <span class="op">&lt;=</span><span class="dv">25</span> <span class="op">&amp;</span><span class="st"> </span>my_data<span class="op">$</span>faculty <span class="op">==</span><span class="st"> &quot;Psicologia&quot;</span>, ]</span>
-<span id="cb180-2"><a href="dataframe.html#cb180-2"></a><span class="co">##   Id  names gender age    faculty</span></span>
-<span id="cb180-3"><a href="dataframe.html#cb180-3"></a><span class="co">## 1  1  Alice      F  22 Psicologia</span></span>
-<span id="cb180-4"><a href="dataframe.html#cb180-4"></a><span class="co">## 5  5  Elisa      F  24 Psicologia</span></span>
-<span id="cb180-5"><a href="dataframe.html#cb180-5"></a><span class="co">## 8  8 Herman      M  20 Psicologia</span></span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="dataframe.html#cb199-1"></a>my_data[my_data<span class="op">$</span>age <span class="op">&gt;=</span><span class="st"> </span><span class="dv">20</span> <span class="op">&amp;</span><span class="st"> </span>my_data<span class="op">$</span>age <span class="op">&lt;=</span><span class="dv">25</span> <span class="op">&amp;</span><span class="st"> </span>my_data<span class="op">$</span>faculty <span class="op">==</span><span class="st"> &quot;Psicologia&quot;</span>, ]</span>
+<span id="cb199-2"><a href="dataframe.html#cb199-2"></a><span class="co">##   Id  names gender age    faculty</span></span>
+<span id="cb199-3"><a href="dataframe.html#cb199-3"></a><span class="co">## 1  1  Alice      F  22 Psicologia</span></span>
+<span id="cb199-4"><a href="dataframe.html#cb199-4"></a><span class="co">## 5  5  Elisa      F  24 Psicologia</span></span>
+<span id="cb199-5"><a href="dataframe.html#cb199-5"></a><span class="co">## 8  8 Herman      M  20 Psicologia</span></span></code></pre></div>
 <p>Utilizzando questo metodo di indicizzazione possiamo apprezzare la vera potenza dei dataframe. Abbiamo, infatti, un metodo molto semplice ed intuitivo per lavorare con strutture di dati complesse formate da diverse tipologie di dati.</p>
 <div class="design" title="Output Selezione">
 <p>Due aspetti importanti riguardanti il risultato di una selezione sono la tipologia di ouput ottenuto e come salvarla.</p>
 <h4 id="tiplogia-output" class="unnumbered">Tiplogia Output</h4>
 <p>In modo analogo alle matrici, i comandi di selezione non restituiscono sempre la stessa tipologia di oggetto. Infatti, quando selezioniamo una singola variabile otteniamo come risultato un vettore mentre selezionando due o più variabili oteniamo un dataframe.</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="dataframe.html#cb181-1"></a><span class="co"># Singola variabile</span></span>
-<span id="cb181-2"><a href="dataframe.html#cb181-2"></a><span class="kw">class</span>(my_data<span class="op">$</span>age)</span>
-<span id="cb181-3"><a href="dataframe.html#cb181-3"></a><span class="co">## [1] &quot;numeric&quot;</span></span>
-<span id="cb181-4"><a href="dataframe.html#cb181-4"></a></span>
-<span id="cb181-5"><a href="dataframe.html#cb181-5"></a><span class="co"># Più variabili</span></span>
-<span id="cb181-6"><a href="dataframe.html#cb181-6"></a><span class="kw">class</span>(my_data[ , <span class="kw">c</span>(<span class="st">&quot;names&quot;</span>, <span class="st">&quot;age&quot;</span>)])</span>
-<span id="cb181-7"><a href="dataframe.html#cb181-7"></a><span class="co">## [1] &quot;data.frame&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="dataframe.html#cb200-1"></a><span class="co"># Singola variabile</span></span>
+<span id="cb200-2"><a href="dataframe.html#cb200-2"></a><span class="kw">class</span>(my_data<span class="op">$</span>age)</span>
+<span id="cb200-3"><a href="dataframe.html#cb200-3"></a><span class="co">## [1] &quot;numeric&quot;</span></span>
+<span id="cb200-4"><a href="dataframe.html#cb200-4"></a></span>
+<span id="cb200-5"><a href="dataframe.html#cb200-5"></a><span class="co"># Più variabili</span></span>
+<span id="cb200-6"><a href="dataframe.html#cb200-6"></a><span class="kw">class</span>(my_data[ , <span class="kw">c</span>(<span class="st">&quot;names&quot;</span>, <span class="st">&quot;age&quot;</span>)])</span>
+<span id="cb200-7"><a href="dataframe.html#cb200-7"></a><span class="co">## [1] &quot;data.frame&quot;</span></span></code></pre></div>
 <h4 id="salvare-selezione" class="unnumbered">Salvare Selezione</h4>
 <p>Come per tutte le altre tipologie di oggetti, le operazioni di selezione non modificano l’oggetto iniziale. Pertanto è necessario salvare il risultato della selezione se si desidera mantenere le modifiche. In questo caso, è cosigliabile creare un nuovo oggetto e non sovrascrivere l’oggetto iniziale poichè non ci permetterebbe di compiere nuove selezioni od operazioni su tutti i dati iniziali. E’ buona norma quindi mantenere sempre un dataframe con la versione dei dati originali.</p>
 </div>
@@ -791,88 +799,88 @@ F
 <div id="modificare-gli-elementi-2" class="section level4 unnumbered">
 <h4>Modificare gli Elementi</h4>
 <p>In modo analogo agli altri oggetti, possiamo modificare dei valori selezionando il vecchio valore della matrice e utilizzo la funzione <code>&lt;-</code> (o <code>=</code>) per assegnare il nuovo valore.</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="dataframe.html#cb182-1"></a>my_data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ]</span>
-<span id="cb182-2"><a href="dataframe.html#cb182-2"></a><span class="co">##   Id names gender age    faculty</span></span>
-<span id="cb182-3"><a href="dataframe.html#cb182-3"></a><span class="co">## 1  1 Alice      F  22 Psicologia</span></span>
-<span id="cb182-4"><a href="dataframe.html#cb182-4"></a><span class="co">## 2  2 Bruno      M  25 Ingegneria</span></span>
-<span id="cb182-5"><a href="dataframe.html#cb182-5"></a><span class="co">## 3  3 Carla      F  23   Medicina</span></span>
-<span id="cb182-6"><a href="dataframe.html#cb182-6"></a><span class="co">## 4  4 Diego      M  22    Lettere</span></span>
-<span id="cb182-7"><a href="dataframe.html#cb182-7"></a><span class="co">## 5  5 Elisa      F  24 Psicologia</span></span>
-<span id="cb182-8"><a href="dataframe.html#cb182-8"></a></span>
-<span id="cb182-9"><a href="dataframe.html#cb182-9"></a><span class="co"># Sostituisco il nome &quot;Diego&quot; con &quot;Davide&quot;</span></span>
-<span id="cb182-10"><a href="dataframe.html#cb182-10"></a>my_data[<span class="dv">4</span>, <span class="st">&quot;names&quot;</span>] &lt;-<span class="st"> &quot;Davide&quot;</span></span>
-<span id="cb182-11"><a href="dataframe.html#cb182-11"></a></span>
-<span id="cb182-12"><a href="dataframe.html#cb182-12"></a>my_data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</span>
-<span id="cb182-13"><a href="dataframe.html#cb182-13"></a><span class="co">##    Id    names gender age    faculty</span></span>
-<span id="cb182-14"><a href="dataframe.html#cb182-14"></a><span class="co">## 1   1    Alice      F  22 Psicologia</span></span>
-<span id="cb182-15"><a href="dataframe.html#cb182-15"></a><span class="co">## 2   2    Bruno      M  25 Ingegneria</span></span>
-<span id="cb182-16"><a href="dataframe.html#cb182-16"></a><span class="co">## 3   3    Carla      F  23   Medicina</span></span>
-<span id="cb182-17"><a href="dataframe.html#cb182-17"></a><span class="co">## 4   4   Davide      M  22    Lettere</span></span>
-<span id="cb182-18"><a href="dataframe.html#cb182-18"></a><span class="co">## 5   5    Elisa      F  24 Psicologia</span></span>
-<span id="cb182-19"><a href="dataframe.html#cb182-19"></a><span class="co">## 6   6 Fabrizio      M  35    Lettere</span></span>
-<span id="cb182-20"><a href="dataframe.html#cb182-20"></a><span class="co">## 7   7   Gloria      F  26 Ingegneria</span></span>
-<span id="cb182-21"><a href="dataframe.html#cb182-21"></a><span class="co">## 8   8   Herman      M  20 Psicologia</span></span>
-<span id="cb182-22"><a href="dataframe.html#cb182-22"></a><span class="co">## 9   9    Irene      F  23 Statistica</span></span>
-<span id="cb182-23"><a href="dataframe.html#cb182-23"></a><span class="co">## 10 10     Luca      M  22 Ingegneria</span></span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="dataframe.html#cb201-1"></a>my_data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ]</span>
+<span id="cb201-2"><a href="dataframe.html#cb201-2"></a><span class="co">##   Id names gender age    faculty</span></span>
+<span id="cb201-3"><a href="dataframe.html#cb201-3"></a><span class="co">## 1  1 Alice      F  22 Psicologia</span></span>
+<span id="cb201-4"><a href="dataframe.html#cb201-4"></a><span class="co">## 2  2 Bruno      M  25 Ingegneria</span></span>
+<span id="cb201-5"><a href="dataframe.html#cb201-5"></a><span class="co">## 3  3 Carla      F  23   Medicina</span></span>
+<span id="cb201-6"><a href="dataframe.html#cb201-6"></a><span class="co">## 4  4 Diego      M  22    Lettere</span></span>
+<span id="cb201-7"><a href="dataframe.html#cb201-7"></a><span class="co">## 5  5 Elisa      F  24 Psicologia</span></span>
+<span id="cb201-8"><a href="dataframe.html#cb201-8"></a></span>
+<span id="cb201-9"><a href="dataframe.html#cb201-9"></a><span class="co"># Sostituisco il nome &quot;Diego&quot; con &quot;Davide&quot;</span></span>
+<span id="cb201-10"><a href="dataframe.html#cb201-10"></a>my_data[<span class="dv">4</span>, <span class="st">&quot;names&quot;</span>] &lt;-<span class="st"> &quot;Davide&quot;</span></span>
+<span id="cb201-11"><a href="dataframe.html#cb201-11"></a></span>
+<span id="cb201-12"><a href="dataframe.html#cb201-12"></a>my_data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</span>
+<span id="cb201-13"><a href="dataframe.html#cb201-13"></a><span class="co">##    Id    names gender age    faculty</span></span>
+<span id="cb201-14"><a href="dataframe.html#cb201-14"></a><span class="co">## 1   1    Alice      F  22 Psicologia</span></span>
+<span id="cb201-15"><a href="dataframe.html#cb201-15"></a><span class="co">## 2   2    Bruno      M  25 Ingegneria</span></span>
+<span id="cb201-16"><a href="dataframe.html#cb201-16"></a><span class="co">## 3   3    Carla      F  23   Medicina</span></span>
+<span id="cb201-17"><a href="dataframe.html#cb201-17"></a><span class="co">## 4   4   Davide      M  22    Lettere</span></span>
+<span id="cb201-18"><a href="dataframe.html#cb201-18"></a><span class="co">## 5   5    Elisa      F  24 Psicologia</span></span>
+<span id="cb201-19"><a href="dataframe.html#cb201-19"></a><span class="co">## 6   6 Fabrizio      M  35    Lettere</span></span>
+<span id="cb201-20"><a href="dataframe.html#cb201-20"></a><span class="co">## 7   7   Gloria      F  26 Ingegneria</span></span>
+<span id="cb201-21"><a href="dataframe.html#cb201-21"></a><span class="co">## 8   8   Herman      M  20 Psicologia</span></span>
+<span id="cb201-22"><a href="dataframe.html#cb201-22"></a><span class="co">## 9   9    Irene      F  23 Statistica</span></span>
+<span id="cb201-23"><a href="dataframe.html#cb201-23"></a><span class="co">## 10 10     Luca      M  22 Ingegneria</span></span></code></pre></div>
 </div>
 <div id="eliminare-righe-o-colonne-1" class="section level4 unnumbered">
 <h4>Eliminare Righe o Colonne</h4>
 <p>In modo analogo agli altri oggetti, per <strong>eliminare</strong> delle righe (o delle colonne) da un dataframe, è necessario indicare all’interno delle parentesi quadre gli indici di riga (o di colonna) che si intende eliminare, preceduti dall’operatore <code>-</code> (<em>meno</em>). Nel caso di più righe (o colone) è possibile indicare il meno solo prima del comando <code>c()</code>.</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="dataframe.html#cb183-1"></a><span class="co"># Elimino le variabili &quot;gender&quot; e &quot;age&quot;</span></span>
-<span id="cb183-2"><a href="dataframe.html#cb183-2"></a>my_data[ , <span class="kw">c</span>(<span class="st">&quot;gender&quot;</span>, <span class="st">&quot;age&quot;</span>)]</span>
-<span id="cb183-3"><a href="dataframe.html#cb183-3"></a><span class="co">##    gender age</span></span>
-<span id="cb183-4"><a href="dataframe.html#cb183-4"></a><span class="co">## 1       F  22</span></span>
-<span id="cb183-5"><a href="dataframe.html#cb183-5"></a><span class="co">## 2       M  25</span></span>
-<span id="cb183-6"><a href="dataframe.html#cb183-6"></a><span class="co">## 3       F  23</span></span>
-<span id="cb183-7"><a href="dataframe.html#cb183-7"></a><span class="co">## 4       M  22</span></span>
-<span id="cb183-8"><a href="dataframe.html#cb183-8"></a><span class="co">## 5       F  24</span></span>
-<span id="cb183-9"><a href="dataframe.html#cb183-9"></a><span class="co">## 6       M  35</span></span>
-<span id="cb183-10"><a href="dataframe.html#cb183-10"></a><span class="co">## 7       F  26</span></span>
-<span id="cb183-11"><a href="dataframe.html#cb183-11"></a><span class="co">## 8       M  20</span></span>
-<span id="cb183-12"><a href="dataframe.html#cb183-12"></a><span class="co">## 9       F  23</span></span>
-<span id="cb183-13"><a href="dataframe.html#cb183-13"></a><span class="co">## 10      M  22</span></span>
-<span id="cb183-14"><a href="dataframe.html#cb183-14"></a></span>
-<span id="cb183-15"><a href="dataframe.html#cb183-15"></a><span class="co"># Elimino le prime 5 osservazioni</span></span>
-<span id="cb183-16"><a href="dataframe.html#cb183-16"></a>my_data[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>), ]</span>
-<span id="cb183-17"><a href="dataframe.html#cb183-17"></a><span class="co">##    Id    names gender age    faculty</span></span>
-<span id="cb183-18"><a href="dataframe.html#cb183-18"></a><span class="co">## 6   6 Fabrizio      M  35    Lettere</span></span>
-<span id="cb183-19"><a href="dataframe.html#cb183-19"></a><span class="co">## 7   7   Gloria      F  26 Ingegneria</span></span>
-<span id="cb183-20"><a href="dataframe.html#cb183-20"></a><span class="co">## 8   8   Herman      M  20 Psicologia</span></span>
-<span id="cb183-21"><a href="dataframe.html#cb183-21"></a><span class="co">## 9   9    Irene      F  23 Statistica</span></span>
-<span id="cb183-22"><a href="dataframe.html#cb183-22"></a><span class="co">## 10 10     Luca      M  22 Ingegneria</span></span>
-<span id="cb183-23"><a href="dataframe.html#cb183-23"></a></span>
-<span id="cb183-24"><a href="dataframe.html#cb183-24"></a><span class="co"># Elimino le prime 5 osservazioni e la variabile &quot;names&quot;</span></span>
-<span id="cb183-25"><a href="dataframe.html#cb183-25"></a>my_data[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>), <span class="dv">-3</span>]</span>
-<span id="cb183-26"><a href="dataframe.html#cb183-26"></a><span class="co">##    Id    names age    faculty</span></span>
-<span id="cb183-27"><a href="dataframe.html#cb183-27"></a><span class="co">## 6   6 Fabrizio  35    Lettere</span></span>
-<span id="cb183-28"><a href="dataframe.html#cb183-28"></a><span class="co">## 7   7   Gloria  26 Ingegneria</span></span>
-<span id="cb183-29"><a href="dataframe.html#cb183-29"></a><span class="co">## 8   8   Herman  20 Psicologia</span></span>
-<span id="cb183-30"><a href="dataframe.html#cb183-30"></a><span class="co">## 9   9    Irene  23 Statistica</span></span>
-<span id="cb183-31"><a href="dataframe.html#cb183-31"></a><span class="co">## 10 10     Luca  22 Ingegneria</span></span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="dataframe.html#cb202-1"></a><span class="co"># Elimino le variabili &quot;gender&quot; e &quot;age&quot;</span></span>
+<span id="cb202-2"><a href="dataframe.html#cb202-2"></a>my_data[ , <span class="kw">c</span>(<span class="st">&quot;gender&quot;</span>, <span class="st">&quot;age&quot;</span>)]</span>
+<span id="cb202-3"><a href="dataframe.html#cb202-3"></a><span class="co">##    gender age</span></span>
+<span id="cb202-4"><a href="dataframe.html#cb202-4"></a><span class="co">## 1       F  22</span></span>
+<span id="cb202-5"><a href="dataframe.html#cb202-5"></a><span class="co">## 2       M  25</span></span>
+<span id="cb202-6"><a href="dataframe.html#cb202-6"></a><span class="co">## 3       F  23</span></span>
+<span id="cb202-7"><a href="dataframe.html#cb202-7"></a><span class="co">## 4       M  22</span></span>
+<span id="cb202-8"><a href="dataframe.html#cb202-8"></a><span class="co">## 5       F  24</span></span>
+<span id="cb202-9"><a href="dataframe.html#cb202-9"></a><span class="co">## 6       M  35</span></span>
+<span id="cb202-10"><a href="dataframe.html#cb202-10"></a><span class="co">## 7       F  26</span></span>
+<span id="cb202-11"><a href="dataframe.html#cb202-11"></a><span class="co">## 8       M  20</span></span>
+<span id="cb202-12"><a href="dataframe.html#cb202-12"></a><span class="co">## 9       F  23</span></span>
+<span id="cb202-13"><a href="dataframe.html#cb202-13"></a><span class="co">## 10      M  22</span></span>
+<span id="cb202-14"><a href="dataframe.html#cb202-14"></a></span>
+<span id="cb202-15"><a href="dataframe.html#cb202-15"></a><span class="co"># Elimino le prime 5 osservazioni</span></span>
+<span id="cb202-16"><a href="dataframe.html#cb202-16"></a>my_data[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>), ]</span>
+<span id="cb202-17"><a href="dataframe.html#cb202-17"></a><span class="co">##    Id    names gender age    faculty</span></span>
+<span id="cb202-18"><a href="dataframe.html#cb202-18"></a><span class="co">## 6   6 Fabrizio      M  35    Lettere</span></span>
+<span id="cb202-19"><a href="dataframe.html#cb202-19"></a><span class="co">## 7   7   Gloria      F  26 Ingegneria</span></span>
+<span id="cb202-20"><a href="dataframe.html#cb202-20"></a><span class="co">## 8   8   Herman      M  20 Psicologia</span></span>
+<span id="cb202-21"><a href="dataframe.html#cb202-21"></a><span class="co">## 9   9    Irene      F  23 Statistica</span></span>
+<span id="cb202-22"><a href="dataframe.html#cb202-22"></a><span class="co">## 10 10     Luca      M  22 Ingegneria</span></span>
+<span id="cb202-23"><a href="dataframe.html#cb202-23"></a></span>
+<span id="cb202-24"><a href="dataframe.html#cb202-24"></a><span class="co"># Elimino le prime 5 osservazioni e la variabile &quot;names&quot;</span></span>
+<span id="cb202-25"><a href="dataframe.html#cb202-25"></a>my_data[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>), <span class="dv">-3</span>]</span>
+<span id="cb202-26"><a href="dataframe.html#cb202-26"></a><span class="co">##    Id    names age    faculty</span></span>
+<span id="cb202-27"><a href="dataframe.html#cb202-27"></a><span class="co">## 6   6 Fabrizio  35    Lettere</span></span>
+<span id="cb202-28"><a href="dataframe.html#cb202-28"></a><span class="co">## 7   7   Gloria  26 Ingegneria</span></span>
+<span id="cb202-29"><a href="dataframe.html#cb202-29"></a><span class="co">## 8   8   Herman  20 Psicologia</span></span>
+<span id="cb202-30"><a href="dataframe.html#cb202-30"></a><span class="co">## 9   9    Irene  23 Statistica</span></span>
+<span id="cb202-31"><a href="dataframe.html#cb202-31"></a><span class="co">## 10 10     Luca  22 Ingegneria</span></span></code></pre></div>
 <p>E’ possibile anche escludere (ed eliminare in un certo senso) delle informazioni usando gli operatori logici in gli operatori <strong>NOT</strong>(<code>!</code>) e diverso da (<code>!=</code>):</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="dataframe.html#cb184-1"></a><span class="co"># Seleziono tutto tranne gli studenti di psicologia</span></span>
-<span id="cb184-2"><a href="dataframe.html#cb184-2"></a></span>
-<span id="cb184-3"><a href="dataframe.html#cb184-3"></a><span class="co"># Modo 1 (valuto disuguaglianza)</span></span>
-<span id="cb184-4"><a href="dataframe.html#cb184-4"></a>my_data[my_data<span class="op">$</span>faculty <span class="op">!=</span><span class="st"> &quot;Psicologia&quot;</span>, ]</span>
-<span id="cb184-5"><a href="dataframe.html#cb184-5"></a><span class="co">##    Id    names gender age    faculty</span></span>
-<span id="cb184-6"><a href="dataframe.html#cb184-6"></a><span class="co">## 2   2    Bruno      M  25 Ingegneria</span></span>
-<span id="cb184-7"><a href="dataframe.html#cb184-7"></a><span class="co">## 3   3    Carla      F  23   Medicina</span></span>
-<span id="cb184-8"><a href="dataframe.html#cb184-8"></a><span class="co">## 4   4   Davide      M  22    Lettere</span></span>
-<span id="cb184-9"><a href="dataframe.html#cb184-9"></a><span class="co">## 6   6 Fabrizio      M  35    Lettere</span></span>
-<span id="cb184-10"><a href="dataframe.html#cb184-10"></a><span class="co">## 7   7   Gloria      F  26 Ingegneria</span></span>
-<span id="cb184-11"><a href="dataframe.html#cb184-11"></a><span class="co">## 9   9    Irene      F  23 Statistica</span></span>
-<span id="cb184-12"><a href="dataframe.html#cb184-12"></a><span class="co">## 10 10     Luca      M  22 Ingegneria</span></span>
-<span id="cb184-13"><a href="dataframe.html#cb184-13"></a></span>
-<span id="cb184-14"><a href="dataframe.html#cb184-14"></a><span class="co"># Modo 1 (nego l&#39;uguaglianza)</span></span>
-<span id="cb184-15"><a href="dataframe.html#cb184-15"></a>my_data[<span class="op">!</span>my_data<span class="op">$</span>faculty <span class="op">==</span><span class="st"> &quot;Psicologia&quot;</span>, ]</span>
-<span id="cb184-16"><a href="dataframe.html#cb184-16"></a><span class="co">##    Id    names gender age    faculty</span></span>
-<span id="cb184-17"><a href="dataframe.html#cb184-17"></a><span class="co">## 2   2    Bruno      M  25 Ingegneria</span></span>
-<span id="cb184-18"><a href="dataframe.html#cb184-18"></a><span class="co">## 3   3    Carla      F  23   Medicina</span></span>
-<span id="cb184-19"><a href="dataframe.html#cb184-19"></a><span class="co">## 4   4   Davide      M  22    Lettere</span></span>
-<span id="cb184-20"><a href="dataframe.html#cb184-20"></a><span class="co">## 6   6 Fabrizio      M  35    Lettere</span></span>
-<span id="cb184-21"><a href="dataframe.html#cb184-21"></a><span class="co">## 7   7   Gloria      F  26 Ingegneria</span></span>
-<span id="cb184-22"><a href="dataframe.html#cb184-22"></a><span class="co">## 9   9    Irene      F  23 Statistica</span></span>
-<span id="cb184-23"><a href="dataframe.html#cb184-23"></a><span class="co">## 10 10     Luca      M  22 Ingegneria</span></span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="dataframe.html#cb203-1"></a><span class="co"># Seleziono tutto tranne gli studenti di psicologia</span></span>
+<span id="cb203-2"><a href="dataframe.html#cb203-2"></a></span>
+<span id="cb203-3"><a href="dataframe.html#cb203-3"></a><span class="co"># Modo 1 (valuto disuguaglianza)</span></span>
+<span id="cb203-4"><a href="dataframe.html#cb203-4"></a>my_data[my_data<span class="op">$</span>faculty <span class="op">!=</span><span class="st"> &quot;Psicologia&quot;</span>, ]</span>
+<span id="cb203-5"><a href="dataframe.html#cb203-5"></a><span class="co">##    Id    names gender age    faculty</span></span>
+<span id="cb203-6"><a href="dataframe.html#cb203-6"></a><span class="co">## 2   2    Bruno      M  25 Ingegneria</span></span>
+<span id="cb203-7"><a href="dataframe.html#cb203-7"></a><span class="co">## 3   3    Carla      F  23   Medicina</span></span>
+<span id="cb203-8"><a href="dataframe.html#cb203-8"></a><span class="co">## 4   4   Davide      M  22    Lettere</span></span>
+<span id="cb203-9"><a href="dataframe.html#cb203-9"></a><span class="co">## 6   6 Fabrizio      M  35    Lettere</span></span>
+<span id="cb203-10"><a href="dataframe.html#cb203-10"></a><span class="co">## 7   7   Gloria      F  26 Ingegneria</span></span>
+<span id="cb203-11"><a href="dataframe.html#cb203-11"></a><span class="co">## 9   9    Irene      F  23 Statistica</span></span>
+<span id="cb203-12"><a href="dataframe.html#cb203-12"></a><span class="co">## 10 10     Luca      M  22 Ingegneria</span></span>
+<span id="cb203-13"><a href="dataframe.html#cb203-13"></a></span>
+<span id="cb203-14"><a href="dataframe.html#cb203-14"></a><span class="co"># Modo 1 (nego l&#39;uguaglianza)</span></span>
+<span id="cb203-15"><a href="dataframe.html#cb203-15"></a>my_data[<span class="op">!</span>my_data<span class="op">$</span>faculty <span class="op">==</span><span class="st"> &quot;Psicologia&quot;</span>, ]</span>
+<span id="cb203-16"><a href="dataframe.html#cb203-16"></a><span class="co">##    Id    names gender age    faculty</span></span>
+<span id="cb203-17"><a href="dataframe.html#cb203-17"></a><span class="co">## 2   2    Bruno      M  25 Ingegneria</span></span>
+<span id="cb203-18"><a href="dataframe.html#cb203-18"></a><span class="co">## 3   3    Carla      F  23   Medicina</span></span>
+<span id="cb203-19"><a href="dataframe.html#cb203-19"></a><span class="co">## 4   4   Davide      M  22    Lettere</span></span>
+<span id="cb203-20"><a href="dataframe.html#cb203-20"></a><span class="co">## 6   6 Fabrizio      M  35    Lettere</span></span>
+<span id="cb203-21"><a href="dataframe.html#cb203-21"></a><span class="co">## 7   7   Gloria      F  26 Ingegneria</span></span>
+<span id="cb203-22"><a href="dataframe.html#cb203-22"></a><span class="co">## 9   9    Irene      F  23 Statistica</span></span>
+<span id="cb203-23"><a href="dataframe.html#cb203-23"></a><span class="co">## 10 10     Luca      M  22 Ingegneria</span></span></code></pre></div>
 <p>Nota come l’operazione di eliminazione sia comunque un’operazione di selezione. Pertanto è necessario salvare il risultato ottenuto se si desidera mantenere le modifiche.</p>
 <div class="warning" title="Attenzione ad Eliminare">
 <p>L’utilizzo dell’operatore <code>-</code> è sempre in qualche modo pericoloso, sopratutto se l’oggetto che viene creato (o sovrascritto) viene poi utilizzato in altre operazioni. Eliminare delle informazioni, tranne quando è veramente necessario, non è mai una buona cosa. Se dovete selezionare una parte dei dati è sempre meglio creare un nuovo dataframe (o un nuovo oggetto in generale) e mantendere una versione di quello originale sempre disponibile.</p>
@@ -992,63 +1000,63 @@ Summary del dataframe
 </tbody>
 </table>
 <p>Descriviamo ora nel dettaglio alcuni particolari utilizzi, considrando come esempio una versione ridotta del dataframe <code>my_data</code> precedentemente creata.</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="dataframe.html#cb185-1"></a>data_short &lt;-<span class="st"> </span>my_data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ]</span>
-<span id="cb185-2"><a href="dataframe.html#cb185-2"></a>data_short</span>
-<span id="cb185-3"><a href="dataframe.html#cb185-3"></a><span class="co">##   Id  names gender age    faculty</span></span>
-<span id="cb185-4"><a href="dataframe.html#cb185-4"></a><span class="co">## 1  1  Alice      F  22 Psicologia</span></span>
-<span id="cb185-5"><a href="dataframe.html#cb185-5"></a><span class="co">## 2  2  Bruno      M  25 Ingegneria</span></span>
-<span id="cb185-6"><a href="dataframe.html#cb185-6"></a><span class="co">## 3  3  Carla      F  23   Medicina</span></span>
-<span id="cb185-7"><a href="dataframe.html#cb185-7"></a><span class="co">## 4  4 Davide      M  22    Lettere</span></span>
-<span id="cb185-8"><a href="dataframe.html#cb185-8"></a><span class="co">## 5  5  Elisa      F  24 Psicologia</span></span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="dataframe.html#cb204-1"></a>data_short &lt;-<span class="st"> </span>my_data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ]</span>
+<span id="cb204-2"><a href="dataframe.html#cb204-2"></a>data_short</span>
+<span id="cb204-3"><a href="dataframe.html#cb204-3"></a><span class="co">##   Id  names gender age    faculty</span></span>
+<span id="cb204-4"><a href="dataframe.html#cb204-4"></a><span class="co">## 1  1  Alice      F  22 Psicologia</span></span>
+<span id="cb204-5"><a href="dataframe.html#cb204-5"></a><span class="co">## 2  2  Bruno      M  25 Ingegneria</span></span>
+<span id="cb204-6"><a href="dataframe.html#cb204-6"></a><span class="co">## 3  3  Carla      F  23   Medicina</span></span>
+<span id="cb204-7"><a href="dataframe.html#cb204-7"></a><span class="co">## 4  4 Davide      M  22    Lettere</span></span>
+<span id="cb204-8"><a href="dataframe.html#cb204-8"></a><span class="co">## 5  5  Elisa      F  24 Psicologia</span></span></code></pre></div>
 <div id="attributi-di-un-dataframe" class="section level3">
 <h3><span class="header-section-number">10.3.1</span> Attributi di un Dataframe</h3>
-<p>Abbiamo visto nel Capitolo TODO che gli oggetti in R possiedono quelli che sono definiti <em>attibuti</em> ovvero delle utili informazioni riguardanti l’oggetto stesso, una sorta di <em>metadata</em>. Vediamo ora, in modo analogo alle matrici, come valutare la dimensione di un dataframe e i nomi delle righe e delle colonne.</p>
-<div id="dimensione-1" class="section level4 unnumbered">
+<p>Abbiamo visto nel Capitolo TODO che gli oggetti in R possiedono quelli che sono definiti <em>attributi</em> ovvero delle utili informazioni riguardanti l’oggetto stesso, una sorta di <em>metadata</em>. Vediamo ora, in modo analogo alle matrici, come valutare la dimensione di un dataframe e i nomi delle righe e delle colonne.</p>
+<div id="dimensione-2" class="section level4 unnumbered">
 <h4>Dimensione</h4>
 <p>Ricordiamo che un dataframe è un oggetto <strong>bidimensionale</strong> formato da righe e colonne. Per ottenere il numero di righe e di colonne di un dataframe, possiamo usare rispettivamente i comandi <code>nrow()</code> e <code>ncol()</code>.</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="dataframe.html#cb186-1"></a><span class="co"># Numero di righe</span></span>
-<span id="cb186-2"><a href="dataframe.html#cb186-2"></a><span class="kw">nrow</span>(my_data)</span>
-<span id="cb186-3"><a href="dataframe.html#cb186-3"></a><span class="co">## [1] 10</span></span>
-<span id="cb186-4"><a href="dataframe.html#cb186-4"></a></span>
-<span id="cb186-5"><a href="dataframe.html#cb186-5"></a><span class="co"># Numero di colonne</span></span>
-<span id="cb186-6"><a href="dataframe.html#cb186-6"></a><span class="kw">ncol</span>(my_data)</span>
-<span id="cb186-7"><a href="dataframe.html#cb186-7"></a><span class="co">## [1] 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="dataframe.html#cb205-1"></a><span class="co"># Numero di righe</span></span>
+<span id="cb205-2"><a href="dataframe.html#cb205-2"></a><span class="kw">nrow</span>(my_data)</span>
+<span id="cb205-3"><a href="dataframe.html#cb205-3"></a><span class="co">## [1] 10</span></span>
+<span id="cb205-4"><a href="dataframe.html#cb205-4"></a></span>
+<span id="cb205-5"><a href="dataframe.html#cb205-5"></a><span class="co"># Numero di colonne</span></span>
+<span id="cb205-6"><a href="dataframe.html#cb205-6"></a><span class="kw">ncol</span>(my_data)</span>
+<span id="cb205-7"><a href="dataframe.html#cb205-7"></a><span class="co">## [1] 5</span></span></code></pre></div>
 <p>In alternativa, come per le matrici, è possibile usare la funzione <code>dim()</code>che restituisce un vettore con due valori dove il primo rappresenta il numero di righe e il secondo il numero di colonne.</p>
 </div>
 <div id="nomi-righe-e-colonne-1" class="section level4 unnumbered">
 <h4>Nomi Righe e Colonne</h4>
 <p>In modo simile alle matrici, è possibile accedere ai nomi delle righe e delle colonne utilizzando rispettivamente le funzioni <code>rownames()</code> e <code>colnames()</code>. Di default il dataframe richiede dei nomi solo alle colonne mentre il alle righe viene assegnato un nome in accordo con l’indice di riga. Tuttavia, è possibile anche nominare le righe con valori arbitrari sebbene sia una funzione raramente utilizzata.</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="dataframe.html#cb187-1"></a><span class="co"># Controllo i nomi attuali</span></span>
-<span id="cb187-2"><a href="dataframe.html#cb187-2"></a><span class="kw">rownames</span>(data_short)</span>
-<span id="cb187-3"><a href="dataframe.html#cb187-3"></a><span class="co">## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot;</span></span>
-<span id="cb187-4"><a href="dataframe.html#cb187-4"></a><span class="kw">colnames</span>(data_short)</span>
-<span id="cb187-5"><a href="dataframe.html#cb187-5"></a><span class="co">## [1] &quot;Id&quot;      &quot;names&quot;   &quot;gender&quot;  &quot;age&quot;     &quot;faculty&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="dataframe.html#cb206-1"></a><span class="co"># Controllo i nomi attuali</span></span>
+<span id="cb206-2"><a href="dataframe.html#cb206-2"></a><span class="kw">rownames</span>(data_short)</span>
+<span id="cb206-3"><a href="dataframe.html#cb206-3"></a><span class="co">## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot;</span></span>
+<span id="cb206-4"><a href="dataframe.html#cb206-4"></a><span class="kw">colnames</span>(data_short)</span>
+<span id="cb206-5"><a href="dataframe.html#cb206-5"></a><span class="co">## [1] &quot;Id&quot;      &quot;names&quot;   &quot;gender&quot;  &quot;age&quot;     &quot;faculty&quot;</span></span></code></pre></div>
 <p>Per impostare i nomi di righe e/o colonne, sarà quindi necessario assegnare a <code>rownames(nome_dataframe)</code> e <code>colnames(nome_dataframe)</code> un vettore di caratteri della stessa lunghezza della dimensione che stiamo rinominando.</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="dataframe.html#cb188-1"></a><span class="co"># Assegnamo i nomi alle righe</span></span>
-<span id="cb188-2"><a href="dataframe.html#cb188-2"></a><span class="kw">rownames</span>(data_short) &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Subj_&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(data_short))</span>
-<span id="cb188-3"><a href="dataframe.html#cb188-3"></a></span>
-<span id="cb188-4"><a href="dataframe.html#cb188-4"></a><span class="co"># Assegno i nomi alle colonne</span></span>
-<span id="cb188-5"><a href="dataframe.html#cb188-5"></a><span class="kw">colnames</span>(data_short) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Id&quot;</span>, <span class="st">&quot;Nome&quot;</span>, <span class="st">&quot;Genere&quot;</span>, <span class="st">&quot;Eta&quot;</span>, <span class="st">&quot;Facolta&quot;</span>)</span>
-<span id="cb188-6"><a href="dataframe.html#cb188-6"></a></span>
-<span id="cb188-7"><a href="dataframe.html#cb188-7"></a>data_short</span>
-<span id="cb188-8"><a href="dataframe.html#cb188-8"></a><span class="co">##        Id   Nome Genere Eta    Facolta</span></span>
-<span id="cb188-9"><a href="dataframe.html#cb188-9"></a><span class="co">## Subj_1  1  Alice      F  22 Psicologia</span></span>
-<span id="cb188-10"><a href="dataframe.html#cb188-10"></a><span class="co">## Subj_2  2  Bruno      M  25 Ingegneria</span></span>
-<span id="cb188-11"><a href="dataframe.html#cb188-11"></a><span class="co">## Subj_3  3  Carla      F  23   Medicina</span></span>
-<span id="cb188-12"><a href="dataframe.html#cb188-12"></a><span class="co">## Subj_4  4 Davide      M  22    Lettere</span></span>
-<span id="cb188-13"><a href="dataframe.html#cb188-13"></a><span class="co">## Subj_5  5  Elisa      F  24 Psicologia</span></span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="dataframe.html#cb207-1"></a><span class="co"># Assegnamo i nomi alle righe</span></span>
+<span id="cb207-2"><a href="dataframe.html#cb207-2"></a><span class="kw">rownames</span>(data_short) &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Subj_&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(data_short))</span>
+<span id="cb207-3"><a href="dataframe.html#cb207-3"></a></span>
+<span id="cb207-4"><a href="dataframe.html#cb207-4"></a><span class="co"># Assegno i nomi alle colonne</span></span>
+<span id="cb207-5"><a href="dataframe.html#cb207-5"></a><span class="kw">colnames</span>(data_short) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Id&quot;</span>, <span class="st">&quot;Nome&quot;</span>, <span class="st">&quot;Genere&quot;</span>, <span class="st">&quot;Eta&quot;</span>, <span class="st">&quot;Facolta&quot;</span>)</span>
+<span id="cb207-6"><a href="dataframe.html#cb207-6"></a></span>
+<span id="cb207-7"><a href="dataframe.html#cb207-7"></a>data_short</span>
+<span id="cb207-8"><a href="dataframe.html#cb207-8"></a><span class="co">##        Id   Nome Genere Eta    Facolta</span></span>
+<span id="cb207-9"><a href="dataframe.html#cb207-9"></a><span class="co">## Subj_1  1  Alice      F  22 Psicologia</span></span>
+<span id="cb207-10"><a href="dataframe.html#cb207-10"></a><span class="co">## Subj_2  2  Bruno      M  25 Ingegneria</span></span>
+<span id="cb207-11"><a href="dataframe.html#cb207-11"></a><span class="co">## Subj_3  3  Carla      F  23   Medicina</span></span>
+<span id="cb207-12"><a href="dataframe.html#cb207-12"></a><span class="co">## Subj_4  4 Davide      M  22    Lettere</span></span>
+<span id="cb207-13"><a href="dataframe.html#cb207-13"></a><span class="co">## Subj_5  5  Elisa      F  24 Psicologia</span></span></code></pre></div>
 <p>Infine, nota come la funzione <code>names()</code> nel caso dei dataframe sia analoga alla funzione <code>colnames()</code> e sia possibile usare il vaore <code>NULL</code> per eliminare ad esempio i nomi delle righe.</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="dataframe.html#cb189-1"></a><span class="kw">names</span>(data_short)</span>
-<span id="cb189-2"><a href="dataframe.html#cb189-2"></a><span class="co">## [1] &quot;Id&quot;      &quot;Nome&quot;    &quot;Genere&quot;  &quot;Eta&quot;     &quot;Facolta&quot;</span></span>
-<span id="cb189-3"><a href="dataframe.html#cb189-3"></a></span>
-<span id="cb189-4"><a href="dataframe.html#cb189-4"></a><span class="kw">rownames</span>(data_short) &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
-<span id="cb189-5"><a href="dataframe.html#cb189-5"></a>data_short</span>
-<span id="cb189-6"><a href="dataframe.html#cb189-6"></a><span class="co">##   Id   Nome Genere Eta    Facolta</span></span>
-<span id="cb189-7"><a href="dataframe.html#cb189-7"></a><span class="co">## 1  1  Alice      F  22 Psicologia</span></span>
-<span id="cb189-8"><a href="dataframe.html#cb189-8"></a><span class="co">## 2  2  Bruno      M  25 Ingegneria</span></span>
-<span id="cb189-9"><a href="dataframe.html#cb189-9"></a><span class="co">## 3  3  Carla      F  23   Medicina</span></span>
-<span id="cb189-10"><a href="dataframe.html#cb189-10"></a><span class="co">## 4  4 Davide      M  22    Lettere</span></span>
-<span id="cb189-11"><a href="dataframe.html#cb189-11"></a><span class="co">## 5  5  Elisa      F  24 Psicologia</span></span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="dataframe.html#cb208-1"></a><span class="kw">names</span>(data_short)</span>
+<span id="cb208-2"><a href="dataframe.html#cb208-2"></a><span class="co">## [1] &quot;Id&quot;      &quot;Nome&quot;    &quot;Genere&quot;  &quot;Eta&quot;     &quot;Facolta&quot;</span></span>
+<span id="cb208-3"><a href="dataframe.html#cb208-3"></a></span>
+<span id="cb208-4"><a href="dataframe.html#cb208-4"></a><span class="kw">rownames</span>(data_short) &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb208-5"><a href="dataframe.html#cb208-5"></a>data_short</span>
+<span id="cb208-6"><a href="dataframe.html#cb208-6"></a><span class="co">##   Id   Nome Genere Eta    Facolta</span></span>
+<span id="cb208-7"><a href="dataframe.html#cb208-7"></a><span class="co">## 1  1  Alice      F  22 Psicologia</span></span>
+<span id="cb208-8"><a href="dataframe.html#cb208-8"></a><span class="co">## 2  2  Bruno      M  25 Ingegneria</span></span>
+<span id="cb208-9"><a href="dataframe.html#cb208-9"></a><span class="co">## 3  3  Carla      F  23   Medicina</span></span>
+<span id="cb208-10"><a href="dataframe.html#cb208-10"></a><span class="co">## 4  4 Davide      M  22    Lettere</span></span>
+<span id="cb208-11"><a href="dataframe.html#cb208-11"></a><span class="co">## 5  5  Elisa      F  24 Psicologia</span></span></code></pre></div>
 </div>
 </div>
 <div id="unire-dataframe" class="section level3">
@@ -1057,42 +1065,42 @@ Summary del dataframe
 <div id="dataframename---new_var" class="section level4 unnumbered">
 <h4><code>dataframe$name &lt;- new_var</code></h4>
 <p>Con la scrittura <code>dataframe$name &lt;- new_var</code> aggiungiamo al dataframe in oggetto una nuova colonna chiamata <code>name</code> che prende i valori all’interno di <code>new_var</code>. Sarà necessario che la nuova variabile abbia lo stesso numero di valori delle righe del dataframe.</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="dataframe.html#cb190-1"></a><span class="co"># Aggiungiamo la colonna &quot;media&quot;</span></span>
-<span id="cb190-2"><a href="dataframe.html#cb190-2"></a>data_short<span class="op">$</span>Media &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">27.5</span>, <span class="fl">23.6</span>, <span class="fl">28.3</span>, <span class="fl">29.2</span>, <span class="fl">24.8</span>)</span>
-<span id="cb190-3"><a href="dataframe.html#cb190-3"></a></span>
-<span id="cb190-4"><a href="dataframe.html#cb190-4"></a><span class="co"># Equivalente a</span></span>
-<span id="cb190-5"><a href="dataframe.html#cb190-5"></a>media_voti &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">27.5</span>, <span class="fl">23.6</span>, <span class="fl">28.3</span>, <span class="fl">29.2</span>, <span class="fl">24.8</span>)</span>
-<span id="cb190-6"><a href="dataframe.html#cb190-6"></a>data_short<span class="op">$</span>Media &lt;-<span class="st"> </span>media_voti</span>
-<span id="cb190-7"><a href="dataframe.html#cb190-7"></a></span>
-<span id="cb190-8"><a href="dataframe.html#cb190-8"></a>data_short</span>
-<span id="cb190-9"><a href="dataframe.html#cb190-9"></a><span class="co">##   Id   Nome Genere Eta    Facolta Media</span></span>
-<span id="cb190-10"><a href="dataframe.html#cb190-10"></a><span class="co">## 1  1  Alice      F  22 Psicologia  27.5</span></span>
-<span id="cb190-11"><a href="dataframe.html#cb190-11"></a><span class="co">## 2  2  Bruno      M  25 Ingegneria  23.6</span></span>
-<span id="cb190-12"><a href="dataframe.html#cb190-12"></a><span class="co">## 3  3  Carla      F  23   Medicina  28.3</span></span>
-<span id="cb190-13"><a href="dataframe.html#cb190-13"></a><span class="co">## 4  4 Davide      M  22    Lettere  29.2</span></span>
-<span id="cb190-14"><a href="dataframe.html#cb190-14"></a><span class="co">## 5  5  Elisa      F  24 Psicologia  24.8</span></span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="dataframe.html#cb209-1"></a><span class="co"># Aggiungiamo la colonna &quot;media&quot;</span></span>
+<span id="cb209-2"><a href="dataframe.html#cb209-2"></a>data_short<span class="op">$</span>Media &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">27.5</span>, <span class="fl">23.6</span>, <span class="fl">28.3</span>, <span class="fl">29.2</span>, <span class="fl">24.8</span>)</span>
+<span id="cb209-3"><a href="dataframe.html#cb209-3"></a></span>
+<span id="cb209-4"><a href="dataframe.html#cb209-4"></a><span class="co"># Equivalente a</span></span>
+<span id="cb209-5"><a href="dataframe.html#cb209-5"></a>media_voti &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">27.5</span>, <span class="fl">23.6</span>, <span class="fl">28.3</span>, <span class="fl">29.2</span>, <span class="fl">24.8</span>)</span>
+<span id="cb209-6"><a href="dataframe.html#cb209-6"></a>data_short<span class="op">$</span>Media &lt;-<span class="st"> </span>media_voti</span>
+<span id="cb209-7"><a href="dataframe.html#cb209-7"></a></span>
+<span id="cb209-8"><a href="dataframe.html#cb209-8"></a>data_short</span>
+<span id="cb209-9"><a href="dataframe.html#cb209-9"></a><span class="co">##   Id   Nome Genere Eta    Facolta Media</span></span>
+<span id="cb209-10"><a href="dataframe.html#cb209-10"></a><span class="co">## 1  1  Alice      F  22 Psicologia  27.5</span></span>
+<span id="cb209-11"><a href="dataframe.html#cb209-11"></a><span class="co">## 2  2  Bruno      M  25 Ingegneria  23.6</span></span>
+<span id="cb209-12"><a href="dataframe.html#cb209-12"></a><span class="co">## 3  3  Carla      F  23   Medicina  28.3</span></span>
+<span id="cb209-13"><a href="dataframe.html#cb209-13"></a><span class="co">## 4  4 Davide      M  22    Lettere  29.2</span></span>
+<span id="cb209-14"><a href="dataframe.html#cb209-14"></a><span class="co">## 5  5  Elisa      F  24 Psicologia  24.8</span></span></code></pre></div>
 </div>
 <div id="cbind" class="section level4 unnumbered">
 <h4><code>cbind()</code></h4>
 <p>Con la funzione <code>cbind()</code> possiamo aggiungere una o più variabili al nostro dataframe. Nota come a differenza dell’utilizzo dell’operatore <code>$,</code>usando <code>cbind()</code> il risultato non venga automaticamente salvato ma sia necessario assegnare l’operazione ad un nuovo oggetto <code>dataframe &lt;- cbind(dataframe, new_var)</code>. In quest’ultimo caso il nome della colonna sarà <code>new_var</code>. Se vogliamo anche rinominare la colonna possiamo usare la sintassi <code>cbind(dataframe, "nome" = new_var)</code> oppure chiamare l’oggetto direttamente con il nome desiderato:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="dataframe.html#cb191-1"></a><span class="co"># aggiungo la variabile Numero_esami</span></span>
-<span id="cb191-2"><a href="dataframe.html#cb191-2"></a>numero_esami &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">13</span>, <span class="dv">10</span>, <span class="dv">8</span>)</span>
-<span id="cb191-3"><a href="dataframe.html#cb191-3"></a></span>
-<span id="cb191-4"><a href="dataframe.html#cb191-4"></a><span class="kw">cbind</span>(data_short, numero_esami) <span class="co"># senza specificare il nome</span></span>
-<span id="cb191-5"><a href="dataframe.html#cb191-5"></a><span class="co">##   Id   Nome Genere Eta    Facolta Media numero_esami</span></span>
-<span id="cb191-6"><a href="dataframe.html#cb191-6"></a><span class="co">## 1  1  Alice      F  22 Psicologia  27.5           12</span></span>
-<span id="cb191-7"><a href="dataframe.html#cb191-7"></a><span class="co">## 2  2  Bruno      M  25 Ingegneria  23.6           14</span></span>
-<span id="cb191-8"><a href="dataframe.html#cb191-8"></a><span class="co">## 3  3  Carla      F  23   Medicina  28.3           13</span></span>
-<span id="cb191-9"><a href="dataframe.html#cb191-9"></a><span class="co">## 4  4 Davide      M  22    Lettere  29.2           10</span></span>
-<span id="cb191-10"><a href="dataframe.html#cb191-10"></a><span class="co">## 5  5  Elisa      F  24 Psicologia  24.8            8</span></span>
-<span id="cb191-11"><a href="dataframe.html#cb191-11"></a></span>
-<span id="cb191-12"><a href="dataframe.html#cb191-12"></a><span class="kw">cbind</span>(data_short, <span class="st">&quot;N_esami&quot;</span> =<span class="st"> </span>numero_esami) <span class="co"># specificando anche il nome</span></span>
-<span id="cb191-13"><a href="dataframe.html#cb191-13"></a><span class="co">##   Id   Nome Genere Eta    Facolta Media N_esami</span></span>
-<span id="cb191-14"><a href="dataframe.html#cb191-14"></a><span class="co">## 1  1  Alice      F  22 Psicologia  27.5      12</span></span>
-<span id="cb191-15"><a href="dataframe.html#cb191-15"></a><span class="co">## 2  2  Bruno      M  25 Ingegneria  23.6      14</span></span>
-<span id="cb191-16"><a href="dataframe.html#cb191-16"></a><span class="co">## 3  3  Carla      F  23   Medicina  28.3      13</span></span>
-<span id="cb191-17"><a href="dataframe.html#cb191-17"></a><span class="co">## 4  4 Davide      M  22    Lettere  29.2      10</span></span>
-<span id="cb191-18"><a href="dataframe.html#cb191-18"></a><span class="co">## 5  5  Elisa      F  24 Psicologia  24.8       8</span></span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="dataframe.html#cb210-1"></a><span class="co"># aggiungo la variabile Numero_esami</span></span>
+<span id="cb210-2"><a href="dataframe.html#cb210-2"></a>numero_esami &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">13</span>, <span class="dv">10</span>, <span class="dv">8</span>)</span>
+<span id="cb210-3"><a href="dataframe.html#cb210-3"></a></span>
+<span id="cb210-4"><a href="dataframe.html#cb210-4"></a><span class="kw">cbind</span>(data_short, numero_esami) <span class="co"># senza specificare il nome</span></span>
+<span id="cb210-5"><a href="dataframe.html#cb210-5"></a><span class="co">##   Id   Nome Genere Eta    Facolta Media numero_esami</span></span>
+<span id="cb210-6"><a href="dataframe.html#cb210-6"></a><span class="co">## 1  1  Alice      F  22 Psicologia  27.5           12</span></span>
+<span id="cb210-7"><a href="dataframe.html#cb210-7"></a><span class="co">## 2  2  Bruno      M  25 Ingegneria  23.6           14</span></span>
+<span id="cb210-8"><a href="dataframe.html#cb210-8"></a><span class="co">## 3  3  Carla      F  23   Medicina  28.3           13</span></span>
+<span id="cb210-9"><a href="dataframe.html#cb210-9"></a><span class="co">## 4  4 Davide      M  22    Lettere  29.2           10</span></span>
+<span id="cb210-10"><a href="dataframe.html#cb210-10"></a><span class="co">## 5  5  Elisa      F  24 Psicologia  24.8            8</span></span>
+<span id="cb210-11"><a href="dataframe.html#cb210-11"></a></span>
+<span id="cb210-12"><a href="dataframe.html#cb210-12"></a><span class="kw">cbind</span>(data_short, <span class="st">&quot;N_esami&quot;</span> =<span class="st"> </span>numero_esami) <span class="co"># specificando anche il nome</span></span>
+<span id="cb210-13"><a href="dataframe.html#cb210-13"></a><span class="co">##   Id   Nome Genere Eta    Facolta Media N_esami</span></span>
+<span id="cb210-14"><a href="dataframe.html#cb210-14"></a><span class="co">## 1  1  Alice      F  22 Psicologia  27.5      12</span></span>
+<span id="cb210-15"><a href="dataframe.html#cb210-15"></a><span class="co">## 2  2  Bruno      M  25 Ingegneria  23.6      14</span></span>
+<span id="cb210-16"><a href="dataframe.html#cb210-16"></a><span class="co">## 3  3  Carla      F  23   Medicina  28.3      13</span></span>
+<span id="cb210-17"><a href="dataframe.html#cb210-17"></a><span class="co">## 4  4 Davide      M  22    Lettere  29.2      10</span></span>
+<span id="cb210-18"><a href="dataframe.html#cb210-18"></a><span class="co">## 5  5  Elisa      F  24 Psicologia  24.8       8</span></span></code></pre></div>
 <p>Anche in questo caso sarà necessario che le nuove variabili abbia lo stesso numero di valori delle righe del dataframe.</p>
 </div>
 <div id="rbind" class="section level4 unnumbered">
@@ -1102,49 +1110,49 @@ Summary del dataframe
 <li>Lo stesso numero di colonne (come per le matrici)</li>
 <li>Lo stesso nome delle colonne</li>
 </ul>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="dataframe.html#cb192-1"></a>data_short</span>
-<span id="cb192-2"><a href="dataframe.html#cb192-2"></a><span class="co">##   Id   Nome Genere Eta    Facolta Media</span></span>
-<span id="cb192-3"><a href="dataframe.html#cb192-3"></a><span class="co">## 1  1  Alice      F  22 Psicologia  27.5</span></span>
-<span id="cb192-4"><a href="dataframe.html#cb192-4"></a><span class="co">## 2  2  Bruno      M  25 Ingegneria  23.6</span></span>
-<span id="cb192-5"><a href="dataframe.html#cb192-5"></a><span class="co">## 3  3  Carla      F  23   Medicina  28.3</span></span>
-<span id="cb192-6"><a href="dataframe.html#cb192-6"></a><span class="co">## 4  4 Davide      M  22    Lettere  29.2</span></span>
-<span id="cb192-7"><a href="dataframe.html#cb192-7"></a><span class="co">## 5  5  Elisa      F  24 Psicologia  24.8</span></span>
-<span id="cb192-8"><a href="dataframe.html#cb192-8"></a></span>
-<span id="cb192-9"><a href="dataframe.html#cb192-9"></a><span class="co"># Nuovo dataset con le stesse colonne ma diverso nome</span></span>
-<span id="cb192-10"><a href="dataframe.html#cb192-10"></a>new_row &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb192-11"><a href="dataframe.html#cb192-11"></a>  <span class="dt">Id =</span> <span class="dv">6</span>,</span>
-<span id="cb192-12"><a href="dataframe.html#cb192-12"></a>  <span class="dt">Nome =</span> <span class="st">&quot;Marta&quot;</span>,</span>
-<span id="cb192-13"><a href="dataframe.html#cb192-13"></a>  <span class="dt">Sex =</span> <span class="st">&quot;F&quot;</span>,      <span class="co"># Sex invece di Genere</span></span>
-<span id="cb192-14"><a href="dataframe.html#cb192-14"></a>  <span class="dt">Eta =</span> <span class="dv">44</span>,</span>
-<span id="cb192-15"><a href="dataframe.html#cb192-15"></a>  <span class="dt">Facolta =</span> <span class="st">&quot;Filosofia&quot;</span>,</span>
-<span id="cb192-16"><a href="dataframe.html#cb192-16"></a>  <span class="dt">Media =</span> <span class="fl">28.7</span></span>
-<span id="cb192-17"><a href="dataframe.html#cb192-17"></a>)</span>
-<span id="cb192-18"><a href="dataframe.html#cb192-18"></a></span>
-<span id="cb192-19"><a href="dataframe.html#cb192-19"></a>new_row</span>
-<span id="cb192-20"><a href="dataframe.html#cb192-20"></a><span class="co">##   Id  Nome Sex Eta   Facolta Media</span></span>
-<span id="cb192-21"><a href="dataframe.html#cb192-21"></a><span class="co">## 1  6 Marta   F  44 Filosofia  28.7</span></span>
-<span id="cb192-22"><a href="dataframe.html#cb192-22"></a></span>
-<span id="cb192-23"><a href="dataframe.html#cb192-23"></a><span class="kw">rbind</span>(data_short, new_row) <span class="co"># Errore</span></span>
-<span id="cb192-24"><a href="dataframe.html#cb192-24"></a><span class="co">## Error in match.names(clabs, names(xi)): names do not match previous names</span></span>
-<span id="cb192-25"><a href="dataframe.html#cb192-25"></a></span>
-<span id="cb192-26"><a href="dataframe.html#cb192-26"></a><span class="co"># Nuovo dataset con le stesse colonne con il nome corretto</span></span>
-<span id="cb192-27"><a href="dataframe.html#cb192-27"></a>new_row &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb192-28"><a href="dataframe.html#cb192-28"></a>  <span class="dt">Id =</span> <span class="dv">6</span>,</span>
-<span id="cb192-29"><a href="dataframe.html#cb192-29"></a>  <span class="dt">Nome =</span> <span class="st">&quot;Marta&quot;</span>,</span>
-<span id="cb192-30"><a href="dataframe.html#cb192-30"></a>  <span class="dt">Genere =</span> <span class="st">&quot;F&quot;</span>, </span>
-<span id="cb192-31"><a href="dataframe.html#cb192-31"></a>  <span class="dt">Eta =</span> <span class="dv">44</span>,</span>
-<span id="cb192-32"><a href="dataframe.html#cb192-32"></a>  <span class="dt">Facolta =</span> <span class="st">&quot;Filosofia&quot;</span>,</span>
-<span id="cb192-33"><a href="dataframe.html#cb192-33"></a>  <span class="dt">Media =</span> <span class="fl">28.7</span></span>
-<span id="cb192-34"><a href="dataframe.html#cb192-34"></a>)</span>
-<span id="cb192-35"><a href="dataframe.html#cb192-35"></a></span>
-<span id="cb192-36"><a href="dataframe.html#cb192-36"></a><span class="kw">rbind</span>(data_short, new_row)</span>
-<span id="cb192-37"><a href="dataframe.html#cb192-37"></a><span class="co">##   Id   Nome Genere Eta    Facolta Media</span></span>
-<span id="cb192-38"><a href="dataframe.html#cb192-38"></a><span class="co">## 1  1  Alice      F  22 Psicologia  27.5</span></span>
-<span id="cb192-39"><a href="dataframe.html#cb192-39"></a><span class="co">## 2  2  Bruno      M  25 Ingegneria  23.6</span></span>
-<span id="cb192-40"><a href="dataframe.html#cb192-40"></a><span class="co">## 3  3  Carla      F  23   Medicina  28.3</span></span>
-<span id="cb192-41"><a href="dataframe.html#cb192-41"></a><span class="co">## 4  4 Davide      M  22    Lettere  29.2</span></span>
-<span id="cb192-42"><a href="dataframe.html#cb192-42"></a><span class="co">## 5  5  Elisa      F  24 Psicologia  24.8</span></span>
-<span id="cb192-43"><a href="dataframe.html#cb192-43"></a><span class="co">## 6  6  Marta      F  44  Filosofia  28.7</span></span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="dataframe.html#cb211-1"></a>data_short</span>
+<span id="cb211-2"><a href="dataframe.html#cb211-2"></a><span class="co">##   Id   Nome Genere Eta    Facolta Media</span></span>
+<span id="cb211-3"><a href="dataframe.html#cb211-3"></a><span class="co">## 1  1  Alice      F  22 Psicologia  27.5</span></span>
+<span id="cb211-4"><a href="dataframe.html#cb211-4"></a><span class="co">## 2  2  Bruno      M  25 Ingegneria  23.6</span></span>
+<span id="cb211-5"><a href="dataframe.html#cb211-5"></a><span class="co">## 3  3  Carla      F  23   Medicina  28.3</span></span>
+<span id="cb211-6"><a href="dataframe.html#cb211-6"></a><span class="co">## 4  4 Davide      M  22    Lettere  29.2</span></span>
+<span id="cb211-7"><a href="dataframe.html#cb211-7"></a><span class="co">## 5  5  Elisa      F  24 Psicologia  24.8</span></span>
+<span id="cb211-8"><a href="dataframe.html#cb211-8"></a></span>
+<span id="cb211-9"><a href="dataframe.html#cb211-9"></a><span class="co"># Nuovo dataset con le stesse colonne ma diverso nome</span></span>
+<span id="cb211-10"><a href="dataframe.html#cb211-10"></a>new_row &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb211-11"><a href="dataframe.html#cb211-11"></a>  <span class="dt">Id =</span> <span class="dv">6</span>,</span>
+<span id="cb211-12"><a href="dataframe.html#cb211-12"></a>  <span class="dt">Nome =</span> <span class="st">&quot;Marta&quot;</span>,</span>
+<span id="cb211-13"><a href="dataframe.html#cb211-13"></a>  <span class="dt">Sex =</span> <span class="st">&quot;F&quot;</span>,      <span class="co"># Sex invece di Genere</span></span>
+<span id="cb211-14"><a href="dataframe.html#cb211-14"></a>  <span class="dt">Eta =</span> <span class="dv">44</span>,</span>
+<span id="cb211-15"><a href="dataframe.html#cb211-15"></a>  <span class="dt">Facolta =</span> <span class="st">&quot;Filosofia&quot;</span>,</span>
+<span id="cb211-16"><a href="dataframe.html#cb211-16"></a>  <span class="dt">Media =</span> <span class="fl">28.7</span></span>
+<span id="cb211-17"><a href="dataframe.html#cb211-17"></a>)</span>
+<span id="cb211-18"><a href="dataframe.html#cb211-18"></a></span>
+<span id="cb211-19"><a href="dataframe.html#cb211-19"></a>new_row</span>
+<span id="cb211-20"><a href="dataframe.html#cb211-20"></a><span class="co">##   Id  Nome Sex Eta   Facolta Media</span></span>
+<span id="cb211-21"><a href="dataframe.html#cb211-21"></a><span class="co">## 1  6 Marta   F  44 Filosofia  28.7</span></span>
+<span id="cb211-22"><a href="dataframe.html#cb211-22"></a></span>
+<span id="cb211-23"><a href="dataframe.html#cb211-23"></a><span class="kw">rbind</span>(data_short, new_row) <span class="co"># Errore</span></span>
+<span id="cb211-24"><a href="dataframe.html#cb211-24"></a><span class="co">## Error in match.names(clabs, names(xi)): names do not match previous names</span></span>
+<span id="cb211-25"><a href="dataframe.html#cb211-25"></a></span>
+<span id="cb211-26"><a href="dataframe.html#cb211-26"></a><span class="co"># Nuovo dataset con le stesse colonne con il nome corretto</span></span>
+<span id="cb211-27"><a href="dataframe.html#cb211-27"></a>new_row &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb211-28"><a href="dataframe.html#cb211-28"></a>  <span class="dt">Id =</span> <span class="dv">6</span>,</span>
+<span id="cb211-29"><a href="dataframe.html#cb211-29"></a>  <span class="dt">Nome =</span> <span class="st">&quot;Marta&quot;</span>,</span>
+<span id="cb211-30"><a href="dataframe.html#cb211-30"></a>  <span class="dt">Genere =</span> <span class="st">&quot;F&quot;</span>, </span>
+<span id="cb211-31"><a href="dataframe.html#cb211-31"></a>  <span class="dt">Eta =</span> <span class="dv">44</span>,</span>
+<span id="cb211-32"><a href="dataframe.html#cb211-32"></a>  <span class="dt">Facolta =</span> <span class="st">&quot;Filosofia&quot;</span>,</span>
+<span id="cb211-33"><a href="dataframe.html#cb211-33"></a>  <span class="dt">Media =</span> <span class="fl">28.7</span></span>
+<span id="cb211-34"><a href="dataframe.html#cb211-34"></a>)</span>
+<span id="cb211-35"><a href="dataframe.html#cb211-35"></a></span>
+<span id="cb211-36"><a href="dataframe.html#cb211-36"></a><span class="kw">rbind</span>(data_short, new_row)</span>
+<span id="cb211-37"><a href="dataframe.html#cb211-37"></a><span class="co">##   Id   Nome Genere Eta    Facolta Media</span></span>
+<span id="cb211-38"><a href="dataframe.html#cb211-38"></a><span class="co">## 1  1  Alice      F  22 Psicologia  27.5</span></span>
+<span id="cb211-39"><a href="dataframe.html#cb211-39"></a><span class="co">## 2  2  Bruno      M  25 Ingegneria  23.6</span></span>
+<span id="cb211-40"><a href="dataframe.html#cb211-40"></a><span class="co">## 3  3  Carla      F  23   Medicina  28.3</span></span>
+<span id="cb211-41"><a href="dataframe.html#cb211-41"></a><span class="co">## 4  4 Davide      M  22    Lettere  29.2</span></span>
+<span id="cb211-42"><a href="dataframe.html#cb211-42"></a><span class="co">## 5  5  Elisa      F  24 Psicologia  24.8</span></span>
+<span id="cb211-43"><a href="dataframe.html#cb211-43"></a><span class="co">## 6  6  Marta      F  44  Filosofia  28.7</span></span></code></pre></div>
 <p>Anche in questo caso sarà necessario salvare il risultato ottenuto per mantenere i cambiamenti.</p>
 </div>
 </div>
@@ -1154,35 +1162,35 @@ Summary del dataframe
 <ul>
 <li><code>head()</code> (o <code>tail()</code>) ci permete di visualizzare le prime (o le ulitme righe del nostro dataframe)</li>
 </ul>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="dataframe.html#cb193-1"></a><span class="kw">head</span>(my_data)</span>
-<span id="cb193-2"><a href="dataframe.html#cb193-2"></a><span class="co">##   Id    names gender age    faculty</span></span>
-<span id="cb193-3"><a href="dataframe.html#cb193-3"></a><span class="co">## 1  1    Alice      F  22 Psicologia</span></span>
-<span id="cb193-4"><a href="dataframe.html#cb193-4"></a><span class="co">## 2  2    Bruno      M  25 Ingegneria</span></span>
-<span id="cb193-5"><a href="dataframe.html#cb193-5"></a><span class="co">## 3  3    Carla      F  23   Medicina</span></span>
-<span id="cb193-6"><a href="dataframe.html#cb193-6"></a><span class="co">## 4  4   Davide      M  22    Lettere</span></span>
-<span id="cb193-7"><a href="dataframe.html#cb193-7"></a><span class="co">## 5  5    Elisa      F  24 Psicologia</span></span>
-<span id="cb193-8"><a href="dataframe.html#cb193-8"></a><span class="co">## 6  6 Fabrizio      M  35    Lettere</span></span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="dataframe.html#cb212-1"></a><span class="kw">head</span>(my_data)</span>
+<span id="cb212-2"><a href="dataframe.html#cb212-2"></a><span class="co">##   Id    names gender age    faculty</span></span>
+<span id="cb212-3"><a href="dataframe.html#cb212-3"></a><span class="co">## 1  1    Alice      F  22 Psicologia</span></span>
+<span id="cb212-4"><a href="dataframe.html#cb212-4"></a><span class="co">## 2  2    Bruno      M  25 Ingegneria</span></span>
+<span id="cb212-5"><a href="dataframe.html#cb212-5"></a><span class="co">## 3  3    Carla      F  23   Medicina</span></span>
+<span id="cb212-6"><a href="dataframe.html#cb212-6"></a><span class="co">## 4  4   Davide      M  22    Lettere</span></span>
+<span id="cb212-7"><a href="dataframe.html#cb212-7"></a><span class="co">## 5  5    Elisa      F  24 Psicologia</span></span>
+<span id="cb212-8"><a href="dataframe.html#cb212-8"></a><span class="co">## 6  6 Fabrizio      M  35    Lettere</span></span></code></pre></div>
 <ul>
 <li><code>str()</code> ci permete di valutare la struttura del dataset ottenendo utili informazini quali in numero di osservazioni, il numero di variabili e la ipologia di variabili</li>
 </ul>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="dataframe.html#cb194-1"></a><span class="kw">str</span>(my_data)</span>
-<span id="cb194-2"><a href="dataframe.html#cb194-2"></a><span class="co">## &#39;data.frame&#39;:    10 obs. of  5 variables:</span></span>
-<span id="cb194-3"><a href="dataframe.html#cb194-3"></a><span class="co">##  $ Id     : int  1 2 3 4 5 6 7 8 9 10</span></span>
-<span id="cb194-4"><a href="dataframe.html#cb194-4"></a><span class="co">##  $ names  : chr  &quot;Alice&quot; &quot;Bruno&quot; &quot;Carla&quot; &quot;Davide&quot; ...</span></span>
-<span id="cb194-5"><a href="dataframe.html#cb194-5"></a><span class="co">##  $ gender : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 1 2 1 2 1 2 1 2 1 2</span></span>
-<span id="cb194-6"><a href="dataframe.html#cb194-6"></a><span class="co">##  $ age    : num  22 25 23 22 24 35 26 20 23 22</span></span>
-<span id="cb194-7"><a href="dataframe.html#cb194-7"></a><span class="co">##  $ faculty: Factor w/ 5 levels &quot;Ingegneria&quot;,&quot;Lettere&quot;,..: 4 1 3 2 4 2 1 4 5 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="dataframe.html#cb213-1"></a><span class="kw">str</span>(my_data)</span>
+<span id="cb213-2"><a href="dataframe.html#cb213-2"></a><span class="co">## &#39;data.frame&#39;:    10 obs. of  5 variables:</span></span>
+<span id="cb213-3"><a href="dataframe.html#cb213-3"></a><span class="co">##  $ Id     : int  1 2 3 4 5 6 7 8 9 10</span></span>
+<span id="cb213-4"><a href="dataframe.html#cb213-4"></a><span class="co">##  $ names  : chr  &quot;Alice&quot; &quot;Bruno&quot; &quot;Carla&quot; &quot;Davide&quot; ...</span></span>
+<span id="cb213-5"><a href="dataframe.html#cb213-5"></a><span class="co">##  $ gender : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 1 2 1 2 1 2 1 2 1 2</span></span>
+<span id="cb213-6"><a href="dataframe.html#cb213-6"></a><span class="co">##  $ age    : num  22 25 23 22 24 35 26 20 23 22</span></span>
+<span id="cb213-7"><a href="dataframe.html#cb213-7"></a><span class="co">##  $ faculty: Factor w/ 5 levels &quot;Ingegneria&quot;,&quot;Lettere&quot;,..: 4 1 3 2 4 2 1 4 5 1</span></span></code></pre></div>
 <ul>
 <li><code>summary()</code> ci permete avere delle informazioni riassuntive delle variabili a seconda della loro tipologia</li>
 </ul>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="dataframe.html#cb195-1"></a><span class="kw">summary</span>(my_data)</span>
-<span id="cb195-2"><a href="dataframe.html#cb195-2"></a><span class="co">##        Id           names           gender      age              faculty </span></span>
-<span id="cb195-3"><a href="dataframe.html#cb195-3"></a><span class="co">##  Min.   : 1.00   Length:10          F:5    Min.   :20.00   Ingegneria:3  </span></span>
-<span id="cb195-4"><a href="dataframe.html#cb195-4"></a><span class="co">##  1st Qu.: 3.25   Class :character   M:5    1st Qu.:22.00   Lettere   :2  </span></span>
-<span id="cb195-5"><a href="dataframe.html#cb195-5"></a><span class="co">##  Median : 5.50   Mode  :character          Median :23.00   Medicina  :1  </span></span>
-<span id="cb195-6"><a href="dataframe.html#cb195-6"></a><span class="co">##  Mean   : 5.50                             Mean   :24.20   Psicologia:3  </span></span>
-<span id="cb195-7"><a href="dataframe.html#cb195-7"></a><span class="co">##  3rd Qu.: 7.75                             3rd Qu.:24.75   Statistica:1  </span></span>
-<span id="cb195-8"><a href="dataframe.html#cb195-8"></a><span class="co">##  Max.   :10.00                             Max.   :35.00</span></span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="dataframe.html#cb214-1"></a><span class="kw">summary</span>(my_data)</span>
+<span id="cb214-2"><a href="dataframe.html#cb214-2"></a><span class="co">##        Id           names           gender      age              faculty </span></span>
+<span id="cb214-3"><a href="dataframe.html#cb214-3"></a><span class="co">##  Min.   : 1.00   Length:10          F:5    Min.   :20.00   Ingegneria:3  </span></span>
+<span id="cb214-4"><a href="dataframe.html#cb214-4"></a><span class="co">##  1st Qu.: 3.25   Class :character   M:5    1st Qu.:22.00   Lettere   :2  </span></span>
+<span id="cb214-5"><a href="dataframe.html#cb214-5"></a><span class="co">##  Median : 5.50   Mode  :character          Median :23.00   Medicina  :1  </span></span>
+<span id="cb214-6"><a href="dataframe.html#cb214-6"></a><span class="co">##  Mean   : 5.50                             Mean   :24.20   Psicologia:3  </span></span>
+<span id="cb214-7"><a href="dataframe.html#cb214-7"></a><span class="co">##  3rd Qu.: 7.75                             3rd Qu.:24.75   Statistica:1  </span></span>
+<span id="cb214-8"><a href="dataframe.html#cb214-8"></a><span class="co">##  Max.   :10.00                             Max.   :35.00</span></span></code></pre></div>
 </div>
 <div id="esercizi-11" class="section level3 unnumbered">
 <h3>Esercizi</h3>
