@@ -486,7 +486,7 @@ Descriviamo ora nel dettaglio alcuni particolari utilizzi.
 
 ### Attributi di una Matrice {#mat-prop}
 
-Abbiamo visto nel Capitolo TODO che gli oggetti in R possiedono quelli che sono definiti *attibuti* ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di *metadata*. Vediamo ora alcuni attributi particolarmente rilevanti nel caso delle matrici ovvero la dimensione (`dim`) e i nomi delle righe e colonne (`names`). 
+Abbiamo visto nel Capitolo TODO che gli oggetti in R possiedono quelli che sono definiti *attributi* ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di *metadata*. Vediamo ora alcuni attributi particolarmente rilevanti nel caso delle matrici ovvero la dimensione (`dim`) e i nomi delle righe e colonne (`names`). 
 
 #### Dimensione {-}
 

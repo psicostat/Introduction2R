@@ -281,7 +281,7 @@ my_list <- list(my_value,
 
 ### Attributi di una Lista 
 
-Anche le liste come gli altri oggetti, hanno degli *attibuti* ovvero delle utili informazioni riguardanti l'oggetto stesso. Vediamo ora come valutare la dimensione di una lista e i nomi dei suoi elementi. 
+Anche le liste come gli altri oggetti, hanno degli *attributi* ovvero delle utili informazioni riguardanti l'oggetto stesso. Vediamo ora come valutare la dimensione di una lista e i nomi dei suoi elementi. 
 
 #### Dimensione {-}
 
