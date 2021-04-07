@@ -155,7 +155,7 @@ Vedremo ora come creare dei dataframe in R e come compiere le comuni operazini d
 
 ## Creazione di un dataframe
 
-Il comando per creare un dataframe è il comando `data.frame()`:
+Il comando per creare un dataframe è `data.frame()`:
 
 
 ```r
@@ -202,7 +202,7 @@ Presta quindi molta attenzione quando utilizzi codici e soluzioni scritte prima 
 
 ### Esercizi {-}
 
-Esegui i seguenti esercizi ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-10.R)):
+Esegui i seguenti esercizi ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-10-dataframe.R)):
 
 1. Crea il dataframe `data_wide` riportato in Tabella \@ref(tab:table-wide-db)
 2. Crea il dataframe `data_long` riportato in Tabella \@ref(tab:table-long-db)
@@ -508,7 +508,7 @@ L'utilizzo dell'operatore `-` è sempre in qualche modo pericoloso, sopratutto s
 
 ### Esercizi {-}
 
-Facendo riferimento ai dataframe `data_long` e `data_wide` precedentemente creati, esegui i seguenti esercizi ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-10.R)): 
+Facendo riferimento ai dataframe `data_long` e `data_wide` precedentemente creati, esegui i seguenti esercizi ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-10-dataframe.R)): 
 
 1. Utilizzando gli **indici numerici** di riga e di colonna seleziona i dati del soggetto `subj_2` riguardanti le variabili `item` e `response` dal DataFrame `data_long`.
 2. Compi la stessa selezione dell'esercizio precedente usando però questa volta una condizione logica per gli indici di riga e indicando direttamente il nome delle variabili per gli indici di colonna.
@@ -591,7 +591,7 @@ data_short
 ```
 
 
-### Attributi di un Dataframe {#mat-prop}
+### Attributi di un Dataframe 
 
 Abbiamo visto nel Capitolo TODO che gli oggetti in R possiedono quelli che sono definiti *attibuti* ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di *metadata*. Vediamo ora, in modo analogo alle matrici, come valutare la dimensione di un dataframe e i nomi delle righe e delle colonne. 
 
@@ -814,7 +814,7 @@ summary(my_data)
 
 ### Esercizi {-}
 
-Facendo riferimento ai dataframe `data_long` e `data_wide` ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-10.R)): 
+Facendo riferimento ai dataframe `data_long` e `data_wide` ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-10-dataframe.R)): 
 
 1. Aggiungi sia al DataFrame `data_wide` che `data_long` la variabile numerica `"memory_pre"`.
 

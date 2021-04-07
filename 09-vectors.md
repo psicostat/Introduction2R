@@ -87,7 +87,7 @@ rep(1:3, each = 2)
 
 ### Esercizi {-}
 
-Famigliarizza con la creazione di vettori ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07.R)):
+Famigliarizza con la creazione di vettori ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07-vectors.R)):
 
 1. Crea il vettore `x` contenente i numeri 4, 6, 12, 34, 8
 2. Crea il vettore `y` contenente tutti i numeri pari compresi tra 1 e 25 (`?seq()`)
@@ -375,7 +375,7 @@ my_words
 
 ### Esercizi {-}
 
-Esegui i seguenti esercizi ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07.R)):
+Esegui i seguenti esercizi ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07-vectors.R)):
 
 1. Del vettore `x` seleziona il 2°, 3° e 5° elemento
 2. Del vettore `x` seleziona i valori 34 e 4
@@ -488,7 +488,7 @@ my_values >= 4 & my_values <= 7
 
 ### Esercizi {-}
 
-Esegui i seguenti esercizi ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07.R)):
+Esegui i seguenti esercizi ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07-vectors.R)):
 
 1. Crea il vettore `j` unendo i vettori `x` ed `z`.
 2. Elimina gli ultimi tre elementi del vettore `j` e controlla che i vettori `j` e `y` abbiano la stessa lunghezza.
@@ -678,10 +678,10 @@ Utilizzando le funzioni `sum()` e `mean()` con un vettore logico, possiamo valut
 my_values <- rnorm(50)  # genero dei numeri casuali 
 
 sum(my_values > 0)      # totale numeri positivi
-## [1] 24
+## [1] 27
 
 mean(my_values > 0)      # percentuale numeri positivi
-## [1] 0.48
+## [1] 0.54
 ```
 :::
 

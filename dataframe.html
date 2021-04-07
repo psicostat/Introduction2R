@@ -263,7 +263,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-10"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="dataframe.html"><a href="dataframe.html#funzioni-ed-operazioni-1"><i class="fa fa-check"></i><b>10.3</b> Funzioni ed Operazioni</a><ul>
-<li class="chapter" data-level="10.3.1" data-path="matrix.html"><a href="matrix.html#mat-prop"><i class="fa fa-check"></i><b>10.3.1</b> Attributi di un Dataframe</a></li>
+<li class="chapter" data-level="10.3.1" data-path="dataframe.html"><a href="dataframe.html#attributi-di-un-dataframe"><i class="fa fa-check"></i><b>10.3.1</b> Attributi di un Dataframe</a></li>
 <li class="chapter" data-level="10.3.2" data-path="dataframe.html"><a href="dataframe.html#unire-dataframe"><i class="fa fa-check"></i><b>10.3.2</b> Unire Dataframe</a></li>
 <li class="chapter" data-level="10.3.3" data-path="dataframe.html"><a href="dataframe.html#informazioni-dataframe"><i class="fa fa-check"></i><b>10.3.3</b> Informazioni Dataframe</a></li>
 <li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-11"><i class="fa fa-check"></i>Esercizi</a></li>
@@ -613,7 +613,7 @@ F
 </div>
 <div id="creazione-di-un-dataframe" class="section level2">
 <h2><span class="header-section-number">10.1</span> Creazione di un dataframe</h2>
-<p>Il comando per creare un dataframe è il comando <code>data.frame()</code>:</p>
+<p>Il comando per creare un dataframe è <code>data.frame()</code>:</p>
 <div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="dataframe.html#cb170-1"></a>nome_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
 <span id="cb170-2"><a href="dataframe.html#cb170-2"></a>  <span class="dt">variable1 =</span> <span class="kw">c</span>(...),</span>
 <span id="cb170-3"><a href="dataframe.html#cb170-3"></a>  <span class="dt">variable2 =</span> <span class="kw">c</span>(...),</span>
@@ -645,7 +645,7 @@ F
 </div>
 <div id="esercizi-9" class="section level3 unnumbered">
 <h3>Esercizi</h3>
-<p>Esegui i seguenti esercizi (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-10.R">soluzioni</a>):</p>
+<p>Esegui i seguenti esercizi (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-10-dataframe.R">soluzioni</a>):</p>
 <ol style="list-style-type: decimal">
 <li>Crea il dataframe <code>data_wide</code> riportato in Tabella <a href="dataframe.html#tab:table-wide-db">10.1</a></li>
 <li>Crea il dataframe <code>data_long</code> riportato in Tabella <a href="dataframe.html#tab:table-long-db">10.2</a></li>
@@ -876,7 +876,7 @@ F
 </div>
 <div id="esercizi-10" class="section level3 unnumbered">
 <h3>Esercizi</h3>
-<p>Facendo riferimento ai dataframe <code>data_long</code> e <code>data_wide</code> precedentemente creati, esegui i seguenti esercizi (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-10.R">soluzioni</a>):</p>
+<p>Facendo riferimento ai dataframe <code>data_long</code> e <code>data_wide</code> precedentemente creati, esegui i seguenti esercizi (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-10-dataframe.R">soluzioni</a>):</p>
 <ol style="list-style-type: decimal">
 <li>Utilizzando gli <strong>indici numerici</strong> di riga e di colonna seleziona i dati del soggetto <code>subj_2</code> riguardanti le variabili <code>item</code> e <code>response</code> dal DataFrame <code>data_long</code>.</li>
 <li>Compi la stessa selezione dell’esercizio precedente usando però questa volta una condizione logica per gli indici di riga e indicando direttamente il nome delle variabili per gli indici di colonna.</li>
@@ -1000,7 +1000,7 @@ Summary del dataframe
 <span id="cb185-6"><a href="dataframe.html#cb185-6"></a><span class="co">## 3  3  Carla      F  23   Medicina</span></span>
 <span id="cb185-7"><a href="dataframe.html#cb185-7"></a><span class="co">## 4  4 Davide      M  22    Lettere</span></span>
 <span id="cb185-8"><a href="dataframe.html#cb185-8"></a><span class="co">## 5  5  Elisa      F  24 Psicologia</span></span></code></pre></div>
-<div id="mat-prop" class="section level3">
+<div id="attributi-di-un-dataframe" class="section level3">
 <h3><span class="header-section-number">10.3.1</span> Attributi di un Dataframe</h3>
 <p>Abbiamo visto nel Capitolo TODO che gli oggetti in R possiedono quelli che sono definiti <em>attibuti</em> ovvero delle utili informazioni riguardanti l’oggetto stesso, una sorta di <em>metadata</em>. Vediamo ora, in modo analogo alle matrici, come valutare la dimensione di un dataframe e i nomi delle righe e delle colonne.</p>
 <div id="dimensione-1" class="section level4 unnumbered">
@@ -1186,7 +1186,7 @@ Summary del dataframe
 </div>
 <div id="esercizi-11" class="section level3 unnumbered">
 <h3>Esercizi</h3>
-<p>Facendo riferimento ai dataframe <code>data_long</code> e <code>data_wide</code> (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-10.R">soluzioni</a>):</p>
+<p>Facendo riferimento ai dataframe <code>data_long</code> e <code>data_wide</code> (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-10-dataframe.R">soluzioni</a>):</p>
 <ol style="list-style-type: decimal">
 <li>Aggiungi sia al DataFrame <code>data_wide</code> che <code>data_long</code> la variabile numerica <code>"memory_pre"</code>.</li>
 </ol>

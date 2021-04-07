@@ -263,7 +263,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-10"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="dataframe.html"><a href="dataframe.html#funzioni-ed-operazioni-1"><i class="fa fa-check"></i><b>10.3</b> Funzioni ed Operazioni</a><ul>
-<li class="chapter" data-level="10.3.1" data-path="matrix.html"><a href="matrix.html#mat-prop"><i class="fa fa-check"></i><b>10.3.1</b> Attributi di un Dataframe</a></li>
+<li class="chapter" data-level="10.3.1" data-path="dataframe.html"><a href="dataframe.html#attributi-di-un-dataframe"><i class="fa fa-check"></i><b>10.3.1</b> Attributi di un Dataframe</a></li>
 <li class="chapter" data-level="10.3.2" data-path="dataframe.html"><a href="dataframe.html#unire-dataframe"><i class="fa fa-check"></i><b>10.3.2</b> Unire Dataframe</a></li>
 <li class="chapter" data-level="10.3.3" data-path="dataframe.html"><a href="dataframe.html#informazioni-dataframe"><i class="fa fa-check"></i><b>10.3.3</b> Informazioni Dataframe</a></li>
 <li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-11"><i class="fa fa-check"></i>Esercizi</a></li>
@@ -390,7 +390,7 @@ sebbene includano gli stessi elementi, non sono identici poichè differiscono pe
 </div>
 <div id="esercizi-2" class="section level3 unnumbered">
 <h3>Esercizi</h3>
-<p>Famigliarizza con la creazione di vettori (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07.R">soluzioni</a>):</p>
+<p>Famigliarizza con la creazione di vettori (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07-vectors.R">soluzioni</a>):</p>
 <ol style="list-style-type: decimal">
 <li>Crea il vettore <code>x</code> contenente i numeri 4, 6, 12, 34, 8</li>
 <li>Crea il vettore <code>y</code> contenente tutti i numeri pari compresi tra 1 e 25 (<code>?seq()</code>)</li>
@@ -602,7 +602,7 @@ sebbene includano gli stessi elementi, non sono identici poichè differiscono pe
 </div>
 <div id="esercizi-3" class="section level3 unnumbered">
 <h3>Esercizi</h3>
-<p>Esegui i seguenti esercizi (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07.R">soluzioni</a>):</p>
+<p>Esegui i seguenti esercizi (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07-vectors.R">soluzioni</a>):</p>
 <ol style="list-style-type: decimal">
 <li>Del vettore <code>x</code> seleziona il 2°, 3° e 5° elemento</li>
 <li>Del vettore <code>x</code> seleziona i valori 34 e 4</li>
@@ -725,7 +725,7 @@ Rapporto tra due vettori
 </div>
 <div id="esercizi-4" class="section level3 unnumbered">
 <h3>Esercizi</h3>
-<p>Esegui i seguenti esercizi (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07.R">soluzioni</a>):</p>
+<p>Esegui i seguenti esercizi (<a href="https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07-vectors.R">soluzioni</a>):</p>
 <ol style="list-style-type: decimal">
 <li>Crea il vettore <code>j</code> unendo i vettori <code>x</code> ed <code>z</code>.</li>
 <li>Elimina gli ultimi tre elementi del vettore <code>j</code> e controlla che i vettori <code>j</code> e <code>y</code> abbiano la stessa lunghezza.</li>
@@ -852,10 +852,10 @@ Rapporto tra due vettori
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="vector.html#cb85-1"></a>my_values &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">50</span>)  <span class="co"># genero dei numeri casuali </span></span>
 <span id="cb85-2"><a href="vector.html#cb85-2"></a></span>
 <span id="cb85-3"><a href="vector.html#cb85-3"></a><span class="kw">sum</span>(my_values <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)      <span class="co"># totale numeri positivi</span></span>
-<span id="cb85-4"><a href="vector.html#cb85-4"></a><span class="co">## [1] 24</span></span>
+<span id="cb85-4"><a href="vector.html#cb85-4"></a><span class="co">## [1] 31</span></span>
 <span id="cb85-5"><a href="vector.html#cb85-5"></a></span>
 <span id="cb85-6"><a href="vector.html#cb85-6"></a><span class="kw">mean</span>(my_values <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)      <span class="co"># percentuale numeri positivi</span></span>
-<span id="cb85-7"><a href="vector.html#cb85-7"></a><span class="co">## [1] 0.48</span></span></code></pre></div>
+<span id="cb85-7"><a href="vector.html#cb85-7"></a><span class="co">## [1] 0.62</span></span></code></pre></div>
 </div>
 <div class="design" title="is.* adn as.* Function Families">
 <p>Esistono due famiglie di funzioni che permettono rispettivamene di testare e di modificare la tipologia dei dati.</p>

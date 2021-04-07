@@ -113,6 +113,7 @@ creazione-di-un-dataframe
 sel-df
 utilizzi-avanzati-selezione-2
 funzioni-ed-operazioni-1
+attributi-di-un-dataframe
 unire-dataframe
 informazioni-dataframe
 list

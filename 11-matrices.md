@@ -185,7 +185,7 @@ Ricordiamo che è comunque possibile eseguire operazioni matematiche con i valor
 
 ### Esercizi {-}
 
-Esegui i seguenti esercizi ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09.R)):
+Esegui i seguenti esercizi ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09-matrices.R)):
 1. Crea la matrice `A` così definita: 
 
 $$
@@ -557,7 +557,7 @@ Nota come l'operazione di eliminazione sia comunque un'operazione di selezione. 
 
 ### Esercizi {-}
 
-Utilizzando le matrici create nei precedenti esercizi esegui le seguenti consegne ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09.R)):
+Utilizzando le matrici create nei precedenti esercizi esegui le seguenti consegne ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09-matrices.R)):
 
 1. Utilizzando gli indici di riga e di colonna selziona il numero 27 della matrice `A`
 2. Selziona gli elementi compresi tra la seconda e quarta riga, seconda e terza colonna della matrice `B`
@@ -970,7 +970,7 @@ diag(4)
 
 ### Esercizi {-}
 
-Utilizzando le matrici create nei precedenti esercizi, esegui le seguentti consegne ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09.R)):
+Utilizzando le matrici create nei precedenti esercizi, esegui le seguentti consegne ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09-matrices.R)):
 
 1. Crea la matrice `G` unendo alla matrice `A` le prime due colonne della matrice `C`
 2. Crea la matrice `H` unendo alla matrice `C` le prime due righe della matrice trasposta di `B`
