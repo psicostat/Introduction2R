@@ -258,7 +258,7 @@ if (knitr::is_html_output()) {
 if (knitr::is_latex_output()) {
   list_operators <- data.frame(formula = c(
     sprintf("\\texttt{%s(nome\\_df)}", formula_names[1:2]),
-    "\\texttt{nome\\_list\\$nome_obj <- oggetto}",
+    "\\texttt{nome\\_list\\$nome\\_obj <- oggetto}",
     sprintf("\\texttt{%s(nome\\_df)}", formula_names[3:6])),
     name = names_function)
   escape = FALSE
