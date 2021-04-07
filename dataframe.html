@@ -273,11 +273,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1" data-path="list.html"><a href="list.html#creazione-di-liste"><i class="fa fa-check"></i><b>11.1</b> Creazione di Liste</a><ul>
 <li class="chapter" data-level="" data-path="list.html"><a href="list.html#esercizi-12"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="list.html"><a href="list.html#indicizzazione-di-una-lista"><i class="fa fa-check"></i><b>11.2</b> Indicizzazione di una lista</a></li>
-<li class="chapter" data-level="11.3" data-path="list.html"><a href="list.html#proprietà-della-lista"><i class="fa fa-check"></i><b>11.3</b> Proprietà della lista</a><ul>
+<li class="chapter" data-level="11.2" data-path="list.html"><a href="list.html#selezione-elementi-1"><i class="fa fa-check"></i><b>11.2</b> Selezione Elementi</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="list.html"><a href="list.html#utilizzi-avanzati-selezione-3"><i class="fa fa-check"></i><b>11.2.1</b> Utilizzi Avanzati Selezione</a></li>
 <li class="chapter" data-level="" data-path="list.html"><a href="list.html#esercizi-13"><i class="fa fa-check"></i>Esercizi</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="list.html"><a href="list.html#creazione-e-indicizzazione-avanzata"><i class="fa fa-check"></i><b>11.4</b> Creazione e indicizzazione avanzata</a></li>
+<li class="chapter" data-level="11.3" data-path="list.html"><a href="list.html#funzioni-ed-operazioni-2"><i class="fa fa-check"></i><b>11.3</b> Funzioni ed Operazioni</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="list.html"><a href="list.html#attributi-di-una-lista"><i class="fa fa-check"></i><b>11.3.1</b> Attributi di una Lista</a></li>
+<li class="chapter" data-level="11.3.2" data-path="list.html"><a href="list.html#unire-liste"><i class="fa fa-check"></i><b>11.3.2</b> Unire Liste</a></li>
+<li class="chapter" data-level="11.3.3" data-path="list.html"><a href="list.html#informazioni-lista"><i class="fa fa-check"></i><b>11.3.3</b> Informazioni Lista</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="list.html"><a href="list.html#struttura-nested"><i class="fa fa-check"></i><b>11.4</b> Struttura Nested</a></li>
 </ul></li>
 <li class="part"><span><b>Algoritmi</b></span></li>
 <li class="chapter" data-level="" data-path="introduzione-2.html"><a href="introduzione-2.html"><i class="fa fa-check"></i>Introduzione</a></li>
@@ -888,11 +893,6 @@ F
 </div>
 <div id="funzioni-ed-operazioni-1" class="section level2">
 <h2><span class="header-section-number">10.3</span> Funzioni ed Operazioni</h2>
-<ul>
-<li>head</li>
-<li>tail</li>
-<li>str</li>
-</ul>
 <p>Vediamo ora alcune funzioni frequentemente usate e le comuni operazioni eseguite con i dataframe (vedi Tabella <a href="dataframe.html#tab:table-df-functions">10.3</a>).</p>
 <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -1005,7 +1005,7 @@ Summary del dataframe
 <p>Abbiamo visto nel Capitolo TODO che gli oggetti in R possiedono quelli che sono definiti <em>attibuti</em> ovvero delle utili informazioni riguardanti l’oggetto stesso, una sorta di <em>metadata</em>. Vediamo ora, in modo analogo alle matrici, come valutare la dimensione di un dataframe e i nomi delle righe e delle colonne.</p>
 <div id="dimensione-1" class="section level4 unnumbered">
 <h4>Dimensione</h4>
-<p>Ricordiamo che un daaframe è un oggetto <strong>bidimensionale</strong> formato da righe e colonne. Per ottenere il numero di righe e di colonne di un dataframe, possiamo usare rispettivamente i comandi <code>nrow()</code> e <code>ncol()</code>.</p>
+<p>Ricordiamo che un dataframe è un oggetto <strong>bidimensionale</strong> formato da righe e colonne. Per ottenere il numero di righe e di colonne di un dataframe, possiamo usare rispettivamente i comandi <code>nrow()</code> e <code>ncol()</code>.</p>
 <div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="dataframe.html#cb186-1"></a><span class="co"># Numero di righe</span></span>
 <span id="cb186-2"><a href="dataframe.html#cb186-2"></a><span class="kw">nrow</span>(my_data)</span>
 <span id="cb186-3"><a href="dataframe.html#cb186-3"></a><span class="co">## [1] 10</span></span>
@@ -1150,7 +1150,7 @@ Summary del dataframe
 </div>
 <div id="informazioni-dataframe" class="section level3">
 <h3><span class="header-section-number">10.3.3</span> Informazioni Dataframe</h3>
-<p>Vediamo infine alcune funzioni molto comuni usate per otttenere informazioin riassuntive riguardo ai dati contenuti in un dataframe:</p>
+<p>Vediamo infine alcune funzioni molto comuni usate per ottenere informazioni riassuntive riguardo ai dati contenuti in un dataframe:</p>
 <ul>
 <li><code>head()</code> (o <code>tail()</code>) ci permete di visualizzare le prime (o le ulitme righe del nostro dataframe)</li>
 </ul>
@@ -1163,7 +1163,7 @@ Summary del dataframe
 <span id="cb193-7"><a href="dataframe.html#cb193-7"></a><span class="co">## 5  5    Elisa      F  24 Psicologia</span></span>
 <span id="cb193-8"><a href="dataframe.html#cb193-8"></a><span class="co">## 6  6 Fabrizio      M  35    Lettere</span></span></code></pre></div>
 <ul>
-<li><code>str()</code> ci permete di valutare la struttura del dataset ottenendo utli informazini quali in numero di osservazioni, il numero di variabili e la ipologia di variabili</li>
+<li><code>str()</code> ci permete di valutare la struttura del dataset ottenendo utili informazini quali in numero di osservazioni, il numero di variabili e la ipologia di variabili</li>
 </ul>
 <div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="dataframe.html#cb194-1"></a><span class="kw">str</span>(my_data)</span>
 <span id="cb194-2"><a href="dataframe.html#cb194-2"></a><span class="co">## &#39;data.frame&#39;:    10 obs. of  5 variables:</span></span>

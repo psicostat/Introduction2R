@@ -41,6 +41,7 @@ tab:table-wide-db
 tab:table-long-db
 tab:table-df-functions
 fig:list-example
+tab:table-list-functions
 fig:list-depth
 install
 install-r
@@ -118,9 +119,13 @@ unire-dataframe
 informazioni-dataframe
 list
 creazione-di-liste
-indicizzazione-di-una-lista
-proprietà-della-lista
-creazione-e-indicizzazione-avanzata
+selezione-elementi-1
+utilizzi-avanzati-selezione-3
+funzioni-ed-operazioni-2
+attributi-di-una-lista
+unire-liste
+informazioni-lista
+struttura-nested
 functions
 coditionals
 loop

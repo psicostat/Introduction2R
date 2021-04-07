@@ -518,10 +518,6 @@ Facendo riferimento ai dataframe `data_long` e `data_wide` precedentemente creat
 
 ## Funzioni ed Operazioni
 
-- head
-- tail
-- str
-
 Vediamo ora alcune funzioni frequentemente usate e le comuni operazioni eseguite con i dataframe (vedi Tabella \@ref(tab:table-df-functions)).
 
 <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -597,7 +593,7 @@ Abbiamo visto nel Capitolo TODO che gli oggetti in R possiedono quelli che sono 
 
 #### Dimensione {-}
 
-Ricordiamo che un daaframe è un oggetto **bidimensionale** formato da righe e colonne. Per ottenere il numero di righe e di colonne di un dataframe, possiamo usare rispettivamente i comandi `nrow()` e `ncol()`.
+Ricordiamo che un dataframe è un oggetto **bidimensionale** formato da righe e colonne. Per ottenere il numero di righe e di colonne di un dataframe, possiamo usare rispettivamente i comandi `nrow()` e `ncol()`.
 
 
 ```r
@@ -773,7 +769,7 @@ Anche in questo caso sarà necessario salvare il risultato ottenuto per mantener
 
 ### Informazioni Dataframe
 
-Vediamo infine alcune funzioni molto comuni usate per otttenere informazioin riassuntive riguardo ai dati contenuti in un dataframe:
+Vediamo infine alcune funzioni molto comuni usate per ottenere informazioni riassuntive riguardo ai dati contenuti in un dataframe:
 
 - `head()` (o `tail()`) ci permete di visualizzare le prime (o le ulitme righe del nostro dataframe)
 
@@ -787,7 +783,7 @@ head(my_data)
 ## 5  5    Elisa      F  24 Psicologia
 ## 6  6 Fabrizio      M  35    Lettere
 ```
-- `str()` ci permete di valutare la struttura del dataset ottenendo utli informazini quali in numero di osservazioni, il numero di variabili e la ipologia di variabili
+- `str()` ci permete di valutare la struttura del dataset ottenendo utili informazini quali in numero di osservazioni, il numero di variabili e la ipologia di variabili
 
 ```r
 str(my_data)
