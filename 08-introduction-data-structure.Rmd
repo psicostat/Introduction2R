@@ -1,6 +1,6 @@
 # (PART\*) Struttura Dati {-}
 
-# Introduzione {-}
+# Introduzione {#second-section -}
 
 In questa sezione verranno introdotte le principali tipologie di oggetti usati in R . Ovvero  le principali strutture in cui possono essere organizzati i dati: Vettori, Matrici, Dataframe e Liste.
 
@@ -9,5 +9,7 @@ Per ognuna di esse descriveremo le loro caretteristiche e vedremo come crearle, 
 I capitoli sono così organizzati:
 
 - **Capitolo \@ref(vector) - Vettori**. Impareremo le caratterisiche e l'uso dei vettori soffermandoci anche sulle diverse tipologie di dati.
-- **Capitolo \@ref(factors) - Fattori**. Impareremo le caratterisiche e l'uso dei fattori un particolare tipo di vettori usati per le variabili categoriali ed ordinali.
-
+- **Capitolo \@ref(factor) - Fattori**. Impareremo le caratterisiche e l'uso dei fattori, ovvero un particolare tipo di vettori usati per le variabili categoriali ed ordinali.
+- **Capitolo \@ref(matrix) - Matrici**. Impareremo le caratterisiche e l'uso delle matrici introducendo anche gli array.
+- **Capitolo \@ref(dataframe) - Dataframe**. Impareremo le caratterisiche e l'uso dei datafraeme, l'oggetto maggiormmente utilizzato nell'analisi di dati.
+- **Capitolo \@ref(list) - Liste**. Impareremo le caratterisiche e l'uso delle liste.

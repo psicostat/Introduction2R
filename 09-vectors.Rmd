@@ -96,7 +96,7 @@ rep(rep(c("foo", "bar"), each = 2),times = 2)
 ```
 
 
-## Selezione Elementi
+## Selezione Elementi {#vector-selection}
 
 Una volta creato un vettore potrebbe essere necessario selezionare uno o più dei suoi elementi. In R per selezionare gli elementi di un vettore si utilizzano le **parentesi quadre** `[]` dopo il nome del vettore, indicando al loro interno **l'indice di posizione** degli elementi desiderati:
 
@@ -179,7 +179,7 @@ my_numbers[0]
 ```
 :::
 
-### Utilizzi Avanzati Selezione
+### Utilizzi Avanzati Selezione {#vector-selection-advanced}
 
 Vediamo ora alcuni utilizzi avanzati della selezione di elementi di un vettore. In particolare impareremo a:
 
@@ -206,7 +206,7 @@ my_words[my_words == "bar"]
 
 Per capire meglio questa operazione è importante notare come nello stesso comando ci siano in realtà due passaggi distinti:
 
-- **Vettore logico** (vedi Capitolo TODO) - quando un vettore è valutato in una proposizione, R restituisce un nuovo vettore che contiene per ogni elemento del vettore iniziale la risposta (`TRUE` o `FALSE`) alla nostra proposizione.
+- **Vettore logico** (vedi Capitolo \@ref(logical-vector)) - quando un vettore è valutato in una proposizione, R restituisce un nuovo vettore che contiene per ogni elemento del vettore iniziale la risposta (`TRUE` o `FALSE`) alla nostra proposizione.
 - **Selezione** - utilizziamo il vettore logico ottenuto per selezionare gli elementi dal vettore iniziale. Gli elementi associati al valore `TRUE` sono selezionati mentre quelli associati al valore `FALSE` sono scartati.
 
 Rendiamo espliciti questi due passaggi nel seguente codice: 
@@ -528,7 +528,7 @@ is.integer(5L * 5L)  # integer e integer
 is.integer(5L / 5L)  # integer e integer
 ```
 
-### Logical
+### Logical {#logical-vector}
 
 I vettori formati da valori logici (`TRUE` e `FALSE`) sono definiti vettori logici. In R la tipologia del vettore è indicata con `logical` allo stesso modo dei dati. 
 

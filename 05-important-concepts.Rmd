@@ -13,13 +13,13 @@ In questo capitolo introdurremmo i concetti di oggetti e funzioni, due elementi 
 
 Questa è una iper-semplificazione (e pure tecnicamente non corretta) che ci permettere però di capire come, partendo dai nostri dati o valori iniziali, possiamo manipolarli applicando delle funzioni per ottenere, attraverso differenti step, i risultati desiderati (e.g., analisi statistiche o grafici e tabelle).
 
-Qui valuteremo gli aspetti fondamentali riguardanti l'utilizzo degli oggetti e delle funzioni che saranno successivamente approfonditi rispettivamente nel corso della seconda e della terza sezione del libro (TODO).
+Qui valuteremo gli aspetti fondamentali riguardanti l'utilizzo degli oggetti e delle funzioni che saranno successivamente approfonditi rispettivamente nel corso della [Seconda Sezione](#second-section) e della [Terza Sezione](#third-section) del libro.
 
 ## Oggetti {#objects-section}
 
 Quando eseguiamo un commando in R, il risultato ottenuto viene immediatamente mostrato in *Console*. Tale risultato, tuttavia, non viene salvato in memoria e quindi non potrà essere riutilizzato in nessuna operazione futura. Condurre delle analisi in questo modo sarebbe estremamente complicato ed inefficiente. La soluzione più ovvia è quella di salvare in memoria i nostri risultati intermedi per poterli poi riutilizzare nel corso delle nostre analisi. Si definisce questo processo come *assegnare* un valore ad un oggetto.
 
-### Assegnare e Richiamare un oggetto
+### Assegnare e Richiamare un oggetto {#assign}
 
 Per assegnare il valore numerico 5 all'oggetto `x` è necessario eseguire il seguente comando:
 
@@ -133,7 +133,7 @@ In R abbiamo inoltre differenti tipologie di oggetti, ovvero diverse strutture i
 - **Dataframe**
 - **Liste**
 
-Approfondiremo la loro definizione, le loro caratteristiche ed il loro utilizzo nel corso di tutta la seconda sezione di questo libro TODO.
+Approfondiremo la loro definizione, le loro caratteristiche ed il loro utilizzo nel corso di tutta la [Seconda Sezione](#second-section) di questo libro.
 
 ## Funzioni {#functions-def}                                                   
 
@@ -193,7 +193,7 @@ seq(from = 0,  to = 10, length.out = 5, by = 4)
 
 E' pertanto cosigliabile esplicitare sempre gli argomenti di una funzione per rendere chiaro a che cosa si riferiscono i valori indicati. Questo è utlile anche per evitare eventuali comportamenti non voluti delle funzioni ad individuare più facilmente possibili errori.
 
-Gli argomenti di una funzione, inoltre, richiedono specifiche tipologie e strutture di dati e sta a noi assicuraci che i dati siano forniti nel modo corretto. Vediamo ad esempio come la funzione `mean()` che calcola la media di un insieme di valori, richieda come input un vettore di valori numerici. Approfondiremo il concetto di vettori nel Capitolo TODO, al momento ci basta sapere che possiamo usare la funzione `c()` per combinare più valori in un unico vettore.
+Gli argomenti di una funzione, inoltre, richiedono specifiche tipologie e strutture di dati e sta a noi assicuraci che i dati siano forniti nel modo corretto. Vediamo ad esempio come la funzione `mean()` che calcola la media di un insieme di valori, richieda come input un vettore di valori numerici. Approfondiremo il concetto di vettori nel Capitolo \@ref(vector), al momento ci basta sapere che possiamo usare la funzione `c()` per combinare più valori in un unico vettore.
 
 ```{r, echo=TRUE}
 # Calcolo la media dei seguenti valori (numerici)
@@ -214,7 +214,7 @@ mean(c("1", "2", "3"))
 
 Capiamo quindi che per usare correttamente le funzioni è fondamentale conoscerne gli argomenti e rispettare le tipologie e strutture di dati richieste.
 
-### Help! I need Somebody...Help!
+### Help! I need Somebody...Help! {#help}
 
 Conoscere tutte le funzioni e tutti i loro argomenti è impossibile. Per fortuna R ci viene in soccorso fornendoci per ogni funzione la sua documentazione. Qui vengono fornite tutte le informazioni riguardanti la finalità della funzione, la descrizione dei suoi argomenti, i dettagli riguardanti i suoi possibili utilizzi.
 
