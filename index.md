@@ -2,7 +2,7 @@
 title: "<span style='font-size: 2.5em'>Introduction to R</span>"
 subtitle: "Corso per imparare le basi di **R**"
 author: "[Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) and [Filippo Gambarota](https://filippogambarota.netlify.app/) members of [Psicostat](https://psicostat.dpss.psy.unipd.it/)"
-date: "07-04-2021"
+date: "08-04-2021"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

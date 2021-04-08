@@ -15,7 +15,7 @@ Il nostro Enviroment raccoglie quindi tutti gli oggetti che vengono creati duran
 <p class="caption">(\#fig:environment2)*Environment* - Elenco degli oggetti e variabili presenti nel'ambiente di lavoro</p>
 </div>
 
-All'inizio della sessione di lavoro il nostro Environment sarà vuoto (vedi Figura \@ref(fig:environment-empty)). Il comando `ls()` non restituirà alcun oggeto ma per indicare l'assenza di oggerri userà la risposta `character(0)`, ovvero un vettore di tipo caratteri di lunghezza zero (vedi Capitolo TODO).
+All'inizio della sessione di lavoro il nostro Environment sarà vuoto (vedi Figura \@ref(fig:environment-empty)). Il comando `ls()` non restituirà alcun oggeto ma per indicare l'assenza di oggerri userà la risposta `character(0)`, ovvero un vettore di tipo caratteri di lunghezza zero (vedi Capitolo \@ref(vector)).
 
 <div class="figure" style="text-align: center">
 <img src="images/environment-empty.png" alt="*Environment* vuoto ad inizio sessione di lavoro" width="60%" />
@@ -45,7 +45,7 @@ ls()
 ## [1] "word" "x"    "y"
 ```
 
-Nel pannello in alto a destra (vedi Figura \@ref(fig:environment-object)), possiamo trovare un elenco degli oggetti attualmente presenti nel nostro Environment. Insieme al nome vengono riportate anche alcune utili inforamzioni a seconda del tipo di oggetto. Vediamo come nel nostro esempio, nel caso di variabili con un singolo valore (e.g., `word` e `y`) venganno presentati direttamente gli stessi valori. Mentre, nel caso di vettori  (e.g., `x`) vengano fornite anche informazioni riguardanti la tipologia di vettore e la sua dimensione (vedi Capitolo TODO), nell'esempio abbiimao un vettore numerico (`num`) di 4 elementi (`[1:4]`).
+Nel pannello in alto a destra (vedi Figura \@ref(fig:environment-object)), possiamo trovare un elenco degli oggetti attualmente presenti nel nostro Environment. Insieme al nome vengono riportate anche alcune utili inforamzioni a seconda del tipo di oggetto. Vediamo come nel nostro esempio, nel caso di variabili con un singolo valore (e.g., `word` e `y`) venganno presentati direttamente gli stessi valori. Mentre, nel caso di vettori  (e.g., `x`) vengano fornite anche informazioni riguardanti la tipologia di vettore e la sua dimensione (vedi Capitolo \@ref(vector)), nell'esempio abbiimao un vettore numerico (`num`) di 4 elementi (`[1:4]`).
 
 <div class="figure" style="text-align: center">
 <img src="images/environment-objects.png" alt="*Environment* contenente gli oggetti creati" width="60%" />
@@ -127,11 +127,11 @@ Ai livelli più bassi troviamo tutti i file di sistema ai quali gli utenti posso
 Questo ampio preambolo riguardante l'organizzazione in cartelle e sottocartelle, ci serve perchè è la struttura che il computer utilizza per orientarsi tra tutti file quando esegue dei comandi attraverso un'interfaccia a riga di comando (e.g., R). Se vogliamo ad esempio caricare dei dati da uno specifico file in R devo fornire il *path* (o indirizzo) corretto che mi indichi esattamente la posizione del file all'interno della struttura di cartelle del computer. Ad esempio, immaginiamo di avere dei dati `My-data.Rda` salvato nella cartella `Introduction2R` nel proprio Desktop.
 
 ```
-Desktop
+Desktop/
  |
- |-  Introduction2R
+ |-  Introduction2R/
  |    |
- |    |- Dati
+ |    |- Dati/
  |    |   |- My-data.Rda
 ```
 

@@ -51,7 +51,7 @@ Come avrai notato facendo alcune prove, i comandi digitati nella *Console* vengo
 :::{.tip title="Interrompere un comando" data-latex="[Interrompere un comando]"}
 Potrebbe accadere che per qualche errore nel digitare un comando o perchè sono richiesti lunghi tempi computazionali, la *Console* di R diventi non responsiva. In questo caso è necessario interrompere la scrittura o l'esecuzione di un comando. Vediamo due situazioni comuni:
 
-1. **Continua a comparire il prompt** `+`. Specialmente nel caso di utilizzo di parentesi e lunghi comandi, accade che una volta premuto `invio` R non esegua alcun comando ma resta in attesa mostrando il *prompt* `+` (vedi Figure seguente). Questo è in genere dato da un errore nella sintassi del comando (e.g., un errore nell'uso delle parentesi o delle virgole). Per riprendere la sessione è necessario premere il tasto `esc` della tastiera. L'apprire del  *prompt* `>`, indica che R è nuovamente in ascolto pronto per esequire un nuovo comando ma attento a non ripetere lo stesso errore, la sintassi dei comandi è importante (vedi Capitolo TODO).
+1. **Continua a comparire il prompt** `+`. Specialmente nel caso di utilizzo di parentesi e lunghi comandi, accade che una volta premuto `invio` R non esegua alcun comando ma resta in attesa mostrando il *prompt* `+` (vedi Figure seguente). Questo è in genere dato da un errore nella sintassi del comando (e.g., un errore nell'uso delle parentesi o delle virgole). Per riprendere la sessione è necessario premere il tasto `esc` della tastiera. L'apprire del  *prompt* `>`, indica che R è nuovamente in ascolto pronto per esequire un nuovo comando ma attento a non ripetere lo stesso errore.
 
 <img src="images/comand-esc.png" width="95%" style="display: block; margin: auto;" />
 
@@ -81,7 +81,7 @@ Dopo aver terminato di scrivere i comandi, posiziona il cursore sulla stessa lin
 :::{.tip title="Commenti" data-latex="[Commenti]"}
 Se hai guardato con attenzione lo script rappresentato in Figura \@ref(fig:script-run), potresti aver notato delle righe di testo verde precedute dal simbolo `#`. Questo simbolo può essere utlizzato per inserire dei *commenti* all'interno dello script. R ignorerà qualsiasi commento ed eseguirà soltato le parti di codici.
 
-L'utilizzo dei commenti è molto importante nel caso di script complessi poichè ci permette di spiegare e documentare il codice che viene eseguito. Nel Capitolo TODO approfondiremo il loro utilizzo.
+L'utilizzo dei commenti è molto importante nel caso di script complessi poichè ci permette di spiegare e documentare il codice che viene eseguito. Nel Capitolo \@ref(sintax) approfondiremo il loro utilizzo.
 :::
 
 :::{.design title="Creare e Salvare uno Script" data-latex="[Creare e Salvare uno Script]"}
@@ -105,7 +105,7 @@ Unn nuovo script senza nome verrà creato. Per salvare lo script premere l'icona
 
 Qui sono presentati una serie di pannelli utili per valutare informazioni inerenti alla propria sessione di lavoro. I pannelli principali sono *Environment* e *History* (gli altri pannelli presenti in Figura \@ref(fig:environment) riguardanno funzioni avanzate di RStudio).
 
-- **Environment**: elenco tutti gli oggetti e variabili attualmente presenti nel'ambiente di lavoro. Approfondiremo i concetti di variabili e di ambiente di lavoro rispettivamente nel Capitolo \@ref(objects-functions) e Capitolo TODO.
+- **Environment**: elenco tutti gli oggetti e variabili attualmente presenti nel'ambiente di lavoro. Approfondiremo i concetti di variabili e di ambiente di lavoro rispettivamente nel Capitolo \@ref(objects-section) e Capitolo \@ref(environment).
 
 <div class="figure" style="text-align: center">
 <img src="images/environment.png" alt="*Environment* - Elenco degli oggetti e variabili presenti nel'ambiente di lavoro" width="60%" />
@@ -132,14 +132,14 @@ In questa parte sono raccolti una serie di pannelli utilizzatti per interfacciar
 <p class="caption">(\#fig:plots)*Plots* - presentazione dei grafici</p>
 </div>
 
-- **Packages**: elenco dei pacchetti di R (questo argomento verrà approfondito nel Capitolo TODO).
+- **Packages**: elenco dei pacchetti di R (questo argomento verrà approfondito nel Capitolo \@ref(packages)).
 
 <div class="figure" style="text-align: center">
 <img src="images/packages.png" alt="*Packages* - elenco dei pacchetti di R" width="60%" />
 <p class="caption">(\#fig:packages)*Packages* - elenco dei pacchetti di R</p>
 </div>
 
-- **Help**: utilizzato per navigare la documentazione interna di R (questo argomento verrà approfondito nel Capitolo TODO).
+- **Help**: utilizzato per navigare la documentazione interna di R (questo argomento verrà approfondito nel Capitolo \@ref(help)).
 
 <div class="figure" style="text-align: center">
 <img src="images/help.png" alt="*Help* -  documentazione di R" width="60%" />

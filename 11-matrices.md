@@ -12,7 +12,7 @@ Le matrici sono una struttura di dati **bidimensionale**, dove gli elementi sono
 Due caratteristiche importanti di una matrice sono:
 
 - la **dimensione** - il numero di **righe** e di **colonne** da cui è formata la matrice
-- la **tipologia** - la tipologia di dati che sono contenuti nella matrice. Infatti, in modo analogo a quanto visto con i vettori, una matrice deve esssere formata da **elementi tutti dello stesso tipo**. Pertanto esistono diverse tipologie di matrici a seconda del tipo di dati da cui è formata, in particolare abbiamo matrici numeriche, di valori logici e di caratteri (vedi Capitolo TODO). 
+- la **tipologia** - la tipologia di dati che sono contenuti nella matrice. Infatti, in modo analogo a quanto visto con i vettori, una matrice deve esssere formata da **elementi tutti dello stesso tipo**. Pertanto esistono diverse tipologie di matrici a seconda del tipo di dati da cui è formata, in particolare abbiamo matrici numeriche, di valori logici e di caratteri (vedi Capitolo \@ref(matrix-types)). 
 
 E' fondamentale inoltre sottolineare come ogni **elemento** di una matrice sia caratterizzato da:
 
@@ -110,7 +110,7 @@ Tuttavia, è meglio evitare questa pratica di *ciclare* i valori poichè i risul
 :::
 
 
-### Tipologie di Matrici
+### Tipologie di Matrici {#matrix-types}
 
 Abbiamo viso che, in modo analogo ai vettori, anche per le matrici è necessario che tutti i dati siano della stessa tipologia. Avremo pertanto matrici che includono solo valori `character`, `double`, `integer` oppure `logical` e le operazioni che si potranno eseguire (uso di operatori matematiche o operatori logici-relazionali) dipenderanno dalla tipologia di dati. Tuttavia, a differenza dei vettori, la tipologia di oggetto rimarrà sempre `matrix` indipendentemente dai dati contenuti. Le matrici sono sempre matrici, è la tipologia di dati che varia.
 
@@ -165,7 +165,7 @@ typeof(mat_int)
 
 #### Logical {-}
 
-Infine le matrici possono essere formate anche da valori logici `TRUE` e `FALSE`. Vedremo un loro importante utilizzo per quanto riguarda la selezione degli elementi di una matrice nel Capitolo TODO.
+Infine le matrici possono essere formate anche da valori logici `TRUE` e `FALSE`. Vedremo un loro importante utilizzo per quanto riguarda la selezione degli elementi di una matrice nel Capitolo \@ref(matrix-selection-advanced).
 
 
 ```r
@@ -404,7 +404,7 @@ as.vector(my_matrix)
 
 :::
 
-### Utilizzi Avanzati Selezione
+### Utilizzi Avanzati Selezione {#matrix-selection-advanced}
 
 Vediamo ora alcuni utilizzi avanzati della selezione di elementi di una matrice. In particolare impareremo a:
 
@@ -522,7 +522,7 @@ my_matrix
 ## [3,]  111  666  999  122
 ```
 
-Nota come a differenza dei vettori non possa aggiungere una nuova riga o colonna attraverso questa operazione ma sarà necesssario utilizzare una diversa procedura (vedi Capitolo TODO).
+Nota come a differenza dei vettori non sia possibile aggiungere una nuova riga o colonna attraverso questa operazione ma sarà necesssario utilizzare una diversa procedura (vedi Capitolo \@ref(matrix-bind)).
 
 
 ```r
@@ -654,7 +654,7 @@ Descriviamo ora nel dettaglio alcuni particolari utilizzi.
 
 ### Attributi di una Matrice {#mat-prop}
 
-Abbiamo visto nel Capitolo TODO che gli oggetti in R possiedono quelli che sono definiti *attributi* ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di *metadata*. Vediamo ora alcuni attributi particolarmente rilevanti nel caso delle matrici ovvero la dimensione (`dim`) e i nomi delle righe e colonne (`names`). 
+Abbiamo visto nel Capitolo \@ref(attributes) che gli oggetti in R possiedono quelli che sono definiti *attributi* ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di *metadata*. Vediamo ora alcuni attributi particolarmente rilevanti nel caso delle matrici ovvero la dimensione (`dim`) e i nomi delle righe e colonne (`names`). 
 
 #### Dimensione {-}
 
@@ -721,7 +721,7 @@ my_matrix
 ## C 3 6 9 12
 ```
 
-In alternativa posson utilizzare il `dimnames()`  per accedere contemporaneamente sia ai nomi di riga che a quelli di colonna. Come output ottengo una lista (vedi Capitolo TODO) dove vengono prima indicati i nomi di riga e poi quelli di colonna
+In alternativa posso utilizzare il `dimnames()`  per accedere contemporaneamente sia ai nomi di riga che a quelli di colonna. Come output ottengo una lista (vedi Capitolo \@ref(list)) dove vengono prima indicati i nomi di riga e poi quelli di colonna
 
 
 ```r
@@ -736,7 +736,7 @@ dimnames(my_matrix)
 :::{.design title="Selezione per Nomi" data-latex="[Selezione per Nomi]"}
 Quando nel Capitolo \@ref(sel-matrix) abbiamo visto i diversi modi di selezionare gli elementi di una matrice, abbiamo sempre usato gli indici numerici di riga e di colonna. Tuttavia, quando i nomi delle delle dimensioni sono disponibili, è possibile indicizzare una matrice in base ai nomi delle righe e/o colone.
 
-Possiamo quindi selezionare la prima colonna sia con il suo indice numerico `nome_matrice[ , 1]` ma anche con il nome assegnato `nome_matrice[ ,"nome_colonna"]`. Queste sono operazioni poco utili con le matrici ma che saranno fondamentali nel caso dei **dataframe** (vedi Capitolo TODO).
+Possiamo quindi selezionare la prima colonna sia con il suo indice numerico `nome_matrice[ , 1]` ma anche con il nome assegnato `nome_matrice[ ,"nome_colonna"]`. Queste sono operazioni poco utili con le matrici ma che saranno fondamentali nel caso dei **dataframe** (vedi Capitolo \@ref(dataframe)).
 
 
 ```r
@@ -753,7 +753,7 @@ my_matrix[c("A", "C"), ]
 ```
 :::
 
-### Unire Matrici
+### Unire Matrici {#matrix-bind}
 
 Abbiamo visto nel Capitolo \@ref(vector-functions) come si possono unire diversi vettori tramite la funnzione `c()`. Anche per le matrici è possibile combinare matrici diverse, rispettando però alcune regole:
 

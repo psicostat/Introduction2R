@@ -1,4 +1,4 @@
-# Fattori {#factors}
+# Fattori {#factor}
 
 
 
@@ -6,7 +6,7 @@
 In questo capitolo vedremo i *fattori*, una speciale tipologia di vettori utilizzata per salvare informazioni riguardanti una variabile categoriale (nominale o ordinale). Tuttavia, prima di introdurre i fattori, descriveremo che cosa sono gli attributi di un oggetto. Questi ci permetteranno successivamente di capire meglio il funzionamento dei fattori.
 
 
-## Attributi di un Oggetto
+## Attributi di un Oggetto {#attributes}
 
 In R, gli oggetti possiedono quelli che sono definiti *attributi*, ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di *metadata*. Queste informazioni non interferiscono con i valori contenuti negli oggetti nè vengono normalmente mostrati nell'output di un oggetto. Tuttavia, si rivelano particolarmente utili in alcune circostanze e permettono di fornire speciali informazioni associate ad un determinato oggetti.
 
@@ -312,8 +312,6 @@ summary(dosage)
 
 Questo risulterà particolarmente importante nell'esecuzione di analisi statistiche e nella creazione di grafici e tabelle.
 :::
-
--importanza codifica variabile automatizzare operazioni
 
 ### Esercizi {-}
 

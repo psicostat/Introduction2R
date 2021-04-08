@@ -228,7 +228,7 @@
 \makeatother
 \subtitle{Corso per imparare le basi di \textbf{R}}
 \author{\href{https://claudiozandonella.netlify.app/}{Claudio Zandonella Callegher} and \href{https://filippogambarota.netlify.app/}{Filippo Gambarota} members of \href{https://psicostat.dpss.psy.unipd.it/}{Psicostat}}
-\date{07-04-2021}
+\date{08-04-2021}
 
 \begin{document}
 \maketitle
@@ -648,7 +648,7 @@ Potrebbe accadere che per qualche errore nel digitare un comando o perchè sono 
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{Continua a comparire il prompt} \texttt{+}. Specialmente nel caso di utilizzo di parentesi e lunghi comandi, accade che una volta premuto \texttt{invio} R non esegua alcun comando ma resta in attesa mostrando il \emph{prompt} \texttt{+} (vedi Figure seguente). Questo è in genere dato da un errore nella sintassi del comando (e.g., un errore nell'uso delle parentesi o delle virgole). Per riprendere la sessione è necessario premere il tasto \texttt{esc} della tastiera. L'apprire del \emph{prompt} \texttt{\textgreater{}}, indica che R è nuovamente in ascolto pronto per esequire un nuovo comando ma attento a non ripetere lo stesso errore, la sintassi dei comandi è importante (vedi Capitolo TODO).
+  \textbf{Continua a comparire il prompt} \texttt{+}. Specialmente nel caso di utilizzo di parentesi e lunghi comandi, accade che una volta premuto \texttt{invio} R non esegua alcun comando ma resta in attesa mostrando il \emph{prompt} \texttt{+} (vedi Figure seguente). Questo è in genere dato da un errore nella sintassi del comando (e.g., un errore nell'uso delle parentesi o delle virgole). Per riprendere la sessione è necessario premere il tasto \texttt{esc} della tastiera. L'apprire del \emph{prompt} \texttt{\textgreater{}}, indica che R è nuovamente in ascolto pronto per esequire un nuovo comando ma attento a non ripetere lo stesso errore.
 \end{enumerate}
 
 \begin{center}\includegraphics[width=0.95\linewidth]{images/comand-esc} \end{center}
@@ -694,7 +694,7 @@ Dopo aver terminato di scrivere i comandi, posiziona il cursore sulla stessa lin
 
 Se hai guardato con attenzione lo script rappresentato in Figura \ref{fig:script-run}, potresti aver notato delle righe di testo verde precedute dal simbolo \texttt{\#}. Questo simbolo può essere utlizzato per inserire dei \emph{commenti} all'interno dello script. R ignorerà qualsiasi commento ed eseguirà soltato le parti di codici.
 
-L'utilizzo dei commenti è molto importante nel caso di script complessi poichè ci permette di spiegare e documentare il codice che viene eseguito. Nel Capitolo TODO approfondiremo il loro utilizzo.
+L'utilizzo dei commenti è molto importante nel caso di script complessi poichè ci permette di spiegare e documentare il codice che viene eseguito. Nel Capitolo \ref{sintax} approfondiremo il loro utilizzo.
 
 \end{tip}
 
@@ -719,7 +719,7 @@ Qui sono presentati una serie di pannelli utili per valutare informazioni ineren
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Environment}: elenco tutti gli oggetti e variabili attualmente presenti nel'ambiente di lavoro. Approfondiremo i concetti di variabili e di ambiente di lavoro rispettivamente nel Capitolo \ref{objects-functions} e Capitolo TODO.
+  \textbf{Environment}: elenco tutti gli oggetti e variabili attualmente presenti nel'ambiente di lavoro. Approfondiremo i concetti di variabili e di ambiente di lavoro rispettivamente nel Capitolo \ref{objects-section} e Capitolo \ref{environment}.
 \end{itemize}
 
 \begin{figure}
@@ -776,7 +776,7 @@ In questa parte sono raccolti una serie di pannelli utilizzatti per interfacciar
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Packages}: elenco dei pacchetti di R (questo argomento verrà approfondito nel Capitolo TODO).
+  \textbf{Packages}: elenco dei pacchetti di R (questo argomento verrà approfondito nel Capitolo \ref{packages}).
 \end{itemize}
 
 \begin{figure}
@@ -791,7 +791,7 @@ In questa parte sono raccolti una serie di pannelli utilizzatti per interfacciar
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Help}: utilizzato per navigare la documentazione interna di R (questo argomento verrà approfondito nel Capitolo TODO).
+  \textbf{Help}: utilizzato per navigare la documentazione interna di R (questo argomento verrà approfondito nel Capitolo \ref{help}).
 \end{itemize}
 
 \begin{figure}
@@ -900,7 +900,7 @@ L'ordine di esecuzione delle operazioni può essere controllato attraverso l'uso
 
 Nota che in R solo le \textbf{parentesi tonde} \texttt{()} sono utilizzate per gestire l'ordine con cui sono eseguite le oprazioni.
 
-\textbf{Parentesi quadre} \texttt{{[}{]}} e \textbf{parentesi graffe} \texttt{\{\}} sono invece speciali operatori utilizzati in R per altre ragioni come la selezione di elemente e la definizione di blocchi di codici. Argomenti che approfondiremo rispettivamente nel Capitolo TODO e Capitolo TODO.
+\textbf{Parentesi quadre} \texttt{{[}{]}} e \textbf{parentesi graffe} \texttt{\{\}} sono invece speciali operatori utilizzati in R per altre ragioni come la selezione di elementi e la definizione di blocchi di codici. Argomenti che approfondiremo rispettivamente nel Capitolo \ref{vector-selection} e Capitolo TODO.
 
 \end{warning}
 
@@ -941,7 +941,7 @@ Note per la risoluzione degli esercizi:
 \hypertarget{operators-rel-log}{%
 \section{Operatori Relazionali e Logici}\label{operators-rel-log}}
 
-Queste operazioni al momento potrebbero sembrare non particolrmente interessanti ma si riveleranno molto utili nei capitoli successivi ad esempio per la selezione di elementi (vedi Capitolo TODO) o la definizionne di algoritmi (vedi Capitolo TODO).
+Queste operazioni al momento potrebbero sembrare non particolrmente interessanti ma si riveleranno molto utili nei capitoli successivi ad esempio per la selezione di elementi (vedi Capitolo \ref{vector-selection-advanced}) o la definizionne di algoritmi (vedi Capitolo TODO).
 
 \hypertarget{operatori-relazionali}{%
 \subsection{Operatori Relazionali}\label{operatori-relazionali}}
@@ -979,7 +979,7 @@ Funzione & Nome & Esempio\\
 
 Attenzione che per valutare l'uguaglianza tra due valori non bisogna utilizzare \texttt{=} ma \texttt{==}. Questo è un'errore molto comune ceh si commmette in continuazione.
 
-L'operatore \texttt{=} è utilizzato in R per assegnare un valore ad una variablie. Argomento che vederemo nella Sezione TODO
+L'operatore \texttt{=} è utilizzato in R per assegnare un valore ad una variablie. Argomento che vederemo nel Capitolo \ref{assign}.
 
 \end{warning}
 
@@ -997,7 +997,7 @@ Nota che in qualsiasi linguaggio di Programmazione, ai valori TRUE e FALSE sono 
 \end{Highlighting}
 \end{Shaded}
 
-In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poichè potrebbe nonn essere chiara e creare fraintendimenti. Infatti mentre TRUE e FALSE sono parole riservate (vedi Capitolo TODO) T a F non lo sono.
+In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poichè potrebbe nonn essere chiara e creare fraintendimenti. Infatti mentre TRUE e FALSE sono parole riservate (vedi Capitolo \ref{objects-names}) T a F non lo sono.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1161,15 +1161,15 @@ In questo capitolo introdurremmo i concetti di oggetti e funzioni, due elementi 
 
 Questa è una iper-semplificazione (e pure tecnicamente non corretta) che ci permettere però di capire come, partendo dai nostri dati o valori iniziali, possiamo manipolarli applicando delle funzioni per ottenere, attraverso differenti step, i risultati desiderati (e.g., analisi statistiche o grafici e tabelle).
 
-Qui valuteremo gli aspetti fondamentali riguardanti l'utilizzo degli oggetti e delle funzioni che saranno successivamente approfonditi rispettivamente nel corso della seconda e della terza sezione del libro (TODO).
+Qui valuteremo gli aspetti fondamentali riguardanti l'utilizzo degli oggetti e delle funzioni che saranno successivamente approfonditi rispettivamente nel corso della \protect\hyperlink{second-section}{Seconda Sezione} e della \protect\hyperlink{third-section}{Terza Sezione} del libro.
 
 \hypertarget{objects-section}{%
 \section{Oggetti}\label{objects-section}}
 
 Quando eseguiamo un commando in R, il risultato ottenuto viene immediatamente mostrato in \emph{Console}. Tale risultato, tuttavia, non viene salvato in memoria e quindi non potrà essere riutilizzato in nessuna operazione futura. Condurre delle analisi in questo modo sarebbe estremamente complicato ed inefficiente. La soluzione più ovvia è quella di salvare in memoria i nostri risultati intermedi per poterli poi riutilizzare nel corso delle nostre analisi. Si definisce questo processo come \emph{assegnare} un valore ad un oggetto.
 
-\hypertarget{assegnare-e-richiamare-un-oggetto}{%
-\subsection{Assegnare e Richiamare un oggetto}\label{assegnare-e-richiamare-un-oggetto}}
+\hypertarget{assign}{%
+\subsection{Assegnare e Richiamare un oggetto}\label{assign}}
 
 Per assegnare il valore numerico 5 all'oggetto \texttt{x} è necessario eseguire il seguente comando:
 
@@ -1341,7 +1341,7 @@ In R abbiamo inoltre differenti tipologie di oggetti, ovvero diverse strutture i
   \textbf{Liste}
 \end{itemize}
 
-Approfondiremo la loro definizione, le loro caratteristiche ed il loro utilizzo nel corso di tutta la seconda sezione di questo libro TODO.
+Approfondiremo la loro definizione, le loro caratteristiche ed il loro utilizzo nel corso di tutta la \protect\hyperlink{second-section}{Seconda Sezione} di questo libro.
 
 \hypertarget{functions-def}{%
 \section{Funzioni}\label{functions-def}}
@@ -1414,7 +1414,7 @@ Ad esempio la funzione \texttt{seq()} possiede anche gli argomenti \texttt{by} e
 
 E' pertanto cosigliabile esplicitare sempre gli argomenti di una funzione per rendere chiaro a che cosa si riferiscono i valori indicati. Questo è utlile anche per evitare eventuali comportamenti non voluti delle funzioni ad individuare più facilmente possibili errori.
 
-Gli argomenti di una funzione, inoltre, richiedono specifiche tipologie e strutture di dati e sta a noi assicuraci che i dati siano forniti nel modo corretto. Vediamo ad esempio come la funzione \texttt{mean()} che calcola la media di un insieme di valori, richieda come input un vettore di valori numerici. Approfondiremo il concetto di vettori nel Capitolo TODO, al momento ci basta sapere che possiamo usare la funzione \texttt{c()} per combinare più valori in un unico vettore.
+Gli argomenti di una funzione, inoltre, richiedono specifiche tipologie e strutture di dati e sta a noi assicuraci che i dati siano forniti nel modo corretto. Vediamo ad esempio come la funzione \texttt{mean()} che calcola la media di un insieme di valori, richieda come input un vettore di valori numerici. Approfondiremo il concetto di vettori nel Capitolo \ref{vector}, al momento ci basta sapere che possiamo usare la funzione \texttt{c()} per combinare più valori in un unico vettore.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1443,8 +1443,8 @@ Nel seguente esempio, possiamo vedere come \texttt{mean()} richieda che i valori
 
 Capiamo quindi che per usare correttamente le funzioni è fondamentale conoscerne gli argomenti e rispettare le tipologie e strutture di dati richieste.
 
-\hypertarget{help-i-need-somebodyhelp}{%
-\subsection{Help! I need Somebody\ldots Help!}\label{help-i-need-somebodyhelp}}
+\hypertarget{help}{%
+\subsection{Help! I need Somebody\ldots Help!}\label{help}}
 
 Conoscere tutte le funzioni e tutti i loro argomenti è impossibile. Per fortuna R ci viene in soccorso fornendoci per ogni funzione la sua documentazione. Qui vengono fornite tutte le informazioni riguardanti la finalità della funzione, la descrizione dei suoi argomenti, i dettagli riguardanti i suoi possibili utilizzi.
 
@@ -1537,7 +1537,7 @@ Il nostro Enviroment raccoglie quindi tutti gli oggetti che vengono creati duran
 \caption{*Environment* - Elenco degli oggetti e variabili presenti nel'ambiente di lavoro}\label{fig:environment2}
 \end{figure}
 
-All'inizio della sessione di lavoro il nostro Environment sarà vuoto (vedi Figura \ref{fig:environment-empty}). Il comando \texttt{ls()} non restituirà alcun oggeto ma per indicare l'assenza di oggerri userà la risposta \texttt{character(0)}, ovvero un vettore di tipo caratteri di lunghezza zero (vedi Capitolo TODO).
+All'inizio della sessione di lavoro il nostro Environment sarà vuoto (vedi Figura \ref{fig:environment-empty}). Il comando \texttt{ls()} non restituirà alcun oggeto ma per indicare l'assenza di oggerri userà la risposta \texttt{character(0)}, ovvero un vettore di tipo caratteri di lunghezza zero (vedi Capitolo \ref{vector}).
 
 \begin{figure}
 
@@ -1574,7 +1574,7 @@ Una volta creati degli oggetti, questi saranno presenti nel nostro Environment e
 \end{Highlighting}
 \end{Shaded}
 
-Nel pannello in alto a destra (vedi Figura \ref{fig:environment-object}), possiamo trovare un elenco degli oggetti attualmente presenti nel nostro Environment. Insieme al nome vengono riportate anche alcune utili inforamzioni a seconda del tipo di oggetto. Vediamo come nel nostro esempio, nel caso di variabili con un singolo valore (e.g., \texttt{word} e \texttt{y}) venganno presentati direttamente gli stessi valori. Mentre, nel caso di vettori (e.g., \texttt{x}) vengano fornite anche informazioni riguardanti la tipologia di vettore e la sua dimensione (vedi Capitolo TODO), nell'esempio abbiimao un vettore numerico (\texttt{num}) di 4 elementi (\texttt{{[}1:4{]}}).
+Nel pannello in alto a destra (vedi Figura \ref{fig:environment-object}), possiamo trovare un elenco degli oggetti attualmente presenti nel nostro Environment. Insieme al nome vengono riportate anche alcune utili inforamzioni a seconda del tipo di oggetto. Vediamo come nel nostro esempio, nel caso di variabili con un singolo valore (e.g., \texttt{word} e \texttt{y}) venganno presentati direttamente gli stessi valori. Mentre, nel caso di vettori (e.g., \texttt{x}) vengano fornite anche informazioni riguardanti la tipologia di vettore e la sua dimensione (vedi Capitolo \ref{vector}), nell'esempio abbiimao un vettore numerico (\texttt{num}) di 4 elementi (\texttt{{[}1:4{]}}).
 
 \begin{figure}
 
@@ -1682,11 +1682,11 @@ Ai livelli più bassi troviamo tutti i file di sistema ai quali gli utenti posso
 Questo ampio preambolo riguardante l'organizzazione in cartelle e sottocartelle, ci serve perchè è la struttura che il computer utilizza per orientarsi tra tutti file quando esegue dei comandi attraverso un'interfaccia a riga di comando (e.g., R). Se vogliamo ad esempio caricare dei dati da uno specifico file in R devo fornire il \emph{path} (o indirizzo) corretto che mi indichi esattamente la posizione del file all'interno della struttura di cartelle del computer. Ad esempio, immaginiamo di avere dei dati \texttt{My-data.Rda} salvato nella cartella \texttt{Introduction2R} nel proprio Desktop.
 
 \begin{verbatim}
-Desktop
+Desktop/
  |
- |-  Introduction2R
+ |-  Introduction2R/
  |    |
- |    |- Dati
+ |    |- Dati/
  |    |   |- My-data.Rda
 \end{verbatim}
 
@@ -2134,7 +2134,7 @@ Per installare un pacchetto direttamente da Github è posibile utilizzare il com
 \hypertarget{working-session}{%
 \chapter{Sessione di Lavoro}\label{working-session}}
 
-In questo capitolo, discuteremo di alcuni aspetti generali delle sessioni di lavoro in R. Descriveremo delle buone abitudini riguardanti l'organizzazione degli scripts e l'uso degli \emph{RStudio Projects} per essere ordinati ed efficaci nel proprio lavoro. Infine approfondiremo l'uso dei messaggi di R ed in particolare come comportarsi in caso di errori.
+In questo capitolo, discuteremo di alcuni aspetti generali delle sessioni di lavoro in R. Descriveremo delle buone abitudini riguardanti l'organizzazione degli scripts per essere ordinati ed efficaci nel proprio lavoro. Inoltre descriveremo come organizzare i propri progetti in cartelle ed in particolare introdurremo l'uso degli \emph{RStudio Projects}. Infine approfondiremo l'uso dei messaggi di R ed in particolare come comportarsi in caso di errori.
 
 \hypertarget{organizzazione-script}{%
 \section{Organizzazione Script}\label{organizzazione-script}}
@@ -2233,8 +2233,8 @@ Infine, un altro vantaggio è quello di poter compattare o espandere le sezioni 
 \caption{Compattare ed espandere le sezioni di codice}\label{fig:section-closed}
 \end{figure}
 
-\hypertarget{sintassi}{%
-\subsection{Sintassi}\label{sintassi}}
+\hypertarget{sintax}{%
+\subsection{Sintassi}\label{sintax}}
 
 Elenchiamo qui altre buone norme nella scrittura del codice che ne facilitano la comprensione.
 
@@ -2422,19 +2422,87 @@ Potete trovare ulteriori regole e consigli riguardanti lo stile nella scrittura 
 
 \end{design}
 
-\hypertarget{r-projects}{%
-\section{R projects}\label{r-projects}}
+\hypertarget{organizzazione-progetti}{%
+\section{Organizzazione Progetti}\label{organizzazione-progetti}}
 
-TODO
+All'aumentare della complessità di un'analisi vi troverete presto a dover gestire molti file di deversa tipologia (e.g., dati, report, grafici) e a dover suddividere le varie parti del lavoro in differenti script. A questo punto sarà opportuno organizzare in modo ordinato tutto il materiale necessario per l'analisi e i relativi risultati in un'unica cartella.
 
-\hypertarget{piuxf9-di-uno-script}{%
-\subsection{Più di uno script}\label{piuxf9-di-uno-script}}
+Idealmente, infatti, ogni analisi verrà salvata in una differente cartella e possiamo ad esempio organizzare i file utilizzando la seguente struttura di sottocartelle:
+
+\begin{verbatim}
+My_analysis/
+ |-  Data/
+ |-  Documents/
+ |-  Outputs/
+ |-  R/
+\end{verbatim}
 
 \begin{itemize}
+\tightlist
 \item
-  idea di organizzare in vairi script, cartelle
+  \texttt{Data/} - tutti i file relativi ai dati usati nell'analisi. Sarà importante mantenere sia una copia dei dati \emph{raw}, ovvero i dati grezzi senza alcuan manipolazione, sia i dati effetivamente usati nelle analisi che in genere sono stati già puliti e codificati.
 \item
-  working directory tutto in funzione alla cartella
+  \texttt{Documents/} - tutti i file di testo (e.g., Word o simili) e report utilizzati per descrivere le analisi (vedi in particolare \href{https://rmarkdown.rstudio.com/}{R-markdown}).
+\item
+  \texttt{Outputs/} - eventuali outputs creati durante le analisi come ad esempio grafici e tabelle.
+\item
+  \texttt{R/} - tutti gli script utilizzati per le analisi. E' possibile numerare gli script per suggerire il corretto ordine in cui debbano essere eseguiti, ad esempio \texttt{01-import-data.R}, \texttt{02-munge-data.R}, \texttt{03-descriptive-analysis.R} etc.
+\end{itemize}
+
+Questa struttura è puramente esemplificativa ma può essere un utile base di partenza che è possibile adattare a seconda delle particolari esigenze di ogni lavoro.
+
+\hypertarget{rstudio-projects}{%
+\subsection{RStudio Projects}\label{rstudio-projects}}
+
+RStudio permette inoltre di creare degli \textbf{R Projects}, ovvero degli spazi di lavoro che permettono di gestire indipendentemente diversi progetti. Ogni progetto avrà la propria working directory, workspace, history e settaggi personalizzati. Questo consente di passare velocemente da un progetto ad un altro riprendento immediatamente il lavoro da dove si era arrivati senza altre preoccupazioni.
+
+Vediamo quindi come creare un \textbf{R Projects}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Selezionare \emph{File} \textgreater{} \emph{New Project\ldots{}}
+
+  \includegraphics[width=0.75\textwidth,height=\textheight]{images/r-project-1.png}
+\item
+  Selezionare \emph{New Directory} per creare un R Project in una nuova cartella (in alternativa selezionare \emph{Existing Directory} per creare un R Project in una cartella già esistente)
+
+  \includegraphics[width=0.75\textwidth,height=\textheight]{images/r-project-2.png}
+\item
+  Selezionare \emph{New Project} (in utilizzi avanzati è possibile scegliere particolari template da usare)
+
+  \includegraphics[width=0.75\textwidth,height=\textheight]{images/r-project-3.png}
+\item
+  Indicare il nome della cartella (utilizzato anche come nome dell'R Project) e la posizione in cui creare la cartella
+
+  \includegraphics[width=0.75\textwidth,height=\textheight]{images/r-project-4.png}
+\item
+  Una volta creato il progetto RStudio aprirà direttamente il progetto. Notate come nell'icona di RStudio comparirà ora anche il nome del progetto attualmente aperto
+
+  \includegraphics[width=0.15\textwidth,height=\textheight]{images/r-project-5.png}
+\item
+  Per chiudere un progetto è sufficiente selezionare \emph{File} \textgreater{} \emph{Close Project} o in alterantiva utilizzare il menù in alto a destra
+
+  \includegraphics[width=0.75\textwidth,height=\textheight]{images/r-project-6.png}
+\item
+  Per aprire un progetto precedente, è sufficiente selezionare \emph{File} \textgreater{} \emph{Open Project} o in alterantiva fare doppio click sul file \texttt{.Rproj} presente nella cartella del progetto
+
+  \includegraphics[width=0.75\textwidth,height=\textheight]{images/r-project-7.png}
+\end{enumerate}
+
+Elenchiamo ora alcuni dei principali vantaggi dell'utilizzare gli R Project:
+
+\begin{itemize}
+\tightlist
+\item
+  La \textbf{working directory} viene autoamticamente settata nella cartella del progetto. Questo ci permette di non doverci più preoccupare della sua definizione e possiamo definire ogni \emph{path} in relazione alla cartella del progetto.
+\item
+  Quando apriamo un progetto in una successiva \textbf{sessione di lavoro} gli script e i documenti di lavoro verranno automaticamente aperti come li avevamo lasciati nella sessione precedente. E' come avere una scrivania per ogni progetto dove lasciare tutti i documenti utili e riprendere il lavoro immediatamete.
+\item
+  Utilizzando i progetti è possibile \textbf{personnalizzare e automatizzare} molte funzioni come ad esempio caricare i paccheti o eseguire determinati codici. Tuttavia richiedono una buona conoscenza di R.
+\item
+  Esistono molti \textbf{template} per i progetti che implementano utili funzionalità, in particolare la struttura degli R Projects usata per lo sviluppo dei pacchetti è molto utile anche nel caso di analisi statistiche. Tuttavia richiedono una buona conoscenza di R.
 \end{itemize}
 
 \hypertarget{messages-warnings-e-errors}{%
@@ -2544,8 +2612,8 @@ Ci sono anche diversi pacchetti in R che rendono automatico creare questi esempi
 \part*{Struttura Dati}\label{part-struttura-dati}}
 \addcontentsline{toc}{part}{Struttura Dati}
 
-\hypertarget{introduzione-1}{%
-\chapter*{Introduzione}\label{introduzione-1}}
+\hypertarget{second-section}{%
+\chapter*{Introduzione}\label{second-section}}
 \addcontentsline{toc}{chapter}{Introduzione}
 
 In questa sezione verranno introdotte le principali tipologie di oggetti usati in R . Ovvero le principali strutture in cui possono essere organizzati i dati: Vettori, Matrici, Dataframe e Liste.
@@ -2559,7 +2627,13 @@ I capitoli sono così organizzati:
 \item
   \textbf{Capitolo \ref{vector} - Vettori}. Impareremo le caratterisiche e l'uso dei vettori soffermandoci anche sulle diverse tipologie di dati.
 \item
-  \textbf{Capitolo \ref{factors} - Fattori}. Impareremo le caratterisiche e l'uso dei fattori un particolare tipo di vettori usati per le variabili categoriali ed ordinali.
+  \textbf{Capitolo \ref{factor} - Fattori}. Impareremo le caratterisiche e l'uso dei fattori, ovvero un particolare tipo di vettori usati per le variabili categoriali ed ordinali.
+\item
+  \textbf{Capitolo \ref{matrix} - Matrici}. Impareremo le caratterisiche e l'uso delle matrici introducendo anche gli array.
+\item
+  \textbf{Capitolo \ref{dataframe} - Dataframe}. Impareremo le caratterisiche e l'uso dei datafraeme, l'oggetto maggiormmente utilizzato nell'analisi di dati.
+\item
+  \textbf{Capitolo \ref{list} - Liste}. Impareremo le caratterisiche e l'uso delle liste.
 \end{itemize}
 
 \hypertarget{vector}{%
@@ -2708,8 +2782,8 @@ Famigliarizza con la creazione di vettori (\href{https://github.com/psicostat/In
 ## [1] "foo" "foo" "bar" "bar" "foo" "foo" "bar" "bar"
 \end{verbatim}
 
-\hypertarget{selezione-elementi}{%
-\section{Selezione Elementi}\label{selezione-elementi}}
+\hypertarget{vector-selection}{%
+\section{Selezione Elementi}\label{vector-selection}}
 
 Una volta creato un vettore potrebbe essere necessario selezionare uno o più dei suoi elementi. In R per selezionare gli elementi di un vettore si utilizzano le \textbf{parentesi quadre} \texttt{{[}{]}} dopo il nome del vettore, indicando al loro interno \textbf{l'indice di posizione} degli elementi desiderati:
 
@@ -2844,8 +2918,8 @@ Osserviamo infine anche altri comportamenti particolari o possibili errori nella
 
 \end{warning}
 
-\hypertarget{utilizzi-avanzati-selezione}{%
-\subsection{Utilizzi Avanzati Selezione}\label{utilizzi-avanzati-selezione}}
+\hypertarget{vector-selection-advanced}{%
+\subsection{Utilizzi Avanzati Selezione}\label{vector-selection-advanced}}
 
 Vediamo ora alcuni utilizzi avanzati della selezione di elementi di un vettore. In particolare impareremo a:
 
@@ -2890,7 +2964,7 @@ Per capire meglio questa operazione è importante notare come nello stesso coman
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Vettore logico} (vedi Capitolo TODO) - quando un vettore è valutato in una proposizione, R restituisce un nuovo vettore che contiene per ogni elemento del vettore iniziale la risposta (\texttt{TRUE} o \texttt{FALSE}) alla nostra proposizione.
+  \textbf{Vettore logico} (vedi Capitolo \ref{logical-vector}) - quando un vettore è valutato in una proposizione, R restituisce un nuovo vettore che contiene per ogni elemento del vettore iniziale la risposta (\texttt{TRUE} o \texttt{FALSE}) alla nostra proposizione.
 \item
   \textbf{Selezione} - utilizziamo il vettore logico ottenuto per selezionare gli elementi dal vettore iniziale. Gli elementi associati al valore \texttt{TRUE} sono selezionati mentre quelli associati al valore \texttt{FALSE} sono scartati.
 \end{itemize}
@@ -3362,8 +3436,8 @@ Come per i vettori numerici, i vettori di valori interi possono esssere utilizza
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{logical}{%
-\subsection{Logical}\label{logical}}
+\hypertarget{logical-vector}{%
+\subsection{Logical}\label{logical-vector}}
 
 I vettori formati da valori logici (\texttt{TRUE} e \texttt{FALSE}) sono definiti vettori logici. In R la tipologia del vettore è indicata con \texttt{logical} allo stesso modo dei dati.
 
@@ -3411,10 +3485,10 @@ Utilizzando le funzioni \texttt{sum()} e \texttt{mean()} con un vettore logico, 
 \NormalTok{my_values <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{)  }\CommentTok{# genero dei numeri casuali }
 
 \KeywordTok{sum}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# totale numeri positivi}
-\CommentTok{## [1] 31}
+\CommentTok{## [1] 33}
 
 \KeywordTok{mean}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# percentuale numeri positivi}
-\CommentTok{## [1] 0.62}
+\CommentTok{## [1] 0.66}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3949,13 +4023,13 @@ Inoltre sarà fondamentale controllare sempre l'effittiva dimensione del campion
 
 \end{design}
 
-\hypertarget{factors}{%
-\chapter{Fattori}\label{factors}}
+\hypertarget{factor}{%
+\chapter{Fattori}\label{factor}}
 
 In questo capitolo vedremo i \emph{fattori}, una speciale tipologia di vettori utilizzata per salvare informazioni riguardanti una variabile categoriale (nominale o ordinale). Tuttavia, prima di introdurre i fattori, descriveremo che cosa sono gli attributi di un oggetto. Questi ci permetteranno successivamente di capire meglio il funzionamento dei fattori.
 
-\hypertarget{attributi-di-un-oggetto}{%
-\section{Attributi di un Oggetto}\label{attributi-di-un-oggetto}}
+\hypertarget{attributes}{%
+\section{Attributi di un Oggetto}\label{attributes}}
 
 In R, gli oggetti possiedono quelli che sono definiti \emph{attributi}, ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di \emph{metadata}. Queste informazioni non interferiscono con i valori contenuti negli oggetti nè vengono normalmente mostrati nell'output di un oggetto. Tuttavia, si rivelano particolarmente utili in alcune circostanze e permettono di fornire speciali informazioni associate ad un determinato oggetti.
 
@@ -4318,8 +4392,6 @@ Questo risulterà particolarmente importante nell'esecuzione di analisi statisti
 
 \end{tip}
 
--importanza codifica variabile automatizzare operazioni
-
 \hypertarget{esercizi-5}{%
 \subsection*{Esercizi}\label{esercizi-5}}
 \addcontentsline{toc}{subsection}{Esercizi}
@@ -4389,7 +4461,7 @@ Due caratteristiche importanti di una matrice sono:
 \item
   la \textbf{dimensione} - il numero di \textbf{righe} e di \textbf{colonne} da cui è formata la matrice
 \item
-  la \textbf{tipologia} - la tipologia di dati che sono contenuti nella matrice. Infatti, in modo analogo a quanto visto con i vettori, una matrice deve esssere formata da \textbf{elementi tutti dello stesso tipo}. Pertanto esistono diverse tipologie di matrici a seconda del tipo di dati da cui è formata, in particolare abbiamo matrici numeriche, di valori logici e di caratteri (vedi Capitolo TODO).
+  la \textbf{tipologia} - la tipologia di dati che sono contenuti nella matrice. Infatti, in modo analogo a quanto visto con i vettori, una matrice deve esssere formata da \textbf{elementi tutti dello stesso tipo}. Pertanto esistono diverse tipologie di matrici a seconda del tipo di dati da cui è formata, in particolare abbiamo matrici numeriche, di valori logici e di caratteri (vedi Capitolo \ref{matrix-types}).
 \end{itemize}
 
 E' fondamentale inoltre sottolineare come ogni \textbf{elemento} di una matrice sia caratterizzato da:
@@ -4513,8 +4585,8 @@ Tuttavia, è meglio evitare questa pratica di \emph{ciclare} i valori poichè i 
 
 \end{tip}
 
-\hypertarget{tipologie-di-matrici}{%
-\subsection{Tipologie di Matrici}\label{tipologie-di-matrici}}
+\hypertarget{matrix-types}{%
+\subsection{Tipologie di Matrici}\label{matrix-types}}
 
 Abbiamo viso che, in modo analogo ai vettori, anche per le matrici è necessario che tutti i dati siano della stessa tipologia. Avremo pertanto matrici che includono solo valori \texttt{character}, \texttt{double}, \texttt{integer} oppure \texttt{logical} e le operazioni che si potranno eseguire (uso di operatori matematiche o operatori logici-relazionali) dipenderanno dalla tipologia di dati. Tuttavia, a differenza dei vettori, la tipologia di oggetto rimarrà sempre \texttt{matrix} indipendentemente dai dati contenuti. Le matrici sono sempre matrici, è la tipologia di dati che varia.
 
@@ -4579,11 +4651,11 @@ Le matrici di valori numerici, sia \texttt{double} che \texttt{integer}, sono se
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{logical-1}{%
-\subsubsection*{Logical}\label{logical-1}}
+\hypertarget{logical}{%
+\subsubsection*{Logical}\label{logical}}
 \addcontentsline{toc}{subsubsection}{Logical}
 
-Infine le matrici possono essere formate anche da valori logici \texttt{TRUE} e \texttt{FALSE}. Vedremo un loro importante utilizzo per quanto riguarda la selezione degli elementi di una matrice nel Capitolo TODO.
+Infine le matrici possono essere formate anche da valori logici \texttt{TRUE} e \texttt{FALSE}. Vedremo un loro importante utilizzo per quanto riguarda la selezione degli elementi di una matrice nel Capitolo \ref{matrix-selection-advanced}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4861,8 +4933,8 @@ Abbiamo visto che possiamo facilmente popolare una matrice con un vettore. Allo 
 
 \end{design}
 
-\hypertarget{utilizzi-avanzati-selezione-1}{%
-\subsection{Utilizzi Avanzati Selezione}\label{utilizzi-avanzati-selezione-1}}
+\hypertarget{matrix-selection-advanced}{%
+\subsection{Utilizzi Avanzati Selezione}\label{matrix-selection-advanced}}
 
 Vediamo ora alcuni utilizzi avanzati della selezione di elementi di una matrice. In particolare impareremo a:
 
@@ -4999,7 +5071,7 @@ E' possibile anche sostituire tutti i valori di un'intera riga o colonnna opport
 \end{Highlighting}
 \end{Shaded}
 
-Nota come a differenza dei vettori non possa aggiungere una nuova riga o colonna attraverso questa operazione ma sarà necesssario utilizzare una diversa procedura (vedi Capitolo TODO).
+Nota come a differenza dei vettori non sia possibile aggiungere una nuova riga o colonna attraverso questa operazione ma sarà necesssario utilizzare una diversa procedura (vedi Capitolo \ref{matrix-bind}).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5113,7 +5185,7 @@ Descriviamo ora nel dettaglio alcuni particolari utilizzi.
 \hypertarget{mat-prop}{%
 \subsection{Attributi di una Matrice}\label{mat-prop}}
 
-Abbiamo visto nel Capitolo TODO che gli oggetti in R possiedono quelli che sono definiti \emph{attributi} ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di \emph{metadata}. Vediamo ora alcuni attributi particolarmente rilevanti nel caso delle matrici ovvero la dimensione (\texttt{dim}) e i nomi delle righe e colonne (\texttt{names}).
+Abbiamo visto nel Capitolo \ref{attributes} che gli oggetti in R possiedono quelli che sono definiti \emph{attributi} ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di \emph{metadata}. Vediamo ora alcuni attributi particolarmente rilevanti nel caso delle matrici ovvero la dimensione (\texttt{dim}) e i nomi delle righe e colonne (\texttt{names}).
 
 \hypertarget{dimensione-1}{%
 \subsubsection*{Dimensione}\label{dimensione-1}}
@@ -5188,7 +5260,7 @@ Non essendo impostati, ottieniamo inizialmente come output il valore \texttt{NUL
 \end{Highlighting}
 \end{Shaded}
 
-In alternativa posson utilizzare il \texttt{dimnames()} per accedere contemporaneamente sia ai nomi di riga che a quelli di colonna. Come output ottengo una lista (vedi Capitolo TODO) dove vengono prima indicati i nomi di riga e poi quelli di colonna
+In alternativa posso utilizzare il \texttt{dimnames()} per accedere contemporaneamente sia ai nomi di riga che a quelli di colonna. Come output ottengo una lista (vedi Capitolo \ref{list}) dove vengono prima indicati i nomi di riga e poi quelli di colonna
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5205,7 +5277,7 @@ In alternativa posson utilizzare il \texttt{dimnames()} per accedere contemporan
 
 Quando nel Capitolo \ref{sel-matrix} abbiamo visto i diversi modi di selezionare gli elementi di una matrice, abbiamo sempre usato gli indici numerici di riga e di colonna. Tuttavia, quando i nomi delle delle dimensioni sono disponibili, è possibile indicizzare una matrice in base ai nomi delle righe e/o colone.
 
-Possiamo quindi selezionare la prima colonna sia con il suo indice numerico \texttt{nome\_matrice{[}\ ,\ 1{]}} ma anche con il nome assegnato \texttt{nome\_matrice{[}\ ,"nome\_colonna"{]}}. Queste sono operazioni poco utili con le matrici ma che saranno fondamentali nel caso dei \textbf{dataframe} (vedi Capitolo TODO).
+Possiamo quindi selezionare la prima colonna sia con il suo indice numerico \texttt{nome\_matrice{[}\ ,\ 1{]}} ma anche con il nome assegnato \texttt{nome\_matrice{[}\ ,"nome\_colonna"{]}}. Queste sono operazioni poco utili con le matrici ma che saranno fondamentali nel caso dei \textbf{dataframe} (vedi Capitolo \ref{dataframe}).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5224,8 +5296,8 @@ Possiamo quindi selezionare la prima colonna sia con il suo indice numerico \tex
 
 \end{design}
 
-\hypertarget{unire-matrici}{%
-\subsection{Unire Matrici}\label{unire-matrici}}
+\hypertarget{matrix-bind}{%
+\subsection{Unire Matrici}\label{matrix-bind}}
 
 Abbiamo visto nel Capitolo \ref{vector-functions} come si possono unire diversi vettori tramite la funnzione \texttt{c()}. Anche per le matrici è possibile combinare matrici diverse, rispettando però alcune regole:
 
@@ -5723,7 +5795,7 @@ E' sempre consigliato definire una colonna (e.g., \texttt{Id}) in cui assegnnare
 
 \begin{warning}[stringsAsFactors]
 
-Una variabile di caratteri all'interno di un DataFrame è considerata di default come una semplice sequenza di caratteri. E' possibile specificare l'argomento \texttt{stringsAsFactors\ =\ TRUE} per ottenere che tutte le variabili di caratteri siano considerate come delle variabili catgoriali creando automaticamente dei fattori (vedi Capitolo TODO).
+Una variabile di caratteri all'interno di un DataFrame è considerata di default come una semplice sequenza di caratteri. E' possibile specificare l'argomento \texttt{stringsAsFactors\ =\ TRUE} per ottenere che tutte le variabili di caratteri siano considerate come delle variabili catgoriali creando automaticamente dei fattori (vedi Capitolo \ref{factor}).
 
 Nota come il comportamento di default sia differente a seconda della versione di R. Versioni precedenti a R 4.0 avevano infatti come default \texttt{stringsAsFactors\ =\ TRUE} mentre dalla 4.0 in poi abbiamo \texttt{stringsAsFactors\ =\ FALSE}.
 
@@ -5952,8 +6024,8 @@ Come per tutte le altre tipologie di oggetti, le operazioni di selezione non mod
 
 \end{design}
 
-\hypertarget{utilizzi-avanzati-selezione-2}{%
-\subsection{Utilizzi Avanzati Selezione}\label{utilizzi-avanzati-selezione-2}}
+\hypertarget{utilizzi-avanzati-selezione}{%
+\subsection{Utilizzi Avanzati Selezione}\label{utilizzi-avanzati-selezione}}
 
 Vediamo ora alcuni utilizzi avanzati della selezione di elementi di un dataframe.
 
@@ -6146,7 +6218,7 @@ Descriviamo ora nel dettaglio alcuni particolari utilizzi, considrando come esem
 \hypertarget{attributi-di-un-dataframe}{%
 \subsection{Attributi di un Dataframe}\label{attributi-di-un-dataframe}}
 
-Abbiamo visto nel Capitolo TODO che gli oggetti in R possiedono quelli che sono definiti \emph{attributi} ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di \emph{metadata}. Vediamo ora, in modo analogo alle matrici, come valutare la dimensione di un dataframe e i nomi delle righe e delle colonne.
+Abbiamo visto nel Capitolo \ref{attributes} che gli oggetti in R possiedono quelli che sono definiti \emph{attributi} ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di \emph{metadata}. Vediamo ora, in modo analogo alle matrici, come valutare la dimensione di un dataframe e i nomi delle righe e delle colonne.
 
 \hypertarget{dimensione-2}{%
 \subsubsection*{Dimensione}\label{dimensione-2}}
@@ -6582,8 +6654,8 @@ Considerando gli oggetti creati nei precedenti capitoli, esegui i seguenti eserc
   \end{itemize}
 \end{enumerate}
 
-\hypertarget{selezione-elementi-1}{%
-\section{Selezione Elementi}\label{selezione-elementi-1}}
+\hypertarget{selezione-elementi}{%
+\section{Selezione Elementi}\label{selezione-elementi}}
 
 Come dicevamo in precedenza, ogni elemento di una lista possiende il suo \textbf{indice di posizione}, ovvero un valore numerico progressivo in modo del tutto analogo a quanto visto per gli elementi di un vettore. Tuttavia, c'è un'importante differenza per quanto riguarda la modalità di selezione in base al tipo di oggetto che si vuole ottenere come risultato. Infatti, mentre con i vettori usavamo le singole parentesi quadre \texttt{my\_vector{[}i{]}} per accedere direttamente all'elemento alla posizione \(i\), con le liste abbiamo due alternative:
 
@@ -6793,8 +6865,8 @@ Chiaramente le operazione che possiamo svolgere, come ad esempio ulteriori selez
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{utilizzi-avanzati-selezione-3}{%
-\subsection{Utilizzi Avanzati Selezione}\label{utilizzi-avanzati-selezione-3}}
+\hypertarget{utilizzi-avanzati-selezione-1}{%
+\subsection{Utilizzi Avanzati Selezione}\label{utilizzi-avanzati-selezione-1}}
 
 Vediamo ora alcuni utilizzi avanzati della selezione di elementi di un dataframe.
 
@@ -7281,8 +7353,8 @@ Infine, proprio per la loro flessibilità, le liste sono spesso utilizzate da va
 \part*{Algoritmi}\label{part-algoritmi}}
 \addcontentsline{toc}{part}{Algoritmi}
 
-\hypertarget{introduzione-2}{%
-\chapter*{Introduzione}\label{introduzione-2}}
+\hypertarget{third-section}{%
+\chapter*{Introduzione}\label{third-section}}
 \addcontentsline{toc}{chapter}{Introduzione}
 
 Working in progress.
@@ -7306,8 +7378,8 @@ Working in progress.
 \part*{Case study}\label{part-case-study}}
 \addcontentsline{toc}{part}{Case study}
 
-\hypertarget{introduzione-3}{%
-\chapter*{Introduzione}\label{introduzione-3}}
+\hypertarget{introduzione-1}{%
+\chapter*{Introduzione}\label{introduzione-1}}
 \addcontentsline{toc}{chapter}{Introduzione}
 
 Working in progress.

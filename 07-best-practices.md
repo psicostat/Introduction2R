@@ -2,7 +2,7 @@
 
 
 
-In questo capitolo, discuteremo di alcuni aspetti generali delle sessioni di lavoro in R. Descriveremo delle buone abitudini riguardanti l'organizzazione degli scripts e l'uso degli *RStudio Projects* per essere ordinati ed efficaci nel proprio lavoro. Infine approfondiremo l'uso dei messaggi di R ed in particolare come comportarsi in caso di errori.
+In questo capitolo, discuteremo di alcuni aspetti generali delle sessioni di lavoro in R. Descriveremo delle buone abitudini riguardanti l'organizzazione degli scripts per essere ordinati ed efficaci nel proprio lavoro. Inoltre descriveremo come organizzare i propri progetti in cartelle ed in particolare introdurremo l'uso degli *RStudio Projects*. Infine approfondiremo l'uso dei messaggi di R ed in particolare come comportarsi in caso di errori.
 
 ## Organizzazione Script
 
@@ -66,7 +66,7 @@ Infine, un altro vantaggio è quello di poter compattare o espandere le sezioni 
 <p class="caption">(\#fig:section-closed)Compattare ed espandere le sezioni di codice</p>
 </div>
 
-### Sintassi
+### Sintassi {#sintax}
 
 Elenchiamo qui altre buone norme nella scrittura del codice che ne facilitano la comprensione.
 
@@ -207,15 +207,75 @@ age = ..., sex = ...)
 Potete trovare  ulteriori regole e consigli riguardanti lo stile nella scrittura di codici al seguente link <https://irudnyts.github.io/r-coding-style-guide/>.
 :::
 
-## R projects
+## Organizzazione Progetti
 
-TODO
+All'aumentare della complessità di un'analisi vi troverete presto a dover gestire molti file di deversa tipologia (e.g., dati, report, grafici) e a dover suddividere le varie parti del lavoro in differenti script. A questo punto sarà opportuno organizzare in modo ordinato tutto il materiale necessario per l'analisi e i relativi risultati in un'unica cartella.
 
-### Più di uno script
+Idealmente, infatti, ogni analisi verrà salvata in una differente cartella e possiamo ad esempio organizzare i file utilizzando la seguente struttura di sottocartelle:
 
-- idea di organizzare in vairi script, cartelle
+```
+My_analysis/
+ |-  Data/
+ |-  Documents/
+ |-  Outputs/
+ |-  R/
+```
 
-- working directory tutto in funzione alla cartella
+- `Data/` - tutti i file relativi ai dati usati nell'analisi. Sarà importante mantenere sia una copia dei dati *raw*, ovvero i dati grezzi senza alcuan manipolazione, sia i dati effetivamente usati nelle analisi che in genere sono stati già puliti e codificati.
+- `Documents/` - tutti i file di testo (e.g., Word o simili) e report utilizzati per descrivere le analisi (vedi in particolare [R-markdown](https://rmarkdown.rstudio.com/)).
+- `Outputs/` - eventuali outputs creati durante le analisi come ad esempio grafici e tabelle.
+- `R/` - tutti gli script utilizzati per le analisi. E' possibile numerare gli script per suggerire il corretto ordine in cui debbano essere eseguiti, ad esempio `01-import-data.R`, `02-munge-data.R`, `03-descriptive-analysis.R` etc.
+
+Questa struttura è puramente esemplificativa ma può essere un utile base di partenza che è possibile adattare a seconda delle particolari esigenze di ogni lavoro.
+
+### RStudio Projects
+
+RStudio permette inoltre di creare degli **R Projects**, ovvero degli spazi di lavoro che permettono di gestire indipendentemente diversi progetti. Ogni progetto avrà la propria working directory, workspace, history e settaggi personalizzati. Questo consente di passare velocemente da un progetto ad un altro riprendento immediatamente il lavoro da dove si era arrivati senza altre preoccupazioni.
+
+Vediamo quindi come creare un **R Projects**.
+
+1. Selezionare *File* > *New Project...*
+<center>
+![](images/r-project-1.png){ width=75% }
+</center>
+<br>
+2. Selezionare *New Directory* per creare un R Project in una nuova cartella (in alternativa selezionare *Existing Directory* per creare un R Project in una cartella già esistente) 
+<center>
+![](images/r-project-2.png){ width=75% }
+</center>
+<br>
+3. Selezionare *New Project* (in utilizzi avanzati è possibile scegliere particolari template da usare)
+<center>
+![](images/r-project-3.png){ width=75% }
+</center>
+<br>
+4. Indicare il nome della cartella (utilizzato anche come nome dell'R Project) e la posizione in cui creare la cartella
+<center>
+![](images/r-project-4.png){ width=75% }
+</center>
+<br>
+5. Una volta creato il progetto RStudio aprirà direttamente il progetto. Notate come nell'icona di RStudio comparirà ora anche il nome del progetto attualmente aperto
+<center>
+![](images/r-project-5.png){ width=15% }
+</center>
+<br>
+6. Per chiudere un progetto è sufficiente selezionare *File* > *Close Project* o in alterantiva utilizzare il menù in alto a destra
+<center>
+![](images/r-project-6.png){ width=75% }
+</center>
+<br>
+6. Per aprire un progetto precedente, è sufficiente selezionare *File* > *Open Project* o in alterantiva fare doppio click sul file `.Rproj` presente nella cartella del progetto
+<center>
+![](images/r-project-7.png){ width=75% }
+</center>
+<br>
+
+Elenchiamo ora alcuni dei principali vantaggi dell'utilizzare gli R Project:
+
+- La **working directory** viene autoamticamente settata nella cartella del progetto. Questo ci permette di non doverci più preoccupare della sua definizione e possiamo definire ogni *path* in relazione alla cartella del progetto.
+- Quando apriamo un progetto in una successiva **sessione di lavoro** gli script e i documenti di lavoro verranno automaticamente aperti come li avevamo lasciati nella sessione precedente. E' come avere una scrivania per ogni progetto dove lasciare tutti i documenti utili e riprendere il lavoro immediatamete.
+- Utilizzando i progetti è possibile **personnalizzare e automatizzare** molte funzioni come ad esempio caricare i paccheti o eseguire determinati codici. Tuttavia richiedono una buona conoscenza di R.
+- Esistono molti **template** per i progetti che implementano utili funzionalità, in particolare la struttura degli R Projects usata per lo sviluppo dei pacchetti è molto utile anche nel caso di analisi statistiche. Tuttavia richiedono una buona conoscenza di R.
 
 ## Messages, Warnings e Errors
 

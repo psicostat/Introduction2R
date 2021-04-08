@@ -120,7 +120,7 @@ L'ordine di esecuzione delle operazioni può essere controllato attraverso l'uso
 :::{.warning title="Le parentesi" data-latex="[Le parentesi]"}
 Nota che in R solo le **parentesi tonde** `()` sono utilizzate per gestire l'ordine con cui sono eseguite le oprazioni.
 
-**Parentesi quadre** `[]` e **parentesi graffe** `{}` sono invece speciali operatori utilizzati in R per altre ragioni come la selezione di elemente e la definizione di blocchi di codici. Argomenti che approfondiremo rispettivamente nel Capitolo TODO e Capitolo TODO. 
+**Parentesi quadre** `[]` e **parentesi graffe** `{}` sono invece speciali operatori utilizzati in R per altre ragioni come la selezione di elementi e la definizione di blocchi di codici. Argomenti che approfondiremo rispettivamente nel Capitolo \@ref(vector-selection) e Capitolo TODO. 
 :::
 
 ### Esercizi{-}
@@ -147,7 +147,7 @@ Note per la risoluzione degli esercizi:
 
 ## Operatori Relazionali e Logici {#operators-rel-log}
 
-Queste operazioni al momento potrebbero sembrare non particolrmente interessanti ma si riveleranno molto utili nei capitoli successivi ad esempio per la selezione di elementi (vedi Capitolo TODO) o la definizionne di algoritmi (vedi Capitolo TODO).
+Queste operazioni al momento potrebbero sembrare non particolrmente interessanti ma si riveleranno molto utili nei capitoli successivi ad esempio per la selezione di elementi (vedi Capitolo \@ref(vector-selection-advanced)) o la definizionne di algoritmi (vedi Capitolo TODO).
 
 ### Operatori Relazionali
 
@@ -206,7 +206,7 @@ R valuterà le proposizioni e ci restituirà il valore `TRUE` se la proposizione
 :::{.warning title="'==' non è uguale a '='" data-latex="['==' non è uguale a '=']"}
 Attenzione che per valutare l'uguaglianza tra due valori non bisogna utilizzare `=` ma `==`. Questo è un'errore molto comune ceh si commmette in continuazione.
 
-L'operatore `=` è utilizzato in R per assegnare un valore ad una variablie. Argomento che vederemo nella Sezione TODO
+L'operatore `=` è utilizzato in R per assegnare un valore ad una variablie. Argomento che vederemo nel Capitolo \@ref(assign).
 :::
 
 :::{.tip title="TRUE-T-1; FALSE-F-0" data-latex="[TRUE-T-1; FALSE-F-0]"}
@@ -221,7 +221,7 @@ FALSE == 0  # TRUE
 FALSE == 1  # FALSE
 ```
 
-In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poichè potrebbe nonn essere chiara e creare fraintendimenti. Infatti mentre TRUE e FALSE sono parole riservate (vedi Capitolo TODO) T a F non lo sono.
+In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poichè potrebbe nonn essere chiara e creare fraintendimenti. Infatti mentre TRUE e FALSE sono parole riservate (vedi Capitolo \@ref(objects-names)) T a F non lo sono.
 
 
 ```r
