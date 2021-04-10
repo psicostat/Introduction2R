@@ -228,7 +228,7 @@
 \makeatother
 \subtitle{Corso per imparare le basi di \textbf{R}}
 \author{\href{https://claudiozandonella.netlify.app/}{Claudio Zandonella Callegher} and \href{https://filippogambarota.netlify.app/}{Filippo Gambarota} members of \href{https://psicostat.dpss.psy.unipd.it/}{Psicostat}}
-\date{08-04-2021}
+\date{10-04-2021}
 
 \begin{document}
 \maketitle
@@ -3485,10 +3485,10 @@ Utilizzando le funzioni \texttt{sum()} e \texttt{mean()} con un vettore logico, 
 \NormalTok{my_values <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{)  }\CommentTok{# genero dei numeri casuali }
 
 \KeywordTok{sum}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# totale numeri positivi}
-\CommentTok{## [1] 33}
+\CommentTok{## [1] 27}
 
 \KeywordTok{mean}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# percentuale numeri positivi}
-\CommentTok{## [1] 0.66}
+\CommentTok{## [1] 0.54}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7357,12 +7357,277 @@ Infine, proprio per la loro flessibilità, le liste sono spesso utilizzate da va
 \chapter*{Introduzione}\label{third-section}}
 \addcontentsline{toc}{chapter}{Introduzione}
 
-Working in progress.
+In questa sezione verranno introdotte le principali tipologie di oggetti usati in R . Ovvero le principali strutture in cui possono essere organizzati i dati: Vettori, Matrici, Dataframe e Liste.
+
+Per ognuna di esse descriveremo le loro caretteristiche e vedremo come crearle, modificarle e manipolarle a seconda delle necessità
+
+I capitoli sono così organizzati:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Capitolo \ref{functions} - Funzioni}. Vedremo come creare le proprie funzioni personalizzate in R per eseguire degli specifici compiti.
+\item
+  \textbf{Capitolo \ref{coditionals} - Programmazione Condizionale}. Impareremo come gestire l'esecuzione di un algoritmo attraverso l'uso degli operatori \texttt{if} e \texttt{else}.
+\item
+  \textbf{Capitolo \ref{loop} - Programmazione Iterativa}. Introdurremo l'uttilizzo degli operatori \texttt{for} e \texttt{while} per l'esecuzione di loop.
+\end{itemize}
 
 \hypertarget{functions}{%
 \chapter{Definizione di Funzioni}\label{functions}}
 
-Working in progress.
+Nel Capitolo \ref{functions-def} abbiamo introdotto il concetto di funzioni e abbiamo visto come queste siano utilizzate per manipolare gli oggetti in R ed eseguire innumerevoli compiti. Nel Capitolo \ref{packages} abbiamo visto inoltre come sia possibile utilizzare i pacchetti per accedere a nuove funzioni estendendo quindi notevolmente le possibili applicazioni di R. In R, tuttavia, è anche possibile definire le proprie funzioni per eseguire determinati compiti a seconda delle proprie specifiche necessità.
+
+Questo è uno dei vantaggi principali di utilizzare un linguaggio di programmazione, ovvero il poter sviluppare funzioni ad-hoc a seconda delle proprie esigenze e non limitarsi a quelle prestabilite. In questo capitolo descriveremo come creare le proprie funzioni in R.
+
+\hypertarget{creazione-di-una-funzione}{%
+\section{Creazione di una Funzione}\label{creazione-di-una-funzione}}
+
+Il comando usato per creare una funzione in R è \texttt{function()} seguito da una coppia di parentesi graffe \texttt{\{\ \}} al cui interno deve essere specificato il corpo della funzione:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nome_funzione <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{( )\{}
+  \OperatorTok{<}\NormalTok{corpo}\OperatorTok{-}\NormalTok{funzione}\OperatorTok{>}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Nota come sia necessario assegnare la funzione ad un oggetto, ad esempio \texttt{my\_function}, che diventerà il nome della nostra funzione. Per eseguire la funzione sarà sufficiente, come per ogni altra funzione, indicare il nome della funzione seguito dalle parentesi tonde, nel nostro caso \texttt{my\_function()}. Vediamo alcuni esempi di semplici funzioni:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Definisco la funzione}
+\NormalTok{my_greetings <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
+  \KeywordTok{print}\NormalTok{(}\StringTok{"Hello World!"}\NormalTok{)}
+\NormalTok{\}}
+
+\KeywordTok{my_greetings}\NormalTok{()}
+\CommentTok{## [1] "Hello World!"}
+
+\CommentTok{# Definisco un'altra funzione}
+\NormalTok{my_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
+\NormalTok{  x <-}\StringTok{ }\DecValTok{7}
+\NormalTok{  y <-}\StringTok{ }\DecValTok{3}
+  
+\NormalTok{  x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
+\NormalTok{\}}
+
+\KeywordTok{my_sum}\NormalTok{()}
+\CommentTok{## [1] 10}
+\end{Highlighting}
+\end{Shaded}
+
+Quando chiamiamo la nostra funzione, R eseguirà il corpo della funzione e ci restituirà il risultato dell'ultimo comando eseguito. Le funzioni del precedente esempio, tuttavia, si rivelano poco utili poichè eseguono sempre le stesse operazioni senza che ci sia permesso di specificare gli input delle funzioni. Inoltre, sebbene siano funzioni molto semplici, potrebbe non risultare chiaro quale sia effettivamente l'output restituito dalla funzione.
+
+:::\{design title=``Nomi Funzioni'' data-latex=``{[}Nomi Funzioni{]}''\}
+Nel definire il nome di una funzione è utile seguire le stese indicazioni che riguardavano i nomi degli oggetti (vedi Capitolo \ref{objects-names}). In questo caso affinché un nome sia \textbf{auto-descrittivo} si tende ad utilizzare verbi che riassumano l'azione eseguita dalla funzione.
+:::
+
+\hypertarget{definire-input-e-output}{%
+\subsection{Definire Input e Output}\label{definire-input-e-output}}
+
+Ricordiamo che in generale le funzioni, ricevuti degli oggetti in input, compiono determinate azioni e restituiscono dei nuovi oggetti in output. Input e ouput sono quindi due aspetti aspetti fondamentali di ogni funzione che richiedono particolare attenzione.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Input} - Abbiamo anche visto che in R gli input vengono specificati attraverso gli \textbf{argomenti} di una funzione (vedi Capitolo \ref{function-arguments}). Per definire gli argomenti di una funzione, questi devono essere indicati all'interno delle parentesi tonde al momento della creazione della funzione
+\item
+  \textbf{Output} - Per specificare l'output di una funzione si utilizza la funzione \texttt{return()}, indicando tra le parentesi il nome dell'oggetto che si desidera restituire come risultato della funzione.
+\end{itemize}
+
+La definizione di una funzione con tutti i suoi elementi seguirà quindi il seguente schema:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nome_funzione <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(argument_}\DecValTok{1}\NormalTok{, argument_}\DecValTok{2}\NormalTok{, ...)\{}
+  \OperatorTok{<}\NormalTok{corpo}\OperatorTok{-}\NormalTok{funzione}\OperatorTok{>}
+\StringTok{  }
+\StringTok{  }\KeywordTok{return}\NormalTok{(}\OperatorTok{<}\NormalTok{nome}\OperatorTok{-}\NormalTok{output}\OperatorTok{>}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Possiamo ora riscrivere le precedenti funzioni permettendo di personalizzare gli input e evidenziando quale sia output che viene restituito.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Ridefinisco my_greetings()}
+\NormalTok{my_greetings <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(name)\{}
+\NormalTok{  greetings <-}\StringTok{ }\KeywordTok{paste0}\NormalTok{(}\StringTok{"Hello "}\NormalTok{, name, }\StringTok{"!"}\NormalTok{)}
+  
+  \KeywordTok{return}\NormalTok{(greetings)}
+\NormalTok{\}}
+
+\KeywordTok{my_greetings}\NormalTok{(}\DataTypeTok{name =} \StringTok{"Psicostat"}\NormalTok{)}
+\CommentTok{## [1] "Hello Psicostat!"}
+
+\CommentTok{# Ridefinisco my_sum()}
+\NormalTok{my_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y)\{}
+\NormalTok{  result <-}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
+  
+  \KeywordTok{return}\NormalTok{(result)}
+\NormalTok{\}}
+
+\KeywordTok{my_sum}\NormalTok{(}\DataTypeTok{x =} \DecValTok{8}\NormalTok{, }\DataTypeTok{y =} \DecValTok{6}\NormalTok{)}
+\CommentTok{## [1] 14}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{design}[User Input]
+
+Qualora fosse necessario è possibile fare in modo che sia la funzione stessa a chiedere all'utente di inserire delle specifiche informazioni attraverso la funzione \texttt{readline()}.
+
+Utilizzando la funzione \texttt{readline()} comparirà nella console il messaggio che abbiamo impostato nell'argomento \texttt{prompt} (ricordati di concludere lasciando uno spazio). All'utente sarà richiesto di digitare una qualche sequenza alfanumeirca e premere successivamente \emph{invio}. I valori inseriti dell'utente saranno salvati come una variabile caratteri nell'oggetto che abbiamo indicato e potranno essere utilizzati sucessivamente nella funzione.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{happy_birthday <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
+\NormalTok{  name <-}\StringTok{ }\KeywordTok{readline}\NormalTok{(}\DataTypeTok{prompt =} \StringTok{"Inserisci il tuo nome: "}\NormalTok{)}
+\NormalTok{  message <-}\StringTok{ }\KeywordTok{paste0}\NormalTok{(}\StringTok{"Buon Compleanno "}\NormalTok{, name, }\StringTok{"!"}\NormalTok{)}
+  
+  \KeywordTok{return}\NormalTok{(message)}
+\NormalTok{\}}
+
+\KeywordTok{happy_birthday}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Nota che questa funzione possona essere usata solo in sessioni interattive di R poichè è richiesta un 'azione diretta da parte dell'utente.
+
+\end{design}
+
+\hypertarget{default-argomenti}{%
+\subsubsection*{Default Argomenti}\label{default-argomenti}}
+\addcontentsline{toc}{subsubsection}{Default Argomenti}
+
+Abbiamo visto come aggiungere degli argomenti che devono essere definiti dall'utente nell'utilizzare la funzione. Qualora l'utente non specifichi uno o più argomenti R riporterà un messaggio di errore indicando come ci siano degli argomenti non specificati e senza valori di default.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{my_sum}\NormalTok{(}\DataTypeTok{x =} \DecValTok{5}\NormalTok{)}
+\CommentTok{## Error in my_sum(x = 5): argument "y" is missing, with no default}
+\end{Highlighting}
+\end{Shaded}
+
+Per assegnare dei valori di default agli argomenti di una funzione, è sufficiente indicare al momento della creazione all'interno delle parentesi tonde \texttt{nome\_argomento\ =\ \textless{}valore-default\textgreater{}}. Se non altrimenti specificati, gli argomenti assumeranno i loro valori di default. Tuttavia, gli utenti sono liberi di specificare gli argomenti della funzione a seconda delle loro esigenze. Ad esempio impostiamo nella funzione \texttt{my\_sum()} il valore di default \texttt{y\ =\ 10}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, }\DataTypeTok{y =} \DecValTok{10}\NormalTok{)\{}
+\NormalTok{  result <-}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
+  
+  \KeywordTok{return}\NormalTok{(result)}
+\NormalTok{\}}
+
+\CommentTok{# Utilizzo il valore di default di y}
+\KeywordTok{my_sum}\NormalTok{(}\DataTypeTok{x =} \DecValTok{5}\NormalTok{)}
+\CommentTok{## [1] 15}
+
+\CommentTok{# Specifico il valore id y}
+\KeywordTok{my_sum}\NormalTok{(}\DataTypeTok{x =} \DecValTok{5}\NormalTok{,  }\DataTypeTok{y =} \DecValTok{8}\NormalTok{)}
+\CommentTok{## [1] 13}
+\end{Highlighting}
+\end{Shaded}
+
+Questa pratica è molto usata per specificare comportamenti particolari delle funzioni. In genere le funzioni sono definite con un funzionameto di default ma alcuni argomenti possono essere specificati per particolari essigenze solo quando necessario.
+
+\begin{trick}[match.arg()]
+
+Per imporre la scelta di un argomento tra una limitata serie di valori è possibile indicare nella definizione dell'argomento un vettore con le possibili entrate. Successivamente la scelta deve essere validata attraverso la funzione \texttt{match.arg()} come nell esempio successivo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Ridefinisco my_greetings()}
+\NormalTok{my_greetings <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(name, }\DataTypeTok{type =} \KeywordTok{c}\NormalTok{(}\StringTok{"Hello"}\NormalTok{, }\StringTok{"Goodbye"}\NormalTok{))\{}
+  
+\NormalTok{  type <-}\StringTok{ }\KeywordTok{match.arg}\NormalTok{(type)}
+\NormalTok{  greetings <-}\StringTok{ }\KeywordTok{paste0}\NormalTok{(type,}\StringTok{" "}\NormalTok{, name, }\StringTok{"!"}\NormalTok{)}
+  
+  \KeywordTok{return}\NormalTok{(greetings)}
+\NormalTok{\}}
+
+\CommentTok{# Scelta type}
+\KeywordTok{my_greetings}\NormalTok{(}\DataTypeTok{name =} \StringTok{"Psicostat"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"Goodbye"}\NormalTok{)}
+\CommentTok{## [1] "Goodbye Psicostat!"}
+
+\CommentTok{# Valore default}
+\KeywordTok{my_greetings}\NormalTok{(}\DataTypeTok{name =} \StringTok{"Psicostat"}\NormalTok{)}
+\CommentTok{## [1] "Hello Psicostat!"}
+
+\CommentTok{# Valore non ammesso}
+\KeywordTok{my_greetings}\NormalTok{(}\DataTypeTok{name =} \StringTok{"Psicostat"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"Guten Tag"}\NormalTok{)}
+\CommentTok{## Error in match.arg(type): 'arg' should be one of "Hello", "Goodbye"}
+\end{Highlighting}
+\end{Shaded}
+
+La funzione \texttt{match.arg()} permette di confrontare il valore specificato risspetto a quelli indicati nella definizione dell'argomento, riportando un errore in mancanza di un match. Osserva come se non specificato il valore di default sia il primo indicato nella definizione.
+
+\end{trick}
+
+\hypertarget{esercizi-14}{%
+\subsection*{Esercizi}\label{esercizi-14}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+Esegui i seguenti esercizi:
+1. Definisci una funzione che permetta di fare gli auguri di buon natale e buona pasqua ad una persona.
+2. Definisci una funzione che, dato un vettore di valori numerici, calcoli il numero di elementi e la loro media.
+3. Definisci una funzione itnterattiva che calcoli il prodotto di due valori. Gli input devono essere ottenuti conlla funzione \texttt{readline()}.
+
+\hypertarget{lavorare-con-le-funzioni}{%
+\section{Lavorare con le Funzioni}\label{lavorare-con-le-funzioni}}
+
+Working in progress
+
+\begin{itemize}
+\tightlist
+\item
+  gestione errori
+\item
+  ambiente di una funzione
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\NormalTok{my_value <-}\StringTok{ }\DecValTok{10}
+
+\CommentTok{# Caso 1}
+\NormalTok{my_function <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(my_value)\{}
+\NormalTok{  my_value <-}\StringTok{ }\NormalTok{my_value }\OperatorTok{+}\StringTok{ }\DecValTok{2}
+  
+  \KeywordTok{return}\NormalTok{(my_value)}
+\NormalTok{\}}
+
+\KeywordTok{my_function}\NormalTok{(}\DataTypeTok{my_value =}\NormalTok{ my_value)}
+\CommentTok{## [1] 12}
+\NormalTok{my_value}
+\CommentTok{## [1] 10}
+
+\CommentTok{# Caso 2}
+\NormalTok{my_function <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
+\NormalTok{  my_value <-}\StringTok{ }\NormalTok{my_value }\OperatorTok{+}\StringTok{ }\DecValTok{2}
+  
+  \KeywordTok{return}\NormalTok{(my_value)}
+\NormalTok{\}}
+
+\KeywordTok{my_function}\NormalTok{()}
+\CommentTok{## [1] 12}
+\NormalTok{my_value}
+\CommentTok{## [1] 10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  print vs cat (aspetto nel return)
+\item
+  DRY
+\item
+  source
+\end{itemize}
 
 \hypertarget{coditionals}{%
 \chapter{Programmazione Condizionale}\label{coditionals}}

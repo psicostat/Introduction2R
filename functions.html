@@ -294,7 +294,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="part"><span><b>Algoritmi</b></span></li>
 <li class="chapter" data-level="" data-path="third-section.html"><a href="third-section.html"><i class="fa fa-check"></i>Introduzione</a></li>
-<li class="chapter" data-level="12" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>12</b> Definizione di Funzioni</a></li>
+<li class="chapter" data-level="12" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>12</b> Definizione di Funzioni</a><ul>
+<li class="chapter" data-level="12.1" data-path="functions.html"><a href="functions.html#creazione-di-una-funzione"><i class="fa fa-check"></i><b>12.1</b> Creazione di una Funzione</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="functions.html"><a href="functions.html#definire-input-e-output"><i class="fa fa-check"></i><b>12.1.1</b> Definire Input e Output</a></li>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#esercizi-14"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="functions.html"><a href="functions.html#lavorare-con-le-funzioni"><i class="fa fa-check"></i><b>12.2</b> Lavorare con le Funzioni</a></li>
+</ul></li>
 <li class="chapter" data-level="13" data-path="coditionals.html"><a href="coditionals.html"><i class="fa fa-check"></i><b>13</b> Programmazione Condizionale</a></li>
 <li class="chapter" data-level="14" data-path="loop.html"><a href="loop.html"><i class="fa fa-check"></i><b>14</b> Attenti al loop</a></li>
 <li class="part"><span><b>Case study</b></span></li>
@@ -336,8 +342,177 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="functions" class="section level1">
 <h1><span class="header-section-number">Capitolo 12</span> Definizione di Funzioni</h1>
-<p>Working in progress.</p>
+<p>Nel Capitolo <a href="objects-functions.html#functions-def">4.2</a> abbiamo introdotto il concetto di funzioni e abbiamo visto come queste siano utilizzate per manipolare gli oggetti in R ed eseguire innumerevoli compiti. Nel Capitolo <a href="working-environment.html#packages">5.3</a> abbiamo visto inoltre come sia possibile utilizzare i pacchetti per accedere a nuove funzioni estendendo quindi notevolmente le possibili applicazioni di R. In R, tuttavia, è anche possibile definire le proprie funzioni per eseguire determinati compiti a seconda delle proprie specifiche necessità.</p>
+<p>Questo è uno dei vantaggi principali di utilizzare un linguaggio di programmazione, ovvero il poter sviluppare funzioni ad-hoc a seconda delle proprie esigenze e non limitarsi a quelle prestabilite. In questo capitolo descriveremo come creare le proprie funzioni in R.</p>
+<div id="creazione-di-una-funzione" class="section level2">
+<h2><span class="header-section-number">12.1</span> Creazione di una Funzione</h2>
+<p>Il comando usato per creare una funzione in R è <code>function()</code> seguito da una coppia di parentesi graffe <code>{ }</code> al cui interno deve essere specificato il corpo della funzione:</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="functions.html#cb241-1"></a>nome_funzione &lt;-<span class="st"> </span><span class="cf">function</span>( ){</span>
+<span id="cb241-2"><a href="functions.html#cb241-2"></a>  <span class="op">&lt;</span>corpo<span class="op">-</span>funzione<span class="op">&gt;</span></span>
+<span id="cb241-3"><a href="functions.html#cb241-3"></a>}</span></code></pre></div>
+<p>Nota come sia necessario assegnare la funzione ad un oggetto, ad esempio <code>my_function</code>, che diventerà il nome della nostra funzione. Per eseguire la funzione sarà sufficiente, come per ogni altra funzione, indicare il nome della funzione seguito dalle parentesi tonde, nel nostro caso <code>my_function()</code>. Vediamo alcuni esempi di semplici funzioni:</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="functions.html#cb242-1"></a><span class="co"># Definisco la funzione</span></span>
+<span id="cb242-2"><a href="functions.html#cb242-2"></a>my_greetings &lt;-<span class="st"> </span><span class="cf">function</span>(){</span>
+<span id="cb242-3"><a href="functions.html#cb242-3"></a>  <span class="kw">print</span>(<span class="st">&quot;Hello World!&quot;</span>)</span>
+<span id="cb242-4"><a href="functions.html#cb242-4"></a>}</span>
+<span id="cb242-5"><a href="functions.html#cb242-5"></a></span>
+<span id="cb242-6"><a href="functions.html#cb242-6"></a><span class="kw">my_greetings</span>()</span>
+<span id="cb242-7"><a href="functions.html#cb242-7"></a><span class="co">## [1] &quot;Hello World!&quot;</span></span>
+<span id="cb242-8"><a href="functions.html#cb242-8"></a></span>
+<span id="cb242-9"><a href="functions.html#cb242-9"></a><span class="co"># Definisco un&#39;altra funzione</span></span>
+<span id="cb242-10"><a href="functions.html#cb242-10"></a>my_sum &lt;-<span class="st"> </span><span class="cf">function</span>(){</span>
+<span id="cb242-11"><a href="functions.html#cb242-11"></a>  x &lt;-<span class="st"> </span><span class="dv">7</span></span>
+<span id="cb242-12"><a href="functions.html#cb242-12"></a>  y &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb242-13"><a href="functions.html#cb242-13"></a>  </span>
+<span id="cb242-14"><a href="functions.html#cb242-14"></a>  x <span class="op">+</span><span class="st"> </span>y</span>
+<span id="cb242-15"><a href="functions.html#cb242-15"></a>}</span>
+<span id="cb242-16"><a href="functions.html#cb242-16"></a></span>
+<span id="cb242-17"><a href="functions.html#cb242-17"></a><span class="kw">my_sum</span>()</span>
+<span id="cb242-18"><a href="functions.html#cb242-18"></a><span class="co">## [1] 10</span></span></code></pre></div>
+<p>Quando chiamiamo la nostra funzione, R eseguirà il corpo della funzione e ci restituirà il risultato dell’ultimo comando eseguito. Le funzioni del precedente esempio, tuttavia, si rivelano poco utili poichè eseguono sempre le stesse operazioni senza che ci sia permesso di specificare gli input delle funzioni. Inoltre, sebbene siano funzioni molto semplici, potrebbe non risultare chiaro quale sia effettivamente l’output restituito dalla funzione.</p>
+<p>:::{design title=“Nomi Funzioni” data-latex=“[Nomi Funzioni]”}
+Nel definire il nome di una funzione è utile seguire le stese indicazioni che riguardavano i nomi degli oggetti (vedi Capitolo <a href="objects-functions.html#objects-names">4.1.2</a>). In questo caso affinché un nome sia <strong>auto-descrittivo</strong> si tende ad utilizzare verbi che riassumano l’azione eseguita dalla funzione.
+:::</p>
+<div id="definire-input-e-output" class="section level3">
+<h3><span class="header-section-number">12.1.1</span> Definire Input e Output</h3>
+<p>Ricordiamo che in generale le funzioni, ricevuti degli oggetti in input, compiono determinate azioni e restituiscono dei nuovi oggetti in output. Input e ouput sono quindi due aspetti aspetti fondamentali di ogni funzione che richiedono particolare attenzione.</p>
+<ul>
+<li><strong>Input</strong> - Abbiamo anche visto che in R gli input vengono specificati attraverso gli <strong>argomenti</strong> di una funzione (vedi Capitolo <a href="objects-functions.html#function-arguments">4.2.1</a>). Per definire gli argomenti di una funzione, questi devono essere indicati all’interno delle parentesi tonde al momento della creazione della funzione</li>
+<li><strong>Output</strong> - Per specificare l’output di una funzione si utilizza la funzione <code>return()</code>, indicando tra le parentesi il nome dell’oggetto che si desidera restituire come risultato della funzione.</li>
+</ul>
+<p>La definizione di una funzione con tutti i suoi elementi seguirà quindi il seguente schema:</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="functions.html#cb243-1"></a>nome_funzione &lt;-<span class="st"> </span><span class="cf">function</span>(argument_<span class="dv">1</span>, argument_<span class="dv">2</span>, ...){</span>
+<span id="cb243-2"><a href="functions.html#cb243-2"></a>  <span class="op">&lt;</span>corpo<span class="op">-</span>funzione<span class="op">&gt;</span></span>
+<span id="cb243-3"><a href="functions.html#cb243-3"></a><span class="st">  </span></span>
+<span id="cb243-4"><a href="functions.html#cb243-4"></a><span class="st">  </span><span class="kw">return</span>(<span class="op">&lt;</span>nome<span class="op">-</span>output<span class="op">&gt;</span>)</span>
+<span id="cb243-5"><a href="functions.html#cb243-5"></a>}</span></code></pre></div>
+<p>Possiamo ora riscrivere le precedenti funzioni permettendo di personalizzare gli input e evidenziando quale sia output che viene restituito.</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="functions.html#cb244-1"></a><span class="co"># Ridefinisco my_greetings()</span></span>
+<span id="cb244-2"><a href="functions.html#cb244-2"></a>my_greetings &lt;-<span class="st"> </span><span class="cf">function</span>(name){</span>
+<span id="cb244-3"><a href="functions.html#cb244-3"></a>  greetings &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Hello &quot;</span>, name, <span class="st">&quot;!&quot;</span>)</span>
+<span id="cb244-4"><a href="functions.html#cb244-4"></a>  </span>
+<span id="cb244-5"><a href="functions.html#cb244-5"></a>  <span class="kw">return</span>(greetings)</span>
+<span id="cb244-6"><a href="functions.html#cb244-6"></a>}</span>
+<span id="cb244-7"><a href="functions.html#cb244-7"></a></span>
+<span id="cb244-8"><a href="functions.html#cb244-8"></a><span class="kw">my_greetings</span>(<span class="dt">name =</span> <span class="st">&quot;Psicostat&quot;</span>)</span>
+<span id="cb244-9"><a href="functions.html#cb244-9"></a><span class="co">## [1] &quot;Hello Psicostat!&quot;</span></span>
+<span id="cb244-10"><a href="functions.html#cb244-10"></a></span>
+<span id="cb244-11"><a href="functions.html#cb244-11"></a><span class="co"># Ridefinisco my_sum()</span></span>
+<span id="cb244-12"><a href="functions.html#cb244-12"></a>my_sum &lt;-<span class="st"> </span><span class="cf">function</span>(x, y){</span>
+<span id="cb244-13"><a href="functions.html#cb244-13"></a>  result &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span>y</span>
+<span id="cb244-14"><a href="functions.html#cb244-14"></a>  </span>
+<span id="cb244-15"><a href="functions.html#cb244-15"></a>  <span class="kw">return</span>(result)</span>
+<span id="cb244-16"><a href="functions.html#cb244-16"></a>}</span>
+<span id="cb244-17"><a href="functions.html#cb244-17"></a></span>
+<span id="cb244-18"><a href="functions.html#cb244-18"></a><span class="kw">my_sum</span>(<span class="dt">x =</span> <span class="dv">8</span>, <span class="dt">y =</span> <span class="dv">6</span>)</span>
+<span id="cb244-19"><a href="functions.html#cb244-19"></a><span class="co">## [1] 14</span></span></code></pre></div>
+<div class="design" title="User Input">
+<p>Qualora fosse necessario è possibile fare in modo che sia la funzione stessa a chiedere all’utente di inserire delle specifiche informazioni attraverso la funzione <code>readline()</code>.</p>
+<p>Utilizzando la funzione <code>readline()</code> comparirà nella console il messaggio che abbiamo impostato nell’argomento <code>prompt</code> (ricordati di concludere lasciando uno spazio). All’utente sarà richiesto di digitare una qualche sequenza alfanumeirca e premere successivamente <em>invio</em>. I valori inseriti dell’utente saranno salvati come una variabile caratteri nell’oggetto che abbiamo indicato e potranno essere utilizzati sucessivamente nella funzione.</p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="functions.html#cb245-1"></a>happy_birthday &lt;-<span class="st"> </span><span class="cf">function</span>(){</span>
+<span id="cb245-2"><a href="functions.html#cb245-2"></a>  name &lt;-<span class="st"> </span><span class="kw">readline</span>(<span class="dt">prompt =</span> <span class="st">&quot;Inserisci il tuo nome: &quot;</span>)</span>
+<span id="cb245-3"><a href="functions.html#cb245-3"></a>  message &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Buon Compleanno &quot;</span>, name, <span class="st">&quot;!&quot;</span>)</span>
+<span id="cb245-4"><a href="functions.html#cb245-4"></a>  </span>
+<span id="cb245-5"><a href="functions.html#cb245-5"></a>  <span class="kw">return</span>(message)</span>
+<span id="cb245-6"><a href="functions.html#cb245-6"></a>}</span>
+<span id="cb245-7"><a href="functions.html#cb245-7"></a></span>
+<span id="cb245-8"><a href="functions.html#cb245-8"></a><span class="kw">happy_birthday</span>()</span></code></pre></div>
+<p>Nota che questa funzione possona essere usata solo in sessioni interattive di R poichè è richiesta un ’azione diretta da parte dell’utente.</p>
+</div>
+<div id="default-argomenti" class="section level4 unnumbered">
+<h4>Default Argomenti</h4>
+<p>Abbiamo visto come aggiungere degli argomenti che devono essere definiti dall’utente nell’utilizzare la funzione. Qualora l’utente non specifichi uno o più argomenti R riporterà un messaggio di errore indicando come ci siano degli argomenti non specificati e senza valori di default.</p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="functions.html#cb246-1"></a><span class="kw">my_sum</span>(<span class="dt">x =</span> <span class="dv">5</span>)</span>
+<span id="cb246-2"><a href="functions.html#cb246-2"></a><span class="co">## Error in my_sum(x = 5): argument &quot;y&quot; is missing, with no default</span></span></code></pre></div>
+<p>Per assegnare dei valori di default agli argomenti di una funzione, è sufficiente indicare al momento della creazione all’interno delle parentesi tonde <code>nome_argomento = &lt;valore-default&gt;</code>. Se non altrimenti specificati, gli argomenti assumeranno i loro valori di default. Tuttavia, gli utenti sono liberi di specificare gli argomenti della funzione a seconda delle loro esigenze. Ad esempio impostiamo nella funzione <code>my_sum()</code> il valore di default <code>y = 10</code>.</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="functions.html#cb247-1"></a>my_sum &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">y =</span> <span class="dv">10</span>){</span>
+<span id="cb247-2"><a href="functions.html#cb247-2"></a>  result &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span>y</span>
+<span id="cb247-3"><a href="functions.html#cb247-3"></a>  </span>
+<span id="cb247-4"><a href="functions.html#cb247-4"></a>  <span class="kw">return</span>(result)</span>
+<span id="cb247-5"><a href="functions.html#cb247-5"></a>}</span>
+<span id="cb247-6"><a href="functions.html#cb247-6"></a></span>
+<span id="cb247-7"><a href="functions.html#cb247-7"></a><span class="co"># Utilizzo il valore di default di y</span></span>
+<span id="cb247-8"><a href="functions.html#cb247-8"></a><span class="kw">my_sum</span>(<span class="dt">x =</span> <span class="dv">5</span>)</span>
+<span id="cb247-9"><a href="functions.html#cb247-9"></a><span class="co">## [1] 15</span></span>
+<span id="cb247-10"><a href="functions.html#cb247-10"></a></span>
+<span id="cb247-11"><a href="functions.html#cb247-11"></a><span class="co"># Specifico il valore id y</span></span>
+<span id="cb247-12"><a href="functions.html#cb247-12"></a><span class="kw">my_sum</span>(<span class="dt">x =</span> <span class="dv">5</span>,  <span class="dt">y =</span> <span class="dv">8</span>)</span>
+<span id="cb247-13"><a href="functions.html#cb247-13"></a><span class="co">## [1] 13</span></span></code></pre></div>
+<p>Questa pratica è molto usata per specificare comportamenti particolari delle funzioni. In genere le funzioni sono definite con un funzionameto di default ma alcuni argomenti possono essere specificati per particolari essigenze solo quando necessario.</p>
+<div class="trick" title="match.arg()">
+<p>Per imporre la scelta di un argomento tra una limitata serie di valori è possibile indicare nella definizione dell’argomento un vettore con le possibili entrate. Successivamente la scelta deve essere validata attraverso la funzione <code>match.arg()</code> come nell esempio successivo:</p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="functions.html#cb248-1"></a><span class="co"># Ridefinisco my_greetings()</span></span>
+<span id="cb248-2"><a href="functions.html#cb248-2"></a>my_greetings &lt;-<span class="st"> </span><span class="cf">function</span>(name, <span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;Goodbye&quot;</span>)){</span>
+<span id="cb248-3"><a href="functions.html#cb248-3"></a>  </span>
+<span id="cb248-4"><a href="functions.html#cb248-4"></a>  type &lt;-<span class="st"> </span><span class="kw">match.arg</span>(type)</span>
+<span id="cb248-5"><a href="functions.html#cb248-5"></a>  greetings &lt;-<span class="st"> </span><span class="kw">paste0</span>(type,<span class="st">&quot; &quot;</span>, name, <span class="st">&quot;!&quot;</span>)</span>
+<span id="cb248-6"><a href="functions.html#cb248-6"></a>  </span>
+<span id="cb248-7"><a href="functions.html#cb248-7"></a>  <span class="kw">return</span>(greetings)</span>
+<span id="cb248-8"><a href="functions.html#cb248-8"></a>}</span>
+<span id="cb248-9"><a href="functions.html#cb248-9"></a></span>
+<span id="cb248-10"><a href="functions.html#cb248-10"></a><span class="co"># Scelta type</span></span>
+<span id="cb248-11"><a href="functions.html#cb248-11"></a><span class="kw">my_greetings</span>(<span class="dt">name =</span> <span class="st">&quot;Psicostat&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;Goodbye&quot;</span>)</span>
+<span id="cb248-12"><a href="functions.html#cb248-12"></a><span class="co">## [1] &quot;Goodbye Psicostat!&quot;</span></span>
+<span id="cb248-13"><a href="functions.html#cb248-13"></a></span>
+<span id="cb248-14"><a href="functions.html#cb248-14"></a><span class="co"># Valore default</span></span>
+<span id="cb248-15"><a href="functions.html#cb248-15"></a><span class="kw">my_greetings</span>(<span class="dt">name =</span> <span class="st">&quot;Psicostat&quot;</span>)</span>
+<span id="cb248-16"><a href="functions.html#cb248-16"></a><span class="co">## [1] &quot;Hello Psicostat!&quot;</span></span>
+<span id="cb248-17"><a href="functions.html#cb248-17"></a></span>
+<span id="cb248-18"><a href="functions.html#cb248-18"></a><span class="co"># Valore non ammesso</span></span>
+<span id="cb248-19"><a href="functions.html#cb248-19"></a><span class="kw">my_greetings</span>(<span class="dt">name =</span> <span class="st">&quot;Psicostat&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;Guten Tag&quot;</span>)</span>
+<span id="cb248-20"><a href="functions.html#cb248-20"></a><span class="co">## Error in match.arg(type): &#39;arg&#39; should be one of &quot;Hello&quot;, &quot;Goodbye&quot;</span></span></code></pre></div>
+<p>La funzione <code>match.arg()</code> permette di confrontare il valore specificato risspetto a quelli indicati nella definizione dell’argomento, riportando un errore in mancanza di un match. Osserva come se non specificato il valore di default sia il primo indicato nella definizione.</p>
+</div>
+</div>
+</div>
+<div id="esercizi-14" class="section level3 unnumbered">
+<h3>Esercizi</h3>
+<p>Esegui i seguenti esercizi:
+1. Definisci una funzione che permetta di fare gli auguri di buon natale e buona pasqua ad una persona.
+2. Definisci una funzione che, dato un vettore di valori numerici, calcoli il numero di elementi e la loro media.
+3. Definisci una funzione itnterattiva che calcoli il prodotto di due valori. Gli input devono essere ottenuti conlla funzione <code>readline()</code>.</p>
+</div>
+</div>
+<div id="lavorare-con-le-funzioni" class="section level2">
+<h2><span class="header-section-number">12.2</span> Lavorare con le Funzioni</h2>
+<p>Working in progress</p>
+<ul>
+<li>gestione errori</li>
+<li>ambiente di una funzione</li>
+</ul>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="functions.html#cb249-1"></a></span>
+<span id="cb249-2"><a href="functions.html#cb249-2"></a>my_value &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb249-3"><a href="functions.html#cb249-3"></a></span>
+<span id="cb249-4"><a href="functions.html#cb249-4"></a><span class="co"># Caso 1</span></span>
+<span id="cb249-5"><a href="functions.html#cb249-5"></a>my_function &lt;-<span class="st"> </span><span class="cf">function</span>(my_value){</span>
+<span id="cb249-6"><a href="functions.html#cb249-6"></a>  my_value &lt;-<span class="st"> </span>my_value <span class="op">+</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb249-7"><a href="functions.html#cb249-7"></a>  </span>
+<span id="cb249-8"><a href="functions.html#cb249-8"></a>  <span class="kw">return</span>(my_value)</span>
+<span id="cb249-9"><a href="functions.html#cb249-9"></a>}</span>
+<span id="cb249-10"><a href="functions.html#cb249-10"></a></span>
+<span id="cb249-11"><a href="functions.html#cb249-11"></a><span class="kw">my_function</span>(<span class="dt">my_value =</span> my_value)</span>
+<span id="cb249-12"><a href="functions.html#cb249-12"></a><span class="co">## [1] 12</span></span>
+<span id="cb249-13"><a href="functions.html#cb249-13"></a>my_value</span>
+<span id="cb249-14"><a href="functions.html#cb249-14"></a><span class="co">## [1] 10</span></span>
+<span id="cb249-15"><a href="functions.html#cb249-15"></a></span>
+<span id="cb249-16"><a href="functions.html#cb249-16"></a><span class="co"># Caso 2</span></span>
+<span id="cb249-17"><a href="functions.html#cb249-17"></a>my_function &lt;-<span class="st"> </span><span class="cf">function</span>(){</span>
+<span id="cb249-18"><a href="functions.html#cb249-18"></a>  my_value &lt;-<span class="st"> </span>my_value <span class="op">+</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb249-19"><a href="functions.html#cb249-19"></a>  </span>
+<span id="cb249-20"><a href="functions.html#cb249-20"></a>  <span class="kw">return</span>(my_value)</span>
+<span id="cb249-21"><a href="functions.html#cb249-21"></a>}</span>
+<span id="cb249-22"><a href="functions.html#cb249-22"></a></span>
+<span id="cb249-23"><a href="functions.html#cb249-23"></a><span class="kw">my_function</span>()</span>
+<span id="cb249-24"><a href="functions.html#cb249-24"></a><span class="co">## [1] 12</span></span>
+<span id="cb249-25"><a href="functions.html#cb249-25"></a>my_value</span>
+<span id="cb249-26"><a href="functions.html#cb249-26"></a><span class="co">## [1] 10</span></span></code></pre></div>
+<ul>
+<li>print vs cat (aspetto nel return)</li>
+<li>DRY</li>
+<li>source</li>
+</ul>
 
+</div>
 </div>
 <hr>
 <center>

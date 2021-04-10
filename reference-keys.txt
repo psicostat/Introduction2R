@@ -133,6 +133,9 @@ unire-liste
 informazioni-lista
 struttura-nested
 functions
+creazione-di-una-funzione
+definire-input-e-output
+lavorare-con-le-funzioni
 coditionals
 loop
 attachment
