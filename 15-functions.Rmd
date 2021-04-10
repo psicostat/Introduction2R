@@ -161,9 +161,15 @@ La funzione `match.arg()` permette di confrontare il valore specificato risspett
 ### Esercizi {-}
 
 Esegui i seguenti esercizi:
-  1. Definisci una funzione che permetta di fare gli auguri di buon natale e buona pasqua ad una persona.
-  2. Definisci una funzione che, dato un vettore di valori numerici, calcoli il numero di elementi e la loro media.
-  3. Definisci una funzione itnterattiva che calcoli il prodotto di due valori. Gli input devono essere ottenuti conlla funzione `readline()`.
+
+  1. definisci una funzione che trasformi la temperatura da Celsius a Fahrenheit 
+  $$
+  Fahrenheit = Celsius *1.8 + 32
+  $$
+  2. Definisci una funzione che permetta di fare gli auguri di buon natale e buona pasqua ad una persona.
+  3. Definisci una funzione che, dato un vettore di valori numerici, calcoli il numero di elementi e la loro media.
+  4. Definisci una funzione iterattiva che calcoli il prodotto di due valori. Gli input devono essere ottenuti conlla funzione `readline()`.
+  5. Definisci una funzione che calcoli lo stipendio mensile sulla base delle ore svolte nel mese e la paga oraria.
 
 
 ## Lavorare con le Funzioni
