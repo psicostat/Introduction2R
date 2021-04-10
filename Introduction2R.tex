@@ -3485,10 +3485,10 @@ Utilizzando le funzioni \texttt{sum()} e \texttt{mean()} con un vettore logico, 
 \NormalTok{my_values <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{)  }\CommentTok{# genero dei numeri casuali }
 
 \KeywordTok{sum}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# totale numeri positivi}
-\CommentTok{## [1] 27}
+\CommentTok{## [1] 23}
 
 \KeywordTok{mean}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# percentuale numeri positivi}
-\CommentTok{## [1] 0.54}
+\CommentTok{## [1] 0.46}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7571,9 +7571,24 @@ La funzione \texttt{match.arg()} permette di confrontare il valore specificato r
 \addcontentsline{toc}{subsection}{Esercizi}
 
 Esegui i seguenti esercizi:
-1. Definisci una funzione che permetta di fare gli auguri di buon natale e buona pasqua ad una persona.
-2. Definisci una funzione che, dato un vettore di valori numerici, calcoli il numero di elementi e la loro media.
-3. Definisci una funzione itnterattiva che calcoli il prodotto di due valori. Gli input devono essere ottenuti conlla funzione \texttt{readline()}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  definisci una funzione che trasformi la temperatura da Celsius a Fahrenheit
+  \[
+    Fahrenheit = Celsius *1.8 + 32
+    \]
+\item
+  Definisci una funzione che permetta di fare gli auguri di buon natale e buona pasqua ad una persona.
+\item
+  Definisci una funzione che, dato un vettore di valori numerici, calcoli il numero di elementi e la loro media.
+\item
+  Definisci una funzione iterattiva che calcoli il prodotto di due valori. Gli input devono essere ottenuti conlla funzione \texttt{readline()}.
+\item
+  Definisci una funzione che calcoli lo stipendio mensile sulla base delle ore svolte nel mese e la paga oraria.
+\end{enumerate}
 
 \hypertarget{lavorare-con-le-funzioni}{%
 \section{Lavorare con le Funzioni}\label{lavorare-con-le-funzioni}}
@@ -7633,6 +7648,373 @@ Working in progress
 \chapter{Programmazione Condizionale}\label{coditionals}}
 
 Working in progress.
+
+\hypertarget{strutture-condizionali}{%
+\section{Strutture condizionali}\label{strutture-condizionali}}
+
+\hypertarget{if}{%
+\subsection{if}\label{if}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{images/if_chart} 
+
+}
+
+\caption{Rappresentazione if}\label{fig:plot-if-chart}
+\end{figure}
+
+\hypertarget{struttura-if}{%
+\subsubsection*{Struttura if}\label{struttura-if}}
+\addcontentsline{toc}{subsubsection}{Struttura if}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  ...}
+  
+  \ControlFlowTok{if}\NormalTok{ (}\OperatorTok{<}\NormalTok{test}\OperatorTok{>}\NormalTok{) \{}
+    \OperatorTok{<}\NormalTok{codice}\OperatorTok{-}\NormalTok{da}\OperatorTok{-}\NormalTok{eseguire}\OperatorTok{>}
+\StringTok{  }\NormalTok{\}}
+\NormalTok{  ...}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esempio}{%
+\subsubsection*{Esempio}\label{esempio}}
+\addcontentsline{toc}{subsubsection}{Esempio}
+
+\begin{itemize}
+\tightlist
+\item
+  Singolo if
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_function <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(value)\{}
+  
+  \ControlFlowTok{if}\NormalTok{(value }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"Il valore è maggiore di 0}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{  \}}
+  
+  \KeywordTok{cat}\NormalTok{(}\StringTok{"Fine funzione}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+
+\KeywordTok{my_function}\NormalTok{(}\DecValTok{5}\NormalTok{)}
+\CommentTok{## Il valore è maggiore di 0}
+\CommentTok{## Fine funzione}
+
+\KeywordTok{my_function}\NormalTok{(}\OperatorTok{-}\DecValTok{5}\NormalTok{)}
+\CommentTok{## Fine funzione}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Multipli if
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_function <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(value)\{}
+  
+  \ControlFlowTok{if}\NormalTok{(value }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"Il valore è maggiore di 0}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{  \}}
+  
+  \ControlFlowTok{if}\NormalTok{(value }\OperatorTok{>}\StringTok{ }\DecValTok{10}\NormalTok{)\{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"Il valore è maggiore di 10}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{  \}}
+  
+  \KeywordTok{cat}\NormalTok{(}\StringTok{"Fine funzione}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+
+\KeywordTok{my_function}\NormalTok{(}\DecValTok{5}\NormalTok{)}
+\CommentTok{## Il valore è maggiore di 0}
+\CommentTok{## Fine funzione}
+
+\KeywordTok{my_function}\NormalTok{(}\DecValTok{15}\NormalTok{)}
+\CommentTok{## Il valore è maggiore di 0}
+\CommentTok{## Il valore è maggiore di 10}
+\CommentTok{## Fine funzione}
+
+\KeywordTok{my_function}\NormalTok{(}\OperatorTok{-}\DecValTok{5}\NormalTok{)}
+\CommentTok{## Fine funzione}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ifelse}{%
+\subsection{if\ldots else}\label{ifelse}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{images/ifelse_chart} 
+
+}
+
+\caption{Rappresentazione if...else}\label{fig:plot-ifelse-chart}
+\end{figure}
+
+\hypertarget{struttura-if-1}{%
+\subsubsection*{Struttura if}\label{struttura-if-1}}
+\addcontentsline{toc}{subsubsection}{Struttura if}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  ...}
+  
+  \ControlFlowTok{if}\NormalTok{ (}\OperatorTok{<}\NormalTok{test}\OperatorTok{>}\NormalTok{) \{}
+    \OperatorTok{<}\NormalTok{codice}\OperatorTok{-}\NormalTok{da}\OperatorTok{-}\NormalTok{eseguire}\OperatorTok{>}
+\StringTok{  }\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+    \OperatorTok{<}\NormalTok{codice}\OperatorTok{-}\NormalTok{da}\OperatorTok{-}\NormalTok{eseguire}\OperatorTok{>}
+\StringTok{  }\NormalTok{\}}
+\NormalTok{  ...}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esempio-1}{%
+\subsubsection*{Esempio}\label{esempio-1}}
+\addcontentsline{toc}{subsubsection}{Esempio}
+
+\begin{itemize}
+\tightlist
+\item
+  Singolo if\ldots else
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_function <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(value)\{}
+  
+  \ControlFlowTok{if}\NormalTok{(value }\OperatorTok{>=}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"Il valore è maggiore di 0}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"Il valore non è maggiore di 0}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{  \}}
+  
+  \KeywordTok{cat}\NormalTok{(}\StringTok{"Fine funzione}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+
+\KeywordTok{my_function}\NormalTok{(}\DecValTok{5}\NormalTok{)}
+\CommentTok{## Il valore è maggiore di 0}
+\CommentTok{## Fine funzione}
+
+\KeywordTok{my_function}\NormalTok{(}\OperatorTok{-}\DecValTok{5}\NormalTok{)}
+\CommentTok{## Il valore non è maggiore di 0}
+\CommentTok{## Fine funzione}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Multipli if
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_function <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(value)\{}
+  
+  \ControlFlowTok{if}\NormalTok{(value }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"Il valore è maggiore di 0}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{  \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (value }\OperatorTok{>}\StringTok{ }\DecValTok{10}\NormalTok{)\{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"Il valore è maggiore di 10}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"Il valore non è maggiore di 0}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{  \}}
+  
+  \KeywordTok{cat}\NormalTok{(}\StringTok{"Fine funzione}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+
+\KeywordTok{my_function}\NormalTok{(}\DecValTok{5}\NormalTok{)}
+\CommentTok{## Il valore è maggiore di 0}
+\CommentTok{## Fine funzione}
+
+\KeywordTok{my_function}\NormalTok{(}\DecValTok{15}\NormalTok{)}
+\CommentTok{## Il valore è maggiore di 0}
+\CommentTok{## Fine funzione}
+
+\KeywordTok{my_function}\NormalTok{(}\OperatorTok{-}\DecValTok{5}\NormalTok{)}
+\CommentTok{## Il valore non è maggiore di 0}
+\CommentTok{## Fine funzione}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{nested}{%
+\subsection{Nested}\label{nested}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{images/ifnested} 
+
+}
+
+\caption{Rappresentazione if nested}\label{fig:plot-ifnested}
+\end{figure}
+
+\hypertarget{struttura-if-2}{%
+\subsubsection*{Struttura if}\label{struttura-if-2}}
+\addcontentsline{toc}{subsubsection}{Struttura if}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  ...}
+  
+  \ControlFlowTok{if}\NormalTok{ (}\OperatorTok{<}\NormalTok{test}\OperatorTok{>}\NormalTok{) \{}
+    
+    \ControlFlowTok{if}\NormalTok{(}\OperatorTok{<}\NormalTok{test}\OperatorTok{>}\NormalTok{) \{}
+      \OperatorTok{<}\NormalTok{codice}\OperatorTok{-}\NormalTok{da}\OperatorTok{-}\NormalTok{eseguire}\OperatorTok{>}
+\StringTok{    }\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+      \OperatorTok{<}\NormalTok{codice}\OperatorTok{-}\NormalTok{da}\OperatorTok{-}\NormalTok{eseguire}\OperatorTok{>}
+\StringTok{    }\NormalTok{\}}
+\NormalTok{  \}}
+\NormalTok{  ...}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esempio-2}{%
+\subsubsection*{Esempio}\label{esempio-2}}
+\addcontentsline{toc}{subsubsection}{Esempio}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_function <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(value)\{}
+  
+  \ControlFlowTok{if}\NormalTok{(value }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
+    
+    \ControlFlowTok{if}\NormalTok{(value }\OperatorTok{>}\StringTok{ }\DecValTok{10}\NormalTok{) \{}
+      \KeywordTok{cat}\NormalTok{(}\StringTok{"Il valore è maggiore di 10}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+      \KeywordTok{cat}\NormalTok{(}\StringTok{"Il valore è maggiore di 0}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{    \}}
+    
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"Il valore non è maggiore di 0}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{  \}}
+  
+  \KeywordTok{cat}\NormalTok{(}\StringTok{"Fine funzione}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+
+\KeywordTok{my_function}\NormalTok{(}\DecValTok{5}\NormalTok{)}
+\CommentTok{## Il valore è maggiore di 0}
+\CommentTok{## Fine funzione}
+
+\KeywordTok{my_function}\NormalTok{(}\DecValTok{15}\NormalTok{)}
+\CommentTok{## Il valore è maggiore di 10}
+\CommentTok{## Fine funzione}
+
+\KeywordTok{my_function}\NormalTok{(}\OperatorTok{-}\DecValTok{5}\NormalTok{)}
+\CommentTok{## Il valore non è maggiore di 0}
+\CommentTok{## Fine funzione}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esercizi-15}{%
+\subsection*{Esercizi}\label{esercizi-15}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+Esegui i seguenti esercizi:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Definisci una funzione per assegnare un voto in base alla percentuale di rispote corrette (\emph{score}) segui le seguenti indicazioni:
+\end{enumerate}
+
+\begin{verbatim}
+- score < .55 insufficiente
+- .55 <= score < .65 - sufficiente
+- .65 <= score < .75 - buono
+- .75 <= score < .85 - distinto
+- .85 <= score - ottimo
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Definisci una funzione che determini se un numero è pari o dispari.
+\item
+  Definisci una funzione che determini se un numero è un multiplo di 3, 4, o 5.
+\item
+  Definisci una funzione che calcoli lo stipendio mensile considerando gli straordinari che sono retribuiti 1.5 della paga oraria normale. Utilizza come parametrile ore svolte nel mese, la paga oraria ed il tetto ore lavorative, oltre cui si contano gli straordinari.
+\end{enumerate}
+
+\hypertarget{altri-operatori-condizinali}{%
+\section{Altri Operatori Condizinali}\label{altri-operatori-condizinali}}
+
+\hypertarget{switch}{%
+\subsection{switch}\label{switch}}
+
+\hypertarget{struttura-switch}{%
+\subsubsection*{Struttura switch}\label{struttura-switch}}
+\addcontentsline{toc}{subsubsection}{Struttura switch}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\ControlFlowTok{switch}\NormalTok{(my_value,}
+       \DataTypeTok{case1 =}\NormalTok{ action1,}
+       \DataTypeTok{case2 =}\NormalTok{ action2,}
+\NormalTok{       ... )}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esempio-3}{%
+\subsubsection*{Esempio}\label{esempio-3}}
+\addcontentsline{toc}{subsubsection}{Esempio}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_colors <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(color)\{}
+  
+\NormalTok{  new_color <-}\StringTok{ }\ControlFlowTok{switch}\NormalTok{(color,}
+       \StringTok{"rosso"}\NormalTok{ =}\StringTok{ "red"}\NormalTok{,}
+       \StringTok{"blu"}\NormalTok{ =}\StringTok{ "blue"}\NormalTok{,}
+       \StringTok{"verde"}\NormalTok{ =}\StringTok{ }\NormalTok{,}
+       \StringTok{"verde acqua"}\NormalTok{ =}\StringTok{ "green"}\NormalTok{,}
+       \StringTok{"Not Found"}\NormalTok{)}
+  
+  \KeywordTok{return}\NormalTok{(new_color)}
+\NormalTok{\}}
+
+\KeywordTok{my_colors}\NormalTok{(}\StringTok{"blu"}\NormalTok{)}
+\CommentTok{## [1] "blue"}
+
+\KeywordTok{my_colors}\NormalTok{(}\StringTok{"verde"}\NormalTok{)}
+\CommentTok{## [1] "green"}
+
+\KeywordTok{my_colors}\NormalTok{(}\StringTok{"arancione"}\NormalTok{)}
+\CommentTok{## [1] "Not Found"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ifelse-1}{%
+\subsection{ifelse}\label{ifelse-1}}
+
+\hypertarget{struttura-ifelse}{%
+\subsubsection*{Struttura ifelse}\label{struttura-ifelse}}
+\addcontentsline{toc}{subsubsection}{Struttura ifelse}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ifelse}\NormalTok{(}\DataTypeTok{test =}\NormalTok{ , }\DataTypeTok{no =}\NormalTok{ , }\DataTypeTok{yes =}\NormalTok{ )}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esempio-4}{%
+\subsubsection*{Esempio}\label{esempio-4}}
+\addcontentsline{toc}{subsubsection}{Esempio}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ifelse}\NormalTok{(}\DataTypeTok{test =}\NormalTok{ \{}\DecValTok{12} \OperatorTok{>}\StringTok{ }\DecValTok{10}\NormalTok{\}, }\DataTypeTok{no =} \StringTok{"Non superore a 10"}\NormalTok{, }\DataTypeTok{yes =} \StringTok{"Superiore a 10"}\NormalTok{)}
+\CommentTok{## [1] "Superiore a 10"}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{loop}{%
 \chapter{Attenti al loop}\label{loop}}

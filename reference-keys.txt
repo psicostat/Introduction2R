@@ -43,6 +43,9 @@ tab:table-df-functions
 fig:list-example
 tab:table-list-functions
 fig:list-depth
+fig:plot-if-chart
+fig:plot-ifelse-chart
+fig:plot-ifnested
 install
 install-r
 r-windows
@@ -137,6 +140,13 @@ creazione-di-una-funzione
 definire-input-e-output
 lavorare-con-le-funzioni
 coditionals
+strutture-condizionali
+if
+ifelse
+nested
+altri-operatori-condizinali
+switch
+ifelse-1
 loop
 attachment
 infobox

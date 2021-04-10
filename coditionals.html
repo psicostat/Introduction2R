@@ -301,7 +301,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="functions.html"><a href="functions.html#lavorare-con-le-funzioni"><i class="fa fa-check"></i><b>12.2</b> Lavorare con le Funzioni</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="coditionals.html"><a href="coditionals.html"><i class="fa fa-check"></i><b>13</b> Programmazione Condizionale</a></li>
+<li class="chapter" data-level="13" data-path="coditionals.html"><a href="coditionals.html"><i class="fa fa-check"></i><b>13</b> Programmazione Condizionale</a><ul>
+<li class="chapter" data-level="13.1" data-path="coditionals.html"><a href="coditionals.html#strutture-condizionali"><i class="fa fa-check"></i><b>13.1</b> Strutture condizionali</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="coditionals.html"><a href="coditionals.html#if"><i class="fa fa-check"></i><b>13.1.1</b> if</a></li>
+<li class="chapter" data-level="13.1.2" data-path="coditionals.html"><a href="coditionals.html#ifelse"><i class="fa fa-check"></i><b>13.1.2</b> if…else</a></li>
+<li class="chapter" data-level="13.1.3" data-path="coditionals.html"><a href="coditionals.html#nested"><i class="fa fa-check"></i><b>13.1.3</b> Nested</a></li>
+<li class="chapter" data-level="" data-path="coditionals.html"><a href="coditionals.html#esercizi-15"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="coditionals.html"><a href="coditionals.html#altri-operatori-condizinali"><i class="fa fa-check"></i><b>13.2</b> Altri Operatori Condizinali</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="coditionals.html"><a href="coditionals.html#switch"><i class="fa fa-check"></i><b>13.2.1</b> switch</a></li>
+<li class="chapter" data-level="13.2.2" data-path="coditionals.html"><a href="coditionals.html#ifelse-1"><i class="fa fa-check"></i><b>13.2.2</b> ifelse</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="14" data-path="loop.html"><a href="loop.html"><i class="fa fa-check"></i><b>14</b> Attenti al loop</a></li>
 <li class="part"><span><b>Case study</b></span></li>
 <li class="chapter" data-level="" data-path="introduzione-1.html"><a href="introduzione-1.html"><i class="fa fa-check"></i>Introduzione</a></li>
@@ -343,7 +354,267 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="coditionals" class="section level1">
 <h1><span class="header-section-number">Capitolo 13</span> Programmazione Condizionale</h1>
 <p>Working in progress.</p>
+<div id="strutture-condizionali" class="section level2">
+<h2><span class="header-section-number">13.1</span> Strutture condizionali</h2>
+<div id="if" class="section level3">
+<h3><span class="header-section-number">13.1.1</span> if</h3>
+<div class="figure" style="text-align: center"><span id="fig:plot-if-chart"></span>
+<img src="images/if_chart.png" alt="Rappresentazione if" width="65%" />
+<p class="caption">
+Figure 13.1: Rappresentazione if
+</p>
+</div>
+<div id="struttura-if" class="section level4 unnumbered">
+<h4>Struttura if</h4>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="coditionals.html#cb250-1"></a>  ...</span>
+<span id="cb250-2"><a href="coditionals.html#cb250-2"></a>  </span>
+<span id="cb250-3"><a href="coditionals.html#cb250-3"></a>  <span class="cf">if</span> (<span class="op">&lt;</span>test<span class="op">&gt;</span>) {</span>
+<span id="cb250-4"><a href="coditionals.html#cb250-4"></a>    <span class="op">&lt;</span>codice<span class="op">-</span>da<span class="op">-</span>eseguire<span class="op">&gt;</span></span>
+<span id="cb250-5"><a href="coditionals.html#cb250-5"></a><span class="st">  </span>}</span>
+<span id="cb250-6"><a href="coditionals.html#cb250-6"></a>  ...</span></code></pre></div>
+</div>
+<div id="esempio" class="section level4 unnumbered">
+<h4>Esempio</h4>
+<ul>
+<li>Singolo if</li>
+</ul>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="coditionals.html#cb251-1"></a>my_function &lt;-<span class="st"> </span><span class="cf">function</span>(value){</span>
+<span id="cb251-2"><a href="coditionals.html#cb251-2"></a>  </span>
+<span id="cb251-3"><a href="coditionals.html#cb251-3"></a>  <span class="cf">if</span>(value <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb251-4"><a href="coditionals.html#cb251-4"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore è maggiore di 0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb251-5"><a href="coditionals.html#cb251-5"></a>  }</span>
+<span id="cb251-6"><a href="coditionals.html#cb251-6"></a>  </span>
+<span id="cb251-7"><a href="coditionals.html#cb251-7"></a>  <span class="kw">cat</span>(<span class="st">&quot;Fine funzione</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb251-8"><a href="coditionals.html#cb251-8"></a>}</span>
+<span id="cb251-9"><a href="coditionals.html#cb251-9"></a></span>
+<span id="cb251-10"><a href="coditionals.html#cb251-10"></a><span class="kw">my_function</span>(<span class="dv">5</span>)</span>
+<span id="cb251-11"><a href="coditionals.html#cb251-11"></a><span class="co">## Il valore è maggiore di 0</span></span>
+<span id="cb251-12"><a href="coditionals.html#cb251-12"></a><span class="co">## Fine funzione</span></span>
+<span id="cb251-13"><a href="coditionals.html#cb251-13"></a></span>
+<span id="cb251-14"><a href="coditionals.html#cb251-14"></a><span class="kw">my_function</span>(<span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb251-15"><a href="coditionals.html#cb251-15"></a><span class="co">## Fine funzione</span></span></code></pre></div>
+<ul>
+<li>Multipli if</li>
+</ul>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="coditionals.html#cb252-1"></a>my_function &lt;-<span class="st"> </span><span class="cf">function</span>(value){</span>
+<span id="cb252-2"><a href="coditionals.html#cb252-2"></a>  </span>
+<span id="cb252-3"><a href="coditionals.html#cb252-3"></a>  <span class="cf">if</span>(value <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb252-4"><a href="coditionals.html#cb252-4"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore è maggiore di 0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb252-5"><a href="coditionals.html#cb252-5"></a>  }</span>
+<span id="cb252-6"><a href="coditionals.html#cb252-6"></a>  </span>
+<span id="cb252-7"><a href="coditionals.html#cb252-7"></a>  <span class="cf">if</span>(value <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>){</span>
+<span id="cb252-8"><a href="coditionals.html#cb252-8"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore è maggiore di 10</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb252-9"><a href="coditionals.html#cb252-9"></a>  }</span>
+<span id="cb252-10"><a href="coditionals.html#cb252-10"></a>  </span>
+<span id="cb252-11"><a href="coditionals.html#cb252-11"></a>  <span class="kw">cat</span>(<span class="st">&quot;Fine funzione</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb252-12"><a href="coditionals.html#cb252-12"></a>}</span>
+<span id="cb252-13"><a href="coditionals.html#cb252-13"></a></span>
+<span id="cb252-14"><a href="coditionals.html#cb252-14"></a><span class="kw">my_function</span>(<span class="dv">5</span>)</span>
+<span id="cb252-15"><a href="coditionals.html#cb252-15"></a><span class="co">## Il valore è maggiore di 0</span></span>
+<span id="cb252-16"><a href="coditionals.html#cb252-16"></a><span class="co">## Fine funzione</span></span>
+<span id="cb252-17"><a href="coditionals.html#cb252-17"></a></span>
+<span id="cb252-18"><a href="coditionals.html#cb252-18"></a><span class="kw">my_function</span>(<span class="dv">15</span>)</span>
+<span id="cb252-19"><a href="coditionals.html#cb252-19"></a><span class="co">## Il valore è maggiore di 0</span></span>
+<span id="cb252-20"><a href="coditionals.html#cb252-20"></a><span class="co">## Il valore è maggiore di 10</span></span>
+<span id="cb252-21"><a href="coditionals.html#cb252-21"></a><span class="co">## Fine funzione</span></span>
+<span id="cb252-22"><a href="coditionals.html#cb252-22"></a></span>
+<span id="cb252-23"><a href="coditionals.html#cb252-23"></a><span class="kw">my_function</span>(<span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb252-24"><a href="coditionals.html#cb252-24"></a><span class="co">## Fine funzione</span></span></code></pre></div>
+</div>
+</div>
+<div id="ifelse" class="section level3">
+<h3><span class="header-section-number">13.1.2</span> if…else</h3>
+<div class="figure" style="text-align: center"><span id="fig:plot-ifelse-chart"></span>
+<img src="images/ifelse_chart.png" alt="Rappresentazione if...else" width="65%" />
+<p class="caption">
+Figure 13.2: Rappresentazione if…else
+</p>
+</div>
+<div id="struttura-if-1" class="section level4 unnumbered">
+<h4>Struttura if</h4>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="coditionals.html#cb253-1"></a>  ...</span>
+<span id="cb253-2"><a href="coditionals.html#cb253-2"></a>  </span>
+<span id="cb253-3"><a href="coditionals.html#cb253-3"></a>  <span class="cf">if</span> (<span class="op">&lt;</span>test<span class="op">&gt;</span>) {</span>
+<span id="cb253-4"><a href="coditionals.html#cb253-4"></a>    <span class="op">&lt;</span>codice<span class="op">-</span>da<span class="op">-</span>eseguire<span class="op">&gt;</span></span>
+<span id="cb253-5"><a href="coditionals.html#cb253-5"></a><span class="st">  </span>} <span class="cf">else</span> {</span>
+<span id="cb253-6"><a href="coditionals.html#cb253-6"></a>    <span class="op">&lt;</span>codice<span class="op">-</span>da<span class="op">-</span>eseguire<span class="op">&gt;</span></span>
+<span id="cb253-7"><a href="coditionals.html#cb253-7"></a><span class="st">  </span>}</span>
+<span id="cb253-8"><a href="coditionals.html#cb253-8"></a>  ...</span></code></pre></div>
+</div>
+<div id="esempio-1" class="section level4 unnumbered">
+<h4>Esempio</h4>
+<ul>
+<li>Singolo if…else</li>
+</ul>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="coditionals.html#cb254-1"></a>my_function &lt;-<span class="st"> </span><span class="cf">function</span>(value){</span>
+<span id="cb254-2"><a href="coditionals.html#cb254-2"></a>  </span>
+<span id="cb254-3"><a href="coditionals.html#cb254-3"></a>  <span class="cf">if</span>(value <span class="op">&gt;=</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb254-4"><a href="coditionals.html#cb254-4"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore è maggiore di 0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb254-5"><a href="coditionals.html#cb254-5"></a>  } <span class="cf">else</span> {</span>
+<span id="cb254-6"><a href="coditionals.html#cb254-6"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore non è maggiore di 0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb254-7"><a href="coditionals.html#cb254-7"></a>  }</span>
+<span id="cb254-8"><a href="coditionals.html#cb254-8"></a>  </span>
+<span id="cb254-9"><a href="coditionals.html#cb254-9"></a>  <span class="kw">cat</span>(<span class="st">&quot;Fine funzione</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb254-10"><a href="coditionals.html#cb254-10"></a>}</span>
+<span id="cb254-11"><a href="coditionals.html#cb254-11"></a></span>
+<span id="cb254-12"><a href="coditionals.html#cb254-12"></a><span class="kw">my_function</span>(<span class="dv">5</span>)</span>
+<span id="cb254-13"><a href="coditionals.html#cb254-13"></a><span class="co">## Il valore è maggiore di 0</span></span>
+<span id="cb254-14"><a href="coditionals.html#cb254-14"></a><span class="co">## Fine funzione</span></span>
+<span id="cb254-15"><a href="coditionals.html#cb254-15"></a></span>
+<span id="cb254-16"><a href="coditionals.html#cb254-16"></a><span class="kw">my_function</span>(<span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb254-17"><a href="coditionals.html#cb254-17"></a><span class="co">## Il valore non è maggiore di 0</span></span>
+<span id="cb254-18"><a href="coditionals.html#cb254-18"></a><span class="co">## Fine funzione</span></span></code></pre></div>
+<ul>
+<li>Multipli if</li>
+</ul>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="coditionals.html#cb255-1"></a>my_function &lt;-<span class="st"> </span><span class="cf">function</span>(value){</span>
+<span id="cb255-2"><a href="coditionals.html#cb255-2"></a>  </span>
+<span id="cb255-3"><a href="coditionals.html#cb255-3"></a>  <span class="cf">if</span>(value <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb255-4"><a href="coditionals.html#cb255-4"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore è maggiore di 0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb255-5"><a href="coditionals.html#cb255-5"></a>  } <span class="cf">else</span> <span class="cf">if</span> (value <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>){</span>
+<span id="cb255-6"><a href="coditionals.html#cb255-6"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore è maggiore di 10</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb255-7"><a href="coditionals.html#cb255-7"></a>  } <span class="cf">else</span> {</span>
+<span id="cb255-8"><a href="coditionals.html#cb255-8"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore non è maggiore di 0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb255-9"><a href="coditionals.html#cb255-9"></a>  }</span>
+<span id="cb255-10"><a href="coditionals.html#cb255-10"></a>  </span>
+<span id="cb255-11"><a href="coditionals.html#cb255-11"></a>  <span class="kw">cat</span>(<span class="st">&quot;Fine funzione</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb255-12"><a href="coditionals.html#cb255-12"></a>}</span>
+<span id="cb255-13"><a href="coditionals.html#cb255-13"></a></span>
+<span id="cb255-14"><a href="coditionals.html#cb255-14"></a><span class="kw">my_function</span>(<span class="dv">5</span>)</span>
+<span id="cb255-15"><a href="coditionals.html#cb255-15"></a><span class="co">## Il valore è maggiore di 0</span></span>
+<span id="cb255-16"><a href="coditionals.html#cb255-16"></a><span class="co">## Fine funzione</span></span>
+<span id="cb255-17"><a href="coditionals.html#cb255-17"></a></span>
+<span id="cb255-18"><a href="coditionals.html#cb255-18"></a><span class="kw">my_function</span>(<span class="dv">15</span>)</span>
+<span id="cb255-19"><a href="coditionals.html#cb255-19"></a><span class="co">## Il valore è maggiore di 0</span></span>
+<span id="cb255-20"><a href="coditionals.html#cb255-20"></a><span class="co">## Fine funzione</span></span>
+<span id="cb255-21"><a href="coditionals.html#cb255-21"></a></span>
+<span id="cb255-22"><a href="coditionals.html#cb255-22"></a><span class="kw">my_function</span>(<span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb255-23"><a href="coditionals.html#cb255-23"></a><span class="co">## Il valore non è maggiore di 0</span></span>
+<span id="cb255-24"><a href="coditionals.html#cb255-24"></a><span class="co">## Fine funzione</span></span></code></pre></div>
+</div>
+</div>
+<div id="nested" class="section level3">
+<h3><span class="header-section-number">13.1.3</span> Nested</h3>
+<div class="figure" style="text-align: center"><span id="fig:plot-ifnested"></span>
+<img src="images/ifnested.png" alt="Rappresentazione if nested" width="65%" />
+<p class="caption">
+Figure 13.3: Rappresentazione if nested
+</p>
+</div>
+<div id="struttura-if-2" class="section level4 unnumbered">
+<h4>Struttura if</h4>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="coditionals.html#cb256-1"></a>  ...</span>
+<span id="cb256-2"><a href="coditionals.html#cb256-2"></a>  </span>
+<span id="cb256-3"><a href="coditionals.html#cb256-3"></a>  <span class="cf">if</span> (<span class="op">&lt;</span>test<span class="op">&gt;</span>) {</span>
+<span id="cb256-4"><a href="coditionals.html#cb256-4"></a>    </span>
+<span id="cb256-5"><a href="coditionals.html#cb256-5"></a>    <span class="cf">if</span>(<span class="op">&lt;</span>test<span class="op">&gt;</span>) {</span>
+<span id="cb256-6"><a href="coditionals.html#cb256-6"></a>      <span class="op">&lt;</span>codice<span class="op">-</span>da<span class="op">-</span>eseguire<span class="op">&gt;</span></span>
+<span id="cb256-7"><a href="coditionals.html#cb256-7"></a><span class="st">    </span>} <span class="cf">else</span> {</span>
+<span id="cb256-8"><a href="coditionals.html#cb256-8"></a>      <span class="op">&lt;</span>codice<span class="op">-</span>da<span class="op">-</span>eseguire<span class="op">&gt;</span></span>
+<span id="cb256-9"><a href="coditionals.html#cb256-9"></a><span class="st">    </span>}</span>
+<span id="cb256-10"><a href="coditionals.html#cb256-10"></a>  }</span>
+<span id="cb256-11"><a href="coditionals.html#cb256-11"></a>  ...</span></code></pre></div>
+</div>
+<div id="esempio-2" class="section level4 unnumbered">
+<h4>Esempio</h4>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="coditionals.html#cb257-1"></a>my_function &lt;-<span class="st"> </span><span class="cf">function</span>(value){</span>
+<span id="cb257-2"><a href="coditionals.html#cb257-2"></a>  </span>
+<span id="cb257-3"><a href="coditionals.html#cb257-3"></a>  <span class="cf">if</span>(value <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb257-4"><a href="coditionals.html#cb257-4"></a>    </span>
+<span id="cb257-5"><a href="coditionals.html#cb257-5"></a>    <span class="cf">if</span>(value <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>) {</span>
+<span id="cb257-6"><a href="coditionals.html#cb257-6"></a>      <span class="kw">cat</span>(<span class="st">&quot;Il valore è maggiore di 10</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb257-7"><a href="coditionals.html#cb257-7"></a>    } <span class="cf">else</span> {</span>
+<span id="cb257-8"><a href="coditionals.html#cb257-8"></a>      <span class="kw">cat</span>(<span class="st">&quot;Il valore è maggiore di 0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb257-9"><a href="coditionals.html#cb257-9"></a>    }</span>
+<span id="cb257-10"><a href="coditionals.html#cb257-10"></a>    </span>
+<span id="cb257-11"><a href="coditionals.html#cb257-11"></a>  } <span class="cf">else</span> {</span>
+<span id="cb257-12"><a href="coditionals.html#cb257-12"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore non è maggiore di 0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb257-13"><a href="coditionals.html#cb257-13"></a>  }</span>
+<span id="cb257-14"><a href="coditionals.html#cb257-14"></a>  </span>
+<span id="cb257-15"><a href="coditionals.html#cb257-15"></a>  <span class="kw">cat</span>(<span class="st">&quot;Fine funzione</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb257-16"><a href="coditionals.html#cb257-16"></a>}</span>
+<span id="cb257-17"><a href="coditionals.html#cb257-17"></a></span>
+<span id="cb257-18"><a href="coditionals.html#cb257-18"></a><span class="kw">my_function</span>(<span class="dv">5</span>)</span>
+<span id="cb257-19"><a href="coditionals.html#cb257-19"></a><span class="co">## Il valore è maggiore di 0</span></span>
+<span id="cb257-20"><a href="coditionals.html#cb257-20"></a><span class="co">## Fine funzione</span></span>
+<span id="cb257-21"><a href="coditionals.html#cb257-21"></a></span>
+<span id="cb257-22"><a href="coditionals.html#cb257-22"></a><span class="kw">my_function</span>(<span class="dv">15</span>)</span>
+<span id="cb257-23"><a href="coditionals.html#cb257-23"></a><span class="co">## Il valore è maggiore di 10</span></span>
+<span id="cb257-24"><a href="coditionals.html#cb257-24"></a><span class="co">## Fine funzione</span></span>
+<span id="cb257-25"><a href="coditionals.html#cb257-25"></a></span>
+<span id="cb257-26"><a href="coditionals.html#cb257-26"></a><span class="kw">my_function</span>(<span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb257-27"><a href="coditionals.html#cb257-27"></a><span class="co">## Il valore non è maggiore di 0</span></span>
+<span id="cb257-28"><a href="coditionals.html#cb257-28"></a><span class="co">## Fine funzione</span></span></code></pre></div>
+</div>
+</div>
+<div id="esercizi-15" class="section level3 unnumbered">
+<h3>Esercizi</h3>
+<p>Esegui i seguenti esercizi:</p>
+<ol style="list-style-type: decimal">
+<li><p>Definisci una funzione per assegnare un voto in base alla percentuale di rispote corrette (<em>score</em>) segui le seguenti indicazioni:</p>
+<ul>
+<li>score &lt; .55 insufficiente</li>
+<li>.55 &lt;= score &lt; .65 - sufficiente</li>
+<li>.65 &lt;= score &lt; .75 - buono</li>
+<li>.75 &lt;= score &lt; .85 - distinto</li>
+<li>.85 &lt;= score - ottimo</li>
+</ul></li>
+<li><p>Definisci una funzione che determini se un numero è pari o dispari.</p></li>
+<li><p>Definisci una funzione che determini se un numero è un multiplo di 3, 4, o 5.</p></li>
+<li><p>Definisci una funzione che calcoli lo stipendio mensile considerando gli straordinari che sono retribuiti 1.5 della paga oraria normale. Utilizza come parametrile ore svolte nel mese, la paga oraria ed il tetto ore lavorative, oltre cui si contano gli straordinari.</p></li>
+</ol>
+</div>
+</div>
+<div id="altri-operatori-condizinali" class="section level2">
+<h2><span class="header-section-number">13.2</span> Altri Operatori Condizinali</h2>
+<div id="switch" class="section level3">
+<h3><span class="header-section-number">13.2.1</span> switch</h3>
+<div id="struttura-switch" class="section level4 unnumbered">
+<h4>Struttura switch</h4>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="coditionals.html#cb258-1"></a></span>
+<span id="cb258-2"><a href="coditionals.html#cb258-2"></a><span class="cf">switch</span>(my_value,</span>
+<span id="cb258-3"><a href="coditionals.html#cb258-3"></a>       <span class="dt">case1 =</span> action1,</span>
+<span id="cb258-4"><a href="coditionals.html#cb258-4"></a>       <span class="dt">case2 =</span> action2,</span>
+<span id="cb258-5"><a href="coditionals.html#cb258-5"></a>       ... )</span></code></pre></div>
+</div>
+<div id="esempio-3" class="section level4 unnumbered">
+<h4>Esempio</h4>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="coditionals.html#cb259-1"></a>my_colors &lt;-<span class="st"> </span><span class="cf">function</span>(color){</span>
+<span id="cb259-2"><a href="coditionals.html#cb259-2"></a>  </span>
+<span id="cb259-3"><a href="coditionals.html#cb259-3"></a>  new_color &lt;-<span class="st"> </span><span class="cf">switch</span>(color,</span>
+<span id="cb259-4"><a href="coditionals.html#cb259-4"></a>       <span class="st">&quot;rosso&quot;</span> =<span class="st"> &quot;red&quot;</span>,</span>
+<span id="cb259-5"><a href="coditionals.html#cb259-5"></a>       <span class="st">&quot;blu&quot;</span> =<span class="st"> &quot;blue&quot;</span>,</span>
+<span id="cb259-6"><a href="coditionals.html#cb259-6"></a>       <span class="st">&quot;verde&quot;</span> =<span class="st"> </span>,</span>
+<span id="cb259-7"><a href="coditionals.html#cb259-7"></a>       <span class="st">&quot;verde acqua&quot;</span> =<span class="st"> &quot;green&quot;</span>,</span>
+<span id="cb259-8"><a href="coditionals.html#cb259-8"></a>       <span class="st">&quot;Not Found&quot;</span>)</span>
+<span id="cb259-9"><a href="coditionals.html#cb259-9"></a>  </span>
+<span id="cb259-10"><a href="coditionals.html#cb259-10"></a>  <span class="kw">return</span>(new_color)</span>
+<span id="cb259-11"><a href="coditionals.html#cb259-11"></a>}</span>
+<span id="cb259-12"><a href="coditionals.html#cb259-12"></a></span>
+<span id="cb259-13"><a href="coditionals.html#cb259-13"></a><span class="kw">my_colors</span>(<span class="st">&quot;blu&quot;</span>)</span>
+<span id="cb259-14"><a href="coditionals.html#cb259-14"></a><span class="co">## [1] &quot;blue&quot;</span></span>
+<span id="cb259-15"><a href="coditionals.html#cb259-15"></a></span>
+<span id="cb259-16"><a href="coditionals.html#cb259-16"></a><span class="kw">my_colors</span>(<span class="st">&quot;verde&quot;</span>)</span>
+<span id="cb259-17"><a href="coditionals.html#cb259-17"></a><span class="co">## [1] &quot;green&quot;</span></span>
+<span id="cb259-18"><a href="coditionals.html#cb259-18"></a></span>
+<span id="cb259-19"><a href="coditionals.html#cb259-19"></a><span class="kw">my_colors</span>(<span class="st">&quot;arancione&quot;</span>)</span>
+<span id="cb259-20"><a href="coditionals.html#cb259-20"></a><span class="co">## [1] &quot;Not Found&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="ifelse-1" class="section level3">
+<h3><span class="header-section-number">13.2.2</span> ifelse</h3>
+<div id="struttura-ifelse" class="section level4 unnumbered">
+<h4>Struttura ifelse</h4>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="coditionals.html#cb260-1"></a><span class="kw">ifelse</span>(<span class="dt">test =</span> , <span class="dt">no =</span> , <span class="dt">yes =</span> )</span></code></pre></div>
+</div>
+<div id="esempio-4" class="section level4 unnumbered">
+<h4>Esempio</h4>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="coditionals.html#cb261-1"></a><span class="kw">ifelse</span>(<span class="dt">test =</span> {<span class="dv">12</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>}, <span class="dt">no =</span> <span class="st">&quot;Non superore a 10&quot;</span>, <span class="dt">yes =</span> <span class="st">&quot;Superiore a 10&quot;</span>)</span>
+<span id="cb261-2"><a href="coditionals.html#cb261-2"></a><span class="co">## [1] &quot;Superiore a 10&quot;</span></span></code></pre></div>
 
+</div>
+</div>
+</div>
 </div>
 <hr>
 <center>
