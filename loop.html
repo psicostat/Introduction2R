@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capitolo 14 Attenti al loop | Introduction to R</title>
+  <title>Capitolo 14 Programmazione Iterativa | Introduction to R</title>
   <meta name="description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capitolo 14 Attenti al loop | Introduction to R" />
+  <meta property="og:title" content="Capitolo 14 Programmazione Iterativa | Introduction to R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://psicostat.github.io/Introduction2R/" />
   <meta property="og:image" content="https://psicostat.github.io/Introduction2R/images/logo_psicostat.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="psicostat/Introduction2R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capitolo 14 Attenti al loop | Introduction to R" />
+  <meta name="twitter:title" content="Capitolo 14 Programmazione Iterativa | Introduction to R" />
   
   <meta name="twitter:description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
   <meta name="twitter:image" content="https://psicostat.github.io/Introduction2R/images/logo_psicostat.png" />
@@ -313,7 +313,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.2.2" data-path="coditionals.html"><a href="coditionals.html#ifelse-1"><i class="fa fa-check"></i><b>13.2.2</b> ifelse</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="loop.html"><a href="loop.html"><i class="fa fa-check"></i><b>14</b> Attenti al loop</a></li>
+<li class="chapter" data-level="14" data-path="loop.html"><a href="loop.html"><i class="fa fa-check"></i><b>14</b> Programmazione Iterativa</a><ul>
+<li class="chapter" data-level="14.1" data-path="loop.html"><a href="loop.html#loop-1"><i class="fa fa-check"></i><b>14.1</b> Loop</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="loop.html"><a href="loop.html#for"><i class="fa fa-check"></i><b>14.1.1</b> For</a></li>
+<li class="chapter" data-level="14.1.2" data-path="loop.html"><a href="loop.html#while"><i class="fa fa-check"></i><b>14.1.2</b> While</a></li>
+<li class="chapter" data-level="14.1.3" data-path="loop.html"><a href="loop.html#next-e-brake"><i class="fa fa-check"></i><b>14.1.3</b> Next e Brake</a></li>
+<li class="chapter" data-level="" data-path="loop.html"><a href="loop.html#esercizi-16"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="loop.html"><a href="loop.html#apply-family"><i class="fa fa-check"></i><b>14.2</b> Apply Family</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="loop.html"><a href="loop.html#apply"><i class="fa fa-check"></i><b>14.2.1</b> apply</a></li>
+<li class="chapter" data-level="14.2.2" data-path="loop.html"><a href="loop.html#tapply"><i class="fa fa-check"></i><b>14.2.2</b> tapply</a></li>
+<li class="chapter" data-level="14.2.3" data-path="loop.html"><a href="loop.html#lapply"><i class="fa fa-check"></i><b>14.2.3</b> lapply</a></li>
+<li class="chapter" data-level="14.2.4" data-path="loop.html"><a href="loop.html#sapply"><i class="fa fa-check"></i><b>14.2.4</b> sapply</a></li>
+<li class="chapter" data-level="14.2.5" data-path="loop.html"><a href="loop.html#vapply"><i class="fa fa-check"></i><b>14.2.5</b> vapply</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="loop.html"><a href="loop.html#replicate"><i class="fa fa-check"></i><b>14.3</b> Replicate</a></li>
+</ul></li>
 <li class="part"><span><b>Case study</b></span></li>
 <li class="chapter" data-level="" data-path="introduzione-1.html"><a href="introduzione-1.html"><i class="fa fa-check"></i>Introduzione</a></li>
 <li class="chapter" data-level="15" data-path="attachment.html"><a href="attachment.html"><i class="fa fa-check"></i><b>15</b> Caso Studio I: Attaccamento</a><ul>
@@ -352,9 +367,419 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <img class= "hero-image" src="images/banner.png">
 </div>
 <div id="loop" class="section level1">
-<h1><span class="header-section-number">Capitolo 14</span> Attenti al loop</h1>
+<h1><span class="header-section-number">Capitolo 14</span> Programmazione Iterativa</h1>
 <p>Working in progress.</p>
+<div id="loop-1" class="section level2">
+<h2><span class="header-section-number">14.1</span> Loop</h2>
+<div id="for" class="section level3">
+<h3><span class="header-section-number">14.1.1</span> For</h3>
+<div class="figure" style="text-align: center"><span id="fig:plot-for-loop"></span>
+<img src="images/for_loop.png" alt="Rappresentazione for loop" width="65%" />
+<p class="caption">
+Figure 14.1: Rappresentazione for loop
+</p>
+</div>
+<div id="struttura-for-loop" class="section level4 unnumbered">
+<h4>Struttura For Loop</h4>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="loop.html#cb262-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">c</span>(...)) {</span>
+<span id="cb262-2"><a href="loop.html#cb262-2"></a>    <span class="op">&lt;</span>codice<span class="op">-</span>da<span class="op">-</span>eseguire<span class="op">&gt;</span></span>
+<span id="cb262-3"><a href="loop.html#cb262-3"></a>}</span></code></pre></div>
+</div>
+<div id="esempio-5" class="section level4 unnumbered">
+<h4>Esempio</h4>
+<ul>
+<li>Loop con valori vettore</li>
+</ul>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="loop.html#cb263-1"></a><span class="co"># numerico</span></span>
+<span id="cb263-2"><a href="loop.html#cb263-2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>)){</span>
+<span id="cb263-3"><a href="loop.html#cb263-3"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb263-4"><a href="loop.html#cb263-4"></a>}</span>
+<span id="cb263-5"><a href="loop.html#cb263-5"></a><span class="co">## [1] 2</span></span>
+<span id="cb263-6"><a href="loop.html#cb263-6"></a><span class="co">## [1] 4</span></span>
+<span id="cb263-7"><a href="loop.html#cb263-7"></a><span class="co">## [1] 6</span></span>
+<span id="cb263-8"><a href="loop.html#cb263-8"></a><span class="co">## [1] 8</span></span>
+<span id="cb263-9"><a href="loop.html#cb263-9"></a></span>
+<span id="cb263-10"><a href="loop.html#cb263-10"></a><span class="co"># caratteri</span></span>
+<span id="cb263-11"><a href="loop.html#cb263-11"></a><span class="cf">for</span> (name <span class="cf">in</span> <span class="kw">c</span>(<span class="st">&quot;Alessio&quot;</span>, <span class="st">&quot;Beatrice&quot;</span>, <span class="st">&quot;Carlo&quot;</span>)){</span>
+<span id="cb263-12"><a href="loop.html#cb263-12"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;Ciao &quot;</span>, name))</span>
+<span id="cb263-13"><a href="loop.html#cb263-13"></a>}</span>
+<span id="cb263-14"><a href="loop.html#cb263-14"></a><span class="co">## [1] &quot;Ciao Alessio&quot;</span></span>
+<span id="cb263-15"><a href="loop.html#cb263-15"></a><span class="co">## [1] &quot;Ciao Beatrice&quot;</span></span>
+<span id="cb263-16"><a href="loop.html#cb263-16"></a><span class="co">## [1] &quot;Ciao Carlo&quot;</span></span></code></pre></div>
+<ul>
+<li>Loop con indici di posizione</li>
+</ul>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="loop.html#cb264-1"></a>my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">93</span>, <span class="dv">27</span>, <span class="dv">46</span>, <span class="dv">99</span>)</span>
+<span id="cb264-2"><a href="loop.html#cb264-2"></a></span>
+<span id="cb264-3"><a href="loop.html#cb264-3"></a><span class="co"># i in 1:length(my_vector)</span></span>
+<span id="cb264-4"><a href="loop.html#cb264-4"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(my_vector)){</span>
+<span id="cb264-5"><a href="loop.html#cb264-5"></a>  <span class="kw">print</span>(my_vector[i])</span>
+<span id="cb264-6"><a href="loop.html#cb264-6"></a>}</span>
+<span id="cb264-7"><a href="loop.html#cb264-7"></a><span class="co">## [1] 93</span></span>
+<span id="cb264-8"><a href="loop.html#cb264-8"></a><span class="co">## [1] 27</span></span>
+<span id="cb264-9"><a href="loop.html#cb264-9"></a><span class="co">## [1] 46</span></span>
+<span id="cb264-10"><a href="loop.html#cb264-10"></a><span class="co">## [1] 99</span></span></code></pre></div>
+<div class="trick" title="seq_along() ">
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="loop.html#cb265-1"></a>my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">93</span>, <span class="dv">27</span>, <span class="dv">46</span>, <span class="dv">99</span>)</span>
+<span id="cb265-2"><a href="loop.html#cb265-2"></a>my_NULL &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb265-3"><a href="loop.html#cb265-3"></a></span>
+<span id="cb265-4"><a href="loop.html#cb265-4"></a><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(my_vector)</span>
+<span id="cb265-5"><a href="loop.html#cb265-5"></a><span class="co">## [1] 1 2 3 4</span></span>
+<span id="cb265-6"><a href="loop.html#cb265-6"></a><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(my_NULL)</span>
+<span id="cb265-7"><a href="loop.html#cb265-7"></a><span class="co">## [1] 1 0</span></span>
+<span id="cb265-8"><a href="loop.html#cb265-8"></a></span>
+<span id="cb265-9"><a href="loop.html#cb265-9"></a><span class="kw">seq_along</span>(my_vector)</span>
+<span id="cb265-10"><a href="loop.html#cb265-10"></a><span class="co">## [1] 1 2 3 4</span></span>
+<span id="cb265-11"><a href="loop.html#cb265-11"></a><span class="kw">seq_along</span>(my_NULL)</span>
+<span id="cb265-12"><a href="loop.html#cb265-12"></a><span class="co">## integer(0)</span></span>
+<span id="cb265-13"><a href="loop.html#cb265-13"></a></span>
+<span id="cb265-14"><a href="loop.html#cb265-14"></a><span class="kw">seq_len</span>(<span class="kw">length</span>(my_vector))</span>
+<span id="cb265-15"><a href="loop.html#cb265-15"></a><span class="co">## [1] 1 2 3 4</span></span>
+<span id="cb265-16"><a href="loop.html#cb265-16"></a><span class="kw">seq_len</span>(<span class="kw">length</span>(my_NULL))</span>
+<span id="cb265-17"><a href="loop.html#cb265-17"></a><span class="co">## integer(0)</span></span></code></pre></div>
+</div>
+</div>
+<div id="utilizzi" class="section level4 unnumbered">
+<h4>Utilizzi</h4>
+<ul>
+<li>Loop con aggiornamento variabile risultato</li>
+</ul>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="loop.html#cb266-1"></a>my_values &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>)</span>
+<span id="cb266-2"><a href="loop.html#cb266-2"></a></span>
+<span id="cb266-3"><a href="loop.html#cb266-3"></a><span class="co"># Calcolare somma valori</span></span>
+<span id="cb266-4"><a href="loop.html#cb266-4"></a>my_sum &lt;-<span class="st"> </span><span class="dv">0</span>      <span class="co"># inizializzo valore</span></span>
+<span id="cb266-5"><a href="loop.html#cb266-5"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(my_values)){</span>
+<span id="cb266-6"><a href="loop.html#cb266-6"></a>  my_sum &lt;-<span class="st"> </span>my_sum <span class="op">+</span><span class="st"> </span>my_values[i]</span>
+<span id="cb266-7"><a href="loop.html#cb266-7"></a>}</span>
+<span id="cb266-8"><a href="loop.html#cb266-8"></a></span>
+<span id="cb266-9"><a href="loop.html#cb266-9"></a>my_sum</span>
+<span id="cb266-10"><a href="loop.html#cb266-10"></a><span class="co">## [1] 20</span></span></code></pre></div>
+<ul>
+<li>Loop salvando il risultato ad ogni iterazione</li>
+</ul>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="loop.html#cb267-1"></a><span class="co"># Calcola la somma di colonna</span></span>
+<span id="cb267-2"><a href="loop.html#cb267-2"></a>my_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">24</span>, <span class="dt">nrow =</span> <span class="dv">4</span>, <span class="dt">ncol =</span> <span class="dv">6</span>)</span>
+<span id="cb267-3"><a href="loop.html#cb267-3"></a></span>
+<span id="cb267-4"><a href="loop.html#cb267-4"></a><span class="co"># Metodo non efficiente (aggiungo valori)</span></span>
+<span id="cb267-5"><a href="loop.html#cb267-5"></a>sum_cols &lt;-<span class="st"> </span><span class="kw">c</span>()</span>
+<span id="cb267-6"><a href="loop.html#cb267-6"></a><span class="cf">for</span>( i <span class="cf">in</span> <span class="kw">seq_len</span>(<span class="kw">ncol</span>(my_matrix))){</span>
+<span id="cb267-7"><a href="loop.html#cb267-7"></a>  sum_col &lt;-<span class="st"> </span><span class="kw">sum</span>(my_matrix[, i])   <span class="co"># calcolo i esima colonna</span></span>
+<span id="cb267-8"><a href="loop.html#cb267-8"></a>  sum_cols &lt;-<span class="st"> </span><span class="kw">c</span>(sum_cols, sum_col) <span class="co"># aggiungo il risultato</span></span>
+<span id="cb267-9"><a href="loop.html#cb267-9"></a>}</span>
+<span id="cb267-10"><a href="loop.html#cb267-10"></a></span>
+<span id="cb267-11"><a href="loop.html#cb267-11"></a>sum_cols</span>
+<span id="cb267-12"><a href="loop.html#cb267-12"></a><span class="co">## [1] 10 26 42 58 74 90</span></span>
+<span id="cb267-13"><a href="loop.html#cb267-13"></a></span>
+<span id="cb267-14"><a href="loop.html#cb267-14"></a><span class="co"># Metodo efficiente (aggiorno valori)</span></span>
+<span id="cb267-15"><a href="loop.html#cb267-15"></a>sum_cols &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode =</span> <span class="st">&quot;double&quot;</span>, <span class="dt">length =</span> <span class="kw">ncol</span>(my_matrix))</span>
+<span id="cb267-16"><a href="loop.html#cb267-16"></a><span class="cf">for</span>( i <span class="cf">in</span> <span class="kw">seq_along</span>(sum_cols)){</span>
+<span id="cb267-17"><a href="loop.html#cb267-17"></a>  sum_col &lt;-<span class="st"> </span><span class="kw">sum</span>(my_matrix[, i])   <span class="co"># calcolo i esima colonna</span></span>
+<span id="cb267-18"><a href="loop.html#cb267-18"></a>  sum_cols[i] &lt;-<span class="st">  </span>sum_col <span class="co"># aggiorno il risultato</span></span>
+<span id="cb267-19"><a href="loop.html#cb267-19"></a>}</span>
+<span id="cb267-20"><a href="loop.html#cb267-20"></a></span>
+<span id="cb267-21"><a href="loop.html#cb267-21"></a>sum_cols</span>
+<span id="cb267-22"><a href="loop.html#cb267-22"></a><span class="co">## [1] 10 26 42 58 74 90</span></span></code></pre></div>
+</div>
+</div>
+<div id="while" class="section level3">
+<h3><span class="header-section-number">14.1.2</span> While</h3>
+<p>Eseguire il codice fintanto che non si realizza una data condizione.</p>
+<div class="figure" style="text-align: center"><span id="fig:plot-while-loop"></span>
+<img src="images/while_loop.png" alt="Rappresentazione while loop" width="65%" />
+<p class="caption">
+Figure 14.2: Rappresentazione while loop
+</p>
+</div>
+<div id="struttura-while-loop" class="section level4 unnumbered">
+<h4>Struttura While Loop</h4>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="loop.html#cb268-1"></a><span class="cf">while</span> (<span class="op">&lt;</span>test<span class="op">&gt;</span>) {</span>
+<span id="cb268-2"><a href="loop.html#cb268-2"></a>    <span class="op">&lt;</span>codice<span class="op">-</span>da<span class="op">-</span>eseguire<span class="op">&gt;</span></span>
+<span id="cb268-3"><a href="loop.html#cb268-3"></a>}</span></code></pre></div>
+</div>
+<div id="esempio-6" class="section level4 unnumbered">
+<h4>Esempio</h4>
+<ul>
+<li>Semplice countdown</li>
+</ul>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="loop.html#cb269-1"></a>count &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb269-2"><a href="loop.html#cb269-2"></a></span>
+<span id="cb269-3"><a href="loop.html#cb269-3"></a><span class="cf">while</span>(count <span class="op">&gt;=</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb269-4"><a href="loop.html#cb269-4"></a>  <span class="kw">print</span>(count)</span>
+<span id="cb269-5"><a href="loop.html#cb269-5"></a>  count &lt;-<span class="st"> </span>count <span class="op">-</span><span class="st"> </span><span class="dv">1</span> <span class="co"># aggiorno variabile</span></span>
+<span id="cb269-6"><a href="loop.html#cb269-6"></a>}</span>
+<span id="cb269-7"><a href="loop.html#cb269-7"></a><span class="co">## [1] 5</span></span>
+<span id="cb269-8"><a href="loop.html#cb269-8"></a><span class="co">## [1] 4</span></span>
+<span id="cb269-9"><a href="loop.html#cb269-9"></a><span class="co">## [1] 3</span></span>
+<span id="cb269-10"><a href="loop.html#cb269-10"></a><span class="co">## [1] 2</span></span>
+<span id="cb269-11"><a href="loop.html#cb269-11"></a><span class="co">## [1] 1</span></span>
+<span id="cb269-12"><a href="loop.html#cb269-12"></a><span class="co">## [1] 0</span></span></code></pre></div>
+<ul>
+<li>Attenzione ai loop indefiniti. E’ importante assicurasi di aggiornara correttamente la variabile usata per il test.</li>
+</ul>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="loop.html#cb270-1"></a>count &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb270-2"><a href="loop.html#cb270-2"></a></span>
+<span id="cb270-3"><a href="loop.html#cb270-3"></a><span class="co"># Attenzione loop infinito</span></span>
+<span id="cb270-4"><a href="loop.html#cb270-4"></a><span class="cf">while</span>(count <span class="op">&gt;=</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb270-5"><a href="loop.html#cb270-5"></a>  <span class="kw">print</span>(count)</span>
+<span id="cb270-6"><a href="loop.html#cb270-6"></a>  <span class="co"># count &lt;- count - 1 </span></span>
+<span id="cb270-7"><a href="loop.html#cb270-7"></a>}</span></code></pre></div>
+</div>
+</div>
+<div id="next-e-brake" class="section level3">
+<h3><span class="header-section-number">14.1.3</span> Next e Brake</h3>
+<p>Nell’esecuzione delel ierazioni potremmo incontrare alcune condizioni per cui vogliamo passare all’interazione successiva o terminare l’esecuzioen del loop. In R tali operazioni posso essere eseguite rispettivamene coni comandi <code>next</code> e <code>break</code>.</p>
+<ul>
+<li><code>next</code> - passa all’iterazione successiva</li>
+<li><code>break</code> - interrompiesecuzione loop</li>
+</ul>
+<div id="esempio-7" class="section level4 unnumbered">
+<h4>Esempio</h4>
+<ul>
+<li>con for loop</li>
+</ul>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="loop.html#cb271-1"></a>my_vector &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">6</span></span>
+<span id="cb271-2"><a href="loop.html#cb271-2"></a></span>
+<span id="cb271-3"><a href="loop.html#cb271-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(my_vector)){</span>
+<span id="cb271-4"><a href="loop.html#cb271-4"></a>  <span class="cf">if</span> (my_vector[i] <span class="op">==</span><span class="st"> </span><span class="dv">3</span>) <span class="cf">next</span></span>
+<span id="cb271-5"><a href="loop.html#cb271-5"></a>  </span>
+<span id="cb271-6"><a href="loop.html#cb271-6"></a>  <span class="cf">if</span> (my_vector[i] <span class="op">==</span><span class="st"> </span><span class="dv">5</span>) <span class="cf">break</span></span>
+<span id="cb271-7"><a href="loop.html#cb271-7"></a>  <span class="kw">print</span>(my_vector[i])</span>
+<span id="cb271-8"><a href="loop.html#cb271-8"></a>}</span>
+<span id="cb271-9"><a href="loop.html#cb271-9"></a><span class="co">## [1] 1</span></span>
+<span id="cb271-10"><a href="loop.html#cb271-10"></a><span class="co">## [1] 2</span></span>
+<span id="cb271-11"><a href="loop.html#cb271-11"></a><span class="co">## [1] 4</span></span></code></pre></div>
+<ul>
+<li>con while loop</li>
+</ul>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="loop.html#cb272-1"></a>count &lt;-<span class="st"> </span><span class="dv">7</span></span>
+<span id="cb272-2"><a href="loop.html#cb272-2"></a></span>
+<span id="cb272-3"><a href="loop.html#cb272-3"></a><span class="cf">while</span>(count <span class="op">&gt;=</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb272-4"><a href="loop.html#cb272-4"></a>  count &lt;-<span class="st"> </span>count <span class="op">-</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb272-5"><a href="loop.html#cb272-5"></a>  <span class="cf">if</span> (count <span class="op">==</span><span class="st"> </span><span class="dv">5</span>) <span class="cf">next</span></span>
+<span id="cb272-6"><a href="loop.html#cb272-6"></a>  </span>
+<span id="cb272-7"><a href="loop.html#cb272-7"></a>  <span class="cf">if</span> (count <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) <span class="cf">break</span></span>
+<span id="cb272-8"><a href="loop.html#cb272-8"></a>  </span>
+<span id="cb272-9"><a href="loop.html#cb272-9"></a>  <span class="kw">print</span>(count)</span>
+<span id="cb272-10"><a href="loop.html#cb272-10"></a>}</span>
+<span id="cb272-11"><a href="loop.html#cb272-11"></a><span class="co">## [1] 6</span></span>
+<span id="cb272-12"><a href="loop.html#cb272-12"></a><span class="co">## [1] 4</span></span>
+<span id="cb272-13"><a href="loop.html#cb272-13"></a><span class="co">## [1] 3</span></span></code></pre></div>
+</div>
+</div>
+<div id="esercizi-16" class="section level3 unnumbered">
+<h3>Esercizi</h3>
+<ol style="list-style-type: decimal">
+<li>Scrivi una funzione che calcoli la media di un vettore numerico usando un for loop.</li>
+<li>Scrivi una funzione che dato un vettore numerico restituisca il valore massimo e minimo usando un for loop (attenti al valore di inizializzazione).</li>
+<li>Scrivi una funzione che per ogni iterazione generi <span class="math inline">\(n\)</span> osservazioni da una normale (funzione <code>rnorm()</code>) con media <span class="math inline">\(mu\)</span> e deviazione standard <span class="math inline">\(sigma\)</span>, salva la media di ogni campione. I parametri della funzione saranno <span class="math inline">\(n\)</span>, <span class="math inline">\(mu\)</span>, <span class="math inline">\(sigma\)</span> e <span class="math inline">\(iter\)</span> (numero di iterazioni).</li>
+</ol>
+</div>
+</div>
+<div id="apply-family" class="section level2">
+<h2><span class="header-section-number">14.2</span> Apply Family</h2>
+<p>Quando dobbiamo eseguire le stese funzioni su una sequenza di elementi possiamo utilizzare alcune speciali funzioni della famiglia apply:</p>
+<ul>
+<li><code>apply</code> - dato un dataframe (o matrice) esegue la stessa funzione su ogni riga o colonna</li>
+<li><code>tapply</code> - dato un vettore di valori esegue la stessa funzione su ogni gruppo che è satato definito</li>
+<li><code>lapply</code> - esegue la stessa funzione per ogni elemento di una lista. Restituisce ancora una lista</li>
+<li><code>sapply</code> - esegue la stessa funzione per ogni elemento di una lista. Restituisce se possibile un oggetto seplificato (un vettore, una matrice o un array)</li>
+<li><code>vapply</code>- analogo a <code>sapply</code> ma richiede di definire il tipo di dati restituiti</li>
+</ul>
+<p>Queste funzioni permettono di implementare in modo semplice ed immediato dei loop.</p>
+<div id="apply" class="section level3">
+<h3><span class="header-section-number">14.2.1</span> apply</h3>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="loop.html#cb273-1"></a><span class="kw">apply</span>(<span class="dt">X =</span> , <span class="dt">MARGIN =</span> , <span class="dt">FUN =</span> , ...)</span></code></pre></div>
+<div id="esempi" class="section level4 unnumbered">
+<h4>Esempi</h4>
+<ul>
+<li>Semplici funzioni</li>
+</ul>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="loop.html#cb274-1"></a>my_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">24</span>, <span class="dt">nrow =</span> <span class="dv">4</span>, <span class="dt">ncol =</span> <span class="dv">6</span>)</span>
+<span id="cb274-2"><a href="loop.html#cb274-2"></a></span>
+<span id="cb274-3"><a href="loop.html#cb274-3"></a><span class="co"># Per riga</span></span>
+<span id="cb274-4"><a href="loop.html#cb274-4"></a><span class="kw">apply</span>(my_matrix, <span class="dt">MARGIN =</span> <span class="dv">1</span>, <span class="dt">FUN =</span> sum)</span>
+<span id="cb274-5"><a href="loop.html#cb274-5"></a><span class="co">## [1] 66 72 78 84</span></span>
+<span id="cb274-6"><a href="loop.html#cb274-6"></a></span>
+<span id="cb274-7"><a href="loop.html#cb274-7"></a><span class="co"># Per colonna</span></span>
+<span id="cb274-8"><a href="loop.html#cb274-8"></a><span class="kw">apply</span>(my_matrix, <span class="dt">MARGIN =</span> <span class="dv">2</span>, <span class="dt">FUN =</span> sum)</span>
+<span id="cb274-9"><a href="loop.html#cb274-9"></a><span class="co">## [1] 10 26 42 58 74 90</span></span></code></pre></div>
+<ul>
+<li>Funzioni complesse</li>
+</ul>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="loop.html#cb275-1"></a><span class="co"># Coefficiente di Variazione</span></span>
+<span id="cb275-2"><a href="loop.html#cb275-2"></a><span class="kw">apply</span>(my_matrix, <span class="dt">MARGIN =</span> <span class="dv">2</span>, <span class="dt">FUN =</span> <span class="cf">function</span>(x){</span>
+<span id="cb275-3"><a href="loop.html#cb275-3"></a>  mean &lt;-<span class="st"> </span><span class="kw">mean</span>(x)</span>
+<span id="cb275-4"><a href="loop.html#cb275-4"></a>  sd &lt;-<span class="st"> </span><span class="kw">sd</span>(x)</span>
+<span id="cb275-5"><a href="loop.html#cb275-5"></a>  </span>
+<span id="cb275-6"><a href="loop.html#cb275-6"></a>  <span class="kw">return</span>(<span class="kw">round</span>(sd<span class="op">/</span>mean,<span class="dv">2</span>))</span>
+<span id="cb275-7"><a href="loop.html#cb275-7"></a>})</span>
+<span id="cb275-8"><a href="loop.html#cb275-8"></a><span class="co">## [1] 0.52 0.20 0.12 0.09 0.07 0.06</span></span></code></pre></div>
+</div>
+</div>
+<div id="tapply" class="section level3">
+<h3><span class="header-section-number">14.2.2</span> tapply</h3>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="loop.html#cb276-1"></a><span class="kw">tapply</span>(<span class="dt">X =</span> , <span class="dt">INDEX =</span> , <span class="dt">FUN =</span> , ...)</span></code></pre></div>
+<div id="esempi-1" class="section level4 unnumbered">
+<h4>Esempi</h4>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="loop.html#cb277-1"></a>my_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb277-2"><a href="loop.html#cb277-2"></a>  <span class="dt">y =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">10</span>), <span class="dt">size =</span> <span class="dv">32</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>),</span>
+<span id="cb277-3"><a href="loop.html#cb277-3"></a>  <span class="dt">gender =</span> <span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>), <span class="dt">each =</span> <span class="dv">16</span>)),</span>
+<span id="cb277-4"><a href="loop.html#cb277-4"></a>  <span class="dt">class =</span> <span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;3&quot;</span>, <span class="st">&quot;5&quot;</span>), <span class="dt">times =</span> <span class="dv">16</span>))</span>
+<span id="cb277-5"><a href="loop.html#cb277-5"></a>)</span>
+<span id="cb277-6"><a href="loop.html#cb277-6"></a></span>
+<span id="cb277-7"><a href="loop.html#cb277-7"></a><span class="kw">head</span>(my_data, <span class="dt">n =</span> <span class="dv">4</span>)</span>
+<span id="cb277-8"><a href="loop.html#cb277-8"></a><span class="co">##   y gender class</span></span>
+<span id="cb277-9"><a href="loop.html#cb277-9"></a><span class="co">## 1 4      F     3</span></span>
+<span id="cb277-10"><a href="loop.html#cb277-10"></a><span class="co">## 2 8      F     5</span></span>
+<span id="cb277-11"><a href="loop.html#cb277-11"></a><span class="co">## 3 8      F     3</span></span>
+<span id="cb277-12"><a href="loop.html#cb277-12"></a><span class="co">## 4 6      F     5</span></span>
+<span id="cb277-13"><a href="loop.html#cb277-13"></a></span>
+<span id="cb277-14"><a href="loop.html#cb277-14"></a><span class="co"># Media y per classe</span></span>
+<span id="cb277-15"><a href="loop.html#cb277-15"></a><span class="kw">tapply</span>(my_data<span class="op">$</span>y, <span class="dt">INDEX =</span> my_data<span class="op">$</span>class, <span class="dt">FUN =</span> mean)</span>
+<span id="cb277-16"><a href="loop.html#cb277-16"></a><span class="co">##     3     5 </span></span>
+<span id="cb277-17"><a href="loop.html#cb277-17"></a><span class="co">## 6.875 5.750</span></span>
+<span id="cb277-18"><a href="loop.html#cb277-18"></a></span>
+<span id="cb277-19"><a href="loop.html#cb277-19"></a><span class="co"># Media y per classe e genere</span></span>
+<span id="cb277-20"><a href="loop.html#cb277-20"></a><span class="kw">tapply</span>(my_data<span class="op">$</span>y, <span class="dt">INDEX =</span> <span class="kw">list</span>(my_data<span class="op">$</span>class, my_data<span class="op">$</span>gender), <span class="dt">FUN =</span> mean)</span>
+<span id="cb277-21"><a href="loop.html#cb277-21"></a><span class="co">##      F   M</span></span>
+<span id="cb277-22"><a href="loop.html#cb277-22"></a><span class="co">## 3 7.25 6.5</span></span>
+<span id="cb277-23"><a href="loop.html#cb277-23"></a><span class="co">## 5 6.00 5.5</span></span></code></pre></div>
+</div>
+</div>
+<div id="lapply" class="section level3">
+<h3><span class="header-section-number">14.2.3</span> lapply</h3>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="loop.html#cb278-1"></a><span class="kw">lapply</span>(<span class="dt">X =</span> , <span class="dt">FUN =</span> , ...)</span></code></pre></div>
+<div id="esempi-2" class="section level4 unnumbered">
+<h4>Esempi</h4>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="loop.html#cb279-1"></a>my_list &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
+<span id="cb279-2"><a href="loop.html#cb279-2"></a>  <span class="dt">sample_norm =</span> <span class="kw">rnorm</span>(<span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb279-3"><a href="loop.html#cb279-3"></a>  <span class="dt">sample_unif =</span> <span class="kw">runif</span>(<span class="dv">15</span>, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">1</span>),</span>
+<span id="cb279-4"><a href="loop.html#cb279-4"></a>  <span class="dt">sample_pois =</span> <span class="kw">rpois</span>(<span class="dv">20</span>, <span class="dt">lambda =</span> <span class="dv">5</span>)</span>
+<span id="cb279-5"><a href="loop.html#cb279-5"></a>)</span>
+<span id="cb279-6"><a href="loop.html#cb279-6"></a></span>
+<span id="cb279-7"><a href="loop.html#cb279-7"></a><span class="kw">str</span>(my_list)</span>
+<span id="cb279-8"><a href="loop.html#cb279-8"></a><span class="co">## List of 3</span></span>
+<span id="cb279-9"><a href="loop.html#cb279-9"></a><span class="co">##  $ sample_norm: num [1:10] -1.964 -1.448 1.019 -1.421 -0.605 ...</span></span>
+<span id="cb279-10"><a href="loop.html#cb279-10"></a><span class="co">##  $ sample_unif: num [1:15] 0.546 0.409 0.961 0.662 0.365 ...</span></span>
+<span id="cb279-11"><a href="loop.html#cb279-11"></a><span class="co">##  $ sample_pois: int [1:20] 8 6 6 6 6 4 4 1 8 5 ...</span></span>
+<span id="cb279-12"><a href="loop.html#cb279-12"></a></span>
+<span id="cb279-13"><a href="loop.html#cb279-13"></a><span class="co"># Media </span></span>
+<span id="cb279-14"><a href="loop.html#cb279-14"></a><span class="kw">lapply</span>(my_list, <span class="dt">FUN =</span> mean)</span>
+<span id="cb279-15"><a href="loop.html#cb279-15"></a><span class="co">## $sample_norm</span></span>
+<span id="cb279-16"><a href="loop.html#cb279-16"></a><span class="co">## [1] -0.8324701</span></span>
+<span id="cb279-17"><a href="loop.html#cb279-17"></a><span class="co">## </span></span>
+<span id="cb279-18"><a href="loop.html#cb279-18"></a><span class="co">## $sample_unif</span></span>
+<span id="cb279-19"><a href="loop.html#cb279-19"></a><span class="co">## [1] 0.5621297</span></span>
+<span id="cb279-20"><a href="loop.html#cb279-20"></a><span class="co">## </span></span>
+<span id="cb279-21"><a href="loop.html#cb279-21"></a><span class="co">## $sample_pois</span></span>
+<span id="cb279-22"><a href="loop.html#cb279-22"></a><span class="co">## [1] 4.9</span></span></code></pre></div>
+</div>
+</div>
+<div id="sapply" class="section level3">
+<h3><span class="header-section-number">14.2.4</span> sapply</h3>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="loop.html#cb280-1"></a><span class="kw">sapply</span>(<span class="dt">X =</span> , <span class="dt">FUN =</span> , ... )</span></code></pre></div>
+<div id="esempi-3" class="section level4 unnumbered">
+<h4>Esempi</h4>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="loop.html#cb281-1"></a><span class="co"># Media </span></span>
+<span id="cb281-2"><a href="loop.html#cb281-2"></a><span class="kw">sapply</span>(my_list, <span class="dt">FUN =</span> mean)</span>
+<span id="cb281-3"><a href="loop.html#cb281-3"></a><span class="co">## sample_norm sample_unif sample_pois </span></span>
+<span id="cb281-4"><a href="loop.html#cb281-4"></a><span class="co">##  -0.8324701   0.5621297   4.9000000</span></span></code></pre></div>
+</div>
+</div>
+<div id="vapply" class="section level3">
+<h3><span class="header-section-number">14.2.5</span> vapply</h3>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="loop.html#cb282-1"></a><span class="kw">vapply</span>(<span class="dt">X =</span> , <span class="dt">FUN =</span> , <span class="dt">FUN.VALUE =</span>  ,... )</span></code></pre></div>
+<div id="esempi-4" class="section level4 unnumbered">
+<h4>Esempi</h4>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="loop.html#cb283-1"></a><span class="co"># Media </span></span>
+<span id="cb283-2"><a href="loop.html#cb283-2"></a><span class="kw">vapply</span>(my_list, <span class="dt">FUN =</span> mean, <span class="dt">FUN.VALUE =</span> <span class="kw">numeric</span>(<span class="dt">length =</span> 1L))</span>
+<span id="cb283-3"><a href="loop.html#cb283-3"></a><span class="co">## sample_norm sample_unif sample_pois </span></span>
+<span id="cb283-4"><a href="loop.html#cb283-4"></a><span class="co">##  -0.8324701   0.5621297   4.9000000</span></span></code></pre></div>
+<div class="warning" title="sapply() vs vapply()">
+<p><code>sapply()</code> non restituisce sempre la stessa tipologia di oggetto mentre <code>vapply()</code> richiede sia specificato il tipo di l’output di ogni iterazione.</p>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="loop.html#cb284-1"></a>x1 &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
+<span id="cb284-2"><a href="loop.html#cb284-2"></a>  <span class="dt">sample_unif =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="kw">runif</span>(<span class="dv">15</span>, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">1</span>)),</span>
+<span id="cb284-3"><a href="loop.html#cb284-3"></a>  <span class="dt">sample_norm =</span> <span class="kw">rnorm</span>(<span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb284-4"><a href="loop.html#cb284-4"></a>  <span class="dt">sample_pois =</span> <span class="kw">rpois</span>(<span class="dv">20</span>, <span class="dt">lambda =</span> <span class="dv">5</span>)</span>
+<span id="cb284-5"><a href="loop.html#cb284-5"></a>)</span>
+<span id="cb284-6"><a href="loop.html#cb284-6"></a>x2 &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
+<span id="cb284-7"><a href="loop.html#cb284-7"></a>  <span class="dt">sample_gamma =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="kw">rgamma</span>(<span class="dv">10</span>, <span class="dt">shape =</span> <span class="dv">1</span>)),</span>
+<span id="cb284-8"><a href="loop.html#cb284-8"></a>  <span class="dt">sample_unif =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="kw">runif</span>(<span class="dv">15</span>, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">1</span>)),</span>
+<span id="cb284-9"><a href="loop.html#cb284-9"></a>  <span class="dt">sample_pois =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="kw">rpois</span>(<span class="dv">20</span>, <span class="dt">lambda =</span> <span class="dv">5</span>))</span>
+<span id="cb284-10"><a href="loop.html#cb284-10"></a>)</span>
+<span id="cb284-11"><a href="loop.html#cb284-11"></a></span>
+<span id="cb284-12"><a href="loop.html#cb284-12"></a>negative_values &lt;-<span class="st"> </span><span class="cf">function</span>(x) x[x <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>]</span>
+<span id="cb284-13"><a href="loop.html#cb284-13"></a><span class="kw">sapply</span>(x1, negative_values) </span>
+<span id="cb284-14"><a href="loop.html#cb284-14"></a><span class="co">## $sample_unif</span></span>
+<span id="cb284-15"><a href="loop.html#cb284-15"></a><span class="co">## [1] -1</span></span>
+<span id="cb284-16"><a href="loop.html#cb284-16"></a><span class="co">## </span></span>
+<span id="cb284-17"><a href="loop.html#cb284-17"></a><span class="co">## $sample_norm</span></span>
+<span id="cb284-18"><a href="loop.html#cb284-18"></a><span class="co">## [1] -0.9836134 -0.2519641 -1.0558786</span></span>
+<span id="cb284-19"><a href="loop.html#cb284-19"></a><span class="co">## </span></span>
+<span id="cb284-20"><a href="loop.html#cb284-20"></a><span class="co">## $sample_pois</span></span>
+<span id="cb284-21"><a href="loop.html#cb284-21"></a><span class="co">## integer(0)</span></span>
+<span id="cb284-22"><a href="loop.html#cb284-22"></a><span class="kw">sapply</span>(x2, negative_values) </span>
+<span id="cb284-23"><a href="loop.html#cb284-23"></a><span class="co">## sample_gamma  sample_unif  sample_pois </span></span>
+<span id="cb284-24"><a href="loop.html#cb284-24"></a><span class="co">##           -1           -2           -3</span></span>
+<span id="cb284-25"><a href="loop.html#cb284-25"></a></span>
+<span id="cb284-26"><a href="loop.html#cb284-26"></a><span class="kw">vapply</span>(x1, negative_values, <span class="dt">FUN.VALUE =</span> <span class="kw">numeric</span>(<span class="dv">1</span>))</span>
+<span id="cb284-27"><a href="loop.html#cb284-27"></a><span class="co">## Error in vapply(x1, negative_values, FUN.VALUE = numeric(1)): values must be length 1,</span></span>
+<span id="cb284-28"><a href="loop.html#cb284-28"></a><span class="co">##  but FUN(X[[2]]) result is length 3</span></span>
+<span id="cb284-29"><a href="loop.html#cb284-29"></a><span class="kw">vapply</span>(x2, negative_values, <span class="dt">FUN.VALUE =</span> <span class="kw">numeric</span>(<span class="dv">1</span>)) </span>
+<span id="cb284-30"><a href="loop.html#cb284-30"></a><span class="co">## sample_gamma  sample_unif  sample_pois </span></span>
+<span id="cb284-31"><a href="loop.html#cb284-31"></a><span class="co">##           -1           -2           -3</span></span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div id="replicate" class="section level2">
+<h2><span class="header-section-number">14.3</span> Replicate</h2>
+<p>Permette di ripetere una data funzione un numero fissato di volte salvando i risultati</p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="loop.html#cb285-1"></a><span class="kw">replicate</span>(<span class="dt">n =</span> , <span class="dt">expr =</span> )</span></code></pre></div>
+<div id="esempi-5" class="section level4 unnumbered">
+<h4>Esempi</h4>
+<ul>
+<li>Semplice</li>
+</ul>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="loop.html#cb286-1"></a>sample_info &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dt">n =</span> <span class="dv">1000</span>,{</span>
+<span id="cb286-2"><a href="loop.html#cb286-2"></a>  my_sample &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb286-3"><a href="loop.html#cb286-3"></a>  my_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(my_sample)</span>
+<span id="cb286-4"><a href="loop.html#cb286-4"></a>  </span>
+<span id="cb286-5"><a href="loop.html#cb286-5"></a>  <span class="kw">return</span>(my_mean)</span>
+<span id="cb286-6"><a href="loop.html#cb286-6"></a>})</span>
+<span id="cb286-7"><a href="loop.html#cb286-7"></a></span>
+<span id="cb286-8"><a href="loop.html#cb286-8"></a><span class="kw">str</span>(sample_info)</span>
+<span id="cb286-9"><a href="loop.html#cb286-9"></a><span class="co">##  num [1:1000] -0.3468 -0.2149 0.0215 0.2966 -0.4224 ...</span></span></code></pre></div>
+<ul>
+<li>Complesso</li>
+</ul>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="loop.html#cb287-1"></a>sample_info &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dt">n =</span> <span class="dv">1000</span>,{</span>
+<span id="cb287-2"><a href="loop.html#cb287-2"></a>  my_sample &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb287-3"><a href="loop.html#cb287-3"></a>  my_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(my_sample)</span>
+<span id="cb287-4"><a href="loop.html#cb287-4"></a>  my_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(my_sample)</span>
+<span id="cb287-5"><a href="loop.html#cb287-5"></a>  </span>
+<span id="cb287-6"><a href="loop.html#cb287-6"></a>  <span class="kw">return</span>(<span class="kw">data.frame</span>(<span class="dt">mean =</span> my_mean, </span>
+<span id="cb287-7"><a href="loop.html#cb287-7"></a>                    <span class="dt">sd =</span> my_sd))</span>
+<span id="cb287-8"><a href="loop.html#cb287-8"></a>}, <span class="dt">simplify =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb287-9"><a href="loop.html#cb287-9"></a></span>
+<span id="cb287-10"><a href="loop.html#cb287-10"></a></span>
+<span id="cb287-11"><a href="loop.html#cb287-11"></a>sample_info &lt;-<span class="st"> </span><span class="kw">do.call</span>(<span class="st">&quot;rbind&quot;</span>, sample_info)</span>
+<span id="cb287-12"><a href="loop.html#cb287-12"></a></span>
+<span id="cb287-13"><a href="loop.html#cb287-13"></a><span class="kw">str</span>(sample_info)</span>
+<span id="cb287-14"><a href="loop.html#cb287-14"></a><span class="co">## &#39;data.frame&#39;:    1000 obs. of  2 variables:</span></span>
+<span id="cb287-15"><a href="loop.html#cb287-15"></a><span class="co">##  $ mean: num  0.00125 -0.28726 -0.19768 -0.46685 0.24827 ...</span></span>
+<span id="cb287-16"><a href="loop.html#cb287-16"></a><span class="co">##  $ sd  : num  1.288 1.051 0.838 1.066 1.157 ...</span></span>
+<span id="cb287-17"><a href="loop.html#cb287-17"></a><span class="kw">head</span>(sample_info)</span>
+<span id="cb287-18"><a href="loop.html#cb287-18"></a><span class="co">##           mean        sd</span></span>
+<span id="cb287-19"><a href="loop.html#cb287-19"></a><span class="co">## 1  0.001247319 1.2877841</span></span>
+<span id="cb287-20"><a href="loop.html#cb287-20"></a><span class="co">## 2 -0.287264181 1.0510169</span></span>
+<span id="cb287-21"><a href="loop.html#cb287-21"></a><span class="co">## 3 -0.197681457 0.8377152</span></span>
+<span id="cb287-22"><a href="loop.html#cb287-22"></a><span class="co">## 4 -0.466854627 1.0664321</span></span>
+<span id="cb287-23"><a href="loop.html#cb287-23"></a><span class="co">## 5  0.248266127 1.1567373</span></span>
+<span id="cb287-24"><a href="loop.html#cb287-24"></a><span class="co">## 6  0.438984975 0.8064642</span></span></code></pre></div>
 
+</div>
+</div>
 </div>
 
 

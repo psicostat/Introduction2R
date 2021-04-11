@@ -228,7 +228,7 @@
 \makeatother
 \subtitle{Corso per imparare le basi di \textbf{R}}
 \author{\href{https://claudiozandonella.netlify.app/}{Claudio Zandonella Callegher} and \href{https://filippogambarota.netlify.app/}{Filippo Gambarota} members of \href{https://psicostat.dpss.psy.unipd.it/}{Psicostat}}
-\date{10-04-2021}
+\date{11-04-2021}
 
 \begin{document}
 \maketitle
@@ -3485,10 +3485,10 @@ Utilizzando le funzioni \texttt{sum()} e \texttt{mean()} con un vettore logico, 
 \NormalTok{my_values <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{)  }\CommentTok{# genero dei numeri casuali }
 
 \KeywordTok{sum}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# totale numeri positivi}
-\CommentTok{## [1] 23}
+\CommentTok{## [1] 24}
 
 \KeywordTok{mean}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# percentuale numeri positivi}
-\CommentTok{## [1] 0.46}
+\CommentTok{## [1] 0.48}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8017,9 +8017,631 @@ Esegui i seguenti esercizi:
 \end{Shaded}
 
 \hypertarget{loop}{%
-\chapter{Attenti al loop}\label{loop}}
+\chapter{Programmazione Iterativa}\label{loop}}
 
 Working in progress.
+
+\hypertarget{loop-1}{%
+\section{Loop}\label{loop-1}}
+
+\hypertarget{for}{%
+\subsection{For}\label{for}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{images/for_loop} 
+
+}
+
+\caption{Rappresentazione for loop}\label{fig:plot-for-loop}
+\end{figure}
+
+\hypertarget{struttura-for-loop}{%
+\subsubsection*{Struttura For Loop}\label{struttura-for-loop}}
+\addcontentsline{toc}{subsubsection}{Struttura For Loop}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \KeywordTok{c}\NormalTok{(...)) \{}
+    \OperatorTok{<}\NormalTok{codice}\OperatorTok{-}\NormalTok{da}\OperatorTok{-}\NormalTok{eseguire}\OperatorTok{>}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esempio-5}{%
+\subsubsection*{Esempio}\label{esempio-5}}
+\addcontentsline{toc}{subsubsection}{Esempio}
+
+\begin{itemize}
+\tightlist
+\item
+  Loop con valori vettore
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# numerico}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{8}\NormalTok{))\{}
+  \KeywordTok{print}\NormalTok{(i)}
+\NormalTok{\}}
+\CommentTok{## [1] 2}
+\CommentTok{## [1] 4}
+\CommentTok{## [1] 6}
+\CommentTok{## [1] 8}
+
+\CommentTok{# caratteri}
+\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in} \KeywordTok{c}\NormalTok{(}\StringTok{"Alessio"}\NormalTok{, }\StringTok{"Beatrice"}\NormalTok{, }\StringTok{"Carlo"}\NormalTok{))\{}
+  \KeywordTok{print}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"Ciao "}\NormalTok{, name))}
+\NormalTok{\}}
+\CommentTok{## [1] "Ciao Alessio"}
+\CommentTok{## [1] "Ciao Beatrice"}
+\CommentTok{## [1] "Ciao Carlo"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Loop con indici di posizione
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_vector <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{93}\NormalTok{, }\DecValTok{27}\NormalTok{, }\DecValTok{46}\NormalTok{, }\DecValTok{99}\NormalTok{)}
+
+\CommentTok{# i in 1:length(my_vector)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \KeywordTok{seq_along}\NormalTok{(my_vector))\{}
+  \KeywordTok{print}\NormalTok{(my_vector[i])}
+\NormalTok{\}}
+\CommentTok{## [1] 93}
+\CommentTok{## [1] 27}
+\CommentTok{## [1] 46}
+\CommentTok{## [1] 99}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{trick}[Next e Break]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_vector <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{93}\NormalTok{, }\DecValTok{27}\NormalTok{, }\DecValTok{46}\NormalTok{, }\DecValTok{99}\NormalTok{)}
+\NormalTok{my_NULL <-}\StringTok{ }\OtherTok{NULL}
+
+\DecValTok{1}\OperatorTok{:}\KeywordTok{length}\NormalTok{(my_vector)}
+\CommentTok{## [1] 1 2 3 4}
+\DecValTok{1}\OperatorTok{:}\KeywordTok{length}\NormalTok{(my_NULL)}
+\CommentTok{## [1] 1 0}
+
+\KeywordTok{seq_along}\NormalTok{(my_vector)}
+\CommentTok{## [1] 1 2 3 4}
+\KeywordTok{seq_along}\NormalTok{(my_NULL)}
+\CommentTok{## integer(0)}
+
+\KeywordTok{seq_len}\NormalTok{(}\KeywordTok{length}\NormalTok{(my_vector))}
+\CommentTok{## [1] 1 2 3 4}
+\KeywordTok{seq_len}\NormalTok{(}\KeywordTok{length}\NormalTok{(my_NULL))}
+\CommentTok{## integer(0)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{trick}
+
+\hypertarget{utilizzi}{%
+\subsubsection*{Utilizzi}\label{utilizzi}}
+\addcontentsline{toc}{subsubsection}{Utilizzi}
+
+\begin{itemize}
+\tightlist
+\item
+  Loop con aggiornamento variabile risultato
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_values <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{8}\NormalTok{)}
+
+\CommentTok{# Calcolare somma valori}
+\NormalTok{my_sum <-}\StringTok{ }\DecValTok{0}      \CommentTok{# inizializzo valore}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \KeywordTok{seq_along}\NormalTok{(my_values))\{}
+\NormalTok{  my_sum <-}\StringTok{ }\NormalTok{my_sum }\OperatorTok{+}\StringTok{ }\NormalTok{my_values[i]}
+\NormalTok{\}}
+
+\NormalTok{my_sum}
+\CommentTok{## [1] 20}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Loop salvando il risultato ad ogni iterazione
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Calcola la somma di colonna}
+\NormalTok{my_matrix <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{24}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{4}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{6}\NormalTok{)}
+
+\CommentTok{# Metodo non efficiente (aggiungo valori)}
+\NormalTok{sum_cols <-}\StringTok{ }\KeywordTok{c}\NormalTok{()}
+\ControlFlowTok{for}\NormalTok{( i }\ControlFlowTok{in} \KeywordTok{seq_len}\NormalTok{(}\KeywordTok{ncol}\NormalTok{(my_matrix)))\{}
+\NormalTok{  sum_col <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(my_matrix[, i])   }\CommentTok{# calcolo i esima colonna}
+\NormalTok{  sum_cols <-}\StringTok{ }\KeywordTok{c}\NormalTok{(sum_cols, sum_col) }\CommentTok{# aggiungo il risultato}
+\NormalTok{\}}
+
+\NormalTok{sum_cols}
+\CommentTok{## [1] 10 26 42 58 74 90}
+
+\CommentTok{# Metodo efficiente (aggiorno valori)}
+\NormalTok{sum_cols <-}\StringTok{ }\KeywordTok{vector}\NormalTok{(}\DataTypeTok{mode =} \StringTok{"double"}\NormalTok{, }\DataTypeTok{length =} \KeywordTok{ncol}\NormalTok{(my_matrix))}
+\ControlFlowTok{for}\NormalTok{( i }\ControlFlowTok{in} \KeywordTok{seq_along}\NormalTok{(sum_cols))\{}
+\NormalTok{  sum_col <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(my_matrix[, i])   }\CommentTok{# calcolo i esima colonna}
+\NormalTok{  sum_cols[i] <-}\StringTok{  }\NormalTok{sum_col }\CommentTok{# aggiorno il risultato}
+\NormalTok{\}}
+
+\NormalTok{sum_cols}
+\CommentTok{## [1] 10 26 42 58 74 90}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{while}{%
+\subsection{While}\label{while}}
+
+Eseguire il codice fintanto che non si realizza una data condizione.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.65\linewidth]{images/while_loop} 
+
+}
+
+\caption{Rappresentazione while loop}\label{fig:plot-while-loop}
+\end{figure}
+
+\hypertarget{struttura-while-loop}{%
+\subsubsection*{Struttura While Loop}\label{struttura-while-loop}}
+\addcontentsline{toc}{subsubsection}{Struttura While Loop}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{while}\NormalTok{ (}\OperatorTok{<}\NormalTok{test}\OperatorTok{>}\NormalTok{) \{}
+    \OperatorTok{<}\NormalTok{codice}\OperatorTok{-}\NormalTok{da}\OperatorTok{-}\NormalTok{eseguire}\OperatorTok{>}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esempio-6}{%
+\subsubsection*{Esempio}\label{esempio-6}}
+\addcontentsline{toc}{subsubsection}{Esempio}
+
+\begin{itemize}
+\tightlist
+\item
+  Semplice countdown
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{count <-}\StringTok{ }\DecValTok{5}
+
+\ControlFlowTok{while}\NormalTok{(count }\OperatorTok{>=}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
+  \KeywordTok{print}\NormalTok{(count)}
+\NormalTok{  count <-}\StringTok{ }\NormalTok{count }\OperatorTok{-}\StringTok{ }\DecValTok{1} \CommentTok{# aggiorno variabile}
+\NormalTok{\}}
+\CommentTok{## [1] 5}
+\CommentTok{## [1] 4}
+\CommentTok{## [1] 3}
+\CommentTok{## [1] 2}
+\CommentTok{## [1] 1}
+\CommentTok{## [1] 0}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Attenzione ai loop indefiniti. E' importante assicurasi di aggiornara correttamente la variabile usata per il test.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{count <-}\StringTok{ }\DecValTok{5}
+
+\CommentTok{# Attenzione loop infinito}
+\ControlFlowTok{while}\NormalTok{(count }\OperatorTok{>=}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
+  \KeywordTok{print}\NormalTok{(count)}
+  \CommentTok{# count <- count - 1 }
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{next-e-brake}{%
+\subsection{Next e Brake}\label{next-e-brake}}
+
+Nell'esecuzione delel ierazioni potremmo incontrare alcune condizioni per cui vogliamo passare all'interazione successiva o terminare l'esecuzioen del loop. In R tali operazioni posso essere eseguite rispettivamene coni comandi \texttt{next} e \texttt{break}.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{next} - passa all'iterazione successiva
+\item
+  \texttt{break} - interrompiesecuzione loop
+\end{itemize}
+
+\hypertarget{esempio-7}{%
+\subsubsection*{Esempio}\label{esempio-7}}
+\addcontentsline{toc}{subsubsection}{Esempio}
+
+\begin{itemize}
+\tightlist
+\item
+  con for loop
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_vector <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{6}
+
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \KeywordTok{seq_along}\NormalTok{(my_vector))\{}
+  \ControlFlowTok{if}\NormalTok{ (my_vector[i] }\OperatorTok{==}\StringTok{ }\DecValTok{3}\NormalTok{) }\ControlFlowTok{next}
+  
+  \ControlFlowTok{if}\NormalTok{ (my_vector[i] }\OperatorTok{==}\StringTok{ }\DecValTok{5}\NormalTok{) }\ControlFlowTok{break}
+  \KeywordTok{print}\NormalTok{(my_vector[i])}
+\NormalTok{\}}
+\CommentTok{## [1] 1}
+\CommentTok{## [1] 2}
+\CommentTok{## [1] 4}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  con while loop
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{count <-}\StringTok{ }\DecValTok{7}
+
+\ControlFlowTok{while}\NormalTok{(count }\OperatorTok{>=}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
+\NormalTok{  count <-}\StringTok{ }\NormalTok{count }\OperatorTok{-}\StringTok{ }\DecValTok{1}
+  \ControlFlowTok{if}\NormalTok{ (count }\OperatorTok{==}\StringTok{ }\DecValTok{5}\NormalTok{) }\ControlFlowTok{next}
+  
+  \ControlFlowTok{if}\NormalTok{ (count }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{) }\ControlFlowTok{break}
+  
+  \KeywordTok{print}\NormalTok{(count)}
+\NormalTok{\}}
+\CommentTok{## [1] 6}
+\CommentTok{## [1] 4}
+\CommentTok{## [1] 3}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esercizi-16}{%
+\subsection*{Esercizi}\label{esercizi-16}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Scrivi una funzione che calcoli la media di un vettore numerico usando un for loop.
+\item
+  Scrivi una funzione che dato un vettore numerico restituisca il valore massimo e minimo usando un for loop (attenti al valore di inizializzazione).
+\item
+  Scrivi una funzione che per ogni iterazione generi \(n\) osservazioni da una normale (funzione \texttt{rnorm()}) con media \(mu\) e deviazione standard \(sigma\), salva la media di ogni campione. I parametri della funzione saranno \(n\), \(mu\), \(sigma\) e \(iter\) (numero di iterazioni).
+\end{enumerate}
+
+\hypertarget{apply-family}{%
+\section{Apply Family}\label{apply-family}}
+
+Quando dobbiamo eseguire le stese funzioni su una sequenza di elementi possiamo utilizzare alcune speciali funzioni della famiglia apply:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{apply} - dato un dataframe (o matrice) esegue la stessa funzione su ogni riga o colonna
+\item
+  \texttt{tapply} - dato un vettore di valori esegue la stessa funzione su ogni gruppo che è satato definito
+\item
+  \texttt{lapply} - esegue la stessa funzione per ogni elemento di una lista. Restituisce ancora una lista
+\item
+  \texttt{sapply} - esegue la stessa funzione per ogni elemento di una lista. Restituisce se possibile un oggetto seplificato (un vettore, una matrice o un array)
+\item
+  \texttt{vapply}- analogo a \texttt{sapply} ma richiede di definire il tipo di dati restituiti
+\end{itemize}
+
+Queste funzioni permettono di implementare in modo semplice ed immediato dei loop.
+
+\hypertarget{apply}{%
+\subsection{apply}\label{apply}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{apply}\NormalTok{(}\DataTypeTok{X =}\NormalTok{ , }\DataTypeTok{MARGIN =}\NormalTok{ , }\DataTypeTok{FUN =}\NormalTok{ , ...)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esempi}{%
+\subsubsection*{Esempi}\label{esempi}}
+\addcontentsline{toc}{subsubsection}{Esempi}
+
+\begin{itemize}
+\tightlist
+\item
+  Semplici funzioni
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_matrix <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{24}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{4}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{6}\NormalTok{)}
+
+\CommentTok{# Per riga}
+\KeywordTok{apply}\NormalTok{(my_matrix, }\DataTypeTok{MARGIN =} \DecValTok{1}\NormalTok{, }\DataTypeTok{FUN =}\NormalTok{ sum)}
+\CommentTok{## [1] 66 72 78 84}
+
+\CommentTok{# Per colonna}
+\KeywordTok{apply}\NormalTok{(my_matrix, }\DataTypeTok{MARGIN =} \DecValTok{2}\NormalTok{, }\DataTypeTok{FUN =}\NormalTok{ sum)}
+\CommentTok{## [1] 10 26 42 58 74 90}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Funzioni complesse
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Coefficiente di Variazione}
+\KeywordTok{apply}\NormalTok{(my_matrix, }\DataTypeTok{MARGIN =} \DecValTok{2}\NormalTok{, }\DataTypeTok{FUN =} \ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  mean <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(x)}
+\NormalTok{  sd <-}\StringTok{ }\KeywordTok{sd}\NormalTok{(x)}
+  
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{round}\NormalTok{(sd}\OperatorTok{/}\NormalTok{mean,}\DecValTok{2}\NormalTok{))}
+\NormalTok{\})}
+\CommentTok{## [1] 0.52 0.20 0.12 0.09 0.07 0.06}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{tapply}{%
+\subsection{tapply}\label{tapply}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tapply}\NormalTok{(}\DataTypeTok{X =}\NormalTok{ , }\DataTypeTok{INDEX =}\NormalTok{ , }\DataTypeTok{FUN =}\NormalTok{ , ...)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esempi-1}{%
+\subsubsection*{Esempi}\label{esempi-1}}
+\addcontentsline{toc}{subsubsection}{Esempi}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_data <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
+  \DataTypeTok{y =} \KeywordTok{sample}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{10}\NormalTok{), }\DataTypeTok{size =} \DecValTok{32}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{),}
+  \DataTypeTok{gender =} \KeywordTok{factor}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"F"}\NormalTok{, }\StringTok{"M"}\NormalTok{), }\DataTypeTok{each =} \DecValTok{16}\NormalTok{)),}
+  \DataTypeTok{class =} \KeywordTok{factor}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"3"}\NormalTok{, }\StringTok{"5"}\NormalTok{), }\DataTypeTok{times =} \DecValTok{16}\NormalTok{))}
+\NormalTok{)}
+
+\KeywordTok{head}\NormalTok{(my_data, }\DataTypeTok{n =} \DecValTok{4}\NormalTok{)}
+\CommentTok{##   y gender class}
+\CommentTok{## 1 4      F     3}
+\CommentTok{## 2 8      F     5}
+\CommentTok{## 3 8      F     3}
+\CommentTok{## 4 6      F     5}
+
+\CommentTok{# Media y per classe}
+\KeywordTok{tapply}\NormalTok{(my_data}\OperatorTok{$}\NormalTok{y, }\DataTypeTok{INDEX =}\NormalTok{ my_data}\OperatorTok{$}\NormalTok{class, }\DataTypeTok{FUN =}\NormalTok{ mean)}
+\CommentTok{##     3     5 }
+\CommentTok{## 6.875 5.750}
+
+\CommentTok{# Media y per classe e genere}
+\KeywordTok{tapply}\NormalTok{(my_data}\OperatorTok{$}\NormalTok{y, }\DataTypeTok{INDEX =} \KeywordTok{list}\NormalTok{(my_data}\OperatorTok{$}\NormalTok{class, my_data}\OperatorTok{$}\NormalTok{gender), }\DataTypeTok{FUN =}\NormalTok{ mean)}
+\CommentTok{##      F   M}
+\CommentTok{## 3 7.25 6.5}
+\CommentTok{## 5 6.00 5.5}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{lapply}{%
+\subsection{lapply}\label{lapply}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{lapply}\NormalTok{(}\DataTypeTok{X =}\NormalTok{ , }\DataTypeTok{FUN =}\NormalTok{ , ...)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esempi-2}{%
+\subsubsection*{Esempi}\label{esempi-2}}
+\addcontentsline{toc}{subsubsection}{Esempi}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_list <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+  \DataTypeTok{sample_norm =} \KeywordTok{rnorm}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{),}
+  \DataTypeTok{sample_unif =} \KeywordTok{runif}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DataTypeTok{min =} \DecValTok{0}\NormalTok{, }\DataTypeTok{max =} \DecValTok{1}\NormalTok{),}
+  \DataTypeTok{sample_pois =} \KeywordTok{rpois}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DataTypeTok{lambda =} \DecValTok{5}\NormalTok{)}
+\NormalTok{)}
+
+\KeywordTok{str}\NormalTok{(my_list)}
+\CommentTok{## List of 3}
+\CommentTok{##  $ sample_norm: num [1:10] -1.964 -1.448 1.019 -1.421 -0.605 ...}
+\CommentTok{##  $ sample_unif: num [1:15] 0.546 0.409 0.961 0.662 0.365 ...}
+\CommentTok{##  $ sample_pois: int [1:20] 8 6 6 6 6 4 4 1 8 5 ...}
+
+\CommentTok{# Media }
+\KeywordTok{lapply}\NormalTok{(my_list, }\DataTypeTok{FUN =}\NormalTok{ mean)}
+\CommentTok{## $sample_norm}
+\CommentTok{## [1] -0.8324701}
+\CommentTok{## }
+\CommentTok{## $sample_unif}
+\CommentTok{## [1] 0.5621297}
+\CommentTok{## }
+\CommentTok{## $sample_pois}
+\CommentTok{## [1] 4.9}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{sapply}{%
+\subsection{sapply}\label{sapply}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sapply}\NormalTok{(}\DataTypeTok{X =}\NormalTok{ , }\DataTypeTok{FUN =}\NormalTok{ , ... )}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esempi-3}{%
+\subsubsection*{Esempi}\label{esempi-3}}
+\addcontentsline{toc}{subsubsection}{Esempi}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Media }
+\KeywordTok{sapply}\NormalTok{(my_list, }\DataTypeTok{FUN =}\NormalTok{ mean)}
+\CommentTok{## sample_norm sample_unif sample_pois }
+\CommentTok{##  -0.8324701   0.5621297   4.9000000}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{vapply}{%
+\subsection{vapply}\label{vapply}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{vapply}\NormalTok{(}\DataTypeTok{X =}\NormalTok{ , }\DataTypeTok{FUN =}\NormalTok{ , }\DataTypeTok{FUN.VALUE =}\NormalTok{  ,... )}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esempi-4}{%
+\subsubsection*{Esempi}\label{esempi-4}}
+\addcontentsline{toc}{subsubsection}{Esempi}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Media }
+\KeywordTok{vapply}\NormalTok{(my_list, }\DataTypeTok{FUN =}\NormalTok{ mean, }\DataTypeTok{FUN.VALUE =} \KeywordTok{numeric}\NormalTok{(}\DataTypeTok{length =}\NormalTok{ 1L))}
+\CommentTok{## sample_norm sample_unif sample_pois }
+\CommentTok{##  -0.8324701   0.5621297   4.9000000}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{warning}[sapply() vs vapply()]
+
+\texttt{sapply()} non restituisce sempre la stessa tipologia di oggetto mentre \texttt{vapply()} richiede sia specificato il tipo di l'output di ogni iterazione.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x1 <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+  \DataTypeTok{sample_unif =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\KeywordTok{runif}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DataTypeTok{min =} \DecValTok{0}\NormalTok{, }\DataTypeTok{max =} \DecValTok{1}\NormalTok{)),}
+  \DataTypeTok{sample_norm =} \KeywordTok{rnorm}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{),}
+  \DataTypeTok{sample_pois =} \KeywordTok{rpois}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DataTypeTok{lambda =} \DecValTok{5}\NormalTok{)}
+\NormalTok{)}
+\NormalTok{x2 <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+  \DataTypeTok{sample_gamma =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\KeywordTok{rgamma}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DataTypeTok{shape =} \DecValTok{1}\NormalTok{)),}
+  \DataTypeTok{sample_unif =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{2}\NormalTok{, }\KeywordTok{runif}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DataTypeTok{min =} \DecValTok{0}\NormalTok{, }\DataTypeTok{max =} \DecValTok{1}\NormalTok{)),}
+  \DataTypeTok{sample_pois =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{3}\NormalTok{, }\KeywordTok{rpois}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DataTypeTok{lambda =} \DecValTok{5}\NormalTok{))}
+\NormalTok{)}
+
+\NormalTok{negative_values <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) x[x }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{]}
+\KeywordTok{sapply}\NormalTok{(x1, negative_values) }
+\CommentTok{## $sample_unif}
+\CommentTok{## [1] -1}
+\CommentTok{## }
+\CommentTok{## $sample_norm}
+\CommentTok{## [1] -0.9836134 -0.2519641 -1.0558786}
+\CommentTok{## }
+\CommentTok{## $sample_pois}
+\CommentTok{## integer(0)}
+\KeywordTok{sapply}\NormalTok{(x2, negative_values) }
+\CommentTok{## sample_gamma  sample_unif  sample_pois }
+\CommentTok{##           -1           -2           -3}
+
+\KeywordTok{vapply}\NormalTok{(x1, negative_values, }\DataTypeTok{FUN.VALUE =} \KeywordTok{numeric}\NormalTok{(}\DecValTok{1}\NormalTok{))}
+\CommentTok{## Error in vapply(x1, negative_values, FUN.VALUE = numeric(1)): values must be length 1,}
+\CommentTok{##  but FUN(X[[2]]) result is length 3}
+\KeywordTok{vapply}\NormalTok{(x2, negative_values, }\DataTypeTok{FUN.VALUE =} \KeywordTok{numeric}\NormalTok{(}\DecValTok{1}\NormalTok{)) }
+\CommentTok{## sample_gamma  sample_unif  sample_pois }
+\CommentTok{##           -1           -2           -3}
+\end{Highlighting}
+\end{Shaded}
+
+\end{warning}
+
+\hypertarget{replicate}{%
+\section{Replicate}\label{replicate}}
+
+Permette di ripetere una data funzione un numero fissato di volte salvando i risultati
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{replicate}\NormalTok{(}\DataTypeTok{n =}\NormalTok{ , }\DataTypeTok{expr =}\NormalTok{ )}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{esempi-5}{%
+\subsubsection*{Esempi}\label{esempi-5}}
+\addcontentsline{toc}{subsubsection}{Esempi}
+
+\begin{itemize}
+\tightlist
+\item
+  Semplice
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sample_info <-}\StringTok{ }\KeywordTok{replicate}\NormalTok{(}\DataTypeTok{n =} \DecValTok{1000}\NormalTok{,\{}
+\NormalTok{  my_sample <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{20}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{)}
+\NormalTok{  my_mean <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(my_sample)}
+  
+  \KeywordTok{return}\NormalTok{(my_mean)}
+\NormalTok{\})}
+
+\KeywordTok{str}\NormalTok{(sample_info)}
+\CommentTok{##  num [1:1000] -0.3468 -0.2149 0.0215 0.2966 -0.4224 ...}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Complesso
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sample_info <-}\StringTok{ }\KeywordTok{replicate}\NormalTok{(}\DataTypeTok{n =} \DecValTok{1000}\NormalTok{,\{}
+\NormalTok{  my_sample <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{20}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{)}
+\NormalTok{  my_mean <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(my_sample)}
+\NormalTok{  my_sd <-}\StringTok{ }\KeywordTok{sd}\NormalTok{(my_sample)}
+  
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{mean =}\NormalTok{ my_mean, }
+                    \DataTypeTok{sd =}\NormalTok{ my_sd))}
+\NormalTok{\}, }\DataTypeTok{simplify =} \OtherTok{FALSE}\NormalTok{)}
+
+
+\NormalTok{sample_info <-}\StringTok{ }\KeywordTok{do.call}\NormalTok{(}\StringTok{"rbind"}\NormalTok{, sample_info)}
+
+\KeywordTok{str}\NormalTok{(sample_info)}
+\CommentTok{## 'data.frame':    1000 obs. of  2 variables:}
+\CommentTok{##  $ mean: num  0.00125 -0.28726 -0.19768 -0.46685 0.24827 ...}
+\CommentTok{##  $ sd  : num  1.288 1.051 0.838 1.066 1.157 ...}
+\KeywordTok{head}\NormalTok{(sample_info)}
+\CommentTok{##           mean        sd}
+\CommentTok{## 1  0.001247319 1.2877841}
+\CommentTok{## 2 -0.287264181 1.0510169}
+\CommentTok{## 3 -0.197681457 0.8377152}
+\CommentTok{## 4 -0.466854627 1.0664321}
+\CommentTok{## 5  0.248266127 1.1567373}
+\CommentTok{## 6  0.438984975 0.8064642}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{part-case-study}{%
 \part*{Case study}\label{part-case-study}}

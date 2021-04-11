@@ -46,6 +46,8 @@ fig:list-depth
 fig:plot-if-chart
 fig:plot-ifelse-chart
 fig:plot-ifnested
+fig:plot-for-loop
+fig:plot-while-loop
 install
 install-r
 r-windows
@@ -148,5 +150,16 @@ altri-operatori-condizinali
 switch
 ifelse-1
 loop
+loop-1
+for
+while
+next-e-brake
+apply-family
+apply
+tapply
+lapply
+sapply
+vapply
+replicate
 attachment
 infobox

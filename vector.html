@@ -313,7 +313,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.2.2" data-path="coditionals.html"><a href="coditionals.html#ifelse-1"><i class="fa fa-check"></i><b>13.2.2</b> ifelse</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="loop.html"><a href="loop.html"><i class="fa fa-check"></i><b>14</b> Attenti al loop</a></li>
+<li class="chapter" data-level="14" data-path="loop.html"><a href="loop.html"><i class="fa fa-check"></i><b>14</b> Programmazione Iterativa</a><ul>
+<li class="chapter" data-level="14.1" data-path="loop.html"><a href="loop.html#loop-1"><i class="fa fa-check"></i><b>14.1</b> Loop</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="loop.html"><a href="loop.html#for"><i class="fa fa-check"></i><b>14.1.1</b> For</a></li>
+<li class="chapter" data-level="14.1.2" data-path="loop.html"><a href="loop.html#while"><i class="fa fa-check"></i><b>14.1.2</b> While</a></li>
+<li class="chapter" data-level="14.1.3" data-path="loop.html"><a href="loop.html#next-e-brake"><i class="fa fa-check"></i><b>14.1.3</b> Next e Brake</a></li>
+<li class="chapter" data-level="" data-path="loop.html"><a href="loop.html#esercizi-16"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="loop.html"><a href="loop.html#apply-family"><i class="fa fa-check"></i><b>14.2</b> Apply Family</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="loop.html"><a href="loop.html#apply"><i class="fa fa-check"></i><b>14.2.1</b> apply</a></li>
+<li class="chapter" data-level="14.2.2" data-path="loop.html"><a href="loop.html#tapply"><i class="fa fa-check"></i><b>14.2.2</b> tapply</a></li>
+<li class="chapter" data-level="14.2.3" data-path="loop.html"><a href="loop.html#lapply"><i class="fa fa-check"></i><b>14.2.3</b> lapply</a></li>
+<li class="chapter" data-level="14.2.4" data-path="loop.html"><a href="loop.html#sapply"><i class="fa fa-check"></i><b>14.2.4</b> sapply</a></li>
+<li class="chapter" data-level="14.2.5" data-path="loop.html"><a href="loop.html#vapply"><i class="fa fa-check"></i><b>14.2.5</b> vapply</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="loop.html"><a href="loop.html#replicate"><i class="fa fa-check"></i><b>14.3</b> Replicate</a></li>
+</ul></li>
 <li class="part"><span><b>Case study</b></span></li>
 <li class="chapter" data-level="" data-path="introduzione-1.html"><a href="introduzione-1.html"><i class="fa fa-check"></i>Introduzione</a></li>
 <li class="chapter" data-level="15" data-path="attachment.html"><a href="attachment.html"><i class="fa fa-check"></i><b>15</b> Caso Studio I: Attaccamento</a><ul>
@@ -882,10 +897,10 @@ Rapporto tra due vettori
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="vector.html#cb86-1"></a>my_values &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">50</span>)  <span class="co"># genero dei numeri casuali </span></span>
 <span id="cb86-2"><a href="vector.html#cb86-2"></a></span>
 <span id="cb86-3"><a href="vector.html#cb86-3"></a><span class="kw">sum</span>(my_values <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)      <span class="co"># totale numeri positivi</span></span>
-<span id="cb86-4"><a href="vector.html#cb86-4"></a><span class="co">## [1] 31</span></span>
+<span id="cb86-4"><a href="vector.html#cb86-4"></a><span class="co">## [1] 29</span></span>
 <span id="cb86-5"><a href="vector.html#cb86-5"></a></span>
 <span id="cb86-6"><a href="vector.html#cb86-6"></a><span class="kw">mean</span>(my_values <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)      <span class="co"># percentuale numeri positivi</span></span>
-<span id="cb86-7"><a href="vector.html#cb86-7"></a><span class="co">## [1] 0.62</span></span></code></pre></div>
+<span id="cb86-7"><a href="vector.html#cb86-7"></a><span class="co">## [1] 0.58</span></span></code></pre></div>
 </div>
 <div class="design" title="is.* adn as.* Function Families">
 <p>Esistono due famiglie di funzioni che permettono rispettivamene di testare e di modificare la tipologia dei dati.</p>
