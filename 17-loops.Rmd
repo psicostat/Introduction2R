@@ -1,3 +1,195 @@
-# Attenti al loop {#loop}
+# Programmazione Iterativa {#loop}
+
+```{r settings, echo = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  collapse=TRUE,
+  fig.align="center"
+)
+```
 
 Working in progress.
+
+
+## Loop
+
+### For
+
+```{r, plot-for-loop, fig.cap="Rappresentazione for loop", out.width="65%"}
+knitr::include_graphics("images/for_loop.png")
+```
+
+#### Struttura For Loop {-}
+
+```{r, echo = TRUE, eval = FALSE}
+for (i in c(...)) {
+    <codice-da-eseguire>
+}
+```
+
+#### Esempio {-}
+
+- Loop con valori vettore
+```{r, echo = TRUE}
+# numerico
+for (i in c(2,4,6,8)){
+  print(i)
+}
+
+# caratteri
+for (name in c("Alessio", "Beatrice", "Carlo")){
+  print(paste0("Ciao ", name))
+}
+```
+
+- Loop con indici di posizione
+```{r, echo = TRUE}
+my_vector <- c(93, 27, 46, 99)
+
+# i in 1:length(my_vector)
+for (i in seq_along(my_vector)){
+  print(my_vector[i])
+}
+```
+
+:::{.trick title="seq_along() " data-latex="[Next e Break]"}
+
+```{r, echo = TRUE}
+my_vector <- c(93, 27, 46, 99)
+my_NULL <- NULL
+
+1:length(my_vector)
+1:length(my_NULL)
+
+seq_along(my_vector)
+seq_along(my_NULL)
+
+seq_len(length(my_vector))
+seq_len(length(my_NULL))
+```
+
+:::
+
+
+#### Utilizzi {-}
+
+- Loop con aggiornamento variabile risultato
+```{r, echo = TRUE}
+my_values <- c(2,4,6,8)
+
+# Calcolare somma valori
+my_sum <- 0      # inizializzo valore
+for (i in seq_along(my_values)){
+  my_sum <- my_sum + my_values[i]
+}
+
+my_sum
+```
+
+- Loop salvando il risultato ad ogni iterazione
+
+```{r, echo = TRUE}
+# Calcola la somma di colonna
+my_matrix <- matrix(1:24, nrow = 4, ncol = 6)
+
+# Metodo non efficiente (aggiungo valori)
+sum_cols <- c()
+for( i in seq_len(ncol(my_matrix))){
+  sum_col <- sum(my_matrix[, i])   # calcolo i esima colonna
+  sum_cols <- c(sum_cols, sum_col) # aggiungo il risultato
+}
+
+sum_cols
+
+# Metodo efficiente (aggiorno valori)
+sum_cols <- vector(mode = "double", length = ncol(my_matrix))
+for( i in seq_along(sum_cols)){
+  sum_col <- sum(my_matrix[, i])   # calcolo i esima colonna
+  sum_cols[i] <-  sum_col # aggiorno il risultato
+}
+
+sum_cols
+```
+
+
+### While
+
+Eseguire il codice fintanto che non si realizza una data condizione.
+ 
+```{r, plot-while-loop, fig.cap="Rappresentazione while loop", out.width="65%"}
+knitr::include_graphics("images/while_loop.png")
+```
+
+#### Struttura While Loop {-}
+
+```{r, echo = TRUE, eval = FALSE}
+while (<test>) {
+    <codice-da-eseguire>
+}
+```
+
+#### Esempio {-}
+
+- Semplice countdown
+```{r, echo = TRUE}
+count <- 5
+
+while(count >= 0){
+  print(count)
+  count <- count - 1 # aggiorno variabile
+}
+```
+
+- Attenzione ai loop indefiniti. E' importante assicurasi di aggiornara correttamente la variabile usata per il test.
+```{r, echo = TRUE, eval = FALSE}
+count <- 5
+
+# Attenzione loop infinito
+while(count >= 0){
+  print(count)
+  # count <- count - 1 
+}
+```
+
+### Next e Brake
+
+Nell'esecuzione delel ierazioni potremmo incontrare alcune condizioni per cui vogliamo passare all'interazione successiva o terminare l'esecuzioen del loop. In R tali operazioni posso essere eseguite rispettivamene coni comandi `next` e `break`.
+
+- `next` - passa all'iterazione successiva
+- `break` - interrompiesecuzione loop
+
+#### Esempio {-}
+
+- con for loop
+```{r, echo = TRUE}
+my_vector <- 1:6
+
+for (i in seq_along(my_vector)){
+  if (my_vector[i] == 3) next
+  
+  if (my_vector[i] == 5) break
+  print(my_vector[i])
+}
+```
+
+- con while loop
+```{r, echo = TRUE}
+count <- 7
+
+while(count >= 0){
+  count <- count - 1
+  if (count == 5) next
+  
+  if (count == 2) break
+  
+  print(count)
+}
+```
+
+### Esercizi {-}
+
+1. Scrivi una funzione che calcoli la media di un vettore numerico usando un for loop.
+2. Scrivi una funzione che dato un vettore numerico restituisca il valore massimo e  minimo usando un for loop (attenti al valore di inizializzazione).
+3. 
+
+
