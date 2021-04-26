@@ -2,6 +2,7 @@
 
 Working in progress.
 
+[Script Analisi](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-19-case-study-I.R)
 
 ## Infobox
 
