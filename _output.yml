@@ -1,6 +1,7 @@
 bookdown::gitbook:
   css: ["assets/style.css", "assets/toc.css", "assets/custom.css"]
   includes:
+    in_header: assets/GA_Script.html
     before_body: assets/banner.html
     after_body: assets/footer.html
   config:
