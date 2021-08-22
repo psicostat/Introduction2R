@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capitolo 12 Programmazione Condizionale | Introduction to R</title>
+  <meta name="description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capitolo 12 Programmazione Condizionale | Introduction to R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://psicostat.github.io/Introduction2R/" />
+  <meta property="og:image" content="https://psicostat.github.io/Introduction2R/images/logo_psicostat.png" />
+  <meta property="og:description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
+  <meta name="github-repo" content="psicostat/Introduction2R" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capitolo 12 Programmazione Condizionale | Introduction to R" />
+  
+  <meta name="twitter:description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
+  <meta name="twitter:image" content="https://psicostat.github.io/Introduction2R/images/logo_psicostat.png" />
+
+<meta name="author" content="Claudio Zandonella Callegher and Filippo Gambarota members of Psicostat" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="third-section.html"/>
+<link rel="next" href="loop.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RM7HE6D2VW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RM7HE6D2VW');
+</script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/toc.css" type="text/css" />
+<link rel="stylesheet" href="assets/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/hex_psicostat.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentazione</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#perchè-r"><i class="fa fa-check"></i>Perchè R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#struttura-del-libro"><i class="fa fa-check"></i>Struttura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#risorse-utili"><i class="fa fa-check"></i>Risorse Utili</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#psicostat"><i class="fa fa-check"></i>Psicostat</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#collaborazione"><i class="fa fa-check"></i>Collaborazione</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#riconoscimenti"><i class="fa fa-check"></i>Riconoscimenti</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licenza"><i class="fa fa-check"></i>Licenza</a></li>
+</ul></li>
+<li class="part"><span><b>Get Started</b></span></li>
+<li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Installare R e RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#install-r"><i class="fa fa-check"></i><b>1.1</b> Installare R</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="install.html"><a href="install.html#r-windows"><i class="fa fa-check"></i><b>1.1.1</b> R Windows</a></li>
+<li class="chapter" data-level="1.1.2" data-path="install.html"><a href="install.html#r-macos"><i class="fa fa-check"></i><b>1.1.2</b> R MacOS</a></li>
+<li class="chapter" data-level="1.1.3" data-path="install.html"><a href="install.html#r-linux"><i class="fa fa-check"></i><b>1.1.3</b> R Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installare-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installare R Studio</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="install.html"><a href="install.html#r-studio-in-linux"><i class="fa fa-check"></i><b>1.2.1</b> R Studio in Linux</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rstudio-gui.html"><a href="rstudio-gui.html"><i class="fa fa-check"></i><b>2</b> Interfaccia RStudio</a></li>
+<li class="chapter" data-level="3" data-path="first-comands.html"><a href="first-comands.html"><i class="fa fa-check"></i><b>3</b> Primi Passi in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="first-comands.html"><a href="first-comands.html#math-operators"><i class="fa fa-check"></i><b>3.1</b> Operatori Matematici</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="first-comands.html"><a href="first-comands.html#ordine-operazioni"><i class="fa fa-check"></i><b>3.1.1</b> Ordine Operazioni</a></li>
+<li class="chapter" data-level="" data-path="first-comands.html"><a href="first-comands.html#esercizi"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="first-comands.html"><a href="first-comands.html#operators-rel-log"><i class="fa fa-check"></i><b>3.2</b> Operatori Relazionali e Logici</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="first-comands.html"><a href="first-comands.html#operatori-relazionali"><i class="fa fa-check"></i><b>3.2.1</b> Operatori Relazionali</a></li>
+<li class="chapter" data-level="3.2.2" data-path="first-comands.html"><a href="first-comands.html#operatori-logici"><i class="fa fa-check"></i><b>3.2.2</b> Operatori Logici</a></li>
+<li class="chapter" data-level="3.2.3" data-path="first-comands.html"><a href="first-comands.html#ordine-valutazione-relazioni"><i class="fa fa-check"></i><b>3.2.3</b> Ordine valutazione relazioni</a></li>
+<li class="chapter" data-level="" data-path="first-comands.html"><a href="first-comands.html#esercizi-1"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="objects-functions.html"><a href="objects-functions.html"><i class="fa fa-check"></i><b>4</b> Due Compagni Inseparabili</a><ul>
+<li class="chapter" data-level="4.1" data-path="objects-functions.html"><a href="objects-functions.html#objects-section"><i class="fa fa-check"></i><b>4.1</b> Oggetti</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="objects-functions.html"><a href="objects-functions.html#assign"><i class="fa fa-check"></i><b>4.1.1</b> Assegnare e Richiamare un oggetto</a></li>
+<li class="chapter" data-level="4.1.2" data-path="objects-functions.html"><a href="objects-functions.html#objects-names"><i class="fa fa-check"></i><b>4.1.2</b> Nomi degli oggetti</a></li>
+<li class="chapter" data-level="4.1.3" data-path="objects-functions.html"><a href="objects-functions.html#tipologie-dati-e-strutture-dati"><i class="fa fa-check"></i><b>4.1.3</b> Tipologie Dati e Strutture Dati</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="objects-functions.html"><a href="objects-functions.html#functions-def"><i class="fa fa-check"></i><b>4.2</b> Funzioni</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#function-arguments"><i class="fa fa-check"></i><b>4.2.1</b> Argomenti di una Funzione</a></li>
+<li class="chapter" data-level="4.2.2" data-path="objects-functions.html"><a href="objects-functions.html#help"><i class="fa fa-check"></i><b>4.2.2</b> Help! I need Somebody…Help!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="working-environment.html"><a href="working-environment.html"><i class="fa fa-check"></i><b>5</b> Ambiente di Lavoro</a><ul>
+<li class="chapter" data-level="5.1" data-path="working-environment.html"><a href="working-environment.html#environment"><i class="fa fa-check"></i><b>5.1</b> Environment</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="working-environment.html"><a href="working-environment.html#aggiungere-oggetti-allenvironment"><i class="fa fa-check"></i><b>5.1.1</b> Aggiungere Oggetti all’Environment</a></li>
+<li class="chapter" data-level="5.1.2" data-path="working-environment.html"><a href="working-environment.html#rimuovere-oggetti-dallenvironment"><i class="fa fa-check"></i><b>5.1.2</b> Rimuovere Oggetti dall’Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="working-environment.html"><a href="working-environment.html#working-directory"><i class="fa fa-check"></i><b>5.2</b> Working Directory</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="working-environment.html"><a href="working-environment.html#organizzazione-computer"><i class="fa fa-check"></i><b>5.2.1</b> Organizzazione Computer</a></li>
+<li class="chapter" data-level="5.2.2" data-path="working-environment.html"><a href="working-environment.html#absolute-path-e-relative-path"><i class="fa fa-check"></i><b>5.2.2</b> Absolute Path e Relative Path</a></li>
+<li class="chapter" data-level="5.2.3" data-path="working-environment.html"><a href="working-environment.html#working-directory-in-r"><i class="fa fa-check"></i><b>5.2.3</b> Working Directory in R</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="working-environment.html"><a href="working-environment.html#packages"><i class="fa fa-check"></i><b>5.3</b> R-packages</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="working-environment.html"><a href="working-environment.html#install.packages"><i class="fa fa-check"></i><b>5.3.1</b> install.packages()</a></li>
+<li class="chapter" data-level="5.3.2" data-path="working-environment.html"><a href="working-environment.html#library"><i class="fa fa-check"></i><b>5.3.2</b> library()</a></li>
+<li class="chapter" data-level="5.3.3" data-path="working-environment.html"><a href="working-environment.html#aggiornare-e-rimuovere-pacchetti"><i class="fa fa-check"></i><b>5.3.3</b> Aggiornare e Rimuovere Pacchetti</a></li>
+<li class="chapter" data-level="5.3.4" data-path="working-environment.html"><a href="working-environment.html#documentazione-pacchetti"><i class="fa fa-check"></i><b>5.3.4</b> Documentazione Pacchetti</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>6</b> Sessione di Lavoro</a><ul>
+<li class="chapter" data-level="6.1" data-path="working-session.html"><a href="working-session.html#organizzazione-script"><i class="fa fa-check"></i><b>6.1</b> Organizzazione Script</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="working-session.html"><a href="working-session.html#creare-delle-sezioni"><i class="fa fa-check"></i><b>6.1.1</b> Creare delle Sezioni</a></li>
+<li class="chapter" data-level="6.1.2" data-path="working-session.html"><a href="working-session.html#sintax"><i class="fa fa-check"></i><b>6.1.2</b> Sintassi</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="working-session.html"><a href="working-session.html#organizzazione-progetti"><i class="fa fa-check"></i><b>6.2</b> Organizzazione Progetti</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="working-session.html"><a href="working-session.html#rstudio-projects"><i class="fa fa-check"></i><b>6.2.1</b> RStudio Projects</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="working-session.html"><a href="working-session.html#messages-warnings-e-errors"><i class="fa fa-check"></i><b>6.3</b> Messages, Warnings e Errors</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="working-session.html"><a href="working-session.html#risolvere-gli-errori"><i class="fa fa-check"></i><b>6.3.1</b> Risolvere gli Errori</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Struttura Dati</b></span></li>
+<li class="chapter" data-level="" data-path="second-section.html"><a href="second-section.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="7" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>7</b> Vettori</a><ul>
+<li class="chapter" data-level="7.1" data-path="vector.html"><a href="vector.html#creazione"><i class="fa fa-check"></i><b>7.1</b> Creazione</a><ul>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#esercizi-2"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="vector.html"><a href="vector.html#vector-selection"><i class="fa fa-check"></i><b>7.2</b> Selezione Elementi</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="vector.html"><a href="vector.html#vector-selection-advanced"><i class="fa fa-check"></i><b>7.2.1</b> Utilizzi Avanzati Selezione</a></li>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#esercizi-3"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="vector.html"><a href="vector.html#vector-functions"><i class="fa fa-check"></i><b>7.3</b> Funzioni ed Operazioni</a><ul>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#esercizi-4"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="vector.html"><a href="vector.html#data-type"><i class="fa fa-check"></i><b>7.4</b> Data Type</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="vector.html"><a href="vector.html#character"><i class="fa fa-check"></i><b>7.4.1</b> Character</a></li>
+<li class="chapter" data-level="7.4.2" data-path="vector.html"><a href="vector.html#numeric"><i class="fa fa-check"></i><b>7.4.2</b> Numeric</a></li>
+<li class="chapter" data-level="7.4.3" data-path="vector.html"><a href="vector.html#integer"><i class="fa fa-check"></i><b>7.4.3</b> Integer</a></li>
+<li class="chapter" data-level="7.4.4" data-path="vector.html"><a href="vector.html#logical-vector"><i class="fa fa-check"></i><b>7.4.4</b> Logical</a></li>
+<li class="chapter" data-level="7.4.5" data-path="vector.html"><a href="vector.html#valori-speciali"><i class="fa fa-check"></i><b>7.4.5</b> Valori speciali</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="factor.html"><a href="factor.html"><i class="fa fa-check"></i><b>8</b> Fattori</a><ul>
+<li class="chapter" data-level="8.1" data-path="factor.html"><a href="factor.html#attributes"><i class="fa fa-check"></i><b>8.1</b> Attributi di un Oggetto</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="factor.html"><a href="factor.html#attributi-di-un-vettore"><i class="fa fa-check"></i><b>8.1.1</b> Attributi di un Vettore</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="factor.html"><a href="factor.html#fattori"><i class="fa fa-check"></i><b>8.2</b> Fattori</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="factor.html"><a href="factor.html#funzionamento-fatori"><i class="fa fa-check"></i><b>8.2.1</b> Funzionamento Fatori</a></li>
+<li class="chapter" data-level="8.2.2" data-path="factor.html"><a href="factor.html#operazioni-fattori"><i class="fa fa-check"></i><b>8.2.2</b> Operazioni Fattori</a></li>
+<li class="chapter" data-level="8.2.3" data-path="factor.html"><a href="factor.html#fattori-ordinali"><i class="fa fa-check"></i><b>8.2.3</b> Fattori Ordinali</a></li>
+<li class="chapter" data-level="" data-path="factor.html"><a href="factor.html#esercizi-5"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>9</b> Matrici</a><ul>
+<li class="chapter" data-level="9.1" data-path="matrix.html"><a href="matrix.html#creazione-1"><i class="fa fa-check"></i><b>9.1</b> Creazione</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="matrix.html"><a href="matrix.html#matrix-types"><i class="fa fa-check"></i><b>9.1.1</b> Tipologie di Matrici</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#esercizi-6"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="matrix.html"><a href="matrix.html#sel-matrix"><i class="fa fa-check"></i><b>9.2</b> Selezione Elementi</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="matrix.html"><a href="matrix.html#matrix-selection-advanced"><i class="fa fa-check"></i><b>9.2.1</b> Utilizzi Avanzati Selezione</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#esercizi-7"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="matrix.html"><a href="matrix.html#funzioni-ed-operazioni"><i class="fa fa-check"></i><b>9.3</b> Funzioni ed Operazioni</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="matrix.html"><a href="matrix.html#mat-prop"><i class="fa fa-check"></i><b>9.3.1</b> Attributi di una Matrice</a></li>
+<li class="chapter" data-level="9.3.2" data-path="matrix.html"><a href="matrix.html#matrix-bind"><i class="fa fa-check"></i><b>9.3.2</b> Unire Matrici</a></li>
+<li class="chapter" data-level="9.3.3" data-path="matrix.html"><a href="matrix.html#operatori-matematici"><i class="fa fa-check"></i><b>9.3.3</b> Operatori Matematici</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#esercizi-8"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="matrix.html"><a href="matrix.html#array"><i class="fa fa-check"></i><b>9.4</b> Array</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>10</b> Dataframe</a><ul>
+<li class="chapter" data-level="10.1" data-path="dataframe.html"><a href="dataframe.html#creazione-di-un-dataframe"><i class="fa fa-check"></i><b>10.1</b> Creazione di un dataframe</a><ul>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-9"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="dataframe.html"><a href="dataframe.html#sel-df"><i class="fa fa-check"></i><b>10.2</b> Selezione Elementi</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="dataframe.html"><a href="dataframe.html#utilizzi-avanzati-selezione"><i class="fa fa-check"></i><b>10.2.1</b> Utilizzi Avanzati Selezione</a></li>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-10"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="dataframe.html"><a href="dataframe.html#funzioni-ed-operazioni-1"><i class="fa fa-check"></i><b>10.3</b> Funzioni ed Operazioni</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="dataframe.html"><a href="dataframe.html#attributi-di-un-dataframe"><i class="fa fa-check"></i><b>10.3.1</b> Attributi di un Dataframe</a></li>
+<li class="chapter" data-level="10.3.2" data-path="dataframe.html"><a href="dataframe.html#unire-dataframe"><i class="fa fa-check"></i><b>10.3.2</b> Unire Dataframe</a></li>
+<li class="chapter" data-level="10.3.3" data-path="dataframe.html"><a href="dataframe.html#informazioni-dataframe"><i class="fa fa-check"></i><b>10.3.3</b> Informazioni Dataframe</a></li>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-11"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>11</b> Liste</a><ul>
+<li class="chapter" data-level="11.1" data-path="list.html"><a href="list.html#creazione-di-liste"><i class="fa fa-check"></i><b>11.1</b> Creazione di Liste</a><ul>
+<li class="chapter" data-level="" data-path="list.html"><a href="list.html#esercizi-12"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="list.html"><a href="list.html#selezione-elementi"><i class="fa fa-check"></i><b>11.2</b> Selezione Elementi</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="list.html"><a href="list.html#utilizzi-avanzati-selezione-1"><i class="fa fa-check"></i><b>11.2.1</b> Utilizzi Avanzati Selezione</a></li>
+<li class="chapter" data-level="" data-path="list.html"><a href="list.html#esercizi-13"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="list.html"><a href="list.html#funzioni-ed-operazioni-2"><i class="fa fa-check"></i><b>11.3</b> Funzioni ed Operazioni</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="list.html"><a href="list.html#attributi-di-una-lista"><i class="fa fa-check"></i><b>11.3.1</b> Attributi di una Lista</a></li>
+<li class="chapter" data-level="11.3.2" data-path="list.html"><a href="list.html#unire-liste"><i class="fa fa-check"></i><b>11.3.2</b> Unire Liste</a></li>
+<li class="chapter" data-level="11.3.3" data-path="list.html"><a href="list.html#informazioni-lista"><i class="fa fa-check"></i><b>11.3.3</b> Informazioni Lista</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="list.html"><a href="list.html#struttura-nested"><i class="fa fa-check"></i><b>11.4</b> Struttura Nested</a></li>
+</ul></li>
+<li class="part"><span><b>Algoritmi</b></span></li>
+<li class="chapter" data-level="" data-path="third-section.html"><a href="third-section.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="12" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>12</b> Programmazione Condizionale</a><ul>
+<li class="chapter" data-level="12.1" data-path="conditionals.html"><a href="conditionals.html#strutture-condizionali"><i class="fa fa-check"></i><b>12.1</b> Strutture condizionali</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="conditionals.html"><a href="conditionals.html#if"><i class="fa fa-check"></i><b>12.1.1</b> if</a></li>
+<li class="chapter" data-level="12.1.2" data-path="conditionals.html"><a href="conditionals.html#ifelse"><i class="fa fa-check"></i><b>12.1.2</b> if…else</a></li>
+<li class="chapter" data-level="12.1.3" data-path="conditionals.html"><a href="conditionals.html#nested"><i class="fa fa-check"></i><b>12.1.3</b> Nested</a></li>
+<li class="chapter" data-level="" data-path="conditionals.html"><a href="conditionals.html#esercizi-14"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="conditionals.html"><a href="conditionals.html#altri-operatori-condizionali"><i class="fa fa-check"></i><b>12.2</b> Altri Operatori Condizionali</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="conditionals.html"><a href="conditionals.html#switch"><i class="fa fa-check"></i><b>12.2.1</b> switch</a></li>
+<li class="chapter" data-level="12.2.2" data-path="conditionals.html"><a href="conditionals.html#ifelse-1"><i class="fa fa-check"></i><b>12.2.2</b> ifelse</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="loop.html"><a href="loop.html"><i class="fa fa-check"></i><b>13</b> Programmazione Iterativa</a><ul>
+<li class="chapter" data-level="13.1" data-path="loop.html"><a href="loop.html#loop-1"><i class="fa fa-check"></i><b>13.1</b> Loop</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="loop.html"><a href="loop.html#for"><i class="fa fa-check"></i><b>13.1.1</b> For</a></li>
+<li class="chapter" data-level="13.1.2" data-path="loop.html"><a href="loop.html#while"><i class="fa fa-check"></i><b>13.1.2</b> While</a></li>
+<li class="chapter" data-level="13.1.3" data-path="loop.html"><a href="loop.html#next-e-brake"><i class="fa fa-check"></i><b>13.1.3</b> Next e Brake</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="loop.html"><a href="loop.html#nested-loop"><i class="fa fa-check"></i><b>13.2</b> Nested loop</a><ul>
+<li class="chapter" data-level="" data-path="loop.html"><a href="loop.html#esercizi-15"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="loop.html"><a href="loop.html#apply-family"><i class="fa fa-check"></i><b>13.3</b> Apply Family</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="loop.html"><a href="loop.html#quali-funzioni-applicare"><i class="fa fa-check"></i><b>13.3.1</b> Quali funzioni applicare?</a></li>
+<li class="chapter" data-level="13.3.2" data-path="loop.html"><a href="loop.html#apply"><i class="fa fa-check"></i><b>13.3.2</b> apply</a></li>
+<li class="chapter" data-level="13.3.3" data-path="loop.html"><a href="loop.html#tapply"><i class="fa fa-check"></i><b>13.3.3</b> tapply</a></li>
+<li class="chapter" data-level="13.3.4" data-path="loop.html"><a href="loop.html#lapply"><i class="fa fa-check"></i><b>13.3.4</b> lapply</a></li>
+<li class="chapter" data-level="13.3.5" data-path="loop.html"><a href="loop.html#sapply"><i class="fa fa-check"></i><b>13.3.5</b> sapply</a></li>
+<li class="chapter" data-level="13.3.6" data-path="loop.html"><a href="loop.html#vapply"><i class="fa fa-check"></i><b>13.3.6</b> vapply</a></li>
+<li class="chapter" data-level="13.3.7" data-path="loop.html"><a href="loop.html#lista-di-funzioni-a-lista-di-oggetti"><i class="fa fa-check"></i><b>13.3.7</b> Lista di funzioni a lista di oggetti</a></li>
+<li class="chapter" data-level="13.3.8" data-path="loop.html"><a href="loop.html#mapply"><i class="fa fa-check"></i><b>13.3.8</b> mapply</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="loop.html"><a href="loop.html#replicate"><i class="fa fa-check"></i><b>13.4</b> Replicate</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>14</b> Definizione di Funzioni</a><ul>
+<li class="chapter" data-level="14.1" data-path="functions.html"><a href="functions.html#creazione-di-una-funzione"><i class="fa fa-check"></i><b>14.1</b> Creazione di una Funzione</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="functions.html"><a href="functions.html#definire-input-e-output"><i class="fa fa-check"></i><b>14.1.1</b> Definire Input e Output</a></li>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#esercizi-16"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="functions.html"><a href="functions.html#lavorare-con-le-funzioni"><i class="fa fa-check"></i><b>14.2</b> Lavorare con le Funzioni</a></li>
+<li class="chapter" data-level="14.3" data-path="functions.html"><a href="functions.html#ambiente-della-funzione"><i class="fa fa-check"></i><b>14.3</b> Ambiente della funzione</a></li>
+<li class="chapter" data-level="14.4" data-path="functions.html"><a href="functions.html#best-practice"><i class="fa fa-check"></i><b>14.4</b> Best practice</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="functions.html"><a href="functions.html#quando-serve-una-funzione"><i class="fa fa-check"></i><b>14.4.1</b> Quando serve una funzione?</a></li>
+<li class="chapter" data-level="14.4.2" data-path="functions.html"><a href="functions.html#scegliere-il-nome"><i class="fa fa-check"></i><b>14.4.2</b> Scegliere il nome</a></li>
+<li class="chapter" data-level="14.4.3" data-path="functions.html"><a href="functions.html#semplificare-la-quantita-di-operazioni-e-output"><i class="fa fa-check"></i><b>14.4.3</b> Semplificare la quantita di operazioni e output</a></li>
+<li class="chapter" data-level="14.4.4" data-path="functions.html"><a href="functions.html#commentare-e-documentare"><i class="fa fa-check"></i><b>14.4.4</b> Commentare e documentare</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="functions.html"><a href="functions.html#importare-una-funzione"><i class="fa fa-check"></i><b>14.5</b> Importare una funzione</a></li>
+</ul></li>
+<li class="part"><span><b>Case study</b></span></li>
+<li class="chapter" data-level="" data-path="introduzione-1.html"><a href="introduzione-1.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="15" data-path="attachment.html"><a href="attachment.html"><i class="fa fa-check"></i><b>15</b> Caso Studio I: Attaccamento</a><ul>
+<li class="chapter" data-level="15.1" data-path="attachment.html"><a href="attachment.html#infobox"><i class="fa fa-check"></i><b>15.1</b> Infobox</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><span style="font-size: 2.5em">Introduction to R</span></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <script src="assets/hideOutput.js"></script>
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src="images/banner.png">
+</div>
+<div id="conditionals" class="section level1">
+<h1><span class="header-section-number">Capitolo 12</span> Programmazione Condizionale</h1>
+<p>Uno dei principali costrutti della programmazione sono proprio le espressioni condizionali. L’idea semplice alla base è quella di eseguire alcune operazioni o eseguire le operazioni in un certo modo in funzione di alcune <em>condizioni</em>. Le condizioni non sono altro che espressioni che resituiscono sempre un valore <em>booelan</em> ovvero <code>TRUE</code> oppure <code>FALSE</code>.</p>
+<p>L’esempio classico è quello dell’ombrello, immaginate di scrivere il codice per un videogioco e avete scritto una funzione per far prendere prendere e aprire l’ombrello al vostro personaggio. Chiaramente per rendere tutto credibile, dovete far eseguire questa operazione solo quando è richiesto ovvero quando piove. In termini di programmazione, dovete prima verificare una certa condizione (la pioggia) e poi eseguire (o non eseguire) una serie di operazioni di conseguenza.</p>
+<div id="strutture-condizionali" class="section level2">
+<h2><span class="header-section-number">12.1</span> Strutture condizionali</h2>
+<p>Ci sono diverse possibilità in R, tuttavia la logica di eseguire operazioni solo quando alcune condizioni sono rispettate è sempre la stessa. La Figura <a href="conditionals.html#fig:plot-if-chart">12.1</a> rappresenta la struttura generica di un flusso di controllo condizionale.</p>
+<div id="if" class="section level3">
+<h3><span class="header-section-number">12.1.1</span> if</h3>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="conditionals.html#cb241-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;images/if_chart.png&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:plot-if-chart"></span>
+<img src="images/if_chart.png" alt="Rappresentazione if" width="65%" />
+<p class="caption">
+Figure 12.1: Rappresentazione if
+</p>
+</div>
+<div id="struttura-if" class="section level4 unnumbered">
+<h4>Struttura if</h4>
+<p>Per scrivere la struttura condizionale della Figura <a href="conditionals.html#fig:plot-if-chart">12.1</a> si usa la seguente sintassi in R:</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="conditionals.html#cb242-1"></a>  ...</span>
+<span id="cb242-2"><a href="conditionals.html#cb242-2"></a>  </span>
+<span id="cb242-3"><a href="conditionals.html#cb242-3"></a>  <span class="cf">if</span> (<span class="op">&lt;</span>test<span class="op">&gt;</span>) {</span>
+<span id="cb242-4"><a href="conditionals.html#cb242-4"></a>    <span class="op">&lt;</span>codice<span class="op">-</span>da<span class="op">-</span>eseguire<span class="op">&gt;</span></span>
+<span id="cb242-5"><a href="conditionals.html#cb242-5"></a><span class="st">  </span>}</span>
+<span id="cb242-6"><a href="conditionals.html#cb242-6"></a>  ...</span></code></pre></div>
+</div>
+<div id="esempio" class="section level4 unnumbered">
+<h4>Esempio</h4>
+<ul>
+<li>Singolo if</li>
+</ul>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="conditionals.html#cb243-1"></a>my_function &lt;-<span class="st"> </span><span class="cf">function</span>(value){</span>
+<span id="cb243-2"><a href="conditionals.html#cb243-2"></a>  </span>
+<span id="cb243-3"><a href="conditionals.html#cb243-3"></a>  <span class="cf">if</span>(value <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb243-4"><a href="conditionals.html#cb243-4"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore è maggiore di 0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb243-5"><a href="conditionals.html#cb243-5"></a>  }</span>
+<span id="cb243-6"><a href="conditionals.html#cb243-6"></a>  </span>
+<span id="cb243-7"><a href="conditionals.html#cb243-7"></a>  <span class="kw">cat</span>(<span class="st">&quot;Fine funzione</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb243-8"><a href="conditionals.html#cb243-8"></a>}</span>
+<span id="cb243-9"><a href="conditionals.html#cb243-9"></a></span>
+<span id="cb243-10"><a href="conditionals.html#cb243-10"></a><span class="kw">my_function</span>(<span class="dv">5</span>)</span>
+<span id="cb243-11"><a href="conditionals.html#cb243-11"></a><span class="co">## Il valore è maggiore di 0</span></span>
+<span id="cb243-12"><a href="conditionals.html#cb243-12"></a><span class="co">## Fine funzione</span></span>
+<span id="cb243-13"><a href="conditionals.html#cb243-13"></a></span>
+<span id="cb243-14"><a href="conditionals.html#cb243-14"></a><span class="kw">my_function</span>(<span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb243-15"><a href="conditionals.html#cb243-15"></a><span class="co">## Fine funzione</span></span></code></pre></div>
+<ul>
+<li>Multipli if</li>
+</ul>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="conditionals.html#cb244-1"></a>my_function &lt;-<span class="st"> </span><span class="cf">function</span>(value){</span>
+<span id="cb244-2"><a href="conditionals.html#cb244-2"></a>  </span>
+<span id="cb244-3"><a href="conditionals.html#cb244-3"></a>  <span class="cf">if</span>(value <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb244-4"><a href="conditionals.html#cb244-4"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore è maggiore di 0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb244-5"><a href="conditionals.html#cb244-5"></a>  }</span>
+<span id="cb244-6"><a href="conditionals.html#cb244-6"></a>  </span>
+<span id="cb244-7"><a href="conditionals.html#cb244-7"></a>  <span class="cf">if</span>(value <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>){</span>
+<span id="cb244-8"><a href="conditionals.html#cb244-8"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore è maggiore di 10</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb244-9"><a href="conditionals.html#cb244-9"></a>  }</span>
+<span id="cb244-10"><a href="conditionals.html#cb244-10"></a>  </span>
+<span id="cb244-11"><a href="conditionals.html#cb244-11"></a>  <span class="kw">cat</span>(<span class="st">&quot;Fine funzione</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb244-12"><a href="conditionals.html#cb244-12"></a>}</span>
+<span id="cb244-13"><a href="conditionals.html#cb244-13"></a></span>
+<span id="cb244-14"><a href="conditionals.html#cb244-14"></a><span class="kw">my_function</span>(<span class="dv">5</span>)</span>
+<span id="cb244-15"><a href="conditionals.html#cb244-15"></a><span class="co">## Il valore è maggiore di 0</span></span>
+<span id="cb244-16"><a href="conditionals.html#cb244-16"></a><span class="co">## Fine funzione</span></span>
+<span id="cb244-17"><a href="conditionals.html#cb244-17"></a></span>
+<span id="cb244-18"><a href="conditionals.html#cb244-18"></a><span class="kw">my_function</span>(<span class="dv">15</span>)</span>
+<span id="cb244-19"><a href="conditionals.html#cb244-19"></a><span class="co">## Il valore è maggiore di 0</span></span>
+<span id="cb244-20"><a href="conditionals.html#cb244-20"></a><span class="co">## Il valore è maggiore di 10</span></span>
+<span id="cb244-21"><a href="conditionals.html#cb244-21"></a><span class="co">## Fine funzione</span></span>
+<span id="cb244-22"><a href="conditionals.html#cb244-22"></a></span>
+<span id="cb244-23"><a href="conditionals.html#cb244-23"></a><span class="kw">my_function</span>(<span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb244-24"><a href="conditionals.html#cb244-24"></a><span class="co">## Fine funzione</span></span></code></pre></div>
+</div>
+</div>
+<div id="ifelse" class="section level3">
+<h3><span class="header-section-number">12.1.2</span> if…else</h3>
+<p>Il semplice utilizzo di un singolo <code>if</code> potrebbe non essere sufficiente in alcune situazioni. Sopratutto perchè possiamo vedere l’<code>if</code> come una deviazione temporanea dallo script principale (molto chiaro nella figura <a href="conditionals.html#fig:plot-if-chart">12.1</a>) che viene imboccata solo se è vera una condizione, altrimenti lo script continua. Se vogliamo una struttura più “simmetrica” possiamo eseguire delle operazioni se la condizone è vera <code>if</code> e altre per tutti gli altri scenari (<code>else</code>). La Figura <a href="conditionals.html#fig:plot-ifelse-chart">12.2</a> mostra chiaramente questa struttura diversa nel flusso.</p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="conditionals.html#cb245-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;images/ifelse_chart.png&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:plot-ifelse-chart"></span>
+<img src="images/ifelse_chart.png" alt="Rappresentazione if...else" width="65%" />
+<p class="caption">
+Figure 12.2: Rappresentazione if…else
+</p>
+</div>
+<div id="struttura-if-1" class="section level4 unnumbered">
+<h4>Struttura if</h4>
+<p>In R questo viene implementato nel seguente modo:</p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="conditionals.html#cb246-1"></a>  ...</span>
+<span id="cb246-2"><a href="conditionals.html#cb246-2"></a>  </span>
+<span id="cb246-3"><a href="conditionals.html#cb246-3"></a>  <span class="cf">if</span> (<span class="op">&lt;</span>test<span class="op">&gt;</span>) {</span>
+<span id="cb246-4"><a href="conditionals.html#cb246-4"></a>    <span class="op">&lt;</span>codice<span class="op">-</span>da<span class="op">-</span>eseguire<span class="op">&gt;</span></span>
+<span id="cb246-5"><a href="conditionals.html#cb246-5"></a><span class="st">  </span>} <span class="cf">else</span> {</span>
+<span id="cb246-6"><a href="conditionals.html#cb246-6"></a>    <span class="op">&lt;</span>codice<span class="op">-</span>da<span class="op">-</span>eseguire<span class="op">&gt;</span></span>
+<span id="cb246-7"><a href="conditionals.html#cb246-7"></a><span class="st">  </span>}</span>
+<span id="cb246-8"><a href="conditionals.html#cb246-8"></a>  ...</span></code></pre></div>
+</div>
+<div id="esempio-1" class="section level4 unnumbered">
+<h4>Esempio</h4>
+<ul>
+<li>Singolo if…else</li>
+</ul>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="conditionals.html#cb247-1"></a>my_function &lt;-<span class="st"> </span><span class="cf">function</span>(value){</span>
+<span id="cb247-2"><a href="conditionals.html#cb247-2"></a>  </span>
+<span id="cb247-3"><a href="conditionals.html#cb247-3"></a>  <span class="cf">if</span>(value <span class="op">&gt;=</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb247-4"><a href="conditionals.html#cb247-4"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore è maggiore di 0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb247-5"><a href="conditionals.html#cb247-5"></a>  } <span class="cf">else</span> {</span>
+<span id="cb247-6"><a href="conditionals.html#cb247-6"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore non è maggiore di 0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb247-7"><a href="conditionals.html#cb247-7"></a>  }</span>
+<span id="cb247-8"><a href="conditionals.html#cb247-8"></a>  </span>
+<span id="cb247-9"><a href="conditionals.html#cb247-9"></a>  <span class="kw">cat</span>(<span class="st">&quot;Fine funzione</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb247-10"><a href="conditionals.html#cb247-10"></a>}</span>
+<span id="cb247-11"><a href="conditionals.html#cb247-11"></a></span>
+<span id="cb247-12"><a href="conditionals.html#cb247-12"></a><span class="kw">my_function</span>(<span class="dv">5</span>)</span>
+<span id="cb247-13"><a href="conditionals.html#cb247-13"></a><span class="co">## Il valore è maggiore di 0</span></span>
+<span id="cb247-14"><a href="conditionals.html#cb247-14"></a><span class="co">## Fine funzione</span></span>
+<span id="cb247-15"><a href="conditionals.html#cb247-15"></a></span>
+<span id="cb247-16"><a href="conditionals.html#cb247-16"></a><span class="kw">my_function</span>(<span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb247-17"><a href="conditionals.html#cb247-17"></a><span class="co">## Il valore non è maggiore di 0</span></span>
+<span id="cb247-18"><a href="conditionals.html#cb247-18"></a><span class="co">## Fine funzione</span></span></code></pre></div>
+<ul>
+<li>Multipli if</li>
+</ul>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="conditionals.html#cb248-1"></a>my_function &lt;-<span class="st"> </span><span class="cf">function</span>(value){</span>
+<span id="cb248-2"><a href="conditionals.html#cb248-2"></a>  </span>
+<span id="cb248-3"><a href="conditionals.html#cb248-3"></a>  <span class="cf">if</span>(value <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb248-4"><a href="conditionals.html#cb248-4"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore è maggiore di 0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb248-5"><a href="conditionals.html#cb248-5"></a>  } <span class="cf">else</span> <span class="cf">if</span> (value <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>){</span>
+<span id="cb248-6"><a href="conditionals.html#cb248-6"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore è maggiore di 10</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb248-7"><a href="conditionals.html#cb248-7"></a>  } <span class="cf">else</span> {</span>
+<span id="cb248-8"><a href="conditionals.html#cb248-8"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore non è maggiore di 0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb248-9"><a href="conditionals.html#cb248-9"></a>  }</span>
+<span id="cb248-10"><a href="conditionals.html#cb248-10"></a>  </span>
+<span id="cb248-11"><a href="conditionals.html#cb248-11"></a>  <span class="kw">cat</span>(<span class="st">&quot;Fine funzione</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb248-12"><a href="conditionals.html#cb248-12"></a>}</span>
+<span id="cb248-13"><a href="conditionals.html#cb248-13"></a></span>
+<span id="cb248-14"><a href="conditionals.html#cb248-14"></a><span class="kw">my_function</span>(<span class="dv">5</span>)</span>
+<span id="cb248-15"><a href="conditionals.html#cb248-15"></a><span class="co">## Il valore è maggiore di 0</span></span>
+<span id="cb248-16"><a href="conditionals.html#cb248-16"></a><span class="co">## Fine funzione</span></span>
+<span id="cb248-17"><a href="conditionals.html#cb248-17"></a></span>
+<span id="cb248-18"><a href="conditionals.html#cb248-18"></a><span class="kw">my_function</span>(<span class="dv">15</span>)</span>
+<span id="cb248-19"><a href="conditionals.html#cb248-19"></a><span class="co">## Il valore è maggiore di 0</span></span>
+<span id="cb248-20"><a href="conditionals.html#cb248-20"></a><span class="co">## Fine funzione</span></span>
+<span id="cb248-21"><a href="conditionals.html#cb248-21"></a></span>
+<span id="cb248-22"><a href="conditionals.html#cb248-22"></a><span class="kw">my_function</span>(<span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb248-23"><a href="conditionals.html#cb248-23"></a><span class="co">## Il valore non è maggiore di 0</span></span>
+<span id="cb248-24"><a href="conditionals.html#cb248-24"></a><span class="co">## Fine funzione</span></span></code></pre></div>
+<p>E’ importante capire la differenza tra usare multipli <code>if</code> e <code>else if</code> rispetto a utilizzare un semplice <code>else</code>. Se noi vogliamo specificare un set <strong>finito</strong> di alternative, la scelta migliore e quella più chiara consiste di usere <code>else if</code> perchè al contrario di <code>else</code> richiede di specificare la condizione. Se invece siamo interessanti ad alcune condizioni mentre per tutto il resto applichiamo la stessa operazione, possiamo concludere il nostro flusso con un <code>else</code>.</p>
+</div>
+</div>
+<div id="nested" class="section level3">
+<h3><span class="header-section-number">12.1.3</span> Nested</h3>
+<p>Oltre a concatenare una serie di <code>if</code> e <code>else if</code> è possibile inserire uno o più <code>if</code> all’interno di un’altro. Questo permette di controllare delle condizioni che sono dipendenti dal controllo precedente e quindi non possono essere eseguite in serie.</p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="conditionals.html#cb249-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;images/ifnested.png&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:plot-ifnested"></span>
+<img src="images/ifnested.png" alt="Rappresentazione if nested" width="65%" />
+<p class="caption">
+Figure 12.3: Rappresentazione if nested
+</p>
+</div>
+<div id="struttura-if-2" class="section level4 unnumbered">
+<h4>Struttura if</h4>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="conditionals.html#cb250-1"></a>  ...</span>
+<span id="cb250-2"><a href="conditionals.html#cb250-2"></a>  </span>
+<span id="cb250-3"><a href="conditionals.html#cb250-3"></a>  <span class="cf">if</span> (<span class="op">&lt;</span>test<span class="op">&gt;</span>) {</span>
+<span id="cb250-4"><a href="conditionals.html#cb250-4"></a>    </span>
+<span id="cb250-5"><a href="conditionals.html#cb250-5"></a>    <span class="cf">if</span>(<span class="op">&lt;</span>test<span class="op">&gt;</span>) {</span>
+<span id="cb250-6"><a href="conditionals.html#cb250-6"></a>      <span class="op">&lt;</span>codice<span class="op">-</span>da<span class="op">-</span>eseguire<span class="op">&gt;</span></span>
+<span id="cb250-7"><a href="conditionals.html#cb250-7"></a><span class="st">    </span>} <span class="cf">else</span> {</span>
+<span id="cb250-8"><a href="conditionals.html#cb250-8"></a>      <span class="op">&lt;</span>codice<span class="op">-</span>da<span class="op">-</span>eseguire<span class="op">&gt;</span></span>
+<span id="cb250-9"><a href="conditionals.html#cb250-9"></a><span class="st">    </span>}</span>
+<span id="cb250-10"><a href="conditionals.html#cb250-10"></a>  }</span>
+<span id="cb250-11"><a href="conditionals.html#cb250-11"></a>  ...</span></code></pre></div>
+</div>
+<div id="esempio-2" class="section level4 unnumbered">
+<h4>Esempio</h4>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="conditionals.html#cb251-1"></a>my_function &lt;-<span class="st"> </span><span class="cf">function</span>(value){</span>
+<span id="cb251-2"><a href="conditionals.html#cb251-2"></a>  </span>
+<span id="cb251-3"><a href="conditionals.html#cb251-3"></a>  <span class="cf">if</span>(value <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb251-4"><a href="conditionals.html#cb251-4"></a>    </span>
+<span id="cb251-5"><a href="conditionals.html#cb251-5"></a>    <span class="cf">if</span>(value <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>) {</span>
+<span id="cb251-6"><a href="conditionals.html#cb251-6"></a>      <span class="kw">cat</span>(<span class="st">&quot;Il valore è maggiore di 10</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb251-7"><a href="conditionals.html#cb251-7"></a>    } <span class="cf">else</span> {</span>
+<span id="cb251-8"><a href="conditionals.html#cb251-8"></a>      <span class="kw">cat</span>(<span class="st">&quot;Il valore è maggiore di 0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb251-9"><a href="conditionals.html#cb251-9"></a>    }</span>
+<span id="cb251-10"><a href="conditionals.html#cb251-10"></a>    </span>
+<span id="cb251-11"><a href="conditionals.html#cb251-11"></a>  } <span class="cf">else</span> {</span>
+<span id="cb251-12"><a href="conditionals.html#cb251-12"></a>    <span class="kw">cat</span>(<span class="st">&quot;Il valore non è maggiore di 0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb251-13"><a href="conditionals.html#cb251-13"></a>  }</span>
+<span id="cb251-14"><a href="conditionals.html#cb251-14"></a>  </span>
+<span id="cb251-15"><a href="conditionals.html#cb251-15"></a>  <span class="kw">cat</span>(<span class="st">&quot;Fine funzione</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb251-16"><a href="conditionals.html#cb251-16"></a>}</span>
+<span id="cb251-17"><a href="conditionals.html#cb251-17"></a></span>
+<span id="cb251-18"><a href="conditionals.html#cb251-18"></a><span class="kw">my_function</span>(<span class="dv">5</span>)</span>
+<span id="cb251-19"><a href="conditionals.html#cb251-19"></a><span class="co">## Il valore è maggiore di 0</span></span>
+<span id="cb251-20"><a href="conditionals.html#cb251-20"></a><span class="co">## Fine funzione</span></span>
+<span id="cb251-21"><a href="conditionals.html#cb251-21"></a></span>
+<span id="cb251-22"><a href="conditionals.html#cb251-22"></a><span class="kw">my_function</span>(<span class="dv">15</span>)</span>
+<span id="cb251-23"><a href="conditionals.html#cb251-23"></a><span class="co">## Il valore è maggiore di 10</span></span>
+<span id="cb251-24"><a href="conditionals.html#cb251-24"></a><span class="co">## Fine funzione</span></span>
+<span id="cb251-25"><a href="conditionals.html#cb251-25"></a></span>
+<span id="cb251-26"><a href="conditionals.html#cb251-26"></a><span class="kw">my_function</span>(<span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb251-27"><a href="conditionals.html#cb251-27"></a><span class="co">## Il valore non è maggiore di 0</span></span>
+<span id="cb251-28"><a href="conditionals.html#cb251-28"></a><span class="co">## Fine funzione</span></span></code></pre></div>
+</div>
+</div>
+<div id="esercizi-14" class="section level3 unnumbered">
+<h3>Esercizi</h3>
+<p>Esegui i seguenti esercizi:</p>
+<ol style="list-style-type: decimal">
+<li><p>Definisci una funzione per assegnare un voto in base alla percentuale di rispote corrette (<em>score</em>) segui le seguenti indicazioni:</p>
+<ul>
+<li>score &lt; .55 insufficiente</li>
+<li>.55 &lt;= score &lt; .65 - sufficiente</li>
+<li>.65 &lt;= score &lt; .75 - buono</li>
+<li>.75 &lt;= score &lt; .85 - distinto</li>
+<li>.85 &lt;= score - ottimo</li>
+</ul></li>
+<li><p>Definisci una funzione che determini se un numero è pari o dispari.</p></li>
+<li><p>Definisci una funzione che determini se un numero è un multiplo di 3, 4, o 5.</p></li>
+<li><p>Definisci una funzione che calcoli lo stipendio mensile considerando gli straordinari che sono retribuiti 1.5 della paga oraria normale. Utilizza come parametrile ore svolte nel mese, la paga oraria ed il tetto ore lavorative, oltre cui si contano gli straordinari.</p></li>
+</ol>
+</div>
+</div>
+<div id="altri-operatori-condizionali" class="section level2">
+<h2><span class="header-section-number">12.2</span> Altri Operatori Condizionali</h2>
+<div id="switch" class="section level3">
+<h3><span class="header-section-number">12.2.1</span> switch</h3>
+<p>L’operatore <code>switch</code> è un utile alternativa quando vogliamo eseguire una porzione di codice in modo condizionale all’input senza tuttavia usare una serie di <code>if</code>.</p>
+<div id="struttura-switch" class="section level4 unnumbered">
+<h4>Struttura switch</h4>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="conditionals.html#cb252-1"></a></span>
+<span id="cb252-2"><a href="conditionals.html#cb252-2"></a><span class="cf">switch</span>(my_value,</span>
+<span id="cb252-3"><a href="conditionals.html#cb252-3"></a>       <span class="dt">case1 =</span> action1,</span>
+<span id="cb252-4"><a href="conditionals.html#cb252-4"></a>       <span class="dt">case2 =</span> action2,</span>
+<span id="cb252-5"><a href="conditionals.html#cb252-5"></a>       ... )</span></code></pre></div>
+<p>In questo caso, se il valore input (<code>my_value</code>) ha una corrispondenza tra i casi considerati (ad esempio <code>case1</code>), il codice corrispondente (<code>action1</code>) viene eseguito.</p>
+<p>Ci sono alcune regole da considerare quando si utilizza uno <code>switch</code> statement:</p>
+<ul>
+<li>se il valore inserito è una stringa, R cercherà una corrispondenza come <code>input == argomento</code></li>
+<li>se è presente più di una corrispondenza, viene utilizzata la prima</li>
+<li>non c’è la possibilità di inserire un valore di default</li>
+<li>se non viene trovata una corrispondenza viene restituito un valore <code>NULL</code>. Inserendo però un <code>case</code> senza un valore corrispondente, questo verra utilizzato al posto di <code>NULL</code>.</li>
+</ul>
+</div>
+<div id="esempio-3" class="section level4 unnumbered">
+<h4>Esempio</h4>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="conditionals.html#cb253-1"></a></span>
+<span id="cb253-2"><a href="conditionals.html#cb253-2"></a>my_colors &lt;-<span class="st"> </span><span class="cf">function</span>(color){</span>
+<span id="cb253-3"><a href="conditionals.html#cb253-3"></a>  </span>
+<span id="cb253-4"><a href="conditionals.html#cb253-4"></a>  new_color &lt;-<span class="st"> </span><span class="cf">switch</span>(color,</span>
+<span id="cb253-5"><a href="conditionals.html#cb253-5"></a>       <span class="st">&quot;rosso&quot;</span> =<span class="st"> &quot;red&quot;</span>,</span>
+<span id="cb253-6"><a href="conditionals.html#cb253-6"></a>       <span class="st">&quot;blu&quot;</span> =<span class="st"> &quot;blue&quot;</span>,</span>
+<span id="cb253-7"><a href="conditionals.html#cb253-7"></a>       <span class="st">&quot;verde&quot;</span> =<span class="st"> </span>,</span>
+<span id="cb253-8"><a href="conditionals.html#cb253-8"></a>       <span class="st">&quot;verde acqua&quot;</span> =<span class="st"> &quot;green&quot;</span>,</span>
+<span id="cb253-9"><a href="conditionals.html#cb253-9"></a>       <span class="st">&quot;Not Found&quot;</span>) <span class="co"># valore non trovato</span></span>
+<span id="cb253-10"><a href="conditionals.html#cb253-10"></a>  </span>
+<span id="cb253-11"><a href="conditionals.html#cb253-11"></a>  <span class="kw">return</span>(new_color)</span>
+<span id="cb253-12"><a href="conditionals.html#cb253-12"></a>}</span>
+<span id="cb253-13"><a href="conditionals.html#cb253-13"></a></span>
+<span id="cb253-14"><a href="conditionals.html#cb253-14"></a><span class="kw">my_colors</span>(<span class="st">&quot;blu&quot;</span>)</span>
+<span id="cb253-15"><a href="conditionals.html#cb253-15"></a><span class="co">## [1] &quot;blue&quot;</span></span>
+<span id="cb253-16"><a href="conditionals.html#cb253-16"></a></span>
+<span id="cb253-17"><a href="conditionals.html#cb253-17"></a><span class="kw">my_colors</span>(<span class="st">&quot;verde&quot;</span>)</span>
+<span id="cb253-18"><a href="conditionals.html#cb253-18"></a><span class="co">## [1] &quot;green&quot;</span></span>
+<span id="cb253-19"><a href="conditionals.html#cb253-19"></a></span>
+<span id="cb253-20"><a href="conditionals.html#cb253-20"></a><span class="kw">my_colors</span>(<span class="st">&quot;arancione&quot;</span>)</span>
+<span id="cb253-21"><a href="conditionals.html#cb253-21"></a><span class="co">## [1] &quot;Not Found&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="ifelse-1" class="section level3">
+<h3><span class="header-section-number">12.2.2</span> ifelse</h3>
+<p>Gli <code>if</code>, <code>else</code> e <code>else if</code> statements funzionano solo per un singolo valore. In altri termini non è possibile testare una stessa condizione su una serie di elementi. Nel prossimo capitolo affronteremo la programmazione iterativa che permette di ripetere una serie di operazioni. Tuttavia utilizzando la funzione <code>ifelse()</code> è possibile implementare una versione vettorizzata delle operazioni condizionali.
+La struttura è la seguente:</p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="conditionals.html#cb254-1"></a><span class="kw">ifelse</span>(<span class="dt">test =</span> , <span class="dt">yes =</span> , <span class="dt">no =</span> )</span></code></pre></div>
+<p>Dove:</p>
+<ul>
+<li><code>test</code> è la condizione da valutare e corrisponde a quello che di solito era tra parentesi negli <code>if</code> precedenti <code>if(test){...}</code></li>
+<li><code>yes</code> è il codice che viene eseguito se la condizione è <code>TRUE</code></li>
+<li><code>no</code> è il codice che viene eseguito se la condizione è <code>FALSE</code></li>
+</ul>
+<div id="esempio-4" class="section level4 unnumbered">
+<h4>Esempio</h4>
+<p>Immaginiamo di avere un vettore di numeri che corrispondono a delle età e vogliamo eseguire qualcosa se il l’età è maggiore o minore di 18 anni, ad esempio mostrare semplicemente la scritta “maggiorenne” oppure “minorenne”. Utilizzando un semplice <code>if</code> vediamo che:</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="conditionals.html#cb255-1"></a>age &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">11</span>, <span class="dv">10</span>, <span class="dv">23</span>, <span class="dv">55</span>, <span class="dv">33</span>, <span class="dv">26</span>, <span class="dv">10</span>)</span>
+<span id="cb255-2"><a href="conditionals.html#cb255-2"></a><span class="cf">if</span>(age <span class="op">&lt;</span><span class="st"> </span><span class="dv">18</span>){</span>
+<span id="cb255-3"><a href="conditionals.html#cb255-3"></a>  <span class="kw">print</span>(<span class="st">&quot;Minorenne&quot;</span>)</span>
+<span id="cb255-4"><a href="conditionals.html#cb255-4"></a>}<span class="cf">else</span>{</span>
+<span id="cb255-5"><a href="conditionals.html#cb255-5"></a>  <span class="kw">print</span>(<span class="st">&quot;Maggiorenne&quot;</span>)</span>
+<span id="cb255-6"><a href="conditionals.html#cb255-6"></a>}</span>
+<span id="cb255-7"><a href="conditionals.html#cb255-7"></a><span class="co">## Warning in if (age &lt; 18) {: the condition has length &gt; 1 and only the first</span></span>
+<span id="cb255-8"><a href="conditionals.html#cb255-8"></a><span class="co">## element will be used</span></span>
+<span id="cb255-9"><a href="conditionals.html#cb255-9"></a><span class="co">## [1] &quot;Maggiorenne&quot;</span></span></code></pre></div>
+<p>Veniamo avvertiti che <code>age</code> non è un singolo valore e che quindi solo il primo valore è utilizzato. Questo dimostra che <code>if</code> non funziona su una lista di elementi. Utilizzando <code>ifelse</code> invece:</p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="conditionals.html#cb256-1"></a><span class="kw">ifelse</span>(age <span class="op">&lt;</span><span class="st"> </span><span class="dv">18</span>, <span class="dt">yes =</span> <span class="kw">print</span>(<span class="st">&quot;Minorenne&quot;</span>), <span class="dt">no =</span> <span class="kw">print</span>(<span class="st">&quot;Maggiorenne&quot;</span>))</span>
+<span id="cb256-2"><a href="conditionals.html#cb256-2"></a><span class="co">## [1] &quot;Minorenne&quot;</span></span>
+<span id="cb256-3"><a href="conditionals.html#cb256-3"></a><span class="co">## [1] &quot;Maggiorenne&quot;</span></span>
+<span id="cb256-4"><a href="conditionals.html#cb256-4"></a><span class="co">## [1] &quot;Maggiorenne&quot; &quot;Maggiorenne&quot; &quot;Minorenne&quot;   &quot;Minorenne&quot;   &quot;Maggiorenne&quot;</span></span>
+<span id="cb256-5"><a href="conditionals.html#cb256-5"></a><span class="co">## [6] &quot;Maggiorenne&quot; &quot;Maggiorenne&quot; &quot;Maggiorenne&quot; &quot;Minorenne&quot;</span></span></code></pre></div>
+<p>In questo caso l’idea è di eseguire il codice precedente per ogni valore del nostro vettore in input. Questo è possibile perchè l’operazione <code>&lt;</code> è vettorizzata.</p>
+
+</div>
+</div>
+</div>
+</div>
+<hr>
+<center>
+  <div class="footer">
+    Questo libro è rilasciato in accordo con <a href= "https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA</a>.
+    <br>
+    Le illustrazioni utilizzate appartengono a <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu-book</a> in accordo con <a href= "https://creativecommons.org/licenses/by-nc/2.0/">CC BY-NC</a>.
+    <br>
+    Per conoscere di più riguardo <span style="color: #8C3031; font-weight:bold"> Psicostat</span> e le nostre attività, visita <a href= "https://psicostat.dpss.psy.unipd.it/">https://psicostat.dpss.psy.unipd.it/</a>.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="third-section.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="loop.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": true
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/psicostat/Introduction2R/edit/master/15-conditionals.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Introduction2R.pdf", "Introduction2R.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true,
+"toc_float": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
