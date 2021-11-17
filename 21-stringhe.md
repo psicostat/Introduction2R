@@ -1,0 +1,662 @@
+# Stringhe {#stringhe}
+
+<!--
+FONTI:
+- https://statisticsglobe.com/r-substr-substring
+- The art of R Programming
+- R4DS
+- https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html
+-->
+
+Abbiamo visto che R oltre ai numeri è in grado di gestire anche i **caratteri**. Nonostante le operazioni matematiche non siano rilevanti per questo tipo di dato, lavorare con le stringhe è altrettanto se non più complesso in termini di programmazione, le stringe infatti rispetto ai numeri:
+
+- possono essere maiuscole/minuscole. Ad esempio la stringa `ciao` è *concettualmente* uguale a `Ciao` ma R le tratta in modo diverso.
+
+
+```r
+"ciao" == "Ciao"
+```
+
+```
+## [1] FALSE
+```
+
+- possono avere caratteri speciali come `?\$` oppure appartenere ad alfabeti diversi `ة α`
+- l'indicizzazione per `numeri` e `stringhe` lavora in modo diverso. Se abbiamo un **vettore** di strighe, questo viene rappresentato allo stesso modo di un vettore numerico. Tuttavia la stringa stessa `ciao` può essere scomposta, manipolata e quindi indicizzata nei singoli caratteri che la compongono `c, i, a, o`:
+
+
+```r
+vec_string <- c("ciao", "come", "stai")
+vec_num <- c(1,2,3)
+
+length(vec_string)
+```
+
+```
+## [1] 3
+```
+
+```r
+length(vec_num)
+```
+
+```
+## [1] 3
+```
+
+```r
+vec_string[1]
+```
+
+```
+## [1] "ciao"
+```
+
+```r
+vec_num[1]
+```
+
+```
+## [1] 1
+```
+
+```r
+# Usiamo la funzione nchar()
+setNames(nchar(vec_string), vec_string)
+```
+
+```
+## ciao come stai 
+##    4    4    4
+```
+
+Per creare una stringa in R dobbiamo usare le singole o doppie virgolette `"stringa"` o `'stringa'`. Queste due scritture in R sono interpretate in modo analogo. Possiamo usarle entrambe per scrivere una stringa che contenga le virgolette:
+
+
+```r
+x <- "stringa con all'interno un'altra 'stringa'"
+x
+
+x <- "stringa con all'interno un'altra "stringa""
+# in questo caso abbaimo errore perchè non interpreta la doppia virgolettatura
+```
+
+```
+## Error: <text>:4:41: unexpected symbol
+## 3: 
+## 4: x <- "stringa con all'interno un'altra "stringa
+##                                            ^
+```
+
+All'interno delle stringhe possiamo utilizzare caratteri speciali come `/|\$%&`. Alcuni di questi vengono intepretati da R in modo particolare. Quando accade è necessario aggiungere il carattere `\` che funge da *escape*, ovvero dice ad R di trattare letterlamente quel carattere:
+
+
+```r
+x <- "ciao come stai? n io tutto bene"
+cat(x)
+```
+
+```
+## ciao come stai? n io tutto bene
+```
+
+
+
+Per questo in R ci sono una serie di funzioni e pacchetti che permettono di lavorare con le stringhe in modo molto efficiente. Vedremo qui una breve panoramica di queste funzioni con qualche suggerimento anche su come approfondire.
+
+## Confrontare stringhe
+
+Il primo aspetto è quello di confrontare stringhe. Il confronto logico tra `stringhe` è molto più stringente di quello numerico. Come abbiamo visto prima infatti, c'è molta più libertà rispetto alle stringhe, con il prezzo di avere più scenari da gestire.
+
+
+```r
+# Confronto due numeri rappresentati in modo diverso
+intero <- as.integer(10)
+double <- as.numeric(10)
+intero == double
+```
+
+```
+## [1] TRUE
+```
+
+```r
+# Confronto stringhe
+
+"ciao" == "Ciao"
+```
+
+```
+## [1] FALSE
+```
+
+```r
+"female" == "feMale"
+```
+
+```
+## [1] FALSE
+```
+
+Anche il concetto di spazio ` ` è rilevante perchè viene considerato come un carattere:
+
+
+```r
+"ciao " == "ciao"
+```
+
+```
+## [1] FALSE
+```
+
+Immaginate di avere un vettore dove una colonna rappresenta il genere dei partecipanti. Se questo vettore è il risultato di persone che liberamente scrivono nel campo di testo, potreste trovarvi una situazione così (è per questo che nei form online spesso ci sono opzioni predefinite piuttosto che testo libero):
+
+
+```r
+genere <- c("maLe", "masChio", "Male", "f", "female", "malew")
+```
+
+In questo vettore (volutamente esagerato) abbiamo chiaro il significato di `f` o di `malew` (probabilmente un errore di battitura) tuttavia se vogliamo lavorarci con R, diventa probelmatico:
+
+
+```r
+# Tabella di frequenza
+
+table(genere)
+```
+
+```
+## genere
+##       f  female    maLe    Male   malew masChio 
+##       1       1       1       1       1       1
+```
+
+```r
+# Non molto utile
+```
+
+## Comporre stringhe
+
+Vediamo quindi alcune funzioni utili per lavorare con le stringhe.
+
+### `tolower()` e `toupper()`
+
+Queste funzioni sono estremamente utili perchè permettono di forzare il carattere maiscolo o minuscolo
+
+
+```r
+tolower(genere)
+```
+
+```
+## [1] "male"    "maschio" "male"    "f"       "female"  "malew"
+```
+
+```r
+toupper(genere)
+```
+
+```
+## [1] "MALE"    "MASCHIO" "MALE"    "F"       "FEMALE"  "MALEW"
+```
+
+### `paste()` e `paste0()`
+
+Queste funzioni servono a combinare diverse informazioni in una stringa. Possiamo combinare diverse stringhe ma anche numeri. Come tipico in R, `paste()` e `paste0()` sono vettorizzate e quindi possono essere utili per combinare due vettori di informazioni. La differenza è che `paste()` automaticamente aggiunge uno spazio tra le stringhe combinate mentre con `paste0()` deve essere messo esplicitamente.
+
+
+```r
+age <- c(10, 20, 35, 15, 18)
+nomi <- c("Andrea", "Francesco", "Fabio", "Anna", "Alice")
+
+paste(nomi, "ha", age, "anni")
+```
+
+```
+## [1] "Andrea ha 10 anni"    "Francesco ha 20 anni" "Fabio ha 35 anni"    
+## [4] "Anna ha 15 anni"      "Alice ha 18 anni"
+```
+
+```r
+paste0(nomi, "ha", age, "anni")
+```
+
+```
+## [1] "Andreaha10anni"    "Francescoha20anni" "Fabioha35anni"    
+## [4] "Annaha15anni"      "Aliceha18anni"
+```
+
+```r
+paste0(nomi, " ha ", age, " anni")
+```
+
+```
+## [1] "Andrea ha 10 anni"    "Francesco ha 20 anni" "Fabio ha 35 anni"    
+## [4] "Anna ha 15 anni"      "Alice ha 18 anni"
+```
+
+In questo caso nonostante `age` sia numerico, viene forzato a stringa per poter essere combinato con i nomi.
+
+### `sprinf()`
+
+`sprinf()` è simile a `paste*()` come funzionamento ma permette di comporre strighe usando dei *placeholder* e fornendo poi il contenuto.
+
+
+```r
+sprintf("%s ha %d anni", nomi, age)
+```
+
+```
+## [1] "Andrea ha 10 anni"    "Francesco ha 20 anni" "Fabio ha 35 anni"    
+## [4] "Anna ha 15 anni"      "Alice ha 18 anni"
+```
+
+In questo caso si compone una stringa usando `%` e una lettera che rappresenta il tipo di dato da inserire. Poi in ordine vengono fornite le informazioni. In questo caso prima `%s`(stringa) quindi `nomi` e poi `%d`(digits) quindi `age`. Con `?sprintf` avete una panoramica del tipo di *placeholder* che potete utilizzare.
+
+## Indicizzare stringhe
+
+### `nchar()`
+
+Come abbiamo visto prima la stringa è formata da un insieme di caratteri. La funzione `nchar()` fornisce il numero di singoli caratteri che compongono una stringa.
+
+
+```r
+nchar("ciao")
+```
+
+```
+## [1] 4
+```
+
+```r
+nchar("Wow lavorare con le stringhe è molto divertente")
+```
+
+```
+## [1] 47
+```
+
+### `gregexpr()` e `regexpr()`
+
+Per trovare la posizione di una o più caratteri all'interno di una stringa possiamo usare `gregexpr()`. La scrittura è `(g)gregexpr(pattern, stringa)`:
+
+
+```r
+gregexpr("t", "gatto")
+```
+
+```
+## [[1]]
+## [1] 3 4
+## attr(,"match.length")
+## [1] 1 1
+## attr(,"index.type")
+## [1] "chars"
+## attr(,"useBytes")
+## [1] TRUE
+```
+
+```r
+regexpr("t", "gatto")
+```
+
+```
+## [1] 3
+## attr(,"match.length")
+## [1] 1
+## attr(,"index.type")
+## [1] "chars"
+## attr(,"useBytes")
+## [1] TRUE
+```
+
+La differenza è che `regexpr()` restituisce solo la prima corrispondenza, nel nostro esempio la prima `t` si trova in 3 posizione mentre `gregexpr()` resituisce tutte le corrispondenze.
+
+### `substr()` e `substring()`
+
+Il processo inverso, quindi trovare la stringa che corrisponde ad un certo indice è il lavoro di `substr(stringa, start, stop)` dove `start` e `stop` sono gli indici della porzione di stringa che vogliamo trovare. `substring()` funziona allo stesso modo ma `start` e `stop` vengono chiamati `first` e `last`.
+
+
+```r
+substr("gatto", 1, 1) # solo la prima
+```
+
+```
+## [1] "g"
+```
+
+```r
+substr("gatto", 2, 4) # dalla seconda alla quarta
+```
+
+```
+## [1] "att"
+```
+
+Per questo tipo di compiti forniscono esattamente lo stesso risultato, vediamo quindi le differenze:
+
+- `substring()` permette di fornire solo l'indice iniziale `first` e quello finale ha un valore di default di `1000000L`
+- `substring()` permette anche di fornire un vettore di indici di inizio/fine per poter segmentare la stringa
+
+
+```r
+substring("gatto", 1) # funziona
+```
+
+```
+## [1] "gatto"
+```
+
+```r
+substr("gatto", 1) # errore
+```
+
+```
+## Error in substr("gatto", 1): argument "stop" is missing, with no default
+```
+
+```r
+substring("gatto", 1, 1:5) # indice multiplo di fine
+```
+
+```
+## [1] "g"     "ga"    "gat"   "gatt"  "gatto"
+```
+
+```r
+substring("gatto", 1:5, 1:5) # indice multiplo di inizio e fine
+```
+
+```
+## [1] "g" "a" "t" "t" "o"
+```
+
+```r
+substr("gatto", 1, 1:5) # non funziona, viene usato solo 1 indice di fine
+```
+
+```
+## [1] "g"
+```
+
+### `startWith()` e `endsWith()`
+
+Alcune volte possiamo essere interessati all'inizio o alla fine di una stringa. Ad esempio `female` e `male` hanno una chiara differenza iniziale (`fe` e `ma`). E nonostante errori di battitura seguenti o altre differenze, selezionare solo l'inizio o la fine può essere efficiente. `startWith()` e `endsWith()` permettono rispettivamente di fornire `TRUE` o `FALSE` se una certa stringa o vettore di stringhe abbiamo un certo pattern iniziale o finale.
+
+
+```r
+startsWith("female", prefix = "fe")
+```
+
+```
+## [1] TRUE
+```
+
+```r
+endsWith("female", suffix = "ale")
+```
+
+```
+## [1] TRUE
+```
+
+Questa come le altre funzioni possono essere utilizzate in combinazione con `tolower()` o `toupper()` per ingnorare differenze non rilevanti.
+
+### `grep()` e `grepl()`
+
+Queste funzioni lavorano invece su **vettori** di stringhe trovando la posizione o la sola presenza di specifici *pattern*. `grep()` fornisce la posizione/i nel vettore dove è presente un match, mentre `grepl()` fornisce `TRUE` o `FALSE` in funzione della presenza del *pattern*. La scrittura è la stessa `grep*(pattern, vettore)`
+
+
+```r
+genere
+```
+
+```
+## [1] "maLe"    "masChio" "Male"    "f"       "female"  "malew"
+```
+
+```r
+grep("female", genere) # indice di posizione
+```
+
+```
+## [1] 5
+```
+
+```r
+grepl("female", genere) # true o false
+```
+
+```
+## [1] FALSE FALSE FALSE FALSE  TRUE FALSE
+```
+
+Come abbiamo visto nell'indicizzazione logica dei vettori, possiamo usare sia `grep()` che `grepl()` per selezionare solo alcuni elementi:
+
+
+```r
+index_grep <- grep("female", genere) # indice di posizione
+index_grepl <- grepl("female", genere) # indice di posizione
+
+genere[index_grep]
+```
+
+```
+## [1] "female"
+```
+
+```r
+genere[index_grepl]
+```
+
+```
+## [1] "female"
+```
+
+Da notare ancora come tutte queste funzioni lavorino su una **corrispondenza molto stringente** (in termini di maiscolo, minuscolo, etc.) tra pattern e target.
+
+## Manipolare stringhe
+
+Molte delle funzioni che abbiamo visto permettono anche di sostituire un certo pattern all'interno di una stringa o di un vettore di stringhe.
+
+Utilizzando infatti `substr()` o `substring()` con la funzione di assegnazione `<-` possiamo sostituire un certo carattere. Importante, la sostituzione deve avere lo stesso numero di caratteri della selezione `start:stop` oppure verrà usato solo il numero di caratteri corrispondente:
+
+
+```r
+x <- "gatto"
+substr(x, 1, 1) <- "y"
+x
+```
+
+```
+## [1] "yatto"
+```
+
+```r
+x <- "gatto"
+substr(x, 1, 1) <- "aeiou"
+x # viene usata solo la a
+```
+
+```
+## [1] "aatto"
+```
+
+```r
+# substring funziona esattamente allo stesso modo
+x <- "gatto"
+substring(x, 1, 1) <- "z"
+x
+```
+
+```
+## [1] "zatto"
+```
+
+Possono essere utilizzate anche in modo vettorizzato funzionando quindi su una serie di elementi:
+
+
+```r
+x <- c("cane", "gatto", "topo")
+substring(x, 1, 1) <- "z"
+x
+```
+
+```
+## [1] "zane"  "zatto" "zopo"
+```
+
+
+### `gsub()` e `sub()`
+
+Rispetto a `substring()`, `gsub()` e `sub()` permettono di sostituire un certo pattern e non usando indici di posizione. La scrittura è `*sub(pattern, replacement, target)`:
+
+
+```r
+x <- c("cane", "gatto", "topo")
+sub("a", "z", x)
+```
+
+```
+## [1] "czne"  "gztto" "topo"
+```
+
+Come vedete per ogni elemento di `x` la funzione ha trovato il pattern `"a"` e lo ha sostituito con `"z"`.
+
+La principale limitazione di `sub()` è quella di sostituire solo la prima corrispondenza trovata in ogni stringa.
+
+
+```r
+x <- c("cane", "gatto", "topo")
+sub("o", "z", x)
+```
+
+```
+## [1] "cane"  "gattz" "tzpo"
+```
+
+Come vedete infatti, solo la prima "o" nella parola "topo" è stata sostituita. `gsub()` permette invece di sostituire tutti i caratteri che corrispondono al pattern richiesto:
+
+
+```r
+x <- c("cane", "gatto", "topo")
+gsub("o", "z", x)
+```
+
+```
+## [1] "cane"  "gattz" "tzpz"
+```
+
+### `strsplit()`
+
+Abbiamo già visto che con `substring()` ad esempio possiamo dividere una stringa in più parti. Secondo la documentazione di R la funzione `strsplit()` è più adatta ed efficiente per questo tipo di compito. La scrittura è `strsplit(target, split)` dove `split` è il carattere in base a cui dividere:
+
+
+```r
+frase <- "Quanto è bello usare le stringhe in R"
+strsplit(frase, " ") # stiamo dividendo in base agli spazi
+```
+
+```
+## [[1]]
+## [1] "Quanto"   "è"        "bello"    "usare"    "le"       "stringhe" "in"      
+## [8] "R"
+```
+
+```r
+parola <- "parola1_parola2"
+strsplit(parola, "_") # stiamo dividendo in base all'underscore
+```
+
+```
+## [[1]]
+## [1] "parola1" "parola2"
+```
+
+```r
+parola <- "ciao"
+strsplit(parola, "") # dividiamo per ogni carattere
+```
+
+```
+## [[1]]
+## [1] "c" "i" "a" "o"
+```
+
+Quello che otteniamo è un vettore (all'interno di una lista, possiamo usare `unlist()`) che contiene il risultato dello splitting.
+
+## Regular Expression (REGEX)
+
+E' tutto così semplice con le stringhe? Assolutamente no! Fino ad ora abbiamo utilizzato dei semplici pattern come singoli caratteri o insieme di caratteri  tuttavia possiamo avere problemi più complessi da affrontare come:
+
+- trovare l'estensione di un insieme di file
+- trovare il dominio di un sito web
+
+Facciamo un esempio:
+
+
+```r
+files <- c(
+  "file1.txt",
+  "file2.docx",
+  "file3.doc",
+  "file4.sh"
+)
+```
+
+In questo caso se noi vogliamo ad esempio estrarre tutte le estensioni `nomefile.estensione` gli strumenti che abbiamo visto finora non sono sufficienti:
+
+- possiamo estrarre i caratteri dalla fine `substr()` contando con `nchar()` però le estensioni non hanno un numero fisso di caratteri
+- possiamo cercare tutti i pattern con `grepl()` ma ci sono migliaia di estensioni diverse
+
+Finora abbiamo visto 2 livelli di astrazione:
+
+1. Corrispondenza letterale: `stringa1 == stringa2`
+2. Indicizzazione: la posizione all'interno di una stringa
+
+Il terzo livello di astrazione è quello di trovare dei pattern comuni nelle stringhe ed estrarli, indipendentemente dai singoli caratteri, dal numero o dalla posizione.
+
+Le Regular Expressions (REGEX) sono un insieme di caratteri (chiamati **metacaratteri**) che vengono intepretati e permettono di trovare dei pattern nelle stringhe senza indicare un pattern specifico o un indice di posizione. L'argomento è molto complesso e non R-specifico. Ci sono parecchie guide online e tutorial che segnaliamo alla fine del capitolo. La cosa importante da sapere è che la maggior parte delle funzioni che abbiamo visto permettono di usare una `regex` oltre ad un pattern specifico in modo da risolvere problemi più complessi.
+
+Per fare un esempio se vogliamo estrarre l'estensione da una lista di file il ragionamento è:
+
+- dobbiamo trovare un `.` perchè (circa) tutti i file sono composti da `nomefile.estensione`
+- dobbiamo selezionare tutti i caratteri dal punto alla fine della stringa
+
+La "traduzione" in termini di REGEX è questa `"\\.([^.]+)$"` e quindi possiamo usare questo come *pattern* e quindi estrarre le informazioni che ci servono. Possiamo usare la funzione `regmatches(text, match)` che richiede la stringa da analizzare e un oggetto `match` che è il risultato della funzione `regexpr` che abbiamo già visto:
+
+
+```r
+match_regex <- regexpr("\\.([^.]+)$", files)
+regmatches(files, match_regex)
+```
+
+```
+## [1] ".txt"  ".docx" ".doc"  ".sh"
+```
+
+## Per approfondire
+
+In tutto questo libro abbiamo sempre cercato di affrontare R come linguaggio di programmazione concentrandosi sulle funzioni di base. Tuttavia in alcuni settori, come quello delle stringhe e delle REGEX ci sono dei pacchetti esterni altamente consigliati che non solo rendono più semplice ma anche più organizzato e consistente l'insieme di funzioni. Il pacchetto [`stringr`](https://stringr.tidyverse.org/index.html) è una fantastica risorsa per imparare ma anche lavorare in modo più efficiace con le stringhe. Contiene una serie di funzioni costruite al di sopra di quelle che abbiamo affrontato, semplificandole e uniformando il tutto.
+
+L'ultimo esempio descritto non è molto leggibile contenendo il risultato di un'altra funzione e chiamando l'oggetto `target` due volte, in `stringr` abbiamo la funzione `str_extract()` che estrae un certo pattern o REGEX:
+
+
+```r
+stringr::str_extract(files, "\\.([^.]+)$")
+```
+
+```
+## [1] ".txt"  ".docx" ".doc"  ".sh"
+```
+
+### Risorse utili
+
+- [`stringr`](https://stringr.tidyverse.org/index.html)
+- [Capitolo 14](https://r4ds.had.co.nz/strings.html) di R for Data Science
+- [Mastering Regular Expressions](http://regex.info/book.html)
+- [Handling Strings With R](https://www.gastonsanchez.com/r4strings/)
+
+### Altre funzioni utili
+
+- `abbreviate()`

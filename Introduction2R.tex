@@ -228,7 +228,7 @@
 \makeatother
 \subtitle{Corso per imparare le basi di \textbf{R}}
 \author{\href{https://claudiozandonella.netlify.app/}{Claudio Zandonella Callegher} and \href{https://filippogambarota.netlify.app/}{Filippo Gambarota} members of \href{https://psicostat.dpss.psy.unipd.it/}{Psicostat}}
-\date{22-08-2021}
+\date{17-11-2021}
 
 \begin{document}
 \maketitle
@@ -1288,7 +1288,7 @@ Esistono diverse convenzioni tra cui:
 \item
   \textbf{snake\_case}. L'inizio di una nuova parola viene indicata con l'uso carattere \texttt{\_}. Ad esempio \texttt{media\_test\_controllo}.
 \item
-  una variante al calssico \textbf{snake\_case} riguarda l'uso del \texttt{.}, ad esempio \texttt{media.test.controllo}. Questo approccio in genere è evitato poichè in molti linguaggi di progtrammazione (ed anche in R in alcune condizioni) il carattere \texttt{.} è un carattere speciale.
+  una variante al calssico \textbf{snake\_case} riguarda l'uso del \texttt{.}, ad esempio \texttt{media.test.controllo}. Questo approccio in genere è evitato poichè in molti linguaggi di programmazione (ed anche in R in alcune condizioni) il carattere \texttt{.} è un carattere speciale.
 \end{itemize}
 
 In genere viene raccomandato di seguire la convenzione \textbf{snake\_case}. Tuttavia, la decisione su quale convenzione adottare è libera, ma ricorda ancora che una buona norma nella programmazione riguarda la \emph{consistenza}: una volta presa una decisione è bene mantenerla per facilitare la comprensione del codice.
@@ -1473,7 +1473,7 @@ Il formato e le informazioni presenti nella pagina seguono delle norme comuni ma
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Tiolo} - Titolo esplicativo della finalità della funzione\\
+  \textbf{Titile} - Titolo esplicativo della finalità della funzione\\
 \item
   \textbf{Description} - Descrizione coincisa della funzione
 \item
@@ -3121,6 +3121,25 @@ Nota come l'operazione di eliminazione sia comunque un'operazione di selezione. 
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{which}{%
+\subsubsection{\texorpdfstring{\texttt{which()}}{which()}}\label{which}}
+
+La funzione \texttt{which()} è molto utile per ottenere la \textbf{posizione} all'interno di un vettore associata ad una certa condizione logica. In altri termini se vogliamo sapere in quale posizione sono i valori \texttt{\textgreater{}\ 5} in un certo vettore numerico possiamo usare la funzione \texttt{which(x\ \textgreater{}\ 5)} dove \texttt{x} è chiaramente il nostro vettore numerico.
+
+\begin{verbatim}
+##  [1] FALSE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE
+## [1]  3  5  6  7  9 10
+\end{verbatim}
+
+Come vedete, la funzione \texttt{which()} essenzialmente restituisce la \textbf{posizione} (e non il valore) dove la condizione testata è \texttt{TRUE}. E' importante notare che queste due scritture sono equivalenti:
+
+\begin{verbatim}
+## [1] 6.458461 7.002689 7.029311 7.354991 7.018398 5.763055
+## [1] 6.458461 7.002689 7.029311 7.354991 7.018398 5.763055
+\end{verbatim}
+
+Infatti, come abbiamo visto possiamo indicizzare un vettore sia con un'altro vettore che ci indica la posizione degli elementi da estrarre che un vettore \textbf{logico} di lunghezza uguale al vettore originale.
+
 \hypertarget{esercizi-3}{%
 \subsection*{Esercizi}\label{esercizi-3}}
 \addcontentsline{toc}{subsection}{Esercizi}
@@ -3485,10 +3504,10 @@ Utilizzando le funzioni \texttt{sum()} e \texttt{mean()} con un vettore logico, 
 \NormalTok{my_values <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{)  }\CommentTok{# genero dei numeri casuali }
 
 \KeywordTok{sum}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# totale numeri positivi}
-\CommentTok{## [1] 26}
+\CommentTok{## [1] 24}
 
 \KeywordTok{mean}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# percentuale numeri positivi}
-\CommentTok{## [1] 0.52}
+\CommentTok{## [1] 0.48}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4031,7 +4050,7 @@ In questo capitolo vedremo i \emph{fattori}, una speciale tipologia di vettori u
 \hypertarget{attributes}{%
 \section{Attributi di un Oggetto}\label{attributes}}
 
-In R, gli oggetti possiedono quelli che sono definiti \emph{attributi}, ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di \emph{metadata}. Queste informazioni non interferiscono con i valori contenuti negli oggetti nè vengono normalmente mostrati nell'output di un oggetto. Tuttavia, si rivelano particolarmente utili in alcune circostanze e permettono di fornire speciali informazioni associate ad un determinato oggetti.
+In R, gli oggetti possiedono quelli che sono definiti \emph{attributi}, ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di \emph{metadata}. Queste informazioni non interferiscono con i valori contenuti negli oggetti nè vengono normalmente mostrati nell'output di un oggetto. Tuttavia, si rivelano particolarmente utili in alcune circostanze e permettono di fornire speciali informazioni associate ad un determinato oggetto.
 
 Gli oggetti possiedono diversi attributi a seconda della loro tipologia. Tuttavia, tra quelli principalmente usati troviamo:
 
@@ -4092,7 +4111,7 @@ Eseguendo la funzione \texttt{class()}, tuttavia, otteniamo comunque la precisa 
 \subsubsection*{Dimensione}\label{dimensione}}
 \addcontentsline{toc}{subsubsection}{Dimensione}
 
-Abbiamo anticipato come l'attributo \texttt{dim} non sia dissponibile per i vettori, mentre diverrà molo importante nel caso di matrici e dataframe. Tuttavia un analogo valore della dimensione di un vettore è dato dalla sua lunghezza, valutata con la funzione \texttt{length()}.
+Abbiamo anticipato come l'attributo \texttt{dim} non sia disponibile per i vettori, mentre diverrà molo importante nel caso di matrici e dataframe. Tuttavia un analogo valore della dimensione di un vettore è dato dalla sua lunghezza, valutata con la funzione \texttt{length()}.
 
 \begin{verbatim}
 ## NULL
@@ -4339,6 +4358,58 @@ Per riordinare corretamente i livelli riutilizziamo la funzione \texttt{factor()
 \end{Shaded}
 
 Così facendo abbiamo riordinato i livelli a nostro piacimento senza modificare gli effettivi valori.
+
+\hypertarget{extra}{%
+\subsubsection*{Extra}\label{extra}}
+\addcontentsline{toc}{subsubsection}{Extra}
+
+Sono possibili diverse operazioni con i fattori. Ad esempio, possiamo essere interessati a eliminare un certo livello di un fattore:
+
+\begin{itemize}
+\tightlist
+\item
+  se facciamo un subset di un fattore e non abbiamo più valori associati a quel livello
+\item
+  se vogliamo semplicemente rimuovere un livello e le rispettive osservazioni
+\end{itemize}
+
+In questi casi possiamo usare la funzione \texttt{droplevels(x,\ exclude\ =\ ...)} che permette di rimuovere determinati livelli:
+
+\begin{verbatim}
+## [1] "a" "b" "c"
+## [1] "a" "b" "c"
+\end{verbatim}
+
+Come vedete nonostante non ci siano più valori \texttt{c}, abbiamo il fattore ha comunque associati tutti i valori iniziali:
+
+\begin{verbatim}
+##  [1] a a a a a a a a a a b b b b b
+## Levels: a b
+\end{verbatim}
+
+Possiamo anche direttamente eliminare un livello ma in corrispondenza dei valori associati avremmo degli \texttt{NA}:
+
+\begin{verbatim}
+## [1] b b b b b c c
+## Levels: b c
+\end{verbatim}
+
+Come è possibile eliminare un livello, è anche possibile aggiungere un livello ad un fattore usando semplicemente il comando \texttt{factor()} e specificando tutti i livello più quello/i aggiuntivi:
+
+\begin{verbatim}
+##  [1] <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> b    b    b    b    b   
+## [16] c    c   
+## Levels: b c nuovolivello
+\end{verbatim}
+
+In questo caso abbiamo usato la funzione \texttt{c(vecchi\_livelli,\ nuovo\_livello)} per creare un vettore di nuovi livelli da usare in questo caso. In alternativa possiamo anche usare il metodo di assegnazione \texttt{levels(x)\ \textless{}-} specificando ancora un vettore di livelli oppure specificando un singolo valore assegnando al nuovo indice:
+
+E' possibile inoltre combinare due fattori in modo da ottenerne uno unico unendo quindi i livelli e i rispettivi valori numerici. Semplicemente usando il comando \texttt{c(fac1,\ fac2)}:
+
+\begin{verbatim}
+##  [1] a a a a a b b b b b c c c c c d d d d d
+## Levels: a b c d
+\end{verbatim}
 
 \hypertarget{fattori-ordinali}{%
 \subsection{Fattori Ordinali}\label{fattori-ordinali}}
@@ -5763,7 +5834,7 @@ Il comando per creare un dataframe è \texttt{data.frame()}:
 \end{Highlighting}
 \end{Shaded}
 
-La creazione è leggermente diversa rispetto al caso delle matrici. Intuitivamente è più facile immaginarla come l'unione di diverse colonne (dove una può contenere dei nomi, un'altra delle date e così via) piuttosto che un insieme di valori inseriti per riga o per colonna come per le matrici. Infatti per creare un \texttt{dataframe} è proprio necessario specificare le colonne una alla volta, indicando \texttt{nome\_colonna\ =\ valori} all'interno del comando \texttt{data.frame()}. Vediamo un esempio in R,
+La creazione è leggermente diversa rispetto al caso delle matrici. Intuitivamente è facile immaginarla come l'unione di diverse colonne (dove una può contenere dei nomi, un'altra delle date e così via) piuttosto che un insieme di valori inseriti per riga o per colonna come per le matrici. Infatti per creare un \texttt{dataframe} è proprio necessario specificare le colonne una alla volta, indicando \texttt{nome\_colonna\ =\ valori} all'interno del comando \texttt{data.frame()}. Vediamo un esempio in R,
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7373,6 +7444,722 @@ I capitoli sono così organizzati:
   \textbf{Capitolo \ref{loop} - Programmazione Iterativa}. Introdurremo l'uttilizzo degli operatori \texttt{for} e \texttt{while} per l'esecuzione di loop.
 \end{itemize}
 
+\hypertarget{functions}{%
+\chapter{Definizione di Funzioni}\label{functions}}
+
+Nel Capitolo \ref{functions-def} abbiamo introdotto il concetto di funzioni e abbiamo visto come queste siano utilizzate per manipolare gli oggetti in R ed eseguire innumerevoli compiti. Nel Capitolo \ref{packages} abbiamo visto inoltre come sia possibile utilizzare i pacchetti per accedere a nuove funzioni estendendo quindi notevolmente le possibili applicazioni di R. In R, tuttavia, è anche possibile definire le proprie funzioni per eseguire determinati compiti a seconda delle proprie specifiche necessità.
+
+Questo è uno dei vantaggi principali di utilizzare un linguaggio di programmazione, ovvero il poter sviluppare funzioni ad-hoc a seconda delle proprie esigenze e non limitarsi a quelle prestabilite. In questo capitolo descriveremo come creare le proprie funzioni in R.
+
+\hypertarget{creazione-di-una-funzione}{%
+\section{Creazione di una Funzione}\label{creazione-di-una-funzione}}
+
+Il comando usato per creare una funzione in R è \texttt{function()} seguito da una coppia di parentesi graffe \texttt{\{\ \}} al cui interno deve essere specificato il corpo della funzione:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nome_funzione <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{( )\{}
+  \OperatorTok{<}\NormalTok{corpo}\OperatorTok{-}\NormalTok{funzione}\OperatorTok{>}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Nota come sia necessario assegnare la funzione ad un oggetto, ad esempio \texttt{my\_function}, che diventerà il nome della nostra funzione. Per eseguire la funzione sarà sufficiente, come per ogni altra funzione, indicare il nome della funzione seguito dalle parentesi tonde, nel nostro caso \texttt{my\_function()}. Vediamo alcuni esempi di semplici funzioni:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Definisco la funzione}
+\NormalTok{my_greetings <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
+  \KeywordTok{print}\NormalTok{(}\StringTok{"Hello World!"}\NormalTok{)}
+\NormalTok{\}}
+
+\KeywordTok{my_greetings}\NormalTok{()}
+\CommentTok{## [1] "Hello World!"}
+
+\CommentTok{# Definisco un'altra funzione}
+\NormalTok{my_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
+\NormalTok{  x <-}\StringTok{ }\DecValTok{7}
+\NormalTok{  y <-}\StringTok{ }\DecValTok{3}
+  
+\NormalTok{  x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
+\NormalTok{\}}
+
+\KeywordTok{my_sum}\NormalTok{()}
+\CommentTok{## [1] 10}
+\end{Highlighting}
+\end{Shaded}
+
+Quando chiamiamo la nostra funzione, R eseguirà il corpo della funzione e ci restituirà il risultato dell'ultimo comando eseguito. Le funzioni del precedente esempio, tuttavia, si rivelano poco utili poichè eseguono sempre le stesse operazioni senza che ci sia permesso di specificare gli input delle funzioni. Inoltre, sebbene siano funzioni molto semplici, potrebbe non risultare chiaro quale sia effettivamente l'output restituito dalla funzione.
+
+:::\{design title=``Nomi Funzioni'' data-latex=``{[}Nomi Funzioni{]}''\}
+Nel definire il nome di una funzione è utile seguire le stese indicazioni che riguardavano i nomi degli oggetti (vedi Capitolo \ref{objects-names}). In questo caso affinché un nome sia \textbf{auto-descrittivo} si tende ad utilizzare verbi che riassumano l'azione eseguita dalla funzione.
+:::
+
+\hypertarget{definire-input-e-output}{%
+\subsection{Definire Input e Output}\label{definire-input-e-output}}
+
+Ricordiamo che in generale le funzioni, ricevuti degli oggetti in input, compiono determinate azioni e restituiscono dei nuovi oggetti in output. Input e ouput sono quindi due aspetti aspetti fondamentali di ogni funzione che richiedono particolare attenzione.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Input} - Abbiamo anche visto che in R gli input vengono specificati attraverso gli \textbf{argomenti} di una funzione (vedi Capitolo \ref{function-arguments}). Per definire gli argomenti di una funzione, questi devono essere indicati all'interno delle parentesi tonde al momento della creazione della funzione
+\item
+  \textbf{Output} - Per specificare l'output di una funzione si utilizza la funzione \texttt{return()}, indicando tra le parentesi il nome dell'oggetto che si desidera restituire come risultato della funzione.
+\end{itemize}
+
+La definizione di una funzione con tutti i suoi elementi seguirà quindi il seguente schema:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nome_funzione <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(argument_}\DecValTok{1}\NormalTok{, argument_}\DecValTok{2}\NormalTok{, ...)\{}
+  \OperatorTok{<}\NormalTok{corpo}\OperatorTok{-}\NormalTok{funzione}\OperatorTok{>}
+\StringTok{  }
+\StringTok{  }\KeywordTok{return}\NormalTok{(}\OperatorTok{<}\NormalTok{nome}\OperatorTok{-}\NormalTok{output}\OperatorTok{>}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Possiamo ora riscrivere le precedenti funzioni permettendo di personalizzare gli input e evidenziando quale sia output che viene restituito.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Ridefinisco my_greetings()}
+\NormalTok{my_greetings <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(name)\{}
+\NormalTok{  greetings <-}\StringTok{ }\KeywordTok{paste0}\NormalTok{(}\StringTok{"Hello "}\NormalTok{, name, }\StringTok{"!"}\NormalTok{)}
+  
+  \KeywordTok{return}\NormalTok{(greetings)}
+\NormalTok{\}}
+
+\KeywordTok{my_greetings}\NormalTok{(}\DataTypeTok{name =} \StringTok{"Psicostat"}\NormalTok{)}
+\CommentTok{## [1] "Hello Psicostat!"}
+
+\CommentTok{# Ridefinisco my_sum()}
+\NormalTok{my_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y)\{}
+\NormalTok{  result <-}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
+  
+  \KeywordTok{return}\NormalTok{(result)}
+\NormalTok{\}}
+
+\KeywordTok{my_sum}\NormalTok{(}\DataTypeTok{x =} \DecValTok{8}\NormalTok{, }\DataTypeTok{y =} \DecValTok{6}\NormalTok{)}
+\CommentTok{## [1] 14}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{design}[User Input]
+
+Qualora fosse necessario è possibile fare in modo che sia la funzione stessa a chiedere all'utente di inserire delle specifiche informazioni attraverso la funzione \texttt{readline()}.
+
+Utilizzando la funzione \texttt{readline()} comparirà nella console il messaggio che abbiamo impostato nell'argomento \texttt{prompt} (ricordati di concludere lasciando uno spazio). All'utente sarà richiesto di digitare una qualche sequenza alfanumeirca e premere successivamente \emph{invio}. I valori inseriti dell'utente saranno salvati come una variabile caratteri nell'oggetto che abbiamo indicato e potranno essere utilizzati sucessivamente nella funzione.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{happy_birthday <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
+\NormalTok{  name <-}\StringTok{ }\KeywordTok{readline}\NormalTok{(}\DataTypeTok{prompt =} \StringTok{"Inserisci il tuo nome: "}\NormalTok{)}
+\NormalTok{  message <-}\StringTok{ }\KeywordTok{paste0}\NormalTok{(}\StringTok{"Buon Compleanno "}\NormalTok{, name, }\StringTok{"!"}\NormalTok{)}
+  
+  \KeywordTok{return}\NormalTok{(message)}
+\NormalTok{\}}
+
+\KeywordTok{happy_birthday}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Nota che questa funzione possona essere usata solo in sessioni interattive di R poichè è richiesta un 'azione diretta da parte dell'utente.
+
+\end{design}
+
+\hypertarget{default-argomenti}{%
+\subsubsection*{Default Argomenti}\label{default-argomenti}}
+\addcontentsline{toc}{subsubsection}{Default Argomenti}
+
+Abbiamo visto come aggiungere degli argomenti che devono essere definiti dall'utente nell'utilizzare la funzione. Qualora l'utente non specifichi uno o più argomenti R riporterà un messaggio di errore indicando come ci siano degli argomenti non specificati e senza valori di default.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{my_sum}\NormalTok{(}\DataTypeTok{x =} \DecValTok{5}\NormalTok{)}
+\CommentTok{## Error in my_sum(x = 5): argument "y" is missing, with no default}
+\end{Highlighting}
+\end{Shaded}
+
+Per assegnare dei valori di default agli argomenti di una funzione, è sufficiente indicare al momento della creazione all'interno delle parentesi tonde \texttt{nome\_argomento\ =\ \textless{}valore-default\textgreater{}}. Se non altrimenti specificati, gli argomenti assumeranno i loro valori di default. Tuttavia, gli utenti sono liberi di specificare gli argomenti della funzione a seconda delle loro esigenze. Ad esempio impostiamo nella funzione \texttt{my\_sum()} il valore di default \texttt{y\ =\ 10}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, }\DataTypeTok{y =} \DecValTok{10}\NormalTok{)\{}
+\NormalTok{  result <-}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
+  
+  \KeywordTok{return}\NormalTok{(result)}
+\NormalTok{\}}
+
+\CommentTok{# Utilizzo il valore di default di y}
+\KeywordTok{my_sum}\NormalTok{(}\DataTypeTok{x =} \DecValTok{5}\NormalTok{)}
+\CommentTok{## [1] 15}
+
+\CommentTok{# Specifico il valore id y}
+\KeywordTok{my_sum}\NormalTok{(}\DataTypeTok{x =} \DecValTok{5}\NormalTok{,  }\DataTypeTok{y =} \DecValTok{8}\NormalTok{)}
+\CommentTok{## [1] 13}
+\end{Highlighting}
+\end{Shaded}
+
+Questa pratica è molto usata per specificare comportamenti particolari delle funzioni. In genere le funzioni sono definite con un funzionameto di default ma alcuni argomenti possono essere specificati per particolari essigenze solo quando necessario.
+
+\begin{trick}[match.arg()]
+
+Per imporre la scelta di un argomento tra una limitata serie di valori è possibile indicare nella definizione dell'argomento un vettore con le possibili entrate. Successivamente la scelta deve essere validata attraverso la funzione \texttt{match.arg()} come nell esempio successivo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Ridefinisco my_greetings()}
+\NormalTok{my_greetings <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(name, }\DataTypeTok{type =} \KeywordTok{c}\NormalTok{(}\StringTok{"Hello"}\NormalTok{, }\StringTok{"Goodbye"}\NormalTok{))\{}
+  
+\NormalTok{  type <-}\StringTok{ }\KeywordTok{match.arg}\NormalTok{(type)}
+\NormalTok{  greetings <-}\StringTok{ }\KeywordTok{paste0}\NormalTok{(type,}\StringTok{" "}\NormalTok{, name, }\StringTok{"!"}\NormalTok{)}
+  
+  \KeywordTok{return}\NormalTok{(greetings)}
+\NormalTok{\}}
+
+\CommentTok{# Scelta type}
+\KeywordTok{my_greetings}\NormalTok{(}\DataTypeTok{name =} \StringTok{"Psicostat"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"Goodbye"}\NormalTok{)}
+\CommentTok{## [1] "Goodbye Psicostat!"}
+
+\CommentTok{# Valore default}
+\KeywordTok{my_greetings}\NormalTok{(}\DataTypeTok{name =} \StringTok{"Psicostat"}\NormalTok{)}
+\CommentTok{## [1] "Hello Psicostat!"}
+
+\CommentTok{# Valore non ammesso}
+\KeywordTok{my_greetings}\NormalTok{(}\DataTypeTok{name =} \StringTok{"Psicostat"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"Guten Tag"}\NormalTok{)}
+\CommentTok{## Error in match.arg(type): 'arg' should be one of "Hello", "Goodbye"}
+\end{Highlighting}
+\end{Shaded}
+
+La funzione \texttt{match.arg()} permette di confrontare il valore specificato risspetto a quelli indicati nella definizione dell'argomento, riportando un errore in mancanza di un match. Osserva come se non specificato il valore di default sia il primo indicato nella definizione.
+
+\end{trick}
+
+\hypertarget{esercizi-14}{%
+\subsection*{Esercizi}\label{esercizi-14}}
+\addcontentsline{toc}{subsection}{Esercizi}
+
+Esegui i seguenti esercizi:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  definisci una funzione che trasformi la temperatura da Celsius a Fahrenheit
+  \[
+    Fahrenheit = Celsius *1.8 + 32
+    \]
+\item
+  Definisci una funzione che permetta di fare gli auguri di buon natale e buona pasqua ad una persona.
+\item
+  Definisci una funzione che, dato un vettore di valori numerici, calcoli il numero di elementi e la loro media.
+\item
+  Definisci una funzione iterattiva che calcoli il prodotto di due valori. Gli input devono essere ottenuti conlla funzione \texttt{readline()}.
+\item
+  Definisci una funzione che calcoli lo stipendio mensile sulla base delle ore svolte nel mese e la paga oraria.
+\end{enumerate}
+
+\hypertarget{lavorare-con-le-funzioni}{%
+\section{Lavorare con le Funzioni}\label{lavorare-con-le-funzioni}}
+
+Le funzioni sono sicuramente l'aspetto più utile e avanzato del linguaggio R e in generale dei linguaggi di programmazione. I pacchetti che sono sviluppati in R non sono altro che insieme di funzioni che lavorano assieme per uno scopo preciso. Oltre allo scopo della funzione è importante capire come gestire gli \textbf{errori e gli imprevisti}. Se la funzione infatti accetta degli argomenti, l'utente finale o noi stessi che la utilizziamo possiamo erroneamente usarla nel modo sbagliato. E' importante quindi capire come leggere gli errori ma sopratutto creare messaggi di errore o di avvertimento utili per l'utilizzo della funzione.
+
+Prendiamo ad esempio la funzione somma \texttt{+}, anche se non sembra infatti l'operatore \texttt{+} è in realtà una funzione. Se volessimo scriverlo come una funzione simile a quelle viste in precedenza possiamo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y)\{}
+\NormalTok{  res <-}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
+  \KeywordTok{return}\NormalTok{(res)}
+\NormalTok{\}}
+
+\KeywordTok{my_sum}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\CommentTok{## [1] 6}
+\end{Highlighting}
+\end{Shaded}
+
+Abbiamo definito una (abbastanza inutile) funzione per calcolare la somma tra due numeri. Cosa succede se proviamo a sommare un numero con una stringa? Ovviamente è un'operazione che non ha senso e ci aspettiamo un qualche tipo di errore:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{my_sum}\NormalTok{(}\StringTok{"stringa"}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\CommentTok{## Error in x + y: non-numeric argument to binary operator}
+\end{Highlighting}
+\end{Shaded}
+
+In questo caso infatti, vediamo un messaggio denominato \texttt{Error...} con l'utile informazione che uno degli argomenti utilizzati risulta essere \texttt{non-numeric}. E' un messaggio semplice, mirato e sopratutto non fornisce un risultato perchè una condizione fondamentale (la somma vale solo per i numeri) non è rispettata. La funzione \texttt{+} ha già al suo interno questo controllo, ma se noi volessimo implementare un \textbf{controllo} e fornire un \textbf{messaggio} abbiamo a disposizione diverse opzioni:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{stop(\textless{}message\textgreater{},\ .call\ =\ TRUE)}: Se inserito all'interno di una funzione, interrompe l'esecuzione e fornisce il messaggio specificato denominato come \texttt{Error}.
+\item
+  \texttt{stopifnot(expr1,\ expr2,\ ...)}: Se inserito all'interno di una funzione interrompe l'esecuzione se almeno una di una serie di condizioni risulta come \textbf{non VERA}.
+\item
+  \texttt{warning()}: Restituisce un messaggio all'utente senza tuttavia interrompere l'esecuzione ma fornendo informazioni su un possibile problema che deriva dal tipo di input o da un possibile effetto collaterale della funzione.
+\item
+  \texttt{message()}: Fornisce un semplice messaggio senza alterare l'esecuzione della funzione che può essere utile per informare rispetto ad operazioni eseguite
+\end{itemize}
+
+Tornando all'esempio della somma, immaginiamo di voler scrivere una funzione che somma solo numeri positivi. In altri termini vogliamo che i valori \texttt{x} e \texttt{y} in input siano solo posiviti per poter eseguire la funzione. Possiamo quindi inserire un \texttt{controllo\ condizionale} e usare la funzione \texttt{stop()} nel caso in cui la condizione non sia rispettata:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_positive_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y)\{}
+  \ControlFlowTok{if}\NormalTok{(x }\OperatorTok{<}\StringTok{ }\DecValTok{0} \OperatorTok{|}\StringTok{ }\NormalTok{y }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
+    \KeywordTok{stop}\NormalTok{(}\StringTok{"Gli argomenti devono essere numeri positivi!"}\NormalTok{)}
+\NormalTok{  \}}
+\NormalTok{  res <-}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
+  \KeywordTok{return}\NormalTok{(res)}
+\NormalTok{\}}
+
+\KeywordTok{my_positive_sum}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\CommentTok{## [1] 15}
+\KeywordTok{my_positive_sum}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{-5}\NormalTok{)}
+\CommentTok{## Error in my_positive_sum(10, -5): Gli argomenti devono essere numeri positivi!}
+\end{Highlighting}
+\end{Shaded}
+
+Un modo più rapido di gestire l'arresto dell'esecuzione è usare \texttt{stopifnot()}. La logica tuttavia è leggermente diversa rispetto ad usare un \texttt{if} + \texttt{stop()}. Nell'esempio precedente la logica è: ``se x oppure y sono minori di 0, stop''. Con \texttt{stopifnot()} utilizziamo una logica inversa, ovvero inseriamo quello che vogliamo sia \textbf{VERO} e fermiamo l'esecuzione se è \textbf{FALSO}. Nel nostro caso usiamo \texttt{stopifnot(x\ \textgreater{}\ 0,\ y\ \textgreater{}\ 0)} ovvero fermati se x oppure y \emph{NON SONO} maggiori di 0. Rispetto a \texttt{stop()} non fornisce un messaggio personalizzato ma restituisce la prima delle condizioni specificate che non è rispettata:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_positive_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y)\{}
+  \KeywordTok{stopifnot}\NormalTok{(x }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{, y }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)}
+\NormalTok{  res <-}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
+  \KeywordTok{return}\NormalTok{(res)}
+\NormalTok{\}}
+\KeywordTok{my_positive_sum}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{-5}\NormalTok{)}
+\CommentTok{## Error in my_positive_sum(10, -5): y > 0 is not TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+Allo stesso modo immaginiamo (con molta immaginazione) che la nostra funzione non sia affidabile con numeri minori di 10, nel senso che qualche volta potrebbe sbagliare il risultato. In questo caso non vogliamo interrompere l'esecuzione ma fornire un messaggi di \texttt{warning}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_positive_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y)\{}
+  \CommentTok{# Error}
+  \ControlFlowTok{if}\NormalTok{(x }\OperatorTok{<}\StringTok{ }\DecValTok{0} \OperatorTok{|}\StringTok{ }\NormalTok{y }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
+    \KeywordTok{stop}\NormalTok{(}\StringTok{"Gli argomenti devono essere numeri positivi!"}\NormalTok{)}
+\NormalTok{  \}}
+  \CommentTok{# Warning}
+  \ControlFlowTok{if}\NormalTok{(x }\OperatorTok{<}\StringTok{ }\DecValTok{10} \OperatorTok{|}\StringTok{ }\NormalTok{y }\OperatorTok{<}\StringTok{ }\DecValTok{10}\NormalTok{)\{}
+    \KeywordTok{warning}\NormalTok{(}\StringTok{"Per qualche strano motivo la funzione non gestisce bene i numeri minori di 10, attenzione!! :)"}\NormalTok{)}
+\NormalTok{  \}}
+\NormalTok{  res <-}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
+  \KeywordTok{return}\NormalTok{(res)}
+\NormalTok{\}}
+
+\KeywordTok{my_positive_sum}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+\CommentTok{## Warning in my_positive_sum(15, 4): Per qualche strano motivo la funzione non}
+\CommentTok{## gestisce bene i numeri minori di 10, attenzione!! :)}
+\CommentTok{## [1] 19}
+\end{Highlighting}
+\end{Shaded}
+
+Come vedete, abbiamo il risultato (ovviamente corretto) ma anche un messaggio di \texttt{warning} che ci avverte di questa possibile (ma non critica) problematica.
+
+Infine possiamo accompagnare il risultato alcune condizioni che si realizzano con un semplice messaggio che fornisce ulteriori informazioni con la funzione \texttt{message()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_positive_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y)\{}
+  \CommentTok{# Error}
+  \ControlFlowTok{if}\NormalTok{(x }\OperatorTok{<}\StringTok{ }\DecValTok{0} \OperatorTok{|}\StringTok{ }\NormalTok{y }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
+    \KeywordTok{stop}\NormalTok{(}\StringTok{"Gli argomenti devono essere numeri positivi!"}\NormalTok{)}
+\NormalTok{  \}}
+  \CommentTok{# Warning}
+  \ControlFlowTok{if}\NormalTok{(x }\OperatorTok{<}\StringTok{ }\DecValTok{10} \OperatorTok{|}\StringTok{ }\NormalTok{y }\OperatorTok{<}\StringTok{ }\DecValTok{10}\NormalTok{)\{}
+    \KeywordTok{warning}\NormalTok{(}\StringTok{"Per qualche strano motivo la funzione non gestisce bene i numeri minori di 10, attenzione!! :)"}\NormalTok{)}
+\NormalTok{  \}}
+\NormalTok{  res <-}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
+  \KeywordTok{message}\NormalTok{(}\StringTok{"Ottimo lavoro! :)"}\NormalTok{)}
+  \KeywordTok{return}\NormalTok{(res)}
+\NormalTok{\}}
+
+\KeywordTok{my_positive_sum}\NormalTok{(}\DecValTok{12}\NormalTok{, }\DecValTok{10}\NormalTok{)}
+\CommentTok{## Ottimo lavoro! :)}
+\CommentTok{## [1] 22}
+\end{Highlighting}
+\end{Shaded}
+
+Un ultimo aspetto importante riguarda cosa avviene se assegniamo il risultato di una funzione in presenza di errori, warning o messaggi. In generale, tranne che per la presenza di errori e quindi usando la funzione \texttt{stop()}, l'output rimane lo stesso e il messaggio è solo stampato nella console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res1 <-}\StringTok{ }\KeywordTok{my_positive_sum}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{5}\NormalTok{)}
+\CommentTok{## Warning in my_positive_sum(10, 5): Per qualche strano motivo la funzione non}
+\CommentTok{## gestisce bene i numeri minori di 10, attenzione!! :)}
+\CommentTok{## Ottimo lavoro! :)}
+\NormalTok{res2 <-}\StringTok{ }\KeywordTok{my_positive_sum}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{23}\NormalTok{)}
+\CommentTok{## Ottimo lavoro! :)}
+\NormalTok{res3 <-}\StringTok{ }\KeywordTok{my_positive_sum}\NormalTok{(}\DecValTok{10}\NormalTok{,}\OperatorTok{-}\DecValTok{1}\NormalTok{)}
+\CommentTok{## Error in my_positive_sum(10, -1): Gli argomenti devono essere numeri positivi!}
+
+\NormalTok{res1}
+\CommentTok{## [1] 15}
+\NormalTok{res2}
+\CommentTok{## [1] 33}
+\NormalTok{res3 }\CommentTok{# nessun output}
+\CommentTok{## Error in eval(expr, envir, enclos): object 'res3' not found}
+\end{Highlighting}
+\end{Shaded}
+
+Come vedete infatti, quando abbiamo un errore e fermiamo l'esecuzione, la funzione pur prevedendo un output, non fornisce risultato perchè è stata interrotta.
+
+\hypertarget{ambiente-della-funzione}{%
+\section{Ambiente della funzione}\label{ambiente-della-funzione}}
+
+Il concetto di \texttt{ambiente} in R è abbastanza complesso\footnote{per una non semplice trattazione dell'argomento, il \href{https://adv-r.hadley.nz/environments.html}{capitolo 7} del libro ``Advanced R'' di Hadley Wickam è un ottima risorsa.}. In parole semplici, tutte le operazioni che normalmente eseguiamo nella console o in uno script, avvengono in quello che si chiama \texttt{global\ environment}. Quando scriviamo ed eseguiamo una funzione, stiamo creando un oggetto funzione (nel \texttt{global\ environment}) che a sua volta crea un ambiente interno per eseguire le operazioni previste. Immaginiamo di avere questa funzione \texttt{my\_fun()} che riceve un valore \texttt{x} e lo somma ad un valore \texttt{y} che non è un argomento.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_fun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \KeywordTok{return}\NormalTok{(x }\OperatorTok{+}\StringTok{ }\NormalTok{y)}
+\NormalTok{\}}
+
+\KeywordTok{my_fun}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\CommentTok{## Error in my_fun(10): object 'y' not found}
+\end{Highlighting}
+\end{Shaded}
+
+Chiaramente otteniamo un errore perchè l'oggetto \texttt{y} non è stato creato. Se però creiamo l'oggetto \texttt{y} all'interno della funzione, questa esegue regolarmente la somma MA non crea l'oggetto \texttt{y} nell'ambiente globale.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_fun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  y <-}\StringTok{ }\DecValTok{1}
+  \KeywordTok{return}\NormalTok{(x }\OperatorTok{+}\StringTok{ }\NormalTok{y)}
+\NormalTok{\}}
+
+\KeywordTok{my_fun}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\CommentTok{## [1] 11}
+\KeywordTok{ls}\NormalTok{() }\CommentTok{# abbiamo solo la nostra funzione come oggetto}
+\CommentTok{## [1] "my_fun"          "my_greetings"    "my_positive_sum" "my_sum"         }
+\CommentTok{## [5] "res1"            "res2"}
+\end{Highlighting}
+\end{Shaded}
+
+Da qui è chiaro che quello che avviene all'interno della funzione è in qualche modo compartimentalizzato rispetto all'ambiente globale. L'unico modo per influenzare l'ambiente globale è quello di assegnare il risultato della funzione, creando quindi un nuovo oggetto:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res <-}\StringTok{ }\KeywordTok{my_fun}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\KeywordTok{ls}\NormalTok{()}
+\CommentTok{## [1] "my_fun"          "my_greetings"    "my_positive_sum" "my_sum"         }
+\CommentTok{## [5] "res"             "res1"            "res2"}
+\end{Highlighting}
+\end{Shaded}
+
+Altra cosa importante, sopratutto per gestire effetti collaterali riguarda il fatto che la funzione NON modifica gli oggetti presenti nell'ambiente globale:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y <-}\StringTok{ }\DecValTok{10} \CommentTok{# ambiente globale}
+
+\NormalTok{my_fun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  y <-}\StringTok{ }\DecValTok{1} \CommentTok{# ambiente funzione}
+  \KeywordTok{return}\NormalTok{(x }\OperatorTok{+}\StringTok{ }\NormalTok{y) }\CommentTok{# questo si basa su y funzione}
+\NormalTok{\}}
+
+\KeywordTok{my_fun}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\CommentTok{## [1] 2}
+\NormalTok{y}
+\CommentTok{## [1] 10}
+\end{Highlighting}
+\end{Shaded}
+
+Come vedete, abbiamo creato un oggetto \texttt{y} dentro la funzione. Se eseguito nello stesso ambiente questo avrebbe sovrascritto il precedente valore. Il risultato si basa sul valore di \texttt{y} creato nell'ambiente funzione e l'\texttt{y} globale non è stato modificato.
+
+Un ultimo punto importante riguarda invece il legame tra ambiente funzione e quello globale. Abbiamo visto la loro indipendenza che però non è totale. Se infatti all'interno della funzione utilizziamo una variabile definita solamente nell'ambiente globale, la funzione in automatico userà quel valore (se non specificato internamente). Questo è utile per far lavorare funzioni e variabili globali MA è sempre preferibile creare un ambiente funzione indipendente e fornire come \textbf{argomenti} tutte gli oggetti necessari.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y <-}\StringTok{ }\DecValTok{10}
+
+\NormalTok{my_fun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \KeywordTok{return}\NormalTok{(x }\OperatorTok{+}\StringTok{ }\NormalTok{y) }\CommentTok{# viene utilizzato y globale}
+\NormalTok{\}}
+
+\KeywordTok{my_fun}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\CommentTok{## [1] 11}
+\end{Highlighting}
+\end{Shaded}
+
+Le cose importanti da ricordare quando si definiscono e utilizzano funzioni sono:
+
+\begin{itemize}
+\tightlist
+\item
+  Ogni volta che una funzione viene eseguita, l'ambiente interno viene ricreato e quindi è come ripartire da zero
+\item
+  Gli oggetti creati all'interno della funzione hanno priorità rispetto a quelli nell'ambiente esterno
+\item
+  Se la funzione utilizza un oggetto non definito internamente, automaticamente cercherà nell'ambiente principale
+\end{itemize}
+
+\hypertarget{best-practice}{%
+\section{Best practice}\label{best-practice}}
+
+Scrivere funzioni è sicuramente l'aspetto più importante quando si scrive del codice. Permette di automatizzare operazioni, ridurre la quantità di codice, rendere più chiaro il nostro script e riutilizzare una certa porzione di codice in altri contesti. Ci sono tuttavia delle convenzioni e degli accorgimenti per scrivere delle ottime e versatili funzioni:
+
+\begin{itemize}
+\tightlist
+\item
+  Quando serve una funzione?
+\item
+  Scegliere il nome
+\item
+  Semplificare la quantita di operazioni e output
+\item
+  Commentare e documentare
+\end{itemize}
+
+\hypertarget{quando-serve-una-funzione}{%
+\subsection{Quando serve una funzione?}\label{quando-serve-una-funzione}}
+
+\href{https://r4ds.had.co.nz/functions.html\#when-should-you-write-a-function}{Hadley Wickam} suggerisce che se ripetiamo una serie di operazioni più di 2 volte, forse è meglio scrivere una funzione. Immaginiamo di avere una serie di oggetti e voler eseguire la stessa operazione in tutti. Ad esempio vogliamo \emph{centrare} (ovvero sottrarre a tutti i valori di un vettore la loro media) un vettore numerico:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vec1 <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\NormalTok{vec2 <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\NormalTok{vec3 <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Abbiamo visto nei capitoli precedenti l'utilizzo dell'\texttt{apply} family e come si possa applicare una funzione ad una serie di oggetti. Pensiamo però ad un caso dove abbiamo uno script molto lungo e in diversi momenti eseguiamo una certa operazione:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Centriamo}
+\NormalTok{vec1 }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(vec2)}
+\CommentTok{##  [1] -0.13485590 -0.21958180 -0.01650642  0.31181505 -0.10640926 -0.33462795}
+\CommentTok{##  [7]  0.42385198  0.38649260 -0.37313690 -0.24226267}
+\NormalTok{vec2 }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(vec2)}
+\CommentTok{##  [1]  0.006288179 -0.261065201 -0.294774872 -0.023859841 -0.488497558}
+\CommentTok{##  [6]  0.380050988 -0.383310441  0.459411849  0.310843272  0.294913626}
+\NormalTok{vec3 }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(vec3)}
+\CommentTok{##  [1] -0.1099483  0.3240599  0.3915764 -0.1115247 -0.1094409 -0.4313432}
+\CommentTok{##  [7]  0.3187746 -0.4092184  0.3318616 -0.1947970}
+\end{Highlighting}
+\end{Shaded}
+
+L'operazione viene eseguita correttamente ed è anche di facile comprensione. Tuttavia stiamo eseguendo sempre la stessa cosa, semplicemente cambiando un input (proprio la definizione di funzione) quindi possiamo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_fun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \KeywordTok{return}\NormalTok{(x }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(x))}
+\NormalTok{\}}
+
+\KeywordTok{my_fun}\NormalTok{(vec1)}
+\CommentTok{##  [1] -0.10433377 -0.18905967  0.01401571  0.34233718 -0.07588713 -0.30410582}
+\CommentTok{##  [7]  0.45437411  0.41701473 -0.34261478 -0.21174055}
+\KeywordTok{my_fun}\NormalTok{(vec2)}
+\CommentTok{##  [1]  0.006288179 -0.261065201 -0.294774872 -0.023859841 -0.488497558}
+\CommentTok{##  [6]  0.380050988 -0.383310441  0.459411849  0.310843272  0.294913626}
+\KeywordTok{my_fun}\NormalTok{(vec3)}
+\CommentTok{##  [1] -0.1099483  0.3240599  0.3915764 -0.1115247 -0.1094409 -0.4313432}
+\CommentTok{##  [7]  0.3187746 -0.4092184  0.3318616 -0.1947970}
+\end{Highlighting}
+\end{Shaded}
+
+Il codice non è molto cambiato rispetto a prima in termini di numero di righe o complessità. Immaginate però di esservi resi conto di un errore o di voler cambiare o estendere le operazioni su\texttt{vec1,\ vec2\ e\ vec3}. Nel primo caso dovreste andare linea per linea dello script e modificare il codice. Nel caso di una funzione, semplicemente cambiando le operazioni queste verranno applicate ogni volta che quella funzione è chiamata. Immaginiamo di voler anche \emph{standardizzare} (sottrarre la media e dividere per la deviazione standard) i nostri vettori:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_fun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  res <-}\StringTok{ }\NormalTok{(x }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(x)) }\OperatorTok{/}\StringTok{ }\KeywordTok{sd}\NormalTok{(x)}
+  \KeywordTok{return}\NormalTok{(res)}
+\NormalTok{\}}
+
+\KeywordTok{my_fun}\NormalTok{(vec1)}
+\CommentTok{##  [1] -0.34889327 -0.63221759  0.04686869  1.14477924 -0.25376739 -1.01693319}
+\CommentTok{##  [7]  1.51943195  1.39450178 -1.14570754 -0.70806269}
+\KeywordTok{my_fun}\NormalTok{(vec2)}
+\CommentTok{##  [1]  0.01814982 -0.75352273 -0.85082027 -0.06886759 -1.40996966  1.09695607}
+\CommentTok{##  [7] -1.10636396  1.32601843  0.89719912  0.85122076}
+\KeywordTok{my_fun}\NormalTok{(vec3)}
+\CommentTok{##  [1] -0.3480619  1.0258723  1.2396083 -0.3530522 -0.3464557 -1.3654976}
+\CommentTok{##  [7]  1.0091405 -1.2954573  1.0505701 -0.6166664}
+\end{Highlighting}
+\end{Shaded}
+
+Ovviamente la combinazione di funzione e \texttt{apply} family permette di rendere il tutto ancora più compatto ed efficiente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_list <-}\StringTok{ }\KeywordTok{list}\NormalTok{(vec1, vec2, vec3)}
+\KeywordTok{lapply}\NormalTok{(my_list, my_fun)}
+\CommentTok{## [[1]]}
+\CommentTok{##  [1] -0.34889327 -0.63221759  0.04686869  1.14477924 -0.25376739 -1.01693319}
+\CommentTok{##  [7]  1.51943195  1.39450178 -1.14570754 -0.70806269}
+\CommentTok{## }
+\CommentTok{## [[2]]}
+\CommentTok{##  [1]  0.01814982 -0.75352273 -0.85082027 -0.06886759 -1.40996966  1.09695607}
+\CommentTok{##  [7] -1.10636396  1.32601843  0.89719912  0.85122076}
+\CommentTok{## }
+\CommentTok{## [[3]]}
+\CommentTok{##  [1] -0.3480619  1.0258723  1.2396083 -0.3530522 -0.3464557 -1.3654976}
+\CommentTok{##  [7]  1.0091405 -1.2954573  1.0505701 -0.6166664}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{scegliere-il-nome}{%
+\subsection{Scegliere il nome}\label{scegliere-il-nome}}
+
+Questo potrebbe sembrare un argomento marginale tuttavia la scelta dei nomi sia per le variabili ma sopratutto per le funzioni è estremamente importante. Permette di:
+
+\begin{itemize}
+\tightlist
+\item
+  leggere chiaramente il nostro codice e renderlo comprensibile ad altri
+\item
+  organizzare facilmente un gruppo di funzioni. Quando avete più funzioni, usare una giusta denominazione permette di sfruttare i suggerimenti di RStudio in modo più efficace. Il pacchetto \href{https://stringr.tidyverse.org/}{\texttt{stringr}} and esempio che fornisce strumenti per lavorare con stringhe, utilizza tutte le funzioni denominate come \texttt{str\_} permettendo di cercare facilmente quella desiderata.
+\end{itemize}
+
+E' utile utilizzare \textbf{verbi} per nominare le funzioni mentre \textbf{nomi} per nominare argomenti. Ad esempio un nome adatto alla nostra ultima funzione potrebbe essere \texttt{center\_var()} mentre il nome del nuovo vettore \texttt{centered\_vec} o \texttt{c\_vec}. Se troviamo \texttt{center\_var} all'interno di uno script è subito chiaro il compito di quella funzione, anche senza guardare il codice al suo interno.
+
+\hypertarget{semplificare-la-quantita-di-operazioni-e-output}{%
+\subsection{Semplificare la quantita di operazioni e output}\label{semplificare-la-quantita-di-operazioni-e-output}}
+
+Questo è un punto molto importante ma allo stesso tempo variegato. Ci sono diversi stili di programmazione e quindi non ci sono regole fisse oppure delle pratiche migliori di altre.
+Abbiamo detto che una funzione è un modo per astrarre, riutilizzare e semplificare una serie di operazioni. Possiamo quindi scrivere funzioni molto complesse che ricevono diversi input, eseguono diverse operazioni e restituiscono diversi output. E' buona pratica però scrivere funzioni che:
+
+\begin{itemize}
+\tightlist
+\item
+  riducono il numero di operazioni interne
+\item
+  forniscono un singolo (o limitati) output
+\item
+  hanno un numero di input limitato
+\end{itemize}
+
+Se quindi abbiamo pensato ad una funzione che ha troppi output, è troppo complessa oppure ha troppi input magari possiamo valutare di scomporre la funzione in sotto-funzioni.
+
+Facciamo un esempio con la nostra \texttt{center\_vec()}. Possiamo pensare a diverse alternative ed estensioni di questa funzione. Ad esempio possiamo pensare di creare una funzione che centra oppure standardizza il vettore. Possiamo inoltre scegliere se centrare usando la media oppure la mediana. Quindi possiamo pensare a una macro funzione \texttt{trans\_vec()} che in base agli argomenti trasforma il vettore:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{trans_vec <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, }\DataTypeTok{what =} \KeywordTok{c}\NormalTok{(}\StringTok{"center_mean"}\NormalTok{, }\StringTok{"center_median"}\NormalTok{, }\StringTok{"standardize"}\NormalTok{))\{}
+  \ControlFlowTok{if}\NormalTok{(}\KeywordTok{match.arg}\NormalTok{(what) }\OperatorTok{==}\StringTok{ "center_mean"}\NormalTok{)\{}
+\NormalTok{    res <-}\StringTok{ }\NormalTok{x }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(x)}
+\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(}\KeywordTok{match.arg}\NormalTok{(what) }\OperatorTok{==}\StringTok{ "center_median"}\NormalTok{)\{}
+\NormalTok{    res <-}\StringTok{ }\NormalTok{x }\OperatorTok{-}\StringTok{ }\KeywordTok{median}\NormalTok{(x)}
+\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(}\KeywordTok{match.arg}\NormalTok{(what) }\OperatorTok{==}\StringTok{ "standardize"}\NormalTok{)\{}
+\NormalTok{    res <-}\StringTok{ }\NormalTok{(x }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(x))}\OperatorTok{/}\KeywordTok{sd}\NormalTok{(x)}
+\NormalTok{  \}}
+  \KeywordTok{return}\NormalTok{(res)}
+\NormalTok{\}}
+
+\NormalTok{vec <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\KeywordTok{trans_vec}\NormalTok{(vec, }\StringTok{"center_mean"}\NormalTok{)}
+\CommentTok{##  [1] -0.103904331  0.384074590  0.304321377  0.029754480 -0.277717182}
+\CommentTok{##  [6] -0.080578420 -0.511700841 -0.163323419 -0.001082128  0.420155873}
+\KeywordTok{trans_vec}\NormalTok{(vec, }\StringTok{"center_mean"}\NormalTok{)}
+\CommentTok{##  [1] -0.103904331  0.384074590  0.304321377  0.029754480 -0.277717182}
+\CommentTok{##  [6] -0.080578420 -0.511700841 -0.163323419 -0.001082128  0.420155873}
+\KeywordTok{trans_vec}\NormalTok{(vec, }\StringTok{"standardize"}\NormalTok{)}
+\CommentTok{##  [1] -0.348403314  1.287846797  1.020424991  0.099770233 -0.931218028}
+\CommentTok{##  [6] -0.270188819 -1.715792466 -0.547642430 -0.003628501  1.408831537}
+\end{Highlighting}
+\end{Shaded}
+
+La funzione è molto chiara ma comunque contiene dei margini di fragilità. L'utente deve inserire una per stringa eseguire l'operazione. Ci sono diversi \texttt{if} e lo scopo della funzione è forse troppo generico. Una migliore soluzione sarebbe quella di scrivere 3 funzioni più semplici, mirate e facili da mantenere e leggere:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{center_vec_mean <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \KeywordTok{return}\NormalTok{(x }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(x))}
+\NormalTok{\}}
+
+\NormalTok{center_vec_median <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \KeywordTok{return}\NormalTok{(x }\OperatorTok{-}\StringTok{ }\KeywordTok{median}\NormalTok{(x))}
+\NormalTok{\}}
+
+\NormalTok{standardize_vec <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \KeywordTok{return}\NormalTok{((x }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(x)) }\OperatorTok{/}\StringTok{ }\KeywordTok{sd}\NormalTok{(x))}
+\NormalTok{\}}
+
+\NormalTok{vec <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\KeywordTok{center_vec_mean}\NormalTok{(vec)}
+\CommentTok{##  [1] -0.49147145 -0.38159887  0.09778648 -0.25185823  0.37992661 -0.40598800}
+\CommentTok{##  [7]  0.35448252  0.30563173  0.29002389  0.10306531}
+\KeywordTok{center_vec_median}\NormalTok{(vec)}
+\CommentTok{##  [1] -0.591897344 -0.482024769 -0.002639415 -0.352284132  0.279500709}
+\CommentTok{##  [6] -0.506413896  0.254056618  0.205205830  0.189597992  0.002639415}
+\KeywordTok{standardize_vec}\NormalTok{(vec)}
+\CommentTok{##  [1] -1.4167031 -1.0999872  0.2818768 -0.7260001  1.0951668 -1.1702907}
+\CommentTok{##  [7]  1.0218223  0.8810062  0.8360155  0.2970935}
+\end{Highlighting}
+\end{Shaded}
+
+In questo modo il codice è molto più leggibile e chiaro sia dentro le funzioni che quando le funzioni vengono utilizzate. Un'ulteriore alternativa sarebbe quella di raggruppare le funzione di ``centramento'' specificando se utilizzare media o mediana e separare quella di standardizzazione.
+
+\hypertarget{commentare-e-documentare}{%
+\subsection{Commentare e documentare}\label{commentare-e-documentare}}
+
+La documentazione è forse la parte di più importante della scrittura del codice. Possiamo classificarla in documentazione \emph{formale} e \emph{informale} in base allo scopo. La documentazione \emph{formale} è quella che troviamo facendo \texttt{help(funzione)} oppure \texttt{?funzione}. E' una documentazione standardizzata e necessaria quando si creano delle funzioni in un pacchetto che altri utenti devono utilizzare. La documentazione \emph{informale} è quella che mettiamo nei nostri script e all'interno delle funzioni come \texttt{\#\ commento}. Entrambe sono molto importati e permettono di descrivere lo scopo generale della funzione, i singoli argomenti e i passaggi eseguiti.
+
+\hypertarget{importare-una-funzione}{%
+\section{Importare una funzione}\label{importare-una-funzione}}
+
+Abbiamo già visto che il comando \texttt{library()} carica un certo pacchetto, rendendo le funzioni contenute disponibili all'utilizzo. Senza la necessità di creare un pacchetto, possiamo comunque organizzare le nostre funzioni in modo efficace. Abbiamo 2 opzioni:
+
+\begin{itemize}
+\tightlist
+\item
+  scrivere le funzioni nello stesso script dove esse vengono utilizzate
+\item
+  scrivere uno script separato e importare tutte le funzioni contenute
+\end{itemize}
+
+Anche in questo caso è una questione di stile e comodità, in generale:
+
+\begin{itemize}
+\tightlist
+\item
+  Se abbiamo tante funzioni, è meglio scriverle in uno o più file separati e poi importarle all'inizio dello script principale
+\item
+  Se abbiamo poche funzioni possiamo tenerle nello script principale, magari in una sezione apposita nella parte iniziale
+\end{itemize}
+
+Nel secondo caso è sufficiente quindi scrivere la funzione e questa sarà salvata come oggetto nell'ambiente principale. Riguardo il primo scenario si può utilizzare la funzione \texttt{source("percorso/script.R")}. La funzione \texttt{source()} accetta il percorso di uno script R che verrà poi eseguito in background. Quindi se la vostra directory è organizzata in questo modo:
+
+\begin{verbatim}
+- working directory/
+|-- main_script.R
+|-- functions/
+    |-- my_functions.R
+\end{verbatim}
+
+Dove lo script \texttt{my\_functions.R} è uno script dove sono dichiarare tutte le funzioni:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fun1 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \CommentTok{# do}
+\NormalTok{\}}
+
+\NormalTok{fun2 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \CommentTok{# do}
+\NormalTok{\}}
+
+\NormalTok{fun3 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \CommentTok{# do}
+\NormalTok{\}}
+
+\NormalTok{...}
+\end{Highlighting}
+\end{Shaded}
+
+Scrivendo all'inizio del nostro script principale \texttt{source("functions/my\_functions.R")}, tutte le funzioni saranno caricate nel ambiente di lavoro.
+
 \hypertarget{conditionals}{%
 \chapter{Programmazione Condizionale}\label{conditionals}}
 
@@ -7671,8 +8458,8 @@ Oltre a concatenare una serie di \texttt{if} e \texttt{else\ if} è possibile in
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{esercizi-14}{%
-\subsection*{Esercizi}\label{esercizi-14}}
+\hypertarget{esercizi-15}{%
+\subsection*{Esercizi}\label{esercizi-15}}
 \addcontentsline{toc}{subsection}{Esercizi}
 
 Esegui i seguenti esercizi:
@@ -8290,8 +9077,8 @@ Guardando gli indici, è chiaro che il ciclo più interno viene ultimato per pri
 
 Un aspetto importante è l'utilizzo di indici diversi, infatti i valori \texttt{i}, \texttt{j} e \texttt{l} assumono valori diversi ad ogni iterazione e se usassimo lo stesso indice, non otterremo il risultato voluto.
 
-\hypertarget{esercizi-15}{%
-\subsection*{Esercizi}\label{esercizi-15}}
+\hypertarget{esercizi-16}{%
+\subsection*{Esercizi}\label{esercizi-16}}
 \addcontentsline{toc}{subsection}{Esercizi}
 
 \begin{enumerate}
@@ -9127,728 +9914,6 @@ E' importante sottolineare che la ripetizione è alla base di qualsiasi struttur
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{functions}{%
-\chapter{Definizione di Funzioni}\label{functions}}
-
-Nel Capitolo \ref{functions-def} abbiamo introdotto il concetto di funzioni e abbiamo visto come queste siano utilizzate per manipolare gli oggetti in R ed eseguire innumerevoli compiti. Nel Capitolo \ref{packages} abbiamo visto inoltre come sia possibile utilizzare i pacchetti per accedere a nuove funzioni estendendo quindi notevolmente le possibili applicazioni di R. In R, tuttavia, è anche possibile definire le proprie funzioni per eseguire determinati compiti a seconda delle proprie specifiche necessità.
-
-Questo è uno dei vantaggi principali di utilizzare un linguaggio di programmazione, ovvero il poter sviluppare funzioni ad-hoc a seconda delle proprie esigenze e non limitarsi a quelle prestabilite. In questo capitolo descriveremo come creare le proprie funzioni in R.
-
-\hypertarget{creazione-di-una-funzione}{%
-\section{Creazione di una Funzione}\label{creazione-di-una-funzione}}
-
-Il comando usato per creare una funzione in R è \texttt{function()} seguito da una coppia di parentesi graffe \texttt{\{\ \}} al cui interno deve essere specificato il corpo della funzione:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{nome_funzione <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{( )\{}
-  \OperatorTok{<}\NormalTok{corpo}\OperatorTok{-}\NormalTok{funzione}\OperatorTok{>}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-Nota come sia necessario assegnare la funzione ad un oggetto, ad esempio \texttt{my\_function}, che diventerà il nome della nostra funzione. Per eseguire la funzione sarà sufficiente, come per ogni altra funzione, indicare il nome della funzione seguito dalle parentesi tonde, nel nostro caso \texttt{my\_function()}. Vediamo alcuni esempi di semplici funzioni:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# Definisco la funzione}
-\NormalTok{my_greetings <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
-  \KeywordTok{print}\NormalTok{(}\StringTok{"Hello World!"}\NormalTok{)}
-\NormalTok{\}}
-
-\KeywordTok{my_greetings}\NormalTok{()}
-\CommentTok{## [1] "Hello World!"}
-
-\CommentTok{# Definisco un'altra funzione}
-\NormalTok{my_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
-\NormalTok{  x <-}\StringTok{ }\DecValTok{7}
-\NormalTok{  y <-}\StringTok{ }\DecValTok{3}
-  
-\NormalTok{  x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
-\NormalTok{\}}
-
-\KeywordTok{my_sum}\NormalTok{()}
-\CommentTok{## [1] 10}
-\end{Highlighting}
-\end{Shaded}
-
-Quando chiamiamo la nostra funzione, R eseguirà il corpo della funzione e ci restituirà il risultato dell'ultimo comando eseguito. Le funzioni del precedente esempio, tuttavia, si rivelano poco utili poichè eseguono sempre le stesse operazioni senza che ci sia permesso di specificare gli input delle funzioni. Inoltre, sebbene siano funzioni molto semplici, potrebbe non risultare chiaro quale sia effettivamente l'output restituito dalla funzione.
-
-:::\{design title=``Nomi Funzioni'' data-latex=``{[}Nomi Funzioni{]}''\}
-Nel definire il nome di una funzione è utile seguire le stese indicazioni che riguardavano i nomi degli oggetti (vedi Capitolo \ref{objects-names}). In questo caso affinché un nome sia \textbf{auto-descrittivo} si tende ad utilizzare verbi che riassumano l'azione eseguita dalla funzione.
-:::
-
-\hypertarget{definire-input-e-output}{%
-\subsection{Definire Input e Output}\label{definire-input-e-output}}
-
-Ricordiamo che in generale le funzioni, ricevuti degli oggetti in input, compiono determinate azioni e restituiscono dei nuovi oggetti in output. Input e ouput sono quindi due aspetti aspetti fondamentali di ogni funzione che richiedono particolare attenzione.
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Input} - Abbiamo anche visto che in R gli input vengono specificati attraverso gli \textbf{argomenti} di una funzione (vedi Capitolo \ref{function-arguments}). Per definire gli argomenti di una funzione, questi devono essere indicati all'interno delle parentesi tonde al momento della creazione della funzione
-\item
-  \textbf{Output} - Per specificare l'output di una funzione si utilizza la funzione \texttt{return()}, indicando tra le parentesi il nome dell'oggetto che si desidera restituire come risultato della funzione.
-\end{itemize}
-
-La definizione di una funzione con tutti i suoi elementi seguirà quindi il seguente schema:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{nome_funzione <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(argument_}\DecValTok{1}\NormalTok{, argument_}\DecValTok{2}\NormalTok{, ...)\{}
-  \OperatorTok{<}\NormalTok{corpo}\OperatorTok{-}\NormalTok{funzione}\OperatorTok{>}
-\StringTok{  }
-\StringTok{  }\KeywordTok{return}\NormalTok{(}\OperatorTok{<}\NormalTok{nome}\OperatorTok{-}\NormalTok{output}\OperatorTok{>}\NormalTok{)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-Possiamo ora riscrivere le precedenti funzioni permettendo di personalizzare gli input e evidenziando quale sia output che viene restituito.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# Ridefinisco my_greetings()}
-\NormalTok{my_greetings <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(name)\{}
-\NormalTok{  greetings <-}\StringTok{ }\KeywordTok{paste0}\NormalTok{(}\StringTok{"Hello "}\NormalTok{, name, }\StringTok{"!"}\NormalTok{)}
-  
-  \KeywordTok{return}\NormalTok{(greetings)}
-\NormalTok{\}}
-
-\KeywordTok{my_greetings}\NormalTok{(}\DataTypeTok{name =} \StringTok{"Psicostat"}\NormalTok{)}
-\CommentTok{## [1] "Hello Psicostat!"}
-
-\CommentTok{# Ridefinisco my_sum()}
-\NormalTok{my_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y)\{}
-\NormalTok{  result <-}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
-  
-  \KeywordTok{return}\NormalTok{(result)}
-\NormalTok{\}}
-
-\KeywordTok{my_sum}\NormalTok{(}\DataTypeTok{x =} \DecValTok{8}\NormalTok{, }\DataTypeTok{y =} \DecValTok{6}\NormalTok{)}
-\CommentTok{## [1] 14}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{design}[User Input]
-
-Qualora fosse necessario è possibile fare in modo che sia la funzione stessa a chiedere all'utente di inserire delle specifiche informazioni attraverso la funzione \texttt{readline()}.
-
-Utilizzando la funzione \texttt{readline()} comparirà nella console il messaggio che abbiamo impostato nell'argomento \texttt{prompt} (ricordati di concludere lasciando uno spazio). All'utente sarà richiesto di digitare una qualche sequenza alfanumeirca e premere successivamente \emph{invio}. I valori inseriti dell'utente saranno salvati come una variabile caratteri nell'oggetto che abbiamo indicato e potranno essere utilizzati sucessivamente nella funzione.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{happy_birthday <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
-\NormalTok{  name <-}\StringTok{ }\KeywordTok{readline}\NormalTok{(}\DataTypeTok{prompt =} \StringTok{"Inserisci il tuo nome: "}\NormalTok{)}
-\NormalTok{  message <-}\StringTok{ }\KeywordTok{paste0}\NormalTok{(}\StringTok{"Buon Compleanno "}\NormalTok{, name, }\StringTok{"!"}\NormalTok{)}
-  
-  \KeywordTok{return}\NormalTok{(message)}
-\NormalTok{\}}
-
-\KeywordTok{happy_birthday}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-Nota che questa funzione possona essere usata solo in sessioni interattive di R poichè è richiesta un 'azione diretta da parte dell'utente.
-
-\end{design}
-
-\hypertarget{default-argomenti}{%
-\subsubsection*{Default Argomenti}\label{default-argomenti}}
-\addcontentsline{toc}{subsubsection}{Default Argomenti}
-
-Abbiamo visto come aggiungere degli argomenti che devono essere definiti dall'utente nell'utilizzare la funzione. Qualora l'utente non specifichi uno o più argomenti R riporterà un messaggio di errore indicando come ci siano degli argomenti non specificati e senza valori di default.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{my_sum}\NormalTok{(}\DataTypeTok{x =} \DecValTok{5}\NormalTok{)}
-\CommentTok{## Error in my_sum(x = 5): argument "y" is missing, with no default}
-\end{Highlighting}
-\end{Shaded}
-
-Per assegnare dei valori di default agli argomenti di una funzione, è sufficiente indicare al momento della creazione all'interno delle parentesi tonde \texttt{nome\_argomento\ =\ \textless{}valore-default\textgreater{}}. Se non altrimenti specificati, gli argomenti assumeranno i loro valori di default. Tuttavia, gli utenti sono liberi di specificare gli argomenti della funzione a seconda delle loro esigenze. Ad esempio impostiamo nella funzione \texttt{my\_sum()} il valore di default \texttt{y\ =\ 10}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{my_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, }\DataTypeTok{y =} \DecValTok{10}\NormalTok{)\{}
-\NormalTok{  result <-}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
-  
-  \KeywordTok{return}\NormalTok{(result)}
-\NormalTok{\}}
-
-\CommentTok{# Utilizzo il valore di default di y}
-\KeywordTok{my_sum}\NormalTok{(}\DataTypeTok{x =} \DecValTok{5}\NormalTok{)}
-\CommentTok{## [1] 15}
-
-\CommentTok{# Specifico il valore id y}
-\KeywordTok{my_sum}\NormalTok{(}\DataTypeTok{x =} \DecValTok{5}\NormalTok{,  }\DataTypeTok{y =} \DecValTok{8}\NormalTok{)}
-\CommentTok{## [1] 13}
-\end{Highlighting}
-\end{Shaded}
-
-Questa pratica è molto usata per specificare comportamenti particolari delle funzioni. In genere le funzioni sono definite con un funzionameto di default ma alcuni argomenti possono essere specificati per particolari essigenze solo quando necessario.
-
-\begin{trick}[match.arg()]
-
-Per imporre la scelta di un argomento tra una limitata serie di valori è possibile indicare nella definizione dell'argomento un vettore con le possibili entrate. Successivamente la scelta deve essere validata attraverso la funzione \texttt{match.arg()} come nell esempio successivo:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# Ridefinisco my_greetings()}
-\NormalTok{my_greetings <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(name, }\DataTypeTok{type =} \KeywordTok{c}\NormalTok{(}\StringTok{"Hello"}\NormalTok{, }\StringTok{"Goodbye"}\NormalTok{))\{}
-  
-\NormalTok{  type <-}\StringTok{ }\KeywordTok{match.arg}\NormalTok{(type)}
-\NormalTok{  greetings <-}\StringTok{ }\KeywordTok{paste0}\NormalTok{(type,}\StringTok{" "}\NormalTok{, name, }\StringTok{"!"}\NormalTok{)}
-  
-  \KeywordTok{return}\NormalTok{(greetings)}
-\NormalTok{\}}
-
-\CommentTok{# Scelta type}
-\KeywordTok{my_greetings}\NormalTok{(}\DataTypeTok{name =} \StringTok{"Psicostat"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"Goodbye"}\NormalTok{)}
-\CommentTok{## [1] "Goodbye Psicostat!"}
-
-\CommentTok{# Valore default}
-\KeywordTok{my_greetings}\NormalTok{(}\DataTypeTok{name =} \StringTok{"Psicostat"}\NormalTok{)}
-\CommentTok{## [1] "Hello Psicostat!"}
-
-\CommentTok{# Valore non ammesso}
-\KeywordTok{my_greetings}\NormalTok{(}\DataTypeTok{name =} \StringTok{"Psicostat"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"Guten Tag"}\NormalTok{)}
-\CommentTok{## Error in match.arg(type): 'arg' should be one of "Hello", "Goodbye"}
-\end{Highlighting}
-\end{Shaded}
-
-La funzione \texttt{match.arg()} permette di confrontare il valore specificato risspetto a quelli indicati nella definizione dell'argomento, riportando un errore in mancanza di un match. Osserva come se non specificato il valore di default sia il primo indicato nella definizione.
-
-\end{trick}
-
-\hypertarget{esercizi-16}{%
-\subsection*{Esercizi}\label{esercizi-16}}
-\addcontentsline{toc}{subsection}{Esercizi}
-
-Esegui i seguenti esercizi:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  definisci una funzione che trasformi la temperatura da Celsius a Fahrenheit
-  \[
-    Fahrenheit = Celsius *1.8 + 32
-    \]
-\item
-  Definisci una funzione che permetta di fare gli auguri di buon natale e buona pasqua ad una persona.
-\item
-  Definisci una funzione che, dato un vettore di valori numerici, calcoli il numero di elementi e la loro media.
-\item
-  Definisci una funzione iterattiva che calcoli il prodotto di due valori. Gli input devono essere ottenuti conlla funzione \texttt{readline()}.
-\item
-  Definisci una funzione che calcoli lo stipendio mensile sulla base delle ore svolte nel mese e la paga oraria.
-\end{enumerate}
-
-\hypertarget{lavorare-con-le-funzioni}{%
-\section{Lavorare con le Funzioni}\label{lavorare-con-le-funzioni}}
-
-Le funzioni sono sicuramente l'aspetto più utile e avanzato del linguaggio R e in generale dei linguaggi di programmazione. I pacchetti che sono sviluppati in R non sono altro che insieme di funzioni che lavorano assieme per uno scopo preciso. Oltre allo scopo della funzione è importante capire come gestire gli \textbf{errori e gli imprevisti}. Se la funzione infatti accetta degli argomenti, l'utente finale o noi stessi che la utilizziamo possiamo erroneamente usarla nel modo sbagliato. E' importante quindi capire come leggere gli errori ma sopratutto creare messaggi di errore o di avvertimento utili per l'utilizzo della funzione.
-
-Prendiamo ad esempio la funzione somma \texttt{+}, anche se non sembra infatti l'operatore \texttt{+} è in realtà una funzione. Se volessimo scriverlo come una funzione simile a quelle viste in precedenza possiamo:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{my_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y)\{}
-\NormalTok{  res <-}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
-  \KeywordTok{return}\NormalTok{(res)}
-\NormalTok{\}}
-
-\KeywordTok{my_sum}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{)}
-\CommentTok{## [1] 6}
-\end{Highlighting}
-\end{Shaded}
-
-Abbiamo definito una (abbastanza inutile) funzione per calcolare la somma tra due numeri. Cosa succede se proviamo a sommare un numero con una stringa? Ovviamente è un'operazione che non ha senso e ci aspettiamo un qualche tipo di errore:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{my_sum}\NormalTok{(}\StringTok{"stringa"}\NormalTok{, }\DecValTok{5}\NormalTok{)}
-\CommentTok{## Error in x + y: non-numeric argument to binary operator}
-\end{Highlighting}
-\end{Shaded}
-
-In questo caso infatti, vediamo un messaggio denominato \texttt{Error...} con l'utile informazione che uno degli argomenti utilizzati risulta essere \texttt{non-numeric}. E' un messaggio semplice, mirato e sopratutto non fornisce un risultato perchè una condizione fondamentale (la somma vale solo per i numeri) non è rispettata. La funzione \texttt{+} ha già al suo interno questo controllo, ma se noi volessimo implementare un \textbf{controllo} e fornire un \textbf{messaggio} abbiamo a disposizione diverse opzioni:
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{stop(\textless{}message\textgreater{},\ .call\ =\ TRUE)}: Se inserito all'interno di una funzione, interrompe l'esecuzione e fornisce il messaggio specificato denominato come \texttt{Error}.
-\item
-  \texttt{stopifnot(expr1,\ expr2,\ ...)}: Se inserito all'interno di una funzione interrompe l'esecuzione se almeno una di una serie di condizioni risulta come \textbf{non VERA}.
-\item
-  \texttt{warning()}: Restituisce un messaggio all'utente senza tuttavia interrompere l'esecuzione ma fornendo informazioni su un possibile problema che deriva dal tipo di input o da un possibile effetto collaterale della funzione.
-\item
-  \texttt{message()}: Fornisce un semplice messaggio senza alterare l'esecuzione della funzione che può essere utile per informare rispetto ad operazioni eseguite
-\end{itemize}
-
-Tornando all'esempio della somma, immaginiamo di voler scrivere una funzione che somma solo numeri positivi. In altri termini vogliamo che i valori \texttt{x} e \texttt{y} in input siano solo posiviti per poter eseguire la funzione. Possiamo quindi inserire un \texttt{controllo\ condizionale} e usare la funzione \texttt{stop()} nel caso in cui la condizione non sia rispettata:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{my_positive_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y)\{}
-  \ControlFlowTok{if}\NormalTok{(x }\OperatorTok{<}\StringTok{ }\DecValTok{0} \OperatorTok{|}\StringTok{ }\NormalTok{y }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
-    \KeywordTok{stop}\NormalTok{(}\StringTok{"Gli argomenti devono essere numeri positivi!"}\NormalTok{)}
-\NormalTok{  \}}
-\NormalTok{  res <-}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
-  \KeywordTok{return}\NormalTok{(res)}
-\NormalTok{\}}
-
-\KeywordTok{my_positive_sum}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{5}\NormalTok{)}
-\CommentTok{## [1] 15}
-\KeywordTok{my_positive_sum}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{-5}\NormalTok{)}
-\CommentTok{## Error in my_positive_sum(10, -5): Gli argomenti devono essere numeri positivi!}
-\end{Highlighting}
-\end{Shaded}
-
-Un modo più rapido di gestire l'arresto dell'esecuzione è usare \texttt{stopifnot()}. La logica tuttavia è leggermente diversa rispetto ad usare un \texttt{if} + \texttt{stop()}. Nell'esempio precedente la logica è: ``se x oppure y sono minori di 0, stop''. Con \texttt{stopifnot()} utilizziamo una logica inversa, ovvero inseriamo quello che vogliamo sia \textbf{VERO} e fermiamo l'esecuzione se è \textbf{FALSO}. Nel nostro caso usiamo \texttt{stopifnot(x\ \textgreater{}\ 0,\ y\ \textgreater{}\ 0)} ovvero fermati se x oppure y \emph{NON SONO} maggiori di 0. Rispetto a \texttt{stop()} non fornisce un messaggio personalizzato ma restituisce la prima delle condizioni specificate che non è rispettata:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{my_positive_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y)\{}
-  \KeywordTok{stopifnot}\NormalTok{(x }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{, y }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)}
-\NormalTok{  res <-}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
-  \KeywordTok{return}\NormalTok{(res)}
-\NormalTok{\}}
-\KeywordTok{my_positive_sum}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{-5}\NormalTok{)}
-\CommentTok{## Error in my_positive_sum(10, -5): y > 0 is not TRUE}
-\end{Highlighting}
-\end{Shaded}
-
-Allo stesso modo immaginiamo (con molta immaginazione) che la nostra funzione non sia affidabile con numeri minori di 10, nel senso che qualche volta potrebbe sbagliare il risultato. In questo caso non vogliamo interrompere l'esecuzione ma fornire un messaggi di \texttt{warning}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{my_positive_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y)\{}
-  \CommentTok{# Error}
-  \ControlFlowTok{if}\NormalTok{(x }\OperatorTok{<}\StringTok{ }\DecValTok{0} \OperatorTok{|}\StringTok{ }\NormalTok{y }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
-    \KeywordTok{stop}\NormalTok{(}\StringTok{"Gli argomenti devono essere numeri positivi!"}\NormalTok{)}
-\NormalTok{  \}}
-  \CommentTok{# Warning}
-  \ControlFlowTok{if}\NormalTok{(x }\OperatorTok{<}\StringTok{ }\DecValTok{10} \OperatorTok{|}\StringTok{ }\NormalTok{y }\OperatorTok{<}\StringTok{ }\DecValTok{10}\NormalTok{)\{}
-    \KeywordTok{warning}\NormalTok{(}\StringTok{"Per qualche strano motivo la funzione non gestisce bene i numeri minori di 10, attenzione!! :)"}\NormalTok{)}
-\NormalTok{  \}}
-\NormalTok{  res <-}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
-  \KeywordTok{return}\NormalTok{(res)}
-\NormalTok{\}}
-
-\KeywordTok{my_positive_sum}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{4}\NormalTok{)}
-\CommentTok{## Warning in my_positive_sum(15, 4): Per qualche strano motivo la funzione non}
-\CommentTok{## gestisce bene i numeri minori di 10, attenzione!! :)}
-\CommentTok{## [1] 19}
-\end{Highlighting}
-\end{Shaded}
-
-Come vedete, abbiamo il risultato (ovviamente corretto) ma anche un messaggio di \texttt{warning} che ci avverte di questa possibile (ma non critica) problematica.
-
-Infine possiamo accompagnare il risultato alcune condizioni che si realizzano con un semplice messaggio che fornisce ulteriori informazioni con la funzione \texttt{message()}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{my_positive_sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y)\{}
-  \CommentTok{# Error}
-  \ControlFlowTok{if}\NormalTok{(x }\OperatorTok{<}\StringTok{ }\DecValTok{0} \OperatorTok{|}\StringTok{ }\NormalTok{y }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
-    \KeywordTok{stop}\NormalTok{(}\StringTok{"Gli argomenti devono essere numeri positivi!"}\NormalTok{)}
-\NormalTok{  \}}
-  \CommentTok{# Warning}
-  \ControlFlowTok{if}\NormalTok{(x }\OperatorTok{<}\StringTok{ }\DecValTok{10} \OperatorTok{|}\StringTok{ }\NormalTok{y }\OperatorTok{<}\StringTok{ }\DecValTok{10}\NormalTok{)\{}
-    \KeywordTok{warning}\NormalTok{(}\StringTok{"Per qualche strano motivo la funzione non gestisce bene i numeri minori di 10, attenzione!! :)"}\NormalTok{)}
-\NormalTok{  \}}
-\NormalTok{  res <-}\StringTok{ }\NormalTok{x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
-  \KeywordTok{message}\NormalTok{(}\StringTok{"Ottimo lavoro! :)"}\NormalTok{)}
-  \KeywordTok{return}\NormalTok{(res)}
-\NormalTok{\}}
-
-\KeywordTok{my_positive_sum}\NormalTok{(}\DecValTok{12}\NormalTok{, }\DecValTok{10}\NormalTok{)}
-\CommentTok{## Ottimo lavoro! :)}
-\CommentTok{## [1] 22}
-\end{Highlighting}
-\end{Shaded}
-
-Un ultimo aspetto importante riguarda cosa avviene se assegniamo il risultato di una funzione in presenza di errori, warning o messaggi. In generale, tranne che per la presenza di errori e quindi usando la funzione \texttt{stop()}, l'output rimane lo stesso e il messaggio è solo stampato nella console:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{res1 <-}\StringTok{ }\KeywordTok{my_positive_sum}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{5}\NormalTok{)}
-\CommentTok{## Warning in my_positive_sum(10, 5): Per qualche strano motivo la funzione non}
-\CommentTok{## gestisce bene i numeri minori di 10, attenzione!! :)}
-\CommentTok{## Ottimo lavoro! :)}
-\NormalTok{res2 <-}\StringTok{ }\KeywordTok{my_positive_sum}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{23}\NormalTok{)}
-\CommentTok{## Ottimo lavoro! :)}
-\NormalTok{res3 <-}\StringTok{ }\KeywordTok{my_positive_sum}\NormalTok{(}\DecValTok{10}\NormalTok{,}\OperatorTok{-}\DecValTok{1}\NormalTok{)}
-\CommentTok{## Error in my_positive_sum(10, -1): Gli argomenti devono essere numeri positivi!}
-
-\NormalTok{res1}
-\CommentTok{## [1] 15}
-\NormalTok{res2}
-\CommentTok{## [1] 33}
-\NormalTok{res3 }\CommentTok{# nessun output}
-\CommentTok{## Error in eval(expr, envir, enclos): object 'res3' not found}
-\end{Highlighting}
-\end{Shaded}
-
-Come vedete infatti, quando abbiamo un errore e fermiamo l'esecuzione, la funzione pur prevedendo un output, non fornisce risultato perchè è stata interrotta.
-
-\hypertarget{ambiente-della-funzione}{%
-\section{Ambiente della funzione}\label{ambiente-della-funzione}}
-
-Il concetto di \texttt{ambiente} in R è abbastanza complesso\footnote{per una non semplice trattazione dell'argomento, il \href{https://adv-r.hadley.nz/environments.html}{capitolo 7} del libro ``Advanced R'' di Hadley Wickam è un ottima risorsa.}. In parole semplici, tutte le operazioni che normalmente eseguiamo nella console o in uno script, avvengono in quello che si chiama \texttt{global\ environment}. Quando scriviamo ed eseguiamo una funzione, stiamo creando un oggetto funzione (nel \texttt{global\ environment}) che a sua volta crea un ambiente interno per eseguire le operazioni previste. Immaginiamo di avere questa funzione \texttt{my\_fun()} che riceve un valore \texttt{x} e lo somma ad un valore \texttt{y} che non è un argomento.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{my_fun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
-  \KeywordTok{return}\NormalTok{(x }\OperatorTok{+}\StringTok{ }\NormalTok{y)}
-\NormalTok{\}}
-
-\KeywordTok{my_fun}\NormalTok{(}\DecValTok{10}\NormalTok{)}
-\CommentTok{## Error in my_fun(10): object 'y' not found}
-\end{Highlighting}
-\end{Shaded}
-
-Chiaramente otteniamo un errore perchè l'oggetto \texttt{y} non è stato creato. Se però creiamo l'oggetto \texttt{y} all'interno della funzione, questa esegue regolarmente la somma MA non crea l'oggetto \texttt{y} nell'ambiente globale.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{my_fun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
-\NormalTok{  y <-}\StringTok{ }\DecValTok{1}
-  \KeywordTok{return}\NormalTok{(x }\OperatorTok{+}\StringTok{ }\NormalTok{y)}
-\NormalTok{\}}
-
-\KeywordTok{my_fun}\NormalTok{(}\DecValTok{10}\NormalTok{)}
-\CommentTok{## [1] 11}
-\KeywordTok{ls}\NormalTok{() }\CommentTok{# abbiamo solo la nostra funzione come oggetto}
-\CommentTok{## [1] "my_fun"          "my_greetings"    "my_positive_sum" "my_sum"         }
-\CommentTok{## [5] "res1"            "res2"}
-\end{Highlighting}
-\end{Shaded}
-
-Da qui è chiaro che quello che avviene all'interno della funzione è in qualche modo compartimentalizzato rispetto all'ambiente globale. L'unico modo per influenzare l'ambiente globale è quello di assegnare il risultato della funzione, creando quindi un nuovo oggetto:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{res <-}\StringTok{ }\KeywordTok{my_fun}\NormalTok{(}\DecValTok{10}\NormalTok{)}
-\KeywordTok{ls}\NormalTok{()}
-\CommentTok{## [1] "my_fun"          "my_greetings"    "my_positive_sum" "my_sum"         }
-\CommentTok{## [5] "res"             "res1"            "res2"}
-\end{Highlighting}
-\end{Shaded}
-
-Altra cosa importante, sopratutto per gestire effetti collaterali riguarda il fatto che la funzione NON modifica gli oggetti presenti nell'ambiente globale:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{y <-}\StringTok{ }\DecValTok{10} \CommentTok{# ambiente globale}
-
-\NormalTok{my_fun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
-\NormalTok{  y <-}\StringTok{ }\DecValTok{1} \CommentTok{# ambiente funzione}
-  \KeywordTok{return}\NormalTok{(x }\OperatorTok{+}\StringTok{ }\NormalTok{y) }\CommentTok{# questo si basa su y funzione}
-\NormalTok{\}}
-
-\KeywordTok{my_fun}\NormalTok{(}\DecValTok{1}\NormalTok{)}
-\CommentTok{## [1] 2}
-\NormalTok{y}
-\CommentTok{## [1] 10}
-\end{Highlighting}
-\end{Shaded}
-
-Come vedete, abbiamo creato un oggetto \texttt{y} dentro la funzione. Se eseguito nello stesso ambiente questo avrebbe sovrascritto il precedente valore. Il risultato si basa sul valore di \texttt{y} creato nell'ambiente funzione e l'\texttt{y} globale non è stato modificato.
-
-Un ultimo punto importante riguarda invece il legame tra ambiente funzione e quello globale. Abbiamo visto la loro indipendenza che però non è totale. Se infatti all'interno della funzione utilizziamo una variabile definita solamente nell'ambiente globale, la funzione in automatico userà quel valore (se non specificato internamente). Questo è utile per far lavorare funzioni e variabili globali MA è sempre preferibile creare un ambiente funzione indipendente e fornire come \textbf{argomenti} tutte gli oggetti necessari.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{y <-}\StringTok{ }\DecValTok{10}
-
-\NormalTok{my_fun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
-  \KeywordTok{return}\NormalTok{(x }\OperatorTok{+}\StringTok{ }\NormalTok{y) }\CommentTok{# viene utilizzato y globale}
-\NormalTok{\}}
-
-\KeywordTok{my_fun}\NormalTok{(}\DecValTok{1}\NormalTok{)}
-\CommentTok{## [1] 11}
-\end{Highlighting}
-\end{Shaded}
-
-Le cose importanti da ricordare quando si definiscono e utilizzano funzioni sono:
-
-\begin{itemize}
-\tightlist
-\item
-  Ogni volta che una funzione viene eseguita, l'ambiente interno viene ricreato e quindi è come ripartire da zero
-\item
-  Gli oggetti creati all'interno della funzione hanno priorità rispetto a quelli nell'ambiente esterno
-\item
-  Se la funzione utilizza un oggetto non definito internamente, automaticamente cercherà nell'ambiente principale
-\end{itemize}
-
-\hypertarget{best-practice}{%
-\section{Best practice}\label{best-practice}}
-
-Scrivere funzioni è sicuramente l'aspetto più importante quando si scrive del codice. Permette di automatizzare operazioni, ridurre la quantità di codice, rendere più chiaro il nostro script e riutilizzare una certa porzione di codice in altri contesti. Ci sono tuttavia delle convenzioni e degli accorgimenti per scrivere delle ottime e versatili funzioni:
-
-\begin{itemize}
-\tightlist
-\item
-  Quando serve una funzione?
-\item
-  Scegliere il nome
-\item
-  Semplificare la quantita di operazioni e output
-\item
-  Commentare e documentare
-\end{itemize}
-
-\hypertarget{quando-serve-una-funzione}{%
-\subsection{Quando serve una funzione?}\label{quando-serve-una-funzione}}
-
-\href{https://r4ds.had.co.nz/functions.html\#when-should-you-write-a-function}{Hadley Wickam} suggerisce che se ripetiamo una serie di operazioni più di 2 volte, forse è meglio scrivere una funzione. Immaginiamo di avere una serie di oggetti e voler eseguire la stessa operazione in tutti. Ad esempio vogliamo \emph{centrare} (ovvero sottrarre a tutti i valori di un vettore la loro media) un vettore numerico:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{vec1 <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{10}\NormalTok{)}
-\NormalTok{vec2 <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{10}\NormalTok{)}
-\NormalTok{vec3 <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{10}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-Abbiamo visto nei capitoli precedenti l'utilizzo dell'\texttt{apply} family e come si possa applicare una funzione ad una serie di oggetti. Pensiamo però ad un caso dove abbiamo uno script molto lungo e in diversi momenti eseguiamo una certa operazione:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# Centriamo}
-\NormalTok{vec1 }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(vec2)}
-\CommentTok{##  [1] -0.1049188  0.4001664 -0.1866398 -0.4205324 -0.3595064 -0.4021132}
-\CommentTok{##  [7] -0.1548789 -0.2910912 -0.2526912  0.2384372}
-\NormalTok{vec2 }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(vec2)}
-\CommentTok{##  [1] -0.25776839  0.15614830 -0.29499605 -0.27387888 -0.01529882  0.44457216}
-\CommentTok{##  [7] -0.14438146  0.26141364 -0.05195010  0.17613960}
-\NormalTok{vec3 }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(vec3)}
-\CommentTok{##  [1]  0.39883351 -0.49066590  0.30530112  0.14364756 -0.04185578 -0.13234173}
-\CommentTok{##  [7]  0.27755253  0.04020929 -0.11271003 -0.38797058}
-\end{Highlighting}
-\end{Shaded}
-
-L'operazione viene eseguita correttamente ed è anche di facile comprensione. Tuttavia stiamo eseguendo sempre la stessa cosa, semplicemente cambiando un input (proprio la definizione di funzione) quindi possiamo:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{my_fun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
-  \KeywordTok{return}\NormalTok{(x }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(x))}
-\NormalTok{\}}
-
-\KeywordTok{my_fun}\NormalTok{(vec1)}
-\CommentTok{##  [1]  0.048457994  0.553543264 -0.033262947 -0.267155618 -0.206129598}
-\CommentTok{##  [6] -0.248736356 -0.001502031 -0.137714358 -0.099314334  0.391813985}
-\KeywordTok{my_fun}\NormalTok{(vec2)}
-\CommentTok{##  [1] -0.25776839  0.15614830 -0.29499605 -0.27387888 -0.01529882  0.44457216}
-\CommentTok{##  [7] -0.14438146  0.26141364 -0.05195010  0.17613960}
-\KeywordTok{my_fun}\NormalTok{(vec3)}
-\CommentTok{##  [1]  0.39883351 -0.49066590  0.30530112  0.14364756 -0.04185578 -0.13234173}
-\CommentTok{##  [7]  0.27755253  0.04020929 -0.11271003 -0.38797058}
-\end{Highlighting}
-\end{Shaded}
-
-Il codice non è molto cambiato rispetto a prima in termini di numero di righe o complessità. Immaginate però di esservi resi conto di un errore o di voler cambiare o estendere le operazioni su\texttt{vec1,\ vec2\ e\ vec3}. Nel primo caso dovreste andare linea per linea dello script e modificare il codice. Nel caso di una funzione, semplicemente cambiando le operazioni queste verranno applicate ogni volta che quella funzione è chiamata. Immaginiamo di voler anche \emph{standardizzare} (sottrarre la media e dividere per la deviazione standard) i nostri vettori:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{my_fun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
-\NormalTok{  res <-}\StringTok{ }\NormalTok{(x }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(x)) }\OperatorTok{/}\StringTok{ }\KeywordTok{sd}\NormalTok{(x)}
-  \KeywordTok{return}\NormalTok{(res)}
-\NormalTok{\}}
-
-\KeywordTok{my_fun}\NormalTok{(vec1)}
-\CommentTok{##  [1]  0.177875570  2.031900530 -0.122098858 -0.980652600 -0.756643368}
-\CommentTok{##  [6] -0.913040708 -0.005513532 -0.505510399 -0.364554790  1.438238155}
-\KeywordTok{my_fun}\NormalTok{(vec2)}
-\CommentTok{##  [1] -1.02100865  0.61849621 -1.16846571 -1.08482160 -0.06059792  1.76092975}
-\CommentTok{##  [7] -0.57188831  1.03544735 -0.20577193  0.69768081}
-\KeywordTok{my_fun}\NormalTok{(vec3)}
-\CommentTok{##  [1]  1.3593019 -1.6722845  1.0405254  0.4895787 -0.1426526 -0.4510462}
-\CommentTok{##  [7]  0.9459528  0.1370410 -0.3841376 -1.3222789}
-\end{Highlighting}
-\end{Shaded}
-
-Ovviamente la combinazione di funzione e \texttt{apply} family permette di rendere il tutto ancora più compatto ed efficiente:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{my_list <-}\StringTok{ }\KeywordTok{list}\NormalTok{(vec1, vec2, vec3)}
-\KeywordTok{lapply}\NormalTok{(my_list, my_fun)}
-\CommentTok{## [[1]]}
-\CommentTok{##  [1]  0.177875570  2.031900530 -0.122098858 -0.980652600 -0.756643368}
-\CommentTok{##  [6] -0.913040708 -0.005513532 -0.505510399 -0.364554790  1.438238155}
-\CommentTok{## }
-\CommentTok{## [[2]]}
-\CommentTok{##  [1] -1.02100865  0.61849621 -1.16846571 -1.08482160 -0.06059792  1.76092975}
-\CommentTok{##  [7] -0.57188831  1.03544735 -0.20577193  0.69768081}
-\CommentTok{## }
-\CommentTok{## [[3]]}
-\CommentTok{##  [1]  1.3593019 -1.6722845  1.0405254  0.4895787 -0.1426526 -0.4510462}
-\CommentTok{##  [7]  0.9459528  0.1370410 -0.3841376 -1.3222789}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{scegliere-il-nome}{%
-\subsection{Scegliere il nome}\label{scegliere-il-nome}}
-
-Questo potrebbe sembrare un argomento marginale tuttavia la scelta dei nomi sia per le variabili ma sopratutto per le funzioni è estremamente importante. Permette di:
-
-\begin{itemize}
-\tightlist
-\item
-  leggere chiaramente il nostro codice e renderlo comprensibile ad altri
-\item
-  organizzare facilmente un gruppo di funzioni. Quando avete più funzioni, usare una giusta denominazione permette di sfruttare i suggerimenti di RStudio in modo più efficace. Il pacchetto \href{https://stringr.tidyverse.org/}{\texttt{stringr}} and esempio che fornisce strumenti per lavorare con stringhe, utilizza tutte le funzioni denominate come \texttt{str\_} permettendo di cercare facilmente quella desiderata.
-\end{itemize}
-
-E' utile utilizzare \textbf{verbi} per nominare le funzioni mentre \textbf{nomi} per nominare argomenti. Ad esempio un nome adatto alla nostra ultima funzione potrebbe essere \texttt{center\_var()} mentre il nome del nuovo vettore \texttt{centered\_vec} o \texttt{c\_vec}. Se troviamo \texttt{center\_var} all'interno di uno script è subito chiaro il compito di quella funzione, anche senza guardare il codice al suo interno.
-
-\hypertarget{semplificare-la-quantita-di-operazioni-e-output}{%
-\subsection{Semplificare la quantita di operazioni e output}\label{semplificare-la-quantita-di-operazioni-e-output}}
-
-Questo è un punto molto importante ma allo stesso tempo variegato. Ci sono diversi stili di programmazione e quindi non ci sono regole fisse oppure delle pratiche migliori di altre.
-Abbiamo detto che una funzione è un modo per astrarre, riutilizzare e semplificare una serie di operazioni. Possiamo quindi scrivere funzioni molto complesse che ricevono diversi input, eseguono diverse operazioni e restituiscono diversi output. E' buona pratica però scrivere funzioni che:
-
-\begin{itemize}
-\tightlist
-\item
-  riducono il numero di operazioni interne
-\item
-  forniscono un singolo (o limitati) output
-\item
-  hanno un numero di input limitato
-\end{itemize}
-
-Se quindi abbiamo pensato ad una funzione che ha troppi output, è troppo complessa oppure ha troppi input magari possiamo valutare di scomporre la funzione in sotto-funzioni.
-
-Facciamo un esempio con la nostra \texttt{center\_vec()}. Possiamo pensare a diverse alternative ed estensioni di questa funzione. Ad esempio possiamo pensare di creare una funzione che centra oppure standardizza il vettore. Possiamo inoltre scegliere se centrare usando la media oppure la mediana. Quindi possiamo pensare a una macro funzione \texttt{trans\_vec()} che in base agli argomenti trasforma il vettore:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{trans_vec <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, }\DataTypeTok{what =} \KeywordTok{c}\NormalTok{(}\StringTok{"center_mean"}\NormalTok{, }\StringTok{"center_median"}\NormalTok{, }\StringTok{"standardize"}\NormalTok{))\{}
-  \ControlFlowTok{if}\NormalTok{(}\KeywordTok{match.arg}\NormalTok{(what) }\OperatorTok{==}\StringTok{ "center_mean"}\NormalTok{)\{}
-\NormalTok{    res <-}\StringTok{ }\NormalTok{x }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(x)}
-\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(}\KeywordTok{match.arg}\NormalTok{(what) }\OperatorTok{==}\StringTok{ "center_median"}\NormalTok{)\{}
-\NormalTok{    res <-}\StringTok{ }\NormalTok{x }\OperatorTok{-}\StringTok{ }\KeywordTok{median}\NormalTok{(x)}
-\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(}\KeywordTok{match.arg}\NormalTok{(what) }\OperatorTok{==}\StringTok{ "standardize"}\NormalTok{)\{}
-\NormalTok{    res <-}\StringTok{ }\NormalTok{(x }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(x))}\OperatorTok{/}\KeywordTok{sd}\NormalTok{(x)}
-\NormalTok{  \}}
-  \KeywordTok{return}\NormalTok{(res)}
-\NormalTok{\}}
-
-\NormalTok{vec <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{10}\NormalTok{)}
-\KeywordTok{trans_vec}\NormalTok{(vec, }\StringTok{"center_mean"}\NormalTok{)}
-\CommentTok{##  [1]  0.23483660 -0.23269195 -0.13745416  0.52635162 -0.29905071 -0.09780025}
-\CommentTok{##  [7]  0.55656076 -0.23227754 -0.27045294 -0.04802143}
-\KeywordTok{trans_vec}\NormalTok{(vec, }\StringTok{"center_mean"}\NormalTok{)}
-\CommentTok{##  [1]  0.23483660 -0.23269195 -0.13745416  0.52635162 -0.29905071 -0.09780025}
-\CommentTok{##  [7]  0.55656076 -0.23227754 -0.27045294 -0.04802143}
-\KeywordTok{trans_vec}\NormalTok{(vec, }\StringTok{"standardize"}\NormalTok{)}
-\CommentTok{##  [1]  0.7253384 -0.7187142 -0.4245538  1.6257391 -0.9236761 -0.3020750}
-\CommentTok{##  [7]  1.7190458 -0.7174342 -0.8353463 -0.1483235}
-\end{Highlighting}
-\end{Shaded}
-
-La funzione è molto chiara ma comunque contiene dei margini di fragilità. L'utente deve inserire una per stringa eseguire l'operazione. Ci sono diversi \texttt{if} e lo scopo della funzione è forse troppo generico. Una migliore soluzione sarebbe quella di scrivere 3 funzioni più semplici, mirate e facili da mantenere e leggere:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{center_vec_mean <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
-  \KeywordTok{return}\NormalTok{(x }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(x))}
-\NormalTok{\}}
-
-\NormalTok{center_vec_median <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
-  \KeywordTok{return}\NormalTok{(x }\OperatorTok{-}\StringTok{ }\KeywordTok{median}\NormalTok{(x))}
-\NormalTok{\}}
-
-\NormalTok{standardize_vec <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
-  \KeywordTok{return}\NormalTok{((x }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(x)) }\OperatorTok{/}\StringTok{ }\KeywordTok{sd}\NormalTok{(x))}
-\NormalTok{\}}
-
-\NormalTok{vec <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{10}\NormalTok{)}
-\KeywordTok{center_vec_mean}\NormalTok{(vec)}
-\CommentTok{##  [1] -0.09665431 -0.10967926  0.28295999  0.14232430  0.22278332 -0.37292565}
-\CommentTok{##  [7]  0.30652080 -0.11191023 -0.37462791  0.11120895}
-\KeywordTok{center_vec_median}\NormalTok{(vec)}
-\CommentTok{##  [1] -0.1039316 -0.1169566  0.2756827  0.1350470  0.2155060 -0.3802030}
-\CommentTok{##  [7]  0.2992435 -0.1191876 -0.3819052  0.1039316}
-\KeywordTok{standardize_vec}\NormalTok{(vec)}
-\CommentTok{##  [1] -0.3842027 -0.4359770  1.1247711  0.5657417  0.8855677 -1.4823863}
-\CommentTok{##  [7]  1.2184258 -0.4448452 -1.4891527  0.4420576}
-\end{Highlighting}
-\end{Shaded}
-
-In questo modo il codice è molto più leggibile e chiaro sia dentro le funzioni che quando le funzioni vengono utilizzate. Un'ulteriore alternativa sarebbe quella di raggruppare le funzione di ``centramento'' specificando se utilizzare media o mediana e separare quella di standardizzazione.
-
-\hypertarget{commentare-e-documentare}{%
-\subsection{Commentare e documentare}\label{commentare-e-documentare}}
-
-La documentazione è forse la parte di più importante della scrittura del codice. Possiamo classificarla in documentazione \emph{formale} e \emph{informale} in base allo scopo. La documentazione \emph{formale} è quella che troviamo facendo \texttt{help(funzione)} oppure \texttt{?funzione}. E' una documentazione standardizzata e necessaria quando si creano delle funzioni in un pacchetto che altri utenti devono utilizzare. La documentazione \emph{informale} è quella che mettiamo nei nostri script e all'interno delle funzioni come \texttt{\#\ commento}. Entrambe sono molto importati e permettono di descrivere lo scopo generale della funzione, i singoli argomenti e i passaggi eseguiti.
-
-\hypertarget{importare-una-funzione}{%
-\section{Importare una funzione}\label{importare-una-funzione}}
-
-Abbiamo già visto che il comando \texttt{library()} carica un certo pacchetto, rendendo le funzioni contenute disponibili all'utilizzo. Senza la necessità di creare un pacchetto, possiamo comunque organizzare le nostre funzioni in modo efficace. Abbiamo 2 opzioni:
-
-\begin{itemize}
-\tightlist
-\item
-  scrivere le funzioni nello stesso script dove esse vengono utilizzate
-\item
-  scrivere uno script separato e importare tutte le funzioni contenute
-\end{itemize}
-
-Anche in questo caso è una questione di stile e comodità, in generale:
-
-\begin{itemize}
-\tightlist
-\item
-  Se abbiamo tante funzioni, è meglio scriverle in uno o più file separati e poi importarle all'inizio dello script principale
-\item
-  Se abbiamo poche funzioni possiamo tenerle nello script principale, magari in una sezione apposita nella parte iniziale
-\end{itemize}
-
-Nel secondo caso è sufficiente quindi scrivere la funzione e questa sarà salvata come oggetto nell'ambiente principale. Riguardo il primo scenario si può utilizzare la funzione \texttt{source("percorso/script.R")}. La funzione \texttt{source()} accetta il percorso di uno script R che verrà poi eseguito in background. Quindi se la vostra directory è organizzata in questo modo:
-
-\begin{verbatim}
-- working directory/
-|-- main_script.R
-|-- functions/
-    |-- my_functions.R
-\end{verbatim}
-
-Dove lo script \texttt{my\_functions.R} è uno script dove sono dichiarare tutte le funzioni:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{fun1 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
-  \CommentTok{# do}
-\NormalTok{\}}
-
-\NormalTok{fun2 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
-  \CommentTok{# do}
-\NormalTok{\}}
-
-\NormalTok{fun3 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
-  \CommentTok{# do}
-\NormalTok{\}}
-
-\NormalTok{...}
-\end{Highlighting}
-\end{Shaded}
-
-Scrivendo all'inizio del nostro script principale \texttt{source("functions/my\_functions.R")}, tutte le funzioni saranno caricate nel ambiente di lavoro.
-
-\begin{itemize}
-\tightlist
-\item
-  print vs cat (aspetto nel return)
-\end{itemize}
-
 \hypertarget{part-case-study}{%
 \part*{Case study}\label{part-case-study}}
 \addcontentsline{toc}{part}{Case study}
@@ -9915,6 +9980,818 @@ numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
 optio, eaque rerum!
 
 \end{trick}
+
+\hypertarget{part-argomenti-avanzati}{%
+\part*{Argomenti avanzati}\label{part-argomenti-avanzati}}
+\addcontentsline{toc}{part}{Argomenti avanzati}
+
+\hypertarget{fourth-section}{%
+\chapter*{Introduzione}\label{fourth-section}}
+\addcontentsline{toc}{chapter}{Introduzione}
+
+In questa sezione verranno introdotti brevemente alcuni argomenti avanzati che sono tuttavia molto utili per lavorare in modo efficiente con R. Verranno inseriti diversi riferimenti in modo da poter approfondire autonomamente.
+
+I capitoli sono così organizzati:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Capitolo \ref{stringhe} - Stringhe}. Vedremo come gestire e manipolare le gli oggetti di tipo \texttt{character} in R.
+\end{itemize}
+
+\hypertarget{stringhe}{%
+\chapter{Stringhe}\label{stringhe}}
+
+Abbiamo visto che R oltre ai numeri è in grado di gestire anche i \textbf{caratteri}. Nonostante le operazioni matematiche non siano rilevanti per questo tipo di dato, lavorare con le stringhe è altrettanto se non più complesso in termini di programmazione, le stringe infatti rispetto ai numeri:
+
+\begin{itemize}
+\tightlist
+\item
+  possono essere maiuscole/minuscole. Ad esempio la stringa \texttt{ciao} è \emph{concettualmente} uguale a \texttt{Ciao} ma R le tratta in modo diverso.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"ciao"} \OperatorTok{==}\StringTok{ "Ciao"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  possono avere caratteri speciali come \texttt{?\textbackslash{}\$} oppure appartenere ad alfabeti diversi \texttt{ة\ α}
+\item
+  l'indicizzazione per \texttt{numeri} e \texttt{stringhe} lavora in modo diverso. Se abbiamo un \textbf{vettore} di strighe, questo viene rappresentato allo stesso modo di un vettore numerico. Tuttavia la stringa stessa \texttt{ciao} può essere scomposta, manipolata e quindi indicizzata nei singoli caratteri che la compongono \texttt{c,\ i,\ a,\ o}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vec_string <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"ciao"}\NormalTok{, }\StringTok{"come"}\NormalTok{, }\StringTok{"stai"}\NormalTok{)}
+\NormalTok{vec_num <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+
+\KeywordTok{length}\NormalTok{(vec_string)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{length}\NormalTok{(vec_num)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vec_string[}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "ciao"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vec_num[}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Usiamo la funzione nchar()}
+\KeywordTok{setNames}\NormalTok{(}\KeywordTok{nchar}\NormalTok{(vec_string), vec_string)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ciao come stai 
+##    4    4    4
+\end{verbatim}
+
+Per creare una stringa in R dobbiamo usare le singole o doppie virgolette \texttt{"stringa"} o \texttt{\textquotesingle{}stringa\textquotesingle{}}. Queste due scritture in R sono interpretate in modo analogo. Possiamo usarle entrambe per scrivere una stringa che contenga le virgolette:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ "stringa con all'interno un'altra 'stringa'"}
+\NormalTok{x}
+
+\NormalTok{x <-}\StringTok{ "stringa con all'interno un'altra "}\NormalTok{stringa}\StringTok{""}
+\CommentTok{# in questo caso abbaimo errore perchè non interpreta la doppia virgolettatura}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error: <text>:4:41: unexpected symbol
+## 3: 
+## 4: x <- "stringa con all'interno un'altra "stringa
+##                                            ^
+\end{verbatim}
+
+All'interno delle stringhe possiamo utilizzare caratteri speciali come \texttt{/\textbar{}\textbackslash{}\$\%\&}. Alcuni di questi vengono intepretati da R in modo particolare. Quando accade è necessario aggiungere il carattere \texttt{\textbackslash{}} che funge da \emph{escape}, ovvero dice ad R di trattare letterlamente quel carattere:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ "ciao come stai? n io tutto bene"}
+\KeywordTok{cat}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ciao come stai? n io tutto bene
+\end{verbatim}
+
+Per questo in R ci sono una serie di funzioni e pacchetti che permettono di lavorare con le stringhe in modo molto efficiente. Vedremo qui una breve panoramica di queste funzioni con qualche suggerimento anche su come approfondire.
+
+\hypertarget{confrontare-stringhe}{%
+\section{Confrontare stringhe}\label{confrontare-stringhe}}
+
+Il primo aspetto è quello di confrontare stringhe. Il confronto logico tra \texttt{stringhe} è molto più stringente di quello numerico. Come abbiamo visto prima infatti, c'è molta più libertà rispetto alle stringhe, con il prezzo di avere più scenari da gestire.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Confronto due numeri rappresentati in modo diverso}
+\NormalTok{intero <-}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\NormalTok{double <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\NormalTok{intero }\OperatorTok{==}\StringTok{ }\NormalTok{double}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Confronto stringhe}
+
+\StringTok{"ciao"} \OperatorTok{==}\StringTok{ "Ciao"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"female"} \OperatorTok{==}\StringTok{ "feMale"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+Anche il concetto di spazio \texttt{} è rilevante perchè viene considerato come un carattere:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"ciao "} \OperatorTok{==}\StringTok{ "ciao"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+Immaginate di avere un vettore dove una colonna rappresenta il genere dei partecipanti. Se questo vettore è il risultato di persone che liberamente scrivono nel campo di testo, potreste trovarvi una situazione così (è per questo che nei form online spesso ci sono opzioni predefinite piuttosto che testo libero):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{genere <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"maLe"}\NormalTok{, }\StringTok{"masChio"}\NormalTok{, }\StringTok{"Male"}\NormalTok{, }\StringTok{"f"}\NormalTok{, }\StringTok{"female"}\NormalTok{, }\StringTok{"malew"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In questo vettore (volutamente esagerato) abbiamo chiaro il significato di \texttt{f} o di \texttt{malew} (probabilmente un errore di battitura) tuttavia se vogliamo lavorarci con R, diventa probelmatico:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Tabella di frequenza}
+
+\KeywordTok{table}\NormalTok{(genere)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## genere
+##       f  female    maLe    Male   malew masChio 
+##       1       1       1       1       1       1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Non molto utile}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{comporre-stringhe}{%
+\section{Comporre stringhe}\label{comporre-stringhe}}
+
+Vediamo quindi alcune funzioni utili per lavorare con le stringhe.
+
+\hypertarget{tolower-e-toupper}{%
+\subsection{\texorpdfstring{\texttt{tolower()} e \texttt{toupper()}}{tolower() e toupper()}}\label{tolower-e-toupper}}
+
+Queste funzioni sono estremamente utili perchè permettono di forzare il carattere maiscolo o minuscolo
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tolower}\NormalTok{(genere)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "male"    "maschio" "male"    "f"       "female"  "malew"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{toupper}\NormalTok{(genere)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "MALE"    "MASCHIO" "MALE"    "F"       "FEMALE"  "MALEW"
+\end{verbatim}
+
+\hypertarget{paste-e-paste0}{%
+\subsection{\texorpdfstring{\texttt{paste()} e \texttt{paste0()}}{paste() e paste0()}}\label{paste-e-paste0}}
+
+Queste funzioni servono a combinare diverse informazioni in una stringa. Possiamo combinare diverse stringhe ma anche numeri. Come tipico in R, \texttt{paste()} e \texttt{paste0()} sono vettorizzate e quindi possono essere utili per combinare due vettori di informazioni. La differenza è che \texttt{paste()} automaticamente aggiunge uno spazio tra le stringhe combinate mentre con \texttt{paste0()} deve essere messo esplicitamente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{age <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{35}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{18}\NormalTok{)}
+\NormalTok{nomi <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Andrea"}\NormalTok{, }\StringTok{"Francesco"}\NormalTok{, }\StringTok{"Fabio"}\NormalTok{, }\StringTok{"Anna"}\NormalTok{, }\StringTok{"Alice"}\NormalTok{)}
+
+\KeywordTok{paste}\NormalTok{(nomi, }\StringTok{"ha"}\NormalTok{, age, }\StringTok{"anni"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Andrea ha 10 anni"    "Francesco ha 20 anni" "Fabio ha 35 anni"    
+## [4] "Anna ha 15 anni"      "Alice ha 18 anni"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{paste0}\NormalTok{(nomi, }\StringTok{"ha"}\NormalTok{, age, }\StringTok{"anni"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Andreaha10anni"    "Francescoha20anni" "Fabioha35anni"    
+## [4] "Annaha15anni"      "Aliceha18anni"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{paste0}\NormalTok{(nomi, }\StringTok{" ha "}\NormalTok{, age, }\StringTok{" anni"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Andrea ha 10 anni"    "Francesco ha 20 anni" "Fabio ha 35 anni"    
+## [4] "Anna ha 15 anni"      "Alice ha 18 anni"
+\end{verbatim}
+
+In questo caso nonostante \texttt{age} sia numerico, viene forzato a stringa per poter essere combinato con i nomi.
+
+\hypertarget{sprinf}{%
+\subsection{\texorpdfstring{\texttt{sprinf()}}{sprinf()}}\label{sprinf}}
+
+\texttt{sprinf()} è simile a \texttt{paste*()} come funzionamento ma permette di comporre strighe usando dei \emph{placeholder} e fornendo poi il contenuto.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sprintf}\NormalTok{(}\StringTok{"%s ha %d anni"}\NormalTok{, nomi, age)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Andrea ha 10 anni"    "Francesco ha 20 anni" "Fabio ha 35 anni"    
+## [4] "Anna ha 15 anni"      "Alice ha 18 anni"
+\end{verbatim}
+
+In questo caso si compone una stringa usando \texttt{\%} e una lettera che rappresenta il tipo di dato da inserire. Poi in ordine vengono fornite le informazioni. In questo caso prima \texttt{\%s}(stringa) quindi \texttt{nomi} e poi \texttt{\%d}(digits) quindi \texttt{age}. Con \texttt{?sprintf} avete una panoramica del tipo di \emph{placeholder} che potete utilizzare.
+
+\hypertarget{indicizzare-stringhe}{%
+\section{Indicizzare stringhe}\label{indicizzare-stringhe}}
+
+\hypertarget{nchar}{%
+\subsection{\texorpdfstring{\texttt{nchar()}}{nchar()}}\label{nchar}}
+
+Come abbiamo visto prima la stringa è formata da un insieme di caratteri. La funzione \texttt{nchar()} fornisce il numero di singoli caratteri che compongono una stringa.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{nchar}\NormalTok{(}\StringTok{"ciao"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{nchar}\NormalTok{(}\StringTok{"Wow lavorare con le stringhe è molto divertente"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 47
+\end{verbatim}
+
+\hypertarget{gregexpr-e-regexpr}{%
+\subsection{\texorpdfstring{\texttt{gregexpr()} e \texttt{regexpr()}}{gregexpr() e regexpr()}}\label{gregexpr-e-regexpr}}
+
+Per trovare la posizione di una o più caratteri all'interno di una stringa possiamo usare \texttt{gregexpr()}. La scrittura è \texttt{(g)gregexpr(pattern,\ stringa)}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{gregexpr}\NormalTok{(}\StringTok{"t"}\NormalTok{, }\StringTok{"gatto"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## [1] 3 4
+## attr(,"match.length")
+## [1] 1 1
+## attr(,"index.type")
+## [1] "chars"
+## attr(,"useBytes")
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{regexpr}\NormalTok{(}\StringTok{"t"}\NormalTok{, }\StringTok{"gatto"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3
+## attr(,"match.length")
+## [1] 1
+## attr(,"index.type")
+## [1] "chars"
+## attr(,"useBytes")
+## [1] TRUE
+\end{verbatim}
+
+La differenza è che \texttt{regexpr()} restituisce solo la prima corrispondenza, nel nostro esempio la prima \texttt{t} si trova in 3 posizione mentre \texttt{gregexpr()} resituisce tutte le corrispondenze.
+
+\hypertarget{substr-e-substring}{%
+\subsection{\texorpdfstring{\texttt{substr()} e \texttt{substring()}}{substr() e substring()}}\label{substr-e-substring}}
+
+Il processo inverso, quindi trovare la stringa che corrisponde ad un certo indice è il lavoro di \texttt{substr(stringa,\ start,\ stop)} dove \texttt{start} e \texttt{stop} sono gli indici della porzione di stringa che vogliamo trovare. \texttt{substring()} funziona allo stesso modo ma \texttt{start} e \texttt{stop} vengono chiamati \texttt{first} e \texttt{last}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{substr}\NormalTok{(}\StringTok{"gatto"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{) }\CommentTok{# solo la prima}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "g"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{substr}\NormalTok{(}\StringTok{"gatto"}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{) }\CommentTok{# dalla seconda alla quarta}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "att"
+\end{verbatim}
+
+Per questo tipo di compiti forniscono esattamente lo stesso risultato, vediamo quindi le differenze:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{substring()} permette di fornire solo l'indice iniziale \texttt{first} e quello finale ha un valore di default di \texttt{1000000L}
+\item
+  \texttt{substring()} permette anche di fornire un vettore di indici di inizio/fine per poter segmentare la stringa
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{substring}\NormalTok{(}\StringTok{"gatto"}\NormalTok{, }\DecValTok{1}\NormalTok{) }\CommentTok{# funziona}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "gatto"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{substr}\NormalTok{(}\StringTok{"gatto"}\NormalTok{, }\DecValTok{1}\NormalTok{) }\CommentTok{# errore}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in substr("gatto", 1): argument "stop" is missing, with no default
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{substring}\NormalTok{(}\StringTok{"gatto"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{) }\CommentTok{# indice multiplo di fine}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "g"     "ga"    "gat"   "gatt"  "gatto"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{substring}\NormalTok{(}\StringTok{"gatto"}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{) }\CommentTok{# indice multiplo di inizio e fine}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "g" "a" "t" "t" "o"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{substr}\NormalTok{(}\StringTok{"gatto"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{) }\CommentTok{# non funziona, viene usato solo 1 indice di fine}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "g"
+\end{verbatim}
+
+\hypertarget{startwith-e-endswith}{%
+\subsection{\texorpdfstring{\texttt{startWith()} e \texttt{endsWith()}}{startWith() e endsWith()}}\label{startwith-e-endswith}}
+
+Alcune volte possiamo essere interessati all'inizio o alla fine di una stringa. Ad esempio \texttt{female} e \texttt{male} hanno una chiara differenza iniziale (\texttt{fe} e \texttt{ma}). E nonostante errori di battitura seguenti o altre differenze, selezionare solo l'inizio o la fine può essere efficiente. \texttt{startWith()} e \texttt{endsWith()} permettono rispettivamente di fornire \texttt{TRUE} o \texttt{FALSE} se una certa stringa o vettore di stringhe abbiamo un certo pattern iniziale o finale.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{startsWith}\NormalTok{(}\StringTok{"female"}\NormalTok{, }\DataTypeTok{prefix =} \StringTok{"fe"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{endsWith}\NormalTok{(}\StringTok{"female"}\NormalTok{, }\DataTypeTok{suffix =} \StringTok{"ale"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+Questa come le altre funzioni possono essere utilizzate in combinazione con \texttt{tolower()} o \texttt{toupper()} per ingnorare differenze non rilevanti.
+
+\hypertarget{grep-e-grepl}{%
+\subsection{\texorpdfstring{\texttt{grep()} e \texttt{grepl()}}{grep() e grepl()}}\label{grep-e-grepl}}
+
+Queste funzioni lavorano invece su \textbf{vettori} di stringhe trovando la posizione o la sola presenza di specifici \emph{pattern}. \texttt{grep()} fornisce la posizione/i nel vettore dove è presente un match, mentre \texttt{grepl()} fornisce \texttt{TRUE} o \texttt{FALSE} in funzione della presenza del \emph{pattern}. La scrittura è la stessa \texttt{grep*(pattern,\ vettore)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{genere}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "maLe"    "masChio" "Male"    "f"       "female"  "malew"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{grep}\NormalTok{(}\StringTok{"female"}\NormalTok{, genere) }\CommentTok{# indice di posizione}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{grepl}\NormalTok{(}\StringTok{"female"}\NormalTok{, genere) }\CommentTok{# true o false}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE FALSE FALSE FALSE  TRUE FALSE
+\end{verbatim}
+
+Come abbiamo visto nell'indicizzazione logica dei vettori, possiamo usare sia \texttt{grep()} che \texttt{grepl()} per selezionare solo alcuni elementi:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{index_grep <-}\StringTok{ }\KeywordTok{grep}\NormalTok{(}\StringTok{"female"}\NormalTok{, genere) }\CommentTok{# indice di posizione}
+\NormalTok{index_grepl <-}\StringTok{ }\KeywordTok{grepl}\NormalTok{(}\StringTok{"female"}\NormalTok{, genere) }\CommentTok{# indice di posizione}
+
+\NormalTok{genere[index_grep]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "female"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{genere[index_grepl]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "female"
+\end{verbatim}
+
+Da notare ancora come tutte queste funzioni lavorino su una \textbf{corrispondenza molto stringente} (in termini di maiscolo, minuscolo, etc.) tra pattern e target.
+
+\hypertarget{manipolare-stringhe}{%
+\section{Manipolare stringhe}\label{manipolare-stringhe}}
+
+Molte delle funzioni che abbiamo visto permettono anche di sostituire un certo pattern all'interno di una stringa o di un vettore di stringhe.
+
+Utilizzando infatti \texttt{substr()} o \texttt{substring()} con la funzione di assegnazione \texttt{\textless{}-} possiamo sostituire un certo carattere. Importante, la sostituzione deve avere lo stesso numero di caratteri della selezione \texttt{start:stop} oppure verrà usato solo il numero di caratteri corrispondente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ "gatto"}
+\KeywordTok{substr}\NormalTok{(x, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{) <-}\StringTok{ "y"}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "yatto"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ "gatto"}
+\KeywordTok{substr}\NormalTok{(x, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{) <-}\StringTok{ "aeiou"}
+\NormalTok{x }\CommentTok{# viene usata solo la a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "aatto"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# substring funziona esattamente allo stesso modo}
+\NormalTok{x <-}\StringTok{ "gatto"}
+\KeywordTok{substring}\NormalTok{(x, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{) <-}\StringTok{ "z"}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "zatto"
+\end{verbatim}
+
+Possono essere utilizzate anche in modo vettorizzato funzionando quindi su una serie di elementi:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"cane"}\NormalTok{, }\StringTok{"gatto"}\NormalTok{, }\StringTok{"topo"}\NormalTok{)}
+\KeywordTok{substring}\NormalTok{(x, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{) <-}\StringTok{ "z"}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "zane"  "zatto" "zopo"
+\end{verbatim}
+
+\hypertarget{gsub-e-sub}{%
+\subsection{\texorpdfstring{\texttt{gsub()} e \texttt{sub()}}{gsub() e sub()}}\label{gsub-e-sub}}
+
+Rispetto a \texttt{substring()}, \texttt{gsub()} e \texttt{sub()} permettono di sostituire un certo pattern e non usando indici di posizione. La scrittura è \texttt{*sub(pattern,\ replacement,\ target)}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"cane"}\NormalTok{, }\StringTok{"gatto"}\NormalTok{, }\StringTok{"topo"}\NormalTok{)}
+\KeywordTok{sub}\NormalTok{(}\StringTok{"a"}\NormalTok{, }\StringTok{"z"}\NormalTok{, x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "czne"  "gztto" "topo"
+\end{verbatim}
+
+Come vedete per ogni elemento di \texttt{x} la funzione ha trovato il pattern \texttt{"a"} e lo ha sostituito con \texttt{"z"}.
+
+La principale limitazione di \texttt{sub()} è quella di sostituire solo la prima corrispondenza trovata in ogni stringa.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"cane"}\NormalTok{, }\StringTok{"gatto"}\NormalTok{, }\StringTok{"topo"}\NormalTok{)}
+\KeywordTok{sub}\NormalTok{(}\StringTok{"o"}\NormalTok{, }\StringTok{"z"}\NormalTok{, x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "cane"  "gattz" "tzpo"
+\end{verbatim}
+
+Come vedete infatti, solo la prima ``o'' nella parola ``topo'' è stata sostituita. \texttt{gsub()} permette invece di sostituire tutti i caratteri che corrispondono al pattern richiesto:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"cane"}\NormalTok{, }\StringTok{"gatto"}\NormalTok{, }\StringTok{"topo"}\NormalTok{)}
+\KeywordTok{gsub}\NormalTok{(}\StringTok{"o"}\NormalTok{, }\StringTok{"z"}\NormalTok{, x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "cane"  "gattz" "tzpz"
+\end{verbatim}
+
+\hypertarget{strsplit}{%
+\subsection{\texorpdfstring{\texttt{strsplit()}}{strsplit()}}\label{strsplit}}
+
+Abbiamo già visto che con \texttt{substring()} ad esempio possiamo dividere una stringa in più parti. Secondo la documentazione di R la funzione \texttt{strsplit()} è più adatta ed efficiente per questo tipo di compito. La scrittura è \texttt{strsplit(target,\ split)} dove \texttt{split} è il carattere in base a cui dividere:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{frase <-}\StringTok{ "Quanto è bello usare le stringhe in R"}
+\KeywordTok{strsplit}\NormalTok{(frase, }\StringTok{" "}\NormalTok{) }\CommentTok{# stiamo dividendo in base agli spazi}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## [1] "Quanto"   "è"        "bello"    "usare"    "le"       "stringhe" "in"      
+## [8] "R"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{parola <-}\StringTok{ "parola1_parola2"}
+\KeywordTok{strsplit}\NormalTok{(parola, }\StringTok{"_"}\NormalTok{) }\CommentTok{# stiamo dividendo in base all'underscore}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## [1] "parola1" "parola2"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{parola <-}\StringTok{ "ciao"}
+\KeywordTok{strsplit}\NormalTok{(parola, }\StringTok{""}\NormalTok{) }\CommentTok{# dividiamo per ogni carattere}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## [1] "c" "i" "a" "o"
+\end{verbatim}
+
+Quello che otteniamo è un vettore (all'interno di una lista, possiamo usare \texttt{unlist()}) che contiene il risultato dello splitting.
+
+\hypertarget{regular-expression-regex}{%
+\section{Regular Expression (REGEX)}\label{regular-expression-regex}}
+
+E' tutto così semplice con le stringhe? Assolutamente no! Fino ad ora abbiamo utilizzato dei semplici pattern come singoli caratteri o insieme di caratteri tuttavia possiamo avere problemi più complessi da affrontare come:
+
+\begin{itemize}
+\tightlist
+\item
+  trovare l'estensione di un insieme di file
+\item
+  trovare il dominio di un sito web
+\end{itemize}
+
+Facciamo un esempio:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{files <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}
+  \StringTok{"file1.txt"}\NormalTok{,}
+  \StringTok{"file2.docx"}\NormalTok{,}
+  \StringTok{"file3.doc"}\NormalTok{,}
+  \StringTok{"file4.sh"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In questo caso se noi vogliamo ad esempio estrarre tutte le estensioni \texttt{nomefile.estensione} gli strumenti che abbiamo visto finora non sono sufficienti:
+
+\begin{itemize}
+\tightlist
+\item
+  possiamo estrarre i caratteri dalla fine \texttt{substr()} contando con \texttt{nchar()} però le estensioni non hanno un numero fisso di caratteri
+\item
+  possiamo cercare tutti i pattern con \texttt{grepl()} ma ci sono migliaia di estensioni diverse
+\end{itemize}
+
+Finora abbiamo visto 2 livelli di astrazione:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Corrispondenza letterale: \texttt{stringa1\ ==\ stringa2}
+\item
+  Indicizzazione: la posizione all'interno di una stringa
+\end{enumerate}
+
+Il terzo livello di astrazione è quello di trovare dei pattern comuni nelle stringhe ed estrarli, indipendentemente dai singoli caratteri, dal numero o dalla posizione.
+
+Le Regular Expressions (REGEX) sono un insieme di caratteri (chiamati \textbf{metacaratteri}) che vengono intepretati e permettono di trovare dei pattern nelle stringhe senza indicare un pattern specifico o un indice di posizione. L'argomento è molto complesso e non R-specifico. Ci sono parecchie guide online e tutorial che segnaliamo alla fine del capitolo. La cosa importante da sapere è che la maggior parte delle funzioni che abbiamo visto permettono di usare una \texttt{regex} oltre ad un pattern specifico in modo da risolvere problemi più complessi.
+
+Per fare un esempio se vogliamo estrarre l'estensione da una lista di file il ragionamento è:
+
+\begin{itemize}
+\tightlist
+\item
+  dobbiamo trovare un \texttt{.} perchè (circa) tutti i file sono composti da \texttt{nomefile.estensione}
+\item
+  dobbiamo selezionare tutti i caratteri dal punto alla fine della stringa
+\end{itemize}
+
+La ``traduzione'' in termini di REGEX è questa \texttt{"\textbackslash{}\textbackslash{}.({[}\^{}.{]}+)\$"} e quindi possiamo usare questo come \emph{pattern} e quindi estrarre le informazioni che ci servono. Possiamo usare la funzione \texttt{regmatches(text,\ match)} che richiede la stringa da analizzare e un oggetto \texttt{match} che è il risultato della funzione \texttt{regexpr} che abbiamo già visto:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{match_regex <-}\StringTok{ }\KeywordTok{regexpr}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{.([^.]+)$"}\NormalTok{, files)}
+\KeywordTok{regmatches}\NormalTok{(files, match_regex)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] ".txt"  ".docx" ".doc"  ".sh"
+\end{verbatim}
+
+\hypertarget{per-approfondire}{%
+\section{Per approfondire}\label{per-approfondire}}
+
+In tutto questo libro abbiamo sempre cercato di affrontare R come linguaggio di programmazione concentrandosi sulle funzioni di base. Tuttavia in alcuni settori, come quello delle stringhe e delle REGEX ci sono dei pacchetti esterni altamente consigliati che non solo rendono più semplice ma anche più organizzato e consistente l'insieme di funzioni. Il pacchetto \href{https://stringr.tidyverse.org/index.html}{\texttt{stringr}} è una fantastica risorsa per imparare ma anche lavorare in modo più efficiace con le stringhe. Contiene una serie di funzioni costruite al di sopra di quelle che abbiamo affrontato, semplificandole e uniformando il tutto.
+
+L'ultimo esempio descritto non è molto leggibile contenendo il risultato di un'altra funzione e chiamando l'oggetto \texttt{target} due volte, in \texttt{stringr} abbiamo la funzione \texttt{str\_extract()} che estrae un certo pattern o REGEX:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{stringr}\OperatorTok{::}\KeywordTok{str_extract}\NormalTok{(files, }\StringTok{"}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{.([^.]+)$"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] ".txt"  ".docx" ".doc"  ".sh"
+\end{verbatim}
+
+\hypertarget{risorse-utili-1}{%
+\subsection{Risorse utili}\label{risorse-utili-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://stringr.tidyverse.org/index.html}{\texttt{stringr}}
+\item
+  \href{https://r4ds.had.co.nz/strings.html}{Capitolo 14} di R for Data Science
+\item
+  \href{http://regex.info/book.html}{Mastering Regular Expressions}
+\item
+  \href{https://www.gastonsanchez.com/r4strings/}{Handling Strings With R}
+\end{itemize}
+
+\hypertarget{altre-funzioni-utili}{%
+\subsection{Altre funzioni utili}\label{altre-funzioni-utili}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{abbreviate()}
+\end{itemize}
 
   \bibliography{book.bib,packages.bib}
 

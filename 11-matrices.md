@@ -965,9 +965,6 @@ diag(4)
 ```
 :::
 
-
-
-
 ### Esercizi {-}
 
 Utilizzando le matrici create nei precedenti esercizi, esegui le seguentti consegne ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09-matrices.R)):
@@ -1069,4 +1066,3 @@ dim(my_vector)
 ## NULL
 ```
 :::
-

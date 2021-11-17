@@ -96,6 +96,7 @@ Famigliarizza con la creazione di vettori ([soluzioni](https://github.com/psicos
 5. Crea il vettore `t` in cui le letter `"A"`,`"B"` e `"C"` vengono ripetute ognuna 4 volte (`?rep()`)
 6. Genera il seguente output in modo pigro, ovvero scrivendo meno codice possibile ;)
 
+
 ```
 ## [1] "foo" "foo" "bar" "bar" "foo" "foo" "bar" "bar"
 ```
@@ -370,8 +371,25 @@ my_words
 ## [1] "bar" "qux"
 ```
 
-<!-- %  TODO funzione ?which() -->
+#### `which()`
 
+La funzione `which()` è molto utile per ottenere la **posizione** all'interno di un vettore associata ad una certa condizione logica. In altri termini se vogliamo sapere in quale posizione sono i valori `> 5` in un certo vettore numerico possiamo usare la funzione `which(x > 5)` dove `x` è chiaramente il nostro vettore numerico.
+
+
+```
+##  [1] FALSE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE
+## [1]  2  3  4  5  7  9 10
+```
+
+Come vedete, la funzione `which()` essenzialmente restituisce la **posizione** (e non il valore) dove la condizione testata è `TRUE`. E' importante notare che queste due scritture sono equivalenti:
+
+
+```
+## [1]  5.462760 10.649451  5.846736  5.213226  6.300417  6.247351 10.503700
+## [1]  5.462760 10.649451  5.846736  5.213226  6.300417  6.247351 10.503700
+```
+
+Infatti, come abbiamo visto possiamo indicizzare un vettore sia con un'altro vettore che ci indica la posizione degli elementi da estrarre che un vettore **logico** di lunghezza uguale al vettore originale.
 
 ### Esercizi {-}
 
@@ -678,10 +696,10 @@ Utilizzando le funzioni `sum()` e `mean()` con un vettore logico, possiamo valut
 my_values <- rnorm(50)  # genero dei numeri casuali 
 
 sum(my_values > 0)      # totale numeri positivi
-## [1] 24
+## [1] 25
 
 mean(my_values > 0)      # percentuale numeri positivi
-## [1] 0.48
+## [1] 0.5
 ```
 :::
 

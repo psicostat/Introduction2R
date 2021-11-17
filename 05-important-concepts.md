@@ -105,7 +105,7 @@ Esistono diverse convenzioni tra cui:
 
 - **CamelCase**. L'inizio di una nuova parole viene indicata con l'uso della prima lettera maiuscola. Ad esempio `mediaTestControllo`.
 - **snake_case**. L'inizio di una nuova parola viene indicata con l'uso carattere `_`. Ad esempio `media_test_controllo`.
--  una variante al calssico **snake_case** riguarda l'uso del `.`, ad esempio `media.test.controllo`. Questo approccio in genere è evitato poichè in molti linguaggi di progtrammazione (ed anche in R in alcune condizioni) il carattere `.` è un carattere speciale.
+-  una variante al calssico **snake_case** riguarda l'uso del `.`, ad esempio `media.test.controllo`. Questo approccio in genere è evitato poichè in molti linguaggi di programmazione (ed anche in R in alcune condizioni) il carattere `.` è un carattere speciale.
 
 
 In genere viene raccomandato di seguire la convenzione **snake_case**. Tuttavia, la decisione su quale convenzione adottare è libera, ma ricorda ancora che una buona norma nella programmazione riguarda la *consistenza*: una volta presa una decisione è bene mantenerla per facilitare la comprensione del codice.
@@ -263,7 +263,7 @@ Una pagina si aprirà nel pannello "Help" in basso a destra con la documentazion
 
 Il formato e le informazioni presenti nella pagina seguono delle norme comuni ma non obbligatorie. Infatti, non necessariamente vengono usati sempre tutti i campi e comunque all'autore delle funzioni è lasciato un certo grado di libertà nel personalizzare la documentazione. Tra i campi principali e più comunemente usati abbiamo:
 
-- **Tiolo** - Titolo esplicativo della finalità della funzione  
+- **Titile** - Titolo esplicativo della finalità della funzione  
 - **Description** - Descrizione coincisa della funzione
 - **Usage** - Viene mostrata la struttura della funzione con i suoi argomenti e valori di default
 - **Arguments** - Elenco con la descrizione dettagliata di tutti gli argomenti. Qui troviamo per ogni argomento sia le opzioni utilizzabili ed il loro effetto, che la tipologia di valori richiesti

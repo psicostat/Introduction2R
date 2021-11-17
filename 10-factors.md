@@ -8,7 +8,7 @@ In questo capitolo vedremo i *fattori*, una speciale tipologia di vettori utiliz
 
 ## Attributi di un Oggetto {#attributes}
 
-In R, gli oggetti possiedono quelli che sono definiti *attributi*, ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di *metadata*. Queste informazioni non interferiscono con i valori contenuti negli oggetti nè vengono normalmente mostrati nell'output di un oggetto. Tuttavia, si rivelano particolarmente utili in alcune circostanze e permettono di fornire speciali informazioni associate ad un determinato oggetti.
+In R, gli oggetti possiedono quelli che sono definiti *attributi*, ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di *metadata*. Queste informazioni non interferiscono con i valori contenuti negli oggetti nè vengono normalmente mostrati nell'output di un oggetto. Tuttavia, si rivelano particolarmente utili in alcune circostanze e permettono di fornire speciali informazioni associate ad un determinato oggetto.
 
 Gli oggetti possiedono diversi attributi a seconda della loro tipologia. Tuttavia, tra quelli principalmente usati troviamo:
 
@@ -51,7 +51,7 @@ class(my_vector)
 
 #### Dimensione {-}
 
-Abbiamo anticipato come l'attributo `dim` non sia dissponibile per i vettori, mentre diverrà molo importante nel caso di matrici e dataframe. Tuttavia un analogo valore della dimensione di un vettore è dato dalla sua lunghezza, valutata con la funzione `length()`.
+Abbiamo anticipato come l'attributo `dim` non sia disponibile per i vettori, mentre diverrà molo importante nel caso di matrici e dataframe. Tuttavia un analogo valore della dimensione di un vettore è dato dalla sua lunghezza, valutata con la funzione `length()`.
 
 
 ```
@@ -260,13 +260,59 @@ dosage
 ```
 Così facendo abbiamo riordinato i livelli a nostro piacimento senza modificare gli effettivi valori.
 
-<!-- #### Extra {-} -->
+#### Extra {-}
 
-<!-- TODO? -->
-<!-- - dropping factor level -->
-<!-- - adding factor level -->
-<!-- - rbind() con nuovi livelli  -->
+Sono possibili diverse operazioni con i fattori. Ad esempio, possiamo essere interessati a eliminare un certo livello di un fattore:
 
+- se facciamo un subset di un fattore e non abbiamo più valori associati a quel livello
+- se vogliamo semplicemente rimuovere un livello e le rispettive osservazioni
+
+In questi casi possiamo usare la funzione `droplevels(x, exclude = ...)` che permette di rimuovere determinati livelli:
+
+
+```
+## [1] "a" "b" "c"
+## [1] "a" "b" "c"
+```
+
+Come vedete nonostante non ci siano più valori `c`, abbiamo il fattore ha comunque associati tutti i valori iniziali:
+
+
+```
+##  [1] a a a a a a a a a a b b b b b
+## Levels: a b
+```
+
+Possiamo anche direttamente eliminare un livello ma in corrispondenza dei valori associati avremmo degli `NA`:
+
+
+```
+## [1] b b b b b c c
+## Levels: b c
+```
+
+Come è possibile eliminare un livello, è anche possibile aggiungere un livello ad un fattore usando semplicemente il comando `factor()` e specificando tutti i livello più quello/i aggiuntivi:
+
+
+```
+##  [1] <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> <NA> b    b    b    b    b   
+## [16] c    c   
+## Levels: b c nuovolivello
+```
+
+In questo caso abbiamo usato la funzione `c(vecchi_livelli, nuovo_livello)` per creare un vettore di nuovi livelli da usare in questo caso. In alternativa possiamo anche usare il metodo di assegnazione `levels(x) <-` specificando ancora un vettore di livelli oppure specificando un singolo valore assegnando al nuovo indice:
+
+
+
+E' possibile inoltre combinare due fattori in modo da ottenerne uno unico unendo quindi i livelli e i rispettivi valori numerici. Semplicemente usando il comando `c(fac1, fac2)`:
+
+
+```
+##  [1] a a a a a b b b b b c c c c c d d d d d
+## Levels: a b c d
+```
+
+<!-- TODO rbind() con nuovi livelli  -->
 
 ### Fattori Ordinali
 

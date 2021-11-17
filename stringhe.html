@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capitolo 16 Stringhe | Introduction to R</title>
+  <meta name="description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capitolo 16 Stringhe | Introduction to R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://psicostat.github.io/Introduction2R/" />
+  <meta property="og:image" content="https://psicostat.github.io/Introduction2R/images/logo_psicostat.png" />
+  <meta property="og:description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
+  <meta name="github-repo" content="psicostat/Introduction2R" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capitolo 16 Stringhe | Introduction to R" />
+  
+  <meta name="twitter:description" content="Questo è un libro intorduttivo ad R prodotto da Psicostat, gruppo di ricerca interdisciplinare che unisce la passione per la statistica e la psicologia." />
+  <meta name="twitter:image" content="https://psicostat.github.io/Introduction2R/images/logo_psicostat.png" />
+
+<meta name="author" content="Claudio Zandonella Callegher and Filippo Gambarota members of Psicostat" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="fourth-section.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RM7HE6D2VW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RM7HE6D2VW');
+</script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/toc.css" type="text/css" />
+<link rel="stylesheet" href="assets/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/hex_psicostat.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentazione</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#perchè-r"><i class="fa fa-check"></i>Perchè R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#struttura-del-libro"><i class="fa fa-check"></i>Struttura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#risorse-utili"><i class="fa fa-check"></i>Risorse Utili</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#psicostat"><i class="fa fa-check"></i>Psicostat</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#collaborazione"><i class="fa fa-check"></i>Collaborazione</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#riconoscimenti"><i class="fa fa-check"></i>Riconoscimenti</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licenza"><i class="fa fa-check"></i>Licenza</a></li>
+</ul></li>
+<li class="part"><span><b>Get Started</b></span></li>
+<li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> Installare R e RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#install-r"><i class="fa fa-check"></i><b>1.1</b> Installare R</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="install.html"><a href="install.html#r-windows"><i class="fa fa-check"></i><b>1.1.1</b> R Windows</a></li>
+<li class="chapter" data-level="1.1.2" data-path="install.html"><a href="install.html#r-macos"><i class="fa fa-check"></i><b>1.1.2</b> R MacOS</a></li>
+<li class="chapter" data-level="1.1.3" data-path="install.html"><a href="install.html#r-linux"><i class="fa fa-check"></i><b>1.1.3</b> R Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#installare-r-studio"><i class="fa fa-check"></i><b>1.2</b> Installare R Studio</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="install.html"><a href="install.html#r-studio-in-linux"><i class="fa fa-check"></i><b>1.2.1</b> R Studio in Linux</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rstudio-gui.html"><a href="rstudio-gui.html"><i class="fa fa-check"></i><b>2</b> Interfaccia RStudio</a></li>
+<li class="chapter" data-level="3" data-path="first-comands.html"><a href="first-comands.html"><i class="fa fa-check"></i><b>3</b> Primi Passi in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="first-comands.html"><a href="first-comands.html#math-operators"><i class="fa fa-check"></i><b>3.1</b> Operatori Matematici</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="first-comands.html"><a href="first-comands.html#ordine-operazioni"><i class="fa fa-check"></i><b>3.1.1</b> Ordine Operazioni</a></li>
+<li class="chapter" data-level="" data-path="first-comands.html"><a href="first-comands.html#esercizi"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="first-comands.html"><a href="first-comands.html#operators-rel-log"><i class="fa fa-check"></i><b>3.2</b> Operatori Relazionali e Logici</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="first-comands.html"><a href="first-comands.html#operatori-relazionali"><i class="fa fa-check"></i><b>3.2.1</b> Operatori Relazionali</a></li>
+<li class="chapter" data-level="3.2.2" data-path="first-comands.html"><a href="first-comands.html#operatori-logici"><i class="fa fa-check"></i><b>3.2.2</b> Operatori Logici</a></li>
+<li class="chapter" data-level="3.2.3" data-path="first-comands.html"><a href="first-comands.html#ordine-valutazione-relazioni"><i class="fa fa-check"></i><b>3.2.3</b> Ordine valutazione relazioni</a></li>
+<li class="chapter" data-level="" data-path="first-comands.html"><a href="first-comands.html#esercizi-1"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="objects-functions.html"><a href="objects-functions.html"><i class="fa fa-check"></i><b>4</b> Due Compagni Inseparabili</a><ul>
+<li class="chapter" data-level="4.1" data-path="objects-functions.html"><a href="objects-functions.html#objects-section"><i class="fa fa-check"></i><b>4.1</b> Oggetti</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="objects-functions.html"><a href="objects-functions.html#assign"><i class="fa fa-check"></i><b>4.1.1</b> Assegnare e Richiamare un oggetto</a></li>
+<li class="chapter" data-level="4.1.2" data-path="objects-functions.html"><a href="objects-functions.html#objects-names"><i class="fa fa-check"></i><b>4.1.2</b> Nomi degli oggetti</a></li>
+<li class="chapter" data-level="4.1.3" data-path="objects-functions.html"><a href="objects-functions.html#tipologie-dati-e-strutture-dati"><i class="fa fa-check"></i><b>4.1.3</b> Tipologie Dati e Strutture Dati</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="objects-functions.html"><a href="objects-functions.html#functions-def"><i class="fa fa-check"></i><b>4.2</b> Funzioni</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="objects-functions.html"><a href="objects-functions.html#function-arguments"><i class="fa fa-check"></i><b>4.2.1</b> Argomenti di una Funzione</a></li>
+<li class="chapter" data-level="4.2.2" data-path="objects-functions.html"><a href="objects-functions.html#help"><i class="fa fa-check"></i><b>4.2.2</b> Help! I need Somebody…Help!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="working-environment.html"><a href="working-environment.html"><i class="fa fa-check"></i><b>5</b> Ambiente di Lavoro</a><ul>
+<li class="chapter" data-level="5.1" data-path="working-environment.html"><a href="working-environment.html#environment"><i class="fa fa-check"></i><b>5.1</b> Environment</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="working-environment.html"><a href="working-environment.html#aggiungere-oggetti-allenvironment"><i class="fa fa-check"></i><b>5.1.1</b> Aggiungere Oggetti all’Environment</a></li>
+<li class="chapter" data-level="5.1.2" data-path="working-environment.html"><a href="working-environment.html#rimuovere-oggetti-dallenvironment"><i class="fa fa-check"></i><b>5.1.2</b> Rimuovere Oggetti dall’Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="working-environment.html"><a href="working-environment.html#working-directory"><i class="fa fa-check"></i><b>5.2</b> Working Directory</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="working-environment.html"><a href="working-environment.html#organizzazione-computer"><i class="fa fa-check"></i><b>5.2.1</b> Organizzazione Computer</a></li>
+<li class="chapter" data-level="5.2.2" data-path="working-environment.html"><a href="working-environment.html#absolute-path-e-relative-path"><i class="fa fa-check"></i><b>5.2.2</b> Absolute Path e Relative Path</a></li>
+<li class="chapter" data-level="5.2.3" data-path="working-environment.html"><a href="working-environment.html#working-directory-in-r"><i class="fa fa-check"></i><b>5.2.3</b> Working Directory in R</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="working-environment.html"><a href="working-environment.html#packages"><i class="fa fa-check"></i><b>5.3</b> R-packages</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="working-environment.html"><a href="working-environment.html#install.packages"><i class="fa fa-check"></i><b>5.3.1</b> install.packages()</a></li>
+<li class="chapter" data-level="5.3.2" data-path="working-environment.html"><a href="working-environment.html#library"><i class="fa fa-check"></i><b>5.3.2</b> library()</a></li>
+<li class="chapter" data-level="5.3.3" data-path="working-environment.html"><a href="working-environment.html#aggiornare-e-rimuovere-pacchetti"><i class="fa fa-check"></i><b>5.3.3</b> Aggiornare e Rimuovere Pacchetti</a></li>
+<li class="chapter" data-level="5.3.4" data-path="working-environment.html"><a href="working-environment.html#documentazione-pacchetti"><i class="fa fa-check"></i><b>5.3.4</b> Documentazione Pacchetti</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="working-session.html"><a href="working-session.html"><i class="fa fa-check"></i><b>6</b> Sessione di Lavoro</a><ul>
+<li class="chapter" data-level="6.1" data-path="working-session.html"><a href="working-session.html#organizzazione-script"><i class="fa fa-check"></i><b>6.1</b> Organizzazione Script</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="working-session.html"><a href="working-session.html#creare-delle-sezioni"><i class="fa fa-check"></i><b>6.1.1</b> Creare delle Sezioni</a></li>
+<li class="chapter" data-level="6.1.2" data-path="working-session.html"><a href="working-session.html#sintax"><i class="fa fa-check"></i><b>6.1.2</b> Sintassi</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="working-session.html"><a href="working-session.html#organizzazione-progetti"><i class="fa fa-check"></i><b>6.2</b> Organizzazione Progetti</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="working-session.html"><a href="working-session.html#rstudio-projects"><i class="fa fa-check"></i><b>6.2.1</b> RStudio Projects</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="working-session.html"><a href="working-session.html#messages-warnings-e-errors"><i class="fa fa-check"></i><b>6.3</b> Messages, Warnings e Errors</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="working-session.html"><a href="working-session.html#risolvere-gli-errori"><i class="fa fa-check"></i><b>6.3.1</b> Risolvere gli Errori</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Struttura Dati</b></span></li>
+<li class="chapter" data-level="" data-path="second-section.html"><a href="second-section.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="7" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>7</b> Vettori</a><ul>
+<li class="chapter" data-level="7.1" data-path="vector.html"><a href="vector.html#creazione"><i class="fa fa-check"></i><b>7.1</b> Creazione</a><ul>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#esercizi-2"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="vector.html"><a href="vector.html#vector-selection"><i class="fa fa-check"></i><b>7.2</b> Selezione Elementi</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="vector.html"><a href="vector.html#vector-selection-advanced"><i class="fa fa-check"></i><b>7.2.1</b> Utilizzi Avanzati Selezione</a></li>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#esercizi-3"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="vector.html"><a href="vector.html#vector-functions"><i class="fa fa-check"></i><b>7.3</b> Funzioni ed Operazioni</a><ul>
+<li class="chapter" data-level="" data-path="vector.html"><a href="vector.html#esercizi-4"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="vector.html"><a href="vector.html#data-type"><i class="fa fa-check"></i><b>7.4</b> Data Type</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="vector.html"><a href="vector.html#character"><i class="fa fa-check"></i><b>7.4.1</b> Character</a></li>
+<li class="chapter" data-level="7.4.2" data-path="vector.html"><a href="vector.html#numeric"><i class="fa fa-check"></i><b>7.4.2</b> Numeric</a></li>
+<li class="chapter" data-level="7.4.3" data-path="vector.html"><a href="vector.html#integer"><i class="fa fa-check"></i><b>7.4.3</b> Integer</a></li>
+<li class="chapter" data-level="7.4.4" data-path="vector.html"><a href="vector.html#logical-vector"><i class="fa fa-check"></i><b>7.4.4</b> Logical</a></li>
+<li class="chapter" data-level="7.4.5" data-path="vector.html"><a href="vector.html#valori-speciali"><i class="fa fa-check"></i><b>7.4.5</b> Valori speciali</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="factor.html"><a href="factor.html"><i class="fa fa-check"></i><b>8</b> Fattori</a><ul>
+<li class="chapter" data-level="8.1" data-path="factor.html"><a href="factor.html#attributes"><i class="fa fa-check"></i><b>8.1</b> Attributi di un Oggetto</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="factor.html"><a href="factor.html#attributi-di-un-vettore"><i class="fa fa-check"></i><b>8.1.1</b> Attributi di un Vettore</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="factor.html"><a href="factor.html#fattori"><i class="fa fa-check"></i><b>8.2</b> Fattori</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="factor.html"><a href="factor.html#funzionamento-fatori"><i class="fa fa-check"></i><b>8.2.1</b> Funzionamento Fatori</a></li>
+<li class="chapter" data-level="8.2.2" data-path="factor.html"><a href="factor.html#operazioni-fattori"><i class="fa fa-check"></i><b>8.2.2</b> Operazioni Fattori</a></li>
+<li class="chapter" data-level="8.2.3" data-path="factor.html"><a href="factor.html#fattori-ordinali"><i class="fa fa-check"></i><b>8.2.3</b> Fattori Ordinali</a></li>
+<li class="chapter" data-level="" data-path="factor.html"><a href="factor.html#esercizi-5"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>9</b> Matrici</a><ul>
+<li class="chapter" data-level="9.1" data-path="matrix.html"><a href="matrix.html#creazione-1"><i class="fa fa-check"></i><b>9.1</b> Creazione</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="matrix.html"><a href="matrix.html#matrix-types"><i class="fa fa-check"></i><b>9.1.1</b> Tipologie di Matrici</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#esercizi-6"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="matrix.html"><a href="matrix.html#sel-matrix"><i class="fa fa-check"></i><b>9.2</b> Selezione Elementi</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="matrix.html"><a href="matrix.html#matrix-selection-advanced"><i class="fa fa-check"></i><b>9.2.1</b> Utilizzi Avanzati Selezione</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#esercizi-7"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="matrix.html"><a href="matrix.html#funzioni-ed-operazioni"><i class="fa fa-check"></i><b>9.3</b> Funzioni ed Operazioni</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="matrix.html"><a href="matrix.html#mat-prop"><i class="fa fa-check"></i><b>9.3.1</b> Attributi di una Matrice</a></li>
+<li class="chapter" data-level="9.3.2" data-path="matrix.html"><a href="matrix.html#matrix-bind"><i class="fa fa-check"></i><b>9.3.2</b> Unire Matrici</a></li>
+<li class="chapter" data-level="9.3.3" data-path="matrix.html"><a href="matrix.html#operatori-matematici"><i class="fa fa-check"></i><b>9.3.3</b> Operatori Matematici</a></li>
+<li class="chapter" data-level="" data-path="matrix.html"><a href="matrix.html#esercizi-8"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="matrix.html"><a href="matrix.html#array"><i class="fa fa-check"></i><b>9.4</b> Array</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>10</b> Dataframe</a><ul>
+<li class="chapter" data-level="10.1" data-path="dataframe.html"><a href="dataframe.html#creazione-di-un-dataframe"><i class="fa fa-check"></i><b>10.1</b> Creazione di un dataframe</a><ul>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-9"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="dataframe.html"><a href="dataframe.html#sel-df"><i class="fa fa-check"></i><b>10.2</b> Selezione Elementi</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="dataframe.html"><a href="dataframe.html#utilizzi-avanzati-selezione"><i class="fa fa-check"></i><b>10.2.1</b> Utilizzi Avanzati Selezione</a></li>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-10"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="dataframe.html"><a href="dataframe.html#funzioni-ed-operazioni-1"><i class="fa fa-check"></i><b>10.3</b> Funzioni ed Operazioni</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="dataframe.html"><a href="dataframe.html#attributi-di-un-dataframe"><i class="fa fa-check"></i><b>10.3.1</b> Attributi di un Dataframe</a></li>
+<li class="chapter" data-level="10.3.2" data-path="dataframe.html"><a href="dataframe.html#unire-dataframe"><i class="fa fa-check"></i><b>10.3.2</b> Unire Dataframe</a></li>
+<li class="chapter" data-level="10.3.3" data-path="dataframe.html"><a href="dataframe.html#informazioni-dataframe"><i class="fa fa-check"></i><b>10.3.3</b> Informazioni Dataframe</a></li>
+<li class="chapter" data-level="" data-path="dataframe.html"><a href="dataframe.html#esercizi-11"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>11</b> Liste</a><ul>
+<li class="chapter" data-level="11.1" data-path="list.html"><a href="list.html#creazione-di-liste"><i class="fa fa-check"></i><b>11.1</b> Creazione di Liste</a><ul>
+<li class="chapter" data-level="" data-path="list.html"><a href="list.html#esercizi-12"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="list.html"><a href="list.html#selezione-elementi"><i class="fa fa-check"></i><b>11.2</b> Selezione Elementi</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="list.html"><a href="list.html#utilizzi-avanzati-selezione-1"><i class="fa fa-check"></i><b>11.2.1</b> Utilizzi Avanzati Selezione</a></li>
+<li class="chapter" data-level="" data-path="list.html"><a href="list.html#esercizi-13"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="list.html"><a href="list.html#funzioni-ed-operazioni-2"><i class="fa fa-check"></i><b>11.3</b> Funzioni ed Operazioni</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="list.html"><a href="list.html#attributi-di-una-lista"><i class="fa fa-check"></i><b>11.3.1</b> Attributi di una Lista</a></li>
+<li class="chapter" data-level="11.3.2" data-path="list.html"><a href="list.html#unire-liste"><i class="fa fa-check"></i><b>11.3.2</b> Unire Liste</a></li>
+<li class="chapter" data-level="11.3.3" data-path="list.html"><a href="list.html#informazioni-lista"><i class="fa fa-check"></i><b>11.3.3</b> Informazioni Lista</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="list.html"><a href="list.html#struttura-nested"><i class="fa fa-check"></i><b>11.4</b> Struttura Nested</a></li>
+</ul></li>
+<li class="part"><span><b>Algoritmi</b></span></li>
+<li class="chapter" data-level="" data-path="third-section.html"><a href="third-section.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="12" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>12</b> Definizione di Funzioni</a><ul>
+<li class="chapter" data-level="12.1" data-path="functions.html"><a href="functions.html#creazione-di-una-funzione"><i class="fa fa-check"></i><b>12.1</b> Creazione di una Funzione</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="functions.html"><a href="functions.html#definire-input-e-output"><i class="fa fa-check"></i><b>12.1.1</b> Definire Input e Output</a></li>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#esercizi-14"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="functions.html"><a href="functions.html#lavorare-con-le-funzioni"><i class="fa fa-check"></i><b>12.2</b> Lavorare con le Funzioni</a></li>
+<li class="chapter" data-level="12.3" data-path="functions.html"><a href="functions.html#ambiente-della-funzione"><i class="fa fa-check"></i><b>12.3</b> Ambiente della funzione</a></li>
+<li class="chapter" data-level="12.4" data-path="functions.html"><a href="functions.html#best-practice"><i class="fa fa-check"></i><b>12.4</b> Best practice</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="functions.html"><a href="functions.html#quando-serve-una-funzione"><i class="fa fa-check"></i><b>12.4.1</b> Quando serve una funzione?</a></li>
+<li class="chapter" data-level="12.4.2" data-path="functions.html"><a href="functions.html#scegliere-il-nome"><i class="fa fa-check"></i><b>12.4.2</b> Scegliere il nome</a></li>
+<li class="chapter" data-level="12.4.3" data-path="functions.html"><a href="functions.html#semplificare-la-quantita-di-operazioni-e-output"><i class="fa fa-check"></i><b>12.4.3</b> Semplificare la quantita di operazioni e output</a></li>
+<li class="chapter" data-level="12.4.4" data-path="functions.html"><a href="functions.html#commentare-e-documentare"><i class="fa fa-check"></i><b>12.4.4</b> Commentare e documentare</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="functions.html"><a href="functions.html#importare-una-funzione"><i class="fa fa-check"></i><b>12.5</b> Importare una funzione</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>13</b> Programmazione Condizionale</a><ul>
+<li class="chapter" data-level="13.1" data-path="conditionals.html"><a href="conditionals.html#strutture-condizionali"><i class="fa fa-check"></i><b>13.1</b> Strutture condizionali</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="conditionals.html"><a href="conditionals.html#if"><i class="fa fa-check"></i><b>13.1.1</b> if</a></li>
+<li class="chapter" data-level="13.1.2" data-path="conditionals.html"><a href="conditionals.html#ifelse"><i class="fa fa-check"></i><b>13.1.2</b> if…else</a></li>
+<li class="chapter" data-level="13.1.3" data-path="conditionals.html"><a href="conditionals.html#nested"><i class="fa fa-check"></i><b>13.1.3</b> Nested</a></li>
+<li class="chapter" data-level="" data-path="conditionals.html"><a href="conditionals.html#esercizi-15"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="conditionals.html"><a href="conditionals.html#altri-operatori-condizionali"><i class="fa fa-check"></i><b>13.2</b> Altri Operatori Condizionali</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="conditionals.html"><a href="conditionals.html#switch"><i class="fa fa-check"></i><b>13.2.1</b> switch</a></li>
+<li class="chapter" data-level="13.2.2" data-path="conditionals.html"><a href="conditionals.html#ifelse-1"><i class="fa fa-check"></i><b>13.2.2</b> ifelse</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="loop.html"><a href="loop.html"><i class="fa fa-check"></i><b>14</b> Programmazione Iterativa</a><ul>
+<li class="chapter" data-level="14.1" data-path="loop.html"><a href="loop.html#loop-1"><i class="fa fa-check"></i><b>14.1</b> Loop</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="loop.html"><a href="loop.html#for"><i class="fa fa-check"></i><b>14.1.1</b> For</a></li>
+<li class="chapter" data-level="14.1.2" data-path="loop.html"><a href="loop.html#while"><i class="fa fa-check"></i><b>14.1.2</b> While</a></li>
+<li class="chapter" data-level="14.1.3" data-path="loop.html"><a href="loop.html#next-e-brake"><i class="fa fa-check"></i><b>14.1.3</b> Next e Brake</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="loop.html"><a href="loop.html#nested-loop"><i class="fa fa-check"></i><b>14.2</b> Nested loop</a><ul>
+<li class="chapter" data-level="" data-path="loop.html"><a href="loop.html#esercizi-16"><i class="fa fa-check"></i>Esercizi</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="loop.html"><a href="loop.html#apply-family"><i class="fa fa-check"></i><b>14.3</b> Apply Family</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="loop.html"><a href="loop.html#quali-funzioni-applicare"><i class="fa fa-check"></i><b>14.3.1</b> Quali funzioni applicare?</a></li>
+<li class="chapter" data-level="14.3.2" data-path="loop.html"><a href="loop.html#apply"><i class="fa fa-check"></i><b>14.3.2</b> apply</a></li>
+<li class="chapter" data-level="14.3.3" data-path="loop.html"><a href="loop.html#tapply"><i class="fa fa-check"></i><b>14.3.3</b> tapply</a></li>
+<li class="chapter" data-level="14.3.4" data-path="loop.html"><a href="loop.html#lapply"><i class="fa fa-check"></i><b>14.3.4</b> lapply</a></li>
+<li class="chapter" data-level="14.3.5" data-path="loop.html"><a href="loop.html#sapply"><i class="fa fa-check"></i><b>14.3.5</b> sapply</a></li>
+<li class="chapter" data-level="14.3.6" data-path="loop.html"><a href="loop.html#vapply"><i class="fa fa-check"></i><b>14.3.6</b> vapply</a></li>
+<li class="chapter" data-level="14.3.7" data-path="loop.html"><a href="loop.html#lista-di-funzioni-a-lista-di-oggetti"><i class="fa fa-check"></i><b>14.3.7</b> Lista di funzioni a lista di oggetti</a></li>
+<li class="chapter" data-level="14.3.8" data-path="loop.html"><a href="loop.html#mapply"><i class="fa fa-check"></i><b>14.3.8</b> mapply</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="loop.html"><a href="loop.html#replicate"><i class="fa fa-check"></i><b>14.4</b> Replicate</a></li>
+</ul></li>
+<li class="part"><span><b>Case study</b></span></li>
+<li class="chapter" data-level="" data-path="introduzione-1.html"><a href="introduzione-1.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="15" data-path="attachment.html"><a href="attachment.html"><i class="fa fa-check"></i><b>15</b> Caso Studio I: Attaccamento</a><ul>
+<li class="chapter" data-level="15.1" data-path="attachment.html"><a href="attachment.html#infobox"><i class="fa fa-check"></i><b>15.1</b> Infobox</a></li>
+</ul></li>
+<li class="part"><span><b>Argomenti avanzati</b></span></li>
+<li class="chapter" data-level="" data-path="fourth-section.html"><a href="fourth-section.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="16" data-path="stringhe.html"><a href="stringhe.html"><i class="fa fa-check"></i><b>16</b> Stringhe</a><ul>
+<li class="chapter" data-level="16.1" data-path="stringhe.html"><a href="stringhe.html#confrontare-stringhe"><i class="fa fa-check"></i><b>16.1</b> Confrontare stringhe</a></li>
+<li class="chapter" data-level="16.2" data-path="stringhe.html"><a href="stringhe.html#comporre-stringhe"><i class="fa fa-check"></i><b>16.2</b> Comporre stringhe</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="stringhe.html"><a href="stringhe.html#tolower-e-toupper"><i class="fa fa-check"></i><b>16.2.1</b> <code>tolower()</code> e <code>toupper()</code></a></li>
+<li class="chapter" data-level="16.2.2" data-path="stringhe.html"><a href="stringhe.html#paste-e-paste0"><i class="fa fa-check"></i><b>16.2.2</b> <code>paste()</code> e <code>paste0()</code></a></li>
+<li class="chapter" data-level="16.2.3" data-path="stringhe.html"><a href="stringhe.html#sprinf"><i class="fa fa-check"></i><b>16.2.3</b> <code>sprinf()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="stringhe.html"><a href="stringhe.html#indicizzare-stringhe"><i class="fa fa-check"></i><b>16.3</b> Indicizzare stringhe</a><ul>
+<li class="chapter" data-level="16.3.1" data-path="stringhe.html"><a href="stringhe.html#nchar"><i class="fa fa-check"></i><b>16.3.1</b> <code>nchar()</code></a></li>
+<li class="chapter" data-level="16.3.2" data-path="stringhe.html"><a href="stringhe.html#gregexpr-e-regexpr"><i class="fa fa-check"></i><b>16.3.2</b> <code>gregexpr()</code> e <code>regexpr()</code></a></li>
+<li class="chapter" data-level="16.3.3" data-path="stringhe.html"><a href="stringhe.html#substr-e-substring"><i class="fa fa-check"></i><b>16.3.3</b> <code>substr()</code> e <code>substring()</code></a></li>
+<li class="chapter" data-level="16.3.4" data-path="stringhe.html"><a href="stringhe.html#startwith-e-endswith"><i class="fa fa-check"></i><b>16.3.4</b> <code>startWith()</code> e <code>endsWith()</code></a></li>
+<li class="chapter" data-level="16.3.5" data-path="stringhe.html"><a href="stringhe.html#grep-e-grepl"><i class="fa fa-check"></i><b>16.3.5</b> <code>grep()</code> e <code>grepl()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="stringhe.html"><a href="stringhe.html#manipolare-stringhe"><i class="fa fa-check"></i><b>16.4</b> Manipolare stringhe</a><ul>
+<li class="chapter" data-level="16.4.1" data-path="stringhe.html"><a href="stringhe.html#gsub-e-sub"><i class="fa fa-check"></i><b>16.4.1</b> <code>gsub()</code> e <code>sub()</code></a></li>
+<li class="chapter" data-level="16.4.2" data-path="stringhe.html"><a href="stringhe.html#strsplit"><i class="fa fa-check"></i><b>16.4.2</b> <code>strsplit()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="stringhe.html"><a href="stringhe.html#regular-expression-regex"><i class="fa fa-check"></i><b>16.5</b> Regular Expression (REGEX)</a></li>
+<li class="chapter" data-level="16.6" data-path="stringhe.html"><a href="stringhe.html#per-approfondire"><i class="fa fa-check"></i><b>16.6</b> Per approfondire</a><ul>
+<li class="chapter" data-level="16.6.1" data-path="stringhe.html"><a href="stringhe.html#risorse-utili-1"><i class="fa fa-check"></i><b>16.6.1</b> Risorse utili</a></li>
+<li class="chapter" data-level="16.6.2" data-path="stringhe.html"><a href="stringhe.html#altre-funzioni-utili"><i class="fa fa-check"></i><b>16.6.2</b> Altre funzioni utili</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><span style="font-size: 2.5em">Introduction to R</span></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <script src="assets/hideOutput.js"></script>
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src="images/banner.png">
+</div>
+<div id="stringhe" class="section level1">
+<h1><span class="header-section-number">Capitolo 16</span> Stringhe</h1>
+<!--
+FONTI:
+- https://statisticsglobe.com/r-substr-substring
+- The art of R Programming
+- R4DS
+- https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html
+-->
+<p>Abbiamo visto che R oltre ai numeri è in grado di gestire anche i <strong>caratteri</strong>. Nonostante le operazioni matematiche non siano rilevanti per questo tipo di dato, lavorare con le stringhe è altrettanto se non più complesso in termini di programmazione, le stringe infatti rispetto ai numeri:</p>
+<ul>
+<li>possono essere maiuscole/minuscole. Ad esempio la stringa <code>ciao</code> è <em>concettualmente</em> uguale a <code>Ciao</code> ma R le tratta in modo diverso.</li>
+</ul>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="stringhe.html#cb337-1"></a><span class="st">&quot;ciao&quot;</span> <span class="op">==</span><span class="st"> &quot;Ciao&quot;</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<ul>
+<li>possono avere caratteri speciali come <code>?\$</code> oppure appartenere ad alfabeti diversi <code>ة α</code></li>
+<li>l’indicizzazione per <code>numeri</code> e <code>stringhe</code> lavora in modo diverso. Se abbiamo un <strong>vettore</strong> di strighe, questo viene rappresentato allo stesso modo di un vettore numerico. Tuttavia la stringa stessa <code>ciao</code> può essere scomposta, manipolata e quindi indicizzata nei singoli caratteri che la compongono <code>c, i, a, o</code>:</li>
+</ul>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="stringhe.html#cb339-1"></a>vec_string &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ciao&quot;</span>, <span class="st">&quot;come&quot;</span>, <span class="st">&quot;stai&quot;</span>)</span>
+<span id="cb339-2"><a href="stringhe.html#cb339-2"></a>vec_num &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb339-3"><a href="stringhe.html#cb339-3"></a></span>
+<span id="cb339-4"><a href="stringhe.html#cb339-4"></a><span class="kw">length</span>(vec_string)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="stringhe.html#cb341-1"></a><span class="kw">length</span>(vec_num)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="stringhe.html#cb343-1"></a>vec_string[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;ciao&quot;</code></pre>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="stringhe.html#cb345-1"></a>vec_num[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="stringhe.html#cb347-1"></a><span class="co"># Usiamo la funzione nchar()</span></span>
+<span id="cb347-2"><a href="stringhe.html#cb347-2"></a><span class="kw">setNames</span>(<span class="kw">nchar</span>(vec_string), vec_string)</span></code></pre></div>
+<pre><code>## ciao come stai 
+##    4    4    4</code></pre>
+<p>Per creare una stringa in R dobbiamo usare le singole o doppie virgolette <code>"stringa"</code> o <code>'stringa'</code>. Queste due scritture in R sono interpretate in modo analogo. Possiamo usarle entrambe per scrivere una stringa che contenga le virgolette:</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="stringhe.html#cb349-1"></a>x &lt;-<span class="st"> &quot;stringa con all&#39;interno un&#39;altra &#39;stringa&#39;&quot;</span></span>
+<span id="cb349-2"><a href="stringhe.html#cb349-2"></a>x</span>
+<span id="cb349-3"><a href="stringhe.html#cb349-3"></a></span>
+<span id="cb349-4"><a href="stringhe.html#cb349-4"></a>x &lt;-<span class="st"> &quot;stringa con all&#39;interno un&#39;altra &quot;</span>stringa<span class="st">&quot;&quot;</span></span>
+<span id="cb349-5"><a href="stringhe.html#cb349-5"></a><span class="co"># in questo caso abbaimo errore perchè non interpreta la doppia virgolettatura</span></span></code></pre></div>
+<pre><code>## Error: &lt;text&gt;:4:41: unexpected symbol
+## 3: 
+## 4: x &lt;- &quot;stringa con all&#39;interno un&#39;altra &quot;stringa
+##                                            ^</code></pre>
+<p>All’interno delle stringhe possiamo utilizzare caratteri speciali come <code>/|\$%&amp;</code>. Alcuni di questi vengono intepretati da R in modo particolare. Quando accade è necessario aggiungere il carattere <code>\</code> che funge da <em>escape</em>, ovvero dice ad R di trattare letterlamente quel carattere:</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="stringhe.html#cb351-1"></a>x &lt;-<span class="st"> &quot;ciao come stai? n io tutto bene&quot;</span></span>
+<span id="cb351-2"><a href="stringhe.html#cb351-2"></a><span class="kw">cat</span>(x)</span></code></pre></div>
+<pre><code>## ciao come stai? n io tutto bene</code></pre>
+<p>Per questo in R ci sono una serie di funzioni e pacchetti che permettono di lavorare con le stringhe in modo molto efficiente. Vedremo qui una breve panoramica di queste funzioni con qualche suggerimento anche su come approfondire.</p>
+<div id="confrontare-stringhe" class="section level2">
+<h2><span class="header-section-number">16.1</span> Confrontare stringhe</h2>
+<p>Il primo aspetto è quello di confrontare stringhe. Il confronto logico tra <code>stringhe</code> è molto più stringente di quello numerico. Come abbiamo visto prima infatti, c’è molta più libertà rispetto alle stringhe, con il prezzo di avere più scenari da gestire.</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="stringhe.html#cb353-1"></a><span class="co"># Confronto due numeri rappresentati in modo diverso</span></span>
+<span id="cb353-2"><a href="stringhe.html#cb353-2"></a>intero &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="dv">10</span>)</span>
+<span id="cb353-3"><a href="stringhe.html#cb353-3"></a>double &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="dv">10</span>)</span>
+<span id="cb353-4"><a href="stringhe.html#cb353-4"></a>intero <span class="op">==</span><span class="st"> </span>double</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="stringhe.html#cb355-1"></a><span class="co"># Confronto stringhe</span></span>
+<span id="cb355-2"><a href="stringhe.html#cb355-2"></a></span>
+<span id="cb355-3"><a href="stringhe.html#cb355-3"></a><span class="st">&quot;ciao&quot;</span> <span class="op">==</span><span class="st"> &quot;Ciao&quot;</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="stringhe.html#cb357-1"></a><span class="st">&quot;female&quot;</span> <span class="op">==</span><span class="st"> &quot;feMale&quot;</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Anche il concetto di spazio <code></code> è rilevante perchè viene considerato come un carattere:</p>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="stringhe.html#cb359-1"></a><span class="st">&quot;ciao &quot;</span> <span class="op">==</span><span class="st"> &quot;ciao&quot;</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Immaginate di avere un vettore dove una colonna rappresenta il genere dei partecipanti. Se questo vettore è il risultato di persone che liberamente scrivono nel campo di testo, potreste trovarvi una situazione così (è per questo che nei form online spesso ci sono opzioni predefinite piuttosto che testo libero):</p>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="stringhe.html#cb361-1"></a>genere &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;maLe&quot;</span>, <span class="st">&quot;masChio&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;female&quot;</span>, <span class="st">&quot;malew&quot;</span>)</span></code></pre></div>
+<p>In questo vettore (volutamente esagerato) abbiamo chiaro il significato di <code>f</code> o di <code>malew</code> (probabilmente un errore di battitura) tuttavia se vogliamo lavorarci con R, diventa probelmatico:</p>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="stringhe.html#cb362-1"></a><span class="co"># Tabella di frequenza</span></span>
+<span id="cb362-2"><a href="stringhe.html#cb362-2"></a></span>
+<span id="cb362-3"><a href="stringhe.html#cb362-3"></a><span class="kw">table</span>(genere)</span></code></pre></div>
+<pre><code>## genere
+##       f  female    maLe    Male   malew masChio 
+##       1       1       1       1       1       1</code></pre>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="stringhe.html#cb364-1"></a><span class="co"># Non molto utile</span></span></code></pre></div>
+</div>
+<div id="comporre-stringhe" class="section level2">
+<h2><span class="header-section-number">16.2</span> Comporre stringhe</h2>
+<p>Vediamo quindi alcune funzioni utili per lavorare con le stringhe.</p>
+<div id="tolower-e-toupper" class="section level3">
+<h3><span class="header-section-number">16.2.1</span> <code>tolower()</code> e <code>toupper()</code></h3>
+<p>Queste funzioni sono estremamente utili perchè permettono di forzare il carattere maiscolo o minuscolo</p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="stringhe.html#cb365-1"></a><span class="kw">tolower</span>(genere)</span></code></pre></div>
+<pre><code>## [1] &quot;male&quot;    &quot;maschio&quot; &quot;male&quot;    &quot;f&quot;       &quot;female&quot;  &quot;malew&quot;</code></pre>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="stringhe.html#cb367-1"></a><span class="kw">toupper</span>(genere)</span></code></pre></div>
+<pre><code>## [1] &quot;MALE&quot;    &quot;MASCHIO&quot; &quot;MALE&quot;    &quot;F&quot;       &quot;FEMALE&quot;  &quot;MALEW&quot;</code></pre>
+</div>
+<div id="paste-e-paste0" class="section level3">
+<h3><span class="header-section-number">16.2.2</span> <code>paste()</code> e <code>paste0()</code></h3>
+<p>Queste funzioni servono a combinare diverse informazioni in una stringa. Possiamo combinare diverse stringhe ma anche numeri. Come tipico in R, <code>paste()</code> e <code>paste0()</code> sono vettorizzate e quindi possono essere utili per combinare due vettori di informazioni. La differenza è che <code>paste()</code> automaticamente aggiunge uno spazio tra le stringhe combinate mentre con <code>paste0()</code> deve essere messo esplicitamente.</p>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="stringhe.html#cb369-1"></a>age &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">35</span>, <span class="dv">15</span>, <span class="dv">18</span>)</span>
+<span id="cb369-2"><a href="stringhe.html#cb369-2"></a>nomi &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Andrea&quot;</span>, <span class="st">&quot;Francesco&quot;</span>, <span class="st">&quot;Fabio&quot;</span>, <span class="st">&quot;Anna&quot;</span>, <span class="st">&quot;Alice&quot;</span>)</span>
+<span id="cb369-3"><a href="stringhe.html#cb369-3"></a></span>
+<span id="cb369-4"><a href="stringhe.html#cb369-4"></a><span class="kw">paste</span>(nomi, <span class="st">&quot;ha&quot;</span>, age, <span class="st">&quot;anni&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Andrea ha 10 anni&quot;    &quot;Francesco ha 20 anni&quot; &quot;Fabio ha 35 anni&quot;    
+## [4] &quot;Anna ha 15 anni&quot;      &quot;Alice ha 18 anni&quot;</code></pre>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="stringhe.html#cb371-1"></a><span class="kw">paste0</span>(nomi, <span class="st">&quot;ha&quot;</span>, age, <span class="st">&quot;anni&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Andreaha10anni&quot;    &quot;Francescoha20anni&quot; &quot;Fabioha35anni&quot;    
+## [4] &quot;Annaha15anni&quot;      &quot;Aliceha18anni&quot;</code></pre>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="stringhe.html#cb373-1"></a><span class="kw">paste0</span>(nomi, <span class="st">&quot; ha &quot;</span>, age, <span class="st">&quot; anni&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Andrea ha 10 anni&quot;    &quot;Francesco ha 20 anni&quot; &quot;Fabio ha 35 anni&quot;    
+## [4] &quot;Anna ha 15 anni&quot;      &quot;Alice ha 18 anni&quot;</code></pre>
+<p>In questo caso nonostante <code>age</code> sia numerico, viene forzato a stringa per poter essere combinato con i nomi.</p>
+</div>
+<div id="sprinf" class="section level3">
+<h3><span class="header-section-number">16.2.3</span> <code>sprinf()</code></h3>
+<p><code>sprinf()</code> è simile a <code>paste*()</code> come funzionamento ma permette di comporre strighe usando dei <em>placeholder</em> e fornendo poi il contenuto.</p>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="stringhe.html#cb375-1"></a><span class="kw">sprintf</span>(<span class="st">&quot;%s ha %d anni&quot;</span>, nomi, age)</span></code></pre></div>
+<pre><code>## [1] &quot;Andrea ha 10 anni&quot;    &quot;Francesco ha 20 anni&quot; &quot;Fabio ha 35 anni&quot;    
+## [4] &quot;Anna ha 15 anni&quot;      &quot;Alice ha 18 anni&quot;</code></pre>
+<p>In questo caso si compone una stringa usando <code>%</code> e una lettera che rappresenta il tipo di dato da inserire. Poi in ordine vengono fornite le informazioni. In questo caso prima <code>%s</code>(stringa) quindi <code>nomi</code> e poi <code>%d</code>(digits) quindi <code>age</code>. Con <code>?sprintf</code> avete una panoramica del tipo di <em>placeholder</em> che potete utilizzare.</p>
+</div>
+</div>
+<div id="indicizzare-stringhe" class="section level2">
+<h2><span class="header-section-number">16.3</span> Indicizzare stringhe</h2>
+<div id="nchar" class="section level3">
+<h3><span class="header-section-number">16.3.1</span> <code>nchar()</code></h3>
+<p>Come abbiamo visto prima la stringa è formata da un insieme di caratteri. La funzione <code>nchar()</code> fornisce il numero di singoli caratteri che compongono una stringa.</p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="stringhe.html#cb377-1"></a><span class="kw">nchar</span>(<span class="st">&quot;ciao&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="stringhe.html#cb379-1"></a><span class="kw">nchar</span>(<span class="st">&quot;Wow lavorare con le stringhe è molto divertente&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 47</code></pre>
+</div>
+<div id="gregexpr-e-regexpr" class="section level3">
+<h3><span class="header-section-number">16.3.2</span> <code>gregexpr()</code> e <code>regexpr()</code></h3>
+<p>Per trovare la posizione di una o più caratteri all’interno di una stringa possiamo usare <code>gregexpr()</code>. La scrittura è <code>(g)gregexpr(pattern, stringa)</code>:</p>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="stringhe.html#cb381-1"></a><span class="kw">gregexpr</span>(<span class="st">&quot;t&quot;</span>, <span class="st">&quot;gatto&quot;</span>)</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 3 4
+## attr(,&quot;match.length&quot;)
+## [1] 1 1
+## attr(,&quot;index.type&quot;)
+## [1] &quot;chars&quot;
+## attr(,&quot;useBytes&quot;)
+## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="stringhe.html#cb383-1"></a><span class="kw">regexpr</span>(<span class="st">&quot;t&quot;</span>, <span class="st">&quot;gatto&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 3
+## attr(,&quot;match.length&quot;)
+## [1] 1
+## attr(,&quot;index.type&quot;)
+## [1] &quot;chars&quot;
+## attr(,&quot;useBytes&quot;)
+## [1] TRUE</code></pre>
+<p>La differenza è che <code>regexpr()</code> restituisce solo la prima corrispondenza, nel nostro esempio la prima <code>t</code> si trova in 3 posizione mentre <code>gregexpr()</code> resituisce tutte le corrispondenze.</p>
+</div>
+<div id="substr-e-substring" class="section level3">
+<h3><span class="header-section-number">16.3.3</span> <code>substr()</code> e <code>substring()</code></h3>
+<p>Il processo inverso, quindi trovare la stringa che corrisponde ad un certo indice è il lavoro di <code>substr(stringa, start, stop)</code> dove <code>start</code> e <code>stop</code> sono gli indici della porzione di stringa che vogliamo trovare. <code>substring()</code> funziona allo stesso modo ma <code>start</code> e <code>stop</code> vengono chiamati <code>first</code> e <code>last</code>.</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="stringhe.html#cb385-1"></a><span class="kw">substr</span>(<span class="st">&quot;gatto&quot;</span>, <span class="dv">1</span>, <span class="dv">1</span>) <span class="co"># solo la prima</span></span></code></pre></div>
+<pre><code>## [1] &quot;g&quot;</code></pre>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="stringhe.html#cb387-1"></a><span class="kw">substr</span>(<span class="st">&quot;gatto&quot;</span>, <span class="dv">2</span>, <span class="dv">4</span>) <span class="co"># dalla seconda alla quarta</span></span></code></pre></div>
+<pre><code>## [1] &quot;att&quot;</code></pre>
+<p>Per questo tipo di compiti forniscono esattamente lo stesso risultato, vediamo quindi le differenze:</p>
+<ul>
+<li><code>substring()</code> permette di fornire solo l’indice iniziale <code>first</code> e quello finale ha un valore di default di <code>1000000L</code></li>
+<li><code>substring()</code> permette anche di fornire un vettore di indici di inizio/fine per poter segmentare la stringa</li>
+</ul>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="stringhe.html#cb389-1"></a><span class="kw">substring</span>(<span class="st">&quot;gatto&quot;</span>, <span class="dv">1</span>) <span class="co"># funziona</span></span></code></pre></div>
+<pre><code>## [1] &quot;gatto&quot;</code></pre>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="stringhe.html#cb391-1"></a><span class="kw">substr</span>(<span class="st">&quot;gatto&quot;</span>, <span class="dv">1</span>) <span class="co"># errore</span></span></code></pre></div>
+<pre><code>## Error in substr(&quot;gatto&quot;, 1): argument &quot;stop&quot; is missing, with no default</code></pre>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="stringhe.html#cb393-1"></a><span class="kw">substring</span>(<span class="st">&quot;gatto&quot;</span>, <span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) <span class="co"># indice multiplo di fine</span></span></code></pre></div>
+<pre><code>## [1] &quot;g&quot;     &quot;ga&quot;    &quot;gat&quot;   &quot;gatt&quot;  &quot;gatto&quot;</code></pre>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="stringhe.html#cb395-1"></a><span class="kw">substring</span>(<span class="st">&quot;gatto&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) <span class="co"># indice multiplo di inizio e fine</span></span></code></pre></div>
+<pre><code>## [1] &quot;g&quot; &quot;a&quot; &quot;t&quot; &quot;t&quot; &quot;o&quot;</code></pre>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="stringhe.html#cb397-1"></a><span class="kw">substr</span>(<span class="st">&quot;gatto&quot;</span>, <span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) <span class="co"># non funziona, viene usato solo 1 indice di fine</span></span></code></pre></div>
+<pre><code>## [1] &quot;g&quot;</code></pre>
+</div>
+<div id="startwith-e-endswith" class="section level3">
+<h3><span class="header-section-number">16.3.4</span> <code>startWith()</code> e <code>endsWith()</code></h3>
+<p>Alcune volte possiamo essere interessati all’inizio o alla fine di una stringa. Ad esempio <code>female</code> e <code>male</code> hanno una chiara differenza iniziale (<code>fe</code> e <code>ma</code>). E nonostante errori di battitura seguenti o altre differenze, selezionare solo l’inizio o la fine può essere efficiente. <code>startWith()</code> e <code>endsWith()</code> permettono rispettivamente di fornire <code>TRUE</code> o <code>FALSE</code> se una certa stringa o vettore di stringhe abbiamo un certo pattern iniziale o finale.</p>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="stringhe.html#cb399-1"></a><span class="kw">startsWith</span>(<span class="st">&quot;female&quot;</span>, <span class="dt">prefix =</span> <span class="st">&quot;fe&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="stringhe.html#cb401-1"></a><span class="kw">endsWith</span>(<span class="st">&quot;female&quot;</span>, <span class="dt">suffix =</span> <span class="st">&quot;ale&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Questa come le altre funzioni possono essere utilizzate in combinazione con <code>tolower()</code> o <code>toupper()</code> per ingnorare differenze non rilevanti.</p>
+</div>
+<div id="grep-e-grepl" class="section level3">
+<h3><span class="header-section-number">16.3.5</span> <code>grep()</code> e <code>grepl()</code></h3>
+<p>Queste funzioni lavorano invece su <strong>vettori</strong> di stringhe trovando la posizione o la sola presenza di specifici <em>pattern</em>. <code>grep()</code> fornisce la posizione/i nel vettore dove è presente un match, mentre <code>grepl()</code> fornisce <code>TRUE</code> o <code>FALSE</code> in funzione della presenza del <em>pattern</em>. La scrittura è la stessa <code>grep*(pattern, vettore)</code></p>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="stringhe.html#cb403-1"></a>genere</span></code></pre></div>
+<pre><code>## [1] &quot;maLe&quot;    &quot;masChio&quot; &quot;Male&quot;    &quot;f&quot;       &quot;female&quot;  &quot;malew&quot;</code></pre>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="stringhe.html#cb405-1"></a><span class="kw">grep</span>(<span class="st">&quot;female&quot;</span>, genere) <span class="co"># indice di posizione</span></span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="stringhe.html#cb407-1"></a><span class="kw">grepl</span>(<span class="st">&quot;female&quot;</span>, genere) <span class="co"># true o false</span></span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE FALSE  TRUE FALSE</code></pre>
+<p>Come abbiamo visto nell’indicizzazione logica dei vettori, possiamo usare sia <code>grep()</code> che <code>grepl()</code> per selezionare solo alcuni elementi:</p>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="stringhe.html#cb409-1"></a>index_grep &lt;-<span class="st"> </span><span class="kw">grep</span>(<span class="st">&quot;female&quot;</span>, genere) <span class="co"># indice di posizione</span></span>
+<span id="cb409-2"><a href="stringhe.html#cb409-2"></a>index_grepl &lt;-<span class="st"> </span><span class="kw">grepl</span>(<span class="st">&quot;female&quot;</span>, genere) <span class="co"># indice di posizione</span></span>
+<span id="cb409-3"><a href="stringhe.html#cb409-3"></a></span>
+<span id="cb409-4"><a href="stringhe.html#cb409-4"></a>genere[index_grep]</span></code></pre></div>
+<pre><code>## [1] &quot;female&quot;</code></pre>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="stringhe.html#cb411-1"></a>genere[index_grepl]</span></code></pre></div>
+<pre><code>## [1] &quot;female&quot;</code></pre>
+<p>Da notare ancora come tutte queste funzioni lavorino su una <strong>corrispondenza molto stringente</strong> (in termini di maiscolo, minuscolo, etc.) tra pattern e target.</p>
+</div>
+</div>
+<div id="manipolare-stringhe" class="section level2">
+<h2><span class="header-section-number">16.4</span> Manipolare stringhe</h2>
+<p>Molte delle funzioni che abbiamo visto permettono anche di sostituire un certo pattern all’interno di una stringa o di un vettore di stringhe.</p>
+<p>Utilizzando infatti <code>substr()</code> o <code>substring()</code> con la funzione di assegnazione <code>&lt;-</code> possiamo sostituire un certo carattere. Importante, la sostituzione deve avere lo stesso numero di caratteri della selezione <code>start:stop</code> oppure verrà usato solo il numero di caratteri corrispondente:</p>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="stringhe.html#cb413-1"></a>x &lt;-<span class="st"> &quot;gatto&quot;</span></span>
+<span id="cb413-2"><a href="stringhe.html#cb413-2"></a><span class="kw">substr</span>(x, <span class="dv">1</span>, <span class="dv">1</span>) &lt;-<span class="st"> &quot;y&quot;</span></span>
+<span id="cb413-3"><a href="stringhe.html#cb413-3"></a>x</span></code></pre></div>
+<pre><code>## [1] &quot;yatto&quot;</code></pre>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="stringhe.html#cb415-1"></a>x &lt;-<span class="st"> &quot;gatto&quot;</span></span>
+<span id="cb415-2"><a href="stringhe.html#cb415-2"></a><span class="kw">substr</span>(x, <span class="dv">1</span>, <span class="dv">1</span>) &lt;-<span class="st"> &quot;aeiou&quot;</span></span>
+<span id="cb415-3"><a href="stringhe.html#cb415-3"></a>x <span class="co"># viene usata solo la a</span></span></code></pre></div>
+<pre><code>## [1] &quot;aatto&quot;</code></pre>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="stringhe.html#cb417-1"></a><span class="co"># substring funziona esattamente allo stesso modo</span></span>
+<span id="cb417-2"><a href="stringhe.html#cb417-2"></a>x &lt;-<span class="st"> &quot;gatto&quot;</span></span>
+<span id="cb417-3"><a href="stringhe.html#cb417-3"></a><span class="kw">substring</span>(x, <span class="dv">1</span>, <span class="dv">1</span>) &lt;-<span class="st"> &quot;z&quot;</span></span>
+<span id="cb417-4"><a href="stringhe.html#cb417-4"></a>x</span></code></pre></div>
+<pre><code>## [1] &quot;zatto&quot;</code></pre>
+<p>Possono essere utilizzate anche in modo vettorizzato funzionando quindi su una serie di elementi:</p>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="stringhe.html#cb419-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;cane&quot;</span>, <span class="st">&quot;gatto&quot;</span>, <span class="st">&quot;topo&quot;</span>)</span>
+<span id="cb419-2"><a href="stringhe.html#cb419-2"></a><span class="kw">substring</span>(x, <span class="dv">1</span>, <span class="dv">1</span>) &lt;-<span class="st"> &quot;z&quot;</span></span>
+<span id="cb419-3"><a href="stringhe.html#cb419-3"></a>x</span></code></pre></div>
+<pre><code>## [1] &quot;zane&quot;  &quot;zatto&quot; &quot;zopo&quot;</code></pre>
+<div id="gsub-e-sub" class="section level3">
+<h3><span class="header-section-number">16.4.1</span> <code>gsub()</code> e <code>sub()</code></h3>
+<p>Rispetto a <code>substring()</code>, <code>gsub()</code> e <code>sub()</code> permettono di sostituire un certo pattern e non usando indici di posizione. La scrittura è <code>*sub(pattern, replacement, target)</code>:</p>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="stringhe.html#cb421-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;cane&quot;</span>, <span class="st">&quot;gatto&quot;</span>, <span class="st">&quot;topo&quot;</span>)</span>
+<span id="cb421-2"><a href="stringhe.html#cb421-2"></a><span class="kw">sub</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;z&quot;</span>, x)</span></code></pre></div>
+<pre><code>## [1] &quot;czne&quot;  &quot;gztto&quot; &quot;topo&quot;</code></pre>
+<p>Come vedete per ogni elemento di <code>x</code> la funzione ha trovato il pattern <code>"a"</code> e lo ha sostituito con <code>"z"</code>.</p>
+<p>La principale limitazione di <code>sub()</code> è quella di sostituire solo la prima corrispondenza trovata in ogni stringa.</p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="stringhe.html#cb423-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;cane&quot;</span>, <span class="st">&quot;gatto&quot;</span>, <span class="st">&quot;topo&quot;</span>)</span>
+<span id="cb423-2"><a href="stringhe.html#cb423-2"></a><span class="kw">sub</span>(<span class="st">&quot;o&quot;</span>, <span class="st">&quot;z&quot;</span>, x)</span></code></pre></div>
+<pre><code>## [1] &quot;cane&quot;  &quot;gattz&quot; &quot;tzpo&quot;</code></pre>
+<p>Come vedete infatti, solo la prima “o” nella parola “topo” è stata sostituita. <code>gsub()</code> permette invece di sostituire tutti i caratteri che corrispondono al pattern richiesto:</p>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="stringhe.html#cb425-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;cane&quot;</span>, <span class="st">&quot;gatto&quot;</span>, <span class="st">&quot;topo&quot;</span>)</span>
+<span id="cb425-2"><a href="stringhe.html#cb425-2"></a><span class="kw">gsub</span>(<span class="st">&quot;o&quot;</span>, <span class="st">&quot;z&quot;</span>, x)</span></code></pre></div>
+<pre><code>## [1] &quot;cane&quot;  &quot;gattz&quot; &quot;tzpz&quot;</code></pre>
+</div>
+<div id="strsplit" class="section level3">
+<h3><span class="header-section-number">16.4.2</span> <code>strsplit()</code></h3>
+<p>Abbiamo già visto che con <code>substring()</code> ad esempio possiamo dividere una stringa in più parti. Secondo la documentazione di R la funzione <code>strsplit()</code> è più adatta ed efficiente per questo tipo di compito. La scrittura è <code>strsplit(target, split)</code> dove <code>split</code> è il carattere in base a cui dividere:</p>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="stringhe.html#cb427-1"></a>frase &lt;-<span class="st"> &quot;Quanto è bello usare le stringhe in R&quot;</span></span>
+<span id="cb427-2"><a href="stringhe.html#cb427-2"></a><span class="kw">strsplit</span>(frase, <span class="st">&quot; &quot;</span>) <span class="co"># stiamo dividendo in base agli spazi</span></span></code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;Quanto&quot;   &quot;è&quot;        &quot;bello&quot;    &quot;usare&quot;    &quot;le&quot;       &quot;stringhe&quot; &quot;in&quot;      
+## [8] &quot;R&quot;</code></pre>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="stringhe.html#cb429-1"></a>parola &lt;-<span class="st"> &quot;parola1_parola2&quot;</span></span>
+<span id="cb429-2"><a href="stringhe.html#cb429-2"></a><span class="kw">strsplit</span>(parola, <span class="st">&quot;_&quot;</span>) <span class="co"># stiamo dividendo in base all&#39;underscore</span></span></code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;parola1&quot; &quot;parola2&quot;</code></pre>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="stringhe.html#cb431-1"></a>parola &lt;-<span class="st"> &quot;ciao&quot;</span></span>
+<span id="cb431-2"><a href="stringhe.html#cb431-2"></a><span class="kw">strsplit</span>(parola, <span class="st">&quot;&quot;</span>) <span class="co"># dividiamo per ogni carattere</span></span></code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;c&quot; &quot;i&quot; &quot;a&quot; &quot;o&quot;</code></pre>
+<p>Quello che otteniamo è un vettore (all’interno di una lista, possiamo usare <code>unlist()</code>) che contiene il risultato dello splitting.</p>
+</div>
+</div>
+<div id="regular-expression-regex" class="section level2">
+<h2><span class="header-section-number">16.5</span> Regular Expression (REGEX)</h2>
+<p>E’ tutto così semplice con le stringhe? Assolutamente no! Fino ad ora abbiamo utilizzato dei semplici pattern come singoli caratteri o insieme di caratteri tuttavia possiamo avere problemi più complessi da affrontare come:</p>
+<ul>
+<li>trovare l’estensione di un insieme di file</li>
+<li>trovare il dominio di un sito web</li>
+</ul>
+<p>Facciamo un esempio:</p>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="stringhe.html#cb433-1"></a>files &lt;-<span class="st"> </span><span class="kw">c</span>(</span>
+<span id="cb433-2"><a href="stringhe.html#cb433-2"></a>  <span class="st">&quot;file1.txt&quot;</span>,</span>
+<span id="cb433-3"><a href="stringhe.html#cb433-3"></a>  <span class="st">&quot;file2.docx&quot;</span>,</span>
+<span id="cb433-4"><a href="stringhe.html#cb433-4"></a>  <span class="st">&quot;file3.doc&quot;</span>,</span>
+<span id="cb433-5"><a href="stringhe.html#cb433-5"></a>  <span class="st">&quot;file4.sh&quot;</span></span>
+<span id="cb433-6"><a href="stringhe.html#cb433-6"></a>)</span></code></pre></div>
+<p>In questo caso se noi vogliamo ad esempio estrarre tutte le estensioni <code>nomefile.estensione</code> gli strumenti che abbiamo visto finora non sono sufficienti:</p>
+<ul>
+<li>possiamo estrarre i caratteri dalla fine <code>substr()</code> contando con <code>nchar()</code> però le estensioni non hanno un numero fisso di caratteri</li>
+<li>possiamo cercare tutti i pattern con <code>grepl()</code> ma ci sono migliaia di estensioni diverse</li>
+</ul>
+<p>Finora abbiamo visto 2 livelli di astrazione:</p>
+<ol style="list-style-type: decimal">
+<li>Corrispondenza letterale: <code>stringa1 == stringa2</code></li>
+<li>Indicizzazione: la posizione all’interno di una stringa</li>
+</ol>
+<p>Il terzo livello di astrazione è quello di trovare dei pattern comuni nelle stringhe ed estrarli, indipendentemente dai singoli caratteri, dal numero o dalla posizione.</p>
+<p>Le Regular Expressions (REGEX) sono un insieme di caratteri (chiamati <strong>metacaratteri</strong>) che vengono intepretati e permettono di trovare dei pattern nelle stringhe senza indicare un pattern specifico o un indice di posizione. L’argomento è molto complesso e non R-specifico. Ci sono parecchie guide online e tutorial che segnaliamo alla fine del capitolo. La cosa importante da sapere è che la maggior parte delle funzioni che abbiamo visto permettono di usare una <code>regex</code> oltre ad un pattern specifico in modo da risolvere problemi più complessi.</p>
+<p>Per fare un esempio se vogliamo estrarre l’estensione da una lista di file il ragionamento è:</p>
+<ul>
+<li>dobbiamo trovare un <code>.</code> perchè (circa) tutti i file sono composti da <code>nomefile.estensione</code></li>
+<li>dobbiamo selezionare tutti i caratteri dal punto alla fine della stringa</li>
+</ul>
+<p>La “traduzione” in termini di REGEX è questa <code>"\\.([^.]+)$"</code> e quindi possiamo usare questo come <em>pattern</em> e quindi estrarre le informazioni che ci servono. Possiamo usare la funzione <code>regmatches(text, match)</code> che richiede la stringa da analizzare e un oggetto <code>match</code> che è il risultato della funzione <code>regexpr</code> che abbiamo già visto:</p>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="stringhe.html#cb434-1"></a>match_regex &lt;-<span class="st"> </span><span class="kw">regexpr</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.([^.]+)$&quot;</span>, files)</span>
+<span id="cb434-2"><a href="stringhe.html#cb434-2"></a><span class="kw">regmatches</span>(files, match_regex)</span></code></pre></div>
+<pre><code>## [1] &quot;.txt&quot;  &quot;.docx&quot; &quot;.doc&quot;  &quot;.sh&quot;</code></pre>
+</div>
+<div id="per-approfondire" class="section level2">
+<h2><span class="header-section-number">16.6</span> Per approfondire</h2>
+<p>In tutto questo libro abbiamo sempre cercato di affrontare R come linguaggio di programmazione concentrandosi sulle funzioni di base. Tuttavia in alcuni settori, come quello delle stringhe e delle REGEX ci sono dei pacchetti esterni altamente consigliati che non solo rendono più semplice ma anche più organizzato e consistente l’insieme di funzioni. Il pacchetto <a href="https://stringr.tidyverse.org/index.html"><code>stringr</code></a> è una fantastica risorsa per imparare ma anche lavorare in modo più efficiace con le stringhe. Contiene una serie di funzioni costruite al di sopra di quelle che abbiamo affrontato, semplificandole e uniformando il tutto.</p>
+<p>L’ultimo esempio descritto non è molto leggibile contenendo il risultato di un’altra funzione e chiamando l’oggetto <code>target</code> due volte, in <code>stringr</code> abbiamo la funzione <code>str_extract()</code> che estrae un certo pattern o REGEX:</p>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="stringhe.html#cb436-1"></a>stringr<span class="op">::</span><span class="kw">str_extract</span>(files, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">.([^.]+)$&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;.txt&quot;  &quot;.docx&quot; &quot;.doc&quot;  &quot;.sh&quot;</code></pre>
+<div id="risorse-utili-1" class="section level3">
+<h3><span class="header-section-number">16.6.1</span> Risorse utili</h3>
+<ul>
+<li><a href="https://stringr.tidyverse.org/index.html"><code>stringr</code></a></li>
+<li><a href="https://r4ds.had.co.nz/strings.html">Capitolo 14</a> di R for Data Science</li>
+<li><a href="http://regex.info/book.html">Mastering Regular Expressions</a></li>
+<li><a href="https://www.gastonsanchez.com/r4strings/">Handling Strings With R</a></li>
+</ul>
+</div>
+<div id="altre-funzioni-utili" class="section level3">
+<h3><span class="header-section-number">16.6.2</span> Altre funzioni utili</h3>
+<ul>
+<li><code>abbreviate()</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+<hr>
+<center>
+  <div class="footer">
+    Questo libro è rilasciato in accordo con <a href= "https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA</a>.
+    <br>
+    Le illustrazioni utilizzate appartengono a <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu-book</a> in accordo con <a href= "https://creativecommons.org/licenses/by-nc/2.0/">CC BY-NC</a>.
+    <br>
+    Per conoscere di più riguardo <span style="color: #8C3031; font-weight:bold"> Psicostat</span> e le nostre attività, visita <a href= "https://psicostat.dpss.psy.unipd.it/">https://psicostat.dpss.psy.unipd.it/</a>.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="fourth-section.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": true
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/psicostat/Introduction2R/edit/master/21-stringhe.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Introduction2R.pdf", "Introduction2R.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true,
+"toc_float": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
