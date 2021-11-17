@@ -471,13 +471,6 @@ standardize_vec(vec)
 
 In questo modo il codice è molto più leggibile e chiaro sia dentro le funzioni che quando le funzioni vengono utilizzate. Un'ulteriore alternativa sarebbe quella di raggruppare le funzione di "centramento" specificando se utilizzare media o mediana e separare quella di standardizzazione.
 
-
-
-
-
-
-
-
 ### Commentare e documentare
 
 La documentazione è forse la parte di più importante della scrittura del codice. Possiamo classificarla in documentazione *formale* e *informale* in base allo scopo. La documentazione *formale* è quella che troviamo facendo `help(funzione)` oppure `?funzione`. E' una documentazione standardizzata e necessaria quando si creano delle funzioni in un pacchetto che altri utenti devono utilizzare. La documentazione *informale* è quella che mettiamo nei nostri script e all'interno delle funzioni come `# commento`. Entrambe sono molto importati e permettono di descrivere lo scopo generale della funzione, i singoli argomenti e i passaggi eseguiti.
@@ -522,4 +515,4 @@ fun3 <- function(x){
 
 Scrivendo all'inizio del nostro script principale `source("functions/my_functions.R")`, tutte le funzioni saranno caricate nel ambiente di lavoro.
 
-- print vs cat (aspetto nel return)
+<!-- TODO print vs cat (aspetto nel return) -->
