@@ -91,6 +91,7 @@ Famigliarizza con la creazione di vettori ([soluzioni](https://github.com/psicos
 4. Crea il vettore `s` in cui le lettere `"A"`,`"B"` e `"C"` vengono ripetute nel medesimo ordine 4 volte (`?rep()`)
 5. Crea il vettore `t` in cui le letter `"A"`,`"B"` e `"C"` vengono ripetute ognuna 4 volte (`?rep()`)
 6. Genera il seguente output in modo pigro, ovvero scrivendo meno codice possibile ;)
+
 ```{r}
 rep(rep(c("foo", "bar"), each = 2),times = 2)
 ```
@@ -314,8 +315,24 @@ my_words <- my_words[-c(1,3)]
 my_words
 ```
 
-<!-- %  TODO funzione ?which() -->
+#### `which()`
 
+La funzione `which()` è molto utile per ottenere la **posizione** all'interno di un vettore associata ad una certa condizione logica. In altri termini se vogliamo sapere in quale posizione sono i valori `> 5` in un certo vettore numerico possiamo usare la funzione `which(x > 5)` dove `x` è chiaramente il nostro vettore numerico.
+
+```{r}
+x <- rnorm(10, 5, 3)
+x > 5
+which(x > 5)
+```
+
+Come vedete, la funzione `which()` essenzialmente restituisce la **posizione** (e non il valore) dove la condizione testata è `TRUE`. E' importante notare che queste due scritture sono equivalenti:
+
+```{r}
+x[x > 5]
+x[which(x > 5)]
+```
+
+Infatti, come abbiamo visto possiamo indicizzare un vettore sia con un'altro vettore che ci indica la posizione degli elementi da estrarre che un vettore **logico** di lunghezza uguale al vettore originale.
 
 ### Esercizi {-}
 
