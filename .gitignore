@@ -7,6 +7,7 @@ libs/
 # ignore all html files except:
 !**/mathjax_header.html
 !assets/*.html
+!Introduction2R.html
 
 # R and Rstudio specific files
 .Rproj.user
