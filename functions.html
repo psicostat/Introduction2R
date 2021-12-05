@@ -723,28 +723,28 @@ Nel definire il nome di una funzione è utile seguire le stese indicazioni che r
 <p>Abbiamo visto nei capitoli precedenti l’utilizzo dell’<code>apply</code> family e come si possa applicare una funzione ad una serie di oggetti. Pensiamo però ad un caso dove abbiamo uno script molto lungo e in diversi momenti eseguiamo una certa operazione:</p>
 <div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="functions.html#cb269-1"></a><span class="co"># Centriamo</span></span>
 <span id="cb269-2"><a href="functions.html#cb269-2"></a>vec1 <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(vec2)</span>
-<span id="cb269-3"><a href="functions.html#cb269-3"></a><span class="co">##  [1]  0.17855506 -0.23515285 -0.33246357 -0.11125364  0.05422813 -0.07368524</span></span>
-<span id="cb269-4"><a href="functions.html#cb269-4"></a><span class="co">##  [7]  0.04346748 -0.08162451  0.23095973  0.21206251</span></span>
+<span id="cb269-3"><a href="functions.html#cb269-3"></a><span class="co">##  [1] -0.39818042  0.27695640 -0.03296064  0.15371903 -0.22251501 -0.41080377</span></span>
+<span id="cb269-4"><a href="functions.html#cb269-4"></a><span class="co">##  [7]  0.06039473  0.01416213  0.30917387 -0.06033243</span></span>
 <span id="cb269-5"><a href="functions.html#cb269-5"></a>vec2 <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(vec2)</span>
-<span id="cb269-6"><a href="functions.html#cb269-6"></a><span class="co">##  [1]  0.09109738  0.04562505  0.03801105  0.05286699  0.11205444  0.12029171</span></span>
-<span id="cb269-7"><a href="functions.html#cb269-7"></a><span class="co">##  [7] -0.33617103 -0.42046621  0.25932730  0.03736333</span></span>
+<span id="cb269-6"><a href="functions.html#cb269-6"></a><span class="co">##  [1] -0.10435397 -0.33801336  0.30454106 -0.39789071  0.13724403 -0.17780792</span></span>
+<span id="cb269-7"><a href="functions.html#cb269-7"></a><span class="co">##  [7]  0.31254809 -0.15142678  0.35488568  0.06027388</span></span>
 <span id="cb269-8"><a href="functions.html#cb269-8"></a>vec3 <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(vec3)</span>
-<span id="cb269-9"><a href="functions.html#cb269-9"></a><span class="co">##  [1]  0.37025476  0.35477204  0.30731894 -0.46837085  0.18794492 -0.02719718</span></span>
-<span id="cb269-10"><a href="functions.html#cb269-10"></a><span class="co">##  [7] -0.57468747 -0.24079790  0.32218572 -0.23142299</span></span></code></pre></div>
+<span id="cb269-9"><a href="functions.html#cb269-9"></a><span class="co">##  [1]  0.50019646 -0.37119010 -0.29337712 -0.33234508 -0.10383515  0.17117886</span></span>
+<span id="cb269-10"><a href="functions.html#cb269-10"></a><span class="co">##  [7]  0.07335052  0.27581737  0.46930280 -0.38909856</span></span></code></pre></div>
 <p>L’operazione viene eseguita correttamente ed è anche di facile comprensione. Tuttavia stiamo eseguendo sempre la stessa cosa, semplicemente cambiando un input (proprio la definizione di funzione) quindi possiamo:</p>
 <div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="functions.html#cb270-1"></a>my_fun &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
 <span id="cb270-2"><a href="functions.html#cb270-2"></a>  <span class="kw">return</span>(x <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(x))</span>
 <span id="cb270-3"><a href="functions.html#cb270-3"></a>}</span>
 <span id="cb270-4"><a href="functions.html#cb270-4"></a></span>
 <span id="cb270-5"><a href="functions.html#cb270-5"></a><span class="kw">my_fun</span>(vec1)</span>
-<span id="cb270-6"><a href="functions.html#cb270-6"></a><span class="co">##  [1]  0.19004575 -0.22366216 -0.32097288 -0.09976295  0.06571882 -0.06219455</span></span>
-<span id="cb270-7"><a href="functions.html#cb270-7"></a><span class="co">##  [7]  0.05495817 -0.07013382  0.24245042  0.22355320</span></span>
+<span id="cb270-6"><a href="functions.html#cb270-6"></a><span class="co">##  [1] -0.367141807  0.307995008 -0.001922026  0.184757638 -0.191476398</span></span>
+<span id="cb270-7"><a href="functions.html#cb270-7"></a><span class="co">##  [6] -0.379765158  0.091433337  0.045200740  0.340212483 -0.029293818</span></span>
 <span id="cb270-8"><a href="functions.html#cb270-8"></a><span class="kw">my_fun</span>(vec2)</span>
-<span id="cb270-9"><a href="functions.html#cb270-9"></a><span class="co">##  [1]  0.09109738  0.04562505  0.03801105  0.05286699  0.11205444  0.12029171</span></span>
-<span id="cb270-10"><a href="functions.html#cb270-10"></a><span class="co">##  [7] -0.33617103 -0.42046621  0.25932730  0.03736333</span></span>
+<span id="cb270-9"><a href="functions.html#cb270-9"></a><span class="co">##  [1] -0.10435397 -0.33801336  0.30454106 -0.39789071  0.13724403 -0.17780792</span></span>
+<span id="cb270-10"><a href="functions.html#cb270-10"></a><span class="co">##  [7]  0.31254809 -0.15142678  0.35488568  0.06027388</span></span>
 <span id="cb270-11"><a href="functions.html#cb270-11"></a><span class="kw">my_fun</span>(vec3)</span>
-<span id="cb270-12"><a href="functions.html#cb270-12"></a><span class="co">##  [1]  0.37025476  0.35477204  0.30731894 -0.46837085  0.18794492 -0.02719718</span></span>
-<span id="cb270-13"><a href="functions.html#cb270-13"></a><span class="co">##  [7] -0.57468747 -0.24079790  0.32218572 -0.23142299</span></span></code></pre></div>
+<span id="cb270-12"><a href="functions.html#cb270-12"></a><span class="co">##  [1]  0.50019646 -0.37119010 -0.29337712 -0.33234508 -0.10383515  0.17117886</span></span>
+<span id="cb270-13"><a href="functions.html#cb270-13"></a><span class="co">##  [7]  0.07335052  0.27581737  0.46930280 -0.38909856</span></span></code></pre></div>
 <p>Il codice non è molto cambiato rispetto a prima in termini di numero di righe o complessità. Immaginate però di esservi resi conto di un errore o di voler cambiare o estendere le operazioni su<code>vec1, vec2 e vec3</code>. Nel primo caso dovreste andare linea per linea dello script e modificare il codice. Nel caso di una funzione, semplicemente cambiando le operazioni queste verranno applicate ogni volta che quella funzione è chiamata. Immaginiamo di voler anche <em>standardizzare</em> (sottrarre la media e dividere per la deviazione standard) i nostri vettori:</p>
 <div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="functions.html#cb271-1"></a>my_fun &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
 <span id="cb271-2"><a href="functions.html#cb271-2"></a>  res &lt;-<span class="st"> </span>(x <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(x)) <span class="op">/</span><span class="st"> </span><span class="kw">sd</span>(x)</span>
@@ -752,28 +752,28 @@ Nel definire il nome di una funzione è utile seguire le stese indicazioni che r
 <span id="cb271-4"><a href="functions.html#cb271-4"></a>}</span>
 <span id="cb271-5"><a href="functions.html#cb271-5"></a></span>
 <span id="cb271-6"><a href="functions.html#cb271-6"></a><span class="kw">my_fun</span>(vec1)</span>
-<span id="cb271-7"><a href="functions.html#cb271-7"></a><span class="co">##  [1]  1.0016246 -1.1787978 -1.6916680 -0.5257946  0.3463670 -0.3277926</span></span>
-<span id="cb271-8"><a href="functions.html#cb271-8"></a><span class="co">##  [7]  0.2896537 -0.3696360  1.2778202  1.1782236</span></span>
+<span id="cb271-7"><a href="functions.html#cb271-7"></a><span class="co">##  [1] -1.456723691  1.222044498 -0.007626101  0.733070501 -0.759728802</span></span>
+<span id="cb271-8"><a href="functions.html#cb271-8"></a><span class="co">##  [6] -1.506809881  0.362783823  0.179344839  1.349875102 -0.116230290</span></span>
 <span id="cb271-9"><a href="functions.html#cb271-9"></a><span class="kw">my_fun</span>(vec2)</span>
-<span id="cb271-10"><a href="functions.html#cb271-10"></a><span class="co">##  [1]  0.4320610  0.2163927  0.1802806  0.2507401  0.5314572  0.5705253</span></span>
-<span id="cb271-11"><a href="functions.html#cb271-11"></a><span class="co">##  [7] -1.5944081 -1.9942074  1.2299500  0.1772086</span></span>
+<span id="cb271-10"><a href="functions.html#cb271-10"></a><span class="co">##  [1] -0.3805258 -1.2325626  1.1105061 -1.4509047  0.5004591 -0.6483749</span></span>
+<span id="cb271-11"><a href="functions.html#cb271-11"></a><span class="co">##  [7]  1.1397037 -0.5521763  1.2940873  0.2197881</span></span>
 <span id="cb271-12"><a href="functions.html#cb271-12"></a><span class="kw">my_fun</span>(vec3)</span>
-<span id="cb271-13"><a href="functions.html#cb271-13"></a><span class="co">##  [1]  1.03201271  0.98885763  0.85659141 -1.30549208  0.52385970 -0.07580681</span></span>
-<span id="cb271-14"><a href="functions.html#cb271-14"></a><span class="co">##  [7] -1.60182886 -0.67117704  0.89802964 -0.64504629</span></span></code></pre></div>
+<span id="cb271-13"><a href="functions.html#cb271-13"></a><span class="co">##  [1]  1.4454934 -1.0726842 -0.8478162 -0.9604278 -0.3000681  0.4946814</span></span>
+<span id="cb271-14"><a href="functions.html#cb271-14"></a><span class="co">##  [7]  0.2119721  0.7970712  1.3562153 -1.1244370</span></span></code></pre></div>
 <p>Ovviamente la combinazione di funzione e <code>apply</code> family permette di rendere il tutto ancora più compatto ed efficiente:</p>
 <div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="functions.html#cb272-1"></a>my_list &lt;-<span class="st"> </span><span class="kw">list</span>(vec1, vec2, vec3)</span>
 <span id="cb272-2"><a href="functions.html#cb272-2"></a><span class="kw">lapply</span>(my_list, my_fun)</span>
 <span id="cb272-3"><a href="functions.html#cb272-3"></a><span class="co">## [[1]]</span></span>
-<span id="cb272-4"><a href="functions.html#cb272-4"></a><span class="co">##  [1]  1.0016246 -1.1787978 -1.6916680 -0.5257946  0.3463670 -0.3277926</span></span>
-<span id="cb272-5"><a href="functions.html#cb272-5"></a><span class="co">##  [7]  0.2896537 -0.3696360  1.2778202  1.1782236</span></span>
+<span id="cb272-4"><a href="functions.html#cb272-4"></a><span class="co">##  [1] -1.456723691  1.222044498 -0.007626101  0.733070501 -0.759728802</span></span>
+<span id="cb272-5"><a href="functions.html#cb272-5"></a><span class="co">##  [6] -1.506809881  0.362783823  0.179344839  1.349875102 -0.116230290</span></span>
 <span id="cb272-6"><a href="functions.html#cb272-6"></a><span class="co">## </span></span>
 <span id="cb272-7"><a href="functions.html#cb272-7"></a><span class="co">## [[2]]</span></span>
-<span id="cb272-8"><a href="functions.html#cb272-8"></a><span class="co">##  [1]  0.4320610  0.2163927  0.1802806  0.2507401  0.5314572  0.5705253</span></span>
-<span id="cb272-9"><a href="functions.html#cb272-9"></a><span class="co">##  [7] -1.5944081 -1.9942074  1.2299500  0.1772086</span></span>
+<span id="cb272-8"><a href="functions.html#cb272-8"></a><span class="co">##  [1] -0.3805258 -1.2325626  1.1105061 -1.4509047  0.5004591 -0.6483749</span></span>
+<span id="cb272-9"><a href="functions.html#cb272-9"></a><span class="co">##  [7]  1.1397037 -0.5521763  1.2940873  0.2197881</span></span>
 <span id="cb272-10"><a href="functions.html#cb272-10"></a><span class="co">## </span></span>
 <span id="cb272-11"><a href="functions.html#cb272-11"></a><span class="co">## [[3]]</span></span>
-<span id="cb272-12"><a href="functions.html#cb272-12"></a><span class="co">##  [1]  1.03201271  0.98885763  0.85659141 -1.30549208  0.52385970 -0.07580681</span></span>
-<span id="cb272-13"><a href="functions.html#cb272-13"></a><span class="co">##  [7] -1.60182886 -0.67117704  0.89802964 -0.64504629</span></span></code></pre></div>
+<span id="cb272-12"><a href="functions.html#cb272-12"></a><span class="co">##  [1]  1.4454934 -1.0726842 -0.8478162 -0.9604278 -0.3000681  0.4946814</span></span>
+<span id="cb272-13"><a href="functions.html#cb272-13"></a><span class="co">##  [7]  0.2119721  0.7970712  1.3562153 -1.1244370</span></span></code></pre></div>
 </div>
 <div id="scegliere-il-nome" class="section level3">
 <h3><span class="header-section-number">12.4.2</span> Scegliere il nome</h3>
@@ -808,14 +808,14 @@ Abbiamo detto che una funzione è un modo per astrarre, riutilizzare e semplific
 <span id="cb273-11"><a href="functions.html#cb273-11"></a></span>
 <span id="cb273-12"><a href="functions.html#cb273-12"></a>vec &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>)</span>
 <span id="cb273-13"><a href="functions.html#cb273-13"></a><span class="kw">trans_vec</span>(vec, <span class="st">&quot;center_mean&quot;</span>)</span>
-<span id="cb273-14"><a href="functions.html#cb273-14"></a><span class="co">##  [1] -0.23426668 -0.19612683  0.35162703  0.28416188  0.08679110 -0.18225356</span></span>
-<span id="cb273-15"><a href="functions.html#cb273-15"></a><span class="co">##  [7] -0.37592820 -0.31418493  0.08921857  0.49096161</span></span>
+<span id="cb273-14"><a href="functions.html#cb273-14"></a><span class="co">##  [1] -0.04619404 -0.28243474  0.23193146  0.19094084 -0.24432299  0.34689300</span></span>
+<span id="cb273-15"><a href="functions.html#cb273-15"></a><span class="co">##  [7] -0.42900918  0.17104419  0.14789887 -0.08674742</span></span>
 <span id="cb273-16"><a href="functions.html#cb273-16"></a><span class="kw">trans_vec</span>(vec, <span class="st">&quot;center_mean&quot;</span>)</span>
-<span id="cb273-17"><a href="functions.html#cb273-17"></a><span class="co">##  [1] -0.23426668 -0.19612683  0.35162703  0.28416188  0.08679110 -0.18225356</span></span>
-<span id="cb273-18"><a href="functions.html#cb273-18"></a><span class="co">##  [7] -0.37592820 -0.31418493  0.08921857  0.49096161</span></span>
+<span id="cb273-17"><a href="functions.html#cb273-17"></a><span class="co">##  [1] -0.04619404 -0.28243474  0.23193146  0.19094084 -0.24432299  0.34689300</span></span>
+<span id="cb273-18"><a href="functions.html#cb273-18"></a><span class="co">##  [7] -0.42900918  0.17104419  0.14789887 -0.08674742</span></span>
 <span id="cb273-19"><a href="functions.html#cb273-19"></a><span class="kw">trans_vec</span>(vec, <span class="st">&quot;standardize&quot;</span>)</span>
-<span id="cb273-20"><a href="functions.html#cb273-20"></a><span class="co">##  [1] -0.7725771 -0.6467975  1.1596143  0.9371242  0.2862243 -0.6010455</span></span>
-<span id="cb273-21"><a href="functions.html#cb273-21"></a><span class="co">##  [7] -1.2397560 -1.0361357  0.2942297  1.6191193</span></span></code></pre></div>
+<span id="cb273-20"><a href="functions.html#cb273-20"></a><span class="co">##  [1] -0.1796760 -1.0985562  0.9021190  0.7426822 -0.9503170  1.3492727</span></span>
+<span id="cb273-21"><a href="functions.html#cb273-21"></a><span class="co">##  [7] -1.6686712  0.6652923  0.5752665 -0.3374122</span></span></code></pre></div>
 <p>La funzione è molto chiara ma comunque contiene dei margini di fragilità. L’utente deve inserire una per stringa eseguire l’operazione. Ci sono diversi <code>if</code> e lo scopo della funzione è forse troppo generico. Una migliore soluzione sarebbe quella di scrivere 3 funzioni più semplici, mirate e facili da mantenere e leggere:</p>
 <div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="functions.html#cb274-1"></a>center_vec_mean &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
 <span id="cb274-2"><a href="functions.html#cb274-2"></a>  <span class="kw">return</span>(x <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(x))</span>
@@ -831,14 +831,14 @@ Abbiamo detto che una funzione è un modo per astrarre, riutilizzare e semplific
 <span id="cb274-12"><a href="functions.html#cb274-12"></a></span>
 <span id="cb274-13"><a href="functions.html#cb274-13"></a>vec &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>)</span>
 <span id="cb274-14"><a href="functions.html#cb274-14"></a><span class="kw">center_vec_mean</span>(vec)</span>
-<span id="cb274-15"><a href="functions.html#cb274-15"></a><span class="co">##  [1]  0.4249892 -0.0964139  0.1098248  0.3673295  0.2611899 -0.3165211</span></span>
-<span id="cb274-16"><a href="functions.html#cb274-16"></a><span class="co">##  [7] -0.5194926  0.3910286 -0.3505038 -0.2714303</span></span>
+<span id="cb274-15"><a href="functions.html#cb274-15"></a><span class="co">##  [1] -0.35943237 -0.04952276  0.39815509  0.01486843  0.42545383 -0.18685840</span></span>
+<span id="cb274-16"><a href="functions.html#cb274-16"></a><span class="co">##  [7] -0.51900870  0.09635014  0.34551734 -0.16552259</span></span>
 <span id="cb274-17"><a href="functions.html#cb274-17"></a><span class="kw">center_vec_median</span>(vec)</span>
-<span id="cb274-18"><a href="functions.html#cb274-18"></a><span class="co">##  [1]  0.4182838 -0.1031193  0.1031193  0.3606240  0.2544844 -0.3232266</span></span>
-<span id="cb274-19"><a href="functions.html#cb274-19"></a><span class="co">##  [7] -0.5261980  0.3843231 -0.3572093 -0.2781358</span></span>
+<span id="cb274-18"><a href="functions.html#cb274-18"></a><span class="co">##  [1] -0.3421052 -0.0321956  0.4154823  0.0321956  0.4427810 -0.1695312</span></span>
+<span id="cb274-19"><a href="functions.html#cb274-19"></a><span class="co">##  [7] -0.5016815  0.1136773  0.3628445 -0.1481954</span></span>
 <span id="cb274-20"><a href="functions.html#cb274-20"></a><span class="kw">standardize_vec</span>(vec)</span>
-<span id="cb274-21"><a href="functions.html#cb274-21"></a><span class="co">##  [1]  1.2022578 -0.2727466  0.3106848  1.0391434  0.7388836 -0.8954110</span></span>
-<span id="cb274-22"><a href="functions.html#cb274-22"></a><span class="co">##  [7] -1.4695998  1.1061861 -0.9915452 -0.7678531</span></span></code></pre></div>
+<span id="cb274-21"><a href="functions.html#cb274-21"></a><span class="co">##  [1] -1.11708966 -0.15391314  1.23743706  0.04620999  1.32227955 -0.58074232</span></span>
+<span id="cb274-22"><a href="functions.html#cb274-22"></a><span class="co">##  [7] -1.61304128  0.29944923  1.07384275 -0.51443217</span></span></code></pre></div>
 <p>In questo modo il codice è molto più leggibile e chiaro sia dentro le funzioni che quando le funzioni vengono utilizzate. Un’ulteriore alternativa sarebbe quella di raggruppare le funzione di “centramento” specificando se utilizzare media o mediana e separare quella di standardizzazione.</p>
 </div>
 <div id="commentare-e-documentare" class="section level3">

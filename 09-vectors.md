@@ -377,16 +377,16 @@ La funzione `which()` è molto utile per ottenere la **posizione** all'interno d
 
 
 ```
-##  [1] FALSE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE
-## [1]  2  3  4  5  7  9 10
+##  [1] FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE
+## [1]  2  5  8  9 10
 ```
 
 Come vedete, la funzione `which()` essenzialmente restituisce la **posizione** (e non il valore) dove la condizione testata è `TRUE`. E' importante notare che queste due scritture sono equivalenti:
 
 
 ```
-## [1]  5.462760 10.649451  5.846736  5.213226  6.300417  6.247351 10.503700
-## [1]  5.462760 10.649451  5.846736  5.213226  6.300417  6.247351 10.503700
+## [1] 11.999848  8.077238  5.625174  5.311683  8.122370
+## [1] 11.999848  8.077238  5.625174  5.311683  8.122370
 ```
 
 Infatti, come abbiamo visto possiamo indicizzare un vettore sia con un'altro vettore che ci indica la posizione degli elementi da estrarre che un vettore **logico** di lunghezza uguale al vettore originale.
@@ -696,10 +696,10 @@ Utilizzando le funzioni `sum()` e `mean()` con un vettore logico, possiamo valut
 my_values <- rnorm(50)  # genero dei numeri casuali 
 
 sum(my_values > 0)      # totale numeri positivi
-## [1] 25
+## [1] 21
 
 mean(my_values > 0)      # percentuale numeri positivi
-## [1] 0.5
+## [1] 0.42
 ```
 :::
 
