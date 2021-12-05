@@ -20,9 +20,6 @@ bookdown::gitbook:
       facebook: no
       twitter: yes
       all: yes
-
-
-
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
@@ -30,3 +27,7 @@ bookdown::pdf_book:
   citation_package: natbib
   keep_tex: yes
 bookdown::epub_book: default
+bookdown::html_document2:
+  toc: true
+  toc_float: true
+  self_contained: true
