@@ -228,7 +228,7 @@
 \makeatother
 \subtitle{Corso per imparare le basi di \textbf{R}}
 \author{\href{https://claudiozandonella.netlify.app/}{Claudio Zandonella Callegher} and \href{https://filippogambarota.netlify.app/}{Filippo Gambarota} members of \href{https://psicostat.dpss.psy.unipd.it/}{Psicostat}}
-\date{05-12-2021}
+\date{08-12-2021}
 
 \begin{document}
 \maketitle
@@ -3127,15 +3127,15 @@ Nota come l'operazione di eliminazione sia comunque un'operazione di selezione. 
 La funzione \texttt{which()} è molto utile per ottenere la \textbf{posizione} all'interno di un vettore associata ad una certa condizione logica. In altri termini se vogliamo sapere in quale posizione sono i valori \texttt{\textgreater{}\ 5} in un certo vettore numerico possiamo usare la funzione \texttt{which(x\ \textgreater{}\ 5)} dove \texttt{x} è chiaramente il nostro vettore numerico.
 
 \begin{verbatim}
-##  [1] FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE
-## [1] 2 3 4 6 9
+##  [1]  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE
+## [1]  1  2  4  7 10
 \end{verbatim}
 
 Come vedete, la funzione \texttt{which()} essenzialmente restituisce la \textbf{posizione} (e non il valore) dove la condizione testata è \texttt{TRUE}. E' importante notare che queste due scritture sono equivalenti:
 
 \begin{verbatim}
-## [1]  5.261174  7.441567  7.477839  5.674228 11.343643
-## [1]  5.261174  7.441567  7.477839  5.674228 11.343643
+## [1] 8.331936 9.200411 5.541441 9.894681 7.138463
+## [1] 8.331936 9.200411 5.541441 9.894681 7.138463
 \end{verbatim}
 
 Infatti, come abbiamo visto possiamo indicizzare un vettore sia con un'altro vettore che ci indica la posizione degli elementi da estrarre che un vettore \textbf{logico} di lunghezza uguale al vettore originale.
@@ -3504,10 +3504,10 @@ Utilizzando le funzioni \texttt{sum()} e \texttt{mean()} con un vettore logico, 
 \NormalTok{my_values <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{)  }\CommentTok{# genero dei numeri casuali }
 
 \KeywordTok{sum}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# totale numeri positivi}
-\CommentTok{## [1] 28}
+\CommentTok{## [1] 29}
 
 \KeywordTok{mean}\NormalTok{(my_values }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{)      }\CommentTok{# percentuale numeri positivi}
-\CommentTok{## [1] 0.56}
+\CommentTok{## [1] 0.58}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4293,7 +4293,7 @@ Ora che abbiamo capito il funzionamento dei fattori vediamo alcune comuni operaz
 \subsubsection*{Rinominare i Livelli}\label{rinominare-i-livelli}}
 \addcontentsline{toc}{subsubsection}{Rinominare i Livelli}
 
-E possibile rinominare i livelli di un fattore utilizzando la funzione \texttt{labels()} quesa ci permette di accedere agli attuali livelli ed eventualmente ssostituirli.
+E possibile rinominare i livelli di un fattore utilizzando la funzione \texttt{levels()} quesa ci permette di accedere agli attuali livelli ed eventualmente ssostituirli.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7937,14 +7937,14 @@ Abbiamo visto nei capitoli precedenti l'utilizzo dell'\texttt{apply} family e co
 \begin{Highlighting}[]
 \CommentTok{# Centriamo}
 \NormalTok{vec1 }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(vec2)}
-\CommentTok{##  [1] -0.09402231  0.42517092  0.37417313  0.18950855 -0.35086958 -0.25391476}
-\CommentTok{##  [7]  0.40192381 -0.05357145 -0.14918285  0.23746468}
+\CommentTok{##  [1]  0.375483045  0.007881546  0.184683436  0.457343132  0.128117364}
+\CommentTok{##  [6]  0.004316731 -0.279044610 -0.343590252  0.038928952  0.168865691}
 \NormalTok{vec2 }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(vec2)}
-\CommentTok{##  [1] -0.34111862 -0.08727491  0.02212662 -0.36426007 -0.06017391 -0.09656121}
-\CommentTok{##  [7]  0.44638608 -0.31458637  0.35950256  0.43595982}
+\CommentTok{##  [1] -0.23504352  0.11710579  0.42825239 -0.27330895 -0.30707553  0.13634206}
+\CommentTok{##  [7]  0.43973909  0.17258473 -0.09212456 -0.38647150}
 \NormalTok{vec3 }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(vec3)}
-\CommentTok{##  [1]  0.215932645 -0.001990392 -0.098464153  0.473416708  0.173582705}
-\CommentTok{##  [6] -0.457752860  0.302680369  0.376416270 -0.494614738 -0.489206553}
+\CommentTok{##  [1]  0.08137690  0.17385603  0.17503549  0.47734530 -0.31804391  0.08731763}
+\CommentTok{##  [7] -0.03370439 -0.30430163 -0.29468320 -0.04419821}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7957,14 +7957,14 @@ L'operazione viene eseguita correttamente ed è anche di facile comprensione. Tu
 \NormalTok{\}}
 
 \KeywordTok{my_fun}\NormalTok{(vec1)}
-\CommentTok{##  [1] -0.1666903  0.3525029  0.3015051  0.1168405 -0.4235376 -0.3265828}
-\CommentTok{##  [7]  0.3292558 -0.1262395 -0.2218509  0.1647967}
+\CommentTok{##  [1]  0.30118454 -0.06641696  0.11038493  0.38304463  0.05381886 -0.06998177}
+\CommentTok{##  [7] -0.35334311 -0.41788876 -0.03536955  0.09456719}
 \KeywordTok{my_fun}\NormalTok{(vec2)}
-\CommentTok{##  [1] -0.34111862 -0.08727491  0.02212662 -0.36426007 -0.06017391 -0.09656121}
-\CommentTok{##  [7]  0.44638608 -0.31458637  0.35950256  0.43595982}
+\CommentTok{##  [1] -0.23504352  0.11710579  0.42825239 -0.27330895 -0.30707553  0.13634206}
+\CommentTok{##  [7]  0.43973909  0.17258473 -0.09212456 -0.38647150}
 \KeywordTok{my_fun}\NormalTok{(vec3)}
-\CommentTok{##  [1]  0.215932645 -0.001990392 -0.098464153  0.473416708  0.173582705}
-\CommentTok{##  [6] -0.457752860  0.302680369  0.376416270 -0.494614738 -0.489206553}
+\CommentTok{##  [1]  0.08137690  0.17385603  0.17503549  0.47734530 -0.31804391  0.08731763}
+\CommentTok{##  [7] -0.03370439 -0.30430163 -0.29468320 -0.04419821}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7978,14 +7978,14 @@ Il codice non è molto cambiato rispetto a prima in termini di numero di righe o
 \NormalTok{\}}
 
 \KeywordTok{my_fun}\NormalTok{(vec1)}
-\CommentTok{##  [1] -0.5800043  1.2265450  1.0490966  0.4065504 -1.4737125 -1.1363551}
-\CommentTok{##  [7]  1.1456560 -0.4392542 -0.7719371  0.5734152}
+\CommentTok{##  [1]  1.1952127 -0.2635673  0.4380486  1.5200641  0.2135733 -0.2777138}
+\CommentTok{##  [7] -1.4021974 -1.6583386 -0.1403596  0.3752779}
 \KeywordTok{my_fun}\NormalTok{(vec2)}
-\CommentTok{##  [1] -1.08620411 -0.27790439  0.07045652 -1.15989207 -0.19160826 -0.30747423}
-\CommentTok{##  [7]  1.42140113 -1.00171902  1.14474302  1.38820141}
+\CommentTok{##  [1] -0.7782383  0.3877418  1.4179603 -0.9049366 -1.0167390  0.4514339}
+\CommentTok{##  [7]  1.4559933  0.5714348 -0.3050280 -1.2796222}
 \KeywordTok{my_fun}\NormalTok{(vec3)}
-\CommentTok{##  [1]  0.582353043 -0.005367927 -0.265549933  1.276766933  0.468138650}
-\CommentTok{##  [6] -1.234522790  0.816304704  1.015164523 -1.333936321 -1.319350881}
+\CommentTok{##  [1]  0.3187379  0.6809612  0.6855810  1.8696714 -1.2457179  0.3420067}
+\CommentTok{##  [7] -0.1320137 -1.1918920 -1.1542185 -0.1731161}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7996,16 +7996,16 @@ Ovviamente la combinazione di funzione e \texttt{apply} family permette di rende
 \NormalTok{my_list <-}\StringTok{ }\KeywordTok{list}\NormalTok{(vec1, vec2, vec3)}
 \KeywordTok{lapply}\NormalTok{(my_list, my_fun)}
 \CommentTok{## [[1]]}
-\CommentTok{##  [1] -0.5800043  1.2265450  1.0490966  0.4065504 -1.4737125 -1.1363551}
-\CommentTok{##  [7]  1.1456560 -0.4392542 -0.7719371  0.5734152}
+\CommentTok{##  [1]  1.1952127 -0.2635673  0.4380486  1.5200641  0.2135733 -0.2777138}
+\CommentTok{##  [7] -1.4021974 -1.6583386 -0.1403596  0.3752779}
 \CommentTok{## }
 \CommentTok{## [[2]]}
-\CommentTok{##  [1] -1.08620411 -0.27790439  0.07045652 -1.15989207 -0.19160826 -0.30747423}
-\CommentTok{##  [7]  1.42140113 -1.00171902  1.14474302  1.38820141}
+\CommentTok{##  [1] -0.7782383  0.3877418  1.4179603 -0.9049366 -1.0167390  0.4514339}
+\CommentTok{##  [7]  1.4559933  0.5714348 -0.3050280 -1.2796222}
 \CommentTok{## }
 \CommentTok{## [[3]]}
-\CommentTok{##  [1]  0.582353043 -0.005367927 -0.265549933  1.276766933  0.468138650}
-\CommentTok{##  [6] -1.234522790  0.816304704  1.015164523 -1.333936321 -1.319350881}
+\CommentTok{##  [1]  0.3187379  0.6809612  0.6855810  1.8696714 -1.2457179  0.3420067}
+\CommentTok{##  [7] -0.1320137 -1.1918920 -1.1542185 -0.1731161}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8059,14 +8059,14 @@ Facciamo un esempio con la nostra \texttt{center\_vec()}. Possiamo pensare a div
 
 \NormalTok{vec <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{10}\NormalTok{)}
 \KeywordTok{trans_vec}\NormalTok{(vec, }\StringTok{"center_mean"}\NormalTok{)}
-\CommentTok{##  [1] -0.14776368  0.04975941  0.45802603  0.25340582 -0.06405294 -0.27763832}
-\CommentTok{##  [7]  0.07977773  0.12615072 -0.18511510 -0.29254966}
+\CommentTok{##  [1]  0.27970039 -0.29559475 -0.35010756 -0.35677833  0.47367363  0.46216180}
+\CommentTok{##  [7] -0.29476887  0.48389466 -0.04806907 -0.35411189}
 \KeywordTok{trans_vec}\NormalTok{(vec, }\StringTok{"center_mean"}\NormalTok{)}
-\CommentTok{##  [1] -0.14776368  0.04975941  0.45802603  0.25340582 -0.06405294 -0.27763832}
-\CommentTok{##  [7]  0.07977773  0.12615072 -0.18511510 -0.29254966}
+\CommentTok{##  [1]  0.27970039 -0.29559475 -0.35010756 -0.35677833  0.47367363  0.46216180}
+\CommentTok{##  [7] -0.29476887  0.48389466 -0.04806907 -0.35411189}
 \KeywordTok{trans_vec}\NormalTok{(vec, }\StringTok{"standardize"}\NormalTok{)}
-\CommentTok{##  [1] -0.6137731  0.2066880  1.9025246  1.0525838 -0.2660598 -1.1532395}
-\CommentTok{##  [7]  0.3313766  0.5239983 -0.7689214 -1.2151775}
+\CommentTok{##  [1]  0.7353231 -0.7771089 -0.9204213 -0.9379585  1.2452724  1.2150082}
+\CommentTok{##  [7] -0.7749377  1.2721432 -0.1263720 -0.9309485}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8088,14 +8088,14 @@ La funzione è molto chiara ma comunque contiene dei margini di fragilità. L'ut
 
 \NormalTok{vec <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{10}\NormalTok{)}
 \KeywordTok{center_vec_mean}\NormalTok{(vec)}
-\CommentTok{##  [1] -0.2014597 -0.2782205 -0.1138061  0.3855533 -0.3918358 -0.3074471}
-\CommentTok{##  [7]  0.2921689  0.4989311 -0.3880608  0.5041768}
+\CommentTok{##  [1] -0.06218784  0.04085097 -0.31795912  0.26834550  0.03212795  0.34036917}
+\CommentTok{##  [7]  0.21744515 -0.29556808 -0.39180500  0.16838131}
 \KeywordTok{center_vec_median}\NormalTok{(vec)}
-\CommentTok{##  [1] -0.04382676 -0.12058763  0.04382676  0.54318617 -0.23420287 -0.14981420}
-\CommentTok{##  [7]  0.44980178  0.65656396 -0.23042785  0.66180967}
+\CommentTok{##  [1] -0.098677304  0.004361508 -0.354448579  0.231856039 -0.004361508}
+\CommentTok{##  [6]  0.303879709  0.180955693 -0.332057540 -0.428294461  0.131891849}
 \KeywordTok{standardize_vec}\NormalTok{(vec)}
-\CommentTok{##  [1] -0.5369903 -0.7415963 -0.3033500  1.0276915 -1.0444375 -0.8194996}
-\CommentTok{##  [7]  0.7787756  1.3298998 -1.0343752  1.3438822}
+\CommentTok{##  [1] -0.2384730  0.1566521 -1.2192846  1.0290302  0.1232017  1.3052209}
+\CommentTok{##  [7]  0.8338415 -1.1334212 -1.5024629  0.6456954}
 \end{Highlighting}
 \end{Shaded}
 

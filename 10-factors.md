@@ -202,7 +202,7 @@ Ora che abbiamo capito il funzionamento dei fattori vediamo alcune comuni operaz
 
 #### Rinominare i Livelli {-}
 
-E possibile rinominare i livelli di un fattore  utilizzando la funzione `labels()` quesa ci permette di accedere agli attuali livelli ed eventualmente ssostituirli.
+E possibile rinominare i livelli di un fattore  utilizzando la funzione `levels()` quesa ci permette di accedere agli attuali livelli ed eventualmente ssostituirli.
 
 
 ```r

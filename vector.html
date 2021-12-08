@@ -694,11 +694,11 @@ sebbene includano gli stessi elementi, non sono identici poichè differiscono pe
 <div id="which" class="section level4">
 <h4><span class="header-section-number">7.2.1.1</span> <code>which()</code></h4>
 <p>La funzione <code>which()</code> è molto utile per ottenere la <strong>posizione</strong> all’interno di un vettore associata ad una certa condizione logica. In altri termini se vogliamo sapere in quale posizione sono i valori <code>&gt; 5</code> in un certo vettore numerico possiamo usare la funzione <code>which(x &gt; 5)</code> dove <code>x</code> è chiaramente il nostro vettore numerico.</p>
-<pre><code>##  [1] FALSE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
-## [1] 2 4 5 6 7 8</code></pre>
+<pre><code>##  [1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+## [1] 1 2 3 5</code></pre>
 <p>Come vedete, la funzione <code>which()</code> essenzialmente restituisce la <strong>posizione</strong> (e non il valore) dove la condizione testata è <code>TRUE</code>. E’ importante notare che queste due scritture sono equivalenti:</p>
-<pre><code>## [1]  6.906051  6.912457  6.285081  8.119484 11.014533  6.706578
-## [1]  6.906051  6.912457  6.285081  8.119484 11.014533  6.706578</code></pre>
+<pre><code>## [1]  9.748922  7.090858  5.665718 12.286197
+## [1]  9.748922  7.090858  5.665718 12.286197</code></pre>
 <p>Infatti, come abbiamo visto possiamo indicizzare un vettore sia con un’altro vettore che ci indica la posizione degli elementi da estrarre che un vettore <strong>logico</strong> di lunghezza uguale al vettore originale.</p>
 </div>
 </div>
@@ -954,10 +954,10 @@ Rapporto tra due vettori
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="vector.html#cb88-1"></a>my_values &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">50</span>)  <span class="co"># genero dei numeri casuali </span></span>
 <span id="cb88-2"><a href="vector.html#cb88-2"></a></span>
 <span id="cb88-3"><a href="vector.html#cb88-3"></a><span class="kw">sum</span>(my_values <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)      <span class="co"># totale numeri positivi</span></span>
-<span id="cb88-4"><a href="vector.html#cb88-4"></a><span class="co">## [1] 25</span></span>
+<span id="cb88-4"><a href="vector.html#cb88-4"></a><span class="co">## [1] 32</span></span>
 <span id="cb88-5"><a href="vector.html#cb88-5"></a></span>
 <span id="cb88-6"><a href="vector.html#cb88-6"></a><span class="kw">mean</span>(my_values <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)      <span class="co"># percentuale numeri positivi</span></span>
-<span id="cb88-7"><a href="vector.html#cb88-7"></a><span class="co">## [1] 0.5</span></span></code></pre></div>
+<span id="cb88-7"><a href="vector.html#cb88-7"></a><span class="co">## [1] 0.64</span></span></code></pre></div>
 </div>
 <div class="design" title="is.* adn as.* Function Families">
 <p>Esistono due famiglie di funzioni che permettono rispettivamene di testare e di modificare la tipologia dei dati.</p>
