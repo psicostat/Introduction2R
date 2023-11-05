@@ -409,7 +409,8 @@ Se il vantaggio di un dataframe rispetto ad una matrice è palese, quale è la v
 I vantaggi principali che rendono le liste degli oggetti estremamente potenti sono:
 
 * **Organizzare strutture complesse di dati**: come abbiamo visto nell'esempio precedente, insiemi di oggetti nidificati possono essere organizzati in un oggetto unico senza avere decine di singoli oggetti nel workspace.
-* **Effettuare operazioni complesse su più oggetti parallelamente**. Immaginate di avere una lista di dataframe strutturalmente simili ma con dati diversi all'interno. Se volete applicare una funzione ad ogni dataframe potete organizzare i dati in una lista e usare le funzioni dell'`apply` family che vedremo nei prossimi capitoli. TODO
+* **Effettuare operazioni complesse su più oggetti parallelamente**. Immaginate di avere una lista di dataframe strutturalmente simili ma con dati diversi all'interno. Se volete applicare una funzione ad ogni dataframe potete organizzare i dati in una lista e usare le funzioni dell'`apply` family che vedremo nei prossimi capitoli.
+<!-- TODO -->
 
 Infine, proprio per la loro flessibilità, le liste sono spesso utilizzate da vari pachetti per restituire i risultati delle analisi statistiche svolte. Saper accedere ai vari elementi di una lista risulta quindi necessario per ottenere specifiche infomazioni e risultati.
 :::
