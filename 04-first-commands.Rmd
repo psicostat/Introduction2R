@@ -1,4 +1,4 @@
-# Primi Passi in R {#first-comands}
+# Primi Passi in R {#first-commands}
 
 ```{r settings, echo = FALSE}
 knitr::opts_chunk$set(
@@ -9,9 +9,9 @@ knitr::opts_chunk$set(
 library(kableExtra)
 ```
 
-Ora che abbiamo iniziato a familiarizzare con il nostro stumento di lavoro possiamo finalmente dare fuoco alle polveri e concentraci sulla scrittura di codici!
+Ora che abbiamo iniziato a familiarizzare con il nostro strumento di lavoro possiamo finalmente dare fuoco alle polveri e concentraci sulla scrittura di codici!
 
-In questo capitolo muoveremo i primi passi in R. Inizieremo vedendo come utilizzare operatori matematici, relazionali e logici per compiere semplici operazioni in R. Imparare R è un lungo percorso (scoop: questo percorso non termina mai dato che R è sempre in continuo sviiluppo). Soprattutto all'inizio può sembrare eccessivamente difficile poiché è si incontrano per la prima volta molti comandi e concetti di programmazione. Tuttavia, una volta familiarizzato con gli apetti di base, la progressione diventa sempre più veloce (inarrestabile direi!).
+In questo capitolo muoveremo i primi passi in R. Inizieremo vedendo come utilizzare operatori matematici, relazionali e logici per compiere semplici operazioni in R. Imparare R è un lungo percorso (scoop: questo percorso non termina mai dato che R è sempre in continuo sviluppo). Soprattutto all'inizio può sembrare eccessivamente difficile poiché si incontrano per la prima volta molti comandi e concetti di programmazione. Tuttavia, una volta familiarizzato con gli aperti di base, la progressione diventa sempre più veloce (inarrestabile direi!).
 
 In questo capitolo introdurremo per la prima volta molti elementi che saranno poi ripresi e approfonditi nei seguenti capitoli. Quindi non preoccuparti se non tutto ti sarà chiaro fin da subito. Imparare il tuo primo linguaggio di programmazione è difficile ma da qualche parte bisogna pure iniziare. Pronto per le tue prime linee di codice? Let's become a useR!
 
@@ -76,7 +76,7 @@ kableExtra::kable(math_operators, col.names = c("Funzione", "Nome", "Esempio"),
 ```
 
 :::{.tip title="Le prime funzioni" data-latex="[Le prime funzioni]"}
-Nota come per svolgere operazioni come la radice quadrata o il valore assoluto vengono utlizzate delle specifiche funzioni. In R le funzioni sono richiamate digitando `<nome-funnzione>()` (e.g., `sqrt(25)`) indicando all'interno delle parentesi tonde gli argomenti della funzione. Approfondiremo le funzioni nel Capitolo \@ref(functions-def). 
+Nota come per svolgere operazioni come la radice quadrata o il valore assoluto vengono utilizzate delle specifiche funzioni. In R le funzioni sono richiamate digitando `<nome-funzione>()` (ad es. `sqrt(25)`) indicando all'interno delle parentesi tonde gli argomenti della funzione. Approfondiremo le funzioni nel Capitolo \@ref(functions-def). 
 :::
 
 ### Ordine Operazioni
@@ -86,21 +86,21 @@ Nello svolgere le operazioni, R segue lo stesso l'ordine usato nelle normali esp
 1. `^` (potenza)
 2. `%%` (resto della divisione) e `%/%` (divisione intera) 
 3. `*` (moltiplicazione) e `/`(divisione)
-4. `+` (addizione) e `-`(sotttrazione)
+4. `+` (addizione) e `-`(sottrazione)
 
-Nota che in presenza di funzioni (e.g., `abs()`, `sin()`), R per prima cosa sostituisca le funzioni con il loro risultato per poi procedere con l'esecuzione delle operazioni nell'ordine indicato precedentemente.
+Nota che in presenza di funzioni (ad es. `abs()`, `sin()`), R per prima cosa sostituisce le funzioni con il loro risultato per poi procedere con l'esecuzione delle operazioni nell'ordine indicato precedentemente.
 
-L'ordine di esecuzione delle operazioni può essere controllato attraverso l'uso delle **parentesi tondone** `()`. R eseguirà tutte le operazioni incluse nelle parentesi seguendo lo stesso ordine  inndicato sopra. Utilizzando più gruppi di parentesi possiamo ottenere i risultati desiderati.
+L'ordine di esecuzione delle operazioni può essere controllato attraverso l'uso delle **parentesi tonde** `()`. R eseguirà tutte le operazioni incluse nelle parentesi seguendo lo stesso ordine  indicato sopra. Utilizzando più gruppi di parentesi possiamo ottenere i risultati desiderati.
 
 :::{.warning title="Le parentesi" data-latex="[Le parentesi]"}
-Nota che in R solo le **parentesi tonde** `()` sono utilizzate per gestire l'ordine con cui sono eseguite le oprazioni.
+Nota che in R solo le **parentesi tonde** `()` sono utilizzate per gestire l'ordine con cui sono eseguite le operazioni.
 
-**Parentesi quadre** `[]` e **parentesi graffe** `{}` sono invece speciali operatori utilizzati in R per altre ragioni come la selezione di elementi e la definizione di blocchi di codici. Argomenti che approfondiremo rispettivamente nel Capitolo \@ref(vector-selection) e Capitolo TODO. 
+**Parentesi quadre** `[]` e **parentesi graffe** `{}` sono invece speciali operatori utilizzati in R per altre ragioni come la selezione di elementi e la definizione di blocchi di codice. Argomenti che approfondiremo rispettivamente nel Capitolo \@ref(vector-selection) e Capitolo \@ref(syntax).
 :::
 
-### Esercizi{-}
+### Esercizi {-}
 
-Calcola il risultato delle seguenti operazioni utilizzando R ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-03-first-comands.R)):
+Calcola il risultato delle seguenti operazioni utilizzando R ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-03-first-commands.R)):
 
 1. $\frac{(45+21)^3+\frac{3}{4}}{\sqrt{32-\frac{12}{17}}}$
 
@@ -114,19 +114,19 @@ Calcola il risultato delle seguenti operazioni utilizzando R ([soluzioni](https:
 
 Note per la risoluzione degli esercizi:
 
-- In R la radice quadrata si ottine con la funzione `sqrt()` mentre per radici di indici diversi si utilizza la notazione esponenziale ($\sqrt[3]{x}$ è dato da `x^(1/3)`).
+- In R la radice quadrata si ottiene con la funzione `sqrt()` mentre per radici di indici diversi si utilizza la notazione esponenziale ($\sqrt[3]{x}$ è dato da `x^(1/3)`).
 - Il valore di $\pi$ si ottiene con `pi`.
 - Il valore di $e$ si ottiene con `exp(1)`.
-- In R per i logaritmi si usa la funzione `log(x, base=a)`, di base viene  considerato il logaritmo naturale.
+- In R per i logaritmi si usa la funzione `log(x, base=a)`, di default viene considerato il logaritmo naturale.
 
 
 ## Operatori Relazionali e Logici {#operators-rel-log}
 
-Queste operazioni al momento potrebbero sembrare non particolrmente interessanti ma si riveleranno molto utili nei capitoli successivi ad esempio per la selezione di elementi (vedi Capitolo \@ref(vector-selection-advanced)) o la definizionne di algoritmi (vedi Capitolo TODO).
+Queste operazioni al momento potrebbero sembrare non particolarmente interessanti, ma si riveleranno molto utili nei capitoli successivi, ad esempio per la selezione di elementi (vedi Capitolo \@ref(vector-selection-advanced)) o la definizione di algoritmi (vedi Capitolo \@ref(functions)).
 
 ### Operatori Relazionali
 
-In R è possibile valutare se una data relazione è vera o falsa. Ad esempio, posiamo valutare se "*2 è minore di 10*" o se "*4 numero è un numero pari*".
+In R è possibile valutare se una data relazione è vera o falsa. Ad esempio, posiamo valutare se "*2 è minore di 10*" o se "*4 è un numero pari*".
 
 R valuterà le proposizioni e ci restituirà il valore `TRUE` se la proposizione è vera oppure `FALSE` se la proposizione è falsa. Nella Tabella \@ref(tab:relational-operators) sono elencati gli operatori relazionali.
 
@@ -161,13 +161,13 @@ kableExtra::kable(logical_operators, col.names = c("Funzione", "Nome", "Esempio"
 ```
 
 :::{.warning title="'==' non è uguale a '='" data-latex="['==' non è uguale a '=']"}
-Attenzione che per valutare l'uguaglianza tra due valori non bisogna utilizzare `=` ma `==`. Questo è un'errore molto comune ceh si commmette in continuazione.
+Attenzione che per valutare l'uguaglianza tra due valori non bisogna utilizzare `=` ma `==`. Questo è un'errore molto comune che si commette in continuazione.
 
-L'operatore `=` è utilizzato in R per assegnare un valore ad una variablie. Argomento che vederemo nel Capitolo \@ref(assign).
+L'operatore `=` è utilizzato in R per assegnare un valore ad una variabile. Argomento che vederemo nel Capitolo \@ref(assign).
 :::
 
 :::{.tip title="TRUE-T-1; FALSE-F-0" data-latex="[TRUE-T-1; FALSE-F-0]"}
-Nota che in qualsiasi linguaggio di Programmazione, ai valori TRUE e FALSE sono associati rispettivament i valori numerici 1 e 0. Questi sono definiti [valori booleani](https://it.wikipedia.org/wiki/Variabile_booleana).
+Nota che in molti linguaggi di programmazione, compreso R, ai valori TRUE e FALSE sono associati rispettivamente i valori numerici 1 e 0. Questi sono definiti [valori booleani](https://it.wikipedia.org/wiki/Variabile_booleana).
 
 ```{r relational-operators-ex1, echo=TRUE, eval=FALSE}
 TRUE == 1   # TRUE
@@ -177,7 +177,7 @@ FALSE == 0  # TRUE
 FALSE == 1  # FALSE
 ```
 
-In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poiché potrebbe nonn essere chiara e creare fraintendimenti. Infatti mentre TRUE e FALSE sono parole riservate (vedi Capitolo \@ref(objects-names)) T a F non lo sono.
+In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poiché potrebbe non essere chiara e creare fraintendimenti. Infatti mentre TRUE e FALSE sono parole riservate (vedi Capitolo \@ref(objects-names)), T e F non lo sono.
 
 ```{r relational-operators-ex2, echo=TRUE, eval=FALSE}
 T == 1      # TRUE
@@ -190,7 +190,7 @@ F == FALSE  # TRUE
 
 ### Operatori Logici
 
-In R è possibile congiungere più relazioni per valutare una desiderata proposizione. Ad esempio potremmo valutare se "*17 è maggiore di 10 e minore di 20*". Per unire più relazioni in un'unica proposizione che R valuterà come `TRUE` o `FALSE`, vengono utilizati gli operatori logici riportati in Tabella \@ref(tab:logical-operators).
+In R è possibile congiungere più relazioni per valutare una desiderata proposizione. Ad esempio potremmo valutare se "*17 è maggiore di 10 e minore di 20*". Per unire più relazioni in un'unica proposizione che R valuterà come `TRUE` o `FALSE`, vengono utilizzati gli operatori logici riportati in Tabella \@ref(tab:logical-operators).
 
 ```{r logical-operators}
 
@@ -223,7 +223,7 @@ kableExtra::kable(logical_operators, col.names = c("Funzione", "Nome", "Esempio"
 
 Questi operatori sono anche definiti [operatori booleani](https://it.wikipedia.org/wiki/Espressione_booleana) e seguono le comuni definizioni degli operatori logici. In particolare abbiamo che:
 
-- Nel caso della **congiunzione logica** `&`, affinché la proposizione sia vera è necessario che entrambe le relazioni siano vere. Negli altri casi la proposizione sarà valutarta falsa (vedi Tabella \@ref(tab:and-operator)).
+- Nel caso della **congiunzione logica** `&`, affinché la proposizione sia vera è necessario che entrambe le relazioni siano vere. Negli altri casi la proposizione sarà valutata falsa (vedi Tabella \@ref(tab:and-operator)).
 
 ```{r and-operator}
 
@@ -252,7 +252,7 @@ kableExtra::kable(and_operator, col.names = col_names,
                 latex_options = c("hold_position"))
 ```
 
-- Nel caso della **disgiunzione inclusiva logica** `|`, affinché la proposizione sia vera è necessario che almeno una relaziona sia vera. La proposizione sarà valutarta falsa solo quando entrambe le relazioni sono false (vedi Tabella \@ref(tab:or-operator)).
+- Nel caso della **disgiunzione inclusiva logica** `|`, affinché la proposizione sia vera è necessario che almeno una relaziona sia vera. La proposizione sarà valutata falsa solo quando entrambe le relazioni sono false (vedi Tabella \@ref(tab:or-operator)).
 
 ```{r or-operator}
 
@@ -274,7 +274,7 @@ kableExtra::kable(or_operator, col.names = c("x", "y", "x | y"),
 
 Per completezza ricordiamo che tra gli operatori logici esiste anche la **disgiunzione esclusiva**. La proposizione sarà valutata falsa se entrambe le relazioni sono vere oppure false. Affinché la proposizione sia valutata vera una sola delle relazioni deve essere vera mentre l'altra deve essere falsa.
 
-In R la disgiunzione esclusiva tra due ralazioni (x e y) è indicata con la funzione `xor(x, y)`. Tuttavia tale funzione è raramente usata.
+In R la disgiunzione esclusiva tra due relazioni (x e y) è indicata con la funzione `xor(x, y)`, tuttavia tale funzione è raramente usata.
 
 <div style="width:360px;  margin-left: auto; margin-right: auto;">
 Table: Disgiunzione esclusiva 'xor(x, y)'
@@ -292,23 +292,23 @@ Table: Disgiunzione esclusiva 'xor(x, y)'
 
 Nel valutare le veridicità delle proposizioni R esegue le operazioni nel seguente ordine:
 
-1. operatori matematici (e.g., `^`, `*`, `/`, `+`, `-`, etc.)
-2. operatori relazionali (e.g., `<`, `>`, `<=`, `>=`, `==`, `!=`)
-3. operatori logici (e.g., `!`, `&`, `|`)
+1. operatori matematici (ad es. `^`, `*`, `/`, `+`, `-`, etc.)
+2. operatori relazionali (ad es. `<`, `>`, `<=`, `>=`, `==`, `!=`)
+3. operatori logici (ad es. `!`, `&`, `|`)
 
 La lista completa dell'ordine di esecuzione delle operazioni è riportata al seguente link [https://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html). Ricordiamo che, in caso di dubbi riguardanti l'ordine di esecuzione delle operazioni, la cosa migliore è utilizzare le parentesi tonde `()` per disambiguare ogni possibile fraintendimento. 
 
 :::{.warning title="L'operatore '%in%'" data-latex="[L'operatore '\\%in\\%']"}
-Nota che l'operatore `%in%` che abbiamo precedentemente indicato tra gli operatori relazionali in realtà è un operatore speciale. In particolare, non segue le stesse regole degli altri operatori relazionlali per quanto riguarda l'ordine di esecuzione.
+Nota che l'operatore `%in%` che abbiamo precedentemente indicato tra gli operatori relazionali in realtà è un operatore speciale. In particolare, non segue le stesse regole degli altri operatori relazionali per quanto riguarda l'ordine di esecuzione.
 
 La soluzione migliore? Usa le parentesi!
 :::
 
 ### Esercizi {-}
 
-Esegui i seguenti esercizi utilizzando gli operatori relazionali e logici ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-03-first-comands.R)):
+Esegui i seguenti esercizi utilizzando gli operatori relazionali e logici ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-03-first-commands.R)):
 
-1. Definisici due relazioni false e due vere che ti permettano di valutare i risultati di tutti i possibili incroci che puoi ottenere con gli operatori logici `&` e `|`.
-2. Definisci una proposizione che ti permetta di valutare se un numero è pari. Definisci un'altra proposizione per i nueri dispari (tip: cosa ti ricorda `%%`?).
+1. Definisci due relazioni false e due vere che ti permettano di valutare i risultati di tutti i possibili incroci che puoi ottenere con gli operatori logici `&` e `|`.
+2. Definisci una proposizione che ti permetta di valutare se un numero è pari. Definisci un'altra proposizione per i numeri dispari (suggerimento: cosa ti ricorda `%%`?).
 3. Definisci una proposizione per valutare la seguente condizione (ricordati di testare tutti i possibili scenari) "*x è un numero compreso tra -4 e -2 oppure è un numero compreso tra 2 e 4*".
 4. Esegui le seguenti operazioni `4 ^ 3 %in% c(2,3,4)` e `4 * 3 %in% c(2,3,4)`. Cosa osservi nell'ordine di esecuzione degli operatori?
