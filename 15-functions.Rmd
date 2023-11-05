@@ -43,7 +43,7 @@ my_sum <- function(){
 my_sum()
 ```
 
-Quando chiamiamo la nostra funzione, R eseguirà il corpo della funzione e ci restituirà il risultato dell'ultimo comando eseguito. Le funzioni del precedente esempio, tuttavia, si rivelano poco utili poichè eseguono sempre le stesse operazioni senza che ci sia permesso di specificare gli input delle funzioni. Inoltre, sebbene siano funzioni molto semplici, potrebbe non risultare chiaro quale sia effettivamente l'output restituito dalla funzione. 
+Quando chiamiamo la nostra funzione, R eseguirà il corpo della funzione e ci restituirà il risultato dell'ultimo comando eseguito. Le funzioni del precedente esempio, tuttavia, si rivelano poco utili poiché eseguono sempre le stesse operazioni senza che ci sia permesso di specificare gli input delle funzioni. Inoltre, sebbene siano funzioni molto semplici, potrebbe non risultare chiaro quale sia effettivamente l'output restituito dalla funzione. 
 
 :::{design title="Nomi Funzioni" data-latex="[Nomi Funzioni]"}
 Nel definire il nome di una funzione è utile seguire le stese indicazioni che riguardavano i nomi degli oggetti (vedi Capitolo \@ref(objects-names)). In questo caso affinché un nome sia **auto-descrittivo** si tende ad utilizzare verbi che riassumano l'azione eseguita dalla funzione.
@@ -103,7 +103,7 @@ happy_birthday <- function(){
 happy_birthday()
 ```
 
-Nota che questa funzione possona essere usata solo in sessioni interattive di R poichè è richiesta un 'azione diretta da parte dell'utente.
+Nota che questa funzione possona essere usata solo in sessioni interattive di R poiché è richiesta un 'azione diretta da parte dell'utente.
 :::
 
 #### Default Argomenti {-}
@@ -193,7 +193,7 @@ Abbiamo definito una (abbastanza inutile) funzione per calcolare la somma tra du
 ```{r, error=TRUE}
 my_sum("stringa", 5)
 ```
-In questo caso infatti, vediamo un messaggio denominato `Error...` con l'utile informazione che uno degli argomenti utilizzati risulta essere `non-numeric`. E' un messaggio semplice, mirato e sopratutto non fornisce un risultato perchè una condizione fondamentale (la somma vale solo per i numeri) non è rispettata. La funzione `+` ha già al suo interno questo controllo, ma se noi volessimo implementare un **controllo** e fornire un **messaggio** abbiamo a disposizione diverse opzioni:
+In questo caso infatti, vediamo un messaggio denominato `Error...` con l'utile informazione che uno degli argomenti utilizzati risulta essere `non-numeric`. E' un messaggio semplice, mirato e sopratutto non fornisce un risultato perché una condizione fondamentale (la somma vale solo per i numeri) non è rispettata. La funzione `+` ha già al suo interno questo controllo, ma se noi volessimo implementare un **controllo** e fornire un **messaggio** abbiamo a disposizione diverse opzioni:
 
 - `stop(<message>, .call = TRUE)`: Se inserito all'interno di una funzione, interrompe l'esecuzione e fornisce il messaggio specificato denominato come `Error`.
 - `stopifnot(expr1, expr2, ...)`: Se inserito all'interno di una funzione interrompe l'esecuzione se almeno una di una serie di condizioni risulta come **non VERA**.
@@ -279,7 +279,7 @@ res2
 res3 # nessun output
 ```
 
-Come vedete infatti, quando abbiamo un errore e fermiamo l'esecuzione, la funzione pur prevedendo un output, non fornisce risultato perchè è stata interrotta.
+Come vedete infatti, quando abbiamo un errore e fermiamo l'esecuzione, la funzione pur prevedendo un output, non fornisce risultato perché è stata interrotta.
 
 ## Ambiente della funzione
 
@@ -292,7 +292,7 @@ my_fun <- function(x){
 
 my_fun(10)
 ```
-Chiaramente otteniamo un errore perchè l'oggetto `y` non è stato creato. Se però creiamo l'oggetto `y` all'interno della funzione, questa esegue regolarmente la somma MA non crea l'oggetto `y` nell'ambiente globale.
+Chiaramente otteniamo un errore perché l'oggetto `y` non è stato creato. Se però creiamo l'oggetto `y` all'interno della funzione, questa esegue regolarmente la somma MA non crea l'oggetto `y` nell'ambiente globale.
 
 ```{r}
 my_fun <- function(x){

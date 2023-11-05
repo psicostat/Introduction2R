@@ -9,9 +9,9 @@ knitr::opts_chunk$set(
 library(kableExtra)
 ```
 
-Ora che abbiamo iniziato a famigliarizzare con il nostro stumento di lavoro possiamo finalmente dare fuoco alle polveri e concentraci sulla scrittura di codici!
+Ora che abbiamo iniziato a familiarizzare con il nostro stumento di lavoro possiamo finalmente dare fuoco alle polveri e concentraci sulla scrittura di codici!
 
-In questo capitolo muoveremo i primi passi in R. Inizieremo vedendo come utilizzare operatori matematici, relazionali e logici per compiere semplici operazioni in R. Imparare R è un lungo percorso (scoop: questo percorso non termina mai dato che R è sempre in continuo sviiluppo). Soprattutto all'inizio può sembrare eccessivamente difficile poichè è si incontrano per la prima volta molti comandi e concetti di programmazione. Tuttavia, una volta famigliarizzato con gli apetti di base, la progressione diventa sempre più veloce (inarrestabile direi!).
+In questo capitolo muoveremo i primi passi in R. Inizieremo vedendo come utilizzare operatori matematici, relazionali e logici per compiere semplici operazioni in R. Imparare R è un lungo percorso (scoop: questo percorso non termina mai dato che R è sempre in continuo sviiluppo). Soprattutto all'inizio può sembrare eccessivamente difficile poiché è si incontrano per la prima volta molti comandi e concetti di programmazione. Tuttavia, una volta familiarizzato con gli apetti di base, la progressione diventa sempre più veloce (inarrestabile direi!).
 
 In questo capitolo introdurremo per la prima volta molti elementi che saranno poi ripresi e approfonditi nei seguenti capitoli. Quindi non preoccuparti se non tutto ti sarà chiaro fin da subito. Imparare il tuo primo linguaggio di programmazione è difficile ma da qualche parte bisogna pure iniziare. Pronto per le tue prime linee di codice? Let's become a useR!
 
@@ -177,7 +177,7 @@ FALSE == 0  # TRUE
 FALSE == 1  # FALSE
 ```
 
-In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poichè potrebbe nonn essere chiara e creare fraintendimenti. Infatti mentre TRUE e FALSE sono parole riservate (vedi Capitolo \@ref(objects-names)) T a F non lo sono.
+In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poiché potrebbe nonn essere chiara e creare fraintendimenti. Infatti mentre TRUE e FALSE sono parole riservate (vedi Capitolo \@ref(objects-names)) T a F non lo sono.
 
 ```{r relational-operators-ex2, echo=TRUE, eval=FALSE}
 T == 1      # TRUE
@@ -223,7 +223,7 @@ kableExtra::kable(logical_operators, col.names = c("Funzione", "Nome", "Esempio"
 
 Questi operatori sono anche definiti [operatori booleani](https://it.wikipedia.org/wiki/Espressione_booleana) e seguono le comuni definizioni degli operatori logici. In particolare abbiamo che:
 
-- Nel caso della **congiunzione logica** `&`, affinchè la proposizione sia vera è necessario che entrambe le relazioni siano vere. Negli altri casi la proposizione sarà valutarta falsa (vedi Tabella \@ref(tab:and-operator)).
+- Nel caso della **congiunzione logica** `&`, affinché la proposizione sia vera è necessario che entrambe le relazioni siano vere. Negli altri casi la proposizione sarà valutarta falsa (vedi Tabella \@ref(tab:and-operator)).
 
 ```{r and-operator}
 
@@ -252,7 +252,7 @@ kableExtra::kable(and_operator, col.names = col_names,
                 latex_options = c("hold_position"))
 ```
 
-- Nel caso della **disgiunzione inclusiva logica** `|`, affinchè la proposizione sia vera è necessario che almeno una relaziona sia vera. La proposizione sarà valutarta falsa solo quando entrambe le relazioni sono false (vedi Tabella \@ref(tab:or-operator)).
+- Nel caso della **disgiunzione inclusiva logica** `|`, affinché la proposizione sia vera è necessario che almeno una relaziona sia vera. La proposizione sarà valutarta falsa solo quando entrambe le relazioni sono false (vedi Tabella \@ref(tab:or-operator)).
 
 ```{r or-operator}
 
@@ -272,7 +272,7 @@ kableExtra::kable(or_operator, col.names = c("x", "y", "x | y"),
 
 :::{.design title="Disgiunzione esclusiva" data-latex="[Disgiunzione esclusiva]"}
 
-Per completezza ricordiamo che tra gli operatori logici esiste anche la **disgiunzione esclusiva**. La proposizione sarà valutata falsa se entrambe le relazioni sono vere oppure false. Affinchè la proposizione sia valutata vera una sola delle relazioni deve essere vera mentre l'altra deve essere falsa.
+Per completezza ricordiamo che tra gli operatori logici esiste anche la **disgiunzione esclusiva**. La proposizione sarà valutata falsa se entrambe le relazioni sono vere oppure false. Affinché la proposizione sia valutata vera una sola delle relazioni deve essere vera mentre l'altra deve essere falsa.
 
 In R la disgiunzione esclusiva tra due ralazioni (x e y) è indicata con la funzione `xor(x, y)`. Tuttavia tale funzione è raramente usata.
 

@@ -82,12 +82,12 @@ Elenchiamo qui altre buone norme nella scrittura del codice che ne facilitano la
 
 L'uso dei commenti è molto importante, ci permette di documentare le varie parti del codice e chiarire eventuli comandi difficili da capire. Tuttavia, non è necessario commentare ogni singola riga di codice ed anzi è meglio evitare di commentare laddove i comandi sono facilemtne interpetabili semplicemnte leggendo il codice.
 
-La capacità di scrivere commenti utili ed eviare quelli rindondanti si impara con l'esperienza. In generale un commento non dovrebbe indicare *"che cosa"* ma piuttosto il *"perchè"* di quella parte di codice. Infatti il cosa è facilmente interpretabile dal codice stesso mentre il perchè potrebbe essere meno ovvio e soprattutto più utile per la comprensione dell'intero script. Ad esempio:
+La capacità di scrivere commenti utili ed eviare quelli rindondanti si impara con l'esperienza. In generale un commento non dovrebbe indicare *"che cosa"* ma piuttosto il *"perché"* di quella parte di codice. Infatti il cosa è facilmente interpretabile dal codice stesso mentre il perché potrebbe essere meno ovvio e soprattutto più utile per la comprensione dell'intero script. Ad esempio:
 ```{r, echo = TRUE, eval=FALSE}
 x <- 10 # assegno a x il valore 10
 x <- 10 # definisco massimo numero risposte
 ```
-Il primo commento è inutile poichè è facilmente comprensibile dal codice stesso, mentre il secondo commento è motlo utile perchè chiarisce il significato della variabile e mi faciliterà nella comprensione del codice. 
+Il primo commento è inutile poiché è facilmente comprensibile dal codice stesso, mentre il secondo commento è motlo utile perché chiarisce il significato della variabile e mi faciliterà nella comprensione del codice. 
 
 #### Nomi Oggetti {-}
 
@@ -286,7 +286,7 @@ R utilizza la console per comunicare con noi durante le nostre sessioni di lavor
 Notiamo quindi come non tutti i messaggi che R ci manda sono dei messaggi di errore. E' quindi importante non spaventarsi ma leggere con attenzione  i messaggi, molte volte si tratta semplicemente di avvertimenti o suggerimenti.
 
 
-Tuttavia gli errori rappresentano sempre il maggiore dei problemi perchè non è possibile procedere nel lavoro senza averli prima risolti. E' importante ricordare che i messaggi di errore non sono delle critiche che R ci rivolge perchè sbagliamo. Al contrario, sono delle richieste di aiuto fatte da R perchè non sa come comportarsi. Per quanto super potente, R è un seplice programma che non può interpretare le nostre richieste ma si basa sull'uso dei comandi che seguono una rigida sintassi. A volte è sufficiente una virgola mancante o un charattere al posto di un numero per mandare in confusione R e richiedere il nostro intervento risolutore. 
+Tuttavia gli errori rappresentano sempre il maggiore dei problemi perché non è possibile procedere nel lavoro senza averli prima risolti. E' importante ricordare che i messaggi di errore non sono delle critiche che R ci rivolge perché sbagliamo. Al contrario, sono delle richieste di aiuto fatte da R perché non sa come comportarsi. Per quanto super potente, R è un seplice programma che non può interpretare le nostre richieste ma si basa sull'uso dei comandi che seguono una rigida sintassi. A volte è sufficiente una virgola mancante o un charattere al posto di un numero per mandare in confusione R e richiedere il nostro intervento risolutore. 
 
 ### Risolvere gli Errori
 
@@ -328,7 +328,7 @@ Cercando in questo modo vedrete che molti dei risultati saranno esattamente rife
 #### Chiedere una soluzione {-}
 
 Se invece il vostro probelma non è un messaggio di errore ma un utilizzo specifico di R allora il consiglio è di usare una ricerca del tipo: `argomento + breve descrizione problema + R`. Nelle sezioni successive vedrete nel dettaglio altri aspetti della programmazione ma se volete ad esempio calcolare la **media** in R potrete scrivere `compute mean in R`. 
-Mi raccomando, fate tutte le ricerche in **inglese** perchè le possibilità di trovare una soluzione sono molto più alte.
+Mi raccomando, fate tutte le ricerche in **inglese** perché le possibilità di trovare una soluzione sono molto più alte.
 
 Dopo qualche ricerca, vi renderete conto che il sito che vedrete più spesso si chiama [**Stack Overflow**](https://stackoverflow.com/). Questo è una manna dal cielo per tutti i programmatori, a qualsiasi livello di expertise. E' una community dove tramite domande e risposte, si impara a risolvere i vari problemi ed anche a trovare nuovi modi di fare la stessa cosa. E' veramente utile oltre che un ottimo modo per imparare.
 

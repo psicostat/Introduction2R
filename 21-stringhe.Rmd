@@ -40,7 +40,7 @@ x <- "stringa con all'interno un'altra 'stringa'"
 x
 
 x <- "stringa con all'interno un'altra "stringa""
-# in questo caso abbaimo errore perchè non interpreta la doppia virgolettatura
+# in questo caso abbaimo errore perché non interpreta la doppia virgolettatura
 ```
 
 All'interno delle stringhe possiamo utilizzare caratteri speciali come `/|\$%&`. Alcuni di questi vengono intepretati da R in modo particolare. Quando accade è necessario aggiungere il carattere `\` che funge da *escape*, ovvero dice ad R di trattare letterlamente quel carattere:
@@ -71,7 +71,7 @@ intero == double
 "female" == "feMale"
 ```
 
-Anche il concetto di spazio ` ` è rilevante perchè viene considerato come un carattere:
+Anche il concetto di spazio ` ` è rilevante perché viene considerato come un carattere:
 
 ```{r}
 "ciao " == "ciao"
@@ -99,7 +99,7 @@ Vediamo quindi alcune funzioni utili per lavorare con le stringhe.
 
 ### `tolower()` e `toupper()`
 
-Queste funzioni sono estremamente utili perchè permettono di forzare il carattere maiscolo o minuscolo
+Queste funzioni sono estremamente utili perché permettono di forzare il carattere maiscolo o minuscolo
 
 ```{r}
 tolower(genere)
@@ -315,7 +315,7 @@ Le Regular Expressions (REGEX) sono un insieme di caratteri (chiamati **metacara
 
 Per fare un esempio se vogliamo estrarre l'estensione da una lista di file il ragionamento è:
 
-- dobbiamo trovare un `.` perchè (circa) tutti i file sono composti da `nomefile.estensione`
+- dobbiamo trovare un `.` perché (circa) tutti i file sono composti da `nomefile.estensione`
 - dobbiamo selezionare tutti i caratteri dal punto alla fine della stringa
 
 La "traduzione" in termini di REGEX è questa `"\\.([^.]+)$"` e quindi possiamo usare questo come *pattern* e quindi estrarre le informazioni che ci servono. Possiamo usare la funzione `regmatches(text, match)` che richiede la stringa da analizzare e un oggetto `match` che è il risultato della funzione `regexpr` che abbiamo già visto:

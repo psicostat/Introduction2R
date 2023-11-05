@@ -32,14 +32,14 @@ Notiamo quindi come i vettori $x$ e $y$ così definiti:
 $$
 x = [1, 3, 5];\ \ \ y = [3, 1, 5],
 $$
-sebbene includano gli stessi elementi, non sono identici poichè differiscono per la loro disposizione. Tutto questo ci serve solo per ribadire come l'ordine degli elementi sia fondamentale per la valutazione di un vettore.
+sebbene includano gli stessi elementi, non sono identici poiché differiscono per la loro disposizione. Tutto questo ci serve solo per ribadire come l'ordine degli elementi sia fondamentale per la valutazione di un vettore.
 
 
 Vedimao ora come creare dei vettori in R e come compiere le comuni operazini di selezione e manipolazione di vettori. Successivamente approfondiremo le caratteristiche dei vettori valutandone le diverse tipologie.
 
 ## Creazione
 
-In realtà abbiamo già incontrato dei vettori nei precedenti capitoli poichè anche le variabili con un singolo valore altro non sono che un vettore di lunghezza 1. Tuttavia, per creare dei vettori di più elementi dobbiamo utilizzare il comando `c()`, ovvero *"combine"*, indicando tra le parentesi i valori degli elementi nella sucessione desiderata e separati da una virgola. Avremo quindi la seguente sintassi:
+In realtà abbiamo già incontrato dei vettori nei precedenti capitoli poiché anche le variabili con un singolo valore altro non sono che un vettore di lunghezza 1. Tuttavia, per creare dei vettori di più elementi dobbiamo utilizzare il comando `c()`, ovvero *"combine"*, indicando tra le parentesi i valori degli elementi nella sucessione desiderata e separati da una virgola. Avremo quindi la seguente sintassi:
 
 ```{r echo = TRUE, eval = FALSE}
 nome_vettore <- c(x_1, x_2, x_3, ..., x_n)
@@ -83,7 +83,7 @@ rep(1:3, each = 2)
 
 ### Esercizi {-}
 
-Famigliarizza con la creazione di vettori ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07-vectors.R)):
+familiarizza con la creazione di vettori ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-07-vectors.R)):
 
 1. Crea il vettore `x` contenente i numeri 4, 6, 12, 34, 8
 2. Crea il vettore `y` contenente tutti i numeri pari compresi tra 1 e 25 (`?seq()`)
@@ -246,7 +246,7 @@ sort(my_letters)
 sort(messy_vector, decreasing = TRUE)
 ```
 
-Nota come esista anche la funzione `order()` ma questa sia un false-friend perchè non ci fornisce direttamente un vettore con gli elementi ordinati ma bensì gli indici di posizione per riordinare gli elementi (`?order()`). Vediamo nel seguente esempio come utilizzare questa funzione:
+Nota come esista anche la funzione `order()` ma questa sia un false-friend perché non ci fornisce direttamente un vettore con gli elementi ordinati ma bensì gli indici di posizione per riordinare gli elementi (`?order()`). Vediamo nel seguente esempio come utilizzare questa funzione:
 ```{r, echo = TRUE}
 # Indici di posizione per riordinare gli elementi
 order(messy_vector)
@@ -402,11 +402,11 @@ Qualora i vettori differiscano per la loro lunghezza, R ci presenterà un warnin
 x + c(1, 2)
 ```
 
-Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche se multipli) dovrebbe essere evitato poichè è facile causa di errori ed incomprensioni. 
+Tuttavia, compiere operazioni tra vettori di diversa lunghezza (anche se multipli) dovrebbe essere evitato poiché è facile causa di errori ed incomprensioni. 
 :::
 
 :::{.design title="Vectorized Operations" data-latex="[Vectorized Operations]"}
-In R la maggior parte degli operatori sono *vettorizzati*, ovvero calcolano direttamente il risultato per ogni elemento di un vettore. Questo è un grandissimo vantaggio poichè ci permette di essere molto efficienti e coincisi nel codice.
+In R la maggior parte degli operatori sono *vettorizzati*, ovvero calcolano direttamente il risultato per ogni elemento di un vettore. Questo è un grandissimo vantaggio poiché ci permette di essere molto efficienti e coincisi nel codice.
 
 Senza vettorizzazione, ogni operazione tra due vettori richiederebbe di specificare l'operazione per ogni elemento del vettore. Nel precedente esempio della somma tra `x` e `y` avremmo dovuto usare il seguente codice:
 ```{r, echo = TRUE}
@@ -693,7 +693,7 @@ pi^650
 -pi/0
 ```
 
-E' importante essere consapevoli delle caratteristiche di questi valori poichè presentano dei comportamenti peculiari che, se non corretamente gestiti, possono generare conseguenti errori nei codici. Descriviamo ora alcune delle carateristiche più importanti. 
+E' importante essere consapevoli delle caratteristiche di questi valori poiché presentano dei comportamenti peculiari che, se non corretamente gestiti, possono generare conseguenti errori nei codici. Descriviamo ora alcune delle carateristiche più importanti. 
 
 #### Lunghezza Elementi {-}
 
@@ -752,7 +752,7 @@ Inf / Inf   # NaN
 
 #### Testare Valori {-}
 
-E' importante ricordare come per testare l apresenza di uno di questi valori speciali siano presenti delle funzioni specifiche della famiglia `is.*`. Non deve mai essere utlizzato il comune operatore di uguaglianza `==` poichè non fornisce i risultai corretti.
+E' importante ricordare come per testare l apresenza di uno di questi valori speciali siano presenti delle funzioni specifiche della famiglia `is.*`. Non deve mai essere utlizzato il comune operatore di uguaglianza `==` poiché non fornisce i risultai corretti.
 
 - `is.null`
 ```{r, echo = TRUE, eval =  FALSE}
@@ -818,13 +818,13 @@ Un comportamento tanto strano per quanto riguarda l'utilizzo del valore `NA` con
 is.logical(NA)
 ```
 
-Pertanto le proposizioni vengono correttamente seguendo le comuni regole. Nel caso di `TRUE | NA` la proposizione è giudicata `TRUE` perchè con l'operatore di disgiunzione è sufficiente che una delle due parti sia vera avvinchè la proposizione sia vera. Nel caso di `FALSE & NA`, invece, la proposizione è giudicata `FALSE` perchè con l'operatore di congiunzione è sufficiente che una delle due parti sia falsa avvinchè la proposizione sia falsa. LA non risposta indicata da `NA` i questi casi è ininfluente, mentre determina il risultato nei restanti casi quando la seconda parte  della proposizione deve essere necessariamente valutata. A questo punto gli operatori restituiscono `NA` poichè incapaci di determinare la risposta.
+Pertanto le proposizioni vengono correttamente seguendo le comuni regole. Nel caso di `TRUE | NA` la proposizione è giudicata `TRUE` perché con l'operatore di disgiunzione è sufficiente che una delle due parti sia vera affinché la proposizione sia vera. Nel caso di `FALSE & NA`, invece, la proposizione è giudicata `FALSE` perché con l'operatore di congiunzione è sufficiente che una delle due parti sia falsa affinché la proposizione sia falsa. LA non risposta indicata da `NA` i questi casi è ininfluente, mentre determina il risultato nei restanti casi quando la seconda parte  della proposizione deve essere necessariamente valutata. A questo punto gli operatori restituiscono `NA` poiché incapaci di determinare la risposta.
 
 Per quanto riguarda il caso del valore `NaN` è sufficinete ricordare che tale valore sia comunque un valore numerico di cui però non è possibile identificare il valore.
 ```{r, echo = TRUE}
 is.numeric(NaN)
 ```
-Tutti i valori numerici sono considerati validi nelle operazioni logiche, dove qualsiais numero diveros da zero è valutato `TRUE`. Pertanto viene seguito lo stesso ragionamento precedente, quando non è necessario valutare entrambe le parti della proposizione viene fornita una risposta, mentre si ottiene `NA` negli altri casi quando R è obbligato a valutare entrambe la parti ma è incapace di fornire una risspossta poichè non può determinare il valore di `NaN`.
+Tutti i valori numerici sono considerati validi nelle operazioni logiche, dove qualsiais numero diveros da zero è valutato `TRUE`. Pertanto viene seguito lo stesso ragionamento precedente, quando non è necessario valutare entrambe le parti della proposizione viene fornita una risposta, mentre si ottiene `NA` negli altri casi quando R è obbligato a valutare entrambe la parti ma è incapace di fornire una risspossta poiché non può determinare il valore di `NaN`.
 :::
 
 :::{.design title="L'importanza dei Dati Mancanti" data-latex="[L'importanza dei Dati Mancanti]"}

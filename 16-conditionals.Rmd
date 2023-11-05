@@ -79,7 +79,7 @@ my_function(-5)
 
 ### if...else
 
-Il semplice utilizzo di un singolo `if` potrebbe non essere sufficiente in alcune situazioni. Sopratutto perchè possiamo vedere l'`if` come una deviazione temporanea dallo script principale (molto chiaro nella figura \@ref(fig:plot-if-chart)) che viene imboccata solo se è vera una condizione, altrimenti lo script continua. Se vogliamo una struttura più "simmetrica" possiamo eseguire delle operazioni se la condizone è vera `if` e altre per tutti gli altri scenari (`else`). La Figura \@ref(fig:plot-ifelse-chart) mostra chiaramente questa struttura diversa nel flusso.
+Il semplice utilizzo di un singolo `if` potrebbe non essere sufficiente in alcune situazioni. Sopratutto perché possiamo vedere l'`if` come una deviazione temporanea dallo script principale (molto chiaro nella figura \@ref(fig:plot-if-chart)) che viene imboccata solo se è vera una condizione, altrimenti lo script continua. Se vogliamo una struttura più "simmetrica" possiamo eseguire delle operazioni se la condizone è vera `if` e altre per tutti gli altri scenari (`else`). La Figura \@ref(fig:plot-ifelse-chart) mostra chiaramente questa struttura diversa nel flusso.
 
 ```{r, plot-ifelse-chart, fig.cap="Rappresentazione if...else", out.width="65%"}
 knitr::include_graphics("images/ifelse_chart.png")
@@ -142,7 +142,7 @@ my_function(15)
 my_function(-5)
 ```
 
-E' importante capire la differenza tra usare multipli `if` e `else if` rispetto a utilizzare un semplice `else`. Se noi vogliamo specificare un set **finito** di alternative, la scelta migliore e quella più chiara consiste di usere `else if` perchè al contrario di `else` richiede di specificare la condizione. Se invece siamo interessanti ad alcune condizioni mentre per tutto il resto applichiamo la stessa operazione, possiamo concludere il nostro flusso con un `else`.
+E' importante capire la differenza tra usare multipli `if` e `else if` rispetto a utilizzare un semplice `else`. Se noi vogliamo specificare un set **finito** di alternative, la scelta migliore e quella più chiara consiste di usere `else if` perché al contrario di `else` richiede di specificare la condizione. Se invece siamo interessanti ad alcune condizioni mentre per tutto il resto applichiamo la stessa operazione, possiamo concludere il nostro flusso con un `else`.
 
 ### Nested
 
@@ -294,4 +294,4 @@ Veniamo avvertiti che `age` non è un singolo valore e che quindi solo il primo 
 ifelse(age < 18, yes = print("Minorenne"), no = print("Maggiorenne"))
 ```
 
-In questo caso l'idea è di eseguire il codice precedente per ogni valore del nostro vettore in input. Questo è possibile perchè l'operazione `<` è vettorizzata.
+In questo caso l'idea è di eseguire il codice precedente per ogni valore del nostro vettore in input. Questo è possibile perché l'operazione `<` è vettorizzata.

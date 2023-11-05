@@ -173,7 +173,7 @@ knitr::include_graphics("images/while_loop.png")
 
 #### Struttura While Loop {-}
 
-La scrittura è più concisa del ciclo `for` perchè non definiamo nessun counter o placeholder e nemmeno un vettore di valori. L'unica cosa che muove un ciclo `while` è una condizione logica (quindi con valori booleani `TRUE` e `FALSE`). Anche qui, parafrasando:
+La scrittura è più concisa del ciclo `for` perché non definiamo nessun counter o placeholder e nemmeno un vettore di valori. L'unica cosa che muove un ciclo `while` è una condizione logica (quindi con valori booleani `TRUE` e `FALSE`). Anche qui, parafrasando:
 
 > Ripeti le operazioni incluse tra {} fino a che la condizione `<test>` è VERA.
 
@@ -201,7 +201,7 @@ while(count >= 0){
 Quando si scrive un ciclo `while` è importante assicurarsi di due cose:
 
 - Che la condizione sia `TRUE` inizialmente, altrimenti il ciclo non comincierà nemmeno
-- Che ad un certo punto la condizione diventi `FALSE` (perchè abbiamo ottenuto il risultato o perchè è passato troppo tempo o iterazioni)
+- Che ad un certo punto la condizione diventi `FALSE` (perché abbiamo ottenuto il risultato o perché è passato troppo tempo o iterazioni)
 
 Se la seconda condizione non è rispettata, otteniamo quelli che si chiamano `endless loop` come ad esempio:
 
@@ -350,7 +350,7 @@ Prima di descrivere nel dettaglio ogni funzione `*apply` è importante capire qu
 - funzioni personalizzate (create e salvate nell'ambiente principale)
 - funzioni **anonime**
 
-Nell'esempio precedente, abbiamo utilizzato la funzione `mean` semplicemente scrivendo `lapply(lista, mean)`. Questo è possibile perchè `mean` necessita di un solo argomento. Se tuttavia volessimo applicare funzioni più complesse o aggiungere argomenti possiamo usare la scrittura più generale:
+Nell'esempio precedente, abbiamo utilizzato la funzione `mean` semplicemente scrivendo `lapply(lista, mean)`. Questo è possibile perché `mean` necessita di un solo argomento. Se tuttavia volessimo applicare funzioni più complesse o aggiungere argomenti possiamo usare la scrittura più generale:
 
 ```{r}
 means <- lapply(list_vec, function(x) mean(x))
@@ -532,7 +532,7 @@ vapply(X = , FUN = , FUN.VALUE =  ,... )
 
 #### Esempi {-}
 
-`vapply` è una ancora una volta simile sia a `lapply` che a `sapply`. Tuttavia richiede che il tipo di output sia specificato in anticipo. Per questo motivo è ritenuta una versione più *solida* delle precedenti perchè permette più controllo su quello che accade.
+`vapply` è una ancora una volta simile sia a `lapply` che a `sapply`. Tuttavia richiede che il tipo di output sia specificato in anticipo. Per questo motivo è ritenuta una versione più *solida* delle precedenti perché permette più controllo su quello che accade.
 
 ```{r, echo = TRUE}
 # Media 
@@ -588,7 +588,7 @@ Quello che abbiamo fatto è creare una lista di funzioni e poi scrivere due `lap
 
 ### mapply
 
-`mapply` è la versione più complessa di quelle considerate perchè estende a *n* il numero di liste che vogliamo utilizzare. La scrittura è la seguente:
+`mapply` è la versione più complessa di quelle considerate perché estende a *n* il numero di liste che vogliamo utilizzare. La scrittura è la seguente:
 
 ```{r, echo = TRUE, eval = FALSE}
 mapply(FUN, ...)

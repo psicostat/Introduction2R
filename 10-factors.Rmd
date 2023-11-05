@@ -161,7 +161,7 @@ as.numeric(as.character(school_years))
 ```
 Questo ci permette di sostituire prime i valori con le giuste *etichette*, ovvero i livelli della variabile, e successivamente convertire il tutto in un vettore numerico.
 
-E' importante prestare molta attenzione in questi casi poichè un eventuale errore potrebbe non risultare subito evidente.
+E' importante prestare molta attenzione in questi casi poiché un eventuale errore potrebbe non risultare subito evidente.
 :::
 
 ### Operazioni Fattori
@@ -205,7 +205,7 @@ levels(dosage_wrong) <- c("low", "medium", "high")
 dosage_wrong
 ```
 
-Nota come questo sia un grave errore poichè rinominado i livelli abbiamo modificato anche gli effettivi valori degli elementi. Adesso i valori sono tutti diversi e insensati.
+Nota come questo sia un grave errore poiché rinominado i livelli abbiamo modificato anche gli effettivi valori degli elementi. Adesso i valori sono tutti diversi e insensati.
 
 Per riordinare corretamente i livelli riutilizziamo la funzione `factor()` specificando i livelli nell'ordine desiderato.
 ```{r, echo = TRUE}
