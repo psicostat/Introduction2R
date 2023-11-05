@@ -25,7 +25,7 @@ Vediamo ora una serie di buone regole per organizzare in modo ordinato il codice
 
 ### Creare delle Sezioni
 
-Per mantenere chiara l'oreganizzazione degli script e facilitare la sua comprensione, è utile suddividere il codice in sezioni dove vengono eseguiti i diversi step delle analisi. In RStudio è possibile creare una sezione aggiungendo al termine di una linea di commento i caratteri `####` o `----`. Il testo del commento verrà considerao il titolo della sezione e comparirà una piccola freccia a lato del numero di riga. E' possibile utilizzare a piacere i caratteri `#` o `-` per creare lo stile desiderato, l'importante è che la linea si concluda con almeno quattro caratteri identici.
+Per mantenere chiara l'oreganizzazione degli script e facilitare la sua comprensione, è utile suddividere il codice in sezioni dove vengono eseguiti i diversi step delle analisi. In RStudio è possibile creare una sezione aggiungendo al termine di una linea di commento i caratteri `####` o `----`. Il testo del commento verrà considerao il titolo della sezione e comparirà una piccola freccia a lato del numero di riga. È possibile utilizzare a piacere i caratteri `#` o `-` per creare lo stile desiderato, l'importante è che la linea si concluda con almeno quattro caratteri identici.
 
 
 ```{r, echo = TRUE}
@@ -45,7 +45,7 @@ A titolo del tutto esemplificativo prendiamo in esempio la divisione in sezioni 
 knitr::include_graphics("images/script-template.png")
 ```
 
-- **Titolo** - Un titolo esplicativo del contenuto dello script. E' possibile utilizzare altri caratteri all'interno dei commenti per creare l'effetto desiderato.
+- **Titolo** - Un titolo esplicativo del contenuto dello script. È possibile utilizzare altri caratteri all'interno dei commenti per creare l'effetto desiderato.
 - **Intorduzione** - Descrizione e utili informazioni che riguardano sia l'obbiettivo del lavoro che l'esecuzione del codice (ad es. dove sono disponibili i dati, eventuali specifiche tecniche). Potrebbe essere utile anche indicare l'autore e la data del lavoro.
 - **Setting** -  Sezione fondamentale in cui si predispone l'abiente di lavoro. Le operazioni da svolgere sono:
   1. `rm(list = ls())` per pulire l'Environment da eventuali oggetti in modo da eseguire lo script partendo da un ambiente vuoto (vedi Capitolo \@ref(environment)).
@@ -93,10 +93,10 @@ Il primo commento è inutile poiché è facilmente comprensibile dal codice stes
 
 Abbiamo visto nel Capitolo \@ref(objects-names) le regole che discriminano nomi validi da nomi non validi e le convenzioni da seguire nella definizione di un nome. Ricordiamo qui le caratterisiche che un nome deve avere per facilitare la comprensione del codice. Il nome di un oggetto deve essere:
 
-- **auto-descrittivo** - Dal solo nome dovrebbe essere possibile intuire il contenuto dell'oggetto. E' meglio quindi evitare nomi generici (quali `x` o `y`) ed utilizzare invece nomi che chiaramente descrivano il contenuto dell'oggetto.
+- **auto-descrittivo** - Dal solo nome dovrebbe essere possibile intuire il contenuto dell'oggetto. È meglio quindi evitare nomi generici (quali `x` o `y`) ed utilizzare invece nomi che chiaramente descrivano il contenuto dell'oggetto.
 - **della giusta lunghezza** - Non deve essere ne troppo breve (evitare sigle incomprensibili) ma neppure troppo lunghi. In genere sono sufficienti 2 o 3 parole per descrivere chiaramente un oggetto.
 
-E' inoltre importante essere **consistenti** nella scelta dello stile con cui si nominano le variabili. In genere è preferibile usare lo **snake_case** rispetto al **CamelCase**, ma la scelta è comunque libera. Tuttavia, una volta presa una decisione, è bene mantenerla per facilitare la comprensione del codice.
+È inoltre importante essere **consistenti** nella scelta dello stile con cui si nominano le variabili. In genere è preferibile usare lo **snake_case** rispetto al **CamelCase**, ma la scelta è comunque libera. Tuttavia, una volta presa una decisione, è bene mantenerla per facilitare la comprensione del codice.
 
 #### Esplicitare Argomenti {-}
 
@@ -222,7 +222,7 @@ My_analysis/
 - `Data/` - tutti i file relativi ai dati usati nell'analisi. Sarà importante mantenere sia una copia dei dati *raw*, ovvero i dati grezzi senza alcuan manipolazione, sia i dati effetivamente usati nelle analisi che in genere sono stati già puliti e codificati.
 - `Documents/` - tutti i file di testo (ad es. Word o simili) e report utilizzati per descrivere le analisi (vedi in particolare [R-markdown](https://rmarkdown.rstudio.com/)).
 - `Outputs/` - eventuali outputs creati durante le analisi come ad esempio grafici e tabelle.
-- `R/` - tutti gli script utilizzati per le analisi. E' possibile numerare gli script per suggerire il corretto ordine in cui debbano essere eseguiti, ad esempio `01-import-data.R`, `02-munge-data.R`, `03-descriptive-analysis.R` etc.
+- `R/` - tutti gli script utilizzati per le analisi. È possibile numerare gli script per suggerire il corretto ordine in cui debbano essere eseguiti, ad esempio `01-import-data.R`, `02-munge-data.R`, `03-descriptive-analysis.R` etc.
 
 Questa struttura è puramente esemplificativa ma può essere un utile base di partenza che è possibile adattare a seconda delle particolari esigenze di ogni lavoro.
 
@@ -271,7 +271,7 @@ Vediamo quindi come creare un **R Projects**.
 Elenchiamo ora alcuni dei principali vantaggi dell'utilizzare gli R Project:
 
 - La **working directory** viene autoamticamente settata nella cartella del progetto. Questo ci permette di non doverci più preoccupare della sua definizione e possiamo definire ogni *path* in relazione alla cartella del progetto.
-- Quando apriamo un progetto in una successiva **sessione di lavoro** gli script e i documenti di lavoro verranno automaticamente aperti come li avevamo lasciati nella sessione precedente. E' come avere una scrivania per ogni progetto dove lasciare tutti i documenti utili e riprendere il lavoro immediatamete.
+- Quando apriamo un progetto in una successiva **sessione di lavoro** gli script e i documenti di lavoro verranno automaticamente aperti come li avevamo lasciati nella sessione precedente. È come avere una scrivania per ogni progetto dove lasciare tutti i documenti utili e riprendere il lavoro immediatamete.
 - Utilizzando i progetti è possibile **personnalizzare e automatizzare** molte funzioni come ad esempio caricare i paccheti o eseguire determinati codici. Tuttavia richiedono una buona conoscenza di R.
 - Esistono molti **template** per i progetti che implementano utili funzionalità, in particolare la struttura degli R Projects usata per lo sviluppo dei pacchetti è molto utile anche nel caso di analisi statistiche. Tuttavia richiedono una buona conoscenza di R.
 
@@ -283,10 +283,10 @@ R utilizza la console per comunicare con noi durante le nostre sessioni di lavor
 - **Warnings**: questi messaggi sono utlizzati da R per dirci che c'è stato qualche cosa di strano che ha messo in allerta R. R ci avvisa che, sebbene il comando sia stato eseguito ed abbiamo ottenuto un risultato, ci sono stati dei comportamenti inusuali o magari eventuali correzioni apportate in automatico. Nel caso di warnings non ci dobbiamo allramre, è importante controllare che i comandi siano corretti e che abbiamo effetivamente ottenuto il risultato desiderato. Una volta sicuri dei risultati possiamo procedere tranquillamente.
 - **Errors**: R ci avvisa di eventuali errori e problemi che non permettono di eseguire il comando. in questo caso non otterremo nnessun risultato ma sarà necessario capire e risolvere il problema per poi rieseguire nuovamente il comando e procedere.
 
-Notiamo quindi come non tutti i messaggi che R ci manda sono dei messaggi di errore. E' quindi importante non spaventarsi ma leggere con attenzione  i messaggi, molte volte si tratta semplicemente di avvertimenti o suggerimenti.
+Notiamo quindi come non tutti i messaggi che R ci manda sono dei messaggi di errore. È quindi importante non spaventarsi ma leggere con attenzione  i messaggi, molte volte si tratta semplicemente di avvertimenti o suggerimenti.
 
 
-Tuttavia gli errori rappresentano sempre il maggiore dei problemi perché non è possibile procedere nel lavoro senza averli prima risolti. E' importante ricordare che i messaggi di errore non sono delle critiche che R ci rivolge perché sbagliamo. Al contrario, sono delle richieste di aiuto fatte da R perché non sa come comportarsi. Per quanto super potente, R è un seplice programma che non può interpretare le nostre richieste ma si basa sull'uso dei comandi che seguono una rigida sintassi. A volte è sufficiente una virgola mancante o un charattere al posto di un numero per mandare in confusione R e richiedere il nostro intervento risolutore. 
+Tuttavia gli errori rappresentano sempre il maggiore dei problemi perché non è possibile procedere nel lavoro senza averli prima risolti. È importante ricordare che i messaggi di errore non sono delle critiche che R ci rivolge perché sbagliamo. Al contrario, sono delle richieste di aiuto fatte da R perché non sa come comportarsi. Per quanto super potente, R è un seplice programma che non può interpretare le nostre richieste ma si basa sull'uso dei comandi che seguono una rigida sintassi. A volte è sufficiente una virgola mancante o un charattere al posto di un numero per mandare in confusione R e richiedere il nostro intervento risolutore. 
 
 ### Risolvere gli Errori
 
@@ -330,7 +330,7 @@ Cercando in questo modo vedrete che molti dei risultati saranno esattamente rife
 Se invece il vostro probelma non è un messaggio di errore ma un utilizzo specifico di R allora il consiglio è di usare una ricerca del tipo: `argomento + breve descrizione problema + R`. Nelle sezioni successive vedrete nel dettaglio altri aspetti della programmazione ma se volete ad esempio calcolare la **media** in R potrete scrivere `compute mean in R`. 
 Mi raccomando, fate tutte le ricerche in **inglese** perché le possibilità di trovare una soluzione sono molto più alte.
 
-Dopo qualche ricerca, vi renderete conto che il sito che vedrete più spesso si chiama [**Stack Overflow**](https://stackoverflow.com/). Questo è una manna dal cielo per tutti i programmatori, a qualsiasi livello di expertise. E' una community dove tramite domande e risposte, si impara a risolvere i vari problemi ed anche a trovare nuovi modi di fare la stessa cosa. E' veramente utile oltre che un ottimo modo per imparare.
+Dopo qualche ricerca, vi renderete conto che il sito che vedrete più spesso si chiama [**Stack Overflow**](https://stackoverflow.com/). Questo è una manna dal cielo per tutti i programmatori, a qualsiasi livello di expertise. È una community dove tramite domande e risposte, si impara a risolvere i vari problemi ed anche a trovare nuovi modi di fare la stessa cosa. È veramente utile oltre che un ottimo modo per imparare.
 
 L'ultimo punto di questa piccola guida alla ricerca di soluzioni, riguarda il fatto di dover non solo cercare ma anche chiedere. Dopo aver cercato vari post di persone che richiedevano aiuto per un problema noterete che le domande e le risposte hanno sempre una struttura simile. Questo non è solo un fatto stilistico ma anzi è molto utile per uniformare e rendere chiara la domanda ma sopratutto la risposta, in uno spirito di condivisione. C'è anche una [guida dedicata](https://stackoverflow.com/help/how-to-ask) per scrivere la domanda perfetta.
 
@@ -341,7 +341,7 @@ In generale[^stack]:
 - Descrizione del problema/richiesta: in modo chiaro e semplice ma non troppo generico
 - Codice ed eventuali dati per capire il problema
 
-L'ultimo punto di questa lista è forse il più importante e si chiama in gergo tecnico [**REPREX**](https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219) (**Rep**roducible **Ex**ample). E' un tema leggermente più avanzato ma l'idea di fondo è quella di fornire tutte le informazioni possibili per poter riprodurre (e quindi eventualmente trovare una soluzione) il codice di qualcuno nel proprio computer.
+L'ultimo punto di questa lista è forse il più importante e si chiama in gergo tecnico [**REPREX**](https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219) (**Rep**roducible **Ex**ample). È un tema leggermente più avanzato ma l'idea di fondo è quella di fornire tutte le informazioni possibili per poter riprodurre (e quindi eventualmente trovare una soluzione) il codice di qualcuno nel proprio computer.
 
 Se vi dico "R non mi fa creare un nuovo oggetto, quale è l'errore?" è diverso da dire "il comando `oggetto -> 10` mi da questo errore `Error in 10 <- oggetto : invalid (do_set) left-hand side to assignment`, come posso risolvere?"
 

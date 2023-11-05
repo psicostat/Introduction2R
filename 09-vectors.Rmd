@@ -23,7 +23,7 @@ Due caratteristiche importanti di un vettore sono:
 - la **tipologia** - la tipologia di dati da cui è formato il vettore. Un vettore infatti deve esssere formato da **elementi tutti dello stesso tipo** e pertanto esistono diversi vettori a seconda della tipologia di dati da cui è formato (valori numerici, valori interi, valori logici, valori carattere).  
 
 
-E' fondamentale inoltre sottolineare come ogni **elemento** di un vettore sia caratterizzato da:
+È fondamentale inoltre sottolineare come ogni **elemento** di un vettore sia caratterizzato da:
 
 - un **valore** - ovvero il valore dell'elemento che può essere di qualsiasi tipo ad esempio un numero o una serie di caratteri.
 - un **indice di posizione** - ovvero un numero intero positivo che identifica la sua posizione all'interno del vettore.
@@ -325,7 +325,7 @@ x > 5
 which(x > 5)
 ```
 
-Come vedete, la funzione `which()` essenzialmente restituisce la **posizione** (e non il valore) dove la condizione testata è `TRUE`. E' importante notare che queste due scritture sono equivalenti:
+Come vedete, la funzione `which()` essenzialmente restituisce la **posizione** (e non il valore) dove la condizione testata è `TRUE`. È importante notare che queste due scritture sono equivalenti:
 
 ```{r}
 x[x > 5]
@@ -383,7 +383,7 @@ kableExtra::kable(vector_operators, col.names = c("Funzione", "Descrizione"),
 Nota che l'esecuzione di operazioni matematiche (ad es. `+`, `-`, `*`, `/` etc.) è possibile sia rispetto ad un singolo valore sia rispetto ad un altro vettore:
 
 - **Singolo valore** - l'operazione sarà svolta per ogni elemento del vettore rispetto al singolo valore fornito. 
-- **Altro vettore** - l'operazione sarà svolta per ogni coppia di elementi dei due vettori. E' quindi necessario che i due vettori abbiano la **stessa lunghezza**, ovvero lo stesso numero di elementi.
+- **Altro vettore** - l'operazione sarà svolta per ogni coppia di elementi dei due vettori. È quindi necessario che i due vettori abbiano la **stessa lunghezza**, ovvero lo stesso numero di elementi.
 
 ```{r, echo = TRUE}
 x <- 1:5
@@ -474,7 +474,7 @@ my_value <- sqrt(2)^2 # dovrei ottenere 2
 my_value - 2          # dovrei ottenre 0
 ```
 
-E' importante tenere a mente questo problema nei test di ugualianza dove l'utilizzo dell'operatore `==` potrebbe generare delle risposte inaspettate. In genere viene quindi preferita la funzione `all.equal()` che prevede un certo margine di tolleranza (vedi `?all.equal()` per ulteriori dettagli).
+È importante tenere a mente questo problema nei test di ugualianza dove l'utilizzo dell'operatore `==` potrebbe generare delle risposte inaspettate. In genere viene quindi preferita la funzione `all.equal()` che prevede un certo margine di tolleranza (vedi `?all.equal()` per ulteriori dettagli).
 ```{r, echo = TRUE}
 my_value == 2          # Problema di approsimazione 
 all.equal(my_value, 2) # Test con tolleranza
@@ -680,20 +680,20 @@ as.logical(2021L)
 Vediamo infine alcuni valori speciali utilizzatti in R con dei particolari significati e che richiedono specifici accorgimenti quando vengono manipolati:
 
 - `NULL`- rappresenta l'oggetto nullo, ovvero l'assenza di un oggetto. Spesso viene restituito dalle funzioni quano il loro output è indefinito.
-- `NA` - rappresenta un dato mancate (*Not Available*). E' un valore costante di lunghezza 1 che può essere utlizzato per qualsiasi tipologia di dati.
-- `NaN` - indica un risulato matematico che non può essere rappresentato come un valore numerico (*Not A Number*). E' un valore costante di lunghezza 1 che può essere utlizzato come valore numerico (non intero).
+- `NA` - rappresenta un dato mancate (*Not Available*). È un valore costante di lunghezza 1 che può essere utlizzato per qualsiasi tipologia di dati.
+- `NaN` - indica un risulato matematico che non può essere rappresentato come un valore numerico (*Not A Number*). È un valore costante di lunghezza 1 che può essere utlizzato come valore numerico (non intero).
 ```{r, echo = TRUE}
 0/0
 sqrt(-1)
 ```
-- `Inf` (o `-Inf`) - indica un risultato matematico inifinito (o infinito negativo). E' anche utilizzato per rappresentare numeri estremamente grandi.
+- `Inf` (o `-Inf`) - indica un risultato matematico inifinito (o infinito negativo). È anche utilizzato per rappresentare numeri estremamente grandi.
 ```{r, echo = TRUE}
 pi^650
 
 -pi/0
 ```
 
-E' importante essere consapevoli delle caratteristiche di questi valori poiché presentano dei comportamenti peculiari che, se non corretamente gestiti, possono generare conseguenti errori nei codici. Descriviamo ora alcune delle carateristiche più importanti. 
+È importante essere consapevoli delle caratteristiche di questi valori poiché presentano dei comportamenti peculiari che, se non corretamente gestiti, possono generare conseguenti errori nei codici. Descriviamo ora alcune delle carateristiche più importanti. 
 
 #### Lunghezza Elementi {-}
 
@@ -752,7 +752,7 @@ Inf / Inf   # NaN
 
 #### Testare Valori {-}
 
-E' importante ricordare come per testare l apresenza di uno di questi valori speciali siano presenti delle funzioni specifiche della famiglia `is.*`. Non deve mai essere utlizzato il comune operatore di uguaglianza `==` poiché non fornisce i risultai corretti.
+È importante ricordare come per testare l apresenza di uno di questi valori speciali siano presenti delle funzioni specifiche della famiglia `is.*`. Non deve mai essere utlizzato il comune operatore di uguaglianza `==` poiché non fornisce i risultai corretti.
 
 - `is.null`
 ```{r, echo = TRUE, eval =  FALSE}

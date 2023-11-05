@@ -161,7 +161,7 @@ as.numeric(as.character(school_years))
 ```
 Questo ci permette di sostituire prime i valori con le giuste *etichette*, ovvero i livelli della variabile, e successivamente convertire il tutto in un vettore numerico.
 
-E' importante prestare molta attenzione in questi casi poiché un eventuale errore potrebbe non risultare subito evidente.
+È importante prestare molta attenzione in questi casi poiché un eventuale errore potrebbe non risultare subito evidente.
 :::
 
 ### Operazioni Fattori
@@ -185,7 +185,7 @@ my_factor
 
 #### Ordinare i Livelli {-}
 
-E' importante non confondere l'ordinare i livelli con il rinominarli. Infatti, mentre nel primo caso viene solo modificato l'ordine dei livelli, nel secondo caso verrebbero modificati anche tutti gli effettivi valori degli elementi. In genere è preferibile quindi ridefinire il fattore specificando l'argomento `levels`. 
+È importante non confondere l'ordinare i livelli con il rinominarli. Infatti, mentre nel primo caso viene solo modificato l'ordine dei livelli, nel secondo caso verrebbero modificati anche tutti gli effettivi valori degli elementi. In genere è preferibile quindi ridefinire il fattore specificando l'argomento `levels`. 
 
 Vediamo un esempio dove raccogliamo i dati riguardanti i dosaggi di un farmaco:
 
@@ -275,7 +275,7 @@ levels(my_factor)[4] <- "nuovolivello"
 
 ```
 
-E' possibile inoltre combinare due fattori in modo da ottenerne uno unico unendo quindi i livelli e i rispettivi valori numerici. Semplicemente usando il comando `c(fac1, fac2)`:
+È possibile inoltre combinare due fattori in modo da ottenerne uno unico unendo quindi i livelli e i rispettivi valori numerici. Semplicemente usando il comando `c(fac1, fac2)`:
 
 ```{r}
 fac1 <- factor(rep(c("a", "b", "c"), each = 5))

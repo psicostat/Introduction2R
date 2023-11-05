@@ -22,7 +22,7 @@ Due caratteristiche importanti di una matrice sono:
 - la **dimensione** - il numero di **righe** e di **colonne** da cui è formata la matrice
 - la **tipologia** - la tipologia di dati che sono contenuti nella matrice. Infatti, in modo analogo a quanto visto con i vettori, una matrice deve esssere formata da **elementi tutti dello stesso tipo**. Pertanto esistono diverse tipologie di matrici a seconda del tipo di dati da cui è formata, in particolare abbiamo matrici numeriche, di valori logici e di caratteri (vedi Capitolo \@ref(matrix-types)). 
 
-E' fondamentale inoltre sottolineare come ogni **elemento** di una matrice sia caratterizzato da:
+È fondamentale inoltre sottolineare come ogni **elemento** di una matrice sia caratterizzato da:
 
 - un **valore** - ovvero il valore dell'elemento che può essere di qualsiasi tipo ad esempio un numero o una serie di caratteri.
 - un **indice di posizione** - ovvero una **coppia di valori (*i*, *j*)**  interi positivi che indicando rispettivamente **l'indice di riga** e **l'indice di colonna** e che permettono di identificare univocamente l'elemento all'interno della matrice.
@@ -71,9 +71,9 @@ mat_byrow <- matrix(my_values, nrow = 3, ncol = 4, byrow = TRUE)
 mat_byrow
 ```
 
-E' importante notare come mentre sia possibile specificare qualsiasi combinazione di righe e colonne, il numero di valori forniti per popolare la matrice deve essere compatibile con la dimensione della matrice. In altre parole, **non posso fornire più o meno dati di quelli che la matrice può contenere**.
+È importante notare come mentre sia possibile specificare qualsiasi combinazione di righe e colonne, il numero di valori forniti per popolare la matrice deve essere compatibile con la dimensione della matrice. In altre parole, **non posso fornire più o meno dati di quelli che la matrice può contenere**.
 
-Pertanto, la launghezza del vettore passato all'argomento `data` deve essere compatibile con gli argomenti `nrow` e `ncol`. E' possibile tuttavia, fornire un unico valore se si desidera ottenre una matrice in cui tutti i valori siano identici. Creiamo ad esempio una matrice vuota con soli valori `NA` con 3 righe e 3 colonne.
+Pertanto, la launghezza del vettore passato all'argomento `data` deve essere compatibile con gli argomenti `nrow` e `ncol`. È possibile tuttavia, fornire un unico valore se si desidera ottenre una matrice in cui tutti i valori siano identici. Creiamo ad esempio una matrice vuota con soli valori `NA` con 3 righe e 3 colonne.
 ```{r, echo = TRUE}
 mat_NA <- matrix(NA, nrow = 3, ncol = 3)
 mat_NA
@@ -98,7 +98,7 @@ Abbiamo viso che, in modo analogo ai vettori, anche per le matrici è necessario
 
 #### Character {-}
 
-E' possibile definire una matrice di soli caratteri, tuttavia sono usate raramente visto che chiaramente tutte le operazioni matematiche non sono possibili.
+È possibile definire una matrice di soli caratteri, tuttavia sono usate raramente visto che chiaramente tutte le operazioni matematiche non sono possibili.
 ```{r, echo = TRUE}
 mat_char <- matrix(letters[1:12], nrow = 3, ncol = 4, byrow = TRUE)
 mat_char
@@ -210,7 +210,7 @@ Oltre alla selezione di un singolo elemento è possibile eseguire altri tipi di 
 
 #### Selezionare Riga o Colonna {-}
 
-E' possibile selezionare **tutti** gli elementi di una riga o di una colonna utilizzando la seguente sintassi:
+È possibile selezionare **tutti** gli elementi di una riga o di una colonna utilizzando la seguente sintassi:
 ```{r, echo = TRUE, eval = FALSE}
 # Selzione intera riga
 nome_matrice[<indice-riga>, ]
@@ -226,7 +226,7 @@ my_matrix[2, ]
 # Selezioniamo  tutte le righe e la 3 colonna
 my_matrix[ ,3]
 ```
-Qualora fosse necessario selezionare più righe o più colonne è sufficiente indicare tutti gli indici di interesse. Ricorda che questi devono essere specificati in un unico vettore. All'interno delle parentesi quadre, R si aspetta una sola virgola che separa gli indici di riga da quelli di colonna. E' quindi necessario combinare gli indici che vogliamo selezionare in un unico vettore sia nel caso delle righe che delle colonne. Per selezionare righe o colonne in successione, ad esempio  le prime 3 colonne, posso utilizzare la scrittura compatta `1:3` che è equivalente a `c(1,2,3)`.
+Qualora fosse necessario selezionare più righe o più colonne è sufficiente indicare tutti gli indici di interesse. Ricorda che questi devono essere specificati in un unico vettore. All'interno delle parentesi quadre, R si aspetta una sola virgola che separa gli indici di riga da quelli di colonna. È quindi necessario combinare gli indici che vogliamo selezionare in un unico vettore sia nel caso delle righe che delle colonne. Per selezionare righe o colonne in successione, ad esempio  le prime 3 colonne, posso utilizzare la scrittura compatta `1:3` che è equivalente a `c(1,2,3)`.
 
 ```{r, echo = TRUE}
 # Selezioniamo la 1 e 3 riga
@@ -256,7 +256,7 @@ Ricordiamo che, come per i vettori, l'operazione di selezione non modifichi l'og
 
 I più attenti avranno notato che che i comandi di selezione non restituiscono sempre lo stesso oggetto, a volte otteniamo come risultato un vettore e delle altre una matrice.
 
-E' importante chiarire che una **un vettore non è un matrice** e tanto più vale l'opposto. In R questi sono due tipologie di oggetti diversi e sarà importante tenere a mente questa distinzione.
+È importante chiarire che una **un vettore non è un matrice** e tanto più vale l'opposto. In R questi sono due tipologie di oggetti diversi e sarà importante tenere a mente questa distinzione.
 
 ```{r, echo=TRUE, eval = FALSE}
 # Un vettore non è una matrice
@@ -385,7 +385,7 @@ my_matrix[2,2] <- 555
 my_matrix
 ```
 
-E' possibile anche sostituire tutti i valori di un'intera riga o colonnna opportunamente selezionata. In questo caso sarà necessario fornire un corretto numero di nuovi valori da utilizzare.
+È possibile anche sostituire tutti i valori di un'intera riga o colonnna opportunamente selezionata. In questo caso sarà necessario fornire un corretto numero di nuovi valori da utilizzare.
 ```{r, echo = TRUE}
 # Modifico la 2 colonna
 my_matrix[ ,2] <- c(444, 555, 666)
@@ -564,7 +564,7 @@ Abbiamo visto nel Capitolo \@ref(vector-functions) come si possono unire diversi
 * `cbind()` - Posso unire matrici **per colonna** ovvero aggiungo una o più colonne ad una matrice, in questo caso le matrici devono avere lo stesso numero di righe
 * Le matrici che unisco devono essere della **stessa tipologia** (numeri o caratteri)
 
-Quindi, data una  matrice `my_matrix` di dimensione $m \times n$  se volgiamo aggiungere le righe di una seconda matrice `row_matrix` possiamo utlizzare il comando `rbind(my_matrix, row_matrix)` a patto che abbiano lo stesso numero di colonnne ($n$). Se vogliamo invece aggiungere le colonne di una nuova matrice `col_matrix` possiamo utlizzare il comando `cbind(my_matrix, col_matrix)` a patto che abbiano lo stesso numero di righe ($m$). E' utile pensare all'unione come ad un collage tra matrici. In Figura\@ref(fig:mat-comb) è presente uno schema utile per capire visivamente questo concetto, dove le matrici colorate in verde possono essere correttamente unite mentre le matrici in rosso non presentano la corretta dimensionalità.
+Quindi, data una  matrice `my_matrix` di dimensione $m \times n$  se volgiamo aggiungere le righe di una seconda matrice `row_matrix` possiamo utlizzare il comando `rbind(my_matrix, row_matrix)` a patto che abbiano lo stesso numero di colonnne ($n$). Se vogliamo invece aggiungere le colonne di una nuova matrice `col_matrix` possiamo utlizzare il comando `cbind(my_matrix, col_matrix)` a patto che abbiano lo stesso numero di righe ($m$). È utile pensare all'unione come ad un collage tra matrici. In Figura\@ref(fig:mat-comb) è presente uno schema utile per capire visivamente questo concetto, dove le matrici colorate in verde possono essere correttamente unite mentre le matrici in rosso non presentano la corretta dimensionalità.
 
 ```{r mat-comb, fig.cap="Schema per la combinazione di matrici", out.width="50%"}
 knitr::include_graphics("images/matrix_comb.png")
@@ -746,7 +746,7 @@ my_cube[ 1:2, 1:2, 1:2]
 
 
 :::{.tip title="Array Mother of All Matrix" data-latex="[Array Mother of All Matrix]"}
-E' facilmente intuibile come le matrici non siano altro che un caso speciale di array con 2 dimensioni. Infatti i più attenti avranno notato che il valore `"array"` compariva insieme a `"matrix"` nel valutare la tipologia di oggetto.
+È facilmente intuibile come le matrici non siano altro che un caso speciale di array con 2 dimensioni. Infatti i più attenti avranno notato che il valore `"array"` compariva insieme a `"matrix"` nel valutare la tipologia di oggetto.
 
 ```{r, echo = TRUE}
 my_matrix <- matrix(1:12, nrow = 2, ncol = 2)

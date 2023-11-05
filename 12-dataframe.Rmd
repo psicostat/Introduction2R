@@ -99,11 +99,11 @@ my_data
 In questo caso abbiamo creato un ipotetico dataframe dove in ogni riga abbiamo un soggetto e ogni colonna rappresenta una data caratteristica del soggetto come il genere, l'età e così via.
 
 :::{.tip title="ID" data-latex="[ID]"}
-E' sempre consigliato definire una colonna (ad es. `Id`) in cui assegnnare un idenificativo univoco ad ogni soggetto. Questo ci permetto di poterlo indentificare senza correre il rischio di compiere errori. Ad esempio l'utlizzo del nome (o anche nome e cognome) potrebbe non essere indicato poiché più persone potrebbero avere lo stesso nome e non saremo quindi in grado di discriminare i due soggetti.
+È sempre consigliato definire una colonna (ad es. `Id`) in cui assegnnare un idenificativo univoco ad ogni soggetto. Questo ci permetto di poterlo indentificare senza correre il rischio di compiere errori. Ad esempio l'utlizzo del nome (o anche nome e cognome) potrebbe non essere indicato poiché più persone potrebbero avere lo stesso nome e non saremo quindi in grado di discriminare i due soggetti.
 :::
 
 :::{.warning title="stringsAsFactors" data-latex="[stringsAsFactors]"}
-Una variabile di caratteri all'interno di un DataFrame è considerata di default come una semplice sequenza di caratteri. E' possibile specificare l'argomento `stringsAsFactors = TRUE` per ottenere che tutte le variabili di caratteri siano considerate come delle variabili catgoriali creando automaticamente dei fattori (vedi Capitolo \@ref(factor)).
+Una variabile di caratteri all'interno di un DataFrame è considerata di default come una semplice sequenza di caratteri. È possibile specificare l'argomento `stringsAsFactors = TRUE` per ottenere che tutte le variabili di caratteri siano considerate come delle variabili catgoriali creando automaticamente dei fattori (vedi Capitolo \@ref(factor)).
 
 Nota come il comportamento di default sia differente a seconda della versione di R. Versioni precedenti a R 4.0 avevano infatti come default `stringsAsFactors = TRUE` mentre dalla 4.0 in poi abbiamo `stringsAsFactors = FALSE`.
 
@@ -242,7 +242,7 @@ class(my_data[ , c("names", "age")])
 
 #### Salvare Selezione {-}
 
-Come per tutte le altre tipologie di oggetti, le operazioni di selezione non modificano l'oggetto iniziale. Pertanto è necessario salvare il risultato della selezione se si desidera mantenere le modifiche. In questo caso, è cosigliabile creare un nuovo oggetto e non sovrascrivere l'oggetto iniziale poiché non ci permetterebbe di compiere nuove selezioni od operazioni su tutti i dati iniziali. E' buona norma quindi mantenere sempre un dataframe con la versione dei dati originali.
+Come per tutte le altre tipologie di oggetti, le operazioni di selezione non modificano l'oggetto iniziale. Pertanto è necessario salvare il risultato della selezione se si desidera mantenere le modifiche. In questo caso, è cosigliabile creare un nuovo oggetto e non sovrascrivere l'oggetto iniziale poiché non ci permetterebbe di compiere nuove selezioni od operazioni su tutti i dati iniziali. È buona norma quindi mantenere sempre un dataframe con la versione dei dati originali.
 :::
 
 
@@ -279,7 +279,7 @@ my_data[-c(1:5), ]
 my_data[-c(1:5), -3]
 ```
 
-E' possibile anche escludere (ed eliminare in un certo senso) delle informazioni usando gli operatori logici in gli operatori **NOT**(`!`) e diverso da (`!=`):
+È possibile anche escludere (ed eliminare in un certo senso) delle informazioni usando gli operatori logici in gli operatori **NOT**(`!`) e diverso da (`!=`):
 
 ```{r, echo = T}
 # Seleziono tutto tranne gli studenti di psicologia

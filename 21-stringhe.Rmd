@@ -283,7 +283,7 @@ Quello che otteniamo è un vettore (all'interno di una lista, possiamo usare `un
 
 ## Regular Expression (REGEX)
 
-E' tutto così semplice con le stringhe? Assolutamente no! Fino ad ora abbiamo utilizzato dei semplici pattern come singoli caratteri o insieme di caratteri  tuttavia possiamo avere problemi più complessi da affrontare come:
+È tutto così semplice con le stringhe? Assolutamente no! Fino ad ora abbiamo utilizzato dei semplici pattern come singoli caratteri o insieme di caratteri  tuttavia possiamo avere problemi più complessi da affrontare come:
 
 - trovare l'estensione di un insieme di file
 - trovare il dominio di un sito web

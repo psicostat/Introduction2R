@@ -142,7 +142,7 @@ my_function(15)
 my_function(-5)
 ```
 
-E' importante capire la differenza tra usare multipli `if` e `else if` rispetto a utilizzare un semplice `else`. Se noi vogliamo specificare un set **finito** di alternative, la scelta migliore e quella più chiara consiste di usere `else if` perché al contrario di `else` richiede di specificare la condizione. Se invece siamo interessanti ad alcune condizioni mentre per tutto il resto applichiamo la stessa operazione, possiamo concludere il nostro flusso con un `else`.
+È importante capire la differenza tra usare multipli `if` e `else if` rispetto a utilizzare un semplice `else`. Se noi vogliamo specificare un set **finito** di alternative, la scelta migliore e quella più chiara consiste di usere `else if` perché al contrario di `else` richiede di specificare la condizione. Se invece siamo interessanti ad alcune condizioni mentre per tutto il resto applichiamo la stessa operazione, possiamo concludere il nostro flusso con un `else`.
 
 ### Nested
 

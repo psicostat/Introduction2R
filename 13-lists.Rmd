@@ -15,7 +15,7 @@ Le **liste** sono uno degli oggetti più versatili e utili in R. Possiamo pensar
 
 A differenza di dataframe e matrici dove gli elementi sono tra loro in relazione, gli elementi di una lista sono completamente indipendenti. Una `lista`, infatti, può contenere oggetti completamente diversi tra loro sia per tipologia che per dimensioni, senza che vi sia alcuna relazione o vincolo. 
 
-Un modo utile per immaginarsi una lista (vedi Figura \@ref(fig:list-example)) è pensare ad un corridoio di un albergo dove ogni porta conduce ad una stanza diversa per caratteristiche, numero di elementi e così via. E' importante notare come gli elementi siano disposti in un preciso ordine e quindi possano essere identificati tramite il loro **indice di posizione**, in modo analogo a quanto visto con gli elementi di un vettore.
+Un modo utile per immaginarsi una lista (vedi Figura \@ref(fig:list-example)) è pensare ad un corridoio di un albergo dove ogni porta conduce ad una stanza diversa per caratteristiche, numero di elementi e così via. È importante notare come gli elementi siano disposti in un preciso ordine e quindi possano essere identificati tramite il loro **indice di posizione**, in modo analogo a quanto visto con gli elementi di un vettore.
 
 ```{r list-example, fig.cap="Esempio concettuale di una lista", out.height="30%", out.width="30%"}
 knitr::include_graphics("images/list_example.png")

@@ -174,7 +174,7 @@ Esegui i seguenti esercizi:
 
 ## Lavorare con le Funzioni
 
-Le funzioni sono sicuramente l'aspetto più utile e avanzato del linguaggio R e in generale dei linguaggi di programmazione. I pacchetti che sono sviluppati in R non sono altro che insieme di funzioni che lavorano assieme per uno scopo preciso. Oltre allo scopo della funzione è importante capire come gestire gli **errori e gli imprevisti**. Se la funzione infatti accetta degli argomenti, l'utente finale o noi stessi che la utilizziamo possiamo erroneamente usarla nel modo sbagliato. E' importante quindi capire come leggere gli errori ma sopratutto creare messaggi di errore o di avvertimento utili per l'utilizzo della funzione.
+Le funzioni sono sicuramente l'aspetto più utile e avanzato del linguaggio R e in generale dei linguaggi di programmazione. I pacchetti che sono sviluppati in R non sono altro che insieme di funzioni che lavorano assieme per uno scopo preciso. Oltre allo scopo della funzione è importante capire come gestire gli **errori e gli imprevisti**. Se la funzione infatti accetta degli argomenti, l'utente finale o noi stessi che la utilizziamo possiamo erroneamente usarla nel modo sbagliato. È importante quindi capire come leggere gli errori ma sopratutto creare messaggi di errore o di avvertimento utili per l'utilizzo della funzione.
 
 Prendiamo ad esempio la funzione somma `+`, anche se non sembra infatti l'operatore `+` è in realtà una funzione. Se volessimo scriverlo come una funzione simile a quelle viste in precedenza possiamo:
 
@@ -193,7 +193,7 @@ Abbiamo definito una (abbastanza inutile) funzione per calcolare la somma tra du
 ```{r, error=TRUE}
 my_sum("stringa", 5)
 ```
-In questo caso infatti, vediamo un messaggio denominato `Error...` con l'utile informazione che uno degli argomenti utilizzati risulta essere `non-numeric`. E' un messaggio semplice, mirato e sopratutto non fornisce un risultato perché una condizione fondamentale (la somma vale solo per i numeri) non è rispettata. La funzione `+` ha già al suo interno questo controllo, ma se noi volessimo implementare un **controllo** e fornire un **messaggio** abbiamo a disposizione diverse opzioni:
+In questo caso infatti, vediamo un messaggio denominato `Error...` con l'utile informazione che uno degli argomenti utilizzati risulta essere `non-numeric`. È un messaggio semplice, mirato e sopratutto non fornisce un risultato perché una condizione fondamentale (la somma vale solo per i numeri) non è rispettata. La funzione `+` ha già al suo interno questo controllo, ma se noi volessimo implementare un **controllo** e fornire un **messaggio** abbiamo a disposizione diverse opzioni:
 
 - `stop(<message>, .call = TRUE)`: Se inserito all'interno di una funzione, interrompe l'esecuzione e fornisce il messaggio specificato denominato come `Error`.
 - `stopifnot(expr1, expr2, ...)`: Se inserito all'interno di una funzione interrompe l'esecuzione se almeno una di una serie di condizioni risulta come **non VERA**.
@@ -415,12 +415,12 @@ Questo potrebbe sembrare un argomento marginale tuttavia la scelta dei nomi sia 
 - leggere chiaramente il nostro codice e renderlo comprensibile ad altri
 - organizzare facilmente un gruppo di funzioni. Quando avete più funzioni, usare una giusta denominazione permette di sfruttare i suggerimenti di RStudio in modo più efficace. Il pacchetto [`stringr`](https://stringr.tidyverse.org/) and esempio che fornisce strumenti per lavorare con stringhe, utilizza tutte le funzioni denominate come `str_` permettendo di cercare facilmente quella desiderata.
 
-E' utile utilizzare **verbi** per nominare le funzioni mentre **nomi** per nominare argomenti. Ad esempio un nome adatto alla nostra ultima funzione potrebbe essere `center_var()` mentre il nome del nuovo vettore `centered_vec` o `c_vec`. Se troviamo `center_var` all'interno di uno script è subito chiaro il compito di quella funzione, anche senza guardare il codice al suo interno.
+È utile utilizzare **verbi** per nominare le funzioni mentre **nomi** per nominare argomenti. Ad esempio un nome adatto alla nostra ultima funzione potrebbe essere `center_var()` mentre il nome del nuovo vettore `centered_vec` o `c_vec`. Se troviamo `center_var` all'interno di uno script è subito chiaro il compito di quella funzione, anche senza guardare il codice al suo interno.
 
 ### Semplificare la quantita di operazioni e output
 
 Questo è un punto molto importante ma allo stesso tempo variegato. Ci sono diversi stili di programmazione e quindi non ci sono regole fisse oppure delle pratiche migliori di altre.
-Abbiamo detto che una funzione è un modo per astrarre, riutilizzare e semplificare una serie di operazioni. Possiamo quindi scrivere funzioni molto complesse che ricevono diversi input, eseguono diverse operazioni e restituiscono diversi output. E' buona pratica però scrivere funzioni che:
+Abbiamo detto che una funzione è un modo per astrarre, riutilizzare e semplificare una serie di operazioni. Possiamo quindi scrivere funzioni molto complesse che ricevono diversi input, eseguono diverse operazioni e restituiscono diversi output. È buona pratica però scrivere funzioni che:
 
 - riducono il numero di operazioni interne
 - forniscono un singolo (o limitati) output
@@ -473,7 +473,7 @@ In questo modo il codice è molto più leggibile e chiaro sia dentro le funzioni
 
 ### Commentare e documentare
 
-La documentazione è forse la parte di più importante della scrittura del codice. Possiamo classificarla in documentazione *formale* e *informale* in base allo scopo. La documentazione *formale* è quella che troviamo facendo `help(funzione)` oppure `?funzione`. E' una documentazione standardizzata e necessaria quando si creano delle funzioni in un pacchetto che altri utenti devono utilizzare. La documentazione *informale* è quella che mettiamo nei nostri script e all'interno delle funzioni come `# commento`. Entrambe sono molto importati e permettono di descrivere lo scopo generale della funzione, i singoli argomenti e i passaggi eseguiti.
+La documentazione è forse la parte di più importante della scrittura del codice. Possiamo classificarla in documentazione *formale* e *informale* in base allo scopo. La documentazione *formale* è quella che troviamo facendo `help(funzione)` oppure `?funzione`. È una documentazione standardizzata e necessaria quando si creano delle funzioni in un pacchetto che altri utenti devono utilizzare. La documentazione *informale* è quella che mettiamo nei nostri script e all'interno delle funzioni come `# commento`. Entrambe sono molto importati e permettono di descrivere lo scopo generale della funzione, i singoli argomenti e i passaggi eseguiti.
 
 ## Importare una funzione
 

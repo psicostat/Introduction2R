@@ -14,7 +14,7 @@ In queso capitolo introdurremo alcuni concetti molto importanti che riguardano l
 
 Nel Capitolo \@ref(objects-section), abbiamo visto come sia possibile assegnare dei valori a degli oggetti. Questi oggetti vengono creati nel nostro ambiente di lavoro (o meglio *Environment*) e potranno essere utilizzati in seguito.
 
-Il nostro Enviroment raccoglie quindi tutti gli oggetti che vengono creati durante la nostra sessione di lavoro. E' possibile valutare gli oggetti attualmente presenti osservando il pannello *Environment* in alto a destra (vedi Figura \@ref(fig:environment2)) oppure utilizzadno il comando `ls()`, ovvero *list objects*.
+Il nostro Enviroment raccoglie quindi tutti gli oggetti che vengono creati durante la nostra sessione di lavoro. È possibile valutare gli oggetti attualmente presenti osservando il pannello *Environment* in alto a destra (vedi Figura \@ref(fig:environment2)) oppure utilizzadno il comando `ls()`, ovvero *list objects*.
 
 ```{r environment2, fig.cap="*Environment* - Elenco degli oggetti e variabili presenti nel'ambiente di lavoro", out.width="60%"}
 knitr::include_graphics("images/environment.png")
@@ -53,7 +53,7 @@ knitr::include_graphics("images/environment-objects.png")
 
 ### Rimuovere Oggetti dall'Environment
 
-Per rimuovere un oggetto dal proprio environment è possibile utilizzare il comando `remove()` oppure la sua abbreviazione `rm()`, indicando tra parentesi il nome dell'oggetto che si intende rimuovere. E' possibile indicare più di un oggetto separando i loro nomi con la virgola.
+Per rimuovere un oggetto dal proprio environment è possibile utilizzare il comando `remove()` oppure la sua abbreviazione `rm()`, indicando tra parentesi il nome dell'oggetto che si intende rimuovere. È possibile indicare più di un oggetto separando i loro nomi con la virgola.
 
 ```{r, echo = TRUE}
 # Rimuovo un oggetto
@@ -79,7 +79,7 @@ oggetto_non_esistente
 
 - **Utilizzare oggetti con "*vecchi*" valori**. Se non si ha cura di mantenere ordinato il proprio ambiente di lavoro potrebbe accadere che diversi oggetti vengano creati durante successive sessioni di lavoro. A questo punto si corre il rischio di perdere il controllo rispetto al vero contenuto degli oggetti e potremmo quindi utilizzare degli oggetti pensando che contengano un certo valore, quando invece si riferisono a tutt'altro. Questo comporta che qualsiasi nostro risultato perda di significato. Bisogna prestare molta attenzione perché R non potrà avvisarci di questo errore (per lui sono solo numeri), siamo noi che dobbiamo essere consapevoli del fatto che i comandi eseguiti abbiano senso oppure no.
 
-Per mantere un Environmet ordinato vi consigliamo innanzitutto di non salvare automaticamente il vostro *workspace* quando terminate una sessione di lavoro. E' possibile settare tale opzione nelle impostazioni generali di R selezionando *"Never"* alla voce *"save workspace to .RData on exit"* come riportato nella Figura seguente.
+Per mantere un Environmet ordinato vi consigliamo innanzitutto di non salvare automaticamente il vostro *workspace* quando terminate una sessione di lavoro. È possibile settare tale opzione nelle impostazioni generali di R selezionando *"Never"* alla voce *"save workspace to .RData on exit"* come riportato nella Figura seguente.
 
 <center>
 ![](images/save-rdata.png){ width=75%}
@@ -93,7 +93,7 @@ Notiamo quindi come l'Environment sia qualcosa di transitorio. Gli oggetti vengo
 
 Il fatto di partire ogni volta da un Environment vuoto, vi costringerà a raccogliere tutti i passi delle vostre analisi all'interno di uno script in modo ordinato evitando di fare affidamento su vecchi oggetti. Tutti gli oggetti necessari durante le analisi, infattii, dovranno essere ricreati ad ogni sessione, garantendo la riproducibilità e correttezza del lavro (almeno dal punto di vista di programmazione). Idealmente dovrebbe essere posibile, in una sessione di lavoro, partire da un Environment vuoto ed eseguire in ordine tutti i comandi contenuti in uno script fino ad ottenere i risultati desiderati.
 
-E' facile intuire come in certe situazioni questa non sia la soluzione più efficiente. Alcuni comandi, infatti, potrebbero richiedere molti minuti (o anche giorni) per essere eseguiti. In questi casi sarebbe conveniente, pertanto, salvare i risultati ottenuti per poterli utilizzare anche in sessioni successive, senza la necessità di dover eseguire nuovamente tutti i comadi.
+È facile intuire come in certe situazioni questa non sia la soluzione più efficiente. Alcuni comandi, infatti, potrebbero richiedere molti minuti (o anche giorni) per essere eseguiti. In questi casi sarebbe conveniente, pertanto, salvare i risultati ottenuti per poterli utilizzare anche in sessioni successive, senza la necessità di dover eseguire nuovamente tutti i comadi.
 <!-- La riga seguente fa riferimento a qualcosa che in realtà non mi sembra sia mai trattato nel libro, motivo per cui ho deciso di commentarla -->
 <!-- Vedremo nel Capitolo TODO come sarà possibile salvare permanentemente gli oggetti creati nella memoria secondaria del computer (hard-disk, nella nostra analogia la memoria a lungo termine) e come caricarli in una successiva sessione di lavoro. -->
 
@@ -163,7 +163,7 @@ Riprendendo l'esempio precedente, supponiamo che la nostra attuale working direc
 load("Dati/My-data.Rda")
 ```
 
-Il messaggio di errore mi indica che R non è stato in grado di trovare il file seguendo le mie indicazioni. E' come se chiedessi al computer di aprire il frigo ma attualmente si trovasse in camera, devo prima dargli le indicazioni per raggiungere la cucina altrimenti mi risponderebbe *"frigo non trovato"*. Risulta pertanto fondamentale essere sempre consapevoli di quale sia l'attuale working directory in cui si sta svolgendo la sessione di lavoro. 
+Il messaggio di errore mi indica che R non è stato in grado di trovare il file seguendo le mie indicazioni. È come se chiedessi al computer di aprire il frigo ma attualmente si trovasse in camera, devo prima dargli le indicazioni per raggiungere la cucina altrimenti mi risponderebbe *"frigo non trovato"*. Risulta pertanto fondamentale essere sempre consapevoli di quale sia l'attuale working directory in cui si sta svolgendo la sessione di lavoro. 
 
 Ovviamente otterrei lo stesso errore anche usando un absolute path se questo contenesse degli errori.
 :::
@@ -254,7 +254,7 @@ Nota come sia possibile nel digitare il path sfruttare l'autocompletamento. All'
 </center>
 <br>
 
-E' possibile inoltre utilizzare i caratteri speciali `"./"` e `"../"` per indicare rispettivamente l'attuale working directory e la cartella del livello superiore (i.e., *parent folder*) che include l'attuale working directory. `"../"` ci permette quindi di navigare a ritroso dalla nostra attuale posizione tra le cartelle del computer.
+È possibile inoltre utilizzare i caratteri speciali `"./"` e `"../"` per indicare rispettivamente l'attuale working directory e la cartella del livello superiore (i.e., *parent folder*) che include l'attuale working directory. `"../"` ci permette quindi di navigare a ritroso dalla nostra attuale posizione tra le cartelle del computer.
 
 ```{r, echo=TRUE, eval=FALSE}
 getwd()
@@ -328,7 +328,7 @@ In breve, la risposta da dare è **NO** (`"n"`). Ma che cosa ci sta effetivament
 
 In genere quindi, è sempre preferibile installare la versione *Binary*. Tuttavia, in questo caso R ci avverte che, per alcuni pacchetti, gli aggiornameni più recenti sono disponibili solo nella versione *Source* e ci chiede quindi se installarli attraverso la procedura di compilazione.
 
-E' preferibile rispondere *"no"*, installando così la versione *Binary* pronta all'uso anche se meno aggiornata. Qualora fosse richiesto obbligatoriamente di installare un pacchetto nella version *Source* (perché ci servono gli ultimi aggiornamenti o perché non disponibile altrimenti) dovremmo avere prima installato **R tools** (vedi *"Approfondimento: R Tools"* nel Capitolo \@ref(install-r)), che ci fornirà gli strumenti necessari per compilare i pacchetti.
+È preferibile rispondere *"no"*, installando così la versione *Binary* pronta all'uso anche se meno aggiornata. Qualora fosse richiesto obbligatoriamente di installare un pacchetto nella version *Source* (perché ci servono gli ultimi aggiornamenti o perché non disponibile altrimenti) dovremmo avere prima installato **R tools** (vedi *"Approfondimento: R Tools"* nel Capitolo \@ref(install-r)), che ci fornirà gli strumenti necessari per compilare i pacchetti.
 
 Per una discussione dettagliata vedi <https://community.rstudio.com/t/meaning-of-common-message-when-install-a-package-there-are-binary-versions-available-but-the-source-versions-are-later/2431> e  <https://r-pkgs.org/package-structure-state.html>
 

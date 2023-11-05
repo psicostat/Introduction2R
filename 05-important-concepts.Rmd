@@ -35,7 +35,7 @@ Per utilizzare il valore contenuto nell'oggetto sarà ora sufficiente richiamare
 x + 3
 ```
 
-E' inoltre possibile "aggiornare" o "sostituire" il valore contenuto in un oggetto. Ad esempio:
+È inoltre possibile "aggiornare" o "sostituire" il valore contenuto in un oggetto. Ad esempio:
 
 ```{r, echo = TRUE}
 # Aggiornare un valore
@@ -191,7 +191,7 @@ seq(from = 0,  to = 10, length.out = 5)
 seq(from = 0,  to = 10, length.out = 5, by = 4)
 ```
 
-E' pertanto cosigliabile esplicitare sempre gli argomenti di una funzione per rendere chiaro a che cosa si riferiscono i valori indicati. Questo è utlile anche per evitare eventuali comportamenti non voluti delle funzioni ad individuare più facilmente possibili errori.
+È pertanto cosigliabile esplicitare sempre gli argomenti di una funzione per rendere chiaro a che cosa si riferiscono i valori indicati. Questo è utlile anche per evitare eventuali comportamenti non voluti delle funzioni ad individuare più facilmente possibili errori.
 
 Gli argomenti di una funzione, inoltre, richiedono specifiche tipologie e strutture di dati e sta a noi assicuraci che i dati siano forniti nel modo corretto. Vediamo ad esempio come la funzione `mean()` che calcola la media di un insieme di valori, richieda come input un vettore di valori numerici. Approfondiremo il concetto di vettori nel Capitolo \@ref(vector), al momento ci basta sapere che possiamo usare la funzione `c()` per combinare più valori in un unico vettore.
 
