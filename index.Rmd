@@ -81,7 +81,7 @@ Se vuoi collaborare alla revione e scrittura di questo libro (ovviamente è tutt
 
 ## Riconoscimenti {-}
 
-Il template di questo libro è basato su [Rstudio Bookdown-demo](https://github.com/rstudio/bookdown-demo) rilasciato con licenza [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) e [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) rilasciato con licenza [CC BY](https://creativecommons.org/licenses/by/2.0/). Nota che le illustrazioni utilizzate nelle vignette appartengono sempre a [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) e sono rilasciate con licenza [CC BY-NC](https://creativecommons.org/licenses/by-nc/2.0/).
+Il template di questo libro è basato su [RStudio Bookdown-demo](https://github.com/rstudio/bookdown-demo) rilasciato con licenza [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) e [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) rilasciato con licenza [CC BY](https://creativecommons.org/licenses/by/2.0/). Nota che le illustrazioni utilizzate nelle vignette appartengono sempre a [rstudio4edu-book](https://rstudio4edu.github.io/rstudio4edu-book/) e sono rilasciate con licenza [CC BY-NC](https://creativecommons.org/licenses/by-nc/2.0/).
 
 
 ## Licenza {-}
