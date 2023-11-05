@@ -22,7 +22,7 @@ In genere, per lavorare con R viene utilizzato RStudio. RStudio è un programma 
 knitr::include_graphics("images/rstudio-gui.png")
 ```
 
-:::{.design title="R-Basic vs RStudio" data-latex="[R-Basic vs RStudio]"}
+:::{.design title="R base vs RStudio" data-latex="[R base vs RStudio]"}
 L'utilizzo di R attraverso l'interfaccia di base piuttosto che RStudio, non è uno scontro tra due scuole di pensiero (o generazioni). Entrambe hanno vantaggi e svantaggi e pertanto vengono scelte a seconda delle diverse necessità. 
 
 Quando si è alla ricerca della massima ottimizzazione, l'uso dell'interfaccia di base, grazie alla sua semplicità, permette di minimizzare l'utilizzo della memoria limitandosi allo stretto e necessario.

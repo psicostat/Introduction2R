@@ -160,14 +160,14 @@ kableExtra::kable(logical_operators, col.names = c("Funzione", "Nome", "Esempio"
                 latex_options = c("hold_position"))
 ```
 
-:::{.warning title="'==' non è uguale a '='" data-latex="['==' non è uguale a '=']"}
+:::{.warning title="\\texttt{==} non è uguale a \\texttt{=}" data-latex="[== non è uguale a =]"}
 Attenzione che per valutare l'uguaglianza tra due valori non bisogna utilizzare `=` ma `==`. Questo è un'errore molto comune che si commette in continuazione.
 
 L'operatore `=` è utilizzato in R per assegnare un valore ad una variabile. Argomento che vederemo nel Capitolo \@ref(assign).
 :::
 
-:::{.tip title="TRUE-T-1; FALSE-F-0" data-latex="[TRUE-T-1; FALSE-F-0]"}
-Nota che in molti linguaggi di programmazione, compreso R, ai valori TRUE e FALSE sono associati rispettivamente i valori numerici 1 e 0. Questi sono definiti [valori booleani](https://it.wikipedia.org/wiki/Variabile_booleana).
+:::{.tip title="\\texttt{TRUE}-\\texttt{T}-\\texttt{1} e \\texttt{FALSE}-\\texttt{F}-\\texttt{0}" data-latex="[\\texttt{TRUE}-\\texttt{T}-\\texttt{1} e \\texttt{FALSE}-\\texttt{F}-\\texttt{0}]"}
+Nota che in molti linguaggi di programmazione, compreso R, ai valori `TRUE` e `FALSE` sono associati rispettivamente i valori numerici `1` e `0`. Questi sono definiti [valori booleani](https://it.wikipedia.org/wiki/Variabile_booleana).
 
 ```{r relational-operators-ex1, echo=TRUE, eval=FALSE}
 TRUE == 1   # TRUE
@@ -177,7 +177,7 @@ FALSE == 0  # TRUE
 FALSE == 1  # FALSE
 ```
 
-In R è possibile anche abbreviare TRUE e FALSE rispettivamente in T e F, sebbene sia una pratica non consigliata poiché potrebbe non essere chiara e creare fraintendimenti. Infatti mentre TRUE e FALSE sono parole riservate (vedi Capitolo \@ref(objects-names)), T e F non lo sono.
+In R è possibile anche abbreviare `TRUE` e `FALSE` rispettivamente in `T` e `F`, sebbene sia una pratica non consigliata poiché potrebbe non essere chiara e creare fraintendimenti. Infatti mentre `TRUE` e `FALSE` sono parole riservate (vedi Capitolo \@ref(objects-names)), `T` e `F` non lo sono.
 
 ```{r relational-operators-ex2, echo=TRUE, eval=FALSE}
 T == 1      # TRUE
@@ -298,7 +298,7 @@ Nel valutare le veridicità delle proposizioni R esegue le operazioni nel seguen
 
 La lista completa dell'ordine di esecuzione delle operazioni è riportata al seguente link [https://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html). Ricordiamo che, in caso di dubbi riguardanti l'ordine di esecuzione delle operazioni, la cosa migliore è utilizzare le parentesi tonde `()` per disambiguare ogni possibile fraintendimento. 
 
-:::{.warning title="L'operatore '%in%'" data-latex="[L'operatore '\\%in\\%']"}
+:::{.warning title="L'operatore \\textt{%in%}" data-latex="[L'operatore \\textt{%in%}]"}
 Nota che l'operatore `%in%` che abbiamo precedentemente indicato tra gli operatori relazionali in realtà è un operatore speciale. In particolare, non segue le stesse regole degli altri operatori relazionali per quanto riguarda l'ordine di esecuzione.
 
 La soluzione migliore? Usa le parentesi!

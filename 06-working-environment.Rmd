@@ -328,7 +328,7 @@ In breve, la risposta da dare è **NO** (`"n"`). Ma che cosa ci sta effetivament
 
 In genere quindi, è sempre preferibile installare la versione *Binary*. Tuttavia, in questo caso R ci avverte che, per alcuni pacchetti, gli aggiornameni più recenti sono disponibili solo nella versione *Source* e ci chiede quindi se installarli attraverso la procedura di compilazione.
 
-È preferibile rispondere *"no"*, installando così la versione *Binary* pronta all'uso anche se meno aggiornata. Qualora fosse richiesto obbligatoriamente di installare un pacchetto nella version *Source* (perché ci servono gli ultimi aggiornamenti o perché non disponibile altrimenti) dovremmo avere prima installato **R tools** (vedi *"Approfondimento: R Tools"* nel Capitolo \@ref(install-r)), che ci fornirà gli strumenti necessari per compilare i pacchetti.
+È preferibile rispondere *"no"*, installando così la versione *Binary* pronta all'uso anche se meno aggiornata. Qualora fosse richiesto obbligatoriamente di installare un pacchetto nella version *Source* (perché ci servono gli ultimi aggiornamenti o perché non disponibile altrimenti) dovremmo avere prima installato **R tools** (vedi *"Approfondimento: RTools"* nel Capitolo \@ref(install-r)), che ci fornirà gli strumenti necessari per compilare i pacchetti.
 
 Per una discussione dettagliata vedi <https://community.rstudio.com/t/meaning-of-common-message-when-install-a-package-there-are-binary-versions-available-but-the-source-versions-are-later/2431> e  <https://r-pkgs.org/package-structure-state.html>
 
@@ -401,7 +401,7 @@ Ricordate tuttavia che in ogni caso la più grande risorsa di informazioni è co
 :::{.design title="Github" data-latex="[Github]"}
 Il CRAN non è l'unica risorsa da cui è possibile installare dei pacchetti di R tuttavia è quella ufficiale e garantisce un certo standard e stabilità dei pacchetti presenti. In internet esistono molte altre repository che raccolgono paccetti di R (e software in generale) tra cui una delle più popolari è certamente GitHub (<https://github.com/>).
 
-Github viene utilizzato come piattaforma di sviluppo per molti pacchetti di R ed è quindi  possibile trovarve le ultime versioni di sviluppo dei pacchetti con gli aggirnamenti più recenti o anche nuovi pacchetti non ancora disponibili sul CRAN. Va sottolineato tuttavia, come quete siano appunto delle versioni di sviluppo e quindi potrebbero presentare maggiori problemi. Inoltre per installare i pacchetti in questo modo, è richiesta l'installzione di **R tools** (vedi *"Approfondimento: R Tools"* nel Capitolo \@ref(install-r)).
+Github viene utilizzato come piattaforma di sviluppo per molti pacchetti di R ed è quindi  possibile trovarve le ultime versioni di sviluppo dei pacchetti con gli aggirnamenti più recenti o anche nuovi pacchetti non ancora disponibili sul CRAN. Va sottolineato tuttavia, come quete siano appunto delle versioni di sviluppo e quindi potrebbero presentare maggiori problemi. Inoltre per installare i pacchetti in questo modo, è richiesta l'installzione di **R tools** (vedi *"Approfondimento: RTools"* nel Capitolo \@ref(install-r)).
 
 Per installare un pacchetto direttamente da Github è posibile utilizzare il comando `install_github()` del pacchetto `devtools`, indicanto tra parentesi la l'url della repository desiderata.
 
