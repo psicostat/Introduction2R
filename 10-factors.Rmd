@@ -63,7 +63,7 @@ dim(my_vector)
 length(my_vector)
 ```
 
-#### Nomi Elementi{-}
+#### Nomi Elementi {-}
 
 Inizialmente gli elementi di un vettore non possiedono nomi.
 

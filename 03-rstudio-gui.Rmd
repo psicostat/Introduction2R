@@ -123,7 +123,7 @@ knitr::include_graphics("images/environment.png")
 
 - **History**: elenco di tutti i comandi precedentemente eseguiti nella console. Nota che questo non equivale ad uno script, anzi, è semplicemente un elenco non modificabile (e quasi mai usato).
 
-#### 4. File, Plots, Package, Help: system management{-}
+#### 4. File, Plots, Package, Help: system management {-}
 
 In questa parte sono raccolti una serie di pannelli utilizzati per interfacciarsi con ulteriori risorse del sistema (ad es. file e pacchetti) o produrre output quali grafici e tabelle.
 

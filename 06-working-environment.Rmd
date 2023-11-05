@@ -171,7 +171,7 @@ Ovviamente otterrei lo stesso errore anche usando un absolute path se questo con
 :::{.design title="The Garden of Forking Paths" data-latex="[The Garden of Forking Paths]"}
 Come avrai notato dagli esempi precedenti, sia la struttura in cui vengono organizzati i file nel computer sia la sintassi utilizzata per indicare i path è differente in base al sistema operativo utilizzato. 
 
-#### Mac OS e Linux{-}
+#### Mac OS e Linux {-}
 
 - Il carattere utilizzato per separare le cartelle nella definizione del path è `"/"`:
 ```{r, echo=TRUE, eval=FALSE}

@@ -85,7 +85,7 @@ Per qualsiasi difficoltà o errore, sopratutto con il mondo Linux, una ricerca s
 :::{.design title="R Tools" data-latex="[R Tools]"}
 Utilizzi avanzati di R richiedono l'istallazione di una serie ulteriore software definiti **R tools**.
 
-#### Windows{-}
+#### Windows {-}
 
 Seleziona la voce **RTools** e segui le istruzioni per completare l'installazione.
 <br>
@@ -95,7 +95,7 @@ Seleziona la voce **RTools** e segui le istruzioni per completare l'installazion
 <br>
 Nota che sono richieste anche delle operazioni di configurazione affinché tutto funzioni correttamente.
 
-#### MacOS{-}
+#### MacOS {-}
 
 Seleziona la voce **tools** e segui le istruzioni riportate.
 

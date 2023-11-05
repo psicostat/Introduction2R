@@ -302,7 +302,7 @@ Abbiamo tutti le immagini in testa di programmatori da film che scrivono codice 
   * Sapere **come e dove cercare una soluzione** (ancora meno banale) 
   * In caso non si trovi una soluzione direttamente, chiedere aiuto in modo efficace
 
-#### Comprendere gli errori{-}
+#### Comprendere gli errori {-}
   
 Leggere con attenzione i messaggi di errore è molto importante. R è solitamente abbastanza esplicito nel farci capire il problema. Ad esempio usare una funzione di un pacchetto che non è stato caricato di solito fornisce un messaggio del tipo `Error in funzione : could not find function "funzione"`.
 
