@@ -250,7 +250,7 @@ Quando non si conosce esattamente il nome di una funzione o si vuole cercare tut
 R eseguirà una ricerca tra tutta la documentazione disponibile è fornirà un elenco delle pagine che contengono la parola desiderata nel titolo o tra le  keywords.
 
 
-:::{.trick title="Autocompletamento with 'Tab'" data-latex="[Autocompletamento with 'Tab']"}
+:::{.trick title="Autocompletamento con `Tab`" data-latex="[Autocompletamento con `Tab`]"}
 La natura dei programmatori è essere pigri e smemorati. Per fortuna ogni *code editor* che si rispetti (i.e., programma per la scrittura di codici) possiede delle utli funzioni di autocompletamento e suggerimento dei comandi che semplificano la scrittura di codici. 
 
 In RStudio, i suggerimenti compaino automaticamente durante la scrittura di un comando oppure possono essere richiamati premendo il tasto `Tab` in alto a sinistra della tastiera ( ![](images/Tab.png){ width=5% } ). Comparirà una finestra con possibili soluzioni di autocompletamento del nome della funzione. Utilizzando le frecce della tastiera possiamo evidenziare lq funzione voluta e premere `Invio` per autocompletare il comando. Nota come accanto al nome della funzione appare anche un piccolo riquadro giallo con la descrizione della funzione.
