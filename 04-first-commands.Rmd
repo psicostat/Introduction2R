@@ -298,7 +298,7 @@ Nel valutare le veridicità delle proposizioni R esegue le operazioni nel seguen
 
 La lista completa dell'ordine di esecuzione delle operazioni è riportata al seguente link [https://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html). Ricordiamo che, in caso di dubbi riguardanti l'ordine di esecuzione delle operazioni, la cosa migliore è utilizzare le parentesi tonde `()` per disambiguare ogni possibile fraintendimento. 
 
-:::{.warning title="L'operatore \\textt{%in%}" data-latex="[L'operatore \\textt{\\%in\\%}]"}
+:::{.warning title="L'operatore \\texttt{%in%}" data-latex="[L'operatore \\texttt{\\%in\\%}]"}
 Nota che l'operatore `%in%` che abbiamo precedentemente indicato tra gli operatori relazionali in realtà è un operatore speciale. In particolare, non segue le stesse regole degli altri operatori relazionali per quanto riguarda l'ordine di esecuzione.
 
 La soluzione migliore? Usa le parentesi!
