@@ -7,7 +7,7 @@ R può essere utilizzato autonomamente tuttavia è consigliato l'utilizzo attrav
 
 
 1. Accedere al sito https://www.r-project.org.
-2. Selezionare la voce **CRAN** (Comprehensive R Archive Network) dal menù di sinistra sotto **Download**
+2. Selezionare la voce **CRAN** (Comprehensive R Archive Network) dal menù di sinistra sotto **Download**.
 
 <center>
 ![](images/install_CRAN.png){ width=95% }
