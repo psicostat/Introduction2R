@@ -609,7 +609,7 @@ rbind(my_matrix, wrong_matrix)
 
 ### Operatori Matematici
 
-Gli operatori matematici (e.g., `+`, `-`, `*`, `/`, etc.) svolgono le operazioni tra una matrice ed un singolo valore, tra una matrice ed un vettore oppure tra due matrici.
+Gli operatori matematici (ad es. `+`, `-`, `*`, `/`, etc.) svolgono le operazioni tra una matrice ed un singolo valore, tra una matrice ed un vettore oppure tra due matrici.
 
 #### Operazione tra Matrice e Valore Singolo {-}
 

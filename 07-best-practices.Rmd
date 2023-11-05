@@ -46,7 +46,7 @@ knitr::include_graphics("images/script-template.png")
 ```
 
 - **Titolo** - Un titolo esplicativo del contenuto dello script. E' possibile utilizzare altri caratteri all'interno dei commenti per creare l'effetto desiderato.
-- **Intorduzione** - Descrizione e utili informazioni che riguardano sia l'obbiettivo del lavoro che l'esecuzione del codice (e.g., dove sono disponibili i dati, eventuali specifiche tecniche). Potrebbe essere utile anche indicare l'autore e la data del lavoro.
+- **Intorduzione** - Descrizione e utili informazioni che riguardano sia l'obbiettivo del lavoro che l'esecuzione del codice (ad es. dove sono disponibili i dati, eventuali specifiche tecniche). Potrebbe essere utile anche indicare l'autore e la data del lavoro.
 - **Setting** -  Sezione fondamentale in cui si predispone l'abiente di lavoro. Le operazioni da svolgere sono:
   1. `rm(list = ls())` per pulire l'Environment da eventuali oggetti in modo da eseguire lo script partendo da un ambiente vuoto (vedi Capitolo \@ref(environment)).
   2. `setwd()` per settare la working directory per assicuraci che i comandi siano eseguiti dalla  correttta posizione nel nostro computer (vedi Capitolo \@ref(working-directory)).
@@ -207,7 +207,7 @@ Potete trovare  ulteriori regole e consigli riguardanti lo stile nella scrittura
 
 ## Organizzazione Progetti
 
-All'aumentare della complessità di un'analisi vi troverete presto a dover gestire molti file di deversa tipologia (e.g., dati, report, grafici) e a dover suddividere le varie parti del lavoro in differenti script. A questo punto sarà opportuno organizzare in modo ordinato tutto il materiale necessario per l'analisi e i relativi risultati in un'unica cartella.
+All'aumentare della complessità di un'analisi vi troverete presto a dover gestire molti file di deversa tipologia (ad es. dati, report, grafici) e a dover suddividere le varie parti del lavoro in differenti script. A questo punto sarà opportuno organizzare in modo ordinato tutto il materiale necessario per l'analisi e i relativi risultati in un'unica cartella.
 
 Idealmente, infatti, ogni analisi verrà salvata in una differente cartella e possiamo ad esempio organizzare i file utilizzando la seguente struttura di sottocartelle:
 
@@ -220,7 +220,7 @@ My_analysis/
 ```
 
 - `Data/` - tutti i file relativi ai dati usati nell'analisi. Sarà importante mantenere sia una copia dei dati *raw*, ovvero i dati grezzi senza alcuan manipolazione, sia i dati effetivamente usati nelle analisi che in genere sono stati già puliti e codificati.
-- `Documents/` - tutti i file di testo (e.g., Word o simili) e report utilizzati per descrivere le analisi (vedi in particolare [R-markdown](https://rmarkdown.rstudio.com/)).
+- `Documents/` - tutti i file di testo (ad es. Word o simili) e report utilizzati per descrivere le analisi (vedi in particolare [R-markdown](https://rmarkdown.rstudio.com/)).
 - `Outputs/` - eventuali outputs creati durante le analisi come ad esempio grafici e tabelle.
 - `R/` - tutti gli script utilizzati per le analisi. E' possibile numerare gli script per suggerire il corretto ordine in cui debbano essere eseguiti, ad esempio `01-import-data.R`, `02-munge-data.R`, `03-descriptive-analysis.R` etc.
 
