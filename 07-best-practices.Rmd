@@ -74,7 +74,7 @@ Infine, un altro vantaggio è quello di poter compattare o espandere le sezioni 
 knitr::include_graphics("images/section-closed.png")
 ```
 
-### Sintassi {#sintax}
+### Sintassi {#syntax}
 
 Elenchiamo qui altre buone norme nella scrittura del codice che ne facilitano la comprensione.
 
