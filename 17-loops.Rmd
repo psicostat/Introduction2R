@@ -89,7 +89,7 @@ for (i in seq_along(nomi)){
 
 
 
-:::{.trick title="\\texttt{seq_along()} " data-latex="[\\texttt{seq_along()}]"}
+:::{.trick title="\\texttt{seq\\_along()}" data-latex="[\\texttt{seq\\_along()}]"}
 
 ```{r, echo = TRUE}
 my_vector <- c(93, 27, 46, 99)
