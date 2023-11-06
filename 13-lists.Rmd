@@ -21,9 +21,9 @@ Un modo utile per immaginarsi una lista (vedi Figura \@ref(fig:list-example)) è
 knitr::include_graphics("images/list_example.png")
 ```
 
-Da un punto di vista pratico la lista è un oggetto molto semplice, simile ad un vettore, e molte delle sue caratteristiche sono in comune con gli altri oggetti che abbiamo già affrontato. Tuttavia, la difficltà principale risiede nella sua indicizzazione poiché, data la loro grande versatilità, le strutture delle liste possono ragiungere notevoli livelli di complessità. 
+Da un punto di vista pratico la lista è un oggetto molto semplice, simile ad un vettore, e molte delle sue caratteristiche sono in comune con gli altri oggetti che abbiamo già affrontato. Tuttavia, la difficoltà principale risiede nella sua indicizzazione poiché, data la loro grande versatilità, le strutture delle liste possono raggiungere notevoli livelli di complessità. 
 
-Vediamo ora come creare una lista e i diversi modi per sselezionare i suoi elementi. Come vedremo ci sono molte somiglianze nell'utilizzo dei dataframe e delle matrici. Quando necessario, si farà riferimento al capitolo precedente per far notare aspetti in comune e differenze tra queste due strutture di dati.
+Vediamo ora come creare una lista e i diversi modi per selezionare i suoi elementi. Come vedremo ci sono molte somiglianze nell'utilizzo dei dataframe e delle matrici. Quando necessario, si farà riferimento al capitolo precedente per far notare aspetti in comune e differenze tra queste due strutture di dati.
 
 ## Creazione di liste
 
@@ -36,9 +36,9 @@ nome_lista <- list(
   nome_oggetto_n = oggetto_n)
 ```
 
-Nonostante il parametro `nome_oggetto_x` non sia necessario, come vedremo è assolutamente consigliato rinominare tutti gli elementi della lista per agevolare l'indicizzazione. Se non nominiamo gli elementi, infatti, questi saranno identificati solo tramite il loro indice di posizione, ovvero un numero progressivo $1...n$ esattamente come nel caso dei vettori. Questo rende meno intutiva la successiva selezione degli elementi. 
+Nonostante il parametro `nome_oggetto_x` non sia necessario, come vedremo è assolutamente consigliato rinominare tutti gli elementi della lista per agevolare l'indicizzazione. Se non nominiamo gli elementi, infatti, questi saranno identificati solo tramite il loro indice di posizione, ovvero un numero progressivo $1...n$ esattamente come nel caso dei vettori. Questo rende meno intuitiva la successiva selezione degli elementi. 
 
-Quindi, se nel nostro workspace abbiamo degli oggetti diversi come una semplice `variabile`, un `vettore` e un `dataframe`, possiamo raccoglieere tutti questi elementi dentro un'unica lista. Ad esempio:
+Quindi, se nel nostro workspace abbiamo degli oggetti diversi come una semplice `variabile`, un `vettore` e un `dataframe`, possiamo raccogliere tutti questi elementi dentro un'unica lista. Ad esempio:
 
 ```{r, echo = TRUE}
 # Una variabile
@@ -78,7 +78,7 @@ Considerando gli oggetti creati nei precedenti capitoli, esegui i seguenti eserc
 
 ## Selezione elementi
 
-Come dicevamo in precedenza, ogni elemento di una lista possiende il suo **indice di posizione**, ovvero un valore numerico progressivo in modo del tutto analogo a quanto visto per gli elementi di un vettore. Tuttavia, c'è un'importante differenza per quanto riguarda la modalità di selezione in base al tipo di oggetto che si vuole ottenere come risultato. Infatti, mentre con i vettori usavamo le singole parentesi quadre `my_vector[i]` per accedere direttamente all'elemento alla posizione $i$, con le liste abbiamo due alternative:
+Come dicevamo in precedenza, ogni elemento di una lista possiede il suo **indice di posizione**, ovvero un valore numerico progressivo in modo del tutto analogo a quanto visto per gli elementi di un vettore. Tuttavia, c'è un'importante differenza per quanto riguarda la modalità di selezione in base al tipo di oggetto che si vuole ottenere come risultato. Infatti, mentre con i vettori usavamo le singole parentesi quadre `my_vector[i]` per accedere direttamente all'elemento alla posizione $i$, con le liste abbiamo due alternative:
 
 - `my_list[i]` - utilizzando le **singole parentesi quadre** (`[i]`) otteniamo come risultato un oggetto di tipo lista con all'interno l'elemento alla posizione $i$. Questo non ci permette, tuttavia, di accedere direttamente ai suoi valori.
 - `my_list[[i]]` - utilizzando le **doppie parentesi quadre** (`[[i]]`) estraiamo dalla lista l'elemento alla posizione $i$ e come risultato otteniamo l'oggetto stesso. Questo ci permette quindi di accedere direttamente ai suoi valori.
@@ -96,7 +96,7 @@ my_list[[2]]
 class(my_list[[2]]) # un vettore
 ```
 
-Questa differenza nel risultato ottenuto usando le **singole parentesi quadre** (`[ ]`) o le **doppie parentesi quadre** (`[[ ]]`) è molto importante perché influirà sulle successive operazioni che potremmo compiere. Ricordiamo che nel primo caso (`[ ]`) ottenimo una lista con i soli elementi selezionati, mentre nel secondo caso (`[[ ]]`) accediamo direttamente all'oggetto selezionato.
+Questa differenza nel risultato ottenuto usando le **singole parentesi quadre** (`[ ]`) o le **doppie parentesi quadre** (`[[ ]]`) è molto importante perché influirà sulle successive operazioni che potremmo compiere. Ricordiamo che nel primo caso (`[ ]`) otteniamo una lista con i soli elementi selezionati, mentre nel secondo caso (`[[ ]]`) accediamo direttamente all'oggetto selezionato.
 
 Questa distinzione diventa chiara applicando una funzione generica allo stesso elemento indicizzato in modo diverso oppure usando la funzione `str()` per capire la struttura. Vediamo come solo accedendo direttamente all'elemento possiamo eseguire le normali operazioni, mentre, indicizzando con una sola parentesi, l'oggetto ottenuto è una lista con un singolo elemento.
 
@@ -117,7 +117,7 @@ Il diverso tipo di selezione ottenuto con l'utilizzo delle singole o doppie pare
 - **singole parentesi quadre** (`[ ]`) - restituisce un oggetto della stessa classe (i.e., tipologia) dell'oggetto iniziale
 - **doppie parentesi quadre** (`[[ ]]`) - estrae un elemento dall'oggetto iniziale restituendo un oggetto non necessariamente della stessa classe (i.e., tipologia)
 
-Vediamo quindi come sia possibile utilizzare le doppie parentesi anche con i vettori e i dataframe ma in questo caso il risultato non differeisce dalla normale procedura di selezione.
+Vediamo quindi come sia possibile utilizzare le doppie parentesi anche con i vettori e i dataframe ma in questo caso il risultato non differisce dalla normale procedura di selezione.
 ```{r, echo = TRUE}
 # Vettori
 my_vector[2]
@@ -125,7 +125,7 @@ my_vector[[2]]
 
 # Dataframe
 my_data[, 2]
-my_data[[2]] # la selezione è posibile solo sulle colonne
+my_data[[2]] # la selezione è possibile solo sulle colonne
 ```
 
 Nota infine come l'uso di singole parentesi quadre (`[ ]`) permette di selezionare più elementi contemporaneamente, mentre le doppie parentesi quadre (`[[ ]]`) permettono di estrarre solo un elemento alla volta
@@ -159,7 +159,7 @@ my_list[c("elemento_1", "elemento_2")]
 
 #### Utilizzo elementi e successive selezioni {-}
 
-Una volta che abbiamo estratto un elemento da una lista, è possibile utilizzare l'oggetto nel modo che preferiamo. Possiamo sia assegnare l'elemento ad nuovo oggetto da utilizzare successvamente, oppure eseguire le funzioni o altre operazioni generiche direttamente sul comando della selezione.
+Una volta che abbiamo estratto un elemento da una lista, è possibile utilizzare l'oggetto nel modo che preferiamo. Possiamo sia assegnare l'elemento ad nuovo oggetto da utilizzare successivamente, oppure eseguire le funzioni o altre operazioni generiche direttamente sul comando della selezione.
 
 ```{r, echo = T}
 # Media dei valori dell' "elemento_2"
@@ -198,7 +198,7 @@ Vediamo ora alcuni utilizzi avanzati della selezione di elementi di un dataframe
 
 #### Modificare gli elementi {-}
 
-In modo analogo agli altri oggetti, possiamo modificare dei valori selezionando il vecchio elemento della lista e utilizzo la funzione `<-` (o `=`) per assegnare il nuovo elemento. Nota come in questo caso sia possibile uttilizzare sia le singole parentesi quadre (`[ ]`) che le doppie parentesi quadre (`[[ ]]`).
+In modo analogo agli altri oggetti, possiamo modificare dei valori selezionando il vecchio elemento della lista e utilizzo la funzione `<-` (o `=`) per assegnare il nuovo elemento. Nota come in questo caso sia possibile utilizzare sia le singole parentesi quadre (`[ ]`) che le doppie parentesi quadre (`[[ ]]`).
 
 ```{r, echo = TRUE}
 my_list
@@ -227,7 +227,7 @@ Ricorda come l'operazione di eliminazione sia comunque un'operazione di selezion
 
 Esegui i seguenti esercizi ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-11-lists.R))
 
-1. Utilizzando gli **indici numerici** di posizione selziona i dati dei soggetti `subj_1` e `subj_4` riguardanti le variabili `age`,`gender` e `gruppo` dal DataFrame `data_wide` contenuto nella lista `esperimento_1`.
+1. Utilizzando gli **indici numerici** di posizione seleziona i dati dei soggetti `subj_1` e `subj_4` riguardanti le variabili `age`,`gender` e `gruppo` dal DataFrame `data_wide` contenuto nella lista `esperimento_1`.
 2. Compi la stessa selezione dell'esercizio precedente usando però questa volta il nome dell'oggetto per selezionare il DateFrame dalla lista.
 3. Considerando la lista `esperimento_2` seleziona gli oggetti `data_long`, `y` e `info`
 4. Cambia i nomi degli oggetti contenuti nella lista `esperimento_2` rispettivamente in `"dati_esperimento"`, `"matrice_VCV"`, `"codici_Id"` e `"note"`
@@ -271,7 +271,7 @@ kableExtra::kable(list_operators, col.names = c("Funzione", "Descrizione"),
                 latex_options = c("hold_position"))
 ```
 
-Descriviamo ora nel dettaglio alcuni particolari utilizzi, considrando come esempio la lista `my_list` qui definita. Nota che i nomi degli elemnti sono stati omessi volutamente.
+Descriviamo ora nel dettaglio alcuni particolari utilizzi, considerando come esempio la lista `my_list` qui definita. Nota che i nomi degli elementi sono stati omessi volutamente.
 
 ```{r, echo = TRUE}
 my_list <- list(my_value,
@@ -304,7 +304,7 @@ names(my_list)
 Per impostare i nomi degli elementi, sarà quindi necessario assegnare a `names(my_list)` un vettore di caratteri con i nomi di ciascun elemento.
 
 ```{r, echo=TRUE}
-# Assegnamo i nomi
+# Assegniamo i nomi
 names(my_list) <- c("Variabile", "Vettore", "Dataframe")
 
 my_list
@@ -312,11 +312,11 @@ my_list
 
 ### Unire liste
 
-Per aggiungere elementi ad una lista è possibile sia creare un nuovo elemento con l'operatore `$`, in modo annalogo ai datafame, sia combinare più liste con la funzione `c()`.
+Per aggiungere elementi ad una lista è possibile sia creare un nuovo elemento con l'operatore `$`, in modo analogo ai datafame, sia combinare più liste con la funzione `c()`.
 
 #### `my_list$name <- new_obj` {-}
 
-Con la scrittura `my_list$name <- new_obj` aggiungiamo alla lista in oggetto un nuovo elemento di cui dobbiamo specificare il nome e gli assegnamo l'oggetto `new_obj`. 
+Con la scrittura `my_list$name <- new_obj` aggiungiamo alla lista in oggetto un nuovo elemento di cui dobbiamo specificare il nome e gli assegniamo l'oggetto `new_obj`. 
 
 ```{r, echo = T}
 # Aggiungiamo un nuovo elemento
@@ -344,18 +344,18 @@ In questo caso sarà necessario salvare il risultato ottenuto per mantenere i ca
 
 Vediamo infine alcune funzioni molto comuni usate per ottenere informazioni riassuntive riguardo gli elementi di una lista:
 
-- `str()` ci permete di valutare la struttura della lista ottenendo utili informazini quali in numero di elementi e la loro tipologia
+- `str()` ci permette di valutare la struttura della lista ottenendo utili informazioni quali in numero di elementi e la loro tipologia
 ```{r, echo = TRUE}
 str(my_list)
 ```
-- `summary()` ci permete avere delle informazioni riassuntive degli elementi tuttavia risulta poco utlie
+- `summary()` ci permette avere delle informazioni riassuntive degli elementi tuttavia risulta poco utile
 ```{r, echo = TRUE}
 summary(my_list)
 ```
 
 ## Struttura nested
 
-Al contrario dei vettori che si estendono in *lunghezza* o dei dataframe/matrici che sono caratterizzati da righe e colonne, la peculiarità della lista (oltre alla lunghezza come abbaimo visto) è il concetto di **profondità**. Infatti una lista può contenere al suo interno una o più liste di fatto creando una **struttura nidificata molto complessa**. Nonostante la struttura più complessa, il principio di indicizzazione e creazione è lo stesso. La Figura \@ref(fig:list-depth) rappresenta l'idea di una lista nidificata (o nested):
+Al contrario dei vettori che si estendono in *lunghezza* o dei dataframe/matrici che sono caratterizzati da righe e colonne, la peculiarità della lista (oltre alla lunghezza come abbiamo visto) è il concetto di **profondità**. Infatti una lista può contenere al suo interno una o più liste di fatto creando una **struttura nidificata molto complessa**. Nonostante la struttura più complessa, il principio di indicizzazione e creazione è lo stesso. La Figura \@ref(fig:list-depth) rappresenta l'idea di una lista nidificata (o nested):
 
 ```{r list-depth, out.height="50%", out.width="50%", fig.cap="Rappresentazione concettuale di una lista nested"}
 knitr::include_graphics("images/list_depth.png")
@@ -412,5 +412,5 @@ I vantaggi principali che rendono le liste degli oggetti estremamente potenti so
 * **Effettuare operazioni complesse su più oggetti parallelamente**. Immaginate di avere una lista di dataframe strutturalmente simili ma con dati diversi all'interno. Se volete applicare una funzione ad ogni dataframe potete organizzare i dati in una lista e usare le funzioni dell'`apply` family che vedremo nei prossimi capitoli.
 <!-- TODO -->
 
-Infine, proprio per la loro flessibilità, le liste sono spesso utilizzate da vari pachetti per restituire i risultati delle analisi statistiche svolte. Saper accedere ai vari elementi di una lista risulta quindi necessario per ottenere specifiche infomazioni e risultati.
+Infine, proprio per la loro flessibilità, le liste sono spesso utilizzate da vari pacchetti per restituire i risultati delle analisi statistiche svolte. Saper accedere ai vari elementi di una lista risulta quindi necessario per ottenere specifiche informazioni e risultati.
 :::

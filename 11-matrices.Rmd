@@ -20,7 +20,7 @@ knitr::include_graphics("images/matrix.png")
 Due caratteristiche importanti di una matrice sono:
 
 - la **dimensione** - il numero di **righe** e di **colonne** da cui è formata la matrice
-- la **tipologia** - la tipologia di dati che sono contenuti nella matrice. Infatti, in modo analogo a quanto visto con i vettori, una matrice deve esssere formata da **elementi tutti dello stesso tipo**. Pertanto esistono diverse tipologie di matrici a seconda del tipo di dati da cui è formata, in particolare abbiamo matrici numeriche, di valori logici e di caratteri (vedi Capitolo \@ref(matrix-types)). 
+- la **tipologia** - la tipologia di dati che sono contenuti nella matrice. Infatti, in modo analogo a quanto visto con i vettori, una matrice deve essere formata da **elementi tutti dello stesso tipo**. Pertanto esistono diverse tipologie di matrici a seconda del tipo di dati da cui è formata, in particolare abbiamo matrici numeriche, di valori logici e di caratteri (vedi Capitolo \@ref(matrix-types)). 
 
 È fondamentale inoltre sottolineare come ogni **elemento** di una matrice sia caratterizzato da:
 
@@ -38,7 +38,7 @@ $$
 $$
 abbiamo che $x_{2, 3} = 9$ mentre $x_{3, 2} = 1$. Questo ci serve solo per ribadire il corretto uso degli indici, dove per un generico elemento $x_{i, j}$, il valore *i* è l'indice di riga mentre il valore *j* è l'indice di colonna. **Prima si indicano le righe poi le colonne**. 
 
-Vediamo ora come creare delle matrici in R e come compiere le comuni operazini di selezione. Successivamente vedremo diverse manipolazioni e operazioni con le matrici. Infine estenderemo brevemente il concetto di matrici a dimensioni maggiori di due atttraverso l'uso degli **array**.
+Vediamo ora come creare delle matrici in R e come compiere le comuni operazioni di selezione. Successivamente vedremo diverse manipolazioni e operazioni con le matrici. Infine estenderemo brevemente il concetto di matrici a dimensioni maggiori di due attraverso l'uso degli **array**.
 
 ## Creazione
 
@@ -73,7 +73,7 @@ mat_byrow
 
 È importante notare come mentre sia possibile specificare qualsiasi combinazione di righe e colonne, il numero di valori forniti per popolare la matrice deve essere compatibile con la dimensione della matrice. In altre parole, **non posso fornire più o meno dati di quelli che la matrice può contenere**.
 
-Pertanto, la launghezza del vettore passato all'argomento `data` deve essere compatibile con gli argomenti `nrow` e `ncol`. È possibile tuttavia, fornire un unico valore se si desidera ottenre una matrice in cui tutti i valori siano identici. Creiamo ad esempio una matrice vuota con soli valori `NA` con 3 righe e 3 colonne.
+Pertanto, la lunghezza del vettore passato all'argomento `data` deve essere compatibile con gli argomenti `nrow` e `ncol`. È possibile tuttavia, fornire un unico valore se si desidera ottenere una matrice in cui tutti i valori siano identici. Creiamo ad esempio una matrice vuota con soli valori `NA` con 3 righe e 3 colonne.
 ```{r, echo = TRUE}
 mat_NA <- matrix(NA, nrow = 3, ncol = 3)
 mat_NA
@@ -84,7 +84,7 @@ In realtà è possibile fornire più o meno dati di quelli che la matrice può c
 ```{r, echo = TRUE}
 matrix(1:20, nrow = 2, ncol = 2)
 ```
-Nel caso vengano forniti meno valori, invece, R riutilizza gli stessi valori nello stesso ordinere per completare la matrice avvertendoci del problema.
+Nel caso vengano forniti meno valori, invece, R riutilizza gli stessi valori nello stesso ordinare per completare la matrice avvertendoci del problema.
 ```{r, echo = TRUE}
 matrix(1:4, nrow = 3, ncol = 4)
 ```
@@ -117,7 +117,7 @@ LETTERS[6:10]
 
 #### Numeric {-}
 
-Le matrici di valori numerici, sia `double` che `integer`, sono senza dubbio le più comuni ed utilizzate. Vengono spesso sfruttate per eseguire calcoli algebrici computazionalemnte molto efficienti.
+Le matrici di valori numerici, sia `double` che `integer`, sono senza dubbio le più comuni ed utilizzate. Vengono spesso sfruttate per eseguire calcoli algebrici computazionalmente molto efficienti.
 ```{r, echo = TRUE}
 # doubles
 mat_num <- matrix(5, nrow = 3, ncol = 4)
@@ -141,7 +141,7 @@ class(mat_logic)
 typeof(mat_logic)
 ```
 
-Ricordiamo che è comunque possibile eseguire operazioni matematiche con i valori logici poiché verranno automaticamente rasformatti nei rispettivi valori numerici 1 e 0.
+Ricordiamo che è comunque possibile eseguire operazioni matematiche con i valori logici poiché verranno automaticamente trasformati nei rispettivi valori numerici 1 e 0.
 
 ### Esercizi {-}
 
@@ -166,7 +166,7 @@ $$
 
 L'aspetto sicuramente più importante (e divertente) riguardo le matrici è accedere ai vari elementi. Ricordiamo che una matrice non è altro che una griglia di righe e colonne dove vengono disposti i vari valori. Indipendentemente da cosa la matrice contenga, è possibile utilizzare gli indici di riga e di colonna per identificare univocamente un dato elemento nella matrice. Pertanto ad ogni elemento è associata una coppia di valori (*i*, *j*) dove *i* è l'indice di riga e *j* è l'indice di colonna.
 
-Per visualizzare questo concetto, riportiamo nel seguente esempio gli indici per ogni elemnto di una matrice $3\times4$:
+Per visualizzare questo concetto, riportiamo nel seguente esempio gli indici per ogni elemento di una matrice $3\times4$:
 
 ```{r}
 mat <- matrix(NA, 3, 4)
@@ -180,7 +180,7 @@ for(i in 1:nrow(mat)){
 mat
 ```
 
-In R è possibile selezionare un elemento di una matrice utilizzando il suo indice di riga e di colonna. In modo analogo ai vettori è necessario quindi indicare all'inerno delle **parentesi quadre** `[]` poste dopo il nome del vettore, **l'indice di riga** e **l'indice di colonna** **separati da virgola**. 
+In R è possibile selezionare un elemento di una matrice utilizzando il suo indice di riga e di colonna. In modo analogo ai vettori è necessario quindi indicare all'interno delle **parentesi quadre** `[]` poste dopo il nome del vettore, **l'indice di riga** e **l'indice di colonna** **separati da virgola**. 
 
 ```{r, echo = TRUE, eval = FALSE}
 nome_matrice[<indice-riga>, <indice-colonna>]
@@ -212,10 +212,10 @@ Oltre alla selezione di un singolo elemento è possibile eseguire altri tipi di 
 
 È possibile selezionare **tutti** gli elementi di una riga o di una colonna utilizzando la seguente sintassi:
 ```{r, echo = TRUE, eval = FALSE}
-# Selzione intera riga
+# Selezione intera riga
 nome_matrice[<indice-riga>, ]
 
-# Selzione intera colonna
+# Selezione intera colonna
 nome_matrice[ , <indice-colonna>]
 ```
 Nota come sia comunque necessario l'utilizzo della **virgola** lasciando vuoto il posto prima o dopo la virgola per indicare ad R di selezionare rispettivamente tutte le righe o tutte le colonne. 
@@ -290,7 +290,7 @@ Una particolare fonte di incomprensioni e successivi errori riguarda proprio l'u
 
 In algebra lineare, i *vettori riga* ed i *vettori colonna* non sono altro che delle matrici rispettivamente di dimensione $1\times n$ e $m \times 1$. La dimensione ($righe \times colonne$) di una matrice, e quindi anche di un vettore, rivestono un ruolo importante nelle operazioni con le matrici ed in particolare nel prodotto matriciale.
 
-In R i vettori hanno una sola dimensione ovvero la *lunghezza* e quindi nel loro utilizzo con operazioni tra matrici vengono convertiti automaticamente in vettori riga o vettori colonna a seconda delle necessità. Tuttavia, questa trasformazione potrebbe non sempre rispettare le attuali intenzioni ed è quindi meglio utlizzare sempre le matrici e non i vettori.
+In R i vettori hanno una sola dimensione ovvero la *lunghezza* e quindi nel loro utilizzo con operazioni tra matrici vengono convertiti automaticamente in vettori riga o vettori colonna a seconda delle necessità. Tuttavia, questa trasformazione potrebbe non sempre rispettare le attuali intenzioni ed è quindi meglio utilizzare sempre le matrici e non i vettori.
 
 ```{r, echo = TRUE}
 # Vettore
@@ -326,7 +326,7 @@ as.vector(my_matrix)
 
 Vediamo ora alcuni utilizzi avanzati della selezione di elementi di una matrice. In particolare impareremo a:
 
-- utilizzare gli operatori relazionali e logici per selezionare gli elementi di una martrice
+- utilizzare gli operatori relazionali e logici per selezionare gli elementi di una matrice
 - modificare l'ordine di righe e colonne
 - sostituire degli elementi
 - eliminare delle righe o colonne
@@ -335,7 +335,7 @@ Nota che queste operazioni siano analoghe a quelle viste per i vettori e quindi 
 
 #### Operatori relazionali e logici {-}
 
-Un'utile funzione è quella di selezionare tra gli elementi di una matrice quelli che rispetano una certa condizione. Possiamo ad esempio valutare *"quali elementi della matrice sono maggiori di x?"*. Per fare questo dobbiamo specificare all'interno delle parentesi quadre la proposizione di interesse utilizzando gli operatori relazionali e logici (vedi Capitolo \@ref(operators-rel-log)). 
+Un'utile funzione è quella di selezionare tra gli elementi di una matrice quelli che rispettano una certa condizione. Possiamo ad esempio valutare *"quali elementi della matrice sono maggiori di x?"*. Per fare questo dobbiamo specificare all'interno delle parentesi quadre la proposizione di interesse utilizzando gli operatori relazionali e logici (vedi Capitolo \@ref(operators-rel-log)). 
 
 Quando una matrice è valutata all'interno di una proposizione, R valuta la veridicità di tale proposizione rispetto ad ogni suo elemento. Come risultato otteniamo una matrice di valori logici con le rispettive risposte per ogni elemento (`TRUE` o `FALSE`).
 ```{r, echo = TRUE}
@@ -364,10 +364,10 @@ Gli indici di riga e di colonna possono essere utilizzati per riordinare le righ
 my_matrix <- matrix(1:6, nrow = 3, ncol = 4)
 my_matrix
 
-# Altero l'ordinen delle righe
+# Altero l'ordine delle righe
 my_matrix[c(3,2,1), ]
 
-# Altero l'ordine delle colonnne
+# Altero l'ordine delle colonne
 my_matrix[ ,c(1,3,2, 4)]
 ```
 
@@ -385,7 +385,7 @@ my_matrix[2,2] <- 555
 my_matrix
 ```
 
-È possibile anche sostituire tutti i valori di un'intera riga o colonnna opportunamente selezionata. In questo caso sarà necessario fornire un corretto numero di nuovi valori da utilizzare.
+È possibile anche sostituire tutti i valori di un'intera riga o colonna opportunamente selezionata. In questo caso sarà necessario fornire un corretto numero di nuovi valori da utilizzare.
 ```{r, echo = TRUE}
 # Modifico la 2 colonna
 my_matrix[ ,2] <- c(444, 555, 666)
@@ -396,7 +396,7 @@ my_matrix[3, ] <- c(111, 666, 999, 122)
 my_matrix
 ```
 
-Nota come a differenza dei vettori non sia possibile aggiungere una nuova riga o colonna attraverso questa operazione ma sarà necesssario utilizzare una diversa procedura (vedi Capitolo \@ref(matrix-bind)).
+Nota come a differenza dei vettori non sia possibile aggiungere una nuova riga o colonna attraverso questa operazione ma sarà necessario utilizzare una diversa procedura (vedi Capitolo \@ref(matrix-bind)).
 
 ```{r, echo = TRUE, error = TRUE}
 # Aggiungo una nuova colona [errore selezione indici]
@@ -424,8 +424,8 @@ Nota come l'operazione di eliminazione sia comunque un'operazione di selezione. 
 
 Utilizzando le matrici create nei precedenti esercizi esegui le seguenti consegne ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09-matrices.R)):
 
-1. Utilizzando gli indici di riga e di colonna selziona il numero 27 della matrice `A`
-2. Selziona gli elementi compresi tra la seconda e quarta riga, seconda e terza colonna della matrice `B`
+1. Utilizzando gli indici di riga e di colonna seleziona il numero 27 della matrice `A`
+2. Seleziona gli elementi compresi tra la seconda e quarta riga, seconda e terza colonna della matrice `B`
 3. Seleziona solo gli elementi pari della matrice `A` (Nota: utilizza l'operazione resto `%%`)
 4. Elimina dalla matrice `C` la terza riga e la terza colonna
 5. Seleziona tutti gli elementi della seconda e terza riga della matrice `B`
@@ -524,10 +524,10 @@ rownames(mat)
 colnames(mat)
 ```
 
-Non essendo impostati, ottieniamo inizialmente come output il valore `NULL`. Per impostare i nomi di righe e/o colonne, sarà quindi necessario assegnare a `rownames(nome_matrice)` e `colnames(nome_matrice)` un vettore di caratteri della stessa lunghezza della dimensione che stiamo rinominando. Se impostiamo un unico carattere, tutte le righe/colonne avranno lo stesso valore. Questo ci fa capire che, se vogliamo impostare dei nomi, R richiede che questo venga fatto per tutte le righe/colonne.
+Non essendo impostati, otteniamo inizialmente come output il valore `NULL`. Per impostare i nomi di righe e/o colonne, sarà quindi necessario assegnare a `rownames(nome_matrice)` e `colnames(nome_matrice)` un vettore di caratteri della stessa lunghezza della dimensione che stiamo rinominando. Se impostiamo un unico carattere, tutte le righe/colonne avranno lo stesso valore. Questo ci fa capire che, se vogliamo impostare dei nomi, R richiede che questo venga fatto per tutte le righe/colonne.
 
 ```{r, echo=TRUE}
-# Assegnamo i nomi alle righe
+# Assegniamo i nomi alle righe
 rownames(my_matrix) <- LETTERS[1:3]
 my_matrix
 
@@ -558,13 +558,13 @@ my_matrix[c("A", "C"), ]
 
 ### Unire matrici {#matrix-bind}
 
-Abbiamo visto nel Capitolo \@ref(vector-functions) come si possono unire diversi vettori tramite la funnzione `c()`. Anche per le matrici è possibile combinare matrici diverse, rispettando però alcune regole:
+Abbiamo visto nel Capitolo \@ref(vector-functions) come si possono unire diversi vettori tramite la funzione `c()`. Anche per le matrici è possibile combinare matrici diverse, rispettando però alcune regole:
 
 * `rbind()` - Posso unire matrici **per riga** ovvero aggiungo una o più righe ad una matrice, in questo caso le matrici devono avere lo stesso numero di colonne
 * `cbind()` - Posso unire matrici **per colonna** ovvero aggiungo una o più colonne ad una matrice, in questo caso le matrici devono avere lo stesso numero di righe
 * Le matrici che unisco devono essere della **stessa tipologia** (numeri o caratteri)
 
-Quindi, data una matrice `my_matrix` di dimensione $m \times n$ se volgiamo aggiungere le righe di una seconda matrice `row_matrix` possiamo utlizzare il comando `rbind(my_matrix, row_matrix)` a patto che abbiano lo stesso numero di colonnne ($n$). Se vogliamo invece aggiungere le colonne di una nuova matrice `col_matrix` possiamo utlizzare il comando `cbind(my_matrix, col_matrix)` a patto che abbiano lo stesso numero di righe ($m$). È utile pensare all'unione come ad un collage tra matrici. In Figura\@ref(fig:mat-comb) è presente uno schema utile per capire visivamente questo concetto, dove le matrici colorate in verde possono essere correttamente unite mentre le matrici in rosso non presentano la corretta dimensionalità.
+Quindi, data una matrice `my_matrix` di dimensione $m \times n$ se volgiamo aggiungere le righe di una seconda matrice `row_matrix` possiamo utilizzare il comando `rbind(my_matrix, row_matrix)` a patto che abbiano lo stesso numero di colonne ($n$). Se vogliamo invece aggiungere le colonne di una nuova matrice `col_matrix` possiamo utilizzare il comando `cbind(my_matrix, col_matrix)` a patto che abbiano lo stesso numero di righe ($m$). È utile pensare all'unione come ad un collage tra matrici. In Figura\@ref(fig:mat-comb) è presente uno schema utile per capire visivamente questo concetto, dove le matrici colorate in verde possono essere correttamente unite mentre le matrici in rosso non presentano la corretta dimensionalità.
 
 ```{r mat-comb, fig.cap="Schema per la combinazione di matrici", out.width="50%"}
 knitr::include_graphics("images/matrix_comb.png")
@@ -613,7 +613,7 @@ Gli operatori matematici (ad es. `+`, `-`, `*`, `/`, etc.) svolgono le operazion
 
 #### Operazione tra matrice e valore singolo {-}
 
-Nel caso di un singolo valore, la stessa operazione viene semplicemente eseguita su tutti gli elementi della matrice. Possiamo ad esempio aggiungere a tutti gli elementi di una matrice il volore 100.
+Nel caso di un singolo valore, la stessa operazione viene semplicemente eseguita su tutti gli elementi della matrice. Possiamo ad esempio aggiungere a tutti gli elementi di una matrice il valore 100.
 
 ```{r, echo = TRUE}
 my_matrix <- matrix(1:12, nrow = 3, ncol = 4)
@@ -625,14 +625,14 @@ my_matrix + 100
 
 #### Operazione tra matrice e vettore {-}
 
-Nel caso di un vettore, l'operazione viene eseguita **elemento per elemento** ciclando i valori del vettore qualora la sua lunghezza non sia suficiente. Possiamo ad esempio aggiungere a tutti gli elementi di una matrice il vettore di valori `c(100, 200, 300, 400)`.
+Nel caso di un vettore, l'operazione viene eseguita **elemento per elemento** ciclando i valori del vettore qualora la sua lunghezza non sia sufficiente. Possiamo ad esempio aggiungere a tutti gli elementi di una matrice il vettore di valori `c(100, 200, 300, 400)`.
 
 ```{r, echo = TRUE}
 # Aggiungo un vettore di valori
 my_matrix + c(100, 200, 300, 400)
 ```
 
-Com'è facilmente intuibile, questa operazione è poco connsigliata poiché è facile causa di errori ed incomprensioni.
+Com'è facilmente intuibile, questa operazione è poco consigliata poiché è facile causa di errori ed incomprensioni.
 
 #### Operazione tra matrici {-}
 
@@ -647,7 +647,7 @@ my_matrix + sum_matrix
 ```
 
 :::{.tip title="Matrix Multiplication" data-latex="[Matrix Multiplication]"}
-Nota come in R l'operatore `*` indichi il semmplice prodotto elemento per elemento mentre per ottenere il prodotto matriciale è necessario utilizzare l'operatore `%*%`.
+Nota come in R l'operatore `*` indichi il semplice prodotto elemento per elemento mentre per ottenere il prodotto matriciale è necessario utilizzare l'operatore `%*%`.
 
 Il prodotto matriciale segue delle specifiche regole e specifiche proprietà. In particolare, il numero di colonne della prima matrice deve essere uguale al numero di righe della seconda matrice. Per un approfondimento vedi <https://it.wikipedia.org/wiki/Moltiplicazione_di_matrici>.
 ```{r}
@@ -698,7 +698,7 @@ diag(4)
 
 ### Esercizi {-}
 
-Utilizzando le matrici create nei precedenti esercizi, esegui le seguentti consegne ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09-matrices.R)):
+Utilizzando le matrici create nei precedenti esercizi, esegui le seguenti consegne ([soluzioni](https://github.com/psicostat/Introduction2R/blob/master/exercises/chapter-09-matrices.R)):
 
 1. Crea la matrice `G` unendo alla matrice `A` le prime due colonne della matrice `C`
 2. Crea la matrice `H` unendo alla matrice `C` le prime due righe della matrice trasposta di `B`
@@ -722,13 +722,13 @@ my_cube <- array(1:27, dim = c(3,3,3))
 my_cube
 ```
 
-Tutte le principali funzioni e operazioni di selezione che abbiamo visto per le matrici ed i vettori posono essere eseguite in modo analogo anche con gli array. Il funzinonamento generale della selezione di elementi tramite parentesi quadre risulterà ora certamente pù chiaro. Per ogni dimensione vengono indicarti gli indici di posizioni desiderati. L'ordine all'interno delle parentesi quadre determina la specifica deimensione a cui ci si riferisce e le virgole sono utilizzate per separare gli indici delle diverse dimensioni.
+Tutte le principali funzioni e operazioni di selezione che abbiamo visto per le matrici ed i vettori possono essere eseguite in modo analogo anche con gli array. Il funzionamento generale della selezione di elementi tramite parentesi quadre risulterà ora certamente pù chiaro. Per ogni dimensione vengono indicarti gli indici di posizioni desiderati. L'ordine all'interno delle parentesi quadre determina la specifica dimensione a cui ci si riferisce e le virgole sono utilizzate per separare gli indici delle diverse dimensioni.
 
 ```{r, echo = TRUE, eval = FALSE}
 my_hypercube[<dim-1>, <dim-2>, <dim-3>, ..., <dim-n>]
 ```
 
-Vediamo ora alcuni semplici eempi di selezione.
+Vediamo ora alcuni semplici esempi di selezione.
 
 ```{r}
 # Seleziono un singolo elemento

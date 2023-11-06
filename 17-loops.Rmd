@@ -34,7 +34,7 @@ for (i in c(...)) {
 }
 ```
 
-- `i` è un nome generico per indicare la variabile conteggio che abbiamo introdotto prima. Può essere qualsiasi carattere, ma solitamente per un ciclo generico si utilizzano singole lettere come `i` o `j` proabilmente per una similarità con la notazione matematica che spesso utilizza queste lettere per indicare una serie di elementi
+- `i` è un nome generico per indicare la variabile conteggio che abbiamo introdotto prima. Può essere qualsiasi carattere, ma solitamente per un ciclo generico si utilizzano singole lettere come `i` o `j` probabilmente per una similarità con la notazione matematica che spesso utilizza queste lettere per indicare una serie di elementi
 - `in` è l'operatore per indicare che `i` varia rispetto ai valori specificati di seguito
 - `c(...)` è il range di valori che assumerà `i` in per ogni iterazione
 
@@ -200,7 +200,7 @@ while(count >= 0){
 
 Quando si scrive un ciclo `while` è importante assicurarsi di due cose:
 
-- Che la condizione sia `TRUE` inizialmente, altrimenti il ciclo non comincierà nemmeno
+- Che la condizione sia `TRUE` inizialmente, altrimenti il ciclo non comincerà nemmeno
 - Che ad un certo punto la condizione diventi `FALSE` (perché abbiamo ottenuto il risultato o perché è passato troppo tempo o iterazioni)
 
 Se la seconda condizione non è rispettata, otteniamo quelli che si chiamano `endless loop` come ad esempio:
@@ -231,7 +231,7 @@ while(i <= length(nomi)){ # condizione
 
 ### Next e break
 
-All'interno di una struttura iterativa, possiamo eseguire qualsiasi tipo di operazione, ed anche includere strutture condizionali. Alcune volte può essere utile saltare una particolare iterazione oppure interrompere il ciclo iterativo. In R tali operazioni posso essere eseguite rispettivamene coni comandi `next` e `break`.
+All'interno di una struttura iterativa, possiamo eseguire qualsiasi tipo di operazione, ed anche includere strutture condizionali. Alcune volte può essere utile saltare una particolare iterazione oppure interrompere il ciclo iterativo. In R tali operazioni posso essere eseguite rispettivamente coni comandi `next` e `break`.
 
 - `next` - passa all'iterazione successiva
 - `break` - interrompe l'esecuzione del ciclo
@@ -297,15 +297,15 @@ Un aspetto importante è l'utilizzo di indici diversi, infatti i valori `i`, `j`
 Ci sono una famiglia di funzioni in R estremamente potenti e versatili chiamate `*apply`. L'asterisco suggerisce una serie di varianti presenti in R che nonostante la struttura e funzione comune hanno degli obiettivi diversi:
 
 - `apply`: dato un dataframe (o matrice) esegue la stessa funzione su ogni riga o colonna
-- `tapply`: dato un vettore di valori esegue la stessa funzione su ogni gruppo che è satato definito
+- `tapply`: dato un vettore di valori esegue la stessa funzione su ogni gruppo che è stato definito
 - `lapply`: esegue la stessa funzione per ogni elemento di una lista. Restituisce ancora una lista
-- `sapply`: esegue la stessa funzione per ogni elemento di una lista. Restituisce se possibile un oggetto seplificato (un vettore, una matrice o un array)
+- `sapply`: esegue la stessa funzione per ogni elemento di una lista. Restituisce se possibile un oggetto semplificato (un vettore, una matrice o un array)
 - `vapply`: analogo a `sapply` ma richiede di definire il tipo di dati restituiti
 - `mapply`: è la versione multivariata. Permette di applicare una funzione a più liste di elementi
 
 Prima di illustrare le varie funzioni è utile capire la struttura generale. In generale queste funzioni accettano un oggetto **lista** quindi un insieme di elementi e una **funzione**. L'idea infatti è quella di avere una funzione che accetta altre funzioni come argomenti e applichi la funzione-argomento ad ogni elemento in input. 
 Queste funzioni, sopratutto in R, sono spesso preferite rispetto ad utilizzare cicli `for` per velocità, compattezza e versatilità.
-Hadley Wickam[^talk-map] riporta un bellissimo esempio per capire la diffenza tra `loop` e `*apply`. Immaginiamo di avere una serie di vettori e voler applicare alcune funzioni ad ogni vettore, possiamo impostare un semplice loop in questo modo:
+Hadley Wickam[^talk-map] riporta un bellissimo esempio per capire la differenza tra `loop` e `*apply`. Immaginiamo di avere una serie di vettori e voler applicare alcune funzioni ad ogni vettore, possiamo impostare un semplice loop in questo modo:
 
 ```{r}
 list_vec <- list(
@@ -389,7 +389,7 @@ centered_list <- lapply(list_vec, function(x){
 })
 ```
 
-Un ultimo aspetto riguarda un parallismo tra `x` nei nostri esempi e `i`nei cicli `for` che abbiamo visto in precedenza. Proprio come `i`, `x` è una semplice convenzione e si può utilizzare qualsiasi nome per definire l'argomento generico. Inoltre, è utile pensare a `x` proprio con lo stesso ruolo di `i`, infatti se pensiamo alla funzione in precedenza, `x` ad ogni iterazione prende il valore di un elemento di `list_vec` proprio come utilizzare il ciclo `for` non con gli indici ma con i valori del vettore su cui stiamo iterando. Qualche volta infatti può essere utile applicare un principio di **indicizzazione** anche con l' `*apply` family:
+Un ultimo aspetto riguarda un parallelismo tra `x` nei nostri esempi e `i` nei cicli `for` che abbiamo visto in precedenza. Proprio come `i`, `x` è una semplice convenzione e si può utilizzare qualsiasi nome per definire l'argomento generico. Inoltre, è utile pensare a `x` proprio con lo stesso ruolo di `i`, infatti se pensiamo alla funzione in precedenza, `x` ad ogni iterazione prende il valore di un elemento di `list_vec` proprio come utilizzare il ciclo `for` non con gli indici ma con i valori del vettore su cui stiamo iterando. Qualche volta infatti può essere utile applicare un principio di **indicizzazione** anche con l' `*apply` family:
 
 ```{r}
 means <- lapply(seq_along(list_vec), function(i) mean(list_vec[[i]]))
@@ -539,7 +539,7 @@ vapply(X = , FUN = , FUN.VALUE = , ...)
 vapply(my_list, FUN = mean, FUN.VALUE = numeric(length = 1L))
 ```
 
-In questo caso come in precendeza definiamo la lista su cui applicare la funzione. Tuttavia l'argomento `FUN.VALUE = numeric(length = 1L)` specifica che ogni risultato dovrà essere un valore di tipo `numeric` di lunghezza 1. Infatti applicando la media otteniamo un singolo valore per iterazione e questo valore è necessariamente numerico.
+In questo caso come in precedenza definiamo la lista su cui applicare la funzione. Tuttavia l'argomento `FUN.VALUE = numeric(length = 1L)` specifica che ogni risultato dovrà essere un valore di tipo `numeric` di lunghezza 1. Infatti applicando la media otteniamo un singolo valore per iterazione e questo valore è necessariamente numerico.
 
 :::{.warning title="\\texttt{sapply()} vs \\texttt{vapply()}" data-latex="[\\texttt{sapply()} vs \\texttt{vapply()}]"}
 
@@ -661,7 +661,7 @@ str(sample_info)
 head(sample_info)
 ```
 
-È importante sottolineare che la ripetizione è alla base di qualsiasi struttura iterativa che abbiamo visto finora. Infatti lo stesso risultato (al netto di leggibilità, velocità e versalità) lo possiamo ottenere indistintamente con un ciclo `for`, `lapply` o `replicate`. Riprendendo l'esempio precedente:
+È importante sottolineare che la ripetizione è alla base di qualsiasi struttura iterativa che abbiamo visto finora. Infatti lo stesso risultato (al netto di leggibilità, velocità e versatilità) lo possiamo ottenere indistintamente con un ciclo `for`, `lapply` o `replicate`. Riprendendo l'esempio precedente:
 
 ```{r}
 
