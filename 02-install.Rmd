@@ -1,7 +1,7 @@
 # Installare R e RStudio {#install}
 
 R ed RStudio sono due software distinti. R è un linguaggio di programmazione usato in particolare in ambiti quali la statistica. RStudio invece è un'interfaccia *user-friendly* che permette di utilizzare R.
-R può essere utilizzato autonomamente tuttavia è consigliato l'utilizzo attraverso RStudio. Entrambi vanno installati separatamente e la procedura varia a seconda del proprio sistema operativo (Windows, MacOS o Linux). Riportiamo le istruzioni solo per Windows, MacOS e Linux (Ubuntu). Ovviamente R è disponibile per tutte le principali distribuzioni di Linux. Le istruzioni riportate per Ubuntu (la distribuzione più diffusa) sono valide anche per le distribuzioni derivate.
+R può essere utilizzato autonomamente tuttavia è consigliato l'utilizzo attraverso RStudio. Entrambi vanno installati separatamente e la procedura varia a seconda del proprio sistema operativo (Windows, Mac OS o Linux). Riportiamo le istruzioni solo per Windows, Mac OS e Linux (Ubuntu). Ovviamente R è disponibile per tutte le principali distribuzioni di Linux. Le istruzioni riportate per Ubuntu (la distribuzione più diffusa) sono valide anche per le distribuzioni derivate.
 
 ## Installare R {#install-r}
 
@@ -20,7 +20,7 @@ R può essere utilizzato autonomamente tuttavia è consigliato l'utilizzo attrav
 ![](images/install_mirror.png){ width=95% }
 </center>
 <br>
-    
+
 4. Selezionare il proprio sistema operativo.
 
 <center>
@@ -28,7 +28,7 @@ R può essere utilizzato autonomamente tuttavia è consigliato l'utilizzo attrav
 </center>
 <br>
 
-### R Windows
+### R per Windows
 
 1. Selezionare la voce **base**.
 
@@ -36,7 +36,7 @@ R può essere utilizzato autonomamente tuttavia è consigliato l'utilizzo attrav
 ![](images/install-Windows-base.png){ width=95% }
 </center>
 <br>
-  
+
 2. Selezionare la voce **Download** della versione più recente di R disponibile.
 
 <center>
@@ -46,7 +46,7 @@ R può essere utilizzato autonomamente tuttavia è consigliato l'utilizzo attrav
 
 3. Al termine del download, eseguire il file e seguire le istruzioni fino al termine dell'installazione.
 
-### R MacOS
+### R per Mac OS
 
 1. Selezionare la versione più recente di R disponibile .
 
@@ -66,7 +66,7 @@ R può essere utilizzato autonomamente tuttavia è consigliato l'utilizzo attrav
 
 5. Al termine del download, eseguire il file e seguire le istruzioni fino al termine dell'installazione.
 
-### R Linux
+### R per Linux
 
 Nonostante la semplicità di installazione di pacchetti su Linux, R a volte potrebbe essere più complicato da installare per via delle diverse distribuzioni, repository e chiavi per riconoscere la repository come sicura.
 
@@ -83,7 +83,7 @@ Per qualsiasi difficoltà o errore, sopratutto con il mondo Linux, una ricerca s
 <br>
 
 :::{.design title="RTools" data-latex="[RTools]"}
-Utilizzi avanzati di R richiedono l'istallazione di una serie ulteriore software definiti **R tools**.
+Utilizzi avanzati di R richiedono l'istallazione di una serie ulteriore software definiti **RTools**.
 
 #### Windows {-}
 
@@ -95,7 +95,7 @@ Seleziona la voce **RTools** e segui le istruzioni per completare l'installazion
 <br>
 Nota che sono richieste anche delle operazioni di configurazione affinché tutto funzioni correttamente.
 
-#### MacOS {-}
+#### Mac OS {-}
 
 Seleziona la voce **tools** e segui le istruzioni riportate.
 
@@ -112,7 +112,7 @@ Nota in particolare che con R 4.0 le seguenti indicazioni sono riportate.
 </center>
 :::
 
-## Installare R Studio
+## Installare RStudio
 
 
 1. Accedere al sito https://rstudio.com.
@@ -140,6 +140,6 @@ Nota in particolare che con R 4.0 le seguenti indicazioni sono riportate.
 5. Al termine del download, eseguire il file e seguire le istruzioni fino al termine dell'installazione.
 
 
-### R Studio in Linux
+### RStudio per Linux
 
-In questo caso, come su Windows e MacOS l'installazione consiste nello scaricare ed eseguire il file corretto, in base alla distribuzione (ad esempio `.deb` per Ubuntu e derivate). Importante, nel caso di Ubuntu (ma dovrebbe valere anche per le altre distribuzioni) anche versioni successive a quella indicata (es. Ubuntu 16) sono perfettamente compatibili.
+In questo caso, come su Windows e Mac OS l'installazione consiste nello scaricare ed eseguire il file corretto, in base alla distribuzione (ad esempio `.deb` per Ubuntu e derivate). Importante, nel caso di Ubuntu (ma dovrebbe valere anche per le altre distribuzioni) anche versioni successive a quella indicata (es. Ubuntu 16) sono perfettamente compatibili.

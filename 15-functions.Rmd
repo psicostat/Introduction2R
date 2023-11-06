@@ -1,4 +1,4 @@
-# Definizione di Funzioni {#functions}
+# Definizione di funzioni {#functions}
 
 ```{r settings, echo = FALSE}
 knitr::opts_chunk$set(
@@ -12,7 +12,7 @@ Nel Capitolo \@ref(functions-def) abbiamo introdotto il concetto di funzioni e a
 
 Questo è uno dei vantaggi principali di utilizzare un linguaggio di programmazione, ovvero il poter sviluppare funzioni ad-hoc a seconda delle proprie esigenze e non limitarsi a quelle prestabilite. In questo capitolo descriveremo come creare le proprie funzioni in R.
 
-## Creazione di una Funzione
+## Creazione di una funzione
 
 Il comando usato per creare una funzione in R è `function()` seguito da una coppia di parentesi graffe `{ }` al cui interno deve essere specificato il corpo della funzione:
 
@@ -49,7 +49,7 @@ Quando chiamiamo la nostra funzione, R eseguirà il corpo della funzione e ci re
 Nel definire il nome di una funzione è utile seguire le stese indicazioni che riguardavano i nomi degli oggetti (vedi Capitolo \@ref(objects-names)). In questo caso affinché un nome sia **auto-descrittivo** si tende ad utilizzare verbi che riassumano l'azione eseguita dalla funzione.
 :::
 
-### Definire Input e Output 
+### Definire input e output
 
 Ricordiamo che in generale le funzioni, ricevuti degli oggetti in input, compiono determinate azioni e restituiscono dei nuovi oggetti in output. Input e ouput sono quindi due aspetti aspetti fondamentali di ogni funzione che richiedono particolare attenzione.
 
@@ -106,9 +106,9 @@ happy_birthday()
 Nota che questa funzione possona essere usata solo in sessioni interattive di R poiché è richiesta un 'azione diretta da parte dell'utente.
 :::
 
-#### Default Argomenti {-}
+#### Valori di default degli argomenti {-}
 
-Abbiamo visto come aggiungere degli argomenti che devono essere definiti dall'utente nell'utilizzare la funzione. Qualora l'utente non specifichi uno o più argomenti R riporterà un messaggio di errore indicando come ci siano  degli argomenti non specificati e senza valori di default.
+Abbiamo visto come aggiungere degli argomenti che devono essere definiti dall'utente nell'utilizzare la funzione. Qualora l'utente non specifichi uno o più argomenti R riporterà un messaggio di errore indicando come ci siano degli argomenti non specificati e senza valori di default.
 
 ```{r, echo = TRUE, error = TRUE}
 my_sum(x = 5)
@@ -127,12 +127,12 @@ my_sum <- function(x, y = 10){
 my_sum(x = 5)
 
 # Specifico il valore id y
-my_sum(x = 5,  y = 8)
+my_sum(x = 5, y = 8)
 ```
 
 Questa pratica è molto usata per specificare comportamenti particolari delle funzioni. In genere le funzioni sono definite con un funzionameto di default ma alcuni argomenti possono essere specificati per particolari essigenze solo quando necessario.
 
-:::{.trick title="match.arg()" data-latex="[match.arg()]"}
+:::{.trick title="\\texttt{match.arg()}" data-latex="[\\texttt{match.arg()}]"}
 Per imporre la scelta di un argomento tra una limitata serie di valori è possibile indicare nella definizione dell'argomento un vettore con le possibili entrate. Successivamente la scelta deve essere validata attraverso la funzione `match.arg()` come nell esempio successivo:
 
 ```{r, echo = TRUE, error = TRUE}
@@ -172,7 +172,7 @@ Esegui i seguenti esercizi:
   5. Definisci una funzione che calcoli lo stipendio mensile sulla base delle ore svolte nel mese e la paga oraria.
 
 
-## Lavorare con le Funzioni
+## Lavorare con le funzioni
 
 Le funzioni sono sicuramente l'aspetto più utile e avanzato del linguaggio R e in generale dei linguaggi di programmazione. I pacchetti che sono sviluppati in R non sono altro che insieme di funzioni che lavorano assieme per uno scopo preciso. Oltre allo scopo della funzione è importante capire come gestire gli **errori e gli imprevisti**. Se la funzione infatti accetta degli argomenti, l'utente finale o noi stessi che la utilizziamo possiamo erroneamente usarla nel modo sbagliato. È importante quindi capire come leggere gli errori ma sopratutto creare messaggi di errore o di avvertimento utili per l'utilizzo della funzione.
 
@@ -348,7 +348,7 @@ Le cose importanti da ricordare quando si definiscono e utilizzano funzioni sono
 
 [^capitolo-7-hadley]: per una non semplice trattazione dell'argomento, il [capitolo 7](https://adv-r.hadley.nz/environments.html) del libro "Advanced R" di Hadley Wickam è un ottima risorsa.
 
-## Best practice
+## Best Practice
 
 Scrivere funzioni è sicuramente l'aspetto più importante quando si scrive del codice. Permette di automatizzare operazioni, ridurre la quantità di codice, rendere più chiaro il nostro script e riutilizzare una certa porzione di codice in altri contesti. Ci sono tuttavia delle convenzioni e degli accorgimenti per scrivere delle ottime e versatili funzioni:
 
@@ -417,7 +417,7 @@ Questo potrebbe sembrare un argomento marginale tuttavia la scelta dei nomi sia 
 
 È utile utilizzare **verbi** per nominare le funzioni mentre **nomi** per nominare argomenti. Ad esempio un nome adatto alla nostra ultima funzione potrebbe essere `center_var()` mentre il nome del nuovo vettore `centered_vec` o `c_vec`. Se troviamo `center_var` all'interno di uno script è subito chiaro il compito di quella funzione, anche senza guardare il codice al suo interno.
 
-### Semplificare la quantita di operazioni e output
+### Semplificare la quantità di operazioni e output
 
 Questo è un punto molto importante ma allo stesso tempo variegato. Ci sono diversi stili di programmazione e quindi non ci sono regole fisse oppure delle pratiche migliori di altre.
 Abbiamo detto che una funzione è un modo per astrarre, riutilizzare e semplificare una serie di operazioni. Possiamo quindi scrivere funzioni molto complesse che ricevono diversi input, eseguono diverse operazioni e restituiscono diversi output. È buona pratica però scrivere funzioni che:
@@ -490,10 +490,12 @@ Anche in questo caso è una questione di stile e comodità, in generale:
 Nel secondo caso è sufficiente quindi scrivere la funzione e questa sarà salvata come oggetto nell'ambiente principale. Riguardo il primo scenario si può utilizzare la funzione `source("percorso/script.R")`. La funzione `source()` accetta il percorso di uno script R che verrà poi eseguito in background. Quindi se la vostra directory è organizzata in questo modo:
 
 ```
-- working directory/
-|-- main_script.R
-|-- functions/
-    |-- my_functions.R
+working_directory/
+ |
+ |- main_script.R
+ |- functions/
+ |   |
+ |   |- my_functions.R
 ```
 Dove lo script `my_functions.R` è uno script dove sono dichiarare tutte le funzioni:
 

@@ -176,7 +176,7 @@ substring("gatto", 1:5, 1:5) # indice multiplo di inizio e fine
 substr("gatto", 1, 1:5) # non funziona, viene usato solo 1 indice di fine
 ```
 
-### `startWith()` e `endsWith()`
+### `startsWith()` e `endsWith()`
 
 Alcune volte possiamo essere interessati all'inizio o alla fine di una stringa. Ad esempio `female` e `male` hanno una chiara differenza iniziale (`fe` e `ma`). E nonostante errori di battitura seguenti o altre differenze, selezionare solo l'inizio o la fine può essere efficiente. `startWith()` e `endsWith()` permettono rispettivamente di fornire `TRUE` o `FALSE` se una certa stringa o vettore di stringhe abbiamo un certo pattern iniziale o finale.
 
@@ -283,7 +283,7 @@ Quello che otteniamo è un vettore (all'interno di una lista, possiamo usare `un
 
 ## Regular Expression (REGEX)
 
-È tutto così semplice con le stringhe? Assolutamente no! Fino ad ora abbiamo utilizzato dei semplici pattern come singoli caratteri o insieme di caratteri  tuttavia possiamo avere problemi più complessi da affrontare come:
+È tutto così semplice con le stringhe? Assolutamente no! Fino ad ora abbiamo utilizzato dei semplici pattern come singoli caratteri o insieme di caratteri tuttavia possiamo avere problemi più complessi da affrontare come:
 
 - trovare l'estensione di un insieme di file
 - trovare il dominio di un sito web

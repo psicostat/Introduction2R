@@ -1,4 +1,4 @@
-# Programmazione Condizionale {#conditionals}
+# Programmazione condizionale {#conditionals}
 
 ```{r settings, echo = FALSE}
 knitr::opts_chunk$set(
@@ -85,7 +85,7 @@ Il semplice utilizzo di un singolo `if` potrebbe non essere sufficiente in alcun
 knitr::include_graphics("images/ifelse_chart.png")
 ```
 
-#### Struttura if {-}
+#### Struttura if...else {-}
 
 In R questo viene implementato nel seguente modo:
 
@@ -152,7 +152,7 @@ Oltre a concatenare una serie di `if` e `else if` è possibile inserire uno o pi
 knitr::include_graphics("images/ifnested.png")
 ```
 
-#### Struttura if {-}
+#### Struttura if nested {-}
 
 ```{r, echo = TRUE, eval = FALSE}
   ...
@@ -212,7 +212,7 @@ Esegui i seguenti esercizi:
   4. Definisci una funzione che calcoli lo stipendio mensile considerando gli straordinari che sono retribuiti 1.5 della paga oraria normale. Utilizza come parametrile ore svolte nel mese, la paga oraria ed il tetto ore lavorative, oltre cui si contano gli straordinari.
   
 
-## Altri Operatori Condizionali
+## Altri operatori condizionali
 
 ### switch
 

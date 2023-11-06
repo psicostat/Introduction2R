@@ -2,9 +2,9 @@
 
 # Introduzione {#third-section -}
 
-In questa sezione verranno introdotte le principali tipologie di oggetti usati in R . Ovvero  le principali strutture in cui possono essere organizzati i dati: Vettori, Matrici, Dataframe e Liste.
+In questa sezione verranno introdotte le principali tipologie di oggetti usati in R . Ovvero le principali strutture in cui possono essere organizzati i dati: Vettori, Matrici, Dataframe e Liste.
 
-Per ognuna di esse descriveremo le loro caretteristiche e vedremo come crearle, modificarle e  manipolarle a seconda delle necessità
+Per ognuna di esse descriveremo le loro caretteristiche e vedremo come crearle, modificarle e manipolarle a seconda delle necessità
 
 I capitoli sono così organizzati:
 

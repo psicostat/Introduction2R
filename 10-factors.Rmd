@@ -14,17 +14,17 @@ library(kableExtra)
 In questo capitolo vedremo i *fattori*, una speciale tipologia di vettori utilizzata per salvare informazioni riguardanti una variabile categoriale (nominale o ordinale). Tuttavia, prima di introdurre i fattori, descriveremo che cosa sono gli attributi di un oggetto. Questi ci permetteranno successivamente di capire meglio il funzionamento dei fattori.
 
 
-## Attributi di un Oggetto {#attributes}
+## Attributi di un oggetto {#attributes}
 
 In R, gli oggetti possiedono quelli che sono definiti *attributi*, ovvero delle utili informazioni riguardanti l'oggetto stesso, una sorta di *metadata*. Queste informazioni non interferiscono con i valori contenuti negli oggetti nè vengono normalmente mostrati nell'output di un oggetto. Tuttavia, si rivelano particolarmente utili in alcune circostanze e permettono di fornire speciali informazioni associate ad un determinato oggetto.
 
 Gli oggetti possiedono diversi attributi a seconda della loro tipologia. Tuttavia, tra quelli principalmente usati troviamo:
 
 - **Classe** (`class`) - la classe (o tipologia) di un oggetto. Ci permette di verificare la tipologia di struttura dati di un particolare oggetto.
-- **Nomi** (`names`) -  nomi degli elementi di un oggetto. Permette ad esempio di assegnare dei nomi agli elementi un vettore o alle righe e colonne di una matrice o dataframe.
+- **Nomi** (`names`) - nomi degli elementi di un oggetto. Permette ad esempio di assegnare dei nomi agli elementi un vettore o alle righe e colonne di una matrice o dataframe.
 - **Dimensione** (`dim`) - la dimensione dell'oggetto. Questo attributo non è disponibile per i vettori ma sarà particolarmente importante nel caso delle matrici e dataframe.
 
-Per valutare ee eventualmente modifiacare gli attributi di un oggetto esistono delle specifiche funzioni dedicate. Ad esempio abbiamo:
+Per valutare ed eventualmente modifiacare gli attributi di un oggetto esistono delle specifiche funzioni dedicate. Ad esempio abbiamo:
 
 - `attributes()` - elenca tutti gli attributi di un oggetto
 - `class()` - accede all'attributo `class` di un oggetto
@@ -34,7 +34,7 @@ Per valutare ee eventualmente modifiacare gli attributi di un oggetto esistono d
 Vediamo ora alcuni utilizzi degli attributi con i vettori. Gli attributi nel caso delle altre tipologie di oggetti, invece, saranno trattati nei rispettivi capitoli. 
 
 
-### Attributi di un Vettore
+### Attributi di un vettore
 
 Vediamo come inizialmente un generico vettore non possiede alcun attributo vettore.
 
@@ -63,7 +63,7 @@ dim(my_vector)
 length(my_vector)
 ```
 
-#### Nomi Elementi {-}
+#### Nomi elementi {-}
 
 Inizialmente gli elementi di un vettore non possiedono nomi.
 
@@ -119,7 +119,7 @@ my_factor
 
 Nota come non sia necessario specificare l'argomento `levels`. I livelli della variabile, infatti, vengono determinati automaticamente a partire dai dati presenti e ordinati in ordine alfabetico. Tuttavia, specificare i livelli nella creazione di un fattore ci permette di definire a piacere l'ordine dei livelli ed anche includere eventuali livelli non presenti nei dati.
 
-### Funzionamento Fatori
+### Funzionamento fattori
 
 Cerchiamo ora di capire meglio la struttura dei fattori e l'utilizzo degli attributi. 
 
@@ -141,8 +141,8 @@ Ci saremmo aspettati di ottenere `character` pensando che all'interno del fattor
 
 La soluzione è molto semplice. Nel creare un fattore, R valuta i livelli presennti creando l'attributo `levels` e poi sostituisce ad ogni elemento un valore numerico che indica il livello della variabile. Pertanto nel nostro esempio avremmo che il valore `1` è associato al livello `"azzurro"`, il valore `2` a `"marrone"` e il valore `3` a `"verde"`. Questo approccio permette di ottimizzare l'uso della memoria tuttavia inizialmete potrebbe risultare poco intuitivo e causa di errori.
 
-:::{.warning title="Attenti alla Conversione" data-latex="[Attenti alla Conversione]"}
-Uno dei principali errori riguarda la conversione da un fattore ad un normale vettore.  Nel caso volessimo ottenere un vettore di caratteri possimo usare la funzione `as.character()` ottenendo il risultato voluto.
+:::{.warning title="Attenti alla conversione" data-latex="[Attenti alla conversione]"}
+Uno dei principali errori riguarda la conversione da un fattore ad un normale vettore. Nel caso volessimo ottenere un vettore di caratteri possimo usare la funzione `as.character()` ottenendo il risultato voluto.
 ```{r, echo = TRUE}
 as.character(my_factor)
 ```
@@ -164,14 +164,14 @@ Questo ci permette di sostituire prime i valori con le giuste *etichette*, ovver
 È importante prestare molta attenzione in questi casi poiché un eventuale errore potrebbe non risultare subito evidente.
 :::
 
-### Operazioni Fattori
+### Operazioni fattori
 
 Ora che abbiamo capito il funzionamento dei fattori vediamo alcune comuni operazioni.
 
 
-#### Rinominare i Livelli {-}
+#### Rinominare i livelli {-}
 
-E possibile rinominare i livelli di un fattore  utilizzando la funzione `levels()` quesa ci permette di accedere agli attuali livelli ed eventualmente ssostituirli.
+E possibile rinominare i livelli di un fattore utilizzando la funzione `levels()` quesa ci permette di accedere agli attuali livelli ed eventualmente ssostituirli.
 
 ```{r, echo = TRUE}
 my_factor
@@ -183,7 +183,7 @@ levels(my_factor) <- c("brown", "blue", "green")
 my_factor
 ```
 
-#### Ordinare i Livelli {-}
+#### Ordinare i livelli {-}
 
 È importante non confondere l'ordinare i livelli con il rinominarli. Infatti, mentre nel primo caso viene solo modificato l'ordine dei livelli, nel secondo caso verrebbero modificati anche tutti gli effettivi valori degli elementi. In genere è preferibile quindi ridefinire il fattore specificando l'argomento `levels`. 
 
@@ -283,9 +283,9 @@ fac2 <- factor(rep(c("d"), each = 5))
 c(fac1, fac2)
 ```
 
-<!-- TODO rbind() con nuovi livelli  -->
+<!-- TODO rbind() con nuovi livelli -->
 
-### Fattori Ordinali
+### Fattori ordinali
 
 Vediamo infine un esempio di variabile categoriale ordinale. Riprendendo l'esempio precedente rigurdo i dosaggio del farmaco, è chiaro che esiste una relazionee ordinale tra i veri livelli della variabile. Per creare una variabile ordinale possiamo specificare l'argomento `ordered = TRUE`:
 
@@ -304,7 +304,7 @@ class(dosage)
 class(dosage_ord)
 ```
 
-:::{.tip title="Codifica Tipologia Variabli" data-latex="[Codifica Tipologia Variabli]"}
+:::{.tip title="Codifica tipologia variabili" data-latex="[Codifica tipologia variabili]"}
 In R è importante codificare correttamente le differenii varibili specificando la loro tipologia. Distinnguendo appropriatamente le variabili categoriali (nominali e ordinali) rispetto alle varibili numeriche e alle semplici variabili di caratteri abbiamo numerosi vantaggi. In R, infatti, molti pacchetti e funzioni adottano particolari accorgimenti a seconda della tipologia di variabile fornendoci output e risultati coerenti alla natura della variabile. 
 
 Nota ad esempio comee l'output della funzione `summary()` cambi a seconda della tipologia di varibile.

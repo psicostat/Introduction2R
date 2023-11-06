@@ -1,4 +1,4 @@
-# Ambiente di Lavoro {#working-environment}
+# Ambiente di lavoro {#working-environment}
 
 ```{r settings, echo = FALSE}
 knitr::opts_chunk$set(
@@ -31,27 +31,27 @@ knitr::include_graphics("images/environment-empty.png")
 ls()
 ```
 
-### Aggiungere Oggetti all'Environment
+### Aggiungere oggetti all'Environment
 
 Una volta creati degli oggetti, questi saranno presenti nel nostro Environment e il comando `ls()` restituirà un vettore di caretteri in cui vengono elencati tutti i loro nomi.
 
 ```{r, echo = TRUE}
 # Creo oggetti
-x <-  c(2,4,6,8)
-y <-  27
+x <- c(2,4,6,8)
+y <- 27
 word <- "Hello Word!"
 
 # Lista nomi oggetti nell'Environment
 ls()
 ```
 
-Nel pannello in alto a destra (vedi Figura \@ref(fig:environment-object)), possiamo trovare un elenco degli oggetti attualmente presenti nel nostro Environment. Insieme al nome vengono riportate anche alcune utili inforamzioni a seconda del tipo di oggetto. Vediamo come nel nostro esempio, nel caso di variabili con un singolo valore (ad es. `word` e `y`) venganno presentati direttamente gli stessi valori. Mentre, nel caso di vettori  (ad es. `x`) vengano fornite anche informazioni riguardanti la tipologia di vettore e la sua dimensione (vedi Capitolo \@ref(vector)), nell'esempio abbiimao un vettore numerico (`num`) di 4 elementi (`[1:4]`).
+Nel pannello in alto a destra (vedi Figura \@ref(fig:environment-object)), possiamo trovare un elenco degli oggetti attualmente presenti nel nostro Environment. Insieme al nome vengono riportate anche alcune utili inforamzioni a seconda del tipo di oggetto. Vediamo come nel nostro esempio, nel caso di variabili con un singolo valore (ad es. `word` e `y`) venganno presentati direttamente gli stessi valori. Mentre, nel caso di vettori (ad es. `x`) vengano fornite anche informazioni riguardanti la tipologia di vettore e la sua dimensione (vedi Capitolo \@ref(vector)), nell'esempio abbiimao un vettore numerico (`num`) di 4 elementi (`[1:4]`).
 
 ```{r environment-object, fig.cap="*Environment* contenente gli oggetti creati", out.width="60%"}
 knitr::include_graphics("images/environment-objects.png")
 ```
 
-### Rimuovere Oggetti dall'Environment
+### Rimuovere oggetti dall'Environment
 
 Per rimuovere un oggetto dal proprio environment è possibile utilizzare il comando `remove()` oppure la sua abbreviazione `rm()`, indicando tra parentesi il nome dell'oggetto che si intende rimuovere. È possibile indicare più di un oggetto separando i loro nomi con la virgola.
 
@@ -69,10 +69,10 @@ ls()
 Qualora fosse necessario eliminare tutti gli oggetti attualmete presenti nel nosto ambiente di lavoro è possibile ricorrere alla formula `rm(list=ls())`. In questo modo si avrà la certezza di pulire l'ambiente da ogni oggetto e di ripristinarlo alle condizioni iniziali della sessione.
 :::
 
-:::{.design title="Mantenere Ordinato l'Environment" data-latex="[Mantenere Ordinato l'Environment]"}
+:::{.design title="Mantenere ordinato l'Environment" data-latex="[Mantenere ordinato l'Environment]"}
 Avere cura di mantenre il proprio Environment ordinato ed essere consapevoli degli oggetti attualmente presenti è importante. Questo ci permette di evitare di compiere due errori comuni.
 
-- **Utilizzare oggetti non ancora creati**. In questo caso l'errore è facilemente individuabile dat che sarà lo stesso R ad avvisarci che  *"object '<nome-oggetto>' not found"*. In questo caso dovremmo semplicemente eseguire il comando per creare l'oggetto richieto.
+- **Utilizzare oggetti non ancora creati**. In questo caso l'errore è facilemente individuabile dat che sarà lo stesso R ad avvisarci che *"object '<nome-oggetto>' not found"*. In questo caso dovremmo semplicemente eseguire il comando per creare l'oggetto richieto.
 ```{r, echo = TRUE, error=TRUE}
 oggetto_non_esistente
 ```
@@ -87,9 +87,9 @@ Per mantere un Environmet ordinato vi consigliamo innanzitutto di non salvare au
 
 Questo vi permetterà di iniziare ogni nuova sessione di lavoro in un Environment vuoto, evitando che vecchi oggetti si accumulino nel corso delle diverse sesssioni di lavoro. Durante le vostre sessioni, inoltre, sarà utile eseguire il comando `rm(list=ls())` quando inizierete un nuovo compito in modo da eliminare tutti i vecchi oggetti.
 
-#### Environment una  Memoria a Breve Termine {-}
+#### Environment: una memoria a breve termine {-}
 
-Notiamo quindi come l'Environment sia qualcosa di transitorio. Gli oggetti vengono salvati nella memoria primaria del computer (RAM, possiamo pensarla in modo analogo alla  memoria a breve termine dei modelli cognitivi) e verranno cancellati al comando `rm(list=ls())` o al termine di ogni sessione di lavoro.
+Notiamo quindi come l'Environment sia qualcosa di transitorio. Gli oggetti vengono salvati nella memoria primaria del computer (RAM, possiamo pensarla in modo analogo alla memoria a breve termine dei modelli cognitivi) e verranno cancellati al comando `rm(list=ls())` o al termine di ogni sessione di lavoro.
 
 Il fatto di partire ogni volta da un Environment vuoto, vi costringerà a raccogliere tutti i passi delle vostre analisi all'interno di uno script in modo ordinato evitando di fare affidamento su vecchi oggetti. Tutti gli oggetti necessari durante le analisi, infattii, dovranno essere ricreati ad ogni sessione, garantendo la riproducibilità e correttezza del lavro (almeno dal punto di vista di programmazione). Idealmente dovrebbe essere posibile, in una sessione di lavoro, partire da un Environment vuoto ed eseguire in ordine tutti i comandi contenuti in uno script fino ad ottenere i risultati desiderati.
 
@@ -103,13 +103,13 @@ Il fatto di partire ogni volta da un Environment vuoto, vi costringerà a raccog
 
 Il concetto di *working directory* è molto importante ma spesso poco conosciuto. La *working directory* è la posizione all'interno del computer in cui ci troviamo durante la nostra sessione di lavoro e da cui eseguiamo i nostri comandi.
 
-### Organizzazione Computer
+### Organizzazione computer
 
 L'idea intuitiva che abbiamo comunemente del funzionamento del computer è fuorviante. Spesso si pensa che il Desktop rispecchi l'organizzazione del nostro intero computer e che tutte le azioni siano gestite attraverso l'interfaccia punta-e-clicca a cui ormai siamo abituati dai moderni sistemi operativi. 
 
 Senza entrare nel dettaglio, è più corretto pensare all'organizzazione del cumputer come ad un insieme di cartelle e sottocartelle che contengono tutti i nostri file e al funzionamento del computer come ad un insieme di processi (o comandi) che vengono eseguiti. Gli stessi programmi che installiamo non sono altro che delle cartelle in cui sono contenuti tutti gli script che determinano il loro funzionamento. Anche il Desktop non è altro che una semplice cartella mentre quello che vediamo noi è un programma definito dal sistema operativo che visualizza il contenuto di quella cartella sul nostro schermo e ci permette di interfacciarci con il mouse.
 
-Tutto quello che è presente nel nostro computer, compresi i nostri file, i  programmi e lo stesso sistema operativo in uso, tutto è organizzato in un articolato sistema di cartelle e sottocartelle. Approsimativamente possiamo pensare all'organizzazione del nostro computer in modo simile alla Figura \@ref(fig:file-system) (da: <https://en.wikipedia.org/wiki/Operating_system>).
+Tutto quello che è presente nel nostro computer, compresi i nostri file, i programmi e lo stesso sistema operativo in uso, tutto è organizzato in un articolato sistema di cartelle e sottocartelle. Approsimativamente possiamo pensare all'organizzazione del nostro computer in modo simile alla Figura \@ref(fig:file-system) (da: <https://en.wikipedia.org/wiki/Operating_system>).
 
 ```{r, file-system, fig.cap="Organizzazione Computer (da Wikipedia vedi link nel testo)", out.width="35%"}
 knitr::include_graphics("images/File-System.png")
@@ -117,17 +117,17 @@ knitr::include_graphics("images/File-System.png")
 
 Ai livelli più bassi troviamo tutti i file di sistema ai quali gli utenti possono accedere solo con speciali autorizzazioni. Al livello superiore troviamo tutte i file riguardanti i programmi e applicazioni installati che in genere sono utilizzabili da più utenti sullo stesso computer. Infine troviamo tutte le cartelle e file che riguardano lo specifico utente.
 
-###  Absolute Path e Relative Path 
+### Absolute Path e Relative Path 
 
 Questo ampio preambolo riguardante l'organizzazione in cartelle e sottocartelle, ci serve perché è la struttura che il computer utilizza per orientarsi tra tutti file quando esegue dei comandi attraverso un'interfaccia a riga di comando (ad es. R). Se vogliamo ad esempio caricare dei dati da uno specifico file in R devo fornire il *path* (o indirizzo) corretto che mi indichi esattamente la posizione del file all'interno della struttura di cartelle del computer. Ad esempio, immaginiamo di avere dei dati `My-data.Rda` salvato nella cartella `Introduction2R` nel proprio Desktop.
 
 ```
 Desktop/
  |
- |-  Introduction2R/
- |    |
- |    |- Dati/
- |    |   |- My-data.Rda
+ |- Introduction2R/
+ |   |
+ |   |- Dati/
+ |   |   |- My-data.Rda
 ```
 
 Per indicare la posizione del File potrei utilizzare un:
@@ -138,7 +138,7 @@ Per indicare la posizione del File potrei utilizzare un:
 "/Users/<username>/Desktop/Introduction2R/Dati/My-data.Rda"
 
 # Windows Vista
-"c:\Users\<username>\Desktop\Introduction2R\Dati\My-data.Rda"
+"C:\Users\<username>\Desktop\Introduction2R\Dati\My-data.Rda"
 
 ```
 
@@ -154,10 +154,10 @@ Per indicare la posizione del File potrei utilizzare un:
 
 Nota come sia preferibile l'utilizzo dei relative path poiché gli absolute path sono unici per il singolo computer di riferimento e non possono essere quindi utilizzati su altri computer.
 
-:::{.warning title='"Error: No such file or directory"' data-latex='["Error: No such file or directory"]'}
+:::{.warning title='\\texttt{Error: No such file or directory}' data-latex='[\\texttt{Error: No such file or directory}]'}
 Qualora si utilizzasse un relative path per indicare la posizione di un file, è importante che la working directory attualment in uso sia effettivamente quella prevista. Se ci trovassimo in una divesa cartella, ovviamente il "relative path" indicato non sarebbe più valido e R ci mostrerebbe un messaggio di errore.
 
-Riprendendo l'esempio precedente, supponiamo che la nostra attuale working directory sia `Desktop` invece di `Desktop/Introduction2R`. Eseguendo il comadno `load()` per caricare i dati utilizzando il  relative path ora non più valido ottengo:
+Riprendendo l'esempio precedente, supponiamo che la nostra attuale working directory sia `Desktop` invece di `Desktop/Introduction2R`. Eseguendo il comadno `load()` per caricare i dati utilizzando il relative path ora non più valido ottengo:
 
 ```{r, echo = TRUE, error = TRUE}
 load("Dati/My-data.Rda")
@@ -214,7 +214,7 @@ getwd()
 ## [1] "/Users/<username>/Desktop/Introduction2R"
 ```
 
-In alternativa, l'attuale working directory è anche riportata in alto a sinistra della Console come mostrato in Figura \@ref(fig:current-wd).
+In alternativa, l'attuale working directory è anche riportata in alto a sinistra della *Console* come mostrato in Figura \@ref(fig:current-wd).
 
 ```{r, current-wd, fig.cap="Workig directory dell'attuale sessione di lavoro", out.width="95%"}
 knitr::include_graphics("images/current-wd.png")
@@ -268,7 +268,7 @@ getwd()
 
 :::
 
-## R-packages {#packages}
+## R Packages {#packages}
 
 Uno dei grandi punti di forza di R è quella di poter estendere le proprie funzioni di base in modo semplice ed intuitivo utilizzando nuovi pacchetti. Al momento esistono oltre **17'000** pachetti disponibili gratuitamente sul CRAN (la repository ufficiale di R). Questi pacchetti sono stati sviluppati dall'immensa comunity di R per svolgere ogni sorta di compito. Si potrebbe dire quindi che in R ogni cosa sia possibile, basta trovare il giusto pacchetto (oppure crearlo!).
 
@@ -328,9 +328,9 @@ In breve, la risposta da dare è **NO** (`"n"`). Ma che cosa ci sta effetivament
 
 In genere quindi, è sempre preferibile installare la versione *Binary*. Tuttavia, in questo caso R ci avverte che, per alcuni pacchetti, gli aggiornameni più recenti sono disponibili solo nella versione *Source* e ci chiede quindi se installarli attraverso la procedura di compilazione.
 
-È preferibile rispondere *"no"*, installando così la versione *Binary* pronta all'uso anche se meno aggiornata. Qualora fosse richiesto obbligatoriamente di installare un pacchetto nella version *Source* (perché ci servono gli ultimi aggiornamenti o perché non disponibile altrimenti) dovremmo avere prima installato **R tools** (vedi *"Approfondimento: RTools"* nel Capitolo \@ref(install-r)), che ci fornirà gli strumenti necessari per compilare i pacchetti.
+È preferibile rispondere *"no"*, installando così la versione *Binary* pronta all'uso anche se meno aggiornata. Qualora fosse richiesto obbligatoriamente di installare un pacchetto nella version *Source* (perché ci servono gli ultimi aggiornamenti o perché non disponibile altrimenti) dovremmo avere prima installato **RTools** (vedi *"Approfondimento: RTools"* nel Capitolo \@ref(install-r)), che ci fornirà gli strumenti necessari per compilare i pacchetti.
 
-Per una discussione dettagliata vedi <https://community.rstudio.com/t/meaning-of-common-message-when-install-a-package-there-are-binary-versions-available-but-the-source-versions-are-later/2431> e  <https://r-pkgs.org/package-structure-state.html>
+Per una discussione dettagliata vedi <https://community.rstudio.com/t/meaning-of-common-message-when-install-a-package-there-are-binary-versions-available-but-the-source-versions-are-later/2431> e <https://r-pkgs.org/package-structure-state.html>
 
 :::
 
@@ -363,7 +363,7 @@ car::Anova()
 L'utilizzo dei `::` ci permette di richiamare direttamente la funzione desiderata. La differennza tra l'uso di `library()` e l'uso di `::` riguarda aspetti abbastanza avanzati di R (per un approfondimento vedi <https://r-pkgs.org/namespace.html>). In estrema sintesi, possiamo dire che in alcuni casi è preferibile non caricare un'intero pacchetto se di questo abbiamo bisogno di un'unica funzione.
 :::
 
-### Aggiornare e Rimuovere Pacchetti
+### Aggiornare e rimuovere pacchetti
 
 Anche i pacchettti come ogni altro software vengono aggiornati nel corso del tempo fornendo nuove funzionalità e risolvendo eventuli problemi. Per aggiornare i pacchetti alla versione più recente è possibile eseguire il comando `update.packages()` senza inidare nulla tra le parentesi.
 
@@ -382,7 +382,7 @@ knitr::include_graphics("images/library-remove.png")
 ```
 
 
-### Documentazione Pacchetti
+### Documentazione pacchetti
 
 Ogni pacchetto include la documentazione delle proprie funzioni e delle *vignette* ovvero dei brevi tutorial che mostrano degli esempi di applicazione e utilizzo del pacchetto.
 
@@ -396,14 +396,14 @@ Ogni pacchetto include la documentazione delle proprie funzioni e delle *vignett
 knitr::include_graphics("images/package-documentation.png")
 ```
 
-Ricordate tuttavia che in ogni caso la più grande risorsa di informazioni è come sempre google. Spesso i pacchetti più importanti hanno addirittura un proprio sito in cui raccolgono molto materiale utile. Ma comunque in ogni caso in internet sono sempre disponibili moltissimi tutorial  ed esempi.
+Ricordate tuttavia che in ogni caso la più grande risorsa di informazioni è come sempre google. Spesso i pacchetti più importanti hanno addirittura un proprio sito in cui raccolgono molto materiale utile. Ma comunque in ogni caso in internet sono sempre disponibili moltissimi tutorial ed esempi.
 
-:::{.design title="Github" data-latex="[Github]"}
+:::{.design title="GitHub" data-latex="[GitHub]"}
 Il CRAN non è l'unica risorsa da cui è possibile installare dei pacchetti di R tuttavia è quella ufficiale e garantisce un certo standard e stabilità dei pacchetti presenti. In internet esistono molte altre repository che raccolgono paccetti di R (e software in generale) tra cui una delle più popolari è certamente GitHub (<https://github.com/>).
 
-Github viene utilizzato come piattaforma di sviluppo per molti pacchetti di R ed è quindi  possibile trovarve le ultime versioni di sviluppo dei pacchetti con gli aggirnamenti più recenti o anche nuovi pacchetti non ancora disponibili sul CRAN. Va sottolineato tuttavia, come quete siano appunto delle versioni di sviluppo e quindi potrebbero presentare maggiori problemi. Inoltre per installare i pacchetti in questo modo, è richiesta l'installzione di **R tools** (vedi *"Approfondimento: RTools"* nel Capitolo \@ref(install-r)).
+Github viene utilizzato come piattaforma di sviluppo per molti pacchetti di R ed è quindi possibile trovarve le ultime versioni di sviluppo dei pacchetti con gli aggirnamenti più recenti o anche nuovi pacchetti non ancora disponibili sul CRAN. Va sottolineato tuttavia, come quete siano appunto delle versioni di sviluppo e quindi potrebbero presentare maggiori problemi. Inoltre per installare i pacchetti in questo modo, è richiesta l'installzione di **RTools** (vedi *"Approfondimento: RTools"* nel Capitolo \@ref(install-r)).
 
-Per installare un pacchetto direttamente da Github è posibile utilizzare il comando `install_github()` del pacchetto `devtools`, indicanto tra parentesi la l'url della repository desiderata.
+Per installare un pacchetto direttamente da GitHub è posibile utilizzare il comando `install_github()` del pacchetto `devtools`, indicanto tra parentesi la l'url della repository desiderata.
 
 ```{r, echo = TRUE, eval=FALSE}
 install.packages("devtools")

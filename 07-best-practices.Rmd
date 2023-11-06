@@ -1,4 +1,4 @@
-# Sessione di Lavoro {#working-session}
+# Sessione di lavoro {#working-session}
 
 ```{r settings, echo = FALSE}
 knitr::opts_chunk$set(
@@ -17,13 +17,13 @@ if (knitr::is_latex_output()) {
 
 In questo capitolo, discuteremo di alcuni aspetti generali delle sessioni di lavoro in R. Descriveremo delle buone abitudini riguardanti l'organizzazione degli scripts per essere ordinati ed efficaci nel proprio lavoro. Inoltre descriveremo come organizzare i propri progetti in cartelle ed in particolare introdurremo l'uso degli *RStudio Projects*. Infine approfondiremo l'uso dei messaggi di R ed in particolare come comportarsi in caso di errori.
 
-## Organizzazione Script
+## Organizzazione script
 
 Abbiamo visto che idealmente tutti i passaggi delle nostre analisi devono essere raccolti in modo ordinato all'interno di uno script. Eseguendo in ordine linea per linea i comandi, dovrebbe essere possibile svolgere tutte le analisi fino ad ottenere i risultati desiderati.
 
 Vediamo ora una serie di buone regole per organizzare in modo ordinato il codice all'interno di uno script e facilitare la sua lettura.
 
-### Creare delle Sezioni
+### Creare delle sezioni
 
 Per mantenere chiara l'oreganizzazione degli script e facilitare la sua comprensione, è utile suddividere il codice in sezioni dove vengono eseguiti i diversi step delle analisi. In RStudio è possibile creare una sezione aggiungendo al termine di una linea di commento i caratteri `####` o `----`. Il testo del commento verrà considerao il titolo della sezione e comparirà una piccola freccia a lato del numero di riga. È possibile utilizzare a piacere i caratteri `#` o `-` per creare lo stile desiderato, l'importante è che la linea si concluda con almeno quattro caratteri identici.
 
@@ -47,9 +47,9 @@ knitr::include_graphics("images/script-template.png")
 
 - **Titolo** - Un titolo esplicativo del contenuto dello script. È possibile utilizzare altri caratteri all'interno dei commenti per creare l'effetto desiderato.
 - **Intorduzione** - Descrizione e utili informazioni che riguardano sia l'obbiettivo del lavoro che l'esecuzione del codice (ad es. dove sono disponibili i dati, eventuali specifiche tecniche). Potrebbe essere utile anche indicare l'autore e la data del lavoro.
-- **Setting** -  Sezione fondamentale in cui si predispone l'abiente di lavoro. Le operazioni da svolgere sono:
+- **Setting** - Sezione fondamentale in cui si predispone l'abiente di lavoro. Le operazioni da svolgere sono:
   1. `rm(list = ls())` per pulire l'Environment da eventuali oggetti in modo da eseguire lo script partendo da un ambiente vuoto (vedi Capitolo \@ref(environment)).
-  2. `setwd()` per settare la working directory per assicuraci che i comandi siano eseguiti dalla  correttta posizione nel nostro computer (vedi Capitolo \@ref(working-directory)).
+  2. `setwd()` per settare la working directory per assicuraci che i comandi siano eseguiti dalla correttta posizione nel nostro computer (vedi Capitolo \@ref(working-directory)).
   3. `library()` per caricare i pacchetti utilizzati nel corso delle analisi (vedi Capitolo \@ref(packages)).
 - **Caricare e Pulire i Dati** - Generica sezione in cui eseguire l'importazione e pulizia dei dati.
 - **Codifica e Scoring dei Dati** - Generica sezione in cui eseguire la codifica ed eventuale scoring dei dati.
@@ -98,7 +98,7 @@ Abbiamo visto nel Capitolo \@ref(objects-names) le regole che discriminano nomi 
 
 È inoltre importante essere **consistenti** nella scelta dello stile con cui si nominano le variabili. In genere è preferibile usare lo **snake_case** rispetto al **CamelCase**, ma la scelta è comunque libera. Tuttavia, una volta presa una decisione, è bene mantenerla per facilitare la comprensione del codice.
 
-#### Esplicitare Argomenti {-}
+#### Esplicitare argomenti {-}
 
 Abbiamo visto nel Capitolo \@ref(function-arguments) l'importanza di esplicitare il nome degli argomenti quando vengono utilizzati nelle funzioni. Specificando a che cosa si riferiscono i vari valori facilitiamo la lettura e la comprensione del codice. Ad esempio:
 
@@ -113,7 +113,7 @@ seq(from = 0, to = 10, by = 2)
 seq(from = 0, to = 10, length.out = 2)
 ```
 
-#### Spazi, Indentazione ed allineamento {-}
+#### Spazi, indentazione e allineamento {-}
 
 Al contrario di molti altri software, R non impone regole severe nell'utilizzo di spazi, indentazioni ed allineamenti ed in genere è molto permissivo per quanto riguarda la sintassi del codice. Tuttavia è importante ricordare che:
 
@@ -126,7 +126,7 @@ Prendiamo ad esempio le seguenti linee di codice, che includono delle funzioni a
 k=10;if(k<5){x<-5:15}else{x<-seq(0,16,4)};y=7*2-12;mean(x/y)
 
 # Stile 2
-k <-  10
+k <- 10
 
 if (k < 5){
   x <- 5:15
@@ -163,7 +163,7 @@ seq(from = 0, to = 10, by = 2)
 seq (from=0,to=10,by=2)
 ```
 
-- Usa la corretta **indentazione** per i blocchi di codice posti all'interno delle parentesi graffe. Il livello  di indentazione deve rispecchiare la struttura di  annidamento del codice.
+- Usa la corretta **indentazione** per i blocchi di codice posti all'interno delle parentesi graffe. Il livello di indentazione deve rispecchiare la struttura di annidamento del codice.
 ```{r, echo=TRUE, eval = FALSE}
 # Good
 for (...) {       # loop più esterno
@@ -202,10 +202,10 @@ age = ..., sex = ...)
 
 
 :::{.design title="Tutta una Questione di Stile" data-latex="[Tutta una Questione di Stile]"}
-Potete trovare  ulteriori regole e consigli riguardanti lo stile nella scrittura di codici al seguente link <https://irudnyts.github.io/r-coding-style-guide/>.
+Potete trovare ulteriori regole e consigli riguardanti lo stile nella scrittura di codici al seguente link <https://irudnyts.github.io/r-coding-style-guide/>.
 :::
 
-## Organizzazione Progetti
+## Organizzazione progetti
 
 All'aumentare della complessità di un'analisi vi troverete presto a dover gestire molti file di deversa tipologia (ad es. dati, report, grafici) e a dover suddividere le varie parti del lavoro in differenti script. A questo punto sarà opportuno organizzare in modo ordinato tutto il materiale necessario per l'analisi e i relativi risultati in un'unica cartella.
 
@@ -213,10 +213,11 @@ Idealmente, infatti, ogni analisi verrà salvata in una differente cartella e po
 
 ```
 My_analysis/
- |-  Data/
- |-  Documents/
- |-  Outputs/
- |-  R/
+ |
+ |- Data/
+ |- Documents/
+ |- Outputs/
+ |- R/
 ```
 
 - `Data/` - tutti i file relativi ai dati usati nell'analisi. Sarà importante mantenere sia una copia dei dati *raw*, ovvero i dati grezzi senza alcuan manipolazione, sia i dati effetivamente usati nelle analisi che in genere sono stati già puliti e codificati.
@@ -275,22 +276,22 @@ Elenchiamo ora alcuni dei principali vantaggi dell'utilizzare gli R Project:
 - Utilizzando i progetti è possibile **personnalizzare e automatizzare** molte funzioni come ad esempio caricare i paccheti o eseguire determinati codici. Tuttavia richiedono una buona conoscenza di R.
 - Esistono molti **template** per i progetti che implementano utili funzionalità, in particolare la struttura degli R Projects usata per lo sviluppo dei pacchetti è molto utile anche nel caso di analisi statistiche. Tuttavia richiedono una buona conoscenza di R.
 
-## Messages, Warnings e Errors
+## Message, Warning ed Error
 
 R utilizza la console per comunicare con noi durante le nostre sessioni di lavoro. Oltre a fornirci i risultati dei nostri comandi, R ci segnala anche altre utili informazioni attraverso diverse tipologie di messaggi. In particolare abbiamo:
 
-- **Messages**: dei semplici messaggi che ci possono aggiornare ad esempio sullo stato di avanzamento di un dato compito oppure fornire suggerimenti sull'uso di una determinata funzione o pacchetto (spesso vengono mostrati quando viene caricato un pacchetto).
-- **Warnings**: questi messaggi sono utlizzati da R per dirci che c'è stato qualche cosa di strano che ha messo in allerta R. R ci avvisa che, sebbene il comando sia stato eseguito ed abbiamo ottenuto un risultato, ci sono stati dei comportamenti inusuali o magari eventuali correzioni apportate in automatico. Nel caso di warnings non ci dobbiamo allramre, è importante controllare che i comandi siano corretti e che abbiamo effetivamente ottenuto il risultato desiderato. Una volta sicuri dei risultati possiamo procedere tranquillamente.
-- **Errors**: R ci avvisa di eventuali errori e problemi che non permettono di eseguire il comando. in questo caso non otterremo nnessun risultato ma sarà necessario capire e risolvere il problema per poi rieseguire nuovamente il comando e procedere.
+- **Message**: dei semplici messaggi che ci possono aggiornare ad esempio sullo stato di avanzamento di un dato compito oppure fornire suggerimenti sull'uso di una determinata funzione o pacchetto (spesso vengono mostrati quando viene caricato un pacchetto).
+- **Warning**: questi messaggi sono utlizzati da R per dirci che c'è stato qualche cosa di strano che ha messo in allerta R. R ci avvisa che, sebbene il comando sia stato eseguito ed abbiamo ottenuto un risultato, ci sono stati dei comportamenti inusuali o magari eventuali correzioni apportate in automatico. Nel caso di warnings non ci dobbiamo allramre, è importante controllare che i comandi siano corretti e che abbiamo effetivamente ottenuto il risultato desiderato. Una volta sicuri dei risultati possiamo procedere tranquillamente.
+- **Error**: R ci avvisa di eventuali errori e problemi che non permettono di eseguire il comando. in questo caso non otterremo nnessun risultato ma sarà necessario capire e risolvere il problema per poi rieseguire nuovamente il comando e procedere.
 
-Notiamo quindi come non tutti i messaggi che R ci manda sono dei messaggi di errore. È quindi importante non spaventarsi ma leggere con attenzione  i messaggi, molte volte si tratta semplicemente di avvertimenti o suggerimenti.
+Notiamo quindi come non tutti i messaggi che R ci manda sono dei messaggi di errore. È quindi importante non spaventarsi ma leggere con attenzione i messaggi, molte volte si tratta semplicemente di avvertimenti o suggerimenti.
 
 
 Tuttavia gli errori rappresentano sempre il maggiore dei problemi perché non è possibile procedere nel lavoro senza averli prima risolti. È importante ricordare che i messaggi di errore non sono delle critiche che R ci rivolge perché sbagliamo. Al contrario, sono delle richieste di aiuto fatte da R perché non sa come comportarsi. Per quanto super potente, R è un seplice programma che non può interpretare le nostre richieste ma si basa sull'uso dei comandi che seguono una rigida sintassi. A volte è sufficiente una virgola mancante o un charattere al posto di un numero per mandare in confusione R e richiedere il nostro intervento risolutore. 
 
-### Risolvere gli Errori
+### Risolvere gli errori
 
-Quando si approccia la scrittura di codice, anche molto semplice, la cosa che sicuramente capiterà più spesso sarà riscontrare  messaggi di **errore** e quindi trovare il modo per risolverli.
+Quando si approccia la scrittura di codice, anche molto semplice, la cosa che sicuramente capiterà più spesso sarà riscontrare messaggi di **errore** e quindi trovare il modo per risolverli.
 
 > Qualche programmatore esperto direbbe che l'essenza stessa di programmare è in realtà risolvere gli errori che il codice produce.
 

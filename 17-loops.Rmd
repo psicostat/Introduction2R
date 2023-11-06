@@ -1,4 +1,4 @@
-# Programmazione Iterativa {#loop}
+# Programmazione iterativa {#loop}
 
 ```{r settings, echo = FALSE}
 knitr::opts_chunk$set(
@@ -24,7 +24,7 @@ Il primo tipo di struttura iterativa viene denominata ciclo `for`. L'idea è que
 knitr::include_graphics("images/for_loop.png")
 ```
 
-#### Struttura For Loop {-}
+#### Struttura ciclo for {-}
 
 In R la scrittura del ciclo `for` è la seguente:
 
@@ -89,7 +89,7 @@ for (i in seq_along(nomi)){
 
 
 
-:::{.trick title="seq_along() " data-latex="[Next e Break]"}
+:::{.trick title="\\texttt{seq_along()} " data-latex="[\\texttt{seq_along()}]"}
 
 ```{r, echo = TRUE}
 my_vector <- c(93, 27, 46, 99)
@@ -157,7 +157,7 @@ sum_cols
 sum_cols <- vector(mode = "double", length = ncol(my_matrix))
 for( i in seq_along(sum_cols)){
   sum_col <- sum(my_matrix[, i])   # calcolo i esima colonna
-  sum_cols[i] <-  sum_col # aggiorno il risultato
+  sum_cols[i] <- sum_col # aggiorno il risultato
 }
 
 sum_cols
@@ -171,7 +171,7 @@ Il ciclo `while` può essere considerato come una generalizzazione del ciclo `fo
 knitr::include_graphics("images/while_loop.png")
 ```
 
-#### Struttura While Loop {-}
+#### Struttura ciclo while {-}
 
 La scrittura è più concisa del ciclo `for` perché non definiamo nessun counter o placeholder e nemmeno un vettore di valori. L'unica cosa che muove un ciclo `while` è una condizione logica (quindi con valori booleani `TRUE` e `FALSE`). Anche qui, parafrasando:
 
@@ -215,7 +215,7 @@ while(count >= 0){
 }
 ```
 
-#### While e For
+#### While e for
 
 Abbiamo introdotto in precedenza che il `for` è un tipo particolare di `while`. Concettualmente infatti possiamo pensare ad un `for` come un `while` dove il nostro counter `i` incrementa fino alla lunghezza del vettore su cui iterare. In altri termini possiamo scrivere un `for` anche in questo modo:
 
@@ -229,7 +229,7 @@ while(i <= length(nomi)){ # condizione
 }
 ```
 
-### Next e Brake
+### Next e break
 
 All'interno di una struttura iterativa, possiamo eseguire qualsiasi tipo di operazione, ed anche includere strutture condizionali. Alcune volte può essere utile saltare una particolare iterazione oppure interrompere il ciclo iterativo. In R tali operazioni posso essere eseguite rispettivamene coni comandi `next` e `break`.
 
@@ -264,7 +264,7 @@ while(count >= 0){
 }
 ```
 
-## Nested loop
+## Nested Loop
 
 Una volta compresa la struttura iterativa, è facile espanderne le potenzialità inserendo un ciclo all'interno di un altro. Possiamo avere quanti cicli *nested* necessari, chiaramente aumenta non solo la complessità ma anche il tempo di esecuzione. Per capire al meglio cosa succede all'interno di un ciclo nested è utile visualizzare gli indici:
 
@@ -289,7 +289,7 @@ Un aspetto importante è l'utilizzo di indici diversi, infatti i valori `i`, `j`
 ### Esercizi {-}
 
 1. Scrivi una funzione che calcoli la media di un vettore numerico usando un for loop.
-2. Scrivi una funzione che dato un vettore numerico restituisca il valore massimo e  minimo usando un for loop (attenti al valore di inizializzazione).
+2. Scrivi una funzione che dato un vettore numerico restituisca il valore massimo e minimo usando un for loop (attenti al valore di inizializzazione).
 3. Scrivi una funzione che per ogni iterazione generi $n$ osservazioni da una normale (funzione `rnorm()`) con media $mu$ e deviazione standard $sigma$, salva la media di ogni campione. I parametri della funzione saranno $n$, $mu$, $sigma$ e $iter$ (numero di iterazioni). 
 
 ## Apply Family
@@ -527,7 +527,7 @@ Come vedete, il risultato di queste operazioni corrisponde ad un valore per ogni
 ### vapply
 
 ```{r, echo = TRUE, eval = FALSE}
-vapply(X = , FUN = , FUN.VALUE =  ,... )
+vapply(X = , FUN = , FUN.VALUE = , ...)
 ```
 
 #### Esempi {-}
@@ -541,7 +541,7 @@ vapply(my_list, FUN = mean, FUN.VALUE = numeric(length = 1L))
 
 In questo caso come in precendeza definiamo la lista su cui applicare la funzione. Tuttavia l'argomento `FUN.VALUE = numeric(length = 1L)` specifica che ogni risultato dovrà essere un valore di tipo `numeric` di lunghezza 1. Infatti applicando la media otteniamo un singolo valore per iterazione e questo valore è necessariamente numerico.
 
-:::{.warning title="sapply() vs vapply()" data-latex="[sapply() vs vapply()]"}
+:::{.warning title="\\texttt{sapply()} vs \\texttt{vapply()}" data-latex="[\\texttt{sapply()} vs \\texttt{vapply()}]"}
 
 `sapply()` non restituisce sempre la stessa tipologia di oggetto mentre `vapply()` richiede sia specificato il tipo di l'output di ogni iterazione.
 

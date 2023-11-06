@@ -1,4 +1,4 @@
-# Primi Passi in R {#first-commands}
+# Primi passi in R {#first-commands}
 
 ```{r settings, echo = FALSE}
 knitr::opts_chunk$set(
@@ -15,7 +15,7 @@ In questo capitolo muoveremo i primi passi in R. Inizieremo vedendo come utilizz
 
 In questo capitolo introdurremo per la prima volta molti elementi che saranno poi ripresi e approfonditi nei seguenti capitoli. Quindi non preoccuparti se non tutto ti sarà chiaro fin da subito. Imparare il tuo primo linguaggio di programmazione è difficile ma da qualche parte bisogna pure iniziare. Pronto per le tue prime linee di codice? Let's become a useR!
 
-## Operatori Matematici {#math-operators}
+## Operatori matematici {#math-operators}
 
 R è un'ottima calcolatrice. Nella Tabella \@ref(tab:table-math-operators) sono elencati i principali operatori matematici e funzioni usate in R.
 
@@ -79,7 +79,7 @@ kableExtra::kable(math_operators, col.names = c("Funzione", "Nome", "Esempio"),
 Nota come per svolgere operazioni come la radice quadrata o il valore assoluto vengono utilizzate delle specifiche funzioni. In R le funzioni sono richiamate digitando `<nome-funzione>()` (ad es. `sqrt(25)`) indicando all'interno delle parentesi tonde gli argomenti della funzione. Approfondiremo le funzioni nel Capitolo \@ref(functions-def). 
 :::
 
-### Ordine Operazioni
+### Ordine operazioni
 
 Nello svolgere le operazioni, R segue lo stesso l'ordine usato nelle normali espressioni matematiche. Quindi l'ordine di precedenza degli operatori è:
 
@@ -90,7 +90,7 @@ Nello svolgere le operazioni, R segue lo stesso l'ordine usato nelle normali esp
 
 Nota che in presenza di funzioni (ad es. `abs()`, `sin()`), R per prima cosa sostituisce le funzioni con il loro risultato per poi procedere con l'esecuzione delle operazioni nell'ordine indicato precedentemente.
 
-L'ordine di esecuzione delle operazioni può essere controllato attraverso l'uso delle **parentesi tonde** `()`. R eseguirà tutte le operazioni incluse nelle parentesi seguendo lo stesso ordine  indicato sopra. Utilizzando più gruppi di parentesi possiamo ottenere i risultati desiderati.
+L'ordine di esecuzione delle operazioni può essere controllato attraverso l'uso delle **parentesi tonde** `()`. R eseguirà tutte le operazioni incluse nelle parentesi seguendo lo stesso ordine indicato sopra. Utilizzando più gruppi di parentesi possiamo ottenere i risultati desiderati.
 
 :::{.warning title="Le parentesi" data-latex="[Le parentesi]"}
 Nota che in R solo le **parentesi tonde** `()` sono utilizzate per gestire l'ordine con cui sono eseguite le operazioni.
@@ -120,11 +120,11 @@ Note per la risoluzione degli esercizi:
 - In R per i logaritmi si usa la funzione `log(x, base=a)`, di default viene considerato il logaritmo naturale.
 
 
-## Operatori Relazionali e Logici {#operators-rel-log}
+## Operatori relazionali e logici {#operators-rel-log}
 
 Queste operazioni al momento potrebbero sembrare non particolarmente interessanti, ma si riveleranno molto utili nei capitoli successivi, ad esempio per la selezione di elementi (vedi Capitolo \@ref(vector-selection-advanced)) o la definizione di algoritmi (vedi Capitolo \@ref(functions)).
 
-### Operatori Relazionali
+### Operatori relazionali
 
 In R è possibile valutare se una data relazione è vera o falsa. Ad esempio, posiamo valutare se "*2 è minore di 10*" o se "*4 è un numero pari*".
 
@@ -188,7 +188,7 @@ F == FALSE  # TRUE
 
 :::
 
-### Operatori Logici
+### Operatori logici
 
 In R è possibile congiungere più relazioni per valutare una desiderata proposizione. Ad esempio potremmo valutare se "*17 è maggiore di 10 e minore di 20*". Per unire più relazioni in un'unica proposizione che R valuterà come `TRUE` o `FALSE`, vengono utilizzati gli operatori logici riportati in Tabella \@ref(tab:logical-operators).
 
@@ -276,7 +276,7 @@ Per completezza ricordiamo che tra gli operatori logici esiste anche la **disgiu
 
 In R la disgiunzione esclusiva tra due relazioni (x e y) è indicata con la funzione `xor(x, y)`, tuttavia tale funzione è raramente usata.
 
-<div style="width:360px;  margin-left: auto; margin-right: auto;">
+<div style="width:360px; margin-left: auto; margin-right: auto;">
 Table: Disgiunzione esclusiva 'xor(x, y)'
 
 |   x   |   y   | xor(x, y) |

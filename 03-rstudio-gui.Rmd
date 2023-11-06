@@ -22,7 +22,7 @@ In genere, per lavorare con R viene utilizzato RStudio. RStudio è un programma 
 knitr::include_graphics("images/rstudio-gui.png")
 ```
 
-:::{.design title="R base vs RStudio" data-latex="[R base vs RStudio]"}
+:::{.design title="R Console vs RStudio" data-latex="[R Console vs RStudio]"}
 L'utilizzo di R attraverso l'interfaccia di base piuttosto che RStudio, non è uno scontro tra due scuole di pensiero (o generazioni). Entrambe hanno vantaggi e svantaggi e pertanto vengono scelte a seconda delle diverse necessità. 
 
 Quando si è alla ricerca della massima ottimizzazione, l'uso dell'interfaccia di base, grazie alla sua semplicità, permette di minimizzare l'utilizzo della memoria limitandosi allo stretto e necessario.
@@ -52,7 +52,7 @@ Come avrai notato facendo alcune prove, i comandi digitati nella *Console* vengo
 :::{.tip title="Interrompere un comando" data-latex="[Interrompere un comando]"}
 Potrebbe accadere che per qualche errore nel digitare un comando o perché sono richiesti lunghi tempi computazionali, la *Console* di R diventi non responsiva. In questo caso è necessario interrompere la scrittura o l'esecuzione di un comando. Vediamo due situazioni comuni:
 
-1. **Continua a comparire il prompt** `+`. Specialmente nel caso di utilizzo di parentesi e lunghi comandi, accade che una volta premuto `invio` R non esegua alcun comando ma resta in attesa mostrando il *prompt* `+` (vedi Figura seguente). Questo è in genere dato da un errore nella sintassi del comando (ad es. un errore nell'uso delle parentesi o delle virgole). Per riprendere la sessione è necessario premere il tasto `esc` della tastiera. L'apparire del  *prompt* `>`, indica che R è nuovamente in ascolto pronto per eseguire un nuovo comando ma attento a non ripetere lo stesso errore.
+1. **Continua a comparire il prompt** `+`. Specialmente nel caso di utilizzo di parentesi e lunghi comandi, accade che una volta premuto `invio` R non esegua alcun comando ma resta in attesa mostrando il *prompt* `+` (vedi Figura seguente). Questo è in genere dato da un errore nella sintassi del comando (ad es. un errore nell'uso delle parentesi o delle virgole). Per riprendere la sessione è necessario premere il tasto `esc` della tastiera. L'apparire del *prompt* `>`, indica che R è nuovamente in ascolto pronto per eseguire un nuovo comando ma attento a non ripetere lo stesso errore.
 
 ```{r my-label, out.width="95%"}
 # fig.cap="Tipica condizione in cui R resta in attesa ed il comando non viene eseguito - Premere esc per riprendere la sessione"
@@ -61,7 +61,7 @@ Potrebbe accadere che per qualche errore nel digitare un comando o perché sono 
 knitr::include_graphics("images/comand-esc.png")
 ```
 
-2. **R non risponde**. Alcuni calcoli potrebbero richiedere molto tempo o semplicemente un qualche problema ha mandato in loop la tua sessione di lavoro. In questa situazione la *Console* di R diventa non responsiva. Nel caso fosse necessario interrompere i processi attualmente in esecuzione devi premere il pulsante *STOP* come indicato nella Figura seguente. R si fermerà e  ritornerà in attesa di nuovi comandi (*prompt* `>`).
+2. **R non risponde**. Alcuni calcoli potrebbero richiedere molto tempo o semplicemente un qualche problema ha mandato in loop la tua sessione di lavoro. In questa situazione la *Console* di R diventa non responsiva. Nel caso fosse necessario interrompere i processi attualmente in esecuzione devi premere il pulsante *STOP* come indicato nella Figura seguente. R si fermerà e ritornerà in attesa di nuovi comandi (*prompt* `>`).
 
 ```{r console-stop, out.width="95%"}
 # fig.cap="Premi il pulsante stop per interrompere l'attuale processo"
@@ -82,7 +82,7 @@ Come ultima soluzione ricorda uno dei principi base dell'informatica "*spegni e 
 
 In questa parte vengono mostrati i tuoi *Script*. Questi non sono altro che degli speciali documenti (con estensione "**.R**") in cui sono salvati i tuoi codici e comandi che potrai eseguire quando necessario in R. Gli *Script* ti permetteranno di lavorare comodamente sui tuoi codici, scrivere i comandi, correggerli, organizzarli, aggiungere dei commenti e soprattutto salvarli.
 
-Dopo aver terminato di scrivere i comandi, posiziona il cursore sulla stessa linea del comando che desideri eseguire e premi `command + invio` (MacOs) o `Ctrl+R` (Windows). Automaticamente il comando verrà copiato nella *Console* ed eseguito. In alternativa potrai premere il tasto **Run**  indicato dalla freccia in Figura \@ref(fig:script-run).
+Dopo aver terminato di scrivere i comandi, posiziona il cursore sulla stessa linea del comando che desideri eseguire e premi `command + invio` (MacOs) o `Ctrl+R` (Windows). Automaticamente il comando verrà copiato nella *Console* ed eseguito. In alternativa potrai premere il tasto **Run** indicato dalla freccia in Figura \@ref(fig:script-run).
 
 ```{r script-run, fig.cap="Esecuzione di un comando da script premi `command + invio` (MacOs)/ `Ctrl+R` (Windows) o premi il tasto indicato dalla freccia", out.width="95%"}
 knitr::include_graphics("images/script-run.png")
@@ -94,7 +94,7 @@ Se hai guardato con attenzione lo script rappresentato in Figura \@ref(fig:scrip
 L'utilizzo dei commenti è molto importante nel caso di script complessi poiché ci permette di spiegare e documentare il codice che viene eseguito. Nel Capitolo \@ref(syntax) approfondiremo il loro utilizzo.
 :::
 
-:::{.design title="Creare e Salvare uno Script" data-latex="[Creare e Salvare uno Script]"}
+:::{.design title="Creare e salvare uno script" data-latex="[Creare e Salvare uno Script]"}
 Per creare un nuovo script è sufficiente premere il pulsante in alto a sinistra come mostrato in Figura e selezionare "*R Script*".
 
 <center>
@@ -154,7 +154,7 @@ knitr::include_graphics("images/help.png")
 :::{.tip title="Personalizza tema e layout" data-latex="[Personalizza tema e layout]"}
 RStudio permette un ampio grado di personalizzazione dell'interfaccia grafica utilizzata. È possibile cambiare tema, font e disposizione dei pannelli a seconda dei tuoi gusti ed esigenze.
 
-Prova a cambiare il tema dell editor in *Idle Fingers* per utilizzare uno sfondo scuro che affatichi meno la vista (vedi Figura seguente). Clicca su *RStudio > Preferenze > Appearance* (MacOS) o su *Tools > Options > Appearance (Windows)*.
+Prova a cambiare il tema dell editor in *Idle Fingers* per utilizzare uno sfondo scuro che affatichi meno la vista (vedi Figura seguente). Clicca su *RStudio > Preferenze > Appearance* (Mac OS) o su *Tools > Options > Appearance (Windows)*.
 
 ```{r dark-theme, out.width="90%"}
 knitr::include_graphics("images/dark-theme.png")

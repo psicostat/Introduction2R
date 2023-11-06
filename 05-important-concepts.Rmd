@@ -1,4 +1,4 @@
-# Due Compagni Inseparabili {#objects-functions}
+# Due compagni inseparabili {#objects-functions}
 
 ```{r settings, echo = FALSE}
 knitr::opts_chunk$set(
@@ -49,7 +49,7 @@ x
 
 Nel primo caso, abbiamo utilizzato il vecchio valore contenuto in `x` per calcolare il nuovo risultato che è stato assegnato a `x`. Nel secondo caso, abbiamo sostituito il vecchio valore di `x` con un nuovo valore (nell'esempio una stringa di caratteri).
 
-:::{.design title="Assegnare valori '<-' vs '='" data-latex="[Assegnare valori '<-' vs '=']"}
+:::{.design title="Assegnare valori, \\texttt{<-} vs \\texttt{=}" data-latex="[Assegnare valori, \\texttt{<-} vs \\texttt{=}]"}
 Esistono due operatori principali che sono usati per assegnare un valore ad un oggetto: l'operatore `<-` e l'operatore `=`. Entrambi sono validi e spesso la scelta tra i due diventa solo una questione di stile personale. 
 
 ```{r, echo=TRUE}
@@ -101,14 +101,14 @@ Esistono diverse convenzioni tra cui:
 
 - **CamelCase**. L'inizio di una nuova parole viene indicata con l'uso della prima lettera maiuscola. Ad esempio `mediaTestControllo`.
 - **snake_case**. L'inizio di una nuova parola viene indicata con l'uso del carattere `_`. Ad esempio `media_test_controllo`.
--  una variante al classico **snake_case** riguarda l'uso del `.`, ad esempio `media.test.controllo`. Questo approccio in genere è evitato poiché in molti linguaggi di programmazione (ed anche in R in alcune condizioni) il carattere `.` è un carattere speciale.
+- una variante al classico **snake_case** riguarda l'uso del `.`, ad esempio `media.test.controllo`. Questo approccio in genere è evitato poiché in molti linguaggi di programmazione (ed anche in R in alcune condizioni) il carattere `.` è un carattere speciale.
 
 
 In genere viene raccomandato di seguire la convenzione **snake_case**. Tuttavia, la decisione su quale convenzione adottare è libera, ma ricorda ancora che una buona norma nella programmazione riguarda la *consistenza*: una volta presa una decisione è bene mantenerla per facilitare la comprensione del codice.
 :::
 
 
-### Tipologie Dati e Strutture Dati
+### Tipologie dati e strutture dati
 
 Per lavorare in modo ottimale in R, è fondamentale conoscere bene e distinguere chiaramente quali sono le tipologie di dati e le strutture degli oggetti usati.
 
@@ -135,7 +135,7 @@ In R abbiamo inoltre differenti tipologie di oggetti, ovvero diverse strutture i
 
 Approfondiremo la loro definizione, le loro caratteristiche ed il loro utilizzo nel corso di tutta la [Seconda Sezione](#second-section) di questo libro.
 
-## Funzioni {#functions-def}                                                   
+## Funzioni {#functions-def}
 
 Possiamo pensare alle funzioni in R in modo analogo alle classiche funzioni matematiche. Dati dei valori in input, le funzioni eseguono dei specifici calcoli e restituiscono in output il risultato ottenuto.
 
@@ -162,7 +162,7 @@ Ad esempio per creare una sequenza di valori con incrementi di 1 posso usare la 
 seq(from = 0, to = 10)
 ```
 
-### Argomenti di una Funzione {#function-arguments}
+### Argomenti di una funzione {#function-arguments}
 
 Nel definire gli argomenti di una funzione non è necessario specificare il nome degli argomenti. Ad esempio il comando precedente può essere eseguito anche specificando solamente i valori.
 
@@ -186,9 +186,9 @@ Vediamo inoltre come le funzioni possano avere molteplici argomenti, ma che non 
 Ad esempio la funzione `seq()` possiede anche gli argomenti `by` e `length.out` che prima non erano stati specificati. `by` permette di definire l’incremento per ogni elemento successivo della sequenza mentre `length.out` permette di definire il numero di elementi della sequenza. Vediamo come varia allo specificare dell'uno o dell'altro argomento (o di entrambi) il comportamento della funzione.
 
 ```{r,echo = TRUE, error=TRUE}
-seq(from = 0,  to = 10, by = 5)
-seq(from = 0,  to = 10, length.out = 5)
-seq(from = 0,  to = 10, length.out = 5, by = 4)
+seq(from = 0, to = 10, by = 5)
+seq(from = 0, to = 10, length.out = 5)
+seq(from = 0, to = 10, length.out = 5, by = 4)
 ```
 
 È pertanto consigliabile esplicitare sempre gli argomenti di una funzione per rendere chiaro a che cosa si riferiscono i valori indicati. Questo è utile anche per evitare eventuali comportamenti non voluti delle funzioni ad individuare più facilmente possibili errori.
@@ -234,7 +234,7 @@ knitr::include_graphics("images/help-seq.png")
 
 Il formato e le informazioni presenti nella pagina seguono delle norme comuni ma non obbligatorie. Infatti, non necessariamente vengono usati sempre tutti i campi e comunque all'autore delle funzioni è lasciato un certo grado di libertà nel personalizzare la documentazione. Tra i campi principali e più comunemente usati abbiamo:
 
-- **Title** - Titolo esplicativo della finalità della funzione  .
+- **Title** - Titolo esplicativo della finalità della funzione.
 - **Description** - Descrizione coincisa della funzione.
 - **Usage** - Viene mostrata la struttura della funzione con i suoi argomenti e valori di default.
 - **Arguments** - Elenco con la descrizione dettagliata di tutti gli argomenti. Qui troviamo per ogni argomento sia le opzioni utilizzabili ed il loro effetto, che la tipologia di valori richiesti.
@@ -243,11 +243,11 @@ Il formato e le informazioni presenti nella pagina seguono delle norme comuni ma
 - **See Also** - Eventuali link ad altre funzioni simili o in relazione con la nostra funzione.
 - **Examples** - Esempi di uso della funzione.
 
-#### Ricerca per Parola {-}
+#### Ricerca per parola {-}
 
 Quando non si conosce esattamente il nome di una funzione o si vuole cercare tutte le funzioni e pagine che includono una certa parola, è possibile utilizzare il comando `??<parola>` oppure `help.search(<parola>)`.
 
-R eseguirà una ricerca tra tutta la documentazione disponibile e fornirà un elenco delle pagine che contengono la parola desiderata nel titolo o tra le  keywords.
+R eseguirà una ricerca tra tutta la documentazione disponibile e fornirà un elenco delle pagine che contengono la parola desiderata nel titolo o tra le keywords.
 
 
 :::{.trick title="Autocompletamento con \\texttt{Tab}" data-latex="[Autocompletamento con \\texttt{Tab}]"}

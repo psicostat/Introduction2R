@@ -2,7 +2,7 @@
 title: "<span style='font-size: 2.5em'>Introduction to R</span>"
 subtitle: "Corso per imparare le basi di **R**"
 author: "[Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) and [Filippo Gambarota](https://filippogambarota.netlify.app/) members of [Psicostat](https://psicostat.dpss.psy.unipd.it/)"
-date: "`r format(Sys.Date(),  format = '%d-%m-%Y')`"
+date: "`r format(Sys.Date(), format = '%d-%m-%Y')`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -52,7 +52,7 @@ Il libro è suddiviso in quattro sezioni principali:
 
 Alla fine di questo libro probabilmente non sarete assunti da Google, ma speriamo almeno che R non vi faccia più così paura e che magari a qualcuno sia nato l'interesse di approfondire questo fantastico mondo fatto di linee di codice.
 
-## Risorse Utili {-}
+## Risorse utili {-}
 
 Segnaliamo qui per il lettore interessato del materiale online (in inglese) per approfondire le conoscenze sull'uso di R.
 
@@ -76,7 +76,7 @@ Questo libro è stato prodotto da [Claudio Zandonella Callegher](https://claudio
 
 ## Collaborazione {-}
 
-Se vuoi collaborare alla revione e scrittura di questo libro (ovviamente è tutto in R) visita la nostra repository di Github https://github.com/psicostat/Introduction2R.
+Se vuoi collaborare alla revione e scrittura di questo libro (ovviamente è tutto in R) visita la nostra repository di GitHub https://github.com/psicostat/Introduction2R.
 
 
 ## Riconoscimenti {-}

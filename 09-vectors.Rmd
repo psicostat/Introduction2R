@@ -47,7 +47,7 @@ nome_vettore <- c(x_1, x_2, x_3, ..., x_n)
 
 Nota come gli elementi di un vettore debbano essere tutti della stessa tipologia ad esempio valori numerici o valori carattere.
 
-:::{.design title="Sequenze - ':', seq() e rep() " data-latex="[Sequenze - ':', seq() e rep() ]"}
+:::{.design title="Sequenze - \\texttt{:}, \\texttt{seq()} e \\texttt{rep()}" data-latex="[Sequenze - \\texttt{:}, \\texttt{seq()} e \\texttt{rep()}]"}
 In altrentativa è possibile utilizzare qualsiasi funzione che restituisca come output una sequenza di valori sotto forma di vettore. Tra le funzioni più usate per creare delle sequenze abbiammo:
 
 - `<from>:<to>` - Genera una sequenza di valori numerici crescenti (o decrescenti) dal primo valore indicato (`<from>`) al secondo valore indicato (`<to>`) a step di 1 (o -1 ).
@@ -97,7 +97,7 @@ rep(rep(c("foo", "bar"), each = 2),times = 2)
 ```
 
 
-## Selezione Elementi {#vector-selection}
+## Selezione elementi {#vector-selection}
 
 Una volta creato un vettore potrebbe essere necessario selezionare uno o più dei suoi elementi. In R per selezionare gli elementi di un vettore si utilizzano le **parentesi quadre** `[]` dopo il nome del vettore, indicando al loro interno **l'indice di posizione** degli elementi desiderati:
 
@@ -130,7 +130,7 @@ my_numbers[c(1,2,3)]
 my_numbers[1:3]
 ```
 
-:::{.tip title="Selezionare non è Modificare" data-latex="[Selezionare non è Modificare]"}
+:::{.tip title="Selezionare non è modificare" data-latex="[Selezionare non è modificare]"}
 Nota come l'operazione di selezione non modifichi l'oggetto iniziale. Pertanto è necessario salvare il risultato della selezione se si desidera mantenere le modifiche.
 
 ```{r, echo = TRUE}
@@ -149,7 +149,7 @@ my_words
 
 :::
 
-:::{.warning title="Casi Estremi nella Selezione" data-latex="[Casi Estremi nella Selezione]"}
+:::{.warning title="Casi estremi nella selezione" data-latex="[Casi estremi nella selezione]"}
 Cosa accade se utiliziamo un indice di posizione maggiore del numero di elementi del nostro vettore?
 ```{r echo = TRUE}
 # Il mio vettore
@@ -180,7 +180,7 @@ my_numbers[0]
 ```
 :::
 
-### Utilizzi Avanzati Selezione {#vector-selection-advanced}
+### Utilizzi avanzati selezione {#vector-selection-advanced}
 
 Vediamo ora alcuni utilizzi avanzati della selezione di elementi di un vettore. In particolare impareremo a:
 
@@ -190,7 +190,7 @@ Vediamo ora alcuni utilizzi avanzati della selezione di elementi di un vettore. 
 - sostituire degli elementi
 - eliminare degli elementi
 
-#### Operatori Relazionali e Logici {-}
+#### Operatori relazionali e logici {-}
 
 Un'utile funzione è quella di selezionare tra gli elementi di un vetore quelli che rispetano una certa condizione. Per fare questo dobbiamo specificare all'interno delle parentesi quadre la proposizione di interesse utilizzando gli operatori relazionali e logici (vedi Capitolo \@ref(operators-rel-log)). 
 
@@ -220,7 +220,7 @@ condition
 my_words[condition]
 ```
 
-#### Ordinare gli Elementi {-}
+#### Ordinare gli elementi {-}
 
 Gli indici di posizione possono essere utilizzati per ordinare gli elementi di un vettore a seconda delle necessità.
 
@@ -234,7 +234,7 @@ messy_vector[c(4,2,3,1)]
 messy_vector[c(2,4,1,3)]
 ```
 
-:::{.trick title="sort() vs order()" data-latex="[sort() vs order()]"}
+:::{.trick title="\\texttt{sort()} vs \\texttt{order()}" data-latex="[\\texttt{sort()} vs \\texttt{order()}]"}
 Per ordinare gli elementi di un vettore in ordine crescente o decrescente (sia alfabetico che numerico), è possibile utilizzare la funzione `sort()` specificando l'argomento `decreasing`. Vedi l'help page della funzione per ulteriori informazioni (`?sort()`).
 
 ```{r, echo = TRUE}
@@ -255,7 +255,7 @@ messy_vector[order(messy_vector)]
 ```
 :::
 
-#### Combinazioni di Elementi {-}
+#### Combinazioni di elementi {-}
 
 Gli stessi indici di posizione possono essere richiamati più volte per ripetere gli elementi nelle combinazioni desiderate formando un nuovo vettore.
 ```{r, echo = TRUE}
@@ -264,19 +264,19 @@ my_numbers <- c(5,6,7,8)
 my_numbers[c(1,2,2,3,3,3,4)]
 ```
 
-#### Modificare gli Elementi {-}
+#### Modificare gli elementi {-}
 
 Un importante utilizzo degli indici riguarda la modifica di un elemento di un vettore. Per sostituire un vecchio valore con un nuovo valore, posso utilizzare la funzione *assign* (`<-` o `=`) come nell'esempio:
 
 ```{r, echo = TRUE}
 my_names <- c("Andrea", "Bianca", "Carlo")
 
-# Modifico il  nome "Bianca" in "Beatrice"
+# Modifico il nome "Bianca" in "Beatrice"
 my_names[2] <- "Beatrice"
 my_names
 ```
 
-Per sostituire il valore viene indicato alla sinistra dell'operatore *assign* il valore che si vuole modificare e  alla destra il nuovo valore. Nota come questa operazione possa essere usata per aggiungere anche nuovi elementi al vettore.
+Per sostituire il valore viene indicato alla sinistra dell'operatore *assign* il valore che si vuole modificare e alla destra il nuovo valore. Nota come questa operazione possa essere usata per aggiungere anche nuovi elementi al vettore.
 
 ```{r, echo = TRUE}
 my_names[4]
@@ -287,7 +287,7 @@ my_names
 ```
 
 
-#### Eliminare gli Elementi {-}
+#### Eliminare gli elementi {-}
 
 Per **eliminare degli elementi** da un vettore, si indicano all'interno delle parentesi quadre gli indici di posizione degli elementi da eliminare preceduti dall'operatore `-` (*meno*). Nel caso di più elementi è anche possibile indicare il meno solo prima del comando `c()`, ad esempio il comando `x[c(-2,-4)]` diviene `x[-c(2,4)]`.
 
@@ -343,13 +343,13 @@ Esegui i seguenti esercizi ([soluzioni](https://github.com/psicostat/Introductio
 3. Dato il vettore `my_vector = c(2,4,6,8)` commenta il risultato del comando `my_vector[my_vector]`
 4. Del vettore `y` seleziona tutti i valori minori di 13 o maggiori di 19
 5. Del vettore `z` seleziona tutti i valori compresi tra 24 e 50
-6. Del vettore `s` seleziona tutti gli elementi uguali ad  `"A"`
-7. Del vettore `t` seleziona tutti gli elementi diversi da  `"B"`
+6. Del vettore `s` seleziona tutti gli elementi uguali ad `"A"`
+7. Del vettore `t` seleziona tutti gli elementi diversi da `"B"`
 8. Crea un nuovo vettore `u` identico a `s` ma dove le `"A"` sono sostituite con la lettera `"U"`
 9. Elimina dal vettore `z` i valori 28 e 42
 
 
-## Funzioni ed Operazioni {#vector-functions}
+## Funzioni e operazioni {#vector-functions}
 
 Vediamo ora alcune utili funzioni e comuni operazioni che è possibile svolgere con i vettori (vedi Tabella \@ref(tab:table-vector-operators)).
 
@@ -374,7 +374,7 @@ if (knitr::is_latex_output()) {
 }
 
 kableExtra::kable(vector_operators, col.names = c("Funzione", "Descrizione"),
-                  escape = escape, caption = "Funzioni e  operazioni con vettori") %>%
+                  escape = escape, caption = "Funzioni e operazioni con vettori") %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
                 full_width = F,
                 latex_options = c("hold_position"))
@@ -396,7 +396,7 @@ x + 10
 x + y
 ```
 
-:::{.warning title="Vettori di Diversa Lunghezza" data-latex="[Vettori di Diversa Lunghezza]"}
+:::{.warning title="Vettori di diversa lunghezza" data-latex="[Vettori di diversa lunghezza]"}
 Qualora i vettori differiscano per la loro lunghezza, R ci presenterà un warning avvisandoci del problema ma eseguirà comunque l'operazione utilizzando più volte il vettore più corto.
 ```{r, echo = TRUE, error = TRUE}
 x + c(1, 2)
@@ -461,12 +461,12 @@ typeof(TRUE)
 
 Esistono molte altre tipologie di dati tra cui `complex` (per rappresentare i numeri complessi del tipo $x + yi$) e `Raw` (usati per rappresenttare i valori come bytes) che però riguardano usi poco comuni o comunque molto avanzati di R e pertanto non verranno trattati.
 
-:::{.design title="Tutta una Questione di Bit" data-latex="[Tutta una Questione di Bit]"}
+:::{.design title="Tutta una questione di bit" data-latex="[Tutta una questione di bit]"}
 Questa distinzione tra le varie tipologie di dati deriva dalla modalità con cui il computer rappresenta internamente i diversi valori. Sappiamo infatti che il computer non possiede caratteri ma solamente bits, ovvero successioni di 0 e 1 ad esempio 01000011. 
 
 Senza scendere nel dettaglio, per ottimizzare l'uso della memoria i diversi valori vengono *"mappati"* utilizzando i bits in modo differente a seconda delle tipologie di dati. Pertanto in R il valore `24` sarà rappresentato diversamente a seconda che sia definitio come una stringa di caratteri (`"24"`), un numero intero (`24L`) o un numero double (`24`).
 
-#### Integer vs Double {-}
+#### Integer vs double {-}
 
 In particolare un aspetto poco intuitivo riguarda la differenza tra valori `double` e `integer`. Mentre i valori interi possono essere rappresentati con precisione dal computer, non tutti i valori reali posssono essere rappresentati esattamente utilizzando il numero massimo di 64 bit. In questi casi i loro valori vengonno quindi approsimati e, sebbene questo venga fatto con molta precisione, a volte potrebbe portare a dei risultati inaspettati. Nota infatti come nell'esempio seguente non otteniamo zero, ma osserviamo un piccolo errore dovuto all'approsimazione dei valori `double`.
 ```{r, echo = TRUE}
@@ -487,7 +487,7 @@ Vediamo ora i diversi tipi di vettori a seconda della tipologia di dati utilizza
 
 ### Character
 
-I vettori formati da stringhe di caratteri sono definiti vettori di caratteri. Per valutare la tipologia di un oggetto possiamo utilizzare la  funzione `class()`, mentre ricordiamo che la funzionne `typeof()` valuta la tipologia di dati. In questo caso otteniamo per entrambi il valore `character`. 
+I vettori formati da stringhe di caratteri sono definiti vettori di caratteri. Per valutare la tipologia di un oggetto possiamo utilizzare la funzione `class()`, mentre ricordiamo che la funzionne `typeof()` valuta la tipologia di dati. In questo caso otteniamo per entrambi il valore `character`. 
 
 ```{r, echo = TRUE}
 my_words<-c("Foo","Bar","foo","bar")
@@ -564,7 +564,7 @@ my_logical & c(FALSE, TRUE, TRUE)
 my_logical & c(0, 1, 3)
 ```
 
-Tuttavia ricordiamo  che ai valori `TRUE` e `FALSE` sono associati rispettivamente i valori numerici 1 e 0 (o più precisamente i valori interi `1L` e `0L`). Pertanto è possibile eseguire anche operazioni matematiche dove verrano automaticamente considerati i rispettivi valori numerici. Ovviamente il risultato ottenuto sarà un valore numerico e non logico.
+Tuttavia ricordiamo che ai valori `TRUE` e `FALSE` sono associati rispettivamente i valori numerici 1 e 0 (o più precisamente i valori interi `1L` e `0L`). Pertanto è possibile eseguire anche operazioni matematiche dove verrano automaticamente considerati i rispettivi valori numerici. Ovviamente il risultato ottenuto sarà un valore numerico e non logico.
 
 ```{r, echo = TRUE}
 TRUE * 10
@@ -573,7 +573,7 @@ FALSE * 10
 ```
 
 
-:::{.trick title="sum() e mean()" data-latex="[sum() e mean()]"}
+:::{.trick title="\\texttt{sum()} e \\texttt{mean()}" data-latex="[\\texttt{sum()} e \\texttt{mean()}]"}
 Utilizzando le funzioni `sum()` e `mean()` con un vettore logico, possiamo valutare rispettivamente il numero totale e la percentuale di elementi che hanno soddisfatto una certa condizione logica.
 
 ```{r, echo = TRUE}
@@ -695,7 +695,7 @@ pi^650
 
 È importante essere consapevoli delle caratteristiche di questi valori poiché presentano dei comportamenti peculiari che, se non corretamente gestiti, possono generare conseguenti errori nei codici. Descriviamo ora alcune delle carateristiche più importanti. 
 
-#### Lunghezza Elementi {-}
+#### Lunghezza elementi {-}
 
 Notiamo innanzitutto come mentre `NULL` sia effettivamente un oggetto nullo, ovvero privo di dimensione, `NA` sia uno speciale valore che rappresenta la presenza di un dato mancate. Pertanto `NA`, a differenza di `NULL`, è effettivamente un valore di lunghezza 1. 
 
@@ -717,7 +717,7 @@ length(c(1:5, NaN))
 length(c(1:5, Inf))
 ```
 
-#### Propagazione Valori {-}
+#### Propagazione valori {-}
 
 Altra importante caratteristica è quella che viene definita *propagazione* dei valori ovvero le operazioni che includono questi speciali valori resituiscono a loro volta lo stesso speciale. Ciò significa che questi valori si propagheranno di risultato in risultato all'interno del nostro codice se non opportunamente gestiti.
 
@@ -750,37 +750,37 @@ Inf * -Inf  # -Inf
 Inf / Inf   # NaN
 ```
 
-#### Testare Valori {-}
+#### Testare valori {-}
 
 È importante ricordare come per testare l apresenza di uno di questi valori speciali siano presenti delle funzioni specifiche della famiglia `is.*`. Non deve mai essere utlizzato il comune operatore di uguaglianza `==` poiché non fornisce i risultai corretti.
 
 - `is.null`
-```{r, echo = TRUE, eval =  FALSE}
+```{r, echo = TRUE, eval = FALSE}
 NULL == NULL     # logical(0)
 is.null(NULL)    # TRUE
 ```
 - `is.na` 
-```{r, echo = TRUE, eval =  FALSE}
+```{r, echo = TRUE, eval = FALSE}
 NA == NA    # NA
 is.na(NA)   # TRUE
 ```
 - `is.nan` 
-```{r, echo = TRUE, eval =  FALSE}
+```{r, echo = TRUE, eval = FALSE}
 NaN == NaN  # NA
 is.nan(NaN) # TRUE
 ```
 - `Inf`  
-```{r, echo = TRUE, eval =  FALSE}
+```{r, echo = TRUE, eval = FALSE}
 Inf == Inf       # TRUE considero anche il segno
 is.infinite(Inf) # TRUE sia per Inf che -Inf
 ```
 
-#### Operatori Logici {-}
+#### Operatori logici {-}
 
 Un particolare comportamento riguarda i risultati ottenute con gli operatori logici dove la *propagazione* del valore non segue sempre le attese. Osserviamo i diversi casi:
 
 - `NULL`-  ottenimo come da attese un vettore logico vuoto di dimensione 0
-```{r, echo = TRUE, eval =  FALSE}
+```{r, echo = TRUE, eval = FALSE}
 TRUE & NULL  # logical(0)
 TRUE | NULL  # logical(0)
 
@@ -788,7 +788,7 @@ FALSE & NULL # logical(0)
 FALSE | NULL # logical(0)
 ```
 - `NA` - non otteniamo come da attese sempre il valore `NA` ma in alcune condizioni la proposizione sara `TRUE` o `FALSE`
-```{r, echo = TRUE, eval =  FALSE}
+```{r, echo = TRUE, eval = FALSE}
 TRUE & NA  # NA
 TRUE | NA  # TRUE
 
@@ -796,7 +796,7 @@ FALSE & NA # FALSE
 FALSE | NA # NA
 ```
 - `NaN` - otteniamo gli stessi risultati del caso precedente utilizzando il valore `NA`
-```{r, echo = TRUE, eval =  FALSE}
+```{r, echo = TRUE, eval = FALSE}
 TRUE & NaN  # NA
 TRUE | NaN  # TRUE
 
@@ -804,7 +804,7 @@ FALSE & NaN # FALSE
 FALSE | NaN # NA
 ```
 - `Inf`  - essendo un valore numerico diverso da zero otteniamo i rissultati secondo le attese
-```{r, echo = TRUE, eval =  FALSE}
+```{r, echo = TRUE, eval = FALSE}
 TRUE & Inf  # TRUE
 TRUE | Inf  # TRUE
 
@@ -818,7 +818,7 @@ Un comportamento tanto strano per quanto riguarda l'utilizzo del valore `NA` con
 is.logical(NA)
 ```
 
-Pertanto le proposizioni vengono correttamente seguendo le comuni regole. Nel caso di `TRUE | NA` la proposizione è giudicata `TRUE` perché con l'operatore di disgiunzione è sufficiente che una delle due parti sia vera affinché la proposizione sia vera. Nel caso di `FALSE & NA`, invece, la proposizione è giudicata `FALSE` perché con l'operatore di congiunzione è sufficiente che una delle due parti sia falsa affinché la proposizione sia falsa. LA non risposta indicata da `NA` i questi casi è ininfluente, mentre determina il risultato nei restanti casi quando la seconda parte  della proposizione deve essere necessariamente valutata. A questo punto gli operatori restituiscono `NA` poiché incapaci di determinare la risposta.
+Pertanto le proposizioni vengono correttamente seguendo le comuni regole. Nel caso di `TRUE | NA` la proposizione è giudicata `TRUE` perché con l'operatore di disgiunzione è sufficiente che una delle due parti sia vera affinché la proposizione sia vera. Nel caso di `FALSE & NA`, invece, la proposizione è giudicata `FALSE` perché con l'operatore di congiunzione è sufficiente che una delle due parti sia falsa affinché la proposizione sia falsa. LA non risposta indicata da `NA` i questi casi è ininfluente, mentre determina il risultato nei restanti casi quando la seconda parte della proposizione deve essere necessariamente valutata. A questo punto gli operatori restituiscono `NA` poiché incapaci di determinare la risposta.
 
 Per quanto riguarda il caso del valore `NaN` è sufficinete ricordare che tale valore sia comunque un valore numerico di cui però non è possibile identificare il valore.
 ```{r, echo = TRUE}
@@ -827,14 +827,14 @@ is.numeric(NaN)
 Tutti i valori numerici sono considerati validi nelle operazioni logiche, dove qualsiais numero diveros da zero è valutato `TRUE`. Pertanto viene seguito lo stesso ragionamento precedente, quando non è necessario valutare entrambe le parti della proposizione viene fornita una risposta, mentre si ottiene `NA` negli altri casi quando R è obbligato a valutare entrambe la parti ma è incapace di fornire una risspossta poiché non può determinare il valore di `NaN`.
 :::
 
-:::{.design title="L'importanza dei Dati Mancanti" data-latex="[L'importanza dei Dati Mancanti]"}
+:::{.design title="L'importanza dei dati mancanti" data-latex="[L'importanza dei dati mancanti]"}
 Lavorare in presenza di dati mancanti accadrà nella maggior parte dei casi. Molte delle funzioni presenti in R hanno già delle opzioni per rimuovere automaticamete eventuali dati mancanti così da poter ottenre correttamete i risultati.
 ```{r, echo = TRUE}
 my_sample <- c(2,4,6,8, NA)
 mean(my_sample)
 mean(my_sample, na.rm = TRUE)
 ```
-Tuttavia, è importante non  avvalersi in modo automatico di tali opzioni ma avere cura di valutare attentamente la presenza di dati mancanti. Questo ci permetterà di indagare possibili pattern riguardanti i dati mancanti e valutare la loro possibile influenza sui nostri risultati e la validità elle conclusioni.
+Tuttavia, è importante non avvalersi in modo automatico di tali opzioni ma avere cura di valutare attentamente la presenza di dati mancanti. Questo ci permetterà di indagare possibili pattern riguardanti i dati mancanti e valutare la loro possibile influenza sui nostri risultati e la validità elle conclusioni.
 
 Inoltre sarà fondamentale controllare sempre l'effittiva dimensione del campione utilizzato nelle vari analisi. Ad esempio se non valutato attentamente potremmo non ottenere il numero effettivo di valori su cui è stata calcolata precedentemente la media.
 ```{r echo = TRUE}
