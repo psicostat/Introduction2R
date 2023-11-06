@@ -65,14 +65,14 @@ rm(x,y)
 ls()
 ```
 
-:::{.trick title="rm(list=ls())" data-latex="[rm(list=ls())]"}
+:::{.trick title="\\texttt{rm(list=ls())}" data-latex="[\\texttt{rm(list=ls())}]"}
 Qualora fosse necessario eliminare tutti gli oggetti attualmente presenti nel nostro ambiente di lavoro è possibile ricorrere alla formula `rm(list=ls())`. In questo modo si avrà la certezza di pulire l'ambiente da ogni oggetto e di ripristinarlo alle condizioni iniziali della sessione.
 :::
 
 :::{.design title="Mantenere ordinato l'Environment" data-latex="[Mantenere ordinato l'Environment]"}
 Avere cura di mantenere il proprio Environment ordinato ed essere consapevoli degli oggetti attualmente presenti è importante. Questo ci permette di evitare di compiere due errori comuni.
 
-- **Utilizzare oggetti non ancora creati**. In questo caso l'errore è facilmente individuabile dat che sarà lo stesso R ad avvisarci che *"object '<nome-oggetto>' not found"*. In questo caso dovremmo semplicemente eseguire il comando per creare l'oggetto richiesto.
+- **Utilizzare oggetti non ancora creati**. In questo caso l'errore è facilmente individuabile dato che sarà lo stesso R ad avvisarci che `object '<nome-oggetto>' not found`. In questo caso dovremmo semplicemente eseguire il comando per creare l'oggetto richiesto.
 ```{r, echo = TRUE, error=TRUE}
 oggetto_non_esistente
 ```
@@ -94,8 +94,8 @@ Notiamo quindi come l'Environment sia qualcosa di transitorio. Gli oggetti vengo
 Il fatto di partire ogni volta da un Environment vuoto, vi costringerà a raccogliere tutti i passi delle vostre analisi all'interno di uno script in modo ordinato evitando di fare affidamento su vecchi oggetti. Tutti gli oggetti necessari durante le analisi, infatti, dovranno essere ricreati ad ogni sessione, garantendo la riproducibilità e correttezza del lavoro (almeno dal punto di vista di programmazione). Idealmente dovrebbe essere possibile, in una sessione di lavoro, partire da un Environment vuoto ed eseguire in ordine tutti i comandi contenuti in uno script fino ad ottenere i risultati desiderati.
 
 È facile intuire come in certe situazioni questa non sia la soluzione più efficiente. Alcuni comandi, infatti, potrebbero richiedere molti minuti (o anche giorni) per essere eseguiti. In questi casi sarebbe conveniente, pertanto, salvare i risultati ottenuti per poterli utilizzare anche in sessioni successive, senza la necessità di dover eseguire nuovamente tutti i comandi.
-<!-- La riga seguente fa riferimento a qualcosa che in realtà non mi sembra sia mai trattato nel libro, motivo per cui ho deciso di commentarla -->
-<!-- Vedremo nel Capitolo TODO come sarà possibile salvare permanentemente gli oggetti creati nella memoria secondaria del computer (hard-disk, nella nostra analogia la memoria a lungo termine) e come caricarli in una successiva sessione di lavoro. -->
+
+È possibile salvare permanentemente gli oggetti dell'Environment nella memoria secondaria del computer (hard-disk, nella nostra analogia la memoria a lungo termine) e caricarli in una successiva sessione di lavoro. Per salvarli è sufficiente cliccare sull'icona del floppy posta in alto a sinistra nella finestra dell'environment. Per ricaricarli bisogna invece cliccare sull'icona che rappresenta una cartella aperta con una freccia verde.
 
 :::
 
