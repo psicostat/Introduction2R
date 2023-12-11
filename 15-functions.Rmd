@@ -1,4 +1,4 @@
-# Definizione di Funzioni {#functions}
+# Definizione di funzioni {#functions}
 
 ```{r settings, echo = FALSE}
 knitr::opts_chunk$set(
@@ -12,7 +12,7 @@ Nel Capitolo \@ref(functions-def) abbiamo introdotto il concetto di funzioni e a
 
 Questo è uno dei vantaggi principali di utilizzare un linguaggio di programmazione, ovvero il poter sviluppare funzioni ad-hoc a seconda delle proprie esigenze e non limitarsi a quelle prestabilite. In questo capitolo descriveremo come creare le proprie funzioni in R.
 
-## Creazione di una Funzione
+## Creazione di una funzione
 
 Il comando usato per creare una funzione in R è `function()` seguito da una coppia di parentesi graffe `{ }` al cui interno deve essere specificato il corpo della funzione:
 
@@ -43,13 +43,13 @@ my_sum <- function(){
 my_sum()
 ```
 
-Quando chiamiamo la nostra funzione, R eseguirà il corpo della funzione e ci restituirà il risultato dell'ultimo comando eseguito. Le funzioni del precedente esempio, tuttavia, si rivelano poco utili poichè eseguono sempre le stesse operazioni senza che ci sia permesso di specificare gli input delle funzioni. Inoltre, sebbene siano funzioni molto semplici, potrebbe non risultare chiaro quale sia effettivamente l'output restituito dalla funzione. 
+Quando chiamiamo la nostra funzione, R eseguirà il corpo della funzione e ci restituirà il risultato dell'ultimo comando eseguito. Le funzioni del precedente esempio, tuttavia, si rivelano poco utili poiché eseguono sempre le stesse operazioni senza che ci sia permesso di specificare gli input delle funzioni. Inoltre, sebbene siano funzioni molto semplici, potrebbe non risultare chiaro quale sia effettivamente l'output restituito dalla funzione. 
 
 :::{design title="Nomi Funzioni" data-latex="[Nomi Funzioni]"}
 Nel definire il nome di una funzione è utile seguire le stese indicazioni che riguardavano i nomi degli oggetti (vedi Capitolo \@ref(objects-names)). In questo caso affinché un nome sia **auto-descrittivo** si tende ad utilizzare verbi che riassumano l'azione eseguita dalla funzione.
 :::
 
-### Definire Input e Output 
+### Definire input e output
 
 Ricordiamo che in generale le funzioni, ricevuti degli oggetti in input, compiono determinate azioni e restituiscono dei nuovi oggetti in output. Input e ouput sono quindi due aspetti aspetti fondamentali di ogni funzione che richiedono particolare attenzione.
 
@@ -103,12 +103,12 @@ happy_birthday <- function(){
 happy_birthday()
 ```
 
-Nota che questa funzione possona essere usata solo in sessioni interattive di R poichè è richiesta un 'azione diretta da parte dell'utente.
+Nota che questa funzione possona essere usata solo in sessioni interattive di R poiché è richiesta un 'azione diretta da parte dell'utente.
 :::
 
-#### Default Argomenti {-}
+#### Valori di default degli argomenti {-}
 
-Abbiamo visto come aggiungere degli argomenti che devono essere definiti dall'utente nell'utilizzare la funzione. Qualora l'utente non specifichi uno o più argomenti R riporterà un messaggio di errore indicando come ci siano  degli argomenti non specificati e senza valori di default.
+Abbiamo visto come aggiungere degli argomenti che devono essere definiti dall'utente nell'utilizzare la funzione. Qualora l'utente non specifichi uno o più argomenti R riporterà un messaggio di errore indicando come ci siano degli argomenti non specificati e senza valori di default.
 
 ```{r, echo = TRUE, error = TRUE}
 my_sum(x = 5)
@@ -127,12 +127,12 @@ my_sum <- function(x, y = 10){
 my_sum(x = 5)
 
 # Specifico il valore id y
-my_sum(x = 5,  y = 8)
+my_sum(x = 5, y = 8)
 ```
 
 Questa pratica è molto usata per specificare comportamenti particolari delle funzioni. In genere le funzioni sono definite con un funzionameto di default ma alcuni argomenti possono essere specificati per particolari essigenze solo quando necessario.
 
-:::{.trick title="match.arg()" data-latex="[match.arg()]"}
+:::{.trick title="\\texttt{match.arg()}" data-latex="[\\texttt{match.arg()}]"}
 Per imporre la scelta di un argomento tra una limitata serie di valori è possibile indicare nella definizione dell'argomento un vettore con le possibili entrate. Successivamente la scelta deve essere validata attraverso la funzione `match.arg()` come nell esempio successivo:
 
 ```{r, echo = TRUE, error = TRUE}
@@ -172,9 +172,9 @@ Esegui i seguenti esercizi:
   5. Definisci una funzione che calcoli lo stipendio mensile sulla base delle ore svolte nel mese e la paga oraria.
 
 
-## Lavorare con le Funzioni
+## Lavorare con le funzioni
 
-Le funzioni sono sicuramente l'aspetto più utile e avanzato del linguaggio R e in generale dei linguaggi di programmazione. I pacchetti che sono sviluppati in R non sono altro che insieme di funzioni che lavorano assieme per uno scopo preciso. Oltre allo scopo della funzione è importante capire come gestire gli **errori e gli imprevisti**. Se la funzione infatti accetta degli argomenti, l'utente finale o noi stessi che la utilizziamo possiamo erroneamente usarla nel modo sbagliato. E' importante quindi capire come leggere gli errori ma sopratutto creare messaggi di errore o di avvertimento utili per l'utilizzo della funzione.
+Le funzioni sono sicuramente l'aspetto più utile e avanzato del linguaggio R e in generale dei linguaggi di programmazione. I pacchetti che sono sviluppati in R non sono altro che insieme di funzioni che lavorano assieme per uno scopo preciso. Oltre allo scopo della funzione è importante capire come gestire gli **errori e gli imprevisti**. Se la funzione infatti accetta degli argomenti, l'utente finale o noi stessi che la utilizziamo possiamo erroneamente usarla nel modo sbagliato. È importante quindi capire come leggere gli errori ma sopratutto creare messaggi di errore o di avvertimento utili per l'utilizzo della funzione.
 
 Prendiamo ad esempio la funzione somma `+`, anche se non sembra infatti l'operatore `+` è in realtà una funzione. Se volessimo scriverlo come una funzione simile a quelle viste in precedenza possiamo:
 
@@ -193,7 +193,7 @@ Abbiamo definito una (abbastanza inutile) funzione per calcolare la somma tra du
 ```{r, error=TRUE}
 my_sum("stringa", 5)
 ```
-In questo caso infatti, vediamo un messaggio denominato `Error...` con l'utile informazione che uno degli argomenti utilizzati risulta essere `non-numeric`. E' un messaggio semplice, mirato e sopratutto non fornisce un risultato perchè una condizione fondamentale (la somma vale solo per i numeri) non è rispettata. La funzione `+` ha già al suo interno questo controllo, ma se noi volessimo implementare un **controllo** e fornire un **messaggio** abbiamo a disposizione diverse opzioni:
+In questo caso infatti, vediamo un messaggio denominato `Error...` con l'utile informazione che uno degli argomenti utilizzati risulta essere `non-numeric`. È un messaggio semplice, mirato e sopratutto non fornisce un risultato perché una condizione fondamentale (la somma vale solo per i numeri) non è rispettata. La funzione `+` ha già al suo interno questo controllo, ma se noi volessimo implementare un **controllo** e fornire un **messaggio** abbiamo a disposizione diverse opzioni:
 
 - `stop(<message>, .call = TRUE)`: Se inserito all'interno di una funzione, interrompe l'esecuzione e fornisce il messaggio specificato denominato come `Error`.
 - `stopifnot(expr1, expr2, ...)`: Se inserito all'interno di una funzione interrompe l'esecuzione se almeno una di una serie di condizioni risulta come **non VERA**.
@@ -279,7 +279,7 @@ res2
 res3 # nessun output
 ```
 
-Come vedete infatti, quando abbiamo un errore e fermiamo l'esecuzione, la funzione pur prevedendo un output, non fornisce risultato perchè è stata interrotta.
+Come vedete infatti, quando abbiamo un errore e fermiamo l'esecuzione, la funzione pur prevedendo un output, non fornisce risultato perché è stata interrotta.
 
 ## Ambiente della funzione
 
@@ -292,7 +292,7 @@ my_fun <- function(x){
 
 my_fun(10)
 ```
-Chiaramente otteniamo un errore perchè l'oggetto `y` non è stato creato. Se però creiamo l'oggetto `y` all'interno della funzione, questa esegue regolarmente la somma MA non crea l'oggetto `y` nell'ambiente globale.
+Chiaramente otteniamo un errore perché l'oggetto `y` non è stato creato. Se però creiamo l'oggetto `y` all'interno della funzione, questa esegue regolarmente la somma MA non crea l'oggetto `y` nell'ambiente globale.
 
 ```{r}
 my_fun <- function(x){
@@ -348,7 +348,7 @@ Le cose importanti da ricordare quando si definiscono e utilizzano funzioni sono
 
 [^capitolo-7-hadley]: per una non semplice trattazione dell'argomento, il [capitolo 7](https://adv-r.hadley.nz/environments.html) del libro "Advanced R" di Hadley Wickam è un ottima risorsa.
 
-## Best practice
+## Best Practice
 
 Scrivere funzioni è sicuramente l'aspetto più importante quando si scrive del codice. Permette di automatizzare operazioni, ridurre la quantità di codice, rendere più chiaro il nostro script e riutilizzare una certa porzione di codice in altri contesti. Ci sono tuttavia delle convenzioni e degli accorgimenti per scrivere delle ottime e versatili funzioni:
 
@@ -415,12 +415,12 @@ Questo potrebbe sembrare un argomento marginale tuttavia la scelta dei nomi sia 
 - leggere chiaramente il nostro codice e renderlo comprensibile ad altri
 - organizzare facilmente un gruppo di funzioni. Quando avete più funzioni, usare una giusta denominazione permette di sfruttare i suggerimenti di RStudio in modo più efficace. Il pacchetto [`stringr`](https://stringr.tidyverse.org/) and esempio che fornisce strumenti per lavorare con stringhe, utilizza tutte le funzioni denominate come `str_` permettendo di cercare facilmente quella desiderata.
 
-E' utile utilizzare **verbi** per nominare le funzioni mentre **nomi** per nominare argomenti. Ad esempio un nome adatto alla nostra ultima funzione potrebbe essere `center_var()` mentre il nome del nuovo vettore `centered_vec` o `c_vec`. Se troviamo `center_var` all'interno di uno script è subito chiaro il compito di quella funzione, anche senza guardare il codice al suo interno.
+È utile utilizzare **verbi** per nominare le funzioni mentre **nomi** per nominare argomenti. Ad esempio un nome adatto alla nostra ultima funzione potrebbe essere `center_var()` mentre il nome del nuovo vettore `centered_vec` o `c_vec`. Se troviamo `center_var` all'interno di uno script è subito chiaro il compito di quella funzione, anche senza guardare il codice al suo interno.
 
-### Semplificare la quantita di operazioni e output
+### Semplificare la quantità di operazioni e output
 
 Questo è un punto molto importante ma allo stesso tempo variegato. Ci sono diversi stili di programmazione e quindi non ci sono regole fisse oppure delle pratiche migliori di altre.
-Abbiamo detto che una funzione è un modo per astrarre, riutilizzare e semplificare una serie di operazioni. Possiamo quindi scrivere funzioni molto complesse che ricevono diversi input, eseguono diverse operazioni e restituiscono diversi output. E' buona pratica però scrivere funzioni che:
+Abbiamo detto che una funzione è un modo per astrarre, riutilizzare e semplificare una serie di operazioni. Possiamo quindi scrivere funzioni molto complesse che ricevono diversi input, eseguono diverse operazioni e restituiscono diversi output. È buona pratica però scrivere funzioni che:
 
 - riducono il numero di operazioni interne
 - forniscono un singolo (o limitati) output
@@ -473,7 +473,7 @@ In questo modo il codice è molto più leggibile e chiaro sia dentro le funzioni
 
 ### Commentare e documentare
 
-La documentazione è forse la parte di più importante della scrittura del codice. Possiamo classificarla in documentazione *formale* e *informale* in base allo scopo. La documentazione *formale* è quella che troviamo facendo `help(funzione)` oppure `?funzione`. E' una documentazione standardizzata e necessaria quando si creano delle funzioni in un pacchetto che altri utenti devono utilizzare. La documentazione *informale* è quella che mettiamo nei nostri script e all'interno delle funzioni come `# commento`. Entrambe sono molto importati e permettono di descrivere lo scopo generale della funzione, i singoli argomenti e i passaggi eseguiti.
+La documentazione è forse la parte di più importante della scrittura del codice. Possiamo classificarla in documentazione *formale* e *informale* in base allo scopo. La documentazione *formale* è quella che troviamo facendo `help(funzione)` oppure `?funzione`. È una documentazione standardizzata e necessaria quando si creano delle funzioni in un pacchetto che altri utenti devono utilizzare. La documentazione *informale* è quella che mettiamo nei nostri script e all'interno delle funzioni come `# commento`. Entrambe sono molto importati e permettono di descrivere lo scopo generale della funzione, i singoli argomenti e i passaggi eseguiti.
 
 ## Importare una funzione
 
@@ -490,10 +490,12 @@ Anche in questo caso è una questione di stile e comodità, in generale:
 Nel secondo caso è sufficiente quindi scrivere la funzione e questa sarà salvata come oggetto nell'ambiente principale. Riguardo il primo scenario si può utilizzare la funzione `source("percorso/script.R")`. La funzione `source()` accetta il percorso di uno script R che verrà poi eseguito in background. Quindi se la vostra directory è organizzata in questo modo:
 
 ```
-- working directory/
-|-- main_script.R
-|-- functions/
-    |-- my_functions.R
+working_directory/
+ |
+ |- main_script.R
+ |- functions/
+ |   |
+ |   |- my_functions.R
 ```
 Dove lo script `my_functions.R` è uno script dove sono dichiarare tutte le funzioni:
 

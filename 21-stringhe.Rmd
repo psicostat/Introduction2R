@@ -17,7 +17,7 @@ Abbiamo visto che R oltre ai numeri è in grado di gestire anche i **caratteri**
 ```
 
 - possono avere caratteri speciali come `?\$` oppure appartenere ad alfabeti diversi `ة α`
-- l'indicizzazione per `numeri` e `stringhe` lavora in modo diverso. Se abbiamo un **vettore** di strighe, questo viene rappresentato allo stesso modo di un vettore numerico. Tuttavia la stringa stessa `ciao` può essere scomposta, manipolata e quindi indicizzata nei singoli caratteri che la compongono `c, i, a, o`:
+- l'indicizzazione per `numeri` e `stringhe` lavora in modo diverso. Se abbiamo un **vettore** di stringhe, questo viene rappresentato allo stesso modo di un vettore numerico. Tuttavia la stringa stessa `ciao` può essere scomposta, manipolata e quindi indicizzata nei singoli caratteri che la compongono `c, i, a, o`:
 
 ```{r}
 vec_string <- c("ciao", "come", "stai")
@@ -40,10 +40,10 @@ x <- "stringa con all'interno un'altra 'stringa'"
 x
 
 x <- "stringa con all'interno un'altra "stringa""
-# in questo caso abbaimo errore perchè non interpreta la doppia virgolettatura
+# in questo caso abbiamo errore perché non interpreta la doppia virgolettatura
 ```
 
-All'interno delle stringhe possiamo utilizzare caratteri speciali come `/|\$%&`. Alcuni di questi vengono intepretati da R in modo particolare. Quando accade è necessario aggiungere il carattere `\` che funge da *escape*, ovvero dice ad R di trattare letterlamente quel carattere:
+All'interno delle stringhe possiamo utilizzare caratteri speciali come `/|\$%&`. Alcuni di questi vengono interpretati da R in modo particolare. Quando accade è necessario aggiungere il carattere `\` che funge da *escape*, ovvero dice ad R di trattare letteralmente quel carattere:
 
 ```{r}
 x <- "ciao come stai? n io tutto bene"
@@ -71,7 +71,7 @@ intero == double
 "female" == "feMale"
 ```
 
-Anche il concetto di spazio ` ` è rilevante perchè viene considerato come un carattere:
+Anche il concetto di spazio ` ` è rilevante perché viene considerato come un carattere:
 
 ```{r}
 "ciao " == "ciao"
@@ -83,7 +83,7 @@ Immaginate di avere un vettore dove una colonna rappresenta il genere dei partec
 genere <- c("maLe", "masChio", "Male", "f", "female", "malew")
 ```
 
-In questo vettore (volutamente esagerato) abbiamo chiaro il significato di `f` o di `malew` (probabilmente un errore di battitura) tuttavia se vogliamo lavorarci con R, diventa probelmatico:
+In questo vettore (volutamente esagerato) abbiamo chiaro il significato di `f` o di `malew` (probabilmente un errore di battitura) tuttavia se vogliamo lavorarci con R, diventa problematico:
 
 ```{r}
 # Tabella di frequenza
@@ -99,7 +99,7 @@ Vediamo quindi alcune funzioni utili per lavorare con le stringhe.
 
 ### `tolower()` e `toupper()`
 
-Queste funzioni sono estremamente utili perchè permettono di forzare il carattere maiscolo o minuscolo
+Queste funzioni sono estremamente utili perché permettono di forzare il carattere maiuscolo o minuscolo
 
 ```{r}
 tolower(genere)
@@ -123,7 +123,7 @@ In questo caso nonostante `age` sia numerico, viene forzato a stringa per poter 
 
 ### `sprinf()`
 
-`sprinf()` è simile a `paste*()` come funzionamento ma permette di comporre strighe usando dei *placeholder* e fornendo poi il contenuto.
+`sprinf()` è simile a `paste*()` come funzionamento ma permette di comporre stringhe usando dei *placeholder* e fornendo poi il contenuto.
 
 ```{r}
 sprintf("%s ha %d anni", nomi, age)
@@ -151,7 +151,7 @@ gregexpr("t", "gatto")
 regexpr("t", "gatto")
 ```
 
-La differenza è che `regexpr()` restituisce solo la prima corrispondenza, nel nostro esempio la prima `t` si trova in 3 posizione mentre `gregexpr()` resituisce tutte le corrispondenze.
+La differenza è che `regexpr()` restituisce solo la prima corrispondenza, nel nostro esempio la prima `t` si trova in 3 posizione mentre `gregexpr()` restituisce tutte le corrispondenze.
 
 ### `substr()` e `substring()`
 
@@ -176,7 +176,7 @@ substring("gatto", 1:5, 1:5) # indice multiplo di inizio e fine
 substr("gatto", 1, 1:5) # non funziona, viene usato solo 1 indice di fine
 ```
 
-### `startWith()` e `endsWith()`
+### `startsWith()` e `endsWith()`
 
 Alcune volte possiamo essere interessati all'inizio o alla fine di una stringa. Ad esempio `female` e `male` hanno una chiara differenza iniziale (`fe` e `ma`). E nonostante errori di battitura seguenti o altre differenze, selezionare solo l'inizio o la fine può essere efficiente. `startWith()` e `endsWith()` permettono rispettivamente di fornire `TRUE` o `FALSE` se una certa stringa o vettore di stringhe abbiamo un certo pattern iniziale o finale.
 
@@ -185,7 +185,7 @@ startsWith("female", prefix = "fe")
 endsWith("female", suffix = "ale")
 ```
 
-Questa come le altre funzioni possono essere utilizzate in combinazione con `tolower()` o `toupper()` per ingnorare differenze non rilevanti.
+Questa come le altre funzioni possono essere utilizzate in combinazione con `tolower()` o `toupper()` per ignorare differenze non rilevanti.
 
 ### `grep()` e `grepl()`
 
@@ -207,7 +207,7 @@ genere[index_grep]
 genere[index_grepl]
 ```
 
-Da notare ancora come tutte queste funzioni lavorino su una **corrispondenza molto stringente** (in termini di maiscolo, minuscolo, etc.) tra pattern e target.
+Da notare ancora come tutte queste funzioni lavorino su una **corrispondenza molto stringente** (in termini di maiuscolo, minuscolo, etc.) tra pattern e target.
 
 ## Manipolare stringhe
 
@@ -283,7 +283,7 @@ Quello che otteniamo è un vettore (all'interno di una lista, possiamo usare `un
 
 ## Regular Expression (REGEX)
 
-E' tutto così semplice con le stringhe? Assolutamente no! Fino ad ora abbiamo utilizzato dei semplici pattern come singoli caratteri o insieme di caratteri  tuttavia possiamo avere problemi più complessi da affrontare come:
+È tutto così semplice con le stringhe? Assolutamente no! Fino ad ora abbiamo utilizzato dei semplici pattern come singoli caratteri o insieme di caratteri tuttavia possiamo avere problemi più complessi da affrontare come:
 
 - trovare l'estensione di un insieme di file
 - trovare il dominio di un sito web
@@ -311,11 +311,11 @@ Finora abbiamo visto 2 livelli di astrazione:
 
 Il terzo livello di astrazione è quello di trovare dei pattern comuni nelle stringhe ed estrarli, indipendentemente dai singoli caratteri, dal numero o dalla posizione.
 
-Le Regular Expressions (REGEX) sono un insieme di caratteri (chiamati **metacaratteri**) che vengono intepretati e permettono di trovare dei pattern nelle stringhe senza indicare un pattern specifico o un indice di posizione. L'argomento è molto complesso e non R-specifico. Ci sono parecchie guide online e tutorial che segnaliamo alla fine del capitolo. La cosa importante da sapere è che la maggior parte delle funzioni che abbiamo visto permettono di usare una `regex` oltre ad un pattern specifico in modo da risolvere problemi più complessi.
+Le Regular Expressions (REGEX) sono un insieme di caratteri (chiamati **metacaratteri**) che vengono interpretati e permettono di trovare dei pattern nelle stringhe senza indicare un pattern specifico o un indice di posizione. L'argomento è molto complesso e non R-specifico. Ci sono parecchie guide online e tutorial che segnaliamo alla fine del capitolo. La cosa importante da sapere è che la maggior parte delle funzioni che abbiamo visto permettono di usare una `regex` oltre ad un pattern specifico in modo da risolvere problemi più complessi.
 
 Per fare un esempio se vogliamo estrarre l'estensione da una lista di file il ragionamento è:
 
-- dobbiamo trovare un `.` perchè (circa) tutti i file sono composti da `nomefile.estensione`
+- dobbiamo trovare un `.` perché (circa) tutti i file sono composti da `nomefile.estensione`
 - dobbiamo selezionare tutti i caratteri dal punto alla fine della stringa
 
 La "traduzione" in termini di REGEX è questa `"\\.([^.]+)$"` e quindi possiamo usare questo come *pattern* e quindi estrarre le informazioni che ci servono. Possiamo usare la funzione `regmatches(text, match)` che richiede la stringa da analizzare e un oggetto `match` che è il risultato della funzione `regexpr` che abbiamo già visto:
@@ -327,7 +327,7 @@ regmatches(files, match_regex)
 
 ## Per approfondire
 
-In tutto questo libro abbiamo sempre cercato di affrontare R come linguaggio di programmazione concentrandosi sulle funzioni di base. Tuttavia in alcuni settori, come quello delle stringhe e delle REGEX ci sono dei pacchetti esterni altamente consigliati che non solo rendono più semplice ma anche più organizzato e consistente l'insieme di funzioni. Il pacchetto [`stringr`](https://stringr.tidyverse.org/index.html) è una fantastica risorsa per imparare ma anche lavorare in modo più efficiace con le stringhe. Contiene una serie di funzioni costruite al di sopra di quelle che abbiamo affrontato, semplificandole e uniformando il tutto.
+In tutto questo libro abbiamo sempre cercato di affrontare R come linguaggio di programmazione concentrandosi sulle funzioni di base. Tuttavia in alcuni settori, come quello delle stringhe e delle REGEX ci sono dei pacchetti esterni altamente consigliati che non solo rendono più semplice ma anche più organizzato e consistente l'insieme di funzioni. Il pacchetto [`stringr`](https://stringr.tidyverse.org/index.html) è una fantastica risorsa per imparare ma anche lavorare in modo più efficace con le stringhe. Contiene una serie di funzioni costruite al di sopra di quelle che abbiamo affrontato, semplificandole e uniformando il tutto.
 
 L'ultimo esempio descritto non è molto leggibile contenendo il risultato di un'altra funzione e chiamando l'oggetto `target` due volte, in `stringr` abbiamo la funzione `str_extract()` che estrae un certo pattern o REGEX:
 

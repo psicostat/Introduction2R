@@ -1,4 +1,4 @@
-# Programmazione Condizionale {#conditionals}
+# Programmazione condizionale {#conditionals}
 
 ```{r settings, echo = FALSE}
 knitr::opts_chunk$set(
@@ -8,7 +8,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Uno dei principali costrutti della programmazione sono proprio le espressioni condizionali. L'idea semplice alla base è quella di eseguire alcune operazioni o eseguire le operazioni in un certo modo in funzione di alcune *condizioni*. Le condizioni non sono altro che espressioni che resituiscono sempre un valore *booelan* ovvero `TRUE` oppure `FALSE`. 
+Uno dei principali costrutti della programmazione sono proprio le espressioni condizionali. L'idea semplice alla base è quella di eseguire alcune operazioni o eseguire le operazioni in un certo modo in funzione di alcune *condizioni*. Le condizioni non sono altro che espressioni che restituiscono sempre un valore *booelan* ovvero `TRUE` oppure `FALSE`. 
 
 L'esempio classico è quello dell'ombrello, immaginate di scrivere il codice per un videogioco e avete scritto una funzione per far prendere prendere e aprire l'ombrello al vostro personaggio. Chiaramente per rendere tutto credibile, dovete far eseguire questa operazione solo quando è richiesto ovvero quando piove. In termini di programmazione, dovete prima verificare una certa condizione (la pioggia) e poi eseguire (o non eseguire) una serie di operazioni di conseguenza.
 
@@ -79,13 +79,13 @@ my_function(-5)
 
 ### if...else
 
-Il semplice utilizzo di un singolo `if` potrebbe non essere sufficiente in alcune situazioni. Sopratutto perchè possiamo vedere l'`if` come una deviazione temporanea dallo script principale (molto chiaro nella figura \@ref(fig:plot-if-chart)) che viene imboccata solo se è vera una condizione, altrimenti lo script continua. Se vogliamo una struttura più "simmetrica" possiamo eseguire delle operazioni se la condizone è vera `if` e altre per tutti gli altri scenari (`else`). La Figura \@ref(fig:plot-ifelse-chart) mostra chiaramente questa struttura diversa nel flusso.
+Il semplice utilizzo di un singolo `if` potrebbe non essere sufficiente in alcune situazioni. Sopratutto perché possiamo vedere l'`if` come una deviazione temporanea dallo script principale (molto chiaro nella figura \@ref(fig:plot-if-chart)) che viene imboccata solo se è vera una condizione, altrimenti lo script continua. Se vogliamo una struttura più "simmetrica" possiamo eseguire delle operazioni se la condizione è vera `if` e altre per tutti gli altri scenari (`else`). La Figura \@ref(fig:plot-ifelse-chart) mostra chiaramente questa struttura diversa nel flusso.
 
 ```{r, plot-ifelse-chart, fig.cap="Rappresentazione if...else", out.width="65%"}
 knitr::include_graphics("images/ifelse_chart.png")
 ```
 
-#### Struttura if {-}
+#### Struttura if...else {-}
 
 In R questo viene implementato nel seguente modo:
 
@@ -142,7 +142,7 @@ my_function(15)
 my_function(-5)
 ```
 
-E' importante capire la differenza tra usare multipli `if` e `else if` rispetto a utilizzare un semplice `else`. Se noi vogliamo specificare un set **finito** di alternative, la scelta migliore e quella più chiara consiste di usere `else if` perchè al contrario di `else` richiede di specificare la condizione. Se invece siamo interessanti ad alcune condizioni mentre per tutto il resto applichiamo la stessa operazione, possiamo concludere il nostro flusso con un `else`.
+È importante capire la differenza tra usare multipli `if` e `else if` rispetto a utilizzare un semplice `else`. Se noi vogliamo specificare un set **finito** di alternative, la scelta migliore e quella più chiara consiste di usare `else if` perché al contrario di `else` richiede di specificare la condizione. Se invece siamo interessanti ad alcune condizioni mentre per tutto il resto applichiamo la stessa operazione, possiamo concludere il nostro flusso con un `else`.
 
 ### Nested
 
@@ -152,7 +152,7 @@ Oltre a concatenare una serie di `if` e `else if` è possibile inserire uno o pi
 knitr::include_graphics("images/ifnested.png")
 ```
 
-#### Struttura if {-}
+#### Struttura if nested {-}
 
 ```{r, echo = TRUE, eval = FALSE}
   ...
@@ -199,7 +199,7 @@ my_function(-5)
 
 Esegui i seguenti esercizi:
   
-  1. Definisci una funzione per assegnare un voto in base alla percentuale di rispote corrette (*score*) segui le seguenti indicazioni: 
+  1. Definisci una funzione per assegnare un voto in base alla percentuale di risposte corrette (*score*) segui le seguenti indicazioni: 
   
     - score < .55 insufficiente
     - .55 <= score < .65 - sufficiente
@@ -209,10 +209,10 @@ Esegui i seguenti esercizi:
     
   2. Definisci una funzione che determini se un numero è pari o dispari.
   3. Definisci una funzione che determini se un numero è un multiplo di 3, 4, o 5.
-  4. Definisci una funzione che calcoli lo stipendio mensile considerando gli straordinari che sono retribuiti 1.5 della paga oraria normale. Utilizza come parametrile ore svolte nel mese, la paga oraria ed il tetto ore lavorative, oltre cui si contano gli straordinari.
+  4. Definisci una funzione che calcoli lo stipendio mensile considerando gli straordinari che sono retribuiti 1.5 della paga oraria normale. Utilizza come parametri le ore svolte nel mese, la paga oraria ed il tetto ore lavorative, oltre cui si contano gli straordinari.
   
 
-## Altri Operatori Condizionali
+## Altri operatori condizionali
 
 ### switch
 
@@ -294,4 +294,4 @@ Veniamo avvertiti che `age` non è un singolo valore e che quindi solo il primo 
 ifelse(age < 18, yes = print("Minorenne"), no = print("Maggiorenne"))
 ```
 
-In questo caso l'idea è di eseguire il codice precedente per ogni valore del nostro vettore in input. Questo è possibile perchè l'operazione `<` è vettorizzata.
+In questo caso l'idea è di eseguire il codice precedente per ogni valore del nostro vettore in input. Questo è possibile perché l'operazione `<` è vettorizzata.
